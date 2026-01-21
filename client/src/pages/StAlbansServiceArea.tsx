@@ -55,31 +55,6 @@ export default function StAlbansServiceArea() {
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
-      {/* Header (Placeholder - typically a shared component) */}
-      <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
-        <div className="container flex items-center justify-between py-4">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border-2 border-white/30">
-              <span className="text-xl font-bold">SB</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>Shot Blasting</h1>
-              <p className="text-xs text-white/80">Professional Surface Preparation</p>
-            </div>
-          </div>
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#services" className="hover:text-white/80 transition">Services</a>
-            <a href="#about" className="hover:text-white/80 transition">About</a>
-            <a href="#industries" className="hover:text-white/80 transition">Industries</a>
-            <Link href="/gallery" className="hover:text-white/80 transition">Gallery</Link>
-            <a href="/contact" className="hover:text-white/80 transition">Contact</a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Button className="bg-white text-[#2C5F7F] hover:bg-white/90">Get a Quote</Button>
-          </div>
-        </div>
-      </header>
-
       {/* Breadcrumb Navigation */}
       <div className="container py-4 bg-gray-50">
         <Breadcrumb>
