@@ -486,6 +486,57 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              
+              {/* Why Choose Us - Quick Benefits */}
+              <div className="mt-12 p-6 bg-gradient-to-br from-[#F5F1E8] to-[#E8E4DC] rounded-lg border border-[#2C5F7F]/10">
+                <h3 className="text-xl font-bold text-[#2C2C2C] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Why Choose Us?</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-[#2C5F7F] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-[#2C2C2C]">24-Hour Response Time</p>
+                      <p className="text-sm text-gray-600">Quick quotes and rapid project turnaround</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-[#2C5F7F] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-[#2C2C2C]">Fully Insured & Certified</p>
+                      <p className="text-sm text-gray-600">Complete peace of mind for your project</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-[#2C5F7F] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-[#2C2C2C]">Competitive Pricing</p>
+                      <p className="text-sm text-gray-600">Best value without compromising quality</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-[#2C5F7F] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-[#2C2C2C]">Nationwide Coverage</p>
+                      <p className="text-sm text-gray-600">Professional service across England & Wales</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <Card className="p-6">
               <HubSpotForm />
