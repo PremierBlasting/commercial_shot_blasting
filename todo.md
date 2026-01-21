@@ -73,3 +73,4 @@
 - [x] Add gallery item deletion with confirmation
 - [x] Add category filtering and search functionality
 - [x] Add active/inactive toggle for gallery items
+- [x] Fix incorrect service URLs in ServiceSelector component (telecom-masts should be telecom-towers, etc.)

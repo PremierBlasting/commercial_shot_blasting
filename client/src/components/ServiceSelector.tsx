@@ -54,19 +54,19 @@ const serviceRecommendations: Record<string, { id: string; name: string; reason:
     { id: "crane-beams", name: "Crane Beams, Gantries & Runway Rails", reason: "Expert treatment for heavy-duty warehouse lifting equipment" },
   ],
   pipework: [
-    { id: "process-pipework", name: "Process Pipework, Spools & Manifolds", reason: "Precision cleaning for industrial piping systems" },
+    { id: "pipework", name: "Process Pipework, Spools & Manifolds", reason: "Precision cleaning for industrial piping systems" },
   ],
   access: [
-    { id: "internal-staircases", name: "Internal Steel Staircases, Balustrades & Handrails", reason: "Comprehensive treatment for internal access structures" },
+    { id: "staircases", name: "Internal Steel Staircases, Balustrades & Handrails", reason: "Comprehensive treatment for internal access structures" },
     { id: "fire-escapes", name: "Fire Escapes & External Stair Towers", reason: "Specialized service for external access and safety structures" },
-    { id: "fixed-ladders", name: "Fixed Ladders & Step-Over Platforms", reason: "Expert refurbishment for industrial access equipment" },
+    { id: "ladders", name: "Fixed Ladders & Step-Over Platforms", reason: "Expert refurbishment for industrial access equipment" },
   ],
   infrastructure: [
     { id: "bridge-steelwork", name: "Bridge Steelwork (Girders, Crossmembers, Parapet Rails)", reason: "Comprehensive service for bridge infrastructure components" },
     { id: "structural-steel-frames", name: "Structural Steel Frames", reason: "Ideal for large infrastructure steel frameworks" },
   ],
   telecom: [
-    { id: "telecom-masts", name: "Telecom Masts & Lattice Towers", reason: "Specialized treatment for telecommunications infrastructure" },
+    { id: "telecom-towers", name: "Telecom Masts & Lattice Towers", reason: "Specialized treatment for telecommunications infrastructure" },
   ],
 };
 
