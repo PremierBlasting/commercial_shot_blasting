@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, ArrowRight, Shield, Clock, Award, Users, CheckCircle, MapPin, Factory, Microscope, BookOpen, Hammer } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 
@@ -49,6 +49,7 @@ const BreadcrumbSection = () => (
   <div className="bg-gray-100 py-3">
     <div className="container">
       <Breadcrumb>
+            <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink href="/">Home</BreadcrumbLink>
         </BreadcrumbItem>
@@ -60,6 +61,7 @@ const BreadcrumbSection = () => (
         <BreadcrumbItem>
           <BreadcrumbPage>Cambridge</BreadcrumbPage>
         </BreadcrumbItem>
+            </BreadcrumbList>
       </Breadcrumb>
     </div>
   </div>

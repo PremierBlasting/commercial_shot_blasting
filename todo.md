@@ -65,3 +65,4 @@
 ## Bug Fixes
 - [x] Fix tRPC API error on Gallery page (returning HTML instead of JSON)
 - [x] Fix Google Maps script loading failure
+- [x] Fix breadcrumb styling on location pages (Wolverhampton and others) - make inline like Birmingham

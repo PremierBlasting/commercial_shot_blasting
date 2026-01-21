@@ -7,7 +7,7 @@ import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Use
 import { useState } from "react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
@@ -77,6 +77,7 @@ export default function StAlbansServiceArea() {
       {/* Breadcrumb Navigation */}
       <div className="container py-4 bg-gray-50">
         <Breadcrumb>
+            <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink href="/">Home</BreadcrumbLink>
           </BreadcrumbItem>
@@ -92,6 +93,7 @@ export default function StAlbansServiceArea() {
           <BreadcrumbItem>
             <BreadcrumbPage>St Albans</BreadcrumbPage>
           </BreadcrumbItem>
+            </BreadcrumbList>
         </Breadcrumb>
       </div>
 

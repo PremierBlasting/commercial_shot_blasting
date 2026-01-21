@@ -7,7 +7,7 @@ import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Use
 import { useState } from "react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
@@ -49,6 +49,7 @@ export default function ShrewsburyServiceArea() {
       <div className="bg-gray-100 py-4">
         <div className="container">
           <Breadcrumb>
+            <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
                 <Link href="/">
@@ -70,6 +71,7 @@ export default function ShrewsburyServiceArea() {
             <BreadcrumbItem>
               <span className="text-[#2C5F7F] font-medium">Shrewsbury</span>
             </BreadcrumbItem>
+            </BreadcrumbList>
           </Breadcrumb>
         </div>
       </div>
