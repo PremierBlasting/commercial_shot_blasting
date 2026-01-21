@@ -79,3 +79,6 @@
 - [x] Remove duplicate "Shot Blasting" header bars from pages (keep only "Commercial Shot Blasting" header)
 - [x] Create comprehensive Services page at /services with card grid layout
 - [x] Make Services menu item in header clickable to navigate to /services page
+- [x] Remove three testimonial reviews from Home page (keep only Jordan King factory cladding review)
+- [x] Remove "Made with Manus" branding button from all pages (not in source code - platform injected in preview only)
+- [x] Check and remove extra reviews from other pages if present (removed from Gallery page)

@@ -26,45 +26,6 @@ const testimonials = [
     ],
     isNew: true,
   },
-  {
-    id: 2,
-    name: "Alex Philip",
-    company: "Cottage Owner",
-    rating: 5,
-    text: "Excellent service from start to finish. Completed blasting the gloss black paint off all the beams in our cottage in superb time. Alfie and Ben were a great team and kept us updated throughout from the tester patches to the finished beams. Would highly recommend.",
-    project: "Beam Cleaning",
-    images: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600",
-      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600",
-    ],
-  },
-  {
-    id: 3,
-    name: "Zoë Meredith",
-    company: "Homeowner",
-    rating: 5,
-    text: "Alfie & Ben have done a fantastic job on the beams in our house. We are really happy with their work and would 100% recommend them. They did as much as possible to contain the dust/sand, they cleaned up well before leaving.",
-    project: "Beam Restoration",
-    images: [
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600",
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600",
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600",
-    ],
-  },
-  {
-    id: 4,
-    name: "Colin Howe",
-    company: "Property Owner",
-    rating: 5,
-    text: "Fantastic! The guys at Commercial Shot Blasting were very helpful from the initial enquiry stage right through to the finished project. Sam and Tom did a great job with our beams and we are incredibly happy with the result. Great job!",
-    project: "Beam Blasting",
-    images: [
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600",
-      "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?w=600",
-      "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600",
-    ],
-  },
 ];
 
 export default function Home() {
