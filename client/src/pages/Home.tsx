@@ -270,7 +270,7 @@ export default function Home() {
                       key={idx} 
                       src={img} 
                       alt={`Review photo ${idx + 1}`} 
-                      className="w-full h-24 md:h-32 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer shadow-md"
+                      className="w-full h-40 md:h-48 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer shadow-md"
                       onClick={() => openLightbox(displayTestimonials[0].images!, idx)}
                     />
                   ))}
@@ -308,7 +308,7 @@ export default function Home() {
                         key={idx} 
                         src={img} 
                         alt={`Review photo ${idx + 1}`} 
-                        className="w-full h-16 object-cover rounded hover:scale-105 transition-transform cursor-pointer"
+                        className="w-full h-32 object-cover rounded hover:scale-105 transition-transform cursor-pointer"
                         onClick={() => openLightbox(testimonial.images!, idx)}
                       />
                     ))}
