@@ -50,6 +50,7 @@ import RetailIndustry from "./pages/RetailIndustry";
 import AerospaceIndustry from "./pages/AerospaceIndustry";
 import FreeSiteSurvey from "./pages/FreeSiteSurvey";
 import CallAnalytics from "./pages/CallAnalytics";
+import Contact from "./pages/Contact";
 import { CookieConsent } from "./components/CookieConsent";
 import { FloatingCallButton } from "./components/FloatingCallButton";
 
@@ -58,6 +59,7 @@ function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/contact"} component={Contact} />
       <Route path={"/gallery"} component={Gallery} />
       <Route path={"/admin"} component={Admin} />
       <Route path={"/call-analytics"} component={CallAnalytics} />

@@ -297,7 +297,7 @@ export default function PrivacyPolicy() {
                 <li><a href="/#about" className="hover:text-white transition">About Us</a></li>
                 <li><a href="/#industries" className="hover:text-white transition">Industries</a></li>
                 <li><Link href="/gallery" className="hover:text-white transition">Gallery</Link></li>
-                <li><a href="/#contact" className="hover:text-white transition">Contact</a></li>
+                <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
                 <li><Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link></li>
               </ul>
             </div>

@@ -162,7 +162,7 @@ const ServicesSection = () => (
             <CardContent className="p-6">
               <h3 className="text-xl font-semibold mb-2 text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>{service.title}</h3>
               <p className="text-gray-600 mb-4">{service.desc}</p>
-              <a href="#contact" className="inline-flex items-center text-[#2C5F7F] font-medium hover:gap-2 transition-all">
+              <a href="/contact" className="inline-flex items-center text-[#2C5F7F] font-medium hover:gap-2 transition-all">
                 Get a Quote <ArrowRight className="w-4 h-4 ml-1" />
               </a>
             </CardContent>
@@ -378,7 +378,7 @@ const Footer = () => (
             <li><a href="#why-choose-us" className="hover:text-white">Why Choose Us</a></li>
             <li><a href="#industries" className="hover:text-white">Industries Served</a></li>
             <li><Link href="/gallery" className="hover:text-white">Gallery</Link></li>
-            <li><a href="#contact" className="hover:text-white">Contact {LOCATION_NAME}</a></li>
+            <li><a href="/contact" className="hover:text-white">Contact {LOCATION_NAME}</a></li>
           </ul>
         </div>
         <div>
@@ -426,7 +426,7 @@ export default function HerefordServiceArea() {
             <a href="#why-choose-us" className="hover:text-white/80 transition">Why {LOCATION_NAME}</a>
             <a href="#industries" className="hover:text-white/80 transition">Industries</a>
             <Link href="/gallery" className="hover:text-white/80 transition">Gallery</Link>
-            <a href="#contact" className="hover:text-white/80 transition">Contact</a>
+            <a href="/contact" className="hover:text-white/80 transition">Contact</a>
           </nav>
           <div className="flex items-center gap-4">
             <a href="tel:07970566409" className="hidden sm:flex items-center gap-2 text-sm">

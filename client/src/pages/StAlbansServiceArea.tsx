@@ -72,7 +72,7 @@ export default function StAlbansServiceArea() {
             <a href="#about" className="hover:text-white/80 transition">About</a>
             <a href="#industries" className="hover:text-white/80 transition">Industries</a>
             <Link href="/gallery" className="hover:text-white/80 transition">Gallery</Link>
-            <a href="#contact" className="hover:text-white/80 transition">Contact</a>
+            <a href="/contact" className="hover:text-white/80 transition">Contact</a>
           </nav>
           <div className="flex items-center gap-4">
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90">Get a Quote</Button>
@@ -225,7 +225,7 @@ export default function StAlbansServiceArea() {
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-2 text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>{service.title}</h3>
                   <p className="text-gray-600 mb-4">{service.desc}</p>
-                  <a href="#contact" className="inline-flex items-center text-[#2C5F7F] font-medium hover:gap-2 transition-all">
+                  <a href="/contact" className="inline-flex items-center text-[#2C5F7F] font-medium hover:gap-2 transition-all">
                     Learn More <ArrowRight className="w-4 h-4 ml-1" />
                   </a>
                 </CardContent>

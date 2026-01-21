@@ -624,7 +624,7 @@ export default function Gallery() {
               <ul className="space-y-2 text-white/70 text-sm">
                 <li><a href="/#about" className="hover:text-white">About Us</a></li>
                 <li><Link href="/gallery" className="hover:text-white">Gallery</Link></li>
-                <li><a href="/#contact" className="hover:text-white">Contact</a></li>
+                <li><a href="/contact" className="hover:text-white">Contact</a></li>
                 <li><Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link></li>
               </ul>
             </div>

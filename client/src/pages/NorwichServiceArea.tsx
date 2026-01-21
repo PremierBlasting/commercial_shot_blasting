@@ -108,7 +108,7 @@ export default function NorwichServiceArea() {
             <a href="#industries" className="hover:text-white/80 transition">Local Industries</a>
             <a href="#testimonials" className="hover:text-white/80 transition">Testimonials</a>
             <a href="#faq" className="hover:text-white/80 transition">FAQ</a>
-            <a href="#contact" className="hover:text-white/80 transition">Contact</a>
+            <a href="/contact" className="hover:text-white/80 transition">Contact</a>
           </nav>
           <div className="flex items-center gap-4">
             <a href="tel:07970566409" className="hidden sm:flex items-center gap-2 text-sm">
@@ -225,7 +225,7 @@ export default function NorwichServiceArea() {
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-2 text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>{service.title}</h3>
                   <p className="text-gray-600 mb-4">{service.desc}</p>
-                  <a href="#contact" className="inline-flex items-center text-[#2C5F7F] font-medium hover:gap-2 transition-all">
+                  <a href="/contact" className="inline-flex items-center text-[#2C5F7F] font-medium hover:gap-2 transition-all">
                     Learn More <ArrowRight className="w-4 h-4 ml-1" />
                   </a>
                 </CardContent>

@@ -233,7 +233,7 @@ export default function SwindonServiceArea() {
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-2 text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>{service.title}</h3>
                   <p className="text-gray-600 mb-4">{service.desc}</p>
-                  <a href="#contact" className="inline-flex items-center text-[#2C5F7F] font-medium hover:gap-2 transition-all">
+                  <a href="/contact" className="inline-flex items-center text-[#2C5F7F] font-medium hover:gap-2 transition-all">
                     Get Service Details <ArrowRight className="w-4 h-4 ml-1" />
                   </a>
                 </CardContent>

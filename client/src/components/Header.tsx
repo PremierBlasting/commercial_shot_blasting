@@ -407,7 +407,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             </div>
           </div>
           
-          <a href="/#contact" className="hover:text-white/80 transition">Contact</a>
+          <a href="/contact" className="hover:text-white/80 transition">Contact</a>
         </nav>
 
         <div className="flex items-center gap-4">
@@ -578,7 +578,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
               </div>
             </div>
             
-            <a href="/#contact" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Contact</a>
+            <a href="/contact" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Contact</a>
             
             <div className="flex flex-col gap-3 pt-4">
               <a href="tel:07970566409" className="flex items-center gap-2 text-sm">
