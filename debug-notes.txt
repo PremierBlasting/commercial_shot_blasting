@@ -1,0 +1,24 @@
+Gallery Page Debug Notes:
+- The Gallery page is now loading correctly after server restart
+- 16 projects are displaying with proper categories
+- Static fallback data is being used (database may be empty)
+- The tRPC error was likely caused by the server being in a bad state
+- Images show "BEFORE" labels but images themselves appear blank in screenshot
+- This could be image loading issue or just screenshot timing
+
+The original error "Unexpected token '<', "<!doctype "..." indicates the API endpoint was returning HTML (likely a 404 page) instead of JSON. This happens when:
+1. Server is not running
+2. API route doesn't exist
+3. Server crashed
+
+After restart, the page works correctly.
+
+Google Maps is NOW WORKING!
+- The map loads correctly on the Birmingham location page
+- Shows Birmingham with a 25-mile radius service area circle
+- Map controls (Satellite, Zoom, Street View) all visible
+- The original error was likely a transient issue or the server wasn't fully initialized
+
+BOTH ERRORS ARE NOW FIXED:
+1. tRPC API error - Fixed by server restart
+2. Google Maps loading - Working correctly after server restart

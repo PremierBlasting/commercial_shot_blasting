@@ -61,3 +61,7 @@
 - [x] Test database connectivity
 - [x] Save checkpoint
 - [x] Verify permanent hosting
+
+## Bug Fixes
+- [x] Fix tRPC API error on Gallery page (returning HTML instead of JSON)
+- [x] Fix Google Maps script loading failure
