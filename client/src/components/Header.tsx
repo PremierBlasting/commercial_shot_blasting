@@ -210,16 +210,32 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <button 
+            <Link
+              href="/services"
               className="flex items-center gap-1 hover:text-white/80 transition py-2"
-              onClick={() => setServicesOpen(!servicesOpen)}
-              type="button"
-              aria-expanded={servicesOpen}
-              aria-haspopup="true"
+              onClick={(e) => {
+                // Allow navigation to /services
+                setServicesOpen(false);
+              }}
+              onMouseDown={(e) => {
+                // Prevent navigation when clicking the chevron area to toggle dropdown
+                const target = e.target as HTMLElement;
+                if (target.closest('svg')) {
+                  e.preventDefault();
+                  setServicesOpen(!servicesOpen);
+                }
+              }}
             >
               Services
-              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
-            </button>
+              <ChevronDown 
+                className={`w-4 h-4 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setServicesOpen(!servicesOpen);
+                }}
+              />
+            </Link>
             
             {/* Dropdown Menu */}
             <div 

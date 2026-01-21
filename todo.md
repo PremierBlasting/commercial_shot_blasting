@@ -78,3 +78,4 @@
 - [x] Create dedicated About page at /about (keep #about on homepage too)
 - [x] Remove duplicate "Shot Blasting" header bars from pages (keep only "Commercial Shot Blasting" header)
 - [x] Create comprehensive Services page at /services with card grid layout
+- [x] Make Services menu item in header clickable to navigate to /services page
