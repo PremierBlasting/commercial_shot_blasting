@@ -1,4 +1,7 @@
 import { Button } from "@/components/ui/button";
+import { Header } from "@/components/Header";
+import { QuotePopup } from "@/components/QuotePopup";
+import { useState } from "react";
 import { LocationMap } from "@/components/LocationMap";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
@@ -249,8 +252,12 @@ const CTASection = () => (
 // --- Main Page Component ---
 
 export default function CambridgeServiceArea() {
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       {/* Note: Header and Footer components are assumed to be handled by a parent Layout component */}
       
       <BreadcrumbSection />

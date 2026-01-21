@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { Header } from "@/components/Header";
+import { QuotePopup } from "@/components/QuotePopup";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -26,6 +28,8 @@ const faqs = [
 ];
 
 export default function ShrewsburyServiceArea() {
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
 
   const submitContact = trpc.contact.submit.useMutation({
@@ -45,6 +49,8 @@ export default function ShrewsburyServiceArea() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       {/* Breadcrumb Navigation */}
       <div className="bg-gray-100 py-4">
         <div className="container">

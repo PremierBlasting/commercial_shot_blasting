@@ -1,4 +1,6 @@
 import { useAuth } from "@/_core/hooks/useAuth";
+import { Header } from "@/components/Header";
+import { QuotePopup } from "@/components/QuotePopup";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,6 +17,8 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton"; // Assuming Accordion is available
 
 export default function DerbyServiceArea() {
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
   // The userAuth hooks provides authentication state
   // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
   let { user, loading, error, isAuthenticated, logout } = useAuth();
@@ -64,6 +68,8 @@ export default function DerbyServiceArea() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       {/* Header (Keep as is for site navigation) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
         <div className="container flex items-center justify-between py-4">

@@ -1,4 +1,7 @@
 import React from 'react';
+import { Header } from "@/components/Header";
+import { QuotePopup } from "@/components/QuotePopup";
+import { useState } from "react";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../components/ui/breadcrumb';
 import { Button } from "@/components/ui/button";
 import { LocationMap } from "@/components/LocationMap";
@@ -211,8 +214,12 @@ const faqs = [
 // --- Main Component ---
 
 const CardiffServiceArea: React.FC = () => {
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
   return (
     <div className="CardiffServiceArea">
+      <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       <div className="container mx-auto px-4 py-4">
         <Breadcrumb>
           <BreadcrumbList>

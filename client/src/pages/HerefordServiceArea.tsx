@@ -1,4 +1,6 @@
 import { useAuth } from "@/_core/hooks/useAuth";
+import { Header } from "@/components/Header";
+import { QuotePopup } from "@/components/QuotePopup";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
@@ -397,11 +399,15 @@ const Footer = () => (
 
 
 export default function HerefordServiceArea() {
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
   // Authentication state is not directly used for the public service page, but kept for consistency
   let { user, loading, error, isAuthenticated, logout } = useAuth();
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       {/* Header (Reused from Home.tsx) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
         <div className="container flex items-center justify-between py-4">

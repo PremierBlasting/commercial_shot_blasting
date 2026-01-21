@@ -1,4 +1,6 @@
 import { Link } from "wouter";
+import { Header } from "@/components/Header";
+import { QuotePopup } from "@/components/QuotePopup";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -75,6 +77,8 @@ const ContactForm = ({ formData, setFormData, handleSubmit, submitContact }: { f
 );
 
 export default function LincolnServiceArea() {
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
 
   const submitContact = trpc.contact.submit.useMutation({
@@ -94,6 +98,8 @@ export default function LincolnServiceArea() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       {/* Breadcrumb Navigation */}
       <div className="container py-4 bg-gray-50">
         <Breadcrumb>

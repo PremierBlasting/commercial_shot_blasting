@@ -1,4 +1,6 @@
 import { useAuth } from "@/_core/hooks/useAuth";
+import { Header } from "@/components/Header";
+import { QuotePopup } from "@/components/QuotePopup";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
@@ -41,6 +43,8 @@ const swindonFaqs = [
 ];
 
 export default function SwindonServiceArea() {
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
   let { user, loading, error, isAuthenticated, logout } = useAuth();
 
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
@@ -62,6 +66,8 @@ export default function SwindonServiceArea() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       {/* Header (Simplified for a service page, assuming main header is elsewhere) */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
         <div className="container flex items-center justify-between py-4">

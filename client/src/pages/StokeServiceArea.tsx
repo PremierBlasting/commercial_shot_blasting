@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { Header } from "@/components/Header";
+import { QuotePopup } from "@/components/QuotePopup";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -75,6 +77,8 @@ const STOKE_TESTIMONIALS = [
 
 // --- Component Definition ---
 export default function StokeServiceArea() {
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
 
   const submitContact = trpc.contact.submit.useMutation({
@@ -94,6 +98,8 @@ export default function StokeServiceArea() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       {/* Header - Reusing Home.tsx Header structure */}
       <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
         <div className="container flex items-center justify-between py-4">

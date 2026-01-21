@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { Header } from "@/components/Header";
+import { QuotePopup } from "@/components/QuotePopup";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, ChevronRight } from "lucide-react";
@@ -52,6 +54,8 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
 
 
 export default function NottinghamServiceArea() {
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
 
   const submitContact = trpc.contact.submit.useMutation({
@@ -93,34 +97,9 @@ export default function NottinghamServiceArea() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
-      {/* Header - Copied from Home.tsx */}
-      <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
-        <div className="container flex items-center justify-between py-4">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border-2 border-white/30">
-              <span className="text-xl font-bold">SB</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>Shot Blasting</h1>
-              <p className="text-xs text-white/80">Professional Surface Preparation</p>
-            </div>
-          </div>
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#services" className="hover:text-white/80 transition">Services</a>
-            <a href="#about" className="hover:text-white/80 transition">About</a>
-            <a href="#industries" className="hover:text-white/80 transition">Industries</a>
-            <Link href="/gallery" className="hover:text-white/80 transition">Gallery</Link>
-            <a href="#contact" className="hover:text-white/80 transition">Contact</a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <a href="tel:07970566409" className="hidden sm:flex items-center gap-2 text-sm">
-              <Phone className="w-4 h-4" />
-              07970 566409
-            </a>
-            <Button className="bg-white text-[#2C5F7F] hover:bg-white/90">Get a Quote</Button>
-          </div>
-        </div>
-      </header>
+      <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
+
 
       {/* Hero Section - Adapted for Nottingham */}
       <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white py-16 lg:py-24">

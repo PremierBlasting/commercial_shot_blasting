@@ -1,4 +1,7 @@
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { Header } from "@/components/Header";
+import { QuotePopup } from "@/components/QuotePopup";
 import { LocationMap } from "@/components/LocationMap";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,6 +20,8 @@ const PageLayout = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default function MiltonKeynesServiceArea() {
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
   const services = [
     { title: "Steel Shot Blasting", desc: "High-performance cleaning for steel structures, removing rust, mill scale, and old coatings." },
     { title: "Concrete Preparation", desc: "Surface profiling for optimal coating adhesion on floors, walls, and structural elements, ideal for MK's logistics hubs." },
@@ -68,7 +73,9 @@ export default function MiltonKeynesServiceArea() {
 
   return (
     <PageLayout>
-      {/* Breadcrumb Navigation */}
+            <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
+{/* Breadcrumb Navigation */}
       <div className="container py-4 bg-gray-50">
         <Breadcrumb>
           <BreadcrumbList>

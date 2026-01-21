@@ -1,4 +1,7 @@
 import { Link } from "wouter";
+import { useState } from "react";
+import { Header } from "@/components/Header";
+import { QuotePopup } from "@/components/QuotePopup";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, ChevronRight } from "lucide-react";
@@ -45,10 +48,14 @@ const ipswichData = {
 };
 
 export default function IpswichServiceArea() {
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
   const { locationName, region, heroTitle, heroSubtitle, whyChooseUs, services, industries, testimonials, faq } = ipswichData;
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
       {/* Breadcrumb Navigation */}
       <div className="bg-gray-50 py-3 border-b">
         <div className="container flex items-center text-sm text-gray-500">
