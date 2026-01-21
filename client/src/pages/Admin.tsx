@@ -278,10 +278,13 @@ function OverviewTab() {
 
 function GalleryTab() {
   const utils = trpc.useUtils();
-  const { data: galleryItems, isLoading } = trpc.gallery.list.useQuery();
+  const { data: galleryItems, isLoading } = trpc.gallery.listAll.useQuery();
   const [isAddOpen, setIsAddOpen] = useState(false);
   const [editItem, setEditItem] = useState<typeof galleryItems extends (infer T)[] | undefined ? T | null : null>(null);
   const [deleteId, setDeleteId] = useState<number | null>(null);
+  const [filterCategory, setFilterCategory] = useState<string>("all");
+  const [filterStatus, setFilterStatus] = useState<string>("all");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const [formData, setFormData] = useState({
     title: "",
@@ -289,6 +292,7 @@ function GalleryTab() {
     description: "",
     beforeImage: "",
     afterImage: "",
+    isActive: true,
   });
 
   const createMutation = trpc.gallery.create.useMutation({
@@ -321,8 +325,32 @@ function GalleryTab() {
   });
 
   const resetForm = () => {
-    setFormData({ title: "", category: "", description: "", beforeImage: "", afterImage: "" });
+    setFormData({ title: "", category: "", description: "", beforeImage: "", afterImage: "", isActive: true });
   };
+
+  const toggleActiveMutation = trpc.gallery.update.useMutation({
+    onSuccess: () => {
+      toast.success("Gallery item updated");
+      utils.gallery.listAll.invalidate();
+    },
+    onError: (error) => toast.error(error.message),
+  });
+
+  const toggleActive = (item: NonNullable<typeof galleryItems>[0]) => {
+    toggleActiveMutation.mutate({ id: item.id, isActive: !item.isActive });
+  };
+
+  // Filter gallery items
+  const filteredItems = galleryItems?.filter((item) => {
+    const matchesCategory = filterCategory === "all" || item.category === filterCategory;
+    const matchesStatus = filterStatus === "all" || 
+      (filterStatus === "active" && item.isActive) || 
+      (filterStatus === "inactive" && !item.isActive);
+    const matchesSearch = searchQuery === "" || 
+      item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.description?.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesStatus && matchesSearch;
+  }) || [];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -340,18 +368,19 @@ function GalleryTab() {
       description: item.description || "",
       beforeImage: item.beforeImage,
       afterImage: item.afterImage,
+      isActive: item.isActive,
     });
     setEditItem(item);
   };
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h2 className="text-2xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
             Gallery Management
           </h2>
-          <p className="text-gray-600">Add, edit, or remove gallery projects</p>
+          <p className="text-gray-600">Add, edit, or remove gallery projects ({filteredItems.length} items)</p>
         </div>
         <Dialog open={isAddOpen} onOpenChange={setIsAddOpen}>
           <DialogTrigger asChild>
@@ -412,6 +441,16 @@ function GalleryTab() {
                   folder="gallery/after"
                 />
               </div>
+              <div className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  id="isActive"
+                  checked={formData.isActive}
+                  onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
+                  className="h-4 w-4 rounded border-gray-300"
+                />
+                <Label htmlFor="isActive">Active (visible on website)</Label>
+              </div>
               <DialogFooter>
                 <Button type="button" variant="outline" onClick={() => setIsAddOpen(false)}>Cancel</Button>
                 <Button type="submit" className="bg-[#2C5F7F] hover:bg-[#1a3d52]" disabled={createMutation.isPending}>
@@ -422,6 +461,43 @@ function GalleryTab() {
           </DialogContent>
         </Dialog>
       </div>
+
+      {/* Filters */}
+      <Card>
+        <CardContent className="p-4">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex-1">
+              <Input
+                placeholder="Search projects..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full"
+              />
+            </div>
+            <Select value={filterCategory} onValueChange={setFilterCategory}>
+              <SelectTrigger className="w-full sm:w-[180px]">
+                <SelectValue placeholder="All Categories" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Categories</SelectItem>
+                {categories.map((cat) => (
+                  <SelectItem key={cat} value={cat}>{cat}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Select value={filterStatus} onValueChange={setFilterStatus}>
+              <SelectTrigger className="w-full sm:w-[150px]">
+                <SelectValue placeholder="All Status" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Status</SelectItem>
+                <SelectItem value="active">Active</SelectItem>
+                <SelectItem value="inactive">Inactive</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Edit Dialog */}
       <Dialog open={!!editItem} onOpenChange={(open) => !open && setEditItem(null)}>
@@ -476,6 +552,16 @@ function GalleryTab() {
                 folder="gallery/after"
               />
             </div>
+            <div className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                id="edit-isActive"
+                checked={formData.isActive}
+                onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
+                className="h-4 w-4 rounded border-gray-300"
+              />
+              <Label htmlFor="edit-isActive">Active (visible on website)</Label>
+            </div>
             <DialogFooter>
               <Button type="button" variant="outline" onClick={() => setEditItem(null)}>Cancel</Button>
               <Button type="submit" className="bg-[#2C5F7F] hover:bg-[#1a3d52]" disabled={updateMutation.isPending}>
@@ -521,14 +607,30 @@ function GalleryTab() {
             </Card>
           ))}
         </div>
-      ) : galleryItems && galleryItems.length > 0 ? (
+      ) : filteredItems.length > 0 ? (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {galleryItems.map((item) => (
-            <Card key={item.id} className="overflow-hidden">
+          {filteredItems.map((item) => (
+            <Card key={item.id} className={`overflow-hidden transition-opacity ${!item.isActive ? 'opacity-60' : ''}`}>
               <div className="relative h-40 bg-gray-100">
                 <img src={item.beforeImage} alt={item.title} className="w-full h-full object-cover" />
-                <div className="absolute top-2 left-2">
+                <div className="absolute top-2 left-2 flex gap-1">
                   <span className="bg-[#2C5F7F] text-white text-xs px-2 py-1 rounded">{item.category}</span>
+                  {!item.isActive && (
+                    <span className="bg-gray-500 text-white text-xs px-2 py-1 rounded flex items-center gap-1">
+                      <EyeOff className="w-3 h-3" /> Hidden
+                    </span>
+                  )}
+                </div>
+                <div className="absolute top-2 right-2">
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    className="h-7 w-7 p-0 bg-white/90 hover:bg-white"
+                    onClick={() => toggleActive(item)}
+                    title={item.isActive ? "Hide from website" : "Show on website"}
+                  >
+                    {item.isActive ? <Eye className="w-3 h-3" /> : <EyeOff className="w-3 h-3" />}
+                  </Button>
                 </div>
               </div>
               <CardContent className="p-4">
@@ -546,6 +648,14 @@ function GalleryTab() {
             </Card>
           ))}
         </div>
+      ) : galleryItems && galleryItems.length > 0 ? (
+        <Card>
+          <CardContent className="py-12 text-center">
+            <Image className="w-12 h-12 mx-auto text-gray-300 mb-4" />
+            <h3 className="font-semibold text-gray-600">No Matching Projects</h3>
+            <p className="text-sm text-gray-500 mt-1">Try adjusting your filters or search query</p>
+          </CardContent>
+        </Card>
       ) : (
         <Card>
           <CardContent className="py-12 text-center">

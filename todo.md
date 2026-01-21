@@ -67,3 +67,9 @@
 - [x] Fix Google Maps script loading failure
 - [x] Fix breadcrumb styling on location pages (Wolverhampton and others) - make inline like Birmingham
 - [x] Add Header component to all location pages missing it (Milton Keynes, Wolverhampton, etc.)
+- [x] Build gallery management interface in admin CMS
+- [x] Add image upload functionality with S3 integration
+- [x] Add gallery item editing (title, description, category, active status)
+- [x] Add gallery item deletion with confirmation
+- [x] Add category filtering and search functionality
+- [x] Add active/inactive toggle for gallery items
