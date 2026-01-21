@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import Admin from "./pages/Admin";
 import ServiceDetail from "./pages/ServiceDetail";
+import Services from "./pages/Services";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import Blog from "./pages/Blog";
@@ -65,8 +66,8 @@ function Router() {
       <Route path={"/gallery"} component={Gallery} />
       <Route path={"/admin"} component={Admin} />
       <Route path={"/call-analytics"} component={CallAnalytics} />
-      <Route path="/services/:id" component={ServiceDetail} />
-      <Route path="/industries/construction" component={ConstructionIndustry} />
+      <Route path={"/services"} component={Services} />
+      <Route path={"/services/:id"} component={ServiceDetail} />     <Route path="/industries/construction" component={ConstructionIndustry} />
       <Route path="/industries/manufacturing" component={ManufacturingIndustry} />
       <Route path="/industries/retail" component={RetailIndustry} />
       <Route path="/industries/aerospace" component={AerospaceIndustry} />

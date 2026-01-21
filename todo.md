@@ -77,3 +77,4 @@
 - [x] Change contact page URL from /#contact to /contact (dedicated page)
 - [x] Create dedicated About page at /about (keep #about on homepage too)
 - [x] Remove duplicate "Shot Blasting" header bars from pages (keep only "Commercial Shot Blasting" header)
+- [x] Create comprehensive Services page at /services with card grid layout
