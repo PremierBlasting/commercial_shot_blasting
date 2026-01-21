@@ -257,7 +257,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             </div>
           </div>
 
-          <a href="/#about" className="hover:text-white/80 transition">About</a>
+          <a href="/about" className="hover:text-white/80 transition">About</a>
           
           {/* Industries Dropdown */}
           <div 
@@ -479,7 +479,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
               </div>
             </div>
 
-            <a href="/#about" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">About</a>
+            <a href="/about" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">About</a>
             
             {/* Industries with Sub-menu */}
             <div className="border-b border-white/10">
