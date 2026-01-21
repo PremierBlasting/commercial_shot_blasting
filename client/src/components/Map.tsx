@@ -92,21 +92,57 @@ const FORGE_BASE_URL =
   "https://forge.butterfly-effect.dev";
 const MAPS_PROXY_URL = `${FORGE_BASE_URL}/v1/maps/proxy`;
 
+let mapScriptPromise: Promise<void> | null = null;
+
 function loadMapScript() {
-  return new Promise(resolve => {
+  // If already loading or loaded, return the existing promise
+  if (mapScriptPromise) {
+    return mapScriptPromise;
+  }
+
+  // Check if Google Maps is already loaded
+  if (window.google?.maps) {
+    return Promise.resolve();
+  }
+
+  // Check if script already exists in the DOM
+  const existingScript = document.querySelector(
+    'script[src*="maps/api/js"]'
+  );
+  if (existingScript) {
+    return new Promise<void>(resolve => {
+      if (window.google?.maps) {
+        resolve();
+      } else {
+        // Wait for the existing script to load
+        const checkInterval = setInterval(() => {
+          if (window.google?.maps) {
+            clearInterval(checkInterval);
+            resolve();
+          }
+        }, 100);
+      }
+    });
+  }
+
+  // Create and load the script
+  mapScriptPromise = new Promise((resolve, reject) => {
     const script = document.createElement("script");
     script.src = `${MAPS_PROXY_URL}/maps/api/js?key=${API_KEY}&v=weekly&libraries=marker,places,geocoding,geometry`;
     script.async = true;
     script.crossOrigin = "anonymous";
     script.onload = () => {
-      resolve(null);
-      script.remove(); // Clean up immediately
+      resolve();
     };
     script.onerror = () => {
       console.error("Failed to load Google Maps script");
+      mapScriptPromise = null;
+      reject(new Error("Failed to load Google Maps script"));
     };
     document.head.appendChild(script);
   });
+
+  return mapScriptPromise;
 }
 
 interface MapViewProps {

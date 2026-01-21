@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <circle cx="16" cy="16" r="15" fill="#2C5F7F"/>
+  <circle cx="16" cy="16" r="14" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <text x="16" y="21" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="10" fill="white">CSB</text>
+</svg>
