@@ -37,10 +37,17 @@ export const serviceGalleries: ServiceGallery[] = [
   },
   {
     serviceId: "steel-containers",
-    beforeImage: "/steel-container-before.png",
-    afterImage: "/steel-container-after.jpg",
-    beforeLabel: "Before: Corroded Container",
+    beforeImage: "/steel-container-before-1.jpg",
+    afterImage: "/steel-container-after-1.jpg",
+    beforeLabel: "Before: Corroded Industrial Container",
     afterLabel: "After: Clean & Ready for Coating"
+  },
+  {
+    serviceId: "steel-containers",
+    beforeImage: "/steel-container-before-2.jpg",
+    afterImage: "/steel-container-after-2.jpg",
+    beforeLabel: "Before: Weathered Storage Tank",
+    afterLabel: "After: Shot Blasted & Restored"
   },
   {
     serviceId: "fixed-ladders",

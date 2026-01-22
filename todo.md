@@ -100,3 +100,4 @@
 - [x] Update Home page services grid with new service and reordering
 - [x] Create/update steel container service detail page with content and images
 - [x] Update navigation menus and all service references across site
+- [x] Add two before/after sections to Steel Container Blasting service page with real project images
