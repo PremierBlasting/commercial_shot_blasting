@@ -9,8 +9,8 @@ export interface ServiceGallery {
 export const serviceGalleries: ServiceGallery[] = [
   {
     serviceId: "structural-steel-frames",
-    beforeImage: "/steel-frame-before.jpg",
-    afterImage: "/steel-frame-after.jpg",
+    beforeImage: "/StructuralSteelFramesBefore.webp",
+    afterImage: "/StructuralSteelFramesAfter.webp",
     beforeLabel: "Before: Rusted Steel Frame",
     afterLabel: "After: Shot Blasted & Ready"
   },

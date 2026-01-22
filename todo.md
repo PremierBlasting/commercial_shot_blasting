@@ -85,3 +85,4 @@
 - [x] Adjust testimonial review images to be taller and more square-shaped
 - [x] Increase testimonial image height significantly to create much more square aspect ratio
 - [x] Add content block to fill empty space on left side of contact form section
+- [x] Replace before and after images on Structural Steel Frames service page
