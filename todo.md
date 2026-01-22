@@ -103,3 +103,4 @@
 - [x] Add two before/after sections to Steel Container Blasting service page with real project images
 - [x] Fix Steel Container Blasting page to display two separate before/after galleries
 - [x] Reorder galleries so storage tank appears first, then industrial container
+- [x] Separate two before/after galleries on Steel Container page with content sections between them

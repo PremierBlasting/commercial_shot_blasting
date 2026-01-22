@@ -306,26 +306,22 @@ export default function ServiceDetail() {
                 <p className="text-gray-700 text-lg leading-relaxed">{service.description}</p>
               </div>
 
-              {/* Before & After Gallery */}
+              {/* First Before & After Gallery */}
               {getServiceGalleries(service.id).length > 0 && (
-                <div className="space-y-12">
+                <div>
                   <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
                     Transformation Gallery
                   </h2>
                   <p className="text-gray-600 mb-6">
                     See the dramatic difference our professional shot blasting service makes. Drag the slider to compare before and after results.
                   </p>
-                  {getServiceGalleries(service.id).map((gallery, index) => (
-                    <div key={index} className="space-y-4">
-                      <BeforeAfterSlider
-                        beforeImage={gallery.beforeImage}
-                        afterImage={gallery.afterImage}
-                        beforeLabel={gallery.beforeLabel}
-                        afterLabel={gallery.afterLabel}
-                        className="shadow-xl"
-                      />
-                    </div>
-                  ))}
+                  <BeforeAfterSlider
+                    beforeImage={getServiceGalleries(service.id)[0].beforeImage}
+                    afterImage={getServiceGalleries(service.id)[0].afterImage}
+                    beforeLabel={getServiceGalleries(service.id)[0].beforeLabel}
+                    afterLabel={getServiceGalleries(service.id)[0].afterLabel}
+                    className="shadow-xl"
+                  />
                 </div>
               )}
 
@@ -363,6 +359,25 @@ export default function ServiceDetail() {
                   ))}
                 </div>
               </div>
+
+              {/* Second Before & After Gallery */}
+              {getServiceGalleries(service.id).length > 1 && (
+                <div>
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    More Project Transformations
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                    Another example of our professional container blasting work. Compare the before and after results.
+                  </p>
+                  <BeforeAfterSlider
+                    beforeImage={getServiceGalleries(service.id)[1].beforeImage}
+                    afterImage={getServiceGalleries(service.id)[1].afterImage}
+                    beforeLabel={getServiceGalleries(service.id)[1].beforeLabel}
+                    afterLabel={getServiceGalleries(service.id)[1].afterLabel}
+                    className="shadow-xl"
+                  />
+                </div>
+              )}
 
               {/* Applications */}
               <div>
