@@ -251,59 +251,58 @@ export const services: ServiceData[] = [
     ]
   },
   {
-    id: "crane-beams",
-    title: "Crane Beams, Gantries & Runway Rails",
-    shortTitle: "Crane Beams",
-    tagline: "Precision Shot Blasting for Material Handling Infrastructure",
-    description: "Our crane beam and gantry shot blasting service provides specialist surface preparation for overhead crane systems, runway rails, and material handling infrastructure. We remove rust, mill scale, and old coatings from crane beams, gantry structures, and runway rails, preparing them for protective coatings or galvanizing. Whether you're maintaining existing crane systems or preparing new installations, our precision techniques ensure optimal surface preparation while preserving critical dimensional tolerances.",
-    heroImage: "/service-crane-beams.png",
+    id: "steel-containers",
+    title: "Steel Container Blasting",
+    shortTitle: "Steel Containers",
+    tagline: "Specialist Shot Blasting for Steel Containers & Storage Structures",
+    description: "We are specialists in shot blasting services for steel containers and large storage structures. Our skilled team uses advanced blasting techniques to remove rust, old coatings, and surface contaminants from shipping containers, fuel storage tanks, and other steel units. We focus on restoring strength and preparing containers so they're ready for repainting, recoating, or long-term reuse.",
+    heroImage: "/service-steel-containers.jpg",
     benefits: [
-      "Preserves dimensional tolerances on runway rails",
-      "Removes rust and old coatings from crane beams",
-      "Prepares surfaces for protective coatings or galvanizing",
-      "Extends crane system lifespan",
-      "Improves safety of material handling systems",
-      "Suitable for both new installations and refurbishment"
+      "Removes rust, mill scale and failed coatings completely",
+      "Delivers clean, profiled, coating-ready finish",
+      "Extends service life of steel containers",
+      "Prepares containers for repainting or long-term reuse",
+      "Suitable for shipping containers, tanks, and storage structures",
+      "Professional standard refurbishment"
     ],
     process: [
-      { step: 1, title: "System Assessment", description: "We inspect the crane beam and gantry system to assess condition, identify critical surfaces, and determine appropriate blast media and preparation requirements." },
-      { step: 2, title: "Component Preparation", description: "Crane beams and runway rails are prepared for blasting. Critical bearing surfaces and dimensional tolerances are protected or carefully controlled during blasting." },
-      { step: 3, title: "Precision Blasting", description: "Using appropriate blast media and controlled pressure, we systematically clean all surfaces while preserving critical dimensional tolerances on runway rails." },
-      { step: 4, title: "Dimensional Verification", description: "We conduct thorough inspections to ensure all surfaces meet the required cleanliness specifications and that dimensional tolerances have been maintained." },
-      { step: 5, title: "Coating & Installation", description: "Cleaned components are prepared for coating application or galvanizing, with timing coordinated for installation and commissioning of the crane system." }
+      { step: 1, title: "Preparation & Containment", description: "We begin with inspection and masking, then protect surrounding areas with sheeting and seals to control dust and debris. Careful planning and procedures guide every project, ensuring a controlled, compliant working environment." },
+      { step: 2, title: "Precision Shot Blasting", description: "Using the correct media and pressure for the substrate, we remove corrosion and old coatings without compromising the steel. Where specified, we prepare to recognised cleanliness grades such as Sa 2½ (near-white metal) for optimum primer adhesion." },
+      { step: 3, title: "Final Clean Down", description: "On completion, we carry out a meticulous clean-up: collecting residues and waste, leaving the area ready for repainting or recoating as required. This handover aligns with our emphasis on industry-leading clean downs." }
     ],
     applications: [
-      "Overhead crane beams",
-      "Crane runway rails",
-      "Gantry crane structures",
-      "Jib crane supports",
-      "Monorail systems",
-      "Material handling infrastructure",
-      "Industrial crane systems",
-      "Workshop overhead cranes"
+      "Shipping Containers",
+      "Storage Tanks",
+      "Refrigerated Containers",
+      "Grain Silos",
+      "Bulk Waste & Recycling Containers",
+      "Fuel Storage Cylinders",
+      "Water Storage & Slurry Tanks",
+      "Aircraft Hangars",
+      "Skips"
     ],
     caseStudies: [
       {
-        title: "Manufacturing Facility Crane System Refurbishment",
-        client: "Automotive Manufacturing Plant",
-        challenge: "A 30-meter span overhead crane system required complete refurbishment. Corroded crane beams and worn runway rails needed replacement while maintaining production schedules.",
-        solution: "We coordinated weekend shutdowns to remove, shot blast, and reinstall crane beams and new runway rails. All components were processed to SA 2.5 standard and protective coated.",
-        result: "The crane system was successfully refurbished and recommissioned, meeting all safety and dimensional tolerance requirements. Production downtime was minimized to planned shutdown periods.",
-        image: "/service-crane-beams.png"
+        title: "Industrial Storage Tank Refurbishment",
+        client: "Manufacturing Facility",
+        challenge: "A large cylindrical fuel storage tank had severe corrosion and failed coatings. Complete surface preparation was required before recoating to prevent further deterioration.",
+        solution: "We systematically shot blasted the entire tank surface, removing all rust, scale and failed coatings. The tank was prepared to Sa 2½ standard for optimal coating adhesion.",
+        result: "The storage tank was successfully refurbished with a clean, profiled surface ready for protective coating. The tank's service life was extended by decades, avoiding costly replacement.",
+        image: "/service-steel-containers.jpg"
       }
     ],
     faqs: [
       {
-        question: "Can you blast crane runway rails without affecting dimensional tolerances?",
-        answer: "Yes, we use carefully controlled blast media and pressure settings to clean runway rails while preserving critical dimensional tolerances. We can verify tolerances after blasting to ensure compliance with crane manufacturer specifications."
+        question: "What types of steel containers can you blast?",
+        answer: "We can blast all types of steel containers including shipping containers, storage tanks, refrigerated units, grain silos, fuel storage cylinders, water tanks, and more. Our techniques are suitable for both standard and specialized container types."
       },
       {
-        question: "Do you coordinate crane system downtime?",
-        answer: "Yes, we work closely with facility management to coordinate work schedules around production requirements. We can work during planned shutdowns, weekends, or night shifts to minimize disruption."
+        question: "Can you blast containers on-site?",
+        answer: "Yes, we can provide on-site shot blasting services for large containers and storage structures that cannot be easily transported. We implement comprehensive containment systems to control dust and debris."
       },
       {
-        question: "Can you provide load testing certification after refurbishment?",
-        answer: "We can coordinate with specialist crane engineers to provide load testing and certification as required by health and safety regulations. Our shot blasting process prepares components for full structural assessment."
+        question: "What surface preparation standard do you achieve?",
+        answer: "We routinely achieve Sa 2½ (near-white metal) surface preparation to ISO 8501 standards, which provides optimal surface cleanliness and profile for protective coating systems. We can provide certification as required."
       }
     ]
   },

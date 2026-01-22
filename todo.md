@@ -86,3 +86,17 @@
 - [x] Increase testimonial image height significantly to create much more square aspect ratio
 - [x] Add content block to fill empty space on left side of contact form section
 - [x] Replace before and after images on Structural Steel Frames service page
+- [ ] Design database schema for WordPress-style page content management
+- [ ] Create tRPC procedures for page content CRUD operations
+- [ ] Build Admin Pages section UI with content editor
+- [ ] Implement Home page content editor with all sections editable
+- [ ] Update Home page to consume content from database instead of hardcoded
+- [ ] Expand CMS to other pages (Services, Gallery, About, Contact, etc.)
+- [ ] Write vitest tests for page content management procedures
+- [x] Fetch content and images from https://premierblasting.co.uk/steel-container-blasting
+- [x] Replace Crane Beams service with Steel Container Blasting service
+- [x] Move Steel Container Blasting to 2nd position in services order
+- [x] Update service data files with steel container content
+- [x] Update Home page services grid with new service and reordering
+- [x] Create/update steel container service detail page with content and images
+- [x] Update navigation menus and all service references across site

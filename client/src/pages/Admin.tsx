@@ -26,7 +26,8 @@ import {
   Mail,
   MailOpen,
   ChevronLeft,
-  FileText
+  FileText,
+  FileEdit
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
@@ -143,6 +144,9 @@ export default function Admin() {
             <TabsTrigger value="overview" className="gap-2">
               <LayoutDashboard className="w-4 h-4" /> Overview
             </TabsTrigger>
+            <TabsTrigger value="pages" className="gap-2">
+              <FileEdit className="w-4 h-4" /> Pages
+            </TabsTrigger>
             <TabsTrigger value="gallery" className="gap-2">
               <Image className="w-4 h-4" /> Gallery
             </TabsTrigger>
@@ -159,6 +163,10 @@ export default function Admin() {
 
           <TabsContent value="overview">
             <OverviewTab />
+          </TabsContent>
+
+          <TabsContent value="pages">
+            <PagesTab />
           </TabsContent>
 
           <TabsContent value="gallery">
@@ -1187,6 +1195,235 @@ function BlogTab() {
           </CardContent>
         </Card>
       )}
+    </div>
+  );
+}
+
+function PagesTab() {
+  const [selectedPage, setSelectedPage] = useState<string>("home");
+  
+  const availablePages = [
+    { slug: "home", name: "Home Page" },
+    { slug: "about", name: "About Page" },
+    { slug: "services", name: "Services Page" },
+    { slug: "gallery", name: "Gallery Page" },
+    { slug: "contact", name: "Contact Page" },
+  ];
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <h2 className="text-2xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+          Page Content Management
+        </h2>
+        <p className="text-gray-600">Edit content for each page on your website</p>
+      </div>
+
+      <div className="grid md:grid-cols-4 gap-6">
+        {/* Page Selector Sidebar */}
+        <Card className="md:col-span-1">
+          <CardHeader>
+            <CardTitle className="text-lg">Pages</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            {availablePages.map((page) => (
+              <Button
+                key={page.slug}
+                variant={selectedPage === page.slug ? "default" : "outline"}
+                className={`w-full justify-start ${selectedPage === page.slug ? "bg-[#2C5F7F]" : ""}`}
+                onClick={() => setSelectedPage(page.slug)}
+              >
+                {page.name}
+              </Button>
+            ))}
+          </CardContent>
+        </Card>
+
+        {/* Page Editor */}
+        <div className="md:col-span-3">
+          {selectedPage === "home" && <HomePageEditor />}
+          {selectedPage === "about" && (
+            <Card>
+              <CardContent className="py-12 text-center">
+                <FileEdit className="w-12 h-12 mx-auto text-gray-300 mb-4" />
+                <h3 className="font-semibold text-gray-600">Coming Soon</h3>
+                <p className="text-sm text-gray-500 mt-1">About page editor will be available soon</p>
+              </CardContent>
+            </Card>
+          )}
+          {selectedPage === "services" && (
+            <Card>
+              <CardContent className="py-12 text-center">
+                <FileEdit className="w-12 h-12 mx-auto text-gray-300 mb-4" />
+                <h3 className="font-semibold text-gray-600">Coming Soon</h3>
+                <p className="text-sm text-gray-500 mt-1">Services page editor will be available soon</p>
+              </CardContent>
+            </Card>
+          )}
+          {selectedPage === "gallery" && (
+            <Card>
+              <CardContent className="py-12 text-center">
+                <FileEdit className="w-12 h-12 mx-auto text-gray-300 mb-4" />
+                <h3 className="font-semibold text-gray-600">Coming Soon</h3>
+                <p className="text-sm text-gray-500 mt-1">Gallery page editor will be available soon</p>
+              </CardContent>
+            </Card>
+          )}
+          {selectedPage === "contact" && (
+            <Card>
+              <CardContent className="py-12 text-center">
+                <FileEdit className="w-12 h-12 mx-auto text-gray-300 mb-4" />
+                <h3 className="font-semibold text-gray-600">Coming Soon</h3>
+                <p className="text-sm text-gray-500 mt-1">Contact page editor will be available soon</p>
+              </CardContent>
+            </Card>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HomePageEditor() {
+  const utils = trpc.useUtils();
+  const { data: sections, isLoading } = trpc.pageContent.getPageSections.useQuery({ pageSlug: "home" });
+  const [editingSection, setEditingSection] = useState<any>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const upsertMutation = trpc.pageContent.upsertSection.useMutation({
+    onSuccess: () => {
+      toast.success("Section updated successfully");
+      utils.pageContent.getPageSections.invalidate();
+      setIsDialogOpen(false);
+      setEditingSection(null);
+    },
+    onError: (error) => toast.error(error.message),
+  });
+
+  const initializeMutation = trpc.pageContent.initializeHomePage.useMutation({
+    onSuccess: () => {
+      toast.success("Home page content initialized successfully");
+      utils.pageContent.getPageSections.invalidate();
+    },
+    onError: (error) => toast.error(error.message),
+  });
+
+  const handleEdit = (section: any) => {
+    setEditingSection(section);
+    setIsDialogOpen(true);
+  };
+
+  const handleSave = () => {
+    if (!editingSection) return;
+
+    upsertMutation.mutate({
+      pageSlug: editingSection.pageSlug,
+      sectionKey: editingSection.sectionKey,
+      sectionType: editingSection.sectionType,
+      content: editingSection.content,
+      sortOrder: editingSection.sortOrder || 0,
+      isActive: editingSection.isActive ?? true,
+    });
+  };
+
+  return (
+    <div className="space-y-4">
+      <Card>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle>Home Page Sections</CardTitle>
+              <CardDescription>Edit each section of the home page</CardDescription>
+            </div>
+            {(!sections || sections.length === 0) && (
+              <Button
+                onClick={() => initializeMutation.mutate()}
+                disabled={initializeMutation.isPending}
+                className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
+              >
+                {initializeMutation.isPending ? "Initializing..." : "Initialize Content"}
+              </Button>
+            )}
+          </div>
+        </CardHeader>
+        <CardContent>
+          {isLoading ? (
+            <div className="space-y-4">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="animate-pulse">
+                  <div className="h-4 bg-gray-200 rounded w-1/4 mb-2"></div>
+                  <div className="h-3 bg-gray-200 rounded w-full"></div>
+                </div>
+              ))}
+            </div>
+          ) : sections && sections.length > 0 ? (
+            <div className="space-y-3">
+              {sections.map((section) => (
+                <Card key={section.id} className="border-l-4 border-l-[#2C5F7F]">
+                  <CardContent className="p-4">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-lg capitalize">{section.sectionKey.replace(/-/g, " ")}</h3>
+                        <p className="text-sm text-gray-500 mt-1">Type: {section.sectionType}</p>
+                      </div>
+                      <Button size="sm" variant="outline" onClick={() => handleEdit(section)}>
+                        <Edit className="w-3 h-3 mr-2" /> Edit
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="py-12 text-center">
+              <FileEdit className="w-12 h-12 mx-auto text-gray-300 mb-4" />
+              <h3 className="font-semibold text-gray-600">No Sections Found</h3>
+              <p className="text-sm text-gray-500 mt-1">Content sections will appear here once initialized</p>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Edit Section Dialog */}
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Edit Section: {editingSection?.sectionKey?.replace(/-/g, " ")}</DialogTitle>
+            <DialogDescription>Modify the content for this section</DialogDescription>
+          </DialogHeader>
+          {editingSection && (
+            <div className="space-y-4">
+              <div>
+                <Label>Content (JSON)</Label>
+                <Textarea
+                  value={editingSection.content}
+                  onChange={(e) => setEditingSection({ ...editingSection, content: e.target.value })}
+                  rows={15}
+                  className="font-mono text-sm"
+                  placeholder='{"title": "...", "description": "..."}'
+                />
+                <p className="text-xs text-gray-500 mt-1">Edit the JSON content for this section</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="isActive"
+                  checked={editingSection.isActive ?? true}
+                  onChange={(e) => setEditingSection({ ...editingSection, isActive: e.target.checked })}
+                  className="rounded"
+                />
+                <Label htmlFor="isActive" className="cursor-pointer">Section Active</Label>
+              </div>
+            </div>
+          )}
+          <DialogFooter>
+            <Button variant="outline" onClick={() => { setIsDialogOpen(false); setEditingSection(null); }}>Cancel</Button>
+            <Button onClick={handleSave} disabled={upsertMutation.isPending} className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
+              {upsertMutation.isPending ? "Saving..." : "Save Changes"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

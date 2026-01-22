@@ -51,7 +51,7 @@ const serviceRecommendations: Record<string, { id: string; name: string; reason:
   ],
   warehouse: [
     { id: "warehouse-racking", name: "Warehouse Racking & Pallet Rack Frames", reason: "Specialized service for warehouse storage systems refurbishment" },
-    { id: "crane-beams", name: "Crane Beams, Gantries & Runway Rails", reason: "Expert treatment for heavy-duty warehouse lifting equipment" },
+    { id: "steel-containers", name: "Steel Container Blasting", reason: "Specialist shot blasting for shipping containers and storage tanks" },
   ],
   pipework: [
     { id: "pipework", name: "Process Pipework, Spools & Manifolds", reason: "Precision cleaning for industrial piping systems" },

@@ -1,4 +1,4 @@
-import { eq, desc, asc } from "drizzle-orm";
+import { eq, desc, asc, and } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { 
   InsertUser, 
@@ -14,7 +14,10 @@ import {
   ContactSubmission,
   blogPosts,
   InsertBlogPost,
-  BlogPost
+  BlogPost,
+  pageContentSections,
+  InsertPageContentSection,
+  PageContentSection
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -297,4 +300,99 @@ export async function deleteBlogPost(id: number): Promise<void> {
   if (!db) throw new Error("Database not available");
   
   await db.delete(blogPosts).where(eq(blogPosts.id, id));
+}
+
+// ==================== Page Content Sections ====================
+
+export async function getPageContentSections(pageSlug: string): Promise<PageContentSection[]> {
+  const db = await getDb();
+  if (!db) return [];
+  
+  const result = await db
+    .select()
+    .from(pageContentSections)
+    .where(eq(pageContentSections.pageSlug, pageSlug))
+    .orderBy(asc(pageContentSections.sortOrder));
+  
+  return result;
+}
+
+export async function getAllPageContentSections(): Promise<PageContentSection[]> {
+  const db = await getDb();
+  if (!db) return [];
+  
+  const result = await db
+    .select()
+    .from(pageContentSections)
+    .orderBy(asc(pageContentSections.pageSlug), asc(pageContentSections.sortOrder));
+  
+  return result;
+}
+
+export async function getPageContentSection(id: number): Promise<PageContentSection | undefined> {
+  const db = await getDb();
+  if (!db) return undefined;
+  
+  const result = await db
+    .select()
+    .from(pageContentSections)
+    .where(eq(pageContentSections.id, id))
+    .limit(1);
+  
+  return result[0];
+}
+
+export async function createPageContentSection(section: InsertPageContentSection): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.insert(pageContentSections).values(section);
+}
+
+export async function updatePageContentSection(id: number, section: Partial<InsertPageContentSection>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.update(pageContentSections).set(section).where(eq(pageContentSections.id, id));
+}
+
+export async function deletePageContentSection(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.delete(pageContentSections).where(eq(pageContentSections.id, id));
+}
+
+export async function upsertPageContentSection(
+  pageSlug: string,
+  sectionKey: string,
+  section: Omit<InsertPageContentSection, 'pageSlug' | 'sectionKey'>
+): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  // Check if section exists
+  const existing = await db
+    .select()
+    .from(pageContentSections)
+    .where(and(
+      eq(pageContentSections.pageSlug, pageSlug),
+      eq(pageContentSections.sectionKey, sectionKey)
+    ))
+    .limit(1);
+  
+  if (existing.length > 0) {
+    // Update existing
+    await db
+      .update(pageContentSections)
+      .set(section)
+      .where(eq(pageContentSections.id, existing[0].id));
+  } else {
+    // Insert new
+    await db.insert(pageContentSections).values({
+      pageSlug,
+      sectionKey,
+      ...section
+    });
+  }
 }

@@ -93,6 +93,25 @@ export type CmsPage = typeof cmsPages.$inferSelect;
 export type InsertCmsPage = typeof cmsPages.$inferInsert;
 
 /**
+ * Page Content Sections table for WordPress-style content management
+ * Each section represents an editable block on a page (hero, services, testimonials, etc.)
+ */
+export const pageContentSections = mysqlTable("page_content_sections", {
+  id: int("id").autoincrement().primaryKey(),
+  pageSlug: varchar("pageSlug", { length: 255 }).notNull(), // e.g., "home", "about", "services/structural-steel-frames"
+  sectionKey: varchar("sectionKey", { length: 255 }).notNull(), // e.g., "hero", "services", "testimonials", "faq"
+  sectionType: varchar("sectionType", { length: 100 }).notNull(), // e.g., "hero", "text", "list", "grid", "faq"
+  content: text("content").notNull(), // JSON content for the section
+  sortOrder: int("sortOrder").default(0).notNull(),
+  isActive: boolean("isActive").default(true).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type PageContentSection = typeof pageContentSections.$inferSelect;
+export type InsertPageContentSection = typeof pageContentSections.$inferInsert;
+
+/**
  * CMS Services table for managing service offerings
  */
 export const cmsServices = mysqlTable("cms_services", {

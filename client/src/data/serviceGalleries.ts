@@ -36,11 +36,11 @@ export const serviceGalleries: ServiceGallery[] = [
     afterLabel: "After: Protected Surface"
   },
   {
-    serviceId: "crane-beams",
-    beforeImage: "/steel-frame-before.jpg",
-    afterImage: "/steel-frame-after.jpg",
-    beforeLabel: "Before: Industrial Wear",
-    afterLabel: "After: Shot Blasted Clean"
+    serviceId: "steel-containers",
+    beforeImage: "/steel-container-before.png",
+    afterImage: "/steel-container-after.jpg",
+    beforeLabel: "Before: Corroded Container",
+    afterLabel: "After: Clean & Ready for Coating"
   },
   {
     serviceId: "fixed-ladders",
