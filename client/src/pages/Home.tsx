@@ -169,6 +169,9 @@ export default function Home() {
               { title: "Warehouse Racking & Pallet Rack Frames", desc: "Professional shot blasting for warehouse racking systems, pallet rack frames, and storage infrastructure.", img: "/service-warehouse-racking.png", link: "/services/warehouse-racking" },
               { title: "Process Pipework, Spools & Manifolds", desc: "Precision cleaning of industrial pipework systems. Ideal for food processing, pharmaceutical, and chemical industries.", img: "/service-pipework.png", link: "/services/pipework" },
               { title: "Telecom Masts & Lattice Towers", desc: "Specialist shot blasting for telecommunications infrastructure including masts, lattice towers, and antenna supports.", img: "/service-telecom-tower.png", link: "/services/telecom-towers" },
+              { title: "Floor Preparation & Shot Blasting", desc: "Professional floor surface preparation for commercial and industrial facilities, removing coatings and creating ideal surface profiles.", img: "/floor-prep-1.jpg", link: "/services/floor-preparation" },
+              { title: "Shot Blasting & Powder Coating", desc: "End-to-end metal surface solutions combining shot blasting with premium powder coating application.", img: "/powder-coating-1.jpg", link: "/services/powder-coating" },
+              { title: "Factory Cladding Shot Blasting", desc: "Specialist cladding restoration removing plastisol and paint layers from factory and industrial building panels.", img: "/factory-cladding-main.webp", link: "/services/factory-cladding" },
             ].map((service, i) => (
               <Link key={i} href={service.link}>
                 <Card className="group overflow-hidden hover:shadow-lg transition-shadow h-full cursor-pointer">

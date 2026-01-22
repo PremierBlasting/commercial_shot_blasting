@@ -85,7 +85,7 @@ const services: Service[] = [
     id: "factory-cladding",
     title: "Factory Cladding Shot Blasting",
     description: "Specialist cladding restoration removing plastisol and paint layers from factory and industrial building panels.",
-    image: "/cladding-before.webp"
+    image: "/factory-cladding-main.webp"
   }
 ];
 
