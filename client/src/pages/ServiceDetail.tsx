@@ -4,7 +4,7 @@ import { Link, useParams } from "wouter";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, ArrowLeft, Clock, Shield, Award, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { getServiceById, services } from "@/data/services";
-import { getServiceGallery } from "@/data/serviceGalleries";
+import { getServiceGallery, getServiceGalleries } from "@/data/serviceGalleries";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
@@ -307,21 +307,25 @@ export default function ServiceDetail() {
               </div>
 
               {/* Before & After Gallery */}
-              {getServiceGallery(service.id) && (
-                <div>
+              {getServiceGalleries(service.id).length > 0 && (
+                <div className="space-y-12">
                   <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
                     Transformation Gallery
                   </h2>
                   <p className="text-gray-600 mb-6">
                     See the dramatic difference our professional shot blasting service makes. Drag the slider to compare before and after results.
                   </p>
-                  <BeforeAfterSlider
-                    beforeImage={getServiceGallery(service.id)!.beforeImage}
-                    afterImage={getServiceGallery(service.id)!.afterImage}
-                    beforeLabel={getServiceGallery(service.id)!.beforeLabel}
-                    afterLabel={getServiceGallery(service.id)!.afterLabel}
-                    className="shadow-xl"
-                  />
+                  {getServiceGalleries(service.id).map((gallery, index) => (
+                    <div key={index} className="space-y-4">
+                      <BeforeAfterSlider
+                        beforeImage={gallery.beforeImage}
+                        afterImage={gallery.afterImage}
+                        beforeLabel={gallery.beforeLabel}
+                        afterLabel={gallery.afterLabel}
+                        className="shadow-xl"
+                      />
+                    </div>
+                  ))}
                 </div>
               )}
 

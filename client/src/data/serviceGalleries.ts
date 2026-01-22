@@ -37,17 +37,17 @@ export const serviceGalleries: ServiceGallery[] = [
   },
   {
     serviceId: "steel-containers",
-    beforeImage: "/steel-container-before-1.jpg",
-    afterImage: "/steel-container-after-1.jpg",
-    beforeLabel: "Before: Corroded Industrial Container",
-    afterLabel: "After: Clean & Ready for Coating"
-  },
-  {
-    serviceId: "steel-containers",
     beforeImage: "/steel-container-before-2.jpg",
     afterImage: "/steel-container-after-2.jpg",
     beforeLabel: "Before: Weathered Storage Tank",
     afterLabel: "After: Shot Blasted & Restored"
+  },
+  {
+    serviceId: "steel-containers",
+    beforeImage: "/steel-container-before-1.jpg",
+    afterImage: "/steel-container-after-1.jpg",
+    beforeLabel: "Before: Corroded Industrial Container",
+    afterLabel: "After: Clean & Ready for Coating"
   },
   {
     serviceId: "fixed-ladders",
@@ -81,4 +81,8 @@ export const serviceGalleries: ServiceGallery[] = [
 
 export function getServiceGallery(serviceId: string): ServiceGallery | undefined {
   return serviceGalleries.find(gallery => gallery.serviceId === serviceId);
+}
+
+export function getServiceGalleries(serviceId: string): ServiceGallery[] {
+  return serviceGalleries.filter(gallery => gallery.serviceId === serviceId);
 }
