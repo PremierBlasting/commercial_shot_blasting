@@ -545,6 +545,148 @@ export const services: ServiceData[] = [
         answer: "Yes, we can remove old galvanizing, rust, and corrosion from previously galvanized components, preparing them for re-galvanizing. This is a common requirement for tower refurbishment projects where the original galvanizing has deteriorated."
       }
     ]
+  },
+  {
+    id: "floor-preparation",
+    title: "Floor Preparation & Shot Blasting",
+    shortTitle: "Floor Preparation",
+    tagline: "Professional Floor Surface Preparation",
+    description: "Specialist shot blasting services for floor preparation across commercial and industrial facilities. We employ robust and efficient shot blasting techniques to ensure your floor surfaces are aesthetically enhanced and substantially strengthened. Whether removing paint, tar, epoxy coatings, or preparing concrete for new treatments, shot blasting is the most time and cost-efficient method to bring surfaces back to their original form.",
+    heroImage: "/floor-prep-1.jpg",
+    benefits: [
+      "Complete coating removal from concrete floors",
+      "Creates ideal surface profile for new coatings",
+      "Removes laitance from power-floated concrete",
+      "Time and cost-efficient preparation method",
+      "Suitable for car parks, warehouses, and industrial floors",
+      "Minimal disruption to operations"
+    ],
+    process: [
+      { step: 1, title: "Pre-Work Preparation", description: "We contain the work area by sheeting floors and sealing doorways and cracks to protect surrounding areas and control dust." },
+      { step: 2, title: "Precision Blasting", description: "Using controlled low-pressure shot blasting, we remove unwanted coatings and reveal the original surface characteristics with precision." },
+      { step: 3, title: "Surface Profiling", description: "The blasting process creates the optimal surface texture for maximum adhesion of subsequent coatings or treatments." },
+      { step: 4, title: "Complete Cleanup", description: "We perform thorough cleanup, removing all waste materials and leaving your facility clean and ready for the next phase." }
+    ],
+    applications: [
+      "Asphalt surface re-texturing",
+      "Bridge laitance removal",
+      "Car park decking preparation",
+      "Cleaning and texturing old concrete",
+      "Paint removal from concrete floors",
+      "Epoxy coating removal",
+      "Power-floated concrete preparation",
+      "Warehouse floor refurbishment"
+    ],
+    caseStudies: [],
+    faqs: [
+      {
+        question: "What types of floor coatings can be removed?",
+        answer: "Our shot blasting equipment can remove virtually any floor coating including paint, epoxy, tar, adhesives, and surface laitance from concrete floors."
+      },
+      {
+        question: "How long does floor preparation take?",
+        answer: "Project duration depends on floor area and coating thickness. Most commercial floors can be prepared at 100-300 square meters per day."
+      },
+      {
+        question: "Will shot blasting damage my concrete floor?",
+        answer: "No. When performed correctly by trained professionals, shot blasting removes only the surface coating and creates beneficial texture for new coatings without damaging the concrete substrate."
+      }
+    ]
+  },
+  {
+    id: "powder-coating",
+    title: "Shot Blasting & Powder Coating",
+    shortTitle: "Powder Coating",
+    tagline: "End-to-End Metal Surface Solutions",
+    description: "Complete metal surface preparation and powder coating service for commercial and industrial applications. We combine high-pressure shot blasting with premium powder coating application in one seamless process. Our integrated approach ensures metal surfaces are thoroughly cleaned, properly prepared, and finished with durable protective coatings—all handled by one team for consistent quality and faster turnaround.",
+    heroImage: "/powder-coating-1.jpg",
+    benefits: [
+      "Single-source accountability for preparation and coating",
+      "No flash rust between blasting and coating",
+      "Superior coating adhesion and longevity",
+      "Faster project completion with integrated service",
+      "Highly resistant to moisture, chemicals, and abrasion",
+      "Professional finish with uniform appearance"
+    ],
+    process: [
+      { step: 1, title: "Meticulous Preparation", description: "We contain and protect your site, then use abrasive blasting to strip away old paint, rust, and contaminants, creating the perfect texture for coating adhesion." },
+      { step: 2, title: "High-Performance Coating", description: "Immediately after preparation, we apply premium powder coating that bonds firmly to the metal surface, preventing flash rust and ensuring maximum durability." },
+      { step: 3, title: "Curing Process", description: "The powder coating is professionally cured to create a tough, uniform finish that resists weathering, corrosion, and wear." },
+      { step: 4, title: "Hassle-Free Completion", description: "We handle cleanup and leave your premises tidy with a superior powder-coated finish ready for immediate use." }
+    ],
+    applications: [
+      "Structural steel frame preparation",
+      "Warehouse and factory cladding",
+      "Machinery and equipment refurbishment",
+      "Staircases, railings, and balustrades",
+      "Storage tanks and fabrications",
+      "Metal components for assembly",
+      "Workshop floor equipment",
+      "Commercial building facades"
+    ],
+    caseStudies: [],
+    faqs: [
+      {
+        question: "Why combine shot blasting with powder coating?",
+        answer: "Integrating both services eliminates the risk of flash rust between preparation and coating, ensures optimal surface profile for adhesion, and provides single-source accountability with faster turnaround."
+      },
+      {
+        question: "What metals can be powder coated?",
+        answer: "We can powder coat most metals including steel, stainless steel, aluminum, and galvanized surfaces after proper shot blasting preparation."
+      },
+      {
+        question: "How durable is powder coating?",
+        answer: "When applied over properly shot-blasted surfaces, powder coating provides exceptional durability, typically lasting 15-20 years outdoors and even longer in protected environments."
+      }
+    ]
+  },
+  {
+    id: "factory-cladding",
+    title: "Factory Cladding Shot Blasting",
+    shortTitle: "Factory Cladding",
+    tagline: "Professional Cladding Surface Restoration",
+    description: "Specialist shot blasting for factory and industrial cladding panels. We remove original plastisol, multiple layers of paint, rust, and weathering from metal cladding to restore surfaces to bare metal condition. Our precision techniques preserve the integrity of cladding panels while creating flawless surfaces ready for new protective coatings, extending the life of your building envelope.",
+    heroImage: "/cladding-before.webp",
+    benefits: [
+      "Complete removal of plastisol and paint layers",
+      "Preserves cladding panel integrity",
+      "Prepares surfaces for long-lasting recoating",
+      "More cost-effective than cladding replacement",
+      "Minimal disruption to facility operations",
+      "Extends building envelope lifespan"
+    ],
+    process: [
+      { step: 1, title: "Site Assessment", description: "We assess cladding condition, coating types, and access requirements to plan the most effective blasting approach." },
+      { step: 2, title: "Area Protection", description: "Work zones are contained and protected to control blast media and prevent contamination of surrounding areas." },
+      { step: 3, title: "Controlled Blasting", description: "Using appropriate pressure and media, we systematically remove all coatings while preserving the cladding substrate." },
+      { step: 4, title: "Surface Inspection", description: "Cleaned panels are inspected to ensure complete coating removal and proper surface profile for recoating." },
+      { step: 5, title: "Coating Coordination", description: "Surfaces are prepared for immediate recoating to prevent oxidation and ensure optimal coating performance." }
+    ],
+    applications: [
+      "Factory wall cladding",
+      "Warehouse exterior panels",
+      "Industrial building facades",
+      "Commercial property cladding",
+      "Agricultural building cladding",
+      "Storage facility exteriors",
+      "Manufacturing plant cladding",
+      "Distribution center facades"
+    ],
+    caseStudies: [],
+    faqs: [
+      {
+        question: "Can you blast cladding in place?",
+        answer: "Yes, we can blast cladding panels while installed on buildings using specialized containment and access equipment, minimizing disruption to your operations."
+      },
+      {
+        question: "Will shot blasting damage thin cladding panels?",
+        answer: "No. Our experienced technicians use controlled pressure and appropriate blast media to remove coatings without damaging the underlying metal panels."
+      },
+      {
+        question: "How long before cladding needs recoating after blasting?",
+        answer: "We coordinate closely with coating contractors to apply new coatings within 24-48 hours of blasting to prevent surface oxidation and ensure optimal adhesion."
+      }
+    ]
   }
 ];
 

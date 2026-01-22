@@ -21,6 +21,8 @@ const questions: Question[] = [
       { label: "Stairs, Ladders & Access", value: "access" },
       { label: "Bridges & Infrastructure", value: "infrastructure" },
       { label: "Telecom & Tower Structures", value: "telecom" },
+      { label: "Concrete Floors & Surfaces", value: "floors" },
+      { label: "Factory/Warehouse Cladding", value: "cladding" },
     ],
   },
   {
@@ -48,10 +50,12 @@ const serviceRecommendations: Record<string, { id: string; name: string; reason:
   structural: [
     { id: "structural-steel-frames", name: "Structural Steel Frames", reason: "Perfect for large steel frame structures requiring comprehensive surface preparation" },
     { id: "bridge-steelwork", name: "Bridge Steelwork", reason: "Ideal for structural components in bridge and infrastructure projects" },
+    { id: "powder-coating", name: "Shot Blasting & Powder Coating", reason: "Complete end-to-end solution combining surface preparation with durable powder coating" },
   ],
   warehouse: [
     { id: "warehouse-racking", name: "Warehouse Racking & Pallet Rack Frames", reason: "Specialized service for warehouse storage systems refurbishment" },
     { id: "steel-containers", name: "Steel Container Blasting", reason: "Specialist shot blasting for shipping containers and storage tanks" },
+    { id: "factory-cladding", name: "Factory Cladding Shot Blasting", reason: "Professional restoration of warehouse and factory exterior cladding panels" },
   ],
   pipework: [
     { id: "pipework", name: "Process Pipework, Spools & Manifolds", reason: "Precision cleaning for industrial piping systems" },
@@ -67,6 +71,12 @@ const serviceRecommendations: Record<string, { id: string; name: string; reason:
   ],
   telecom: [
     { id: "telecom-towers", name: "Telecom Masts & Lattice Towers", reason: "Specialized treatment for telecommunications infrastructure" },
+  ],
+  floors: [
+    { id: "floor-preparation", name: "Floor Preparation & Shot Blasting", reason: "Professional concrete floor preparation removing coatings and creating ideal surface profiles" },
+  ],
+  cladding: [
+    { id: "factory-cladding", name: "Factory Cladding Shot Blasting", reason: "Specialist restoration removing plastisol and paint layers from building cladding panels" },
   ],
 };
 

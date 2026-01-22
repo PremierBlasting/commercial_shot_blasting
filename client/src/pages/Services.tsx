@@ -40,10 +40,10 @@ const services: Service[] = [
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"
   },
   {
-    id: "crane-beams",
-    title: "Crane Beams & Lifting Equipment",
-    description: "Critical surface preparation for load-bearing equipment, ensuring structural integrity.",
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800"
+    id: "steel-containers",
+    title: "Steel Container Blasting",
+    description: "Specialist shot blasting for steel containers and large storage structures, removing rust and old coatings.",
+    image: "/service-steel-containers.jpg"
   },
   {
     id: "ladders",
@@ -68,6 +68,24 @@ const services: Service[] = [
     title: "Telecom Masts & Lattice Towers",
     description: "Specialized treatment for telecommunications infrastructure, ensuring long-term protection.",
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800"
+  },
+  {
+    id: "floor-preparation",
+    title: "Floor Preparation & Shot Blasting",
+    description: "Professional floor surface preparation for commercial and industrial facilities, removing coatings and creating ideal surface profiles.",
+    image: "/floor-prep-1.jpg"
+  },
+  {
+    id: "powder-coating",
+    title: "Shot Blasting & Powder Coating",
+    description: "End-to-end metal surface solutions combining shot blasting with premium powder coating application.",
+    image: "/powder-coating-1.jpg"
+  },
+  {
+    id: "factory-cladding",
+    title: "Factory Cladding Shot Blasting",
+    description: "Specialist cladding restoration removing plastisol and paint layers from factory and industrial building panels.",
+    image: "/cladding-before.webp"
   }
 ];
 

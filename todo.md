@@ -104,3 +104,11 @@
 - [x] Fix Steel Container Blasting page to display two separate before/after galleries
 - [x] Reorder galleries so storage tank appears first, then industrial container
 - [x] Separate two before/after galleries on Steel Container page with content sections between them
+- [ ] Fetch content from Premier Blasting floor preparation page
+- [ ] Fetch content from Premier Blasting powder coating page
+- [ ] Create Floor Preparation (Shot Blasting Floors) service page
+- [ ] Create Powder Coating (End-to-End Projects) service page
+- [ ] Create Factory Cladding Blasting service page using review content
+- [ ] Add factory cladding review images to new service page
+- [ ] Update Find Your Perfect Service tool with Steel Containers, Floor Preparation, Powder Coating, and Factory Cladding
+- [ ] Update navigation menus with new services
