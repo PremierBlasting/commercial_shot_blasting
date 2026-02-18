@@ -1,0 +1,497 @@
+import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { Header } from "@/components/Header";
+import { QuotePopup } from "@/components/QuotePopup";
+import { LocationMap } from "@/components/LocationMap";
+import { Link } from "wouter";
+import { Card, CardContent } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
+import { Phone, ArrowRight, Shield, Clock, Award, Users, CheckCircle, Quote } from "lucide-react";
+import { NearbyTowns } from "@/components/NearbyTowns";
+import { nearbyTownsData } from "@/data/nearbyTowns";
+import { locationData } from "@/data/locationData";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
+import { HeroCarousel } from "@/components/HeroCarousel";
+
+// Placeholder component for a standard layout wrapper
+const PageLayout = ({ children }: { children: React.ReactNode }) => (
+  <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
+    {/* Assuming a layout component handles the main header/footer */}
+    {children}
+  </div>
+);
+
+export default function MiltonKeynesServiceArea() {
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = "Shot Blasting Milton Keynes | Industrial Services";
+    
+    // Set keywords meta tag
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', 'shot blasting Milton Keynes, rust removal, surface preparation, industrial blasting, Buckinghamshire');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'keywords';
+      meta.content = 'shot blasting Milton Keynes, rust removal, surface preparation, industrial blasting, Buckinghamshire';
+      document.head.appendChild(meta);
+    }
+  }, []);
+
+  useEffect(() => {
+    const description = locationData["milton-keynes"].description;
+    
+    // Set meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+
+    // Set Open Graph meta tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.setAttribute('content', 'Shot Blasting Milton Keynes');
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:title');
+      meta.setAttribute('content', 'Shot Blasting Milton Keynes');
+      document.head.appendChild(meta);
+    }
+
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) {
+      ogDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:description');
+      meta.setAttribute('content', description);
+      document.head.appendChild(meta);
+    }
+
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) {
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:url');
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      document.head.appendChild(meta);
+    }
+
+    // Set Twitter Card meta tags
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) {
+      twitterTitle.setAttribute('content', 'Shot Blasting Milton Keynes');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'twitter:title';
+      meta.content = 'Shot Blasting Milton Keynes';
+      document.head.appendChild(meta);
+    }
+
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDescription) {
+      twitterDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'twitter:description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+  }, []);
+
+  const services = [
+    { title: "Steel Shot Blasting", desc: "High-performance cleaning for steel structures, removing rust, mill scale, and old coatings." },
+    { title: "Concrete Preparation", desc: "Surface profiling for optimal coating adhesion on floors, walls, and structural elements, ideal for MK's logistics hubs." },
+    { title: "Rust Removal", desc: "Complete corrosion removal restoring metal surfaces to pristine condition for automotive and industrial clients." },
+    { title: "Paint Stripping", desc: "Safe and effective removal of old paint, primers, and protective coatings from commercial properties." },
+  ];
+
+  const industries = [
+    "Logistics & Warehousing", "Automotive Manufacturing & Restoration", "High-Tech & Data Centres",
+    "Construction & Infrastructure", "Financial Services Buildings", "Retail & Leisure Facilities"
+  ];
+
+  const testimonials = [
+    {
+      quote: "The team prepped our 5,000 sq ft warehouse floor near the M1 junction perfectly for a new epoxy coating. Fast, clean, and professional. Highly recommend for any Milton Keynes logistics operation.",
+      name: "David K.",
+      company: "MK Logistics Solutions"
+    },
+    {
+      quote: "Exceptional service on restoring a classic car chassis. The shot blasting was precise, and the surface was perfectly prepared for the next stage. True experts serving the local automotive scene.",
+      name: "Sarah P.",
+      company: "Bletchley Restoration Workshop"
+    },
+    {
+      quote: "We needed a quick turnaround on a steel structure for a new data centre build. Shot Blasting delivered on time and to a flawless standard. Great local support.",
+      name: "Mark T.",
+      company: "MK Infrastructure Group"
+    },
+  ];
+
+  const faqs = [
+    {
+      question: "What is the typical turnaround time for a project in Milton Keynes?",
+      answer: "Turnaround time depends on the project size and complexity. For standard industrial floor preparation (e.g., a 1,000 sq ft warehouse), we can often complete the job within 1-2 days. We prioritize minimizing disruption for our Milton Keynes clients."
+    },
+    {
+      question: "Do you offer dustless blasting options for sensitive environments like data centres?",
+      answer: "Yes, we offer advanced dustless and low-dust shot blasting techniques, which are ideal for the high-tech and sensitive environments common in Milton Keynes, ensuring minimal impact on surrounding operations."
+    },
+    {
+      question: "Is your service available across all of Buckinghamshire, or just Milton Keynes?",
+      answer: "While we specialize in serving the Milton Keynes area, we proudly extend our services across all of Buckinghamshire and the wider South East region, leveraging our strategic location near major transport links."
+    },
+    {
+      question: "How much does shot blasting cost in the Milton Keynes area?",
+      answer: "Pricing is project-specific. We offer a free, no-obligation quote after an initial site assessment. Factors include the size of the area, the type of surface, and the required profile. Contact us today for a precise estimate."
+    },
+  ];
+
+  return (
+    <PageLayout>
+            <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
+      
+{/* Breadcrumb Navigation */}
+      <div className="container py-4 bg-gray-50">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/">Home</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/service-areas">Service Areas</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Milton Keynes</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+
+      {/* Hero Section */}
+      <HeroCarousel className="py-20 lg:py-32">
+        <div className="max-w-3xl">
+          <p className="text-[#F5F1E8] font-medium mb-2">Professional Shot Blasting Services</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Premier Shot Blasting Services in Milton Keynes
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+            Serving the heart of Buckinghamshire, our specialist team provides high-quality surface preparation for the region's thriving logistics, automotive, and technology sectors. Get a fast, reliable quote today.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
+              Get a Free Quote Today
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
+              <a href="tel:07970566409" className="flex items-center gap-2">
+                <Phone className="w-5 h-5" />
+                Call Now
+              </a>
+            </Button>
+          </div>
+        </div>
+      </HeroCarousel>{/* Why Choose Us Section - Localized */}
+      <section className="py-20 bg-white">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-[#2C5F7F] font-medium mb-2">Why Choose Us in Milton Keynes</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                The Surface Preparation Experts for the M1 Corridor
+              </h2>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                We are a trusted family-run business with a deep understanding of the unique industrial and commercial needs of Milton Keynes and the wider South East. Our advanced shot blasting technology delivers exceptional results for the region's logistics, automotive, and high-tech sectors.
+              </p>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Our local team is dedicated to providing unparalleled services, focusing on efficiency and high safety standards, especially crucial when working near major transport links and dense business parks.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  { icon: Shield, text: "Fully Insured" },
+                  { icon: Award, text: "Specialists in Logistics & Auto" },
+                  { icon: Clock, text: "Fast Turnaround for MK Businesses" },
+                  { icon: Users, text: "Local Expert Team" },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3 p-4 bg-[#F5F1E8] rounded-lg">
+                    <item.icon className="w-6 h-6 text-[#2C5F7F]" />
+                    <span className="font-medium">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              {/* Placeholder image for local context */}
+              <img loading="lazy" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600" alt="Shot blasting in an industrial setting" className="rounded-lg shadow-xl" />
+              <div className="absolute -bottom-6 -left-6 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg">
+                <p className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>20+</p>
+                <p className="text-sm">Years Experience</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
+
+      {/* Before/After Slider */}
+      <section className="py-12 bg-white">
+        <div className="container">
+          <div className="mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Milton Keynes Project Transformation
+            </h2>
+            <p className="text-gray-600">See the results of our professional shot blasting work</p>
+          </div>
+          <BeforeAfterSlider
+            beforeImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VEiAvFTFwMSPdMnF.webp"
+            afterImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TicEtXjfKsaOJYbR.webp"
+            beforeLabel="Before"
+            afterLabel="After"
+          />
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
+              Request a Quote
+            </Button>
+            <TrackedPhoneButton
+              location="Milton Keynes"
+              phoneNumber="07970566409"
+              variant="outline"
+              size="lg"
+              className="border-[#2C5F7F] text-[#2C5F7F]"
+            >
+              Call Now
+            </TrackedPhoneButton>
+          </div>
+        </div>
+      </section>
+
+      
+
+      {/* Services Section - Standard services, localized intro */}
+      <section id="services" className="py-20 bg-[#F5F1E8]">
+        <div className="container">
+          <div className="text-center mb-12">
+            <p className="text-[#2C5F7F] font-medium mb-2">Our Expert Services in Milton Keynes</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Comprehensive Surface Preparation Solutions
+            </h2>
+            <p className="text-gray-600 mt-4 max-w-3xl mx-auto">
+              From preparing vast warehouse floors to restoring classic car parts, our shot blasting services are tailored to meet the high standards of Milton Keynes' diverse economy.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service, i) => (
+              <Card key={i} className="group overflow-hidden hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <CheckCircle className="w-8 h-8 text-[#2C5F7F] mb-3" />
+                  <h3 className="text-xl font-semibold mb-2 text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>{service.title}</h3>
+                  <p className="text-gray-600 mb-4">{service.desc}</p>
+                  <a href="/contact" className="inline-flex items-center text-[#2C5F7F] font-medium hover:gap-2 transition-all">
+                    Learn More <ArrowRight className="w-4 h-4 ml-1" />
+                  </a>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Served Section - Localized */}
+      <section id="industries" className="py-20 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <p className="text-[#2C5F7F] font-medium mb-2">Industries We Serve in Milton Keynes</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Supporting the Key Sectors of Buckinghamshire
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {industries.map((industry, i) => (
+              <div key={i} className="bg-[#F5F1E8] p-6 rounded-lg text-center hover:shadow-md transition-shadow">
+                <CheckCircle className="w-8 h-8 text-[#2C5F7F] mx-auto mb-3" />
+                <p className="font-medium text-[#2C2C2C]">{industry}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Local Testimonials Section */}
+      <section className="py-20 bg-[#2C5F7F] text-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <p className="text-white/80 font-medium mb-2">What Our Milton Keynes Clients Say</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Trusted by Local Businesses
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((t, i) => (
+              <Card key={i} className="bg-white text-[#2C2C2C] p-6 shadow-lg">
+                <Quote className="w-8 h-8 text-[#2C5F7F] mb-4" />
+                <p className="italic mb-4">"{t.quote}"</p>
+                <p className="font-semibold">{t.name}</p>
+                <p className="text-sm text-gray-500">{t.company}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* Preparation & Cleanup Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="text-sm font-semibold text-primary mb-2">Our Process</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Expert Site Preparation & Protection Standards
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Shot blasting quality starts with preparation and ends with cleanup. We implement a proven approach to site protection, containment systems, and complete restoration – ensuring Milton Keynes facilities receive outstanding results with minimal operational impact.
+              </p>
+              <p className="text-gray-600 mb-8">
+                From isolating work zones and protecting delicate fixtures to thorough post-blast cleanup and waste disposal, we follow a fixed four-stage process that delivers predictable results and leaves your site ready for the next phase of work.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    1
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Containment & Protection</h3>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    2
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Surface Preparation</h3>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    3
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Protection of Delicate Areas</h3>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    4
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Post-Blast Clean-Down</h3>
+                  </div>
+                </div>
+              </div>
+              <Link href="/preparation-cleanup">
+                <Button variant="default" size="lg">
+                  Learn More About Our Process
+                </Button>
+              </Link>
+            </div>
+            <div className="relative">
+              <div className="relative rounded-lg overflow-hidden shadow-xl">
+                <img loading="lazy"
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/LXqZHnZoEOfqdiqX.webp"
+                  alt="Clean warehouse after shot blasting"
+                  className="w-full h-auto"
+                />
+                <div className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-lg shadow-lg">
+                  <div className="text-3xl font-bold text-primary">4</div>
+                  <div className="text-sm text-gray-600">Stage Process</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section - Localized */}
+      <section className="py-20 bg-white">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-12">
+            <p className="text-[#2C5F7F] font-medium mb-2">Frequently Asked Questions</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Answers for Milton Keynes Projects
+            </h2>
+          </div>
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, i) => (
+              <AccordionItem key={i} value={`item-${i}`}>
+                <AccordionTrigger className="text-left font-semibold hover:no-underline">{faq.question}</AccordionTrigger>
+                <AccordionContent className="text-gray-600">{faq.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* Service Area Map */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C5F7F] mb-4">
+              Our Shot Blasting Services in Milton Keynes
+            </h2>
+            <p className="text-lg text-gray-600">
+              We provide professional shot blasting services throughout Milton Keynes and the surrounding region. The map shows our primary service area with a 25-mile radius.
+            </p>
+          </div>
+          <LocationMap locationName="MiltonKeynes" />
+        </div>
+      </section>
+
+      {/* CTA Section - Standard */}
+      <section className="py-16 bg-[#2C5F7F] text-white">
+        <div className="container">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div>
+              <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Ready to Transform Your Surfaces in Milton Keynes?
+              </h2>
+              <p className="text-white/80">Contact us today for a free, no-obligation quote for your Buckinghamshire project.</p>
+            </div>
+            <div className="flex gap-4">
+              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Get a Quote</Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Phone className="w-4 h-4 mr-2" /> Call Us
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Nearby Towns Section */}
+      <NearbyTowns 
+        locationName={nearbyTownsData["milton-keynes"].location}
+        towns={nearbyTownsData["milton-keynes"].towns}
+      />
+
+      {/* Contact Section Placeholder (Assuming a full contact form would be here, but using the CTA as the final element for simplicity) */}
+    </PageLayout>
+  );
+}

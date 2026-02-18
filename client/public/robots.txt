@@ -1,0 +1,57 @@
+# robots.txt for Commercial Shot Blasting
+# https://commercialshotblasting.co.uk/robots.txt
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow crawling of admin and internal pages
+Disallow: /admin
+Disallow: /api/
+Disallow: /_core/
+Disallow: /__manus__/
+Disallow: /dashboard
+
+# Disallow crawling of query parameters that don't change content
+Disallow: /*?utm_source=
+Disallow: /*?utm_medium=
+Disallow: /*?utm_campaign=
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+Disallow: /*?ref=
+
+# Allow crawling of CSS, JS, and images for proper rendering
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp
+
+# Sitemap references - all sitemaps for efficient discovery
+Sitemap: https://commercialshotblasting.co.uk/sitemap.xml
+Sitemap: https://commercialshotblasting.co.uk/sitemap-main.xml
+Sitemap: https://commercialshotblasting.co.uk/sitemap-counties.xml
+Sitemap: https://commercialshotblasting.co.uk/sitemap-locations-1.xml
+Sitemap: https://commercialshotblasting.co.uk/sitemap-locations-2.xml
+Sitemap: https://commercialshotblasting.co.uk/sitemap-images.xml
+
+# Crawl-delay for respectful crawling (1 second between requests)
+Crawl-delay: 1
+
+# Slow down aggressive crawlers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Block problematic bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

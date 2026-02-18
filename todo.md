@@ -1,0 +1,25 @@
+# Commercial Shot Blasting - Manus Migration TODO
+
+- [x] Copy all client components (LocationRouter, LocationPage, ServiceRadiusMap, Map, etc.)
+- [x] Copy all client pages (Blog, Gallery, About, Contact, Services, Industries, Counties, etc.)
+- [x] Copy all client data files (locationData, countyData, serviceData, etc.)
+- [x] Copy all client hooks and utilities
+- [x] Copy App.tsx routes and main.tsx with HelmetProvider
+- [x] Copy index.css and all styles
+- [x] Copy public assets (sitemaps, robots.txt, static HTML pages, images)
+- [x] Copy server routers.ts with all tRPC procedures
+- [x] Copy server db.ts with all database query helpers
+- [x] Copy server metaTags.ts for SEO injection
+- [x] Update vite.ts with crawler detection middleware
+- [x] Copy drizzle schema with all tables + import database (39 SQL statements, 12 tables)
+- [x] Push database schema to Manus DB
+- [x] Install additional dependencies (react-helmet-async, etc.)
+- [x] Configure environment variables (VITE_FRONTEND_FORGE_API_KEY, VITE_GA_MEASUREMENT_ID, etc.)
+- [x] Build and fix compilation errors (sitemap reference, HelmetProvider)
+- [x] Test all features (blog, gallery, maps, locations, counties)
+- [x] Run production build test
+- [x] Upload 251 media files + 2 PDFs to S3 CDN
+- [x] Replace all local image paths with CDN URLs (510 replacements in 127 files)
+- [x] Fix static HTML OG URLs from manus.space to commercialshotblasting.co.uk
+- [x] Save checkpoint and deploy
+- [x] Save checkpoint and deliver
