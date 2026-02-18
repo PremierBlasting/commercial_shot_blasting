@@ -1,16 +1,26 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { HubSpotForm } from "./HubSpotForm";
+import { useEffect } from "react";
+import { trackQuoteRequest } from "@/lib/analytics";
 
 interface QuotePopupProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  locationName?: string;
 }
 
 /**
  * Quote Popup Modal
  * Displays HubSpot form in a modal dialog
  */
-export function QuotePopup({ open, onOpenChange }: QuotePopupProps) {
+export function QuotePopup({ open, onOpenChange, locationName }: QuotePopupProps) {
+  // Track when quote popup opens
+  useEffect(() => {
+    if (open) {
+      trackQuoteRequest('Quote Popup');
+    }
+  }, [open]);
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto bg-[#F5F1E8]">
@@ -26,7 +36,7 @@ export function QuotePopup({ open, onOpenChange }: QuotePopupProps) {
           </DialogDescription>
         </DialogHeader>
         <div className="mt-4">
-          <HubSpotForm className="hubspot-popup-form" />
+          <HubSpotForm className="hubspot-popup-form" locationName={locationName} />
         </div>
       </DialogContent>
     </Dialog>

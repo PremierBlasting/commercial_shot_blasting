@@ -23,6 +23,10 @@ const questions: Question[] = [
       { label: "Telecom & Tower Structures", value: "telecom" },
       { label: "Concrete Floors & Surfaces", value: "floors" },
       { label: "Factory/Warehouse Cladding", value: "cladding" },
+      { label: "Radiators & Heating Systems", value: "radiators" },
+      { label: "Vehicles & Machinery", value: "vehicles" },
+      { label: "Doors, Gates & Railings", value: "doors-gates" },
+      { label: "Steel Sheeting & Panels", value: "sheeting" },
     ],
   },
   {
@@ -77,6 +81,21 @@ const serviceRecommendations: Record<string, { id: string; name: string; reason:
   ],
   cladding: [
     { id: "factory-cladding", name: "Factory Cladding Shot Blasting", reason: "Specialist restoration removing plastisol and paint layers from building cladding panels" },
+  ],
+  radiators: [
+    { id: "commercial-radiators", name: "Commercial Radiators", reason: "Professional restoration for cast iron and steel radiators in commercial buildings and heritage properties" },
+  ],
+  vehicles: [
+    { id: "commercial-vehicles", name: "Commercial & Agricultural Vehicles", reason: "Heavy-duty restoration for farm trucks, warehouse vehicles, and industrial transport equipment" },
+    { id: "plant-machinery", name: "Plant & Machinery", reason: "On-site shot blasting for construction equipment, agricultural machinery, and industrial plant" },
+  ],
+  "doors-gates": [
+    { id: "steel-doors", name: "Steel Doors & Roller Shutters", reason: "Professional restoration for industrial doors, warehouse roller shutters, and security systems" },
+    { id: "steel-gates", name: "Steel Gates & Railings", reason: "Precision restoration for commercial and industrial entrance gates, perimeter railings, and decorative metalwork" },
+  ],
+  sheeting: [
+    { id: "steel-sheeting", name: "Steel Sheeting", reason: "Professional surface preparation for steel sheets, panels, and flat metal products used in construction and manufacturing" },
+    { id: "steel-containers", name: "Steel Container Blasting", reason: "Specialist shot blasting for large steel panels and container surfaces" },
   ],
 };
 

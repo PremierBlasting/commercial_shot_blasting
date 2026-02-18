@@ -14,30 +14,30 @@ export default function ManufacturingIndustry() {
     {
       title: "Warehouse Racking & Pallet Frames",
       description: "Professional shot blasting for warehouse racking systems and storage infrastructure. Extend the life of your material handling equipment with cost-effective refurbishment.",
-      image: "/service-warehouse-racking.png",
+      image: "/service-warehouse-racking.webp",
       link: "/services/warehouse-racking",
       benefits: ["60% cost saving vs replacement", "Powder coating ready", "Minimal downtime"]
     },
     {
       title: "Crane Beams, Gantries & Runway Rails",
       description: "Specialist surface preparation for overhead crane systems and material handling infrastructure. Maintain dimensional tolerances while removing rust and coatings.",
-      image: "/service-crane-beams.png",
+      image: "/service-crane-beams.webp",
       link: "/services/crane-beams",
       benefits: ["Preserves tolerances", "Load testing coordination", "Weekend scheduling"]
     },
     {
       title: "Process Pipework & Manifolds",
-      description: "Precision cleaning for food-grade, pharmaceutical, and chemical process pipework. Meet stringent cleanliness standards for regulated industries.",
-      image: "/service-pipework.png",
+      description: "Precision cleaning for food-grade, pharmaceutical, and chemical process pipework. Meet stringent cleanliness levels for regulated industries.",
+      image: "/service-pipework.webp",
       link: "/services/pipework",
-      benefits: ["Food-grade certified", "Pharmaceutical compliant", "Full traceability"]
+      benefits: ["Food-grade quality", "Pharmaceutical compliant", "Full traceability"]
     },
     {
       title: "Fixed Ladders & Access Platforms",
       description: "Comprehensive surface preparation for industrial access systems. Ensure compliance with working at height regulations and extend equipment life.",
-      image: "/service-ladders.png",
+      image: "/service-ladders.webp",
       link: "/services/ladders",
-      benefits: ["Safety certified", "Galvanizing preparation", "Regulatory compliance"]
+      benefits: ["Safety compliant", "Galvanizing preparation", "Regulatory compliance"]
     }
   ];
 
@@ -55,12 +55,12 @@ export default function ManufacturingIndustry() {
     {
       icon: Cog,
       title: "Maintaining Equipment Standards",
-      description: "Manufacturing equipment must meet precise specifications. Our processes preserve dimensional tolerances while achieving required cleanliness standards."
+      description: "Manufacturing equipment must meet precise requirements. Our processes preserve dimensional tolerances while achieving required cleanliness levels."
     },
     {
       icon: Factory,
-      title: "Regulatory Compliance",
-      description: "Food, pharmaceutical, and chemical industries face strict regulations. We provide certified surface preparation with full documentation and traceability."
+      title: "Quality Service",
+      description: "Food, pharmaceutical, and chemical industries face high standards. We provide high-quality surface preparation with full documentation and traceability."
     }
   ];
 
@@ -69,7 +69,7 @@ export default function ManufacturingIndustry() {
     client: "National Logistics Company",
     challenge: "A 50,000 sq ft distribution center required complete refurbishment of corroded pallet racking systems serving 24/7 operations. Rust and damaged powder coating compromised both safety and appearance. The facility could not afford extended downtime for replacement.",
     solution: "We coordinated a phased refurbishment program, removing and processing racking sections zone by zone. Over 200 racking components were shot blasted to remove all rust and old coatings, then powder coated and reinstalled. Work was scheduled around warehouse operations to maintain continuous service.",
-    result: "The client saved over 60% compared to new racking replacement costs. All components were restored to like-new condition and certified safe for continued use. The phased approach allowed the warehouse to maintain operations throughout the 8-week refurbishment program.",
+    result: "The client saved over 60% compared to new racking replacement costs. All components were restored to like-new condition and verified safe for continued use. The phased approach allowed the warehouse to maintain operations throughout the 8-week refurbishment program.",
     stats: [
       { label: "Cost Saving", value: "60%" },
       { label: "Components Processed", value: "200+" },
@@ -104,7 +104,7 @@ export default function ManufacturingIndustry() {
               Shot Blasting Solutions for Manufacturing Facilities
             </h1>
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-              Cost-effective refurbishment and surface preparation for warehouse racking, crane systems, process pipework, and industrial access equipment. Minimize downtime, maximize equipment life, maintain compliance.
+              Cost-effective refurbishment and surface preparation for warehouse racking, crane systems, process pipework, and industrial access equipment. Minimize downtime, maximize equipment life, maintain quality.
             </p>
             <div className="flex flex-wrap gap-4">
               <button
@@ -169,7 +169,8 @@ export default function ManufacturingIndustry() {
             {manufacturingServices.map((service, index) => (
               <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all">
                 <div className="h-64 overflow-hidden">
-                  <img 
+                  <img loading="lazy"
+                    
                     src={service.image} 
                     alt={service.title} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -252,7 +253,7 @@ export default function ManufacturingIndustry() {
                     {[
                       "Flexible scheduling around production",
                       "60% cost saving vs equipment replacement",
-                      "Food-grade and pharmaceutical certified",
+                      "Food-grade and pharmaceutical quality",
                       "Fast turnaround to minimize downtime"
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm">
@@ -281,12 +282,12 @@ export default function ManufacturingIndustry() {
             {[
               {
                 title: "Food & Beverage Processing",
-                description: "Food-grade shot blasting for process pipework, tanks, and equipment. Meet HACCP and BRC standards.",
+                description: "Food-grade shot blasting for process pipework, tanks, and equipment. Meet industry requirements.",
                 icon: "🍽️"
               },
               {
                 title: "Pharmaceutical Manufacturing",
-                description: "Precision cleaning for pharmaceutical process equipment. Full traceability and certification.",
+                description: "Precision cleaning for pharmaceutical process equipment. Full traceability and documentation.",
                 icon: "💊"
               },
               {
@@ -328,8 +329,9 @@ export default function ManufacturingIndustry() {
           <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
             <div className="md:flex">
               <div className="md:w-2/5">
-                <img
-                  src="/blog-warehouse-racking.jpg"
+                <img loading="lazy"
+                    
+                  src="/blog-warehouse-racking.webp"
                   alt="Warehouse Racking Refurbishment"
                   className="w-full h-full object-cover"
                 />
@@ -377,7 +379,7 @@ export default function ManufacturingIndustry() {
             Ready to Refurbish Your Manufacturing Equipment?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Get a free quote for warehouse racking, crane systems, process pipework, or access equipment. Save 60% vs replacement, minimize downtime, maintain compliance.
+            Get a free quote for warehouse racking, crane systems, process pipework, or access equipment. Save 60% vs replacement, minimize downtime, maintain quality.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button

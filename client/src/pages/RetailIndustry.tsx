@@ -14,28 +14,28 @@ export default function RetailIndustry() {
     {
       title: "Shopping Trolleys & Baskets",
       description: "Professional shot blasting and refurbishment of shopping trolleys, baskets, and carts. Remove rust, old paint, and damage to restore equipment to like-new condition at a fraction of replacement cost.",
-      image: "/service-warehouse-racking.png",
+      image: "/service-warehouse-racking.webp",
       link: "/services/warehouse-racking",
       benefits: ["70% cost saving vs replacement", "Powder coating ready", "Brand colour matching"]
     },
     {
       title: "Shop Fittings & Display Units",
       description: "Comprehensive surface preparation for metal shop fittings, display stands, gondolas, and retail shelving systems. Extend equipment life and maintain professional store appearance.",
-      image: "/service-warehouse-racking.png",
+      image: "/service-warehouse-racking.webp",
       link: "/services/warehouse-racking",
       benefits: ["Preserves structural integrity", "Custom finishes available", "Quick turnaround"]
     },
     {
       title: "Warehouse Racking & Storage",
       description: "Shot blasting for retail warehouse and stockroom racking systems. Remove corrosion and prepare surfaces for protective coatings to ensure safety compliance and longevity.",
-      image: "/service-warehouse-racking.png",
+      image: "/service-warehouse-racking.webp",
       link: "/services/warehouse-racking",
       benefits: ["Safety certified", "SEMA compliance support", "Minimal disruption"]
     },
     {
       title: "Security Fixtures & Barriers",
       description: "Surface preparation for security bollards, barriers, crowd control equipment, and safety fixtures. Maintain both functionality and appearance of essential retail security infrastructure.",
-      image: "/service-structural-steel.png",
+      image: "/service-structural-steel.webp",
       link: "/services/structural-steel-frames",
       benefits: ["Corrosion protection", "High-visibility finishes", "Durable coatings"]
     }
@@ -101,10 +101,6 @@ export default function RetailIndustry() {
     {
       title: "PUWER Regulations",
       description: "Provision and Use of Work Equipment Regulations ensuring equipment fitness for purpose."
-    },
-    {
-      title: "BS EN 15635",
-      description: "European standard for steel static storage systems, covering inspection and maintenance requirements."
     }
   ];
 
@@ -199,7 +195,7 @@ export default function RetailIndustry() {
             {retailServices.map((service, index) => (
               <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all">
                 <div className="h-64 overflow-hidden">
-                  <img 
+                  <img loading="lazy"
                     src={service.image} 
                     alt={service.title} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

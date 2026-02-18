@@ -91,7 +91,7 @@ export function BlogPreview() {
                 <Card className="h-full hover:shadow-xl transition-shadow cursor-pointer group overflow-hidden">
                   {/* Featured Image */}
                   <div className="relative h-48 overflow-hidden">
-                    <img
+                    <img loading="lazy"
                       src={post.featuredImage}
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

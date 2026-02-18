@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Header } from "@/components/Header";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import { Footer } from "@/components/Footer";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Button } from "@/components/ui/button";
@@ -19,82 +20,140 @@ const services: Service[] = [
     id: "structural-steel-frames",
     title: "Structural Steel Frames",
     description: "High-performance cleaning for steel structures, removing rust, mill scale, and old coatings.",
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800"
-  },
-  {
-    id: "fire-escapes",
-    title: "Fire Escapes & External Stair Towers",
-    description: "Complete restoration of fire escape structures, ensuring safety compliance and longevity.",
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800"
-  },
-  {
-    id: "staircases",
-    title: "Internal Staircases & Handrails",
-    description: "Precision cleaning for architectural metalwork, preparing surfaces for premium finishes.",
-    image: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800"
-  },
-  {
-    id: "bridge-steelwork",
-    title: "Bridge Steelwork",
-    description: "Specialized treatment for bridge components, meeting stringent infrastructure standards.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800"
+    image: "/service-structural-steel.webp"
   },
   {
     id: "steel-containers",
     title: "Steel Container Blasting",
     description: "Specialist shot blasting for steel containers and large storage structures, removing rust and old coatings.",
-    image: "/service-steel-containers.jpg"
+    image: "/service-steel-containers.webp"
+  },
+  {
+    id: "factory-cladding",
+    title: "Factory & Warehouse Cladding",
+    description: "Specialist cladding restoration removing plastisol and paint layers from factory and industrial building panels.",
+    image: "/factory-cladding-main.webp"
+  },
+  {
+    id: "fire-escapes",
+    title: "Fire Escapes & External Stair Towers",
+    description: "Complete restoration of fire escape structures, ensuring safety compliance and longevity.",
+    image: "/service-fire-escapes.webp"
+  },
+  {
+    id: "staircases",
+    title: "Internal Staircases & Handrails",
+    description: "Precision cleaning for architectural metalwork, preparing surfaces for premium finishes.",
+    image: "/service-staircases.webp"
+  },
+  {
+    id: "bridge-steelwork",
+    title: "Bridge Steelwork",
+    description: "Specialized treatment for bridge components, meeting stringent infrastructure standards.",
+    image: "/service-bridge-steelwork.webp"
   },
   {
     id: "ladders",
     title: "Fixed Ladders & Access Systems",
     description: "Thorough cleaning of access equipment, removing corrosion and preparing for protective coatings.",
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800"
+    image: "/service-ladders.webp"
   },
   {
     id: "warehouse-racking",
     title: "Warehouse Racking Systems",
     description: "Complete refurbishment of storage systems, extending service life and improving appearance.",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800"
+    image: "/service-warehouse-racking.webp"
   },
   {
     id: "pipework",
     title: "Process Pipework",
     description: "Surface profiling for optimal coating adhesion on industrial pipework and process equipment.",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800"
+    image: "/service-pipework.webp"
   },
   {
     id: "telecom-towers",
     title: "Telecom Masts & Lattice Towers",
     description: "Specialized treatment for telecommunications infrastructure, ensuring long-term protection.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800"
+    image: "/service-telecom-tower.webp"
   },
   {
     id: "floor-preparation",
     title: "Floor Preparation & Shot Blasting",
     description: "Professional floor surface preparation for commercial and industrial facilities, removing coatings and creating ideal surface profiles.",
-    image: "/floor-prep-1.jpg"
+    image: "/floor-prep-1.webp"
   },
   {
     id: "powder-coating",
     title: "Shot Blasting & Powder Coating",
     description: "End-to-end metal surface solutions combining shot blasting with premium powder coating application.",
-    image: "/powder-coating-1.jpg"
+    image: "/powder-coating-cropped.webp"
   },
   {
-    id: "factory-cladding",
-    title: "Factory Cladding Shot Blasting",
-    description: "Specialist cladding restoration removing plastisol and paint layers from factory and industrial building panels.",
-    image: "/factory-cladding-main.webp"
+    id: "commercial-radiators",
+    title: "Commercial Radiators",
+    description: "Professional restoration for cast iron and steel radiators in commercial buildings and heritage properties.",
+    image: "/radiator-hero-new.webp"
+  },
+  {
+    id: "commercial-vehicles",
+    title: "Commercial & Agricultural Vehicles",
+    description: "Heavy-duty restoration for farm trucks, warehouse vehicles, and industrial transport equipment including complete chassis and wheel restoration.",
+    image: "/vehicle-complete-after-2.webp"
+  },
+  {
+    id: "steel-doors",
+    title: "Steel Doors & Roller Shutters",
+    description: "Professional restoration for industrial doors, warehouse roller shutters, security doors, and commercial access systems.",
+    image: "/door-after-1.webp"
+  },
+  {
+    id: "steel-sheeting",
+    title: "Steel Sheeting",
+    description: "Professional surface preparation for steel sheets, panels, and flat metal products used in construction and manufacturing.",
+    image: "/steel-sheeting-hero.webp"
+  },
+  {
+    id: "steel-gates",
+    title: "Steel Gates & Railings",
+    description: "Precision restoration for commercial and industrial entrance gates, perimeter railings, and decorative metalwork.",
+    image: "/steel-gates-after.webp"
+  },
+  {
+    id: "plant-machinery",
+    title: "Plant & Machinery",
+    description: "On-site shot blasting for construction equipment, agricultural machinery, and industrial plant without the need for transportation.",
+    image: "/plant-machinery-hero.webp"
   }
 ];
 
 export default function Services() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
+  useEffect(() => {
+    // Set page-specific SEO meta tags
+    document.title = "Shot Blasting Services UK | Commercial & Industrial";
+    
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Professional shot blasting services for steel, concrete, metal & industrial surfaces. Structural steel, containers, floors, pipework & more. Call 07970 566409');
+    }
+    
+    // Update meta keywords (reduced from 9 to 7)
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', 'shot blasting services, steel blasting, industrial blasting, concrete blasting, metal surface preparation, commercial blasting, UK');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services", isCurrentPage: true }
+      ]} className="container mt-6" />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
 
       {/* Hero Section */}
@@ -124,10 +183,11 @@ export default function Services() {
             {services.map((service) => (
               <Card key={service.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div className="h-64 overflow-hidden">
-                  <img 
+                  <img loading="lazy"
                     src={service.image} 
                     alt={service.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    
                   />
                 </div>
                 <CardHeader>

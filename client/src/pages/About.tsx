@@ -4,6 +4,8 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Shield, Award, Clock, Users, CheckCircle, Phone } from "lucide-react";
 import { useState } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
+import { trackPhoneCall } from "@/lib/analytics";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 export default function About() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -12,6 +14,11 @@ export default function About() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header onOpenQuotePopup={openQuotePopup} />
+      
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: "About", href: "/about", isCurrentPage: true }
+      ]} className="container mt-6" />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3a4d] text-white py-20">
@@ -41,12 +48,12 @@ export default function About() {
                 We are a trusted family-run business with the mission to provide superior shot blasting solutions for industrial and commercial environments across the UK. Our advanced shot blasting technology delivers exceptional results at competitive prices.
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                As part of our commitment, we employ an expert team dedicated to providing unparalleled services while maintaining high safety standards that protect both your property and our environment.
+                As part of our commitment, we employ an expert team dedicated to providing unparalleled services while maintaining high safety standards that protect your property.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
                   { icon: Shield, text: "Fully Insured" },
-                  { icon: Award, text: "Industry Certified" },
+                  { icon: Award, text: "Quality Assured" },
                   { icon: Clock, text: "Fast Turnaround" },
                   { icon: Users, text: "Expert Team" },
                 ].map((item, i) => (
@@ -59,10 +66,10 @@ export default function About() {
             </div>
             <div className="relative">
               <BeforeAfterSlider
-                beforeImage="/warehouse-before.jpg"
-                afterImage="/warehouse-after.jpg"
-                beforeLabel="Before: Rusted & Corroded"
-                afterLabel="After: Shot Blasted"
+                beforeImage="/warehouse-before.webp"
+                afterImage="/warehouse-after.webp"
+                beforeLabel="Before"
+                afterLabel="After"
                 className="shadow-xl"
               />
               <div className="absolute -bottom-6 -left-6 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg z-20">
@@ -170,6 +177,7 @@ export default function About() {
             </button>
             <a
               href="tel:07970566409"
+              onClick={() => trackPhoneCall('07970566409', 'About Page')}
               className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2"
             >
               <Phone className="w-5 h-5" />

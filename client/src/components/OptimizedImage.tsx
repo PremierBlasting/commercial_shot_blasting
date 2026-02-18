@@ -7,6 +7,8 @@ interface OptimizedImageProps {
   thumbnailSrc?: string;
   webpSrc?: string;
   loading?: "lazy" | "eager";
+  priority?: boolean;
+  sizes?: string;
   onLoad?: () => void;
 }
 

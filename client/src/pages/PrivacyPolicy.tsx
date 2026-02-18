@@ -296,7 +296,7 @@ export default function PrivacyPolicy() {
               <ul className="space-y-2 text-white/70 text-sm">
                 <li><a href="/#about" className="hover:text-white transition">About Us</a></li>
                 <li><a href="/#industries" className="hover:text-white transition">Industries</a></li>
-                <li><Link href="/gallery" className="hover:text-white transition">Gallery</Link></li>
+                <li><Link href="/our-work" className="hover:text-white transition">Our Work</Link></li>
                 <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
                 <li><Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link></li>
               </ul>
@@ -318,7 +318,7 @@ export default function PrivacyPolicy() {
                 </li>
                 <li className="flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
-                  Nationwide UK Service
+                  Professional service across England & Wales
                 </li>
               </ul>
             </div>

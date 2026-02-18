@@ -1,0 +1,32 @@
+SITEMAP URLs FOR GOOGLE SEARCH CONSOLE SUBMISSION
+=================================================
+
+PRIMARY SITEMAP (Submit this one to Google Search Console):
+------------------------------------------------------------
+https://commercialshotblasting.co.uk/sitemap.xml
+
+
+INDIVIDUAL SITEMAPS (Auto-discovered by Google):
+-------------------------------------------------
+https://commercialshotblasting.co.uk/sitemap-main.xml
+https://commercialshotblasting.co.uk/sitemap-counties.xml
+https://commercialshotblasting.co.uk/sitemap-locations-1.xml
+https://commercialshotblasting.co.uk/sitemap-locations-2.xml
+
+
+INSTRUCTIONS:
+-------------
+1. Go to: https://search.google.com/search-console
+2. Select your website property
+3. Click "Sitemaps" in the left sidebar
+4. Enter: sitemap.xml
+5. Click "Submit"
+
+Google will automatically discover and crawl all referenced sitemaps.
+
+TOTAL URLS: 660
+- Main pages: 29
+- County pages: 26
+- Location pages: 605
+
+Last Updated: February 4, 2026

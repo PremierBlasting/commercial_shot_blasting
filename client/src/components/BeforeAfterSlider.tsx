@@ -83,7 +83,7 @@ export function BeforeAfterSlider({
     >
       {/* After Image (Background) */}
       <div className="relative w-full aspect-[4/3]">
-        <img
+        <img loading="lazy"
           src={afterImage}
           alt={afterLabel}
           className="absolute inset-0 w-full h-full object-cover"
@@ -95,7 +95,7 @@ export function BeforeAfterSlider({
           className="absolute inset-0 overflow-hidden"
           style={{ width: `${sliderPosition}%` }}
         >
-          <img
+          <img loading="lazy"
             src={beforeImage}
             alt={beforeLabel}
             className="absolute inset-0 w-full h-full object-cover"

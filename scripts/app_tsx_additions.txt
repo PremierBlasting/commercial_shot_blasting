@@ -1,0 +1,145 @@
+// Add these imports after line 49 (after WrexhamServiceArea):
+import AylesburyServiceArea from "./pages/AylesburyServiceArea";
+import BanburyServiceArea from "./pages/BanburyServiceArea";
+import BarnsleyServiceArea from "./pages/BarnsleyServiceArea";
+import BathServiceArea from "./pages/BathServiceArea";
+import BasildonServiceArea from "./pages/BasildonServiceArea";
+import BedfordServiceArea from "./pages/BedfordServiceArea";
+import BirkenheadServiceArea from "./pages/BirkenheadServiceArea";
+import BoltonServiceArea from "./pages/BoltonServiceArea";
+import BuryStEdmundsServiceArea from "./pages/BuryStEdmundsServiceArea";
+import BurtonUponTrentServiceArea from "./pages/BurtonUponTrentServiceArea";
+import CannockServiceArea from "./pages/CannockServiceArea";
+import CannockChaseServiceArea from "./pages/CannockChaseServiceArea";
+import ChelmsfordServiceArea from "./pages/ChelmsfordServiceArea";
+import CheltenhamServiceArea from "./pages/CheltenhamServiceArea";
+import ColchesterServiceArea from "./pages/ColchesterServiceArea";
+import CoalvilleServiceArea from "./pages/CoalvilleServiceArea";
+import CorbyServiceArea from "./pages/CorbyServiceArea";
+import CreweServiceArea from "./pages/CreweServiceArea";
+import DoncasterServiceArea from "./pages/DoncasterServiceArea";
+import DronfieldServiceArea from "./pages/DronfieldServiceArea";
+import DudleyServiceArea from "./pages/DudleyServiceArea";
+import GranthamServiceArea from "./pages/GranthamServiceArea";
+import GreatYarmouthServiceArea from "./pages/GreatYarmouthServiceArea";
+import GuildfordServiceArea from "./pages/GuildfordServiceArea";
+import HalifaxServiceArea from "./pages/HalifaxServiceArea";
+import HemelHempsteadServiceArea from "./pages/HemelHempsteadServiceArea";
+import HighWycombeServiceArea from "./pages/HighWycombeServiceArea";
+import HuddersfieldServiceArea from "./pages/HuddersfieldServiceArea";
+import KidderminsterServiceArea from "./pages/KidderminsterServiceArea";
+import KingsLynnServiceArea from "./pages/KingsLynnServiceArea";
+import KingswoodServiceArea from "./pages/KingswoodServiceArea";
+import KetteringServiceArea from "./pages/KetteringServiceArea";
+import LeamingtonSpaServiceArea from "./pages/LeamingtonSpaServiceArea";
+import LeightonBuzzardServiceArea from "./pages/LeightonBuzzardServiceArea";
+import LichfieldServiceArea from "./pages/LichfieldServiceArea";
+import LowestoftServiceArea from "./pages/LowestoftServiceArea";
+import LoughboroughServiceArea from "./pages/LoughboroughServiceArea";
+import LutonServiceArea from "./pages/LutonServiceArea";
+import MacclesfieldServiceArea from "./pages/MacclesfieldServiceArea";
+import MansfieldServiceArea from "./pages/MansfieldServiceArea";
+import NewportServiceArea from "./pages/NewportServiceArea";
+import NewcastleUnderLymeServiceArea from "./pages/NewcastleUnderLymeServiceArea";
+import NuneatonServiceArea from "./pages/NuneatonServiceArea";
+import OldhamServiceArea from "./pages/OldhamServiceArea";
+import PortsmouthServiceArea from "./pages/PortsmouthServiceArea";
+import ReadingServiceArea from "./pages/ReadingServiceArea";
+import RedditchServiceArea from "./pages/RedditchServiceArea";
+import RochdaleServiceArea from "./pages/RochdaleServiceArea";
+import RotherhamServiceArea from "./pages/RotherhamServiceArea";
+import RugbyServiceArea from "./pages/RugbyServiceArea";
+import RuncornServiceArea from "./pages/RuncornServiceArea";
+import SalfordServiceArea from "./pages/SalfordServiceArea";
+import SalisburyServiceArea from "./pages/SalisburyServiceArea";
+import ScunthorpeServiceArea from "./pages/ScunthorpeServiceArea";
+import SloughServiceArea from "./pages/SloughServiceArea";
+import SolihullServiceArea from "./pages/SolihullServiceArea";
+import SouthendOnSeaServiceArea from "./pages/SouthendOnSeaServiceArea";
+import StaffordServiceArea from "./pages/StaffordServiceArea";
+import StevenageServiceArea from "./pages/StevenageServiceArea";
+import StockportServiceArea from "./pages/StockportServiceArea";
+import SuttonColdfieldServiceArea from "./pages/SuttonColdfieldServiceArea";
+import TauntonServiceArea from "./pages/TauntonServiceArea";
+import TamworthServiceArea from "./pages/TamworthServiceArea";
+import TelfordServiceArea from "./pages/TelfordServiceArea";
+import ThetfordServiceArea from "./pages/ThetfordServiceArea";
+import WalsallServiceArea from "./pages/WalsallServiceArea";
+import WarringtonServiceArea from "./pages/WarringtonServiceArea";
+import WatfordServiceArea from "./pages/WatfordServiceArea";
+import WellingboroughServiceArea from "./pages/WellingboroughServiceArea";
+import WelwynGardenCityServiceArea from "./pages/WelwynGardenCityServiceArea";
+import WestonSuperMareServiceArea from "./pages/WestonSuperMareServiceArea";
+
+// Add these routes after line 129 (after wrexham route):
+      <Route path="/service-areas/aylesbury" component={AylesburyServiceArea} />
+      <Route path="/service-areas/banbury" component={BanburyServiceArea} />
+      <Route path="/service-areas/barnsley" component={BarnsleyServiceArea} />
+      <Route path="/service-areas/bath" component={BathServiceArea} />
+      <Route path="/service-areas/basildon" component={BasildonServiceArea} />
+      <Route path="/service-areas/bedford" component={BedfordServiceArea} />
+      <Route path="/service-areas/birkenhead" component={BirkenheadServiceArea} />
+      <Route path="/service-areas/bolton" component={BoltonServiceArea} />
+      <Route path="/service-areas/bury-st-edmunds" component={BuryStEdmundsServiceArea} />
+      <Route path="/service-areas/burton-upon-trent" component={BurtonUponTrentServiceArea} />
+      <Route path="/service-areas/cannock" component={CannockServiceArea} />
+      <Route path="/service-areas/cannock-chase" component={CannockChaseServiceArea} />
+      <Route path="/service-areas/chelmsford" component={ChelmsfordServiceArea} />
+      <Route path="/service-areas/cheltenham" component={CheltenhamServiceArea} />
+      <Route path="/service-areas/colchester" component={ColchesterServiceArea} />
+      <Route path="/service-areas/coalville" component={CoalvilleServiceArea} />
+      <Route path="/service-areas/corby" component={CorbyServiceArea} />
+      <Route path="/service-areas/crewe" component={CreweServiceArea} />
+      <Route path="/service-areas/doncaster" component={DoncasterServiceArea} />
+      <Route path="/service-areas/dronfield" component={DronfieldServiceArea} />
+      <Route path="/service-areas/dudley" component={DudleyServiceArea} />
+      <Route path="/service-areas/grantham" component={GranthamServiceArea} />
+      <Route path="/service-areas/great-yarmouth" component={GreatYarmouthServiceArea} />
+      <Route path="/service-areas/guildford" component={GuildfordServiceArea} />
+      <Route path="/service-areas/halifax" component={HalifaxServiceArea} />
+      <Route path="/service-areas/hemel-hempstead" component={HemelHempsteadServiceArea} />
+      <Route path="/service-areas/high-wycombe" component={HighWycombeServiceArea} />
+      <Route path="/service-areas/huddersfield" component={HuddersfieldServiceArea} />
+      <Route path="/service-areas/kidderminster" component={KidderminsterServiceArea} />
+      <Route path="/service-areas/kings-lynn" component={KingsLynnServiceArea} />
+      <Route path="/service-areas/kingswood" component={KingswoodServiceArea} />
+      <Route path="/service-areas/kettering" component={KetteringServiceArea} />
+      <Route path="/service-areas/leamington-spa" component={LeamingtonSpaServiceArea} />
+      <Route path="/service-areas/leighton-buzzard" component={LeightonBuzzardServiceArea} />
+      <Route path="/service-areas/lichfield" component={LichfieldServiceArea} />
+      <Route path="/service-areas/lowestoft" component={LowestoftServiceArea} />
+      <Route path="/service-areas/loughborough" component={LoughboroughServiceArea} />
+      <Route path="/service-areas/luton" component={LutonServiceArea} />
+      <Route path="/service-areas/macclesfield" component={MacclesfieldServiceArea} />
+      <Route path="/service-areas/mansfield" component={MansfieldServiceArea} />
+      <Route path="/service-areas/newport" component={NewportServiceArea} />
+      <Route path="/service-areas/newcastle-under-lyme" component={NewcastleUnderLymeServiceArea} />
+      <Route path="/service-areas/nuneaton" component={NuneatonServiceArea} />
+      <Route path="/service-areas/oldham" component={OldhamServiceArea} />
+      <Route path="/service-areas/portsmouth" component={PortsmouthServiceArea} />
+      <Route path="/service-areas/reading" component={ReadingServiceArea} />
+      <Route path="/service-areas/redditch" component={RedditchServiceArea} />
+      <Route path="/service-areas/rochdale" component={RochdaleServiceArea} />
+      <Route path="/service-areas/rotherham" component={RotherhamServiceArea} />
+      <Route path="/service-areas/rugby" component={RugbyServiceArea} />
+      <Route path="/service-areas/runcorn" component={RuncornServiceArea} />
+      <Route path="/service-areas/salford" component={SalfordServiceArea} />
+      <Route path="/service-areas/salisbury" component={SalisburyServiceArea} />
+      <Route path="/service-areas/scunthorpe" component={ScunthorpeServiceArea} />
+      <Route path="/service-areas/slough" component={SloughServiceArea} />
+      <Route path="/service-areas/solihull" component={SolihullServiceArea} />
+      <Route path="/service-areas/southend-on-sea" component={SouthendOnSeaServiceArea} />
+      <Route path="/service-areas/stafford" component={StaffordServiceArea} />
+      <Route path="/service-areas/stevenage" component={StevenageServiceArea} />
+      <Route path="/service-areas/stockport" component={StockportServiceArea} />
+      <Route path="/service-areas/sutton-coldfield" component={SuttonColdfieldServiceArea} />
+      <Route path="/service-areas/taunton" component={TauntonServiceArea} />
+      <Route path="/service-areas/tamworth" component={TamworthServiceArea} />
+      <Route path="/service-areas/telford" component={TelfordServiceArea} />
+      <Route path="/service-areas/thetford" component={ThetfordServiceArea} />
+      <Route path="/service-areas/walsall" component={WalsallServiceArea} />
+      <Route path="/service-areas/warrington" component={WarringtonServiceArea} />
+      <Route path="/service-areas/watford" component={WatfordServiceArea} />
+      <Route path="/service-areas/wellingborough" component={WellingboroughServiceArea} />
+      <Route path="/service-areas/welwyn-garden-city" component={WelwynGardenCityServiceArea} />
+      <Route path="/service-areas/weston-super-mare" component={WestonSuperMareServiceArea} />

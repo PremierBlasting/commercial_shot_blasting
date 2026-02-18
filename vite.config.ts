@@ -167,6 +167,58 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    // Enable minification (default in production)
+    minify: 'esbuild',
+    // Target modern browsers for smaller bundles
+    target: 'es2020',
+    // CSS code splitting
+    cssCodeSplit: true,
+    // Chunk size warnings at 500KB
+    chunkSizeWarningLimit: 500,
+    // Rollup options for code splitting
+    rollupOptions: {
+      output: {
+        // Manual chunks for better caching - using function for dynamic splitting
+        manualChunks(id) {
+          // React core libraries
+          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
+            return 'vendor-react';
+          }
+          // Radix UI components
+          if (id.includes('node_modules/@radix-ui/')) {
+            return 'vendor-ui';
+          }
+          // Router
+          if (id.includes('node_modules/wouter/')) {
+            return 'vendor-router';
+          }
+          // tRPC and React Query
+          if (id.includes('node_modules/@trpc/') || id.includes('node_modules/@tanstack/')) {
+            return 'vendor-trpc';
+          }
+          // Lucide icons
+          if (id.includes('node_modules/lucide-react/')) {
+            return 'vendor-icons';
+          }
+        },
+        // Asset file naming with content hash
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name?.split('.') || [];
+          const ext = info[info.length - 1];
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|avif/i.test(ext)) {
+            return `assets/images/[name]-[hash][extname]`;
+          }
+          if (/woff2?|ttf|otf|eot/i.test(ext)) {
+            return `assets/fonts/[name]-[hash][extname]`;
+          }
+          return `assets/[name]-[hash][extname]`;
+        },
+        // Chunk file naming
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        // Entry file naming
+        entryFileNames: 'assets/js/[name]-[hash].js',
+      },
+    },
   },
   server: {
     host: true,

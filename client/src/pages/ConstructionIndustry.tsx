@@ -4,6 +4,7 @@ import { Phone, Mail, CheckCircle, ArrowRight, Building2, HardHat, Shield, Clock
 import { useState } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
 
@@ -14,28 +15,28 @@ export default function ConstructionIndustry() {
     {
       title: "Structural Steel Frames",
       description: "Comprehensive shot blasting for building frames, roof trusses, and load-bearing steel structures. Essential for new construction projects and structural refurbishment.",
-      image: "/service-structural-steel.png",
+      image: "/service-structural-steel.webp",
       link: "/services/structural-steel-frames",
-      benefits: ["SA 2.5/SA 3 standards", "Galvanizing preparation", "Fast turnaround"]
+      benefits: ["Galvanizing preparation", "Fast turnaround", "Quality surface preparation"]
     },
     {
       title: "Bridge Steelwork",
       description: "Specialist surface preparation for bridge girders, crossmembers, and parapet rails. Meeting highway and railway infrastructure specifications.",
-      image: "/service-bridge-steelwork.png",
+      image: "/service-bridge-steelwork.webp",
       link: "/services/bridge-steelwork",
       benefits: ["Highway authority approved", "Traffic management coordination", "Heritage restoration"]
     },
     {
       title: "Fire Escapes & Stair Towers",
       description: "Complete refurbishment of fire safety infrastructure. Remove corrosion and ensure compliance with building regulations.",
-      image: "/service-fire-escapes.png",
+      image: "/service-fire-escapes.webp",
       link: "/services/fire-escapes",
-      benefits: ["Safety compliance", "Working at height certified", "Minimal disruption"]
+      benefits: ["Safety compliance", "Working at height expertise", "Minimal disruption"]
     },
     {
       title: "Internal Staircases & Balustrades",
       description: "Precision shot blasting for architectural metalwork. Perfect for heritage restoration and new commercial developments.",
-      image: "/service-staircases.png",
+      image: "/service-staircases.webp",
       link: "/services/staircases",
       benefits: ["Heritage approved", "Preserves fine details", "Powder coating ready"]
     }
@@ -49,8 +50,8 @@ export default function ConstructionIndustry() {
     },
     {
       icon: Shield,
-      title: "Regulatory Compliance",
-      description: "Building regulations and structural standards require certified surface preparation. We meet SA 2.5, SA 3, and all relevant British Standards."
+      title: "Quality Service",
+      description: "Building regulations and structural requirements demand high-quality surface preparation. We deliver consistent, reliable results for all construction applications."
     },
     {
       icon: HardHat,
@@ -68,12 +69,12 @@ export default function ConstructionIndustry() {
     title: "Multi-Storey Office Development - Birmingham",
     client: "Major Construction Contractor",
     challenge: "A 12-storey office development required shot blasting of 450 tonnes of structural steelwork including beams, columns, and architectural features. The project had a strict 6-week deadline before galvanizing.",
-    solution: "We coordinated delivery of steel sections directly from the fabricator to our facility. Working double shifts, we processed all components to SA 2.5 standard, with quality certification for each batch. Components were transported to the galvanizer within 24 hours of blasting to prevent surface oxidation.",
-    result: "All 450 tonnes were processed within 5 weeks, allowing the construction program to proceed on schedule. The project achieved BREEAM Excellent certification, with our surface preparation contributing to the 60-year design life specification.",
+    solution: "We coordinated with the fabricator to blast steel sections at their premises immediately after fabrication. Working double shifts, we processed all components with thorough quality inspection for each batch. Components were transported to the galvanizer within 24 hours of blasting to prevent surface oxidation.",
+    result: "All 450 tonnes were processed within 5 weeks, allowing the construction program to proceed on schedule. The project achieved BREEAM Excellent rating, with our surface preparation contributing to the 60-year design life specification.",
     stats: [
       { label: "Steel Processed", value: "450 tonnes" },
       { label: "Project Duration", value: "5 weeks" },
-      { label: "Quality Standard", value: "SA 2.5" },
+      { label: "Quality Level", value: "Near-white metal" },
       { label: "Design Life", value: "60 years" }
     ]
   };
@@ -169,7 +170,8 @@ export default function ConstructionIndustry() {
             {constructionServices.map((service, index) => (
               <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all">
                 <div className="h-64 overflow-hidden">
-                  <img 
+                  <img loading="lazy"
+                    
                     src={service.image} 
                     alt={service.title} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -189,10 +191,8 @@ export default function ConstructionIndustry() {
                       </span>
                     ))}
                   </div>
-                  <Link href={service.link}>
-                    <a className="inline-flex items-center gap-2 text-[#2C5F7F] font-semibold hover:gap-3 transition-all">
-                      Learn More <ArrowRight className="w-4 h-4" />
-                    </a>
+                  <Link href={service.link} className="inline-flex items-center gap-2 text-[#2C5F7F] font-semibold hover:gap-3 transition-all">
+                    Learn More <ArrowRight className="w-4 h-4" />
                   </Link>
                 </CardContent>
               </Card>
@@ -250,7 +250,7 @@ export default function ConstructionIndustry() {
                   <h4 className="font-bold mb-3">Why Construction Companies Choose Us</h4>
                   <ul className="space-y-2">
                     {[
-                      "Certified to industry standards",
+                      "High-quality surface preparation",
                       "Flexible scheduling around site programs",
                       "Large capacity for major projects",
                       "Quality documentation and traceability"
@@ -280,15 +280,15 @@ export default function ConstructionIndustry() {
               </div>
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-gray-900 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Free Download: Steel Preparation Standards Guide
+                  Free Download: Steel Preparation Best Practices Guide
                 </h3>
                 <p className="text-gray-700 mb-4 leading-relaxed">
-                  Get our comprehensive 12-page PDF guide covering international standards (ISO 8501, SSPC), quality control procedures, and best practices for shot blasting structural steel, bridges, and architectural metalwork. Essential reading for construction project managers, engineers, and contractors.
+                  Get our comprehensive 12-page PDF guide covering quality control procedures and best practices for shot blasting structural steel, bridges, and architectural metalwork. Essential reading for construction project managers, engineers, and contractors.
                 </p>
                 <ul className="text-gray-600 mb-6 space-y-2">
                   <li className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-[#2C5F7F]" />
-                    <span>ISO 8501 & SSPC surface preparation standards explained</span>
+                    <span>Surface preparation best practices explained</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-[#2C5F7F]" />
@@ -322,7 +322,7 @@ export default function ConstructionIndustry() {
             Ready to Start Your Construction Project?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Get a free quote for your structural steelwork, bridge infrastructure, or architectural metalwork project. Fast turnaround, certified quality, competitive pricing.
+            Get a free quote for your structural steelwork, bridge infrastructure, or architectural metalwork project. Fast turnaround, quality results, competitive pricing.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button
@@ -343,52 +343,7 @@ export default function ConstructionIndustry() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#2C2C2C] text-white py-12">
-        <div className="container">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-[#2C5F7F] rounded-full flex items-center justify-center font-bold text-lg">
-                  CSB
-                </div>
-                <span className="font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Commercial Shot Blasting</span>
-              </div>
-              <p className="text-white/70 text-sm">Professional shot blasting services for construction and industrial applications across the UK.</p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Construction Services</h4>
-              <ul className="space-y-2 text-white/70 text-sm">
-                <li><Link href="/services/structural-steel-frames"><a className="hover:text-white">Structural Steel Frames</a></Link></li>
-                <li><Link href="/services/bridge-steelwork"><a className="hover:text-white">Bridge Steelwork</a></Link></li>
-                <li><Link href="/services/fire-escapes"><a className="hover:text-white">Fire Escapes</a></Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Industries</h4>
-              <ul className="space-y-2 text-white/70 text-sm">
-                <li><Link href="/industries/construction"><a className="hover:text-white">Construction</a></Link></li>
-                <li><Link href="/industries/manufacturing"><a className="hover:text-white">Manufacturing</a></Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-white/70 text-sm">
-                <li className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  <a href="tel:07970566409" className="hover:text-white">07970 566409</a>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Mail className="w-4 h-4" />
-                  <a href="mailto:info@commercialshotblasting.co.uk" className="hover:text-white">info@commercialshotblasting.co.uk</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-white/20 pt-8 text-center text-white/60 text-sm">
-            <p>&copy; {new Date().getFullYear()} Commercial Shot Blasting Services. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       {/* Quote Popup */}
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />

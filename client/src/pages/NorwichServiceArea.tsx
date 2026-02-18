@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Quote } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb";
@@ -15,6 +15,11 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
+import { NearbyTowns } from "@/components/NearbyTowns";
+import { nearbyTownsData } from "@/data/nearbyTowns";
+import { locationData } from "@/data/locationData";
+import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
+import { HeroCarousel } from "@/components/HeroCarousel";
 
 // Placeholder for a simple Testimonial Card component
 const TestimonialCard = ({ quote, name, company }: { quote: string, name: string, company: string }) => (
@@ -28,6 +33,88 @@ const TestimonialCard = ({ quote, name, company }: { quote: string, name: string
 
 export default function NorwichServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = "Shot Blasting Norwich | Commercial & Industrial";
+    
+    // Set keywords meta tag
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', 'shot blasting Norwich, rust removal, surface preparation, industrial blasting, Norfolk');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'keywords';
+      meta.content = 'shot blasting Norwich, rust removal, surface preparation, industrial blasting, Norfolk';
+      document.head.appendChild(meta);
+    }
+  }, []);
+
+  useEffect(() => {
+    const description = locationData["norwich"].description;
+    
+    // Set meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+
+    // Set Open Graph meta tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.setAttribute('content', 'Shot Blasting Norwich');
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:title');
+      meta.setAttribute('content', 'Shot Blasting Norwich');
+      document.head.appendChild(meta);
+    }
+
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) {
+      ogDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:description');
+      meta.setAttribute('content', description);
+      document.head.appendChild(meta);
+    }
+
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) {
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:url');
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      document.head.appendChild(meta);
+    }
+
+    // Set Twitter Card meta tags
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) {
+      twitterTitle.setAttribute('content', 'Shot Blasting Norwich');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'twitter:title';
+      meta.content = 'Shot Blasting Norwich';
+      document.head.appendChild(meta);
+    }
+
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDescription) {
+      twitterDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'twitter:description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+  }, []);
 
   let { user, loading, error, isAuthenticated, logout } = useAuth();
 
@@ -90,37 +177,9 @@ export default function NorwichServiceArea() {
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
+      
       {/* Header (Kept from Home.tsx) */}
-      <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
-        <div className="container flex items-center justify-between py-4">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border-2 border-white/30">
-              <span className="text-xl font-bold">SB</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>Shot Blasting</h1>
-              <p className="text-xs text-white/80">Professional Surface Preparation</p>
-            </div>
-          </div>
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#services" className="hover:text-white/80 transition">Services</a>
-            <a href="#about" className="hover:text-white/80 transition">Why Choose Us</a>
-            <a href="#industries" className="hover:text-white/80 transition">Local Industries</a>
-            <a href="#testimonials" className="hover:text-white/80 transition">Testimonials</a>
-            <a href="#faq" className="hover:text-white/80 transition">FAQ</a>
-            <a href="/contact" className="hover:text-white/80 transition">Contact</a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <a href="tel:07970566409" className="hidden sm:flex items-center gap-2 text-sm">
-              <Phone className="w-4 h-4" />
-              07970 566409
-            </a>
-            <Button className="bg-white text-[#2C5F7F] hover:bg-white/90">Get a Quote</Button>
-          </div>
-        </div>
-      </header>
-
-      {/* Breadcrumb Navigation */}
+{/* Breadcrumb Navigation */}
       <div className="container py-4 bg-gray-50">
         <Breadcrumb>
           <BreadcrumbList>
@@ -143,64 +202,29 @@ export default function NorwichServiceArea() {
         </Breadcrumb>
       </div>
 
-      {/* Hero Section - Norwich Specific */}
-      <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white py-20 lg:py-32">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920')] bg-cover bg-center opacity-20"></div>
-        <div className="container relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Professional Shot Blasting Services in Norwich
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-              Specialist precision shot blasting company serving **Norwich, Norfolk**, and the wider East Anglia region. We are the local experts in removing rust, scale, and coatings from all types of surfaces for the city's diverse industries.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">
-                Get a Free Quote for Your Norwich Project
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                View Our Local Work
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Before/After Slider */}
-      <section className="py-12 bg-white">
-        <div className="container">
-          <div className="mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Norwich Project Transformation
-            </h2>
-            <p className="text-gray-600">See the results of our professional shot blasting work</p>
-          </div>
-          <BeforeAfterSlider
-            beforeImage="/warehouse-before.jpg"
-            afterImage="/warehouse-after.jpg"
-            beforeLabel="Before"
-            afterLabel="After"
-          />
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
-              Request a Quote
+      {/* Hero Section */}
+      <HeroCarousel className="py-20 lg:py-32">
+        <div className="max-w-3xl">
+          <p className="text-[#F5F1E8] font-medium mb-2">Professional Shot Blasting Services</p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Professional Shot Blasting Services in Norwich
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+            Specialist precision shot blasting company serving Norwich, Norfolk, and the wider East Anglia region. We are the local experts in removing rust, scale, and coatings from all types of surfaces for the city's diverse industries.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
+              Get a Free Quote Today
             </Button>
-            <TrackedPhoneButton
-              location="Norwich"
-              phoneNumber="07970566409"
-              variant="outline"
-              size="lg"
-              className="border-[#2C5F7F] text-[#2C5F7F]"
-            >
-              Call Now
-            </TrackedPhoneButton>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
+              <a href="tel:07970566409" className="flex items-center gap-2">
+                <Phone className="w-5 h-5" />
+                Call Now
+              </a>
+            </Button>
           </div>
         </div>
-      </section>
-
-      
-
-      {/* Services Grid (Kept from Home.tsx) */}
+      </HeroCarousel>{/* Services Grid (Kept from Home.tsx) */}
       <section id="services" className="py-20 bg-[#F5F1E8]">
         <div className="container">
           <div className="text-center mb-12">
@@ -220,7 +244,7 @@ export default function NorwichServiceArea() {
             ].map((service, i) => (
               <Card key={i} className="group overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="h-48 overflow-hidden">
-                  <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img loading="lazy" src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-2 text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>{service.title}</h3>
@@ -245,15 +269,15 @@ export default function NorwichServiceArea() {
                 Local Expertise for The Fine City
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                We are a trusted family-run business with a dedicated team serving the **Norwich** area. Our mission is to provide superior shot blasting solutions for the city's diverse industrial, commercial, and heritage environments. We combine advanced shot blasting technology with a deep understanding of local requirements, delivering exceptional results at competitive prices.
+                We are a trusted family-run business with a dedicated team serving the Norwich area. Our mission is to provide superior shot blasting solutions for the city's diverse industrial, commercial, and heritage environments. We combine advanced shot blasting technology with a deep understanding of local requirements, delivering exceptional results at competitive prices.
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                As part of our commitment to the East Anglia region, we employ an expert team dedicated to providing unparalleled services while maintaining high safety standards that protect both your property and the local environment. We are proud to support Norwich's rich industrial heritage and its growing modern sectors.
+                As part of our commitment to the East Anglia region, we employ an expert team dedicated to providing unparalleled services while maintaining high safety standards that protect your property. We are proud to support Norwich's rich industrial heritage and its growing modern sectors.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
                   { icon: Shield, text: "Fully Insured" },
-                  { icon: Award, text: "Industry Certified" },
+                  { icon: Award, text: "Quality Assured" },
                   { icon: Clock, text: "Fast Turnaround" },
                   { icon: Users, text: "Local Norwich Experts" },
                 ].map((item, i) => (
@@ -265,7 +289,7 @@ export default function NorwichServiceArea() {
               </div>
             </div>
             <div className="relative">
-              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600" alt="Professional shot blasting in Norwich" className="rounded-lg shadow-xl" />
+              <img loading="lazy" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600" alt="Professional shot blasting in Norwich" className="rounded-lg shadow-xl" />
               <div className="absolute -bottom-6 -left-6 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg">
                 <p className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>20+</p>
                 <p className="text-sm">Years Experience</p>
@@ -274,6 +298,43 @@ export default function NorwichServiceArea() {
           </div>
         </div>
       </section>
+
+      
+
+
+      {/* Before/After Slider */}
+      <section className="py-12 bg-white">
+        <div className="container">
+          <div className="mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Norwich Project Transformation
+            </h2>
+            <p className="text-gray-600">See the results of our professional shot blasting work</p>
+          </div>
+          <BeforeAfterSlider
+            beforeImage="/warehouse-before.webp"
+            afterImage="/warehouse-after.webp"
+            beforeLabel="Before"
+            afterLabel="After"
+          />
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
+              Request a Quote
+            </Button>
+            <TrackedPhoneButton
+              location="Norwich"
+              phoneNumber="07970566409"
+              variant="outline"
+              size="lg"
+              className="border-[#2C5F7F] text-[#2C5F7F]"
+            >
+              Call Now
+            </TrackedPhoneButton>
+          </div>
+        </div>
+      </section>
+
+      
 
       {/* Local Testimonials Section */}
       <section id="testimonials" className="py-20 bg-[#F5F1E8]">
@@ -331,6 +392,78 @@ export default function NorwichServiceArea() {
           </div>
         </div>
       </section>
+      {/* Preparation & Cleanup Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="text-sm font-semibold text-primary mb-2">Our Process</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Systematic Site Preparation & Environmental Care
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Shot blasting success depends on meticulous preparation and responsible cleanup. We pride ourselves on our structured four-stage process for site protection, containment, and restoration – delivering predictable results and leaving Norwich sites ready for immediate next steps.
+              </p>
+              <p className="text-gray-600 mb-8">
+                From isolating work zones and protecting delicate fixtures to thorough post-blast cleanup and waste disposal, we follow a fixed four-stage process that delivers predictable results and leaves your site ready for the next phase of work.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    1
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Containment & Protection</h3>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    2
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Surface Preparation</h3>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    3
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Protection of Delicate Areas</h3>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    4
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Post-Blast Clean-Down</h3>
+                  </div>
+                </div>
+              </div>
+              <Link href="/preparation-cleanup">
+                <Button variant="default" size="lg">
+                  Learn More About Our Process
+                </Button>
+              </Link>
+            </div>
+            <div className="relative">
+              <div className="relative rounded-lg overflow-hidden shadow-xl">
+                <img loading="lazy"
+                  src="/cleanwarehouse.webp"
+                  alt="Clean warehouse after shot blasting"
+                  className="w-full h-auto"
+                />
+                <div className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-lg shadow-lg">
+                  <div className="text-3xl font-bold text-primary">4</div>
+                  <div className="text-sm text-gray-600">Stage Process</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* FAQ Section */}
       <section id="faq" className="py-20 bg-[#F5F1E8]">
@@ -442,6 +575,13 @@ export default function NorwichServiceArea() {
           </p>
         </div>
       </footer>
+
+      {/* Nearby Towns Section */}
+      <NearbyTowns 
+        locationName={nearbyTownsData["norwich"].location}
+        towns={nearbyTownsData["norwich"].towns}
+      />
+
     </div>
   );
 }

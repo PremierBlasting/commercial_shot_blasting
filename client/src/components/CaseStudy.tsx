@@ -80,7 +80,7 @@ export function CaseStudy({
               {beforeImage && (
                 <div>
                   <p className="text-sm font-semibold text-gray-500 mb-3">Before</p>
-                  <img
+                  <img loading="lazy"
                     src={beforeImage}
                     alt="Before shot blasting"
                     className="w-full h-64 object-cover rounded-lg shadow-md"
@@ -90,7 +90,7 @@ export function CaseStudy({
               {afterImage && (
                 <div>
                   <p className="text-sm font-semibold text-gray-500 mb-3">After</p>
-                  <img
+                  <img loading="lazy"
                     src={afterImage}
                     alt="After shot blasting"
                     className="w-full h-64 object-cover rounded-lg shadow-md"

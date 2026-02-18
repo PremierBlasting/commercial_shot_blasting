@@ -6,17 +6,84 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Commercial Shot Blasting</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />    
+    <!-- OG tags must appear BEFORE any link tags to override platform injection -->
+    <meta property="og:title" content="Commercial Shot Blasting UK | Industrial Services" />
+    <meta property="og:description" content="Professional mobile shot blasting services across the UK. Rust removal, surface preparation & industrial cleaning for steel, metal & concrete. Call 07970 566409" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://commercialshotblasting.co.uk" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Commercial Shot Blasting UK | Industrial Services" />
+    <meta name="twitter:description" content="Professional mobile shot blasting services across the UK. Rust removal, surface preparation & industrial cleaning for steel, metal & concrete. Call 07970 566409" />
+    <title>Commercial Shot Blasting UK | Industrial Services</title>
+    <meta name="description" content="Professional mobile shot blasting services across the UK. Rust removal, surface preparation & industrial cleaning for steel, metal & concrete. Call 07970 566409" />
+    <meta name="keywords" content="shot blasting, mobile shot blasting, industrial blasting, rust removal, surface preparation, steel blasting" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Preconnect to third-party domains for faster resource loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://maps.googleapis.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://js-eu1.hsforms.net" />
+    <link rel="dns-prefetch" href="https://forge.manus.ai" />
+    
+    <!-- Preload responsive hero images for faster initial render -->
+    <link rel="preload" as="image" href="/hero-carousel-1-640w.webp" type="image/webp" media="(max-width: 640px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/hero-carousel-1-1024w.webp" type="image/webp" media="(min-width: 641px) and (max-width: 1024px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/hero-carousel-1.webp" type="image/webp" media="(min-width: 1025px)" fetchpriority="high" />
+    
+    <!-- Preload critical fonts to avoid render-blocking -->
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/opensans/v44/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVI.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v37/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvUDQZNLo_U2r.woff2" crossorigin />
+    
+    <!-- Google Fonts - loaded with font-display: swap via the URL -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    </noscript>
+    
+    <!-- Google Analytics - deferred loading -->
+    <script>
+      // Defer Google Analytics until after page load
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var script = document.createElement('script');
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6LC7XCLGK2';
+          script.async = true;
+          document.head.appendChild(script);
+          
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-6LC7XCLGK2');
+        }, 0);
+      });
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script src="https://js-eu1.hsforms.net/forms/embed/147618128.js" defer></script>
+    <!-- HubSpot form - loaded after user interaction or delay -->
+    <script>
+      (function() {
+        var hsLoaded = false;
+        function loadHubSpot() {
+          if (hsLoaded) return;
+          hsLoaded = true;
+          var script = document.createElement('script');
+          script.src = 'https://js-eu1.hsforms.net/forms/embed/147618128.js';
+          document.body.appendChild(script);
+        }
+        // Load on first user interaction
+        ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function(event) {
+          document.addEventListener(event, loadHubSpot, { once: true, passive: true });
+        });
+        // Or after 3 seconds as fallback
+        setTimeout(loadHubSpot, 3000);
+      })();
+    </script>
     <script
       defer
       src="%VITE_ANALYTICS_ENDPOINT%/umami"

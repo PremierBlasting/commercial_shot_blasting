@@ -8,6 +8,7 @@ import { QuotePopup } from "@/components/QuotePopup";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
 
+import { Footer } from "@/components/Footer";
 export default function Contact() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
@@ -79,7 +80,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Service Area</p>
-                    <p className="font-medium">Nationwide UK Coverage</p>
+                    <p className="font-medium">Professional service across England & Wales</p>
                   </div>
                 </div>
               </div>
@@ -153,7 +154,7 @@ export default function Contact() {
               <ul className="space-y-2 text-white/70 text-sm">
                 <li><a href="/#about" className="hover:text-white">About Us</a></li>
                 <li><a href="/#industries" className="hover:text-white">Industries</a></li>
-                <li><a href="/gallery" className="hover:text-white">Gallery</a></li>
+                <li><a href="/our-work" className="hover:text-white">Our Work</a></li>
                 <li><a href="/contact" className="hover:text-white">Contact</a></li>
               </ul>
             </div>

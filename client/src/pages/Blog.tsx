@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Tag } from "lucide-react";
 import { Link } from "wouter";
 import { Header } from "@/components/Header";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import { Footer } from "@/components/Footer";
 
 export default function Blog() {
@@ -11,6 +12,11 @@ export default function Blog() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
+      
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: "Blog", href: "/blog", isCurrentPage: true }
+      ]} className="container mt-6" />
       
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#2C5F7F] to-[#1e4159] text-white py-20">
@@ -47,7 +53,7 @@ export default function Blog() {
                   <Card className="h-full hover:shadow-2xl transition-all duration-300 cursor-pointer group overflow-hidden">
                     {/* Featured Image */}
                     <div className="relative h-64 overflow-hidden">
-                      <img
+                      <img loading="lazy"
                         src={post.featuredImage}
                         alt={post.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
 import { trpc } from "@/lib/trpc";
+import { trackPhoneCall } from "@/lib/analytics";
 
 interface TrackedPhoneButtonProps {
   location: string;
@@ -31,6 +32,9 @@ export function TrackedPhoneButton({
       userAgent: navigator.userAgent,
       referrer: document.referrer,
     });
+
+    // Track phone call in Google Analytics
+    trackPhoneCall(phoneNumber, location);
 
     // Initiate the phone call
     window.location.href = `tel:${phoneNumber}`;

@@ -11,71 +11,78 @@ export const serviceGalleries: ServiceGallery[] = [
     serviceId: "structural-steel-frames",
     beforeImage: "/StructuralSteelFramesBefore.webp",
     afterImage: "/StructuralSteelFramesAfter.webp",
-    beforeLabel: "Before: Rusted Steel Frame",
-    afterLabel: "After: Shot Blasted & Ready"
+    beforeLabel: "Before",
+    afterLabel: "After"
   },
   {
     serviceId: "fire-escapes",
     beforeImage: "/warehouse-before.jpg",
     afterImage: "/warehouse-after.jpg",
-    beforeLabel: "Before: Corroded Structure",
-    afterLabel: "After: Refurbished"
+    beforeLabel: "Before",
+    afterLabel: "After"
   },
   {
     serviceId: "internal-staircases",
     beforeImage: "/warehouse-before.jpg",
     afterImage: "/warehouse-after.jpg",
-    beforeLabel: "Before: Worn Steelwork",
-    afterLabel: "After: Restored Finish"
+    beforeLabel: "Before",
+    afterLabel: "After"
   },
   {
     serviceId: "bridge-steelwork",
     beforeImage: "/steel-frame-before.jpg",
     afterImage: "/steel-frame-after.jpg",
-    beforeLabel: "Before: Weathered Bridge Steel",
-    afterLabel: "After: Protected Surface"
+    beforeLabel: "Before",
+    afterLabel: "After"
   },
   {
     serviceId: "steel-containers",
-    beforeImage: "/steel-container-before-2.jpg",
-    afterImage: "/steel-container-after-2.jpg",
-    beforeLabel: "Before: Weathered Storage Tank",
-    afterLabel: "After: Shot Blasted & Restored"
+    beforeImage: "/tank-before-1.jpg",
+    afterImage: "/tank-after-1.jpg",
+    beforeLabel: "Before",
+    afterLabel: "After"
   },
   {
     serviceId: "steel-containers",
-    beforeImage: "/steel-container-before-1.jpg",
-    afterImage: "/steel-container-after-1.jpg",
-    beforeLabel: "Before: Corroded Industrial Container",
-    afterLabel: "After: Clean & Ready for Coating"
+    beforeImage: "/tank-before-2.jpg",
+    afterImage: "/tank-after-2.jpg",
+    beforeLabel: "Before",
+    afterLabel: "After"
   },
   {
     serviceId: "fixed-ladders",
     beforeImage: "/warehouse-before.jpg",
     afterImage: "/warehouse-after.jpg",
-    beforeLabel: "Before: Rusted Access Equipment",
-    afterLabel: "After: Safety Restored"
+    beforeLabel: "Before",
+    afterLabel: "After"
   },
   {
     serviceId: "warehouse-racking",
     beforeImage: "/warehouse-before.jpg",
     afterImage: "/warehouse-after.jpg",
-    beforeLabel: "Before: Corroded Racking",
-    afterLabel: "After: Like-New Condition"
+    beforeLabel: "Before",
+    afterLabel: "After"
   },
   {
     serviceId: "pipework",
     beforeImage: "/steel-frame-before.jpg",
     afterImage: "/steel-frame-after.jpg",
-    beforeLabel: "Before: Scaled Pipework",
-    afterLabel: "After: Clean & Protected"
+    beforeLabel: "Before",
+    afterLabel: "After"
   },
   {
     serviceId: "telecom-towers",
     beforeImage: "/steel-frame-before.jpg",
     afterImage: "/steel-frame-after.jpg",
-    beforeLabel: "Before: Weathered Tower",
-    afterLabel: "After: Corrosion Protected"
+    beforeLabel: "Before",
+    afterLabel: "After"
+  },
+  {
+    serviceId: "factory-cladding",
+    beforeImage: "/factory-cladding-before-1.jpeg",
+    afterImage: "/factory-cladding-after-1.jpeg",
+    beforeLabel: "Before",
+    afterLabel: "After"
   }
 ];
 

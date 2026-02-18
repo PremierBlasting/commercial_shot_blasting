@@ -1,31 +1,112 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Star, Award, Zap } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import { CaseStudy } from "@/components/CaseStudy";
 import { LocationMap } from "@/components/LocationMap";
 
+import { Footer } from "@/components/Footer";
+import { NearbyTowns } from "@/components/NearbyTowns";
+import { nearbyTownsData } from "@/data/nearbyTowns";
+import { locationData } from "@/data/locationData";
 
 export default function BirminghamServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = "Shot Blasting Birmingham | Commercial & Industrial";
+    
+    // Set keywords meta tag
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', 'shot blasting Birmingham, rust removal, surface preparation, industrial blasting, West Midlands');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'keywords';
+      meta.content = 'shot blasting Birmingham, rust removal, surface preparation, industrial blasting, West Midlands';
+      document.head.appendChild(meta);
+    }
+  }, []);
+
+  useEffect(() => {
+    const description = locationData["birmingham"].description;
+    
+    // Set meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+
+    // Set Open Graph meta tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.setAttribute('content', 'Shot Blasting Birmingham | Commercial & Industrial');
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:title');
+      meta.setAttribute('content', 'Shot Blasting Birmingham | Commercial & Industrial');
+      document.head.appendChild(meta);
+    }
+
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) {
+      ogDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:description');
+      meta.setAttribute('content', description);
+      document.head.appendChild(meta);
+    }
+
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) {
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:url');
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      document.head.appendChild(meta);
+    }
+
+    // Set Twitter Card meta tags
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) {
+      twitterTitle.setAttribute('content', 'Shot Blasting Birmingham | Commercial & Industrial');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'twitter:title';
+      meta.content = 'Shot Blasting Birmingham | Commercial & Industrial';
+      document.head.appendChild(meta);
+    }
+
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDescription) {
+      twitterDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'twitter:description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
-      <LocalBusinessSchema
-        name="Birmingham"
-        city="Birmingham"
-        region="West Midlands"
-        description="Professional shot blasting services in Birmingham and the West Midlands"
-        url="https://shotblast-lwspuaik.manus.space/service-areas/birmingham"
-      />
+      
 
       {/* Breadcrumb Navigation */}
       <section className="py-4 bg-gray-50 border-b border-gray-200">
@@ -33,69 +114,35 @@ export default function BirminghamServiceArea() {
           <Breadcrumb items={[
             { label: "Home", href: "/" },
             { label: "Service Areas", href: "/service-areas" },
-            { label: "West Midlands", href: "/service-areas" },
+            { label: "West Midlands", href: "/service-areas#west-midlands" },
             { label: "Birmingham", href: "/service-areas/birmingham", isCurrentPage: true }
           ]} />
         </div>
       </section>
 
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 bg-gradient-to-r from-[#2C5F7F] to-[#1a3d52] text-white">
-        <div className="container">
-          <div className="max-w-3xl">
-            <p className="text-[#F5F1E8] font-medium mb-2">Professional Shot Blasting Services</p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Shot Blasting Services in Birmingham
-            </h1>
-            <p className="text-lg text-white/90 mb-8">
-              Commercial Shot Blasting provides professional surface preparation and rust removal services throughout Birmingham and the West Midlands. Serving local manufacturers, automotive shops, and industrial facilities with precision blasting solutions.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]">
-                Get a Free Quote
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                <Phone className="w-4 h-4 mr-2" />
-                Call Now: 07970 566409
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Before/After Slider */}
-      <section className="py-12 bg-white">
-        <div className="container">
-          <div className="mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Birmingham Project Transformation
-            </h2>
-            <p className="text-gray-600">See the results of our professional shot blasting work</p>
-          </div>
-          <BeforeAfterSlider
-            beforeImage="/images/premier/steel-container-before.jpeg"
-            afterImage="/images/premier/steel-container-after.jpeg"
-            beforeLabel="Before"
-            afterLabel="After"
-          />
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
-              Request a Quote
+      <HeroCarousel className="py-16 md:py-24">
+        <div className="max-w-3xl">
+          <p className="text-[#F5F1E8] font-medium mb-2">Professional Shot Blasting Services</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Shot Blasting Services in Birmingham
+          </h1>
+          <p className="text-lg text-white/90 mb-8">
+            Commercial Shot Blasting provides professional surface preparation and rust removal services throughout Birmingham and the West Midlands. Serving local manufacturers, automotive shops, and industrial facilities with precision blasting solutions.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
+              Get a Free Quote
             </Button>
-            <TrackedPhoneButton
-              location="Birmingham"
-              phoneNumber="07970566409"
-              variant="outline"
-              size="lg"
-              className="border-[#2C5F7F] text-[#2C5F7F]"
-            >
-              Call Now
-            </TrackedPhoneButton>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
+              <a href="tel:07970566409" className="flex items-center gap-2">
+                <Phone className="w-4 h-4" />
+                Call Now: 07970 566409
+              </a>
+            </Button>
           </div>
         </div>
-      </section>
-
-      {/* About Birmingham Service Area */}
+      </HeroCarousel>{/* About Birmingham Service Area */}
       <section className="py-16 bg-[#F5F1E8]">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -120,7 +167,7 @@ export default function BirminghamServiceArea() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Full compliance with environmental and safety regulations</span>
+                  <span className="text-gray-700">Professional safety practices</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
@@ -129,8 +176,8 @@ export default function BirminghamServiceArea() {
               </ul>
             </div>
             <div className="relative">
-              <img
-                src="/images/premier/steel-container-after.jpeg"
+              <img loading="lazy"
+                src="/images/premier/steel-container-after.webp"
                 alt="Professional shot blasting results in Birmingham"
                 className="rounded-lg shadow-lg"
               />
@@ -266,8 +313,8 @@ export default function BirminghamServiceArea() {
                   description: "Professional quality at competitive rates tailored to Birmingham market conditions."
                 },
                 {
-                  title: "Environmental Compliance",
-                  description: "Full compliance with UK environmental regulations and responsible waste management."
+                  title: "Waste Management",
+                  description: "Responsible waste management and responsible waste management."
                 }
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-4">
@@ -319,6 +366,41 @@ export default function BirminghamServiceArea() {
         </div>
       </section>
 
+      
+
+
+      {/* Before/After Slider */}
+      <section className="py-12 bg-white">
+        <div className="container">
+          <div className="mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Birmingham Project Transformation
+            </h2>
+            <p className="text-gray-600">See the results of our professional shot blasting work</p>
+          </div>
+          <BeforeAfterSlider
+            beforeImage="/images/premier/steel-container-before.webp"
+            afterImage="/images/premier/steel-container-after.webp"
+            beforeLabel="Before"
+            afterLabel="After"
+          />
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
+              Request a Quote
+            </Button>
+            <TrackedPhoneButton
+              location="Birmingham"
+              phoneNumber="07970566409"
+              variant="outline"
+              size="lg"
+              className="border-[#2C5F7F] text-[#2C5F7F]"
+            >
+              Call Now
+            </TrackedPhoneButton>
+          </div>
+        </div>
+      </section>
+
       {/* Case Study Section */}
       <CaseStudy
         title="Birmingham Automotive Manufacturing Facility"
@@ -327,8 +409,8 @@ export default function BirminghamServiceArea() {
         duration="3 weeks"
         area="15,000 sq ft manufacturing floor"
         completionDate="November 2025"
-        beforeImage="/case-study-before.jpg"
-        afterImage="/case-study-after.jpg"
+        beforeImage="/case-study-before.webp"
+        afterImage="/case-study-after.webp"
         challenge="Midlands Automotive Components Ltd faced significant operational challenges due to deteriorating floor conditions in their main production facility. Years of heavy machinery use, chemical exposure, and metal debris had left the concrete floor surface severely compromised with rust staining, coating failure, and uneven texture. The facility required complete surface restoration that would minimize production downtime while delivering a durable, long-lasting finish capable of withstanding the demanding automotive manufacturing environment."
         solution="Our team deployed a comprehensive shot blasting solution specifically designed for large-scale industrial applications. We utilized steel shot blasting technology with S330 grade steel shot media, which provided the aggressive surface profile required for this demanding application. The process involved multiple passes across the entire 15,000 square foot area, systematically removing all existing coatings, rust deposits, and surface contaminants. We implemented a phased approach to maximize efficiency while maintaining strict quality control."
         outcomes={[
@@ -346,6 +428,78 @@ export default function BirminghamServiceArea() {
           company: "Midlands Automotive Components Ltd"
         }}
       />
+      {/* Preparation & Cleanup Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="text-sm font-semibold text-primary mb-2">Our Process</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Professional Preparation & Site Protection
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Shot blasting excellence depends on meticulous preparation and cleanup. We take pride in our comprehensive approach to site protection, containment, and post-blast restoration – ensuring minimal disruption to Birmingham's busy industrial operations and maximum quality on every project.
+              </p>
+              <p className="text-gray-600 mb-8">
+                From isolating work zones and protecting delicate fixtures to thorough post-blast cleanup and waste disposal, we follow a fixed four-stage process that delivers predictable results and leaves your site ready for the next phase of work.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    1
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Containment & Protection</h3>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    2
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Surface Preparation</h3>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    3
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Protection of Delicate Areas</h3>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    4
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Post-Blast Clean-Down</h3>
+                  </div>
+                </div>
+              </div>
+              <Link href="/preparation-cleanup">
+                <Button variant="default" size="lg">
+                  Learn More About Our Process
+                </Button>
+              </Link>
+            </div>
+            <div className="relative">
+              <div className="relative rounded-lg overflow-hidden shadow-xl">
+                <img loading="lazy"
+                  src="/cleanwarehouse.webp"
+                  alt="Clean warehouse after shot blasting"
+                  className="w-full h-auto"
+                />
+                <div className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-lg shadow-lg">
+                  <div className="text-3xl font-bold text-primary">4</div>
+                  <div className="text-sm text-gray-600">Stage Process</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* FAQ Section */}
       <section className="py-16 bg-[#F5F1E8]">
@@ -370,7 +524,7 @@ export default function BirminghamServiceArea() {
               },
               {
                 q: "Are your services environmentally friendly?",
-                a: "Yes, we fully comply with UK environmental regulations and use responsible waste management practices. We can discuss specific environmental requirements for your project."
+                a: "Yes, we fully comply with UK waste management practices and use waste management practices. We can discuss specific project requirements for your project."
               },
               {
                 q: "Can you handle urgent or emergency projects?",
@@ -415,6 +569,12 @@ export default function BirminghamServiceArea() {
           <LocationMap locationName="Birmingham" />
         </div>
       </section>
+
+      {/* Nearby Towns Section */}
+      <NearbyTowns 
+        locationName={nearbyTownsData.birmingham.location}
+        towns={nearbyTownsData.birmingham.towns}
+      />
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-[#2C5F7F] to-[#1a3d52] text-white">
@@ -463,7 +623,7 @@ export default function BirminghamServiceArea() {
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-white/70 text-sm">
                 <li><Link href="/" className="hover:text-white">Home</Link></li>
-                <li><Link href="/gallery" className="hover:text-white">Gallery</Link></li>
+                <li><Link href="/our-work" className="hover:text-white">Our Work</Link></li>
                 <li><Link href="/service-areas" className="hover:text-white">Service Areas</Link></li>
               </ul>
             </div>

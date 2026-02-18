@@ -1,0 +1,639 @@
+  "aylesbury": {
+    name: "Aylesbury",
+    city: "Aylesbury",
+    region: "Buckinghamshire",
+    latitude: "51.8168",
+    longitude: "-0.8084",
+    description: "Shot Blasting Aylesbury - Professional rust removal & surface preparation for Buckinghamshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/aylesbury"
+  },
+  "banbury": {
+    name: "Banbury",
+    city: "Banbury",
+    region: "Oxfordshire",
+    latitude: "52.0629",
+    longitude: "-1.3397",
+    description: "Shot Blasting Banbury - Professional rust removal & surface preparation for Oxfordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/banbury"
+  },
+  "barnsley": {
+    name: "Barnsley",
+    city: "Barnsley",
+    region: "South Yorkshire",
+    latitude: "53.5526",
+    longitude: "-1.4797",
+    description: "Shot Blasting Barnsley - Professional rust removal & surface preparation for South Yorkshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/barnsley"
+  },
+  "bath": {
+    name: "Bath",
+    city: "Bath",
+    region: "Somerset",
+    latitude: "51.3758",
+    longitude: "-2.3599",
+    description: "Shot Blasting Bath - Professional rust removal & surface preparation for Somerset. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/bath"
+  },
+  "basildon": {
+    name: "Basildon",
+    city: "Basildon",
+    region: "Essex",
+    latitude: "51.5761",
+    longitude: "0.4886",
+    description: "Shot Blasting Basildon - Professional rust removal & surface preparation for Essex. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/basildon"
+  },
+  "bedford": {
+    name: "Bedford",
+    city: "Bedford",
+    region: "Bedfordshire",
+    latitude: "52.1356",
+    longitude: "-0.4673",
+    description: "Shot Blasting Bedford - Professional rust removal & surface preparation for Bedfordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/bedford"
+  },
+  "birkenhead": {
+    name: "Birkenhead",
+    city: "Birkenhead",
+    region: "Merseyside",
+    latitude: "53.3934",
+    longitude: "-3.0147",
+    description: "Shot Blasting Birkenhead - Professional rust removal & surface preparation for Merseyside. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/birkenhead"
+  },
+  "bolton": {
+    name: "Bolton",
+    city: "Bolton",
+    region: "Greater Manchester",
+    latitude: "53.5783",
+    longitude: "-2.4299",
+    description: "Shot Blasting Bolton - Professional rust removal & surface preparation for Greater Manchester. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/bolton"
+  },
+  "bury-st-edmunds": {
+    name: "Bury St Edmunds",
+    city: "Bury St Edmunds",
+    region: "Suffolk",
+    latitude: "52.2474",
+    longitude: "0.7183",
+    description: "Shot Blasting Bury St Edmunds - Professional rust removal & surface preparation for Suffolk. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/bury-st-edmunds"
+  },
+  "burton-upon-trent": {
+    name: "Burton upon Trent",
+    city: "Burton upon Trent",
+    region: "Staffordshire",
+    latitude: "52.8019",
+    longitude: "-1.6367",
+    description: "Shot Blasting Burton upon Trent - Professional rust removal & surface preparation for Staffordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/burton-upon-trent"
+  },
+  "cannock": {
+    name: "Cannock",
+    city: "Cannock",
+    region: "Staffordshire",
+    latitude: "52.6907",
+    longitude: "-2.0305",
+    description: "Shot Blasting Cannock - Professional rust removal & surface preparation for Staffordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/cannock"
+  },
+  "cannock-chase": {
+    name: "Cannock Chase",
+    city: "Cannock Chase",
+    region: "Staffordshire",
+    latitude: "52.7500",
+    longitude: "-2.0000",
+    description: "Shot Blasting Cannock Chase - Professional rust removal & surface preparation for Staffordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/cannock-chase"
+  },
+  "chelmsford": {
+    name: "Chelmsford",
+    city: "Chelmsford",
+    region: "Essex",
+    latitude: "51.7356",
+    longitude: "0.4685",
+    description: "Shot Blasting Chelmsford - Professional rust removal & surface preparation for Essex. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/chelmsford"
+  },
+  "cheltenham": {
+    name: "Cheltenham",
+    city: "Cheltenham",
+    region: "Gloucestershire",
+    latitude: "51.8994",
+    longitude: "-2.0783",
+    description: "Shot Blasting Cheltenham - Professional rust removal & surface preparation for Gloucestershire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/cheltenham"
+  },
+  "colchester": {
+    name: "Colchester",
+    city: "Colchester",
+    region: "Essex",
+    latitude: "51.8891",
+    longitude: "0.9039",
+    description: "Shot Blasting Colchester - Professional rust removal & surface preparation for Essex. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/colchester"
+  },
+  "coalville": {
+    name: "Coalville",
+    city: "Coalville",
+    region: "Leicestershire",
+    latitude: "52.7247",
+    longitude: "-1.3694",
+    description: "Shot Blasting Coalville - Professional rust removal & surface preparation for Leicestershire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/coalville"
+  },
+  "corby": {
+    name: "Corby",
+    city: "Corby",
+    region: "Northamptonshire",
+    latitude: "52.4877",
+    longitude: "-0.6857",
+    description: "Shot Blasting Corby - Professional rust removal & surface preparation for Northamptonshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/corby"
+  },
+  "crewe": {
+    name: "Crewe",
+    city: "Crewe",
+    region: "Cheshire",
+    latitude: "53.0988",
+    longitude: "-2.4405",
+    description: "Shot Blasting Crewe - Professional rust removal & surface preparation for Cheshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/crewe"
+  },
+  "doncaster": {
+    name: "Doncaster",
+    city: "Doncaster",
+    region: "South Yorkshire",
+    latitude: "53.5228",
+    longitude: "-1.1288",
+    description: "Shot Blasting Doncaster - Professional rust removal & surface preparation for South Yorkshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/doncaster"
+  },
+  "dronfield": {
+    name: "Dronfield",
+    city: "Dronfield",
+    region: "Derbyshire",
+    latitude: "53.3017",
+    longitude: "-1.4669",
+    description: "Shot Blasting Dronfield - Professional rust removal & surface preparation for Derbyshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/dronfield"
+  },
+  "dudley": {
+    name: "Dudley",
+    city: "Dudley",
+    region: "West Midlands",
+    latitude: "52.5086",
+    longitude: "-2.0875",
+    description: "Shot Blasting Dudley - Professional rust removal & surface preparation for West Midlands. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/dudley"
+  },
+  "grantham": {
+    name: "Grantham",
+    city: "Grantham",
+    region: "Lincolnshire",
+    latitude: "52.9118",
+    longitude: "-0.6417",
+    description: "Shot Blasting Grantham - Professional rust removal & surface preparation for Lincolnshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/grantham"
+  },
+  "great-yarmouth": {
+    name: "Great Yarmouth",
+    city: "Great Yarmouth",
+    region: "Norfolk",
+    latitude: "52.6061",
+    longitude: "1.7298",
+    description: "Shot Blasting Great Yarmouth - Professional rust removal & surface preparation for Norfolk. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/great-yarmouth"
+  },
+  "guildford": {
+    name: "Guildford",
+    city: "Guildford",
+    region: "Surrey",
+    latitude: "51.2362",
+    longitude: "-0.5704",
+    description: "Shot Blasting Guildford - Professional rust removal & surface preparation for Surrey. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/guildford"
+  },
+  "halifax": {
+    name: "Halifax",
+    city: "Halifax",
+    region: "West Yorkshire",
+    latitude: "53.7217",
+    longitude: "-1.8596",
+    description: "Shot Blasting Halifax - Professional rust removal & surface preparation for West Yorkshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/halifax"
+  },
+  "hemel-hempstead": {
+    name: "Hemel Hempstead",
+    city: "Hemel Hempstead",
+    region: "Hertfordshire",
+    latitude: "51.7526",
+    longitude: "-0.4692",
+    description: "Shot Blasting Hemel Hempstead - Professional rust removal & surface preparation for Hertfordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/hemel-hempstead"
+  },
+  "high-wycombe": {
+    name: "High Wycombe",
+    city: "High Wycombe",
+    region: "Buckinghamshire",
+    latitude: "51.6287",
+    longitude: "-0.7482",
+    description: "Shot Blasting High Wycombe - Professional rust removal & surface preparation for Buckinghamshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/high-wycombe"
+  },
+  "huddersfield": {
+    name: "Huddersfield",
+    city: "Huddersfield",
+    region: "West Yorkshire",
+    latitude: "53.6458",
+    longitude: "-1.7850",
+    description: "Shot Blasting Huddersfield - Professional rust removal & surface preparation for West Yorkshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/huddersfield"
+  },
+  "kidderminster": {
+    name: "Kidderminster",
+    city: "Kidderminster",
+    region: "Worcestershire",
+    latitude: "52.3886",
+    longitude: "-2.2499",
+    description: "Shot Blasting Kidderminster - Professional rust removal & surface preparation for Worcestershire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/kidderminster"
+  },
+  "kings-lynn": {
+    name: "King's Lynn",
+    city: "King's Lynn",
+    region: "Norfolk",
+    latitude: "52.7519",
+    longitude: "0.3958",
+    description: "Shot Blasting King's Lynn - Professional rust removal & surface preparation for Norfolk. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/kings-lynn"
+  },
+  "kingswood": {
+    name: "Kingswood",
+    city: "Kingswood",
+    region: "South Gloucestershire",
+    latitude: "51.4570",
+    longitude: "-2.5050",
+    description: "Shot Blasting Kingswood - Professional rust removal & surface preparation for South Gloucestershire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/kingswood"
+  },
+  "kettering": {
+    name: "Kettering",
+    city: "Kettering",
+    region: "Northamptonshire",
+    latitude: "52.3931",
+    longitude: "-0.7229",
+    description: "Shot Blasting Kettering - Professional rust removal & surface preparation for Northamptonshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/kettering"
+  },
+  "leamington-spa": {
+    name: "Leamington Spa",
+    city: "Leamington Spa",
+    region: "Warwickshire",
+    latitude: "52.2852",
+    longitude: "-1.5201",
+    description: "Shot Blasting Leamington Spa - Professional rust removal & surface preparation for Warwickshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/leamington-spa"
+  },
+  "leighton-buzzard": {
+    name: "Leighton Buzzard",
+    city: "Leighton Buzzard",
+    region: "Bedfordshire",
+    latitude: "51.9165",
+    longitude: "-0.6617",
+    description: "Shot Blasting Leighton Buzzard - Professional rust removal & surface preparation for Bedfordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/leighton-buzzard"
+  },
+  "lichfield": {
+    name: "Lichfield",
+    city: "Lichfield",
+    region: "Staffordshire",
+    latitude: "52.6833",
+    longitude: "-1.8275",
+    description: "Shot Blasting Lichfield - Professional rust removal & surface preparation for Staffordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/lichfield"
+  },
+  "lowestoft": {
+    name: "Lowestoft",
+    city: "Lowestoft",
+    region: "Suffolk",
+    latitude: "52.4797",
+    longitude: "1.7500",
+    description: "Shot Blasting Lowestoft - Professional rust removal & surface preparation for Suffolk. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/lowestoft"
+  },
+  "loughborough": {
+    name: "Loughborough",
+    city: "Loughborough",
+    region: "Leicestershire",
+    latitude: "52.7721",
+    longitude: "-1.2062",
+    description: "Shot Blasting Loughborough - Professional rust removal & surface preparation for Leicestershire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/loughborough"
+  },
+  "luton": {
+    name: "Luton",
+    city: "Luton",
+    region: "Bedfordshire",
+    latitude: "51.8787",
+    longitude: "-0.4200",
+    description: "Shot Blasting Luton - Professional rust removal & surface preparation for Bedfordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/luton"
+  },
+  "macclesfield": {
+    name: "Macclesfield",
+    city: "Macclesfield",
+    region: "Cheshire",
+    latitude: "53.2600",
+    longitude: "-2.1253",
+    description: "Shot Blasting Macclesfield - Professional rust removal & surface preparation for Cheshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/macclesfield"
+  },
+  "mansfield": {
+    name: "Mansfield",
+    city: "Mansfield",
+    region: "Nottinghamshire",
+    latitude: "53.1472",
+    longitude: "-1.1987",
+    description: "Shot Blasting Mansfield - Professional rust removal & surface preparation for Nottinghamshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/mansfield"
+  },
+  "newport": {
+    name: "Newport",
+    city: "Newport",
+    region: "South Wales",
+    latitude: "51.5842",
+    longitude: "-2.9977",
+    description: "Shot Blasting Newport - Professional rust removal & surface preparation for South Wales. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/newport"
+  },
+  "newcastle-under-lyme": {
+    name: "Newcastle-under-Lyme",
+    city: "Newcastle-under-Lyme",
+    region: "Staffordshire",
+    latitude: "53.0109",
+    longitude: "-2.2276",
+    description: "Shot Blasting Newcastle-under-Lyme - Professional rust removal & surface preparation for Staffordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/newcastle-under-lyme"
+  },
+  "nuneaton": {
+    name: "Nuneaton",
+    city: "Nuneaton",
+    region: "Warwickshire",
+    latitude: "52.5228",
+    longitude: "-1.4678",
+    description: "Shot Blasting Nuneaton - Professional rust removal & surface preparation for Warwickshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/nuneaton"
+  },
+  "oldham": {
+    name: "Oldham",
+    city: "Oldham",
+    region: "Greater Manchester",
+    latitude: "53.5409",
+    longitude: "-2.1114",
+    description: "Shot Blasting Oldham - Professional rust removal & surface preparation for Greater Manchester. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/oldham"
+  },
+  "portsmouth": {
+    name: "Portsmouth",
+    city: "Portsmouth",
+    region: "Hampshire",
+    latitude: "50.8198",
+    longitude: "-1.0880",
+    description: "Shot Blasting Portsmouth - Professional rust removal & surface preparation for Hampshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/portsmouth"
+  },
+  "reading": {
+    name: "Reading",
+    city: "Reading",
+    region: "Berkshire",
+    latitude: "51.4543",
+    longitude: "-0.9781",
+    description: "Shot Blasting Reading - Professional rust removal & surface preparation for Berkshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/reading"
+  },
+  "redditch": {
+    name: "Redditch",
+    city: "Redditch",
+    region: "Worcestershire",
+    latitude: "52.3065",
+    longitude: "-1.9455",
+    description: "Shot Blasting Redditch - Professional rust removal & surface preparation for Worcestershire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/redditch"
+  },
+  "rochdale": {
+    name: "Rochdale",
+    city: "Rochdale",
+    region: "Greater Manchester",
+    latitude: "53.6097",
+    longitude: "-2.1561",
+    description: "Shot Blasting Rochdale - Professional rust removal & surface preparation for Greater Manchester. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/rochdale"
+  },
+  "rotherham": {
+    name: "Rotherham",
+    city: "Rotherham",
+    region: "South Yorkshire",
+    latitude: "53.4326",
+    longitude: "-1.3635",
+    description: "Shot Blasting Rotherham - Professional rust removal & surface preparation for South Yorkshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/rotherham"
+  },
+  "rugby": {
+    name: "Rugby",
+    city: "Rugby",
+    region: "Warwickshire",
+    latitude: "52.3708",
+    longitude: "-1.2616",
+    description: "Shot Blasting Rugby - Professional rust removal & surface preparation for Warwickshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/rugby"
+  },
+  "runcorn": {
+    name: "Runcorn",
+    city: "Runcorn",
+    region: "Cheshire",
+    latitude: "53.3419",
+    longitude: "-2.7331",
+    description: "Shot Blasting Runcorn - Professional rust removal & surface preparation for Cheshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/runcorn"
+  },
+  "salford": {
+    name: "Salford",
+    city: "Salford",
+    region: "Greater Manchester",
+    latitude: "53.4875",
+    longitude: "-2.2901",
+    description: "Shot Blasting Salford - Professional rust removal & surface preparation for Greater Manchester. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/salford"
+  },
+  "salisbury": {
+    name: "Salisbury",
+    city: "Salisbury",
+    region: "Wiltshire",
+    latitude: "51.0688",
+    longitude: "-1.7945",
+    description: "Shot Blasting Salisbury - Professional rust removal & surface preparation for Wiltshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/salisbury"
+  },
+  "scunthorpe": {
+    name: "Scunthorpe",
+    city: "Scunthorpe",
+    region: "Lincolnshire",
+    latitude: "53.5809",
+    longitude: "-0.6502",
+    description: "Shot Blasting Scunthorpe - Professional rust removal & surface preparation for Lincolnshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/scunthorpe"
+  },
+  "slough": {
+    name: "Slough",
+    city: "Slough",
+    region: "Berkshire",
+    latitude: "51.5105",
+    longitude: "-0.5950",
+    description: "Shot Blasting Slough - Professional rust removal & surface preparation for Berkshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/slough"
+  },
+  "solihull": {
+    name: "Solihull",
+    city: "Solihull",
+    region: "West Midlands",
+    latitude: "52.4119",
+    longitude: "-1.7780",
+    description: "Shot Blasting Solihull - Professional rust removal & surface preparation for West Midlands. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/solihull"
+  },
+  "southend-on-sea": {
+    name: "Southend-on-Sea",
+    city: "Southend-on-Sea",
+    region: "Essex",
+    latitude: "51.5459",
+    longitude: "0.7077",
+    description: "Shot Blasting Southend-on-Sea - Professional rust removal & surface preparation for Essex. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/southend-on-sea"
+  },
+  "stafford": {
+    name: "Stafford",
+    city: "Stafford",
+    region: "Staffordshire",
+    latitude: "52.8060",
+    longitude: "-2.1169",
+    description: "Shot Blasting Stafford - Professional rust removal & surface preparation for Staffordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/stafford"
+  },
+  "stevenage": {
+    name: "Stevenage",
+    city: "Stevenage",
+    region: "Hertfordshire",
+    latitude: "51.9017",
+    longitude: "-0.2019",
+    description: "Shot Blasting Stevenage - Professional rust removal & surface preparation for Hertfordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/stevenage"
+  },
+  "stockport": {
+    name: "Stockport",
+    city: "Stockport",
+    region: "Greater Manchester",
+    latitude: "53.4083",
+    longitude: "-2.1494",
+    description: "Shot Blasting Stockport - Professional rust removal & surface preparation for Greater Manchester. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/stockport"
+  },
+  "sutton-coldfield": {
+    name: "Sutton Coldfield",
+    city: "Sutton Coldfield",
+    region: "West Midlands",
+    latitude: "52.5633",
+    longitude: "-1.8227",
+    description: "Shot Blasting Sutton Coldfield - Professional rust removal & surface preparation for West Midlands. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/sutton-coldfield"
+  },
+  "taunton": {
+    name: "Taunton",
+    city: "Taunton",
+    region: "Somerset",
+    latitude: "51.0147",
+    longitude: "-3.1029",
+    description: "Shot Blasting Taunton - Professional rust removal & surface preparation for Somerset. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/taunton"
+  },
+  "tamworth": {
+    name: "Tamworth",
+    city: "Tamworth",
+    region: "Staffordshire",
+    latitude: "52.6341",
+    longitude: "-1.6912",
+    description: "Shot Blasting Tamworth - Professional rust removal & surface preparation for Staffordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/tamworth"
+  },
+  "telford": {
+    name: "Telford",
+    city: "Telford",
+    region: "Shropshire",
+    latitude: "52.6778",
+    longitude: "-2.4497",
+    description: "Shot Blasting Telford - Professional rust removal & surface preparation for Shropshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/telford"
+  },
+  "thetford": {
+    name: "Thetford",
+    city: "Thetford",
+    region: "Norfolk",
+    latitude: "52.4118",
+    longitude: "0.7440",
+    description: "Shot Blasting Thetford - Professional rust removal & surface preparation for Norfolk. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/thetford"
+  },
+  "walsall": {
+    name: "Walsall",
+    city: "Walsall",
+    region: "West Midlands",
+    latitude: "52.5859",
+    longitude: "-1.9821",
+    description: "Shot Blasting Walsall - Professional rust removal & surface preparation for West Midlands. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/walsall"
+  },
+  "warrington": {
+    name: "Warrington",
+    city: "Warrington",
+    region: "Cheshire",
+    latitude: "53.3900",
+    longitude: "-2.5970",
+    description: "Shot Blasting Warrington - Professional rust removal & surface preparation for Cheshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/warrington"
+  },
+  "watford": {
+    name: "Watford",
+    city: "Watford",
+    region: "Hertfordshire",
+    latitude: "51.6565",
+    longitude: "-0.3903",
+    description: "Shot Blasting Watford - Professional rust removal & surface preparation for Hertfordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/watford"
+  },
+  "wellingborough": {
+    name: "Wellingborough",
+    city: "Wellingborough",
+    region: "Northamptonshire",
+    latitude: "52.3026",
+    longitude: "-0.6940",
+    description: "Shot Blasting Wellingborough - Professional rust removal & surface preparation for Northamptonshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/wellingborough"
+  },
+  "welwyn-garden-city": {
+    name: "Welwyn Garden City",
+    city: "Welwyn Garden City",
+    region: "Hertfordshire",
+    latitude: "51.8010",
+    longitude: "-0.2063",
+    description: "Shot Blasting Welwyn Garden City - Professional rust removal & surface preparation for Hertfordshire. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/welwyn-garden-city"
+  },
+  "weston-super-mare": {
+    name: "Weston-super-Mare",
+    city: "Weston-super-Mare",
+    region: "Somerset",
+    latitude: "51.3460",
+    longitude: "-2.9770",
+    description: "Shot Blasting Weston-super-Mare - Professional rust removal & surface preparation for Somerset. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/service-areas/weston-super-mare"
+  }

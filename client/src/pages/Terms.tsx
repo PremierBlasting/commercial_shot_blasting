@@ -1,10 +1,16 @@
 import { Header } from "@/components/Header";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import { Footer } from "@/components/Footer";
 
 export default function Terms() {
   return (
     <div className="min-h-screen bg-[#F5F1E8]">
       <Header onOpenQuotePopup={() => {}} />
+      
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: "Terms & Conditions", href: "/terms", isCurrentPage: true }
+      ]} className="container mt-6" />
       
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-8 md:p-12">
@@ -114,9 +120,9 @@ export default function Terms() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-[#2C5F7F] mb-4">10. Environmental Compliance</h2>
+              <h2 className="text-2xl font-bold text-[#2C5F7F] mb-4">10. Waste Management</h2>
               <p className="text-gray-700 mb-4">
-                We are committed to environmental responsibility and comply with all relevant UK environmental regulations. Waste materials are disposed of in accordance with current legislation, and we maintain appropriate waste carrier licenses.
+                We are committed to environmental responsibility and comply with all relevant UK waste management practices. Waste materials are disposed of in accordance with current legislation, and we maintain appropriate waste carrier licenses.
               </p>
             </section>
 
@@ -156,7 +162,7 @@ export default function Terms() {
               <div className="bg-[#F5F1E8] p-6 rounded-lg">
                 <p className="text-gray-700 mb-2"><strong>Phone:</strong> 07970 566409</p>
                 <p className="text-gray-700 mb-2"><strong>Email:</strong> info@commercialshotblasting.co.uk</p>
-                <p className="text-gray-700"><strong>Service Area:</strong> Nationwide UK Coverage</p>
+                <p className="text-gray-700"><strong>Service Area:</strong> Professional service across England & Wales</p>
               </div>
             </section>
           </div>

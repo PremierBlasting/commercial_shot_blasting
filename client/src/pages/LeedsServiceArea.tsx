@@ -1,29 +1,109 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Star, Award, Zap } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import { LocationMap } from "@/components/LocationMap";
+import { NearbyTowns } from "@/components/NearbyTowns";
+import { nearbyTownsData } from "@/data/nearbyTowns";
+import { locationData } from "@/data/locationData";
 
 export default function LeedsServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = "Shot Blasting Leeds | Commercial & Industrial";
+    
+    // Set keywords meta tag
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', 'shot blasting Leeds, rust removal, surface preparation, industrial blasting, West Yorkshire');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'keywords';
+      meta.content = 'shot blasting Leeds, rust removal, surface preparation, industrial blasting, West Yorkshire';
+      document.head.appendChild(meta);
+    }
+  }, []);
+
+  useEffect(() => {
+    const description = locationData["leeds"].description;
+    
+    // Set meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+
+    // Set Open Graph meta tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.setAttribute('content', 'Shot Blasting Leeds');
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:title');
+      meta.setAttribute('content', 'Shot Blasting Leeds');
+      document.head.appendChild(meta);
+    }
+
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) {
+      ogDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:description');
+      meta.setAttribute('content', description);
+      document.head.appendChild(meta);
+    }
+
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) {
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:url');
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      document.head.appendChild(meta);
+    }
+
+    // Set Twitter Card meta tags
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) {
+      twitterTitle.setAttribute('content', 'Shot Blasting Leeds');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'twitter:title';
+      meta.content = 'Shot Blasting Leeds';
+      document.head.appendChild(meta);
+    }
+
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDescription) {
+      twitterDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'twitter:description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
-      <LocalBusinessSchema
-        name="Leeds"
-        city="Leeds"
-        region="Yorkshire"
-        description="Professional shot blasting services in Leeds and Yorkshire"
-        url="https://shotblast-lwspuaik.manus.space/service-areas/leeds"
-      />
+      
 
       {/* Breadcrumb Navigation */}
       <section className="py-4 bg-gray-50 border-b border-gray-200">
@@ -31,35 +111,35 @@ export default function LeedsServiceArea() {
           <Breadcrumb items={[
             { label: "Home", href: "/" },
             { label: "Service Areas", href: "/service-areas" },
-            { label: "Yorkshire", href: "/service-areas" },
+            { label: "Yorkshire", href: "/service-areas#yorkshire" },
             { label: "Leeds", href: "/service-areas/leeds", isCurrentPage: true }
           ]} />
         </div>
       </section>
 
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 bg-gradient-to-r from-[#2C5F7F] to-[#1a3d52] text-white">
-        <div className="container">
-          <div className="max-w-3xl">
-            <p className="text-[#F5F1E8] font-medium mb-2">Professional Shot Blasting Services</p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Shot Blasting Services in Leeds
-            </h1>
-            <p className="text-lg text-white/90 mb-8">
-              Commercial Shot Blasting provides professional surface preparation and rust removal services throughout Leeds and Yorkshire. Serving local manufacturers, engineering firms, and industrial facilities with precision blasting solutions.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
-                Get a Free Quote
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                <Phone className="w-4 h-4 mr-2" />
+      <HeroCarousel className="py-16 md:py-24">
+        <div className="max-w-3xl">
+          <p className="text-[#F5F1E8] font-medium mb-2">Professional Shot Blasting Services</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Shot Blasting Services in Leeds
+          </h1>
+          <p className="text-lg text-white/90 mb-8">
+            Commercial Shot Blasting provides professional surface preparation and rust removal services throughout Leeds and Yorkshire. Serving local manufacturers, engineering firms, and industrial facilities with precision blasting solutions.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
+              Get a Free Quote
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
+              <a href="tel:07970566409" className="flex items-center gap-2">
+                <Phone className="w-4 h-4" />
                 Call Now: 07970 566409
-              </Button>
-            </div>
+              </a>
+            </Button>
           </div>
         </div>
-      </section>
+      </HeroCarousel>
 
       {/* Why Choose Us */}
       <section className="py-16 md:py-24 bg-[#F5F1E8]">
@@ -88,7 +168,7 @@ export default function LeedsServiceArea() {
               {
                 icon: <CheckCircle className="w-8 h-8 text-[#2C5F7F]" />,
                 title: "Quality Assurance",
-                description: "Rigorous quality control and certification to meet industry standards and client specifications"
+                description: "Rigorous quality control and processes to meet industry standards and client specifications"
               }
             ].map((item, index) => (
               <div key={index} className="bg-white p-8 rounded-lg border border-gray-200 hover:shadow-lg transition">
@@ -216,6 +296,78 @@ export default function LeedsServiceArea() {
           </div>
         </div>
       </section>
+      {/* Preparation & Cleanup Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="text-sm font-semibold text-primary mb-2">Our Process</div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Thorough Site Preparation & Protection
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Effective shot blasting starts with preparation and concludes with cleanup. Our comprehensive approach to site containment, protective systems, and complete restoration ensures Leeds businesses experience minimal disruption while achieving superior surface preparation quality.
+              </p>
+              <p className="text-gray-600 mb-8">
+                From isolating work zones and protecting delicate fixtures to thorough post-blast cleanup and waste disposal, we follow a fixed four-stage process that delivers predictable results and leaves your site ready for the next phase of work.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    1
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Containment & Protection</h3>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    2
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Surface Preparation</h3>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    3
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Protection of Delicate Areas</h3>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                    4
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">Post-Blast Clean-Down</h3>
+                  </div>
+                </div>
+              </div>
+              <Link href="/preparation-cleanup">
+                <Button variant="default" size="lg">
+                  Learn More About Our Process
+                </Button>
+              </Link>
+            </div>
+            <div className="relative">
+              <div className="relative rounded-lg overflow-hidden shadow-xl">
+                <img loading="lazy"
+                  src="/cleanwarehouse.webp"
+                  alt="Clean warehouse after shot blasting"
+                  className="w-full h-auto"
+                />
+                <div className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-lg shadow-lg">
+                  <div className="text-3xl font-bold text-primary">4</div>
+                  <div className="text-sm text-gray-600">Stage Process</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* FAQ Section */}
       <section className="py-16 md:py-24 bg-gray-50">
@@ -243,8 +395,8 @@ export default function LeedsServiceArea() {
                 a: "Absolutely. We have the equipment and expertise to handle projects of any size, from small components to large structural elements."
               },
               {
-                q: "Do you provide environmental compliance documentation?",
-                a: "Yes, we maintain full compliance with environmental regulations and provide all necessary documentation for your records."
+                q: "Do you provide waste management documentation?",
+                a: "Yes, we maintain full compliance with waste management practices and provide all necessary documentation for your records."
               },
               {
                 q: "How do I get started with a quote?",
@@ -322,6 +474,13 @@ export default function LeedsServiceArea() {
           </div>
         </div>
       </section>
+
+      {/* Nearby Towns Section */}
+      <NearbyTowns 
+        locationName={nearbyTownsData["leeds"].location}
+        towns={nearbyTownsData["leeds"].towns}
+      />
+
     </div>
   );
 }

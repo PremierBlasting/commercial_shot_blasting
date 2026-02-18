@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from 'react-markdown';
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 export default function BlogPost() {
   const [, params] = useRoute("/blog/:slug");
@@ -76,10 +77,16 @@ export default function BlogPost() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
+      
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: "Blog", href: "/blog" },
+        { label: post.title, href: `/blog/${slug}`, isCurrentPage: true }
+      ]} className="container mt-6" />
 
       {/* Hero Section with Featured Image */}
       <div className="relative h-[500px] overflow-hidden">
-        <img
+        <img loading="lazy"
           src={post.featuredImage}
           alt={post.title}
           className="w-full h-full object-cover"

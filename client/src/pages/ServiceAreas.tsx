@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Header } from "@/components/Header";
+import { Breadcrumb } from "@/components/Breadcrumb";
 import { QuotePopup } from "@/components/QuotePopup";
-import { ServiceAreasMap } from "@/components/ServiceAreasMap";
+import { DeferredServiceAreasMap } from "@/components/DeferredServiceAreasMap";
 import { Link } from "wouter";
 import { 
   MapPin, 
@@ -23,88 +24,322 @@ const serviceRegions = [
   {
     id: "west-midlands",
     name: "West Midlands",
+    countyHref: "/service-areas/west-midlands",
     tagline: "Our Home Region",
     description: "The West Midlands is our home base and where we've built our reputation over 15+ years. From Birmingham's automotive suppliers to Wolverhampton's foundries, we understand the unique needs of Midlands industries.",
-    locations: ["Birmingham", "Wolverhampton", "Coventry", "Worcester", "Stratford Upon Avon", "Dudley", "Walsall", "Solihull", "West Bromwich"],
+    locations: ["Birmingham", "Wolverhampton", "Coventry", "Worcester", "Stratford Upon Avon", "Dudley", "Solihull", "Sutton Coldfield", "Walsall", "Kidderminster", "Redditch", "Nuneaton", "Leamington Spa", "Rugby"],
     industries: ["Automotive manufacturing", "Aerospace components", "Foundry & casting", "Metal fabrication", "Heritage restoration"],
-    stats: { projects: "2,000+", clients: "500+" }
+    stats: { projects: "2,500+", clients: "600+" }
   },
   {
-    id: "east-midlands",
-    name: "East Midlands",
-    tagline: "Manufacturing Heartland",
-    description: "The East Midlands is home to some of the UK's most important manufacturing centres. We serve clients across Nottingham, Leicester, Derby, Lincoln, Chesterfield and Northampton with the same quality and reliability.",
-    locations: ["Nottingham", "Leicester", "Derby", "Northampton", "Chesterfield", "Lincoln"],
-    industries: ["Heavy engineering", "Textile machinery", "Food processing equipment", "Rail components", "Industrial equipment"],
-    stats: { projects: "800+", clients: "200+" }
+    id: "staffordshire",
+    name: "Staffordshire",
+    countyHref: "/service-areas/staffordshire",
+    tagline: "Potteries & Beyond",
+    description: "Staffordshire's rich industrial heritage includes ceramics, engineering and manufacturing. We serve clients from Stoke-on-Trent to Stafford, Burton and beyond.",
+    locations: ["Stoke-on-Trent", "Stafford", "Burton upon Trent", "Cannock", "Cannock Chase", "Lichfield", "Tamworth", "Newcastle-under-Lyme"],
+    industries: ["Ceramics industry", "Brewing equipment", "Heavy engineering", "Automotive components", "Construction steel"],
+    stats: { projects: "600+", clients: "150+" }
+  },
+  {
+    id: "nottinghamshire",
+    name: "Nottinghamshire",
+    countyHref: "/service-areas/nottinghamshire",
+    tagline: "Lace & Engineering Heritage",
+    description: "Nottinghamshire's industrial heritage spans textiles, engineering and manufacturing. We serve clients across Nottingham, Mansfield and surrounding areas.",
+    locations: ["Nottingham", "Mansfield"],
+    industries: ["Textile machinery", "Engineering", "Manufacturing", "Rail components", "Construction"],
+    stats: { projects: "400+", clients: "100+" }
+  },
+  {
+    id: "leicestershire",
+    name: "Leicestershire",
+    countyHref: "/service-areas/leicestershire",
+    tagline: "Engineering Excellence",
+    description: "Leicestershire is home to diverse manufacturing from Leicester's textiles to Loughborough's engineering excellence.",
+    locations: ["Leicester", "Loughborough", "Coalville"],
+    industries: ["Textile machinery", "Engineering", "Food processing", "Automotive", "Construction"],
+    stats: { projects: "350+", clients: "90+" }
+  },
+  {
+    id: "derbyshire",
+    name: "Derbyshire",
+    countyHref: "/service-areas/derbyshire",
+    tagline: "Rail & Engineering Heritage",
+    description: "Derbyshire's engineering heritage includes rail, aerospace and manufacturing. We serve clients from Derby to Chesterfield and beyond.",
+    locations: ["Derby", "Chesterfield", "Dronfield"],
+    industries: ["Rail engineering", "Aerospace", "Heavy engineering", "Automotive", "Construction"],
+    stats: { projects: "300+", clients: "80+" }
+  },
+  {
+    id: "lincolnshire",
+    name: "Lincolnshire",
+    countyHref: "/service-areas/lincolnshire",
+    tagline: "Agricultural & Industrial",
+    description: "Lincolnshire's agricultural and industrial heritage includes food processing, steel and engineering. We cover Lincoln, Grantham, Scunthorpe and beyond.",
+    locations: ["Lincoln", "Grantham", "Scunthorpe"],
+    industries: ["Agricultural machinery", "Steel manufacturing", "Food processing", "Engineering", "Construction"],
+    stats: { projects: "250+", clients: "65+" }
+  },
+  {
+    id: "northamptonshire",
+    name: "Northamptonshire",
+    countyHref: "/service-areas/northamptonshire",
+    tagline: "Footwear & Engineering",
+    description: "Northamptonshire's industrial heritage includes footwear, engineering and logistics. We serve Northampton, Corby, Kettering and Wellingborough.",
+    locations: ["Northampton", "Corby", "Kettering", "Wellingborough"],
+    industries: ["Engineering", "Logistics equipment", "Steel fabrication", "Construction", "Manufacturing"],
+    stats: { projects: "280+", clients: "70+" }
   },
   {
     id: "yorkshire",
     name: "Yorkshire",
+    countyHref: "/service-areas/yorkshire",
     tagline: "Steel City & Beyond",
     description: "From Sheffield's legendary steel industry to Leeds and Bradford's diverse manufacturing sectors, we serve clients across Yorkshire with comprehensive shot blasting services.",
-    locations: ["Sheffield", "Leeds", "Bradford"],
+    locations: ["Sheffield", "Leeds", "Barnsley", "Doncaster", "Rotherham", "Halifax", "Huddersfield"],
     industries: ["Steel manufacturing", "Cutlery & tools", "Heavy engineering", "Textile machinery", "Automotive components"],
-    stats: { projects: "450+", clients: "100+" }
+    stats: { projects: "700+", clients: "180+" }
   },
   {
     id: "north-west",
     name: "North West",
+    countyHref: "/service-areas/north-west",
     tagline: "Industrial Heritage",
     description: "From Liverpool's maritime industry to Manchester's engineering excellence, we provide comprehensive shot blasting services across the North West region.",
-    locations: ["Liverpool", "Manchester", "Chester", "Stoke-on-Trent"],
-    industries: ["Maritime & shipping", "Ceramics industry", "Chemical processing", "Construction steel", "Architectural metalwork"],
-    stats: { projects: "600+", clients: "150+" }
+    locations: ["Manchester", "Liverpool", "Chester", "Bolton", "Oldham", "Rochdale", "Salford", "Stockport", "Warrington", "Runcorn", "Birkenhead"],
+    industries: ["Maritime & shipping", "Chemical processing", "Construction steel", "Architectural metalwork", "Logistics"],
+    stats: { projects: "900+", clients: "220+" }
+  },
+  {
+    id: "cheshire",
+    name: "Cheshire",
+    countyHref: "/service-areas/north-west",
+    tagline: "Crewe & Macclesfield",
+    description: "Cheshire's engineering heritage includes rail, automotive and manufacturing. We serve clients across the county.",
+    locations: ["Crewe", "Macclesfield"],
+    industries: ["Rail engineering", "Automotive", "Chemical processing", "Food manufacturing", "Construction"],
+    stats: { projects: "200+", clients: "50+" }
   },
   {
     id: "east-england",
     name: "East of England",
+    countyHref: "/service-areas/east-of-england",
     tagline: "Growing Coverage",
-    description: "Our East of England coverage extends from Cambridge's high-tech industries to Norwich's agricultural equipment manufacturers, Ipswich and beyond.",
-    locations: ["Norwich", "Cambridge", "Peterborough", "St Albans", "Ipswich"],
+    description: "Our East of England coverage extends from Cambridge's high-tech industries to Norwich's agricultural equipment manufacturers and beyond.",
+    locations: ["Norwich", "Cambridge", "Ipswich", "St Albans", "Peterborough", "Colchester", "Chelmsford", "Basildon", "Southend-on-Sea", "Great Yarmouth", "Lowestoft", "King's Lynn", "Thetford", "Bury St Edmunds"],
     industries: ["Agricultural machinery", "Scientific equipment", "Food processing", "Construction", "Heritage restoration"],
+    stats: { projects: "800+", clients: "200+" }
+  },
+  {
+    id: "hertfordshire-bedfordshire",
+    name: "Hertfordshire & Bedfordshire",
+    countyHref: "/service-areas/hertfordshire-bedfordshire",
+    tagline: "Home Counties",
+    description: "Serving the Home Counties with professional shot blasting services for manufacturing, construction and heritage projects.",
+    locations: ["Luton", "Bedford", "Stevenage", "Watford", "Hemel Hempstead", "Welwyn Garden City", "Leighton Buzzard"],
+    industries: ["Automotive", "Aerospace", "Construction", "Logistics equipment", "Heritage restoration"],
     stats: { projects: "400+", clients: "100+" }
   },
   {
     id: "south-west",
     name: "South West",
+    countyHref: "/service-areas/south-west",
     tagline: "Bristol & Beyond",
     description: "We serve the South West from Bristol through Gloucester to Swindon, supporting aerospace, automotive and manufacturing clients.",
-    locations: ["Bristol", "Gloucester", "Swindon"],
+    locations: ["Bristol", "Gloucester", "Swindon", "Bath", "Cheltenham", "Taunton", "Weston-super-Mare", "Kingswood", "Salisbury"],
     industries: ["Aerospace manufacturing", "Automotive components", "Marine equipment", "Agricultural machinery", "Construction"],
-    stats: { projects: "350+", clients: "80+" }
+    stats: { projects: "550+", clients: "140+" }
   },
   {
     id: "south-east",
     name: "South East & Thames Valley",
-    tagline: "Oxford & Milton Keynes",
-    description: "Our South East coverage includes Oxford's scientific instrument makers and Milton Keynes' diverse manufacturing sector.",
-    locations: ["Oxford", "Milton Keynes"],
-    industries: ["Scientific instruments", "Automotive", "Logistics equipment", "Construction", "Heritage restoration"],
-    stats: { projects: "250+", clients: "60+" }
+    countyHref: "/service-areas/south-east",
+    tagline: "Oxford to Portsmouth",
+    description: "Our South East coverage includes Oxford's scientific instrument makers, Reading's tech sector and Portsmouth's maritime industries.",
+    locations: ["Oxford", "Milton Keynes", "Reading", "Slough", "Guildford", "Portsmouth", "Aylesbury", "High Wycombe", "Banbury"],
+    industries: ["Scientific instruments", "Automotive", "Logistics equipment", "Maritime", "Construction"],
+    stats: { projects: "450+", clients: "110+" }
+  },
+  {
+    id: "shropshire",
+    name: "Shropshire",
+    countyHref: "/service-areas/shropshire",
+    tagline: "Shrewsbury & Telford",
+    description: "Serving Shropshire's manufacturing and agricultural sectors with professional shot blasting services.",
+    locations: ["Shrewsbury", "Telford"],
+    industries: ["Agricultural machinery", "Manufacturing", "Construction steel", "Heritage restoration"],
+    stats: { projects: "200+", clients: "50+" }
   },
   {
     id: "welsh-borders",
     name: "Welsh Borders & Wales",
-    tagline: "Shrewsbury to Cardiff",
-    description: "We serve clients along the Welsh borders and into Wales, from Shrewsbury and Wrexham in the north to Hereford and Cardiff in the south.",
-    locations: ["Shrewsbury", "Hereford", "Wrexham", "Cardiff"],
-    industries: ["Agricultural machinery", "Farm equipment", "Construction steel", "Heritage restoration", "Architectural metalwork", "Marine & port equipment"],
-    stats: { projects: "300+", clients: "70+" }
+    countyHref: "/service-areas/wales-borders",
+    tagline: "Hereford to Cardiff",
+    description: "We serve clients along the Welsh borders and into Wales, from Hereford to Cardiff and Newport.",
+    locations: ["Hereford", "Cardiff", "Wrexham", "Newport"],
+    industries: ["Agricultural machinery", "Farm equipment", "Construction steel", "Heritage restoration", "Marine & port equipment"],
+    stats: { projects: "350+", clients: "90+" }
   }
 ];
 
-// All individual locations for the comprehensive list
+// All individual locations for the comprehensive list - ALL 102 locations
 const allLocations = [
-  "Birmingham", "Wolverhampton", "Coventry", "Worcester", "Stratford Upon Avon",
-  "Nottingham", "Leicester", "Derby", "Northampton", "Chesterfield", "Lincoln",
-  "Sheffield", "Leeds", "Bradford",
-  "Liverpool", "Manchester", "Chester", "Stoke-on-Trent",
-  "Norwich", "Cambridge", "Peterborough", "St Albans", "Ipswich",
-  "Bristol", "Gloucester", "Swindon",
-  "Oxford", "Milton Keynes",
-  "Shrewsbury", "Hereford", "Wrexham", "Cardiff"
+  // West Midlands
+  "Birmingham", "Wolverhampton", "Coventry", "Worcester", "Stratford Upon Avon", "Dudley", "Solihull", "Sutton Coldfield", "Walsall", "Kidderminster", "Redditch", "Nuneaton", "Leamington Spa", "Rugby",
+  // Staffordshire
+  "Stoke-on-Trent", "Stafford", "Burton upon Trent", "Cannock", "Cannock Chase", "Lichfield", "Tamworth", "Newcastle-under-Lyme",
+  // Nottinghamshire
+  "Nottingham", "Mansfield",
+  // Leicestershire
+  "Leicester", "Loughborough", "Coalville",
+  // Derbyshire
+  "Derby", "Chesterfield", "Dronfield",
+  // Lincolnshire
+  "Lincoln", "Grantham", "Scunthorpe",
+  // Northamptonshire
+  "Northampton", "Corby", "Kettering", "Wellingborough",
+  // Yorkshire
+  "Sheffield", "Leeds", "Barnsley", "Doncaster", "Rotherham", "Halifax", "Huddersfield",
+  // North West
+  "Manchester", "Liverpool", "Chester", "Bolton", "Oldham", "Rochdale", "Salford", "Stockport", "Warrington", "Runcorn", "Birkenhead",
+  // Cheshire
+  "Crewe", "Macclesfield",
+  // East of England
+  "Norwich", "Cambridge", "Ipswich", "St Albans", "Peterborough", "Colchester", "Chelmsford", "Basildon", "Southend-on-Sea", "Great Yarmouth", "Lowestoft", "King's Lynn", "Thetford", "Bury St Edmunds",
+  // Hertfordshire & Bedfordshire
+  "Luton", "Bedford", "Stevenage", "Watford", "Hemel Hempstead", "Welwyn Garden City", "Leighton Buzzard",
+  // South West
+  "Bristol", "Gloucester", "Swindon", "Bath", "Cheltenham", "Taunton", "Weston-super-Mare", "Kingswood", "Salisbury",
+  // South East
+  "Oxford", "Milton Keynes", "Reading", "Slough", "Guildford", "Portsmouth", "Aylesbury", "High Wycombe", "Banbury",
+  // Shropshire
+  "Shrewsbury", "Telford",
+  // Welsh Borders & Wales
+  "Hereford", "Cardiff", "Wrexham", "Newport"
 ];
+
+// Map location names to their URL slugs - used throughout the page
+const locationSlugMap: Record<string, string> = {
+  // West Midlands
+  "Birmingham": "birmingham",
+  "Wolverhampton": "wolverhampton",
+  "Coventry": "coventry",
+  "Worcester": "worcester",
+  "Stratford Upon Avon": "stratford-upon-avon",
+  "Dudley": "dudley",
+  "Solihull": "solihull",
+  "Sutton Coldfield": "sutton-coldfield",
+  "Walsall": "walsall",
+  "Kidderminster": "kidderminster",
+  "Redditch": "redditch",
+  "Nuneaton": "nuneaton",
+  "Leamington Spa": "leamington-spa",
+  "Rugby": "rugby",
+  // Staffordshire
+  "Stoke-on-Trent": "stoke",
+  "Stafford": "stafford",
+  "Burton upon Trent": "burton-upon-trent",
+  "Cannock": "cannock",
+  "Cannock Chase": "cannock-chase",
+  "Lichfield": "lichfield",
+  "Tamworth": "tamworth",
+  "Newcastle-under-Lyme": "newcastle-under-lyme",
+  // Nottinghamshire
+  "Nottingham": "nottingham",
+  "Mansfield": "mansfield",
+  // Leicestershire
+  "Leicester": "leicester",
+  "Loughborough": "loughborough",
+  "Coalville": "coalville",
+  // Derbyshire
+  "Derby": "derby",
+  "Chesterfield": "chesterfield",
+  "Dronfield": "dronfield",
+  // Lincolnshire
+  "Lincoln": "lincoln",
+  "Grantham": "grantham",
+  "Scunthorpe": "scunthorpe",
+  // Northamptonshire
+  "Northampton": "northampton",
+  "Corby": "corby",
+  "Kettering": "kettering",
+  "Wellingborough": "wellingborough",
+  // Yorkshire
+  "Sheffield": "sheffield",
+  "Leeds": "leeds",
+  "Barnsley": "barnsley",
+  "Doncaster": "doncaster",
+  "Rotherham": "rotherham",
+  "Halifax": "halifax",
+  "Huddersfield": "huddersfield",
+  // North West
+  "Manchester": "manchester",
+  "Liverpool": "liverpool",
+  "Chester": "chester",
+  "Bolton": "bolton",
+  "Oldham": "oldham",
+  "Rochdale": "rochdale",
+  "Salford": "salford",
+  "Stockport": "stockport",
+  "Warrington": "warrington",
+  "Runcorn": "runcorn",
+  "Birkenhead": "birkenhead",
+  // Cheshire
+  "Crewe": "crewe",
+  "Macclesfield": "macclesfield",
+  // East of England
+  "Norwich": "norwich",
+  "Cambridge": "cambridge",
+  "Ipswich": "ipswich",
+  "St Albans": "st-albans",
+  "Peterborough": "peterborough",
+  "Colchester": "colchester",
+  "Chelmsford": "chelmsford",
+  "Basildon": "basildon",
+  "Southend-on-Sea": "southend-on-sea",
+  "Great Yarmouth": "great-yarmouth",
+  "Lowestoft": "lowestoft",
+  "King's Lynn": "kings-lynn",
+  "Thetford": "thetford",
+  "Bury St Edmunds": "bury-st-edmunds",
+  // Hertfordshire & Bedfordshire
+  "Luton": "luton",
+  "Bedford": "bedford",
+  "Stevenage": "stevenage",
+  "Watford": "watford",
+  "Hemel Hempstead": "hemel-hempstead",
+  "Welwyn Garden City": "welwyn-garden-city",
+  "Leighton Buzzard": "leighton-buzzard",
+  // South West
+  "Bristol": "bristol",
+  "Gloucester": "gloucester",
+  "Swindon": "swindon",
+  "Bath": "bath",
+  "Cheltenham": "cheltenham",
+  "Taunton": "taunton",
+  "Weston-super-Mare": "weston-super-mare",
+  "Kingswood": "kingswood",
+  "Salisbury": "salisbury",
+  // South East
+  "Oxford": "oxford",
+  "Milton Keynes": "milton-keynes",
+  "Reading": "reading",
+  "Slough": "slough",
+  "Guildford": "guildford",
+  "Portsmouth": "portsmouth",
+  "Aylesbury": "aylesbury",
+  "High Wycombe": "high-wycombe",
+  "Banbury": "banbury",
+  // Shropshire
+  "Shrewsbury": "shrewsbury",
+  "Telford": "telford",
+  // Welsh Borders & Wales
+  "Hereford": "hereford",
+  "Cardiff": "cardiff",
+  "Wrexham": "wrexham",
+  "Newport": "newport"
+};
 
 export default function ServiceAreas() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -112,6 +347,11 @@ export default function ServiceAreas() {
   return (
     <div className="min-h-screen bg-[#f8f5f0]">
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
+      
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: "Service Areas", href: "/service-areas", isCurrentPage: true }
+      ]} className="container mt-6" />
 
       {/* Hero Section */}
       <section className="relative bg-[#1a3d52] text-white py-20 overflow-hidden">
@@ -124,7 +364,7 @@ export default function ServiceAreas() {
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 text-[#d4a853] mb-4">
               <MapPin className="w-5 h-5" />
-              <span className="text-sm font-medium uppercase tracking-wider">Nationwide Coverage</span>
+              <span className="text-sm font-medium uppercase tracking-wider">Regional Coverage</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
               Shot Blasting Across England
@@ -170,7 +410,7 @@ export default function ServiceAreas() {
               Explore our service coverage across England. Click on any region or location to learn more about our local services.
             </p>
           </div>
-          <ServiceAreasMap 
+          <DeferredServiceAreasMap 
             onAreaClick={(areaId) => {
               const element = document.getElementById(areaId);
               if (element) {
@@ -263,13 +503,25 @@ export default function ServiceAreas() {
                   </div>
                 </div>
 
-                <Button 
-                  className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
-                  onClick={() => setQuotePopupOpen(true)}
-                >
-                  Get a Quote for {region.name}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                    <div className="flex flex-wrap gap-3">
+                      <Button 
+                        className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
+                        onClick={() => setQuotePopupOpen(true)}
+                      >
+                        Get a Quote for {region.name}
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                      <Button 
+                        variant="outline"
+                        className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F]/10"
+                        asChild
+                      >
+                        <Link href={region.countyHref}>
+                          View All {region.name} Locations
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Link>
+                      </Button>
+                    </div>
               </div>
 
               <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
@@ -281,24 +533,11 @@ export default function ServiceAreas() {
                     </h3>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {region.locations.map((location) => {
-                        let href = null;
-                        if (location === "Birmingham" && region.id === "west-midlands") {
-                          href = "/service-areas/birmingham";
-                        } else if (location === "Sheffield" && region.id === "yorkshire") {
-                          href = "/service-areas/sheffield";
-                        } else if (location === "Leeds" && region.id === "yorkshire") {
-                          href = "/service-areas/leeds";
-                        } else if (location === "Manchester" && region.id === "north-west") {
-                          href = "/service-areas/manchester";
-                        } else if (location === "Liverpool" && region.id === "north-west") {
-                          href = "/service-areas/liverpool";
-                        } else if (location === "Bristol" && region.id === "south-west") {
-                          href = "/service-areas/bristol";
-                        }
+                        const slug = locationSlugMap[location];
                         
-                        if (href) {
+                        if (slug) {
                           return (
-                            <Link key={location} href={href}>
+                            <Link key={location} href={`/service-areas/${slug}`}>
                               <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">
                                 {location}
                               </span>
@@ -349,42 +588,6 @@ export default function ServiceAreas() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {allLocations.map((location) => {
-              // Map location names to their URL slugs
-              const locationSlugMap: Record<string, string> = {
-                "Birmingham": "birmingham",
-                "Sheffield": "sheffield",
-                "Manchester": "manchester",
-                "Bristol": "bristol",
-                "Leeds": "leeds",
-                "Bradford": "bradford",
-                "Liverpool": "liverpool",
-                "Wolverhampton": "wolverhampton",
-                "Coventry": "coventry",
-                "Worcester": "worcester",
-                "Stratford Upon Avon": "stratford-upon-avon",
-                "Leicester": "leicester",
-                "Derby": "derby",
-                "Nottingham": "nottingham",
-                "Chester": "chester",
-                "Stoke-on-Trent": "stoke",
-                "Norwich": "norwich",
-                "Cambridge": "cambridge",
-                "Ipswich": "ipswich",
-                "Lincoln": "lincoln",
-                "Milton Keynes": "milton-keynes",
-                "Gloucester": "gloucester",
-                "Swindon": "swindon",
-                "Shrewsbury": "shrewsbury",
-                "Hereford": "hereford",
-                "Cardiff": "cardiff",
-                "Northampton": "northampton",
-                "Oxford": "oxford",
-                "Peterborough": "peterborough",
-                "Chesterfield": "chesterfield",
-                "St Albans": "st-albans",
-                "Wrexham": "wrexham"
-              };
-              
               const slug = locationSlugMap[location];
               
               if (slug) {
@@ -509,6 +712,169 @@ export default function ServiceAreas() {
         </div>
       </section>
 
+      {/* Counties & Cities Coverage Section */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-2 text-[#2C5F7F] mb-4">
+              <MapPin className="w-5 h-5" />
+              <span className="text-sm font-medium uppercase tracking-wider">Complete Coverage List</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Counties & Cities We Serve
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Professional shot blasting services across England and Wales. From major cities to rural counties, we bring expertise to your location.
+            </p>
+          </div>
+
+          {/* England Section */}
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 bg-[#2C5F7F]/10 rounded-full flex items-center justify-center">
+                <Building2 className="w-6 h-6 text-[#2C5F7F]" />
+              </div>
+              <h3 className="text-2xl font-bold text-[#1a3d52]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                England
+              </h3>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Midlands */}
+              <Card className="border-2 border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <CardContent className="p-6">
+                  <h4 className="text-lg font-bold text-[#2C5F7F] mb-4 flex items-center gap-2">
+                    <Factory className="w-5 h-5" />
+                    Midlands Region
+                  </h4>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="font-semibold text-[#1a3d52] mb-2">West Midlands</p>
+                      <p className="text-sm text-gray-600">Birmingham, Wolverhampton, Coventry, Worcester, Stratford-upon-Avon, Dudley, Walsall, Solihull, West Bromwich, Warwickshire, Worcestershire, Staffordshire</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-[#1a3d52] mb-2">East Midlands</p>
+                      <p className="text-sm text-gray-600">Nottingham, Leicester, Derby, Northampton, Chesterfield, Lincoln, Leicestershire, Nottinghamshire, Derbyshire, Lincolnshire, Northamptonshire</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Northern England */}
+              <Card className="border-2 border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <CardContent className="p-6">
+                  <h4 className="text-lg font-bold text-[#2C5F7F] mb-4 flex items-center gap-2">
+                    <Warehouse className="w-5 h-5" />
+                    Northern England
+                  </h4>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="font-semibold text-[#1a3d52] mb-2">Yorkshire</p>
+                      <p className="text-sm text-gray-600">Sheffield, Leeds, Bradford, South Yorkshire, West Yorkshire, North Yorkshire</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-[#1a3d52] mb-2">North West</p>
+                      <p className="text-sm text-gray-600">Liverpool, Manchester, Chester, Stoke-on-Trent, Merseyside, Greater Manchester, Cheshire, Staffordshire</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Eastern England */}
+              <Card className="border-2 border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <CardContent className="p-6">
+                  <h4 className="text-lg font-bold text-[#2C5F7F] mb-4 flex items-center gap-2">
+                    <Building2 className="w-5 h-5" />
+                    Eastern England
+                  </h4>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="font-semibold text-[#1a3d52] mb-2">East of England</p>
+                      <p className="text-sm text-gray-600">Norwich, Cambridge, Peterborough, St Albans, Ipswich, Norfolk, Suffolk, Cambridgeshire, Hertfordshire, Essex</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Southern England */}
+              <Card className="border-2 border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <CardContent className="p-6">
+                  <h4 className="text-lg font-bold text-[#2C5F7F] mb-4 flex items-center gap-2">
+                    <Factory className="w-5 h-5" />
+                    Southern England
+                  </h4>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="font-semibold text-[#1a3d52] mb-2">South West</p>
+                      <p className="text-sm text-gray-600">Bristol, Gloucester, Swindon, Gloucestershire, Wiltshire, Somerset, Avon</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-[#1a3d52] mb-2">South East & Thames Valley</p>
+                      <p className="text-sm text-gray-600">Oxford, Milton Keynes, Oxfordshire, Buckinghamshire, Berkshire</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Wales Section */}
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 bg-[#2C5F7F]/10 rounded-full flex items-center justify-center">
+                <Building2 className="w-6 h-6 text-[#2C5F7F]" />
+              </div>
+              <h3 className="text-2xl font-bold text-[#1a3d52]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Wales
+              </h3>
+            </div>
+            
+            <Card className="border-2 border-gray-100 shadow-sm hover:shadow-md transition-shadow max-w-2xl">
+              <CardContent className="p-6">
+                <h4 className="text-lg font-bold text-[#2C5F7F] mb-4 flex items-center gap-2">
+                  <Warehouse className="w-5 h-5" />
+                  Welsh Borders & Wales
+                </h4>
+                <div className="space-y-3">
+                  <div>
+                    <p className="font-semibold text-[#1a3d52] mb-2">Major Cities & Counties</p>
+                    <p className="text-sm text-gray-600">Cardiff, Wrexham, Shrewsbury, Hereford, South Wales, North Wales, Shropshire, Herefordshire, Powys, Monmouthshire</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Call to Action */}
+          <div className="mt-12 text-center bg-[#f8f5f0] rounded-lg p-8">
+            <h3 className="text-2xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Don't See Your Location?
+            </h3>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              We regularly travel to new areas for the right projects. Get in touch to discuss your requirements—we may be able to help even if your location isn't listed above.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Button 
+                className="bg-[#2C5F7F] hover:bg-[#1a3d52] text-white"
+                onClick={() => setQuotePopupOpen(true)}
+              >
+                Request a Quote
+              </Button>
+              <Button 
+                variant="outline"
+                className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F]/10"
+                asChild
+              >
+                <a href="tel:07970566409">
+                  <Phone className="w-4 h-4 mr-2" />
+                  Call 07970 566409
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-[#1a3d52] text-white py-12">
         <div className="container">
@@ -531,7 +897,7 @@ export default function ServiceAreas() {
               <h4 className="font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-white/70">
                 <li><Link href="/" className="hover:text-white transition">Home</Link></li>
-                <li><Link href="/gallery" className="hover:text-white transition">Gallery</Link></li>
+                <li><Link href="/our-work" className="hover:text-white transition">Our Work</Link></li>
                 <li><Link href="/service-areas" className="hover:text-white transition">Service Areas</Link></li>
                 <li><Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link></li>
               </ul>

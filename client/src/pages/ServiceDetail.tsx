@@ -11,6 +11,7 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
 
+import { Footer } from "@/components/Footer";
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -95,8 +96,8 @@ export default function ServiceDetail() {
                     See the Transformation
                   </h2>
                   <BeforeAfterSlider
-                    beforeImage="/images/premier/gate-metal-before.jpeg"
-                    afterImage="/images/premier/gate-metal-after.jpeg"
+                    beforeImage="/images/premier/gate-metal-before.webp"
+                    afterImage="/images/premier/gate-metal-after.webp"
                     beforeLabel="Before"
                     afterLabel="After"
                     className="shadow-xl"
@@ -125,8 +126,8 @@ export default function ServiceDetail() {
                     See the Transformation
                   </h2>
                   <BeforeAfterSlider
-                    beforeImage="/images/premier/steel-container-before.jpeg"
-                    afterImage="/images/premier/steel-container-after.jpeg"
+                    beforeImage="/images/premier/steel-container-before.webp"
+                    afterImage="/images/premier/steel-container-after.webp"
                     beforeLabel="Before"
                     afterLabel="After"
                     className="shadow-xl"
@@ -155,8 +156,8 @@ export default function ServiceDetail() {
                     See the Transformation
                   </h2>
                   <BeforeAfterSlider
-                    beforeImage="/images/premier/steel-container-commercial-before.jpeg"
-                    afterImage="/images/premier/steel-container-commercial-after.jpeg"
+                    beforeImage="/images/premier/steel-container-commercial-before.webp"
+                    afterImage="/images/premier/steel-container-commercial-after.webp"
                     beforeLabel="Before"
                     afterLabel="After"
                     className="shadow-xl"
@@ -185,8 +186,8 @@ export default function ServiceDetail() {
                     See the Transformation
                   </h2>
                   <BeforeAfterSlider
-                    beforeImage="/images/premier/warehouse-outside-before.jpeg"
-                    afterImage="/images/premier/warehouse-outside-after.jpeg"
+                    beforeImage="/images/premier/warehouse-outside-before.webp"
+                    afterImage="/images/premier/warehouse-outside-after.webp"
                     beforeLabel="Before"
                     afterLabel="After"
                     className="shadow-xl"
@@ -216,7 +217,7 @@ export default function ServiceDetail() {
                   </h2>
                   <BeforeAfterSlider
                     beforeImage="/images/premier/storage-unit-before.jpeg"
-                    afterImage="/images/premier/storage-unit-after.jpeg"
+                    afterImage="/images/premier/storage-unit-after.webp"
                     beforeLabel="Before"
                     afterLabel="After"
                     className="shadow-xl"
@@ -245,8 +246,8 @@ export default function ServiceDetail() {
                     See the Transformation
                   </h2>
                   <BeforeAfterSlider
-                    beforeImage="/images/premier/warehouse-bars-before.jpeg"
-                    afterImage="/images/premier/warehouse-bars-after.jpeg"
+                    beforeImage="/images/premier/warehouse-bars-before.webp"
+                    afterImage="/images/premier/warehouse-bars-after.webp"
                     beforeLabel="Before"
                     afterLabel="After"
                     className="shadow-xl"
@@ -275,8 +276,8 @@ export default function ServiceDetail() {
                     See the Transformation
                   </h2>
                   <BeforeAfterSlider
-                    beforeImage="/images/premier/steel-container-before.jpeg"
-                    afterImage="/images/premier/steel-container-after.jpeg"
+                    beforeImage="/images/premier/steel-container-before.webp"
+                    afterImage="/images/premier/steel-container-after.webp"
                     beforeLabel="Before"
                     afterLabel="After"
                     className="shadow-xl"
@@ -306,8 +307,740 @@ export default function ServiceDetail() {
                 <p className="text-gray-700 text-lg leading-relaxed">{service.description}</p>
               </div>
 
+              {/* Steel Sheeting Video Section */}
+              {service.id === 'steel-sheeting' && (
+                <div className="my-12">
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Watch Our Steel Sheeting Shot Blasting Process
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                    See our precision shot blasting equipment in action as we transform steel sheets, removing rust, mill scale, and old coatings to create the perfect surface profile for protective finishes.
+                  </p>
+                  
+                  <div className="flex justify-center">
+                    <div className="relative rounded-xl overflow-hidden shadow-2xl border-2 border-[#2C5F7F]/20 max-w-md w-full">
+                      <video 
+                        className="w-full h-auto object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="auto"
+                      >
+                        <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/CICKcOChLeIGkWWG.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-6 mt-8">
+                    <div className="bg-[#F5F1E8] rounded-lg p-6 border border-[#2C5F7F]/10">
+                      <Shield className="w-10 h-10 text-[#2C5F7F] mb-3" />
+                      <h3 className="font-bold text-lg text-[#2C2C2C] mb-2">Complete Coverage</h3>
+                      <p className="text-gray-600 text-sm">Uniform blasting across entire surface area ensures consistent results</p>
+                    </div>
+                    <div className="bg-[#F5F1E8] rounded-lg p-6 border border-[#2C5F7F]/10">
+                      <Clock className="w-10 h-10 text-[#2C5F7F] mb-3" />
+                      <h3 className="font-bold text-lg text-[#2C2C2C] mb-2">Efficient Process</h3>
+                      <p className="text-gray-600 text-sm">Fast turnaround times minimize project delays</p>
+                    </div>
+                    <div className="bg-[#F5F1E8] rounded-lg p-6 border border-[#2C5F7F]/10">
+                      <Award className="w-10 h-10 text-[#2C5F7F] mb-3" />
+                      <h3 className="font-bold text-lg text-[#2C2C2C] mb-2">Quality Finish</h3>
+                      <p className="text-gray-600 text-sm">Perfect surface profile for optimal coating adhesion</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Factory Cladding Custom Gallery with 4 Before Images */}
+              {service.id === 'factory-cladding' && (
+                <div>
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Project Gallery: Industrial Warehouse Cladding Restoration
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                    This project showcases the complete transformation of severely deteriorated warehouse cladding. The before images reveal the extent of the challenge: rust-coloured panels with original plastisol coating, multiple layers of failed paint, extensive peeling, and decades of weathering across the entire building envelope.
+                  </p>
+                  
+                  {/* Before Images Grid */}
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">Before: Deteriorated Condition</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/factory-cladding-before-1.webp" alt="Warehouse exterior showing deteriorated cladding" className="w-full h-64 object-cover" />
+                        <div className="bg-gray-100 p-3">
+                          <p className="text-sm text-gray-700">Warehouse exterior with severely deteriorated cladding panels</p>
+                        </div>
+                      </div>
+                      <div className="overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/factory-cladding-before-2.webp" alt="Cladding showing multiple paint layers and rust" className="w-full h-64 object-cover" />
+                        <div className="bg-gray-100 p-3">
+                          <p className="text-sm text-gray-700">Multiple paint layers and plastisol coating failure</p>
+                        </div>
+                      </div>
+                      <div className="overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/factory-cladding-before-3.webp" alt="Close-up of deteriorated cladding panels" className="w-full h-64 object-cover" />
+                        <div className="bg-gray-100 p-3">
+                          <p className="text-sm text-gray-700">Close-up showing extent of coating deterioration</p>
+                        </div>
+                      </div>
+                      <div className="overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/factory-cladding-before-4.webp" alt="Detailed view of peeling paint and rust" className="w-full h-64 object-cover" />
+                        <div className="bg-gray-100 p-3">
+                          <p className="text-sm text-gray-700">Peeling paint, rust, and surface contamination</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* After Image */}
+                  <div>
+                    <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">After: Complete Restoration</h3>
+                    <div className="overflow-hidden rounded-lg shadow-xl">
+                      <img loading="lazy" src="/factory-cladding-after-1.webp" alt="Fully restored warehouse cladding - clean bare metal" className="w-full h-96 object-cover" />
+                      <div className="bg-gradient-to-r from-green-50 to-blue-50 p-4">
+                        <p className="text-lg font-semibold text-gray-800 mb-2">Transformation Complete</p>
+                        <p className="text-gray-700">Clean, uniform bare metal surfaces ready for protective coating. All plastisol, paint layers, rust, and contaminants completely removed while preserving panel integrity.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Structural Steel Frames Custom Gallery with Before/During/After */}
+              {service.id === 'structural-steel-frames' && (
+                <div>
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Project Gallery: Commercial Building Structural Steel Frame Restoration
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                    This project showcases the comprehensive shot blasting of extensive structural steel roof trusses and load-bearing frames in a commercial building. Follow the progression from the original mill-finished condition through the blasting process to the final restored state ready for protective coating.
+                  </p>
+                  
+                  {/* Before Image */}
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">Before: Mill-Finished Condition</h3>
+                    <div className="overflow-hidden rounded-lg shadow-xl">
+                      <img loading="lazy" src="/structural-frames-before.webp" alt="Structural steel frames before blasting - mill scale and surface contaminants" className="w-full h-96 object-cover" />
+                      <div className="bg-gray-100 p-4">
+                        <p className="text-gray-700">Complex truss systems and frame members with mill scale, welding residue, and surface contaminants requiring complete removal for protective coating application.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* During Image */}
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">During: Shot Blasting in Progress</h3>
+                    <div className="overflow-hidden rounded-lg shadow-xl">
+                      <img loading="lazy" src="/structural-frames-during.webp" alt="Shot blasting process on structural steel trusses" className="w-full h-96 object-cover" />
+                      <div className="bg-blue-50 p-4">
+                        <p className="text-gray-700">Systematic shot blasting across the entire ceiling framework, removing all mill scale and contaminants from truss members, connection points, and hard-to-reach areas within the lattice structure.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* After Images Grid */}
+                  <div>
+                    <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">After: Complete Restoration</h3>
+                    <div className="grid md:grid-cols-2 gap-4 mb-4">
+                      <div className="overflow-hidden rounded-lg shadow-xl">
+                        <img loading="lazy" src="/structural-frames-after-1.webp" alt="Restored structural steel frames - clean bare metal" className="w-full h-80 object-cover" />
+                        <div className="bg-gradient-to-r from-green-50 to-blue-50 p-3">
+                          <p className="text-sm text-gray-700">Uniform clean bare metal surfaces across all truss members and frame sections</p>
+                        </div>
+                      </div>
+                      <div className="overflow-hidden rounded-lg shadow-xl">
+                        <img loading="lazy" src="/structural-frames-after-2.webp" alt="Complete view of restored structural framework" className="w-full h-80 object-cover" />
+                        <div className="bg-gradient-to-r from-green-50 to-blue-50 p-3">
+                          <p className="text-sm text-gray-700">Complete structural framework prepared to specification, ready for protective coating</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg">
+                      <p className="text-lg font-semibold text-gray-800 mb-2">Project Complete</p>
+                      <p className="text-gray-700">Hundreds of linear metres of structural steelwork transformed to uniform, clean bare metal surfaces achieving professional cleanliness. All connection points, welds, and complex truss geometry achieved consistent surface preparation for optimal coating adhesion.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Steel Gates Custom Gallery */}
+              {service.id === 'steel-gates' && (
+                <div>
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Project Gallery: Victorian Entrance Gates Restoration
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                    This project showcases the complete restoration of ornate Victorian entrance gates for a commercial property. Follow the transformation from decades of deterioration through the careful shot blasting process to the final restored state, revealing the full beauty of the original craftsmanship.
+                  </p>
+                  
+                  {/* Before Images Grid */}
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">Before: Decades of Deterioration</h3>
+                    <div className="grid md:grid-cols-2 gap-4 mb-4">
+                      <div className="overflow-hidden rounded-lg shadow-xl">
+                        <img loading="lazy" src="/steel-gates-before-1.webp" alt="Gate showing rust and peeling paint on decorative railings" className="w-full h-64 object-cover" />
+                        <div className="bg-gray-100 p-3">
+                          <p className="text-sm text-gray-700">Decorative railings obscured by multiple layers of failing paint and rust</p>
+                        </div>
+                      </div>
+                      <div className="overflow-hidden rounded-lg shadow-xl">
+                        <img loading="lazy" src="/steel-gates-before-2.webp" alt="Close-up of corroded gate base and lower sections" className="w-full h-64 object-cover" />
+                        <div className="bg-gray-100 p-3">
+                          <p className="text-sm text-gray-700">Severe corrosion at gate base where water pooling accelerated deterioration</p>
+                        </div>
+                      </div>
+                      <div className="overflow-hidden rounded-lg shadow-xl">
+                        <img loading="lazy" src="/steel-gates-before-3.webp" alt="Ornate gate panels with paint buildup hiding details" className="w-full h-64 object-cover" />
+                        <div className="bg-gray-100 p-3">
+                          <p className="text-sm text-gray-700">Ornate scrollwork and finials hidden under decades of paint buildup</p>
+                        </div>
+                      </div>
+                      <div className="overflow-hidden rounded-lg shadow-xl">
+                        <img loading="lazy" src="/steel-gates-before-4.webp" alt="Full gate view showing overall deteriorated condition" className="w-full h-64 object-cover" />
+                        <div className="bg-gray-100 p-3">
+                          <p className="text-sm text-gray-700">Complete gate structure requiring comprehensive restoration</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* During Images */}
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">During: Careful Shot Blasting Process</h3>
+                    <div className="grid md:grid-cols-2 gap-4 mb-4">
+                      <div className="overflow-hidden rounded-lg shadow-xl">
+                        <img loading="lazy" src="/steel-gates-during-1.webp" alt="Shot blasting in progress on ornate gate panels" className="w-full h-80 object-cover" />
+                        <div className="bg-blue-50 p-3">
+                          <p className="text-sm text-gray-700">Systematic blasting revealing the intricate Victorian scrollwork beneath paint layers</p>
+                        </div>
+                      </div>
+                      <div className="overflow-hidden rounded-lg shadow-xl">
+                        <img loading="lazy" src="/steel-gates-during-2.webp" alt="Partial restoration showing contrast between cleaned and uncleaned sections" className="w-full h-80 object-cover" />
+                        <div className="bg-blue-50 p-3">
+                          <p className="text-sm text-gray-700">Dramatic contrast between restored bare metal and remaining deteriorated sections</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* After Image */}
+                  <div>
+                    <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">After: Restored to Original Splendor</h3>
+                    <div className="overflow-hidden rounded-lg shadow-xl mb-4">
+                      <img loading="lazy" src="/steel-gates-after.webp" alt="Fully restored Victorian gates - clean bare metal revealing ornate details" className="w-full h-96 object-cover" />
+                      <div className="bg-gradient-to-r from-green-50 to-blue-50 p-4">
+                        <p className="text-gray-700">Complete gate restoration revealing the full beauty of Victorian craftsmanship - all decorative scrollwork, finials, and ornate details preserved and prepared for protective coating.</p>
+                      </div>
+                    </div>
+                    <div className="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg">
+                      <p className="text-lg font-semibold text-gray-800 mb-2">Heritage Preserved</p>
+                      <p className="text-gray-700">These Victorian entrance gates have been transformed from deteriorated eyesores to stunning architectural features. Every intricate detail has been preserved while achieving complete rust removal and optimal surface preparation. The gates are now ready for a high-quality protective coating system that will ensure decades more service life while maintaining the property's heritage character.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Fire Escapes Image Showcase */}
+              {service.id === 'fire-escapes' && (
+                <div className="mb-12">
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Professional External Staircase Shot Blasting
+                  </h2>
+                  <div className="overflow-hidden rounded-lg shadow-2xl">
+                    <img loading="lazy"
+                      src="/external-staircase-blasting.webp" 
+                      alt="Professional shot blasting of external industrial staircase and fire escape structure" 
+                      className="w-full h-auto object-cover"
+                    />
+                    <div className="bg-gradient-to-r from-blue-50 to-gray-50 p-6">
+                      <p className="text-lg font-semibold text-gray-800 mb-3">Expert Surface Preparation for Safety-Critical Infrastructure</p>
+                      <p className="text-gray-700 mb-2">
+                        Our specialist team provides comprehensive shot blasting services for external staircases, fire escapes, and stair towers. Using controlled techniques and professional containment systems, we remove rust, old coatings, and corrosion while working safely at height.
+                      </p>
+                      <p className="text-gray-700">
+                        Every project is completed to the highest safety standards, ensuring fire escape structures are prepared for protective coatings that will provide decades of corrosion protection and maintain fire safety requirements.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Steel Containers Before/After Gallery */}
+              {service.id === 'steel-containers' && (
+                <div className="bg-gradient-to-br from-[#2C5F7F]/5 to-[#2C5F7F]/10 p-8 rounded-lg">
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Industrial Container Restoration Case Study
+                  </h2>
+                  <p className="text-gray-700 mb-8">
+                    A manufacturing facility required restoration of large industrial mixing containers that had accumulated years of paint, coatings, and surface contamination. The containers needed complete surface preparation to restore structural integrity and enable food-grade coating application.
+                  </p>
+
+                  {/* Before Images Grid */}
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">Before: Heavy Contamination</h3>
+                    <div className="grid md:grid-cols-3 gap-4 mb-4">
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/container-before-1.webp" alt="Industrial container with heavy paint buildup and surface contamination" className="w-full h-64 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Heavy paint buildup and rust on exterior surfaces</p>
+                        </div>
+                      </div>
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/container-before-2.webp" alt="Close-up of container showing multiple coating layers and corrosion" className="w-full h-64 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Multiple coating layers hiding structural condition</p>
+                        </div>
+                      </div>
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/container-before-3.webp" alt="Full view of contaminated container showing overall deteriorated state" className="w-full h-64 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Overall contamination preventing proper inspection</p>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 italic">
+                      The containers showed extensive surface contamination with multiple layers of industrial coatings, paint buildup, and surface rust. The heavy contamination prevented proper structural inspection and made the containers unsuitable for food-grade applications.
+                    </p>
+                  </div>
+
+                  {/* After Images Grid */}
+                  <div>
+                    <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">After: Complete Restoration</h3>
+                    <div className="grid md:grid-cols-2 gap-4 mb-4">
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/container-after-1.webp" alt="Fully restored container showing clean bare metal surface" className="w-full h-80 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Clean bare metal with uniform surface profile</p>
+                        </div>
+                      </div>
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/container-after-2.webp" alt="Restored container ready for food-grade coating application" className="w-full h-80 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Ready for food-grade protective coating</p>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 italic">
+                      Complete transformation to clean bare metal with uniform surface profile. All contamination removed, revealing sound structural condition. The containers are now ready for food-grade coating application and will provide decades of reliable service in the manufacturing facility.
+                    </p>
+                  </div>
+
+                  {/* Case Study Details */}
+                  <div className="mt-8 grid md:grid-cols-3 gap-6">
+                    <Card className="bg-white/80 backdrop-blur">
+                      <CardContent className="p-6">
+                        <h4 className="font-semibold text-[#2C5F7F] mb-2">Challenge</h4>
+                        <p className="text-sm text-gray-600">
+                          Multiple layers of industrial coatings and heavy contamination preventing structural inspection and food-grade certification.
+                        </p>
+                      </CardContent>
+                    </Card>
+                    <Card className="bg-white/80 backdrop-blur">
+                      <CardContent className="p-6">
+                        <h4 className="font-semibold text-[#2C5F7F] mb-2">Solution</h4>
+                        <p className="text-sm text-gray-600">
+                          Systematic shot blasting to remove all contamination while preserving structural integrity. Careful attention to interior and exterior surfaces.
+                        </p>
+                      </CardContent>
+                    </Card>
+                    <Card className="bg-white/80 backdrop-blur">
+                      <CardContent className="p-6">
+                        <h4 className="font-semibold text-[#2C5F7F] mb-2">Result</h4>
+                        <p className="text-sm text-gray-600">
+                          Complete restoration to clean bare metal, enabling food-grade coating and extending service life by 20+ years versus replacement.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+              )}
+
+              {/* Commercial Radiators Before/After Gallery */}
+              {service.id === 'commercial-radiators' && (
+                <div className="bg-gradient-to-br from-[#2C5F7F]/5 to-[#2C5F7F]/10 p-8 rounded-lg">
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Heritage Building Radiator Restoration Case Study
+                  </h2>
+                  <p className="text-gray-700 mb-8">
+                    A heritage building refurbishment project required restoration of 45 original Victorian cast iron radiators. Decades of paint buildup obscured the decorative details, and many radiators had surface rust. The client required complete restoration while preserving the heritage value and manufacturer markings.
+                  </p>
+
+                  {/* Before Images Grid */}
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">Before: Multiple Paint Layers</h3>
+                    <div className="grid md:grid-cols-3 gap-4 mb-4">
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/radiator-before-1.webp" alt="Victorian cast iron radiator with decades of paint buildup" className="w-full h-64 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Decades of paint buildup obscuring decorative details</p>
+                        </div>
+                      </div>
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/radiator-before-2.webp" alt="Cast iron radiator showing multiple coating layers and surface rust" className="w-full h-64 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Multiple coating layers hiding original cast iron surface</p>
+                        </div>
+                      </div>
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/radiator-before-3.webp" alt="Heritage radiator with paint buildup on decorative features" className="w-full h-64 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Paint buildup on ornate scrollwork and manufacturer badges</p>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 italic">
+                      The radiators showed extensive paint buildup with 10-20 layers accumulated over a century. The heavy paint obscured decorative details, manufacturer markings, and the original cast iron surface. Many radiators also had surface rust where paint had failed.
+                    </p>
+                  </div>
+
+                  {/* After Images Grid */}
+                  <div>
+                    <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">After: Complete Restoration</h3>
+                    <div className="grid md:grid-cols-3 gap-4 mb-4">
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/radiator-after-1.webp" alt="Fully restored cast iron radiator with clean bare metal finish" className="w-full h-64 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Clean bare metal revealing original cast iron details</p>
+                        </div>
+                      </div>
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/radiator-after-2.webp" alt="Restored radiator showing preserved decorative features" className="w-full h-64 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Preserved decorative features and manufacturer markings</p>
+                        </div>
+                      </div>
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/radiator-after-3.webp" alt="Heritage radiator ready for powder coating" className="w-full h-64 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Ready for period-appropriate powder coating</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-4 mb-4">
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/radiator-after-4.webp" alt="Restored radiator with uniform surface preparation" className="w-full h-64 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Uniform surface preparation for optimal coating adhesion</p>
+                        </div>
+                      </div>
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/radiator-after-5.webp" alt="Multiple restored radiators showing consistent quality" className="w-full h-64 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Consistent restoration quality across all radiators</p>
+                        </div>
+                      </div>
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img loading="lazy" src="/radiator-after-6.webp" alt="Restored radiators in heritage building setting" className="w-full h-64 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Restored radiators preserving heritage building character</p>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-gray-600 italic">
+                      Complete transformation revealing the original cast iron surface with all decorative details preserved. All paint layers removed, manufacturer markings visible, and surfaces prepared for modern powder coating. The radiators were restored to their original appearance while providing modern corrosion protection for decades of continued service.
+                    </p>
+                  </div>
+
+                  {/* Case Study Details */}
+                  <div className="mt-8 grid md:grid-cols-3 gap-6">
+                    <Card className="bg-white/80 backdrop-blur">
+                      <CardContent className="p-6">
+                        <h4 className="font-semibold text-[#2C5F7F] mb-2">Challenge</h4>
+                        <p className="text-sm text-gray-600">
+                          45 Victorian radiators with 10-20 paint layers obscuring decorative details. Required complete restoration while preserving heritage value and manufacturer markings.
+                        </p>
+                      </CardContent>
+                    </Card>
+                    <Card className="bg-white/80 backdrop-blur">
+                      <CardContent className="p-6">
+                        <h4 className="font-semibold text-[#2C5F7F] mb-2">Solution</h4>
+                        <p className="text-sm text-gray-600">
+                          Controlled shot blasting to remove all paint layers without damaging cast iron. Protected threaded connections and preserved ornate details throughout the process.
+                        </p>
+                      </CardContent>
+                    </Card>
+                    <Card className="bg-white/80 backdrop-blur">
+                      <CardContent className="p-6">
+                        <h4 className="font-semibold text-[#2C5F7F] mb-2">Result</h4>
+                        <p className="text-sm text-gray-600">
+                          All radiators restored to original appearance, passed building conservation approval, and reinstalled as functional heating elements with 50+ year service life extension.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+              )}
+
+              {/* Commercial & Agricultural Vehicles Case Studies */}
+              {service.id === 'commercial-vehicles' && (
+                <div className="mb-16">
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Commercial Vehicle Restoration Projects
+                  </h2>
+                  <p className="text-gray-600 mb-8">
+                    We specialize in heavy-duty commercial and agricultural vehicle restoration, from individual wheel sets to complete chassis overhauls. Below are two recent projects showcasing our capabilities with vintage farm trucks and warehouse vehicles.
+                  </p>
+
+                  {/* Project 1: Commercial Vehicle Wheels */}
+                  <div className="mb-12 bg-gradient-to-br from-[#2C5F7F]/5 to-[#4A90B5]/5 p-8 rounded-lg">
+                    <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">Project 1: Heavy-Duty Commercial Vehicle Wheels</h3>
+                    <p className="text-gray-600 mb-6">
+                      A vintage farm truck required complete wheel restoration. The heavy-duty wheels had accumulated decades of paint, rust, and agricultural contamination. The client needed the wheels restored to bare metal for protective coating before the vehicle could return to service.
+                    </p>
+
+                    {/* Before Images */}
+                    <div className="mb-8">
+                      <h4 className="text-xl font-semibold text-[#2C5F7F] mb-4">Before: Heavy Contamination</h4>
+                      <div className="grid md:grid-cols-2 gap-4 mb-4">
+                        <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                          <img loading="lazy" src="/vehicle-wheel-before-closeup.webp" alt="Commercial vehicle wheel with heavy rust and paint buildup" className="w-full h-64 object-cover" />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p className="text-white text-sm">Black wheels showing decades of paint and contamination</p>
+                          </div>
+                        </div>
+                        <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                          <img loading="lazy" src="/vehicle-complete-after-3.webp" alt="Commercial vehicle with black contaminated wheels before blasting" className="w-full h-64 object-cover" />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p className="text-white text-sm">Complete vehicle with black wheels before restoration</p>
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 italic">
+                        The wheels showed extensive corrosion, multiple paint layers, and agricultural chemical staining. The heavy contamination required industrial-grade shot blasting to restore the metal surface.
+                      </p>
+                    </div>
+
+                    {/* After Images */}
+                    <div>
+                      <h4 className="text-xl font-semibold text-[#2C5F7F] mb-4">After: Complete Vehicle Restoration</h4>
+                      <div className="grid md:grid-cols-2 gap-4 mb-4">
+                        <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                          <img loading="lazy" src="/vehicle-complete-after-1.webp" alt="Restored commercial vehicle with silver shot-blasted wheels" className="w-full h-64 object-cover" />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p className="text-white text-sm">Silver shot-blasted wheels ready for protective coating</p>
+                          </div>
+                        </div>
+                        <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                          <img loading="lazy" src="/vehicle-complete-after-2.webp" alt="Vintage farm truck with clean bare metal wheels" className="w-full h-64 object-cover" />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p className="text-white text-sm">Vintage farm truck with clean bare metal finish</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="relative group overflow-hidden rounded-lg shadow-lg mb-4">
+                        <img loading="lazy" src="/vehicle-wheel-after-closeup.webp" alt="Silver shot-blasted wheel showing clean bare metal finish" className="w-full h-96 object-cover" />
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <p className="text-white text-sm">Closeup of silver shot-blasted wheel ready for protective coating</p>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 italic">
+                        All wheels, chassis components, and body panels were shot blasted to bare metal (silver finish). The vintage farm truck was completely restored and prepared for protective coating, extending its service life by decades.
+                      </p>
+                    </div>
+
+                    {/* Project Summary Cards */}
+                    <div className="grid md:grid-cols-3 gap-4 mt-8">
+                      <Card className="bg-white/80 backdrop-blur">
+                        <CardContent className="p-6">
+                          <h4 className="font-semibold text-[#2C5F7F] mb-2">Challenge</h4>
+                          <p className="text-sm text-gray-600">
+                            Heavy-duty wheels with decades of paint, rust, and agricultural contamination required complete restoration for vintage farm truck.
+                          </p>
+                        </CardContent>
+                      </Card>
+                      <Card className="bg-white/80 backdrop-blur">
+                        <CardContent className="p-6">
+                          <h4 className="font-semibold text-[#2C5F7F] mb-2">Solution</h4>
+                          <p className="text-sm text-gray-600">
+                            Industrial-grade shot blasting of all wheels, chassis, and body panels to bare metal using heavy-duty media and controlled techniques.
+                          </p>
+                        </CardContent>
+                      </Card>
+                      <Card className="bg-white/80 backdrop-blur">
+                        <CardContent className="p-6">
+                          <h4 className="font-semibold text-[#2C5F7F] mb-2">Result</h4>
+                          <p className="text-sm text-gray-600">
+                            Complete vehicle restoration with uniform surface preparation, ready for protective coating and decades more service in agricultural operations.
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+
+                  {/* Project 2: Complete Chassis Restoration */}
+                  <div className="bg-gradient-to-br from-[#2C5F7F]/5 to-[#4A90B5]/5 p-8 rounded-lg">
+                    <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">Project 2: Complete Chassis Restoration</h3>
+                    <p className="text-gray-600 mb-6">
+                      A commercial warehouse vehicle required complete chassis restoration for a full rebuild project. The chassis had been stripped to bare frame, revealing extensive corrosion and old coating residue. The client needed every structural member shot blasted to bare metal for inspection and protective coating.
+                    </p>
+
+                    {/* Chassis Restoration Images */}
+                    <div>
+                      <h4 className="text-xl font-semibold text-[#2C5F7F] mb-4">Complete Chassis Shot Blasting</h4>
+                      <div className="grid md:grid-cols-2 gap-4 mb-4">
+                        <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                          <img loading="lazy" src="/chassis-restoration-1.webp" alt="Bare chassis frame showing structural members and roll cage" className="w-full h-64 object-cover" />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p className="text-white text-sm">Bare chassis frame with roll cage and structural members exposed</p>
+                          </div>
+                        </div>
+                        <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                          <img loading="lazy" src="/chassis-restoration-2.webp" alt="Chassis interior showing clean metal finish" className="w-full h-64 object-cover" />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p className="text-white text-sm">Interior chassis members with uniform bare metal finish</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="grid md:grid-cols-2 gap-4 mb-4">
+                        <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                          <img loading="lazy" src="/chassis-restoration-3.webp" alt="Rear chassis section showing complete restoration" className="w-full h-64 object-cover" />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p className="text-white text-sm">Rear chassis section with complete corrosion removal</p>
+                          </div>
+                        </div>
+                        <div className="relative group overflow-hidden rounded-lg shadow-lg">
+                          <img loading="lazy" src="/chassis-restoration-4.webp" alt="Complete chassis ready for protective coating" className="w-full h-64 object-cover" />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p className="text-white text-sm">Complete chassis prepared for commercial-grade coating</p>
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 italic">
+                        Every structural member, cross-brace, and chassis component was systematically shot blasted to bare metal. The complete chassis restoration revealed the true condition of all structural members and provided optimal surface preparation for protective coating systems.
+                      </p>
+                    </div>
+
+                    {/* Project Summary Cards */}
+                    <div className="grid md:grid-cols-3 gap-4 mt-8">
+                      <Card className="bg-white/80 backdrop-blur">
+                        <CardContent className="p-6">
+                          <h4 className="font-semibold text-[#2C5F7F] mb-2">Challenge</h4>
+                          <p className="text-sm text-gray-600">
+                            Complete chassis required total restoration with every structural member shot blasted for rebuild project inspection and coating.
+                          </p>
+                        </CardContent>
+                      </Card>
+                      <Card className="bg-white/80 backdrop-blur">
+                        <CardContent className="p-6">
+                          <h4 className="font-semibold text-[#2C5F7F] mb-2">Solution</h4>
+                          <p className="text-sm text-gray-600">
+                            Systematic shot blasting of entire chassis frame, including all structural members, cross-braces, and mounting points to bare metal.
+                          </p>
+                        </CardContent>
+                      </Card>
+                      <Card className="bg-white/80 backdrop-blur">
+                        <CardContent className="p-6">
+                          <h4 className="font-semibold text-[#2C5F7F] mb-2">Result</h4>
+                          <p className="text-sm text-gray-600">
+                            Complete chassis restoration revealing true structural condition, ready for commercial-grade protective coating and vehicle rebuild.
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Steel Doors & Roller Shutters Before/After Gallery */}
+              {service.id === 'steel-doors' && (
+                <div className="mb-16">
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Warehouse Roller Shutter Restoration
+                  </h2>
+                  <p className="text-gray-600 mb-8">
+                    Complete transformation of industrial loading bay roller shutters from heavily contaminated surfaces to clean, uniform bare metal ready for protective coating.
+                  </p>
+                  
+                  <div className="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                      <h3 className="text-xl font-semibold text-[#2C5F7F] mb-4">Before: Heavy Contamination</h3>
+                      <div className="grid gap-4">
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                          <img loading="lazy"
+                            src="/door-before-1.webp"
+                            alt="Warehouse exterior showing contaminated roller shutter before restoration"
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p className="text-white text-sm">Warehouse exterior with contaminated roller shutter</p>
+                          </div>
+                        </div>
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                          <img loading="lazy"
+                            src="/door-before-2.webp"
+                            alt="Roller shutter slats with severe rust staining and paint degradation"
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p className="text-white text-sm">Severe rust staining and paint degradation on slats</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h3 className="text-xl font-semibold text-[#2C5F7F] mb-4">After: Professional Restoration</h3>
+                      <div className="grid gap-4">
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                          <img loading="lazy"
+                            src="/door-after-1.webp"
+                            alt="Restored roller shutter with uniform bare metal finish"
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p className="text-white text-sm">Uniform bare metal finish ready for coating</p>
+                          </div>
+                        </div>
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                          <img loading="lazy"
+                            src="/door-after-2.webp"
+                            alt="Complete warehouse exterior with restored roller shutter"
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p className="text-white text-sm">Complete restoration with professional finish</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-[#2C5F7F]/5 to-[#1a3a4d]/5 rounded-lg p-8">
+                    <h3 className="text-xl font-semibold text-[#2C5F7F] mb-4">Project Summary</h3>
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <Card className="bg-white/80 backdrop-blur">
+                        <CardContent className="p-6">
+                          <h4 className="font-semibold text-[#2C5F7F] mb-2">Challenge</h4>
+                          <p className="text-sm text-gray-600">
+                            Multiple loading bay roller shutters with severe surface contamination, rust staining, and accelerating corrosion requiring restoration without replacement.
+                          </p>
+                        </CardContent>
+                      </Card>
+                      <Card className="bg-white/80 backdrop-blur">
+                        <CardContent className="p-6">
+                          <h4 className="font-semibold text-[#2C5F7F] mb-2">Solution</h4>
+                          <p className="text-sm text-gray-600">
+                            Phased shot blasting of all roller shutter slats, door frames, and mounting hardware to remove industrial contamination while maintaining operational access.
+                          </p>
+                        </CardContent>
+                      </Card>
+                      <Card className="bg-white/80 backdrop-blur">
+                        <CardContent className="p-6">
+                          <h4 className="font-semibold text-[#2C5F7F] mb-2">Result</h4>
+                          <p className="text-sm text-gray-600">
+                            Professional finish at a fraction of replacement cost, with restored doors expected to provide decades more service with minimal operational disruption.
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* First Before & After Gallery */}
-              {getServiceGalleries(service.id).length > 0 && (
+              {getServiceGalleries(service.id).length > 0 && !['fire-escapes', 'staircases', 'bridge-steelwork', 'ladders', 'warehouse-racking', 'pipework', 'telecom-towers', 'factory-cladding', 'structural-steel-frames', 'steel-gates', 'steel-containers', 'commercial-radiators', 'commercial-vehicles', 'steel-doors'].includes(service.id) && (
                 <div>
                   <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
                     Transformation Gallery
@@ -361,7 +1094,7 @@ export default function ServiceDetail() {
               </div>
 
               {/* Second Before & After Gallery */}
-              {getServiceGalleries(service.id).length > 1 && (
+              {getServiceGalleries(service.id).length > 1 && !['fire-escapes', 'staircases', 'bridge-steelwork', 'ladders', 'warehouse-racking', 'pipework', 'telecom-towers'].includes(service.id) && (
                 <div>
                   <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
                     More Project Transformations
@@ -395,6 +1128,7 @@ export default function ServiceDetail() {
               </div>
 
               {/* Case Studies */}
+              {!['fire-escapes', 'staircases', 'bridge-steelwork', 'ladders', 'warehouse-racking', 'pipework', 'telecom-towers'].includes(service.id) && (
               <div>
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Case Studies
@@ -404,7 +1138,7 @@ export default function ServiceDetail() {
                     <Card key={index} className="overflow-hidden">
                       <div className="md:flex">
                         <div className="md:w-1/3">
-                          <img 
+                          <img loading="lazy"
                             src={study.image} 
                             alt={study.title}
                             className="w-full h-48 md:h-full object-cover"
@@ -433,6 +1167,7 @@ export default function ServiceDetail() {
                   ))}
                 </div>
               </div>
+              )}
 
               {/* FAQs */}
               <div>
@@ -605,7 +1340,7 @@ export default function ServiceDetail() {
               <ul className="space-y-2 text-white/70 text-sm">
                 <li><Link href="/" className="hover:text-white transition">Home</Link></li>
                 <li><Link href="/#about" className="hover:text-white transition">About Us</Link></li>
-                <li><Link href="/gallery" className="hover:text-white transition">Gallery</Link></li>
+                <li><Link href="/our-work" className="hover:text-white transition">Our Work</Link></li>
                 <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
                 <li><Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link></li>
               </ul>
@@ -627,7 +1362,7 @@ export default function ServiceDetail() {
                 </li>
                 <li className="flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
-                  Nationwide UK Service
+                  Professional service across England & Wales
                 </li>
               </ul>
             </div>

@@ -27,7 +27,8 @@ import {
   MailOpen,
   ChevronLeft,
   FileText,
-  FileEdit
+  FileEdit,
+  Map
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
@@ -159,6 +160,9 @@ export default function Admin() {
             <TabsTrigger value="contacts" className="gap-2">
               <MessageSquare className="w-4 h-4" /> Contacts
             </TabsTrigger>
+            <TabsTrigger value="sitemap" className="gap-2">
+              <Map className="w-4 h-4" /> Sitemap
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview">
@@ -183,6 +187,10 @@ export default function Admin() {
 
           <TabsContent value="contacts">
             <ContactsTab />
+          </TabsContent>
+
+          <TabsContent value="sitemap">
+            <SitemapTab />
           </TabsContent>
         </Tabs>
       </main>
@@ -267,7 +275,7 @@ function OverviewTab() {
             <CardTitle>Quick Actions</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
-            <Link href="/gallery">
+            <Link href="/our-work">
               <Button variant="outline" className="w-full justify-start">
                 <Eye className="w-4 h-4 mr-2" /> View Public Gallery
               </Button>
@@ -620,7 +628,7 @@ function GalleryTab() {
           {filteredItems.map((item) => (
             <Card key={item.id} className={`overflow-hidden transition-opacity ${!item.isActive ? 'opacity-60' : ''}`}>
               <div className="relative h-40 bg-gray-100">
-                <img src={item.beforeImage} alt={item.title} className="w-full h-full object-cover" />
+                <img loading="lazy" src={item.beforeImage} alt={item.title} className="w-full h-full object-cover" />
                 <div className="absolute top-2 left-2 flex gap-1">
                   <span className="bg-[#2C5F7F] text-white text-xs px-2 py-1 rounded">{item.category}</span>
                   {!item.isActive && (
@@ -1156,7 +1164,7 @@ function BlogTab() {
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   {post.featuredImage && (
-                    <img src={post.featuredImage} alt={post.title} className="w-32 h-24 object-cover rounded" />
+                    <img loading="lazy" src={post.featuredImage} alt={post.title} className="w-32 h-24 object-cover rounded" />
                   )}
                   <div className="flex-1">
                     <div className="flex items-start justify-between">
@@ -1580,6 +1588,113 @@ function ContactsTab() {
           </CardContent>
         </Card>
       )}
+    </div>
+  );
+}
+
+function SitemapTab() {
+  const { data: routes, isLoading } = trpc.sitemap.getRoutes.useQuery();
+  const [sitemapXML, setSitemapXML] = useState<string>("");
+  const [showXML, setShowXML] = useState(false);
+
+  const generateXML = trpc.sitemap.generateXML.useQuery(undefined, {
+    enabled: false,
+  });
+
+  const handleGenerateXML = async () => {
+    const result = await generateXML.refetch();
+    if (result.data) {
+      setSitemapXML(result.data);
+      setShowXML(true);
+      toast.success("Sitemap XML generated successfully");
+    }
+  };
+
+  const handleDownloadXML = () => {
+    const blob = new Blob([sitemapXML], { type: 'application/xml' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'sitemap.xml';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast.success("Sitemap downloaded");
+  };
+
+  const handleCopyURL = () => {
+    const sitemapURL = `${window.location.origin}/sitemap.xml`;
+    navigator.clipboard.writeText(sitemapURL);
+    toast.success("Sitemap URL copied to clipboard");
+  };
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center py-12">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#2C5F7F]"></div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle>XML Sitemap Management</CardTitle>
+          <CardDescription>
+            Your sitemap is automatically generated and available at <code className="bg-gray-100 px-2 py-1 rounded">/sitemap.xml</code>
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="flex gap-4">
+            <Button onClick={handleGenerateXML} className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
+              Generate XML Preview
+            </Button>
+            <Button onClick={handleCopyURL} variant="outline">
+              Copy Sitemap URL
+            </Button>
+            {sitemapXML && (
+              <Button onClick={handleDownloadXML} variant="outline">
+                Download XML
+              </Button>
+            )}
+          </div>
+
+          {showXML && sitemapXML && (
+            <div className="mt-4">
+              <Label>Generated Sitemap XML</Label>
+              <Textarea 
+                value={sitemapXML} 
+                readOnly 
+                className="font-mono text-xs h-96 mt-2"
+              />
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Sitemap Routes ({routes?.length || 0} pages)</CardTitle>
+          <CardDescription>All pages included in the sitemap</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-2">
+            {routes?.map((route, index) => (
+              <div key={index} className="flex items-center justify-between py-2 px-3 bg-gray-50 rounded-lg">
+                <div className="flex-1">
+                  <code className="text-sm">{route.url}</code>
+                </div>
+                <div className="flex gap-4 text-xs text-gray-500">
+                  <span>Priority: {route.priority}</span>
+                  <span>Change: {route.changefreq}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

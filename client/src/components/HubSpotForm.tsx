@@ -1,14 +1,18 @@
 import { useEffect, useRef } from "react";
+import { trackFormSubmission, trackQuoteFormSubmission } from "@/lib/analytics";
+import { getUTMData, getFirstTouchUTM } from "@/lib/utm";
 
 interface HubSpotFormProps {
   className?: string;
+  locationName?: string;
 }
 
 /**
  * HubSpot Form Component
  * Embeds the HubSpot form using the exact embed code provided
+ * Includes UTM tracking data for marketing attribution
  */
-export function HubSpotForm({ className = "" }: HubSpotFormProps) {
+export function HubSpotForm({ className = "", locationName }: HubSpotFormProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -23,6 +27,11 @@ export function HubSpotForm({ className = "" }: HubSpotFormProps) {
       formFrame.setAttribute('data-region', 'eu1');
       formFrame.setAttribute('data-form-id', 'b6f4f2e0-afe6-4351-9a63-5a9663bf6f37');
       formFrame.setAttribute('data-portal-id', '147618128');
+      
+      // Add location name as data attribute if provided
+      if (locationName) {
+        formFrame.setAttribute('data-location', locationName);
+      }
       
       containerRef.current.appendChild(formFrame);
 
@@ -43,6 +52,33 @@ export function HubSpotForm({ className = "" }: HubSpotFormProps) {
           window.dispatchEvent(new Event('load'));
         }
       }
+
+      // Listen for HubSpot form submission events
+      const handleMessage = (event: MessageEvent) => {
+        if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmit') {
+          // Get UTM data for attribution logging
+          const lastTouch = getUTMData();
+          const firstTouch = getFirstTouchUTM();
+          
+          // Track form submission with UTM data (already included via analytics.ts)
+          trackFormSubmission('HubSpot Contact Form', window.location.pathname);
+          trackQuoteFormSubmission();
+          
+          // Log UTM attribution to console for debugging
+          if (lastTouch || firstTouch) {
+            console.log('[UTM Attribution] Form submitted with:', {
+              lastTouch,
+              firstTouch,
+              page: window.location.pathname,
+            });
+          }
+        }
+      };
+      window.addEventListener('message', handleMessage);
+
+      return () => {
+        window.removeEventListener('message', handleMessage);
+      };
     }
   }, []);
 

@@ -6,6 +6,7 @@ import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
+import { trackPhoneCall } from "@/lib/analytics";
 
 export default function AerospaceIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -14,28 +15,28 @@ export default function AerospaceIndustry() {
     {
       title: "Landing Gear Components",
       description: "Precision shot blasting and peening for landing gear assemblies, struts, and associated components. Critical surface preparation meeting stringent aerospace specifications for fatigue life enhancement.",
-      image: "/service-structural-steel.png",
+      image: "/service-structural-steel.webp",
       link: "/services/structural-steel-frames",
       benefits: ["NADCAP compliant processes", "Fatigue life improvement", "Full traceability"]
     },
     {
       title: "Engine Components & Turbine Parts",
       description: "Specialist surface treatment for engine casings, turbine blades, and combustion chamber components. Controlled shot peening to enhance component durability and resistance to stress corrosion.",
-      image: "/service-pipework.png",
+      image: "/service-pipework.webp",
       link: "/services/pipework",
       benefits: ["Stress relief treatment", "Surface hardening", "Precision controlled"]
     },
     {
       title: "Structural Airframe Components",
       description: "Shot blasting for wing spars, fuselage frames, ribs, and structural fittings. Surface preparation for subsequent coating, bonding, or inspection processes.",
-      image: "/service-structural-steel.png",
+      image: "/service-structural-steel.webp",
       link: "/services/structural-steel-frames",
       benefits: ["Coating preparation", "NDT ready surfaces", "Dimensional preservation"]
     },
     {
       title: "Ground Support Equipment",
       description: "Comprehensive refurbishment of aerospace ground support equipment including maintenance platforms, tooling, and handling equipment. Extend service life while maintaining safety standards.",
-      image: "/service-ladders.png",
+      image: "/service-ladders.webp",
       link: "/services/ladders",
       benefits: ["Cost-effective refurbishment", "Safety certified", "Quick turnaround"]
     }
@@ -45,12 +46,12 @@ export default function AerospaceIndustry() {
     {
       icon: Award,
       title: "Stringent Quality Standards",
-      description: "Aerospace demands the highest quality standards. Our processes meet AS9100, NADCAP, and customer-specific requirements with full documentation and traceability."
+      description: "Aerospace demands the highest quality requirements. Our processes meet AS9100, NADCAP, and customer-specific requirements with full documentation and traceability."
     },
     {
       icon: FileCheck,
-      title: "Regulatory Compliance",
-      description: "Aviation authorities require certified processes. We maintain comprehensive quality management systems aligned with CAA, EASA, and FAA requirements."
+      title: "Quality Service",
+      description: "We maintain comprehensive quality management systems to meet aviation industry requirements."
     },
     {
       icon: Target,
@@ -67,7 +68,7 @@ export default function AerospaceIndustry() {
   const caseStudy = {
     title: "Regional Aircraft Operator - Landing Gear Overhaul Support",
     client: "UK Regional Airline MRO Facility",
-    challenge: "A regional aircraft maintenance facility required shot blasting services for landing gear overhaul programmes. Components needed surface preparation to SA 2.5 standard before NDT inspection and protective coating application. Strict turnaround times were essential to minimise aircraft downtime.",
+    challenge: "A regional aircraft maintenance facility required shot blasting services for landing gear overhaul programmes. Components needed thorough surface preparation before NDT inspection and protective coating application. Strict turnaround times were essential to minimise aircraft downtime.",
     solution: "We established a dedicated workflow for the MRO facility with priority scheduling. Each landing gear component was processed with full batch traceability, surface profile measurement, and photographic documentation. Components were returned within 48 hours of receipt, ready for inspection.",
     result: "The partnership has supported over 50 landing gear overhauls with 100% on-time delivery. Surface preparation quality has contributed to zero coating failures in service. The MRO facility has reduced their overhaul turnaround time by 2 days through our responsive service.",
     stats: [
@@ -86,25 +87,25 @@ export default function AerospaceIndustry() {
     "Experienced team with aerospace industry knowledge",
     "Priority scheduling for AOG and urgent requirements",
     "Secure handling of proprietary components",
-    "Comprehensive quality records and certification"
+    "Comprehensive quality records and documentation"
   ];
 
-  const certifications = [
+  const qualityFeatures = [
     {
-      title: "AS9100 Alignment",
-      description: "Quality management processes aligned with aerospace industry standard AS9100 requirements."
+      title: "Quality Management",
+      description: "Comprehensive quality management processes for aerospace applications."
     },
     {
-      title: "NADCAP Awareness",
-      description: "Processes developed with awareness of NADCAP special process requirements for shot peening."
+      title: "Process Control",
+      description: "Controlled processes with consistent, repeatable results for critical components."
     },
     {
-      title: "ISO 8501-1 Compliance",
-      description: "Surface preparation to internationally recognised cleanliness standards SA 1 through SA 3."
+      title: "Surface Preparation",
+      description: "Precise surface preparation to meet aerospace cleanliness requirements."
     },
     {
-      title: "AMS 2430/2432",
-      description: "Shot peening processes aligned with Aerospace Material Specification requirements."
+      title: "Documentation",
+      description: "Complete traceability and documentation for all aerospace projects."
     }
   ];
 
@@ -157,7 +158,7 @@ export default function AerospaceIndustry() {
               Precision Shot Blasting for Aerospace Applications
             </h1>
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-              Specialist surface preparation and shot peening services for aerospace components. Meeting the industry's demanding quality standards with full traceability, controlled processes, and rapid turnaround times.
+              Specialist surface preparation and shot peening services for aerospace components. Meeting the industry's demanding quality requirements with full traceability, controlled processes, and rapid turnaround times.
             </p>
             <div className="flex flex-wrap gap-4">
               <button
@@ -168,6 +169,7 @@ export default function AerospaceIndustry() {
               </button>
               <a
                 href="tel:07970566409"
+                onClick={() => trackPhoneCall('07970566409', 'Aerospace Industry Page')}
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors flex items-center gap-2"
               >
                 <Phone className="w-5 h-5" />
@@ -222,7 +224,8 @@ export default function AerospaceIndustry() {
             {aerospaceServices.map((service, index) => (
               <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all">
                 <div className="h-64 overflow-hidden">
-                  <img 
+                  <img loading="lazy"
+                    
                     src={service.image} 
                     alt={service.title} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -310,10 +313,10 @@ export default function AerospaceIndustry() {
             </div>
             <div className="bg-white/10 rounded-2xl p-8">
               <h3 className="text-2xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Standards & Certifications
+                Quality Features
               </h3>
               <div className="space-y-4">
-                {certifications.map((cert, index) => (
+                {qualityFeatures.map((cert, index) => (
                   <div key={index} className="border-b border-white/20 pb-4 last:border-0">
                     <h4 className="font-semibold mb-1">{cert.title}</h4>
                     <p className="text-white/70 text-sm">{cert.description}</p>
