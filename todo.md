@@ -34,3 +34,7 @@
 - [x] Test structured data with schema.org validator - all 11 page types validated, 0 JSON errors
 - [x] Sync project to new GitHub repo PremierBlasting/Commercial_Shot_Blasting_Account (already connected and up to date)
 - [x] Fix production JSON-LD not appearing: added index:false to express.static so homepage goes through catch-all route with JSON-LD injection
+- [x] Investigate and fix: published checkpoint still serves old bundle on live site - JSON-LD not appearing after publish
+- [x] Added client-side JSON-LD injector (jsonld-inject.js) as fallback - generates and injects structured data via browser JS
+- [x] Client-side script covers all page types: homepage, services, industries, locations, counties, blog, about, contact, our work, preparation-cleanup, free-site-survey
+- [x] Script handles SPA navigation (pushState/popstate) to update JSON-LD on route changes
