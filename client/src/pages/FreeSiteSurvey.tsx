@@ -334,11 +334,9 @@ export default function FreeSiteSurvey() {
             <p className="text-gray-600 mb-8 leading-relaxed">
               We offer free site surveys across the Midlands and surrounding regions, including Birmingham, Nottingham, Leicester, Derby, Sheffield, Manchester, and beyond. For locations outside our standard coverage area, please contact us to discuss arrangements.
             </p>
-            <Link href="/service-areas">
-              <a className="inline-flex items-center gap-2 text-[#2C5F7F] font-semibold hover:gap-3 transition-all">
+            <Link href="/service-areas" className="inline-flex items-center gap-2 text-[#2C5F7F] font-semibold hover:gap-3 transition-all">
                 View All Service Areas <ArrowRight className="w-4 h-4" />
-              </a>
-            </Link>
+              </Link>
           </div>
         </div>
       </section>

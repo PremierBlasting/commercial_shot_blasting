@@ -190,11 +190,9 @@ export default function ManufacturingIndustry() {
                       </span>
                     ))}
                   </div>
-                  <Link href={service.link}>
-                    <a className="inline-flex items-center gap-2 text-[#2C5F7F] font-semibold hover:gap-3 transition-all">
+                  <Link href={service.link} className="inline-flex items-center gap-2 text-[#2C5F7F] font-semibold hover:gap-3 transition-all">
                       Learn More <ArrowRight className="w-4 h-4" />
-                    </a>
-                  </Link>
+                    </Link>
                 </CardContent>
               </Card>
             ))}
@@ -358,14 +356,12 @@ export default function ManufacturingIndustry() {
                     <span>Decision framework for facility managers</span>
                   </li>
                 </ul>
-                <Link href="/blog/warehouse-racking-refurbishment-vs-replacement">
-                  <a className="inline-flex items-center gap-2 text-[#2C5F7F] font-semibold hover:text-[#1e4159] transition-colors">
+                <Link href="/blog/warehouse-racking-refurbishment-vs-replacement" className="inline-flex items-center gap-2 text-[#2C5F7F] font-semibold hover:text-[#1e4159] transition-colors">
                     Read Full Article
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </a>
-                </Link>
+                  </Link>
               </div>
             </div>
           </div>
@@ -415,16 +411,16 @@ export default function ManufacturingIndustry() {
             <div>
               <h4 className="font-semibold mb-4">Manufacturing Services</h4>
               <ul className="space-y-2 text-white/70 text-sm">
-                <li><Link href="/services/warehouse-racking"><a className="hover:text-white">Warehouse Racking</a></Link></li>
-                <li><Link href="/services/crane-beams"><a className="hover:text-white">Crane Beams</a></Link></li>
-                <li><Link href="/services/pipework"><a className="hover:text-white">Process Pipework</a></Link></li>
+                <li><Link href="/services/warehouse-racking" className="hover:text-white">Warehouse Racking</Link></li>
+                <li><Link href="/services/crane-beams" className="hover:text-white">Crane Beams</Link></li>
+                <li><Link href="/services/pipework" className="hover:text-white">Process Pipework</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Industries</h4>
               <ul className="space-y-2 text-white/70 text-sm">
-                <li><Link href="/industries/construction"><a className="hover:text-white">Construction</a></Link></li>
-                <li><Link href="/industries/manufacturing"><a className="hover:text-white">Manufacturing</a></Link></li>
+                <li><Link href="/industries/construction" className="hover:text-white">Construction</Link></li>
+                <li><Link href="/industries/manufacturing" className="hover:text-white">Manufacturing</Link></li>
               </ul>
             </div>
             <div>

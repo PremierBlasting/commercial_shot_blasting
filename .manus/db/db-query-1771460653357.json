@@ -1,0 +1,25 @@
+{
+  "query": "SELECT id, title, featuredImage FROM blog_posts;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title, featuredImage FROM blog_posts;",
+  "rows": [
+    {
+      "id": "2",
+      "title": "The Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection",
+      "featuredImage": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200"
+    },
+    {
+      "id": "3",
+      "title": "Shot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes",
+      "featuredImage": "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1200"
+    },
+    {
+      "id": "4",
+      "title": "Restoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment",
+      "featuredImage": "/warehouse-cladding-blog-new.jpg"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tfeaturedImage\n2\tThe Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection\thttps://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200\n3\tShot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes\thttps://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1200\n4\tRestoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment\t/warehouse-cladding-blog-new.jpg\n",
+  "stderr": "",
+  "execution_time_ms": 51
+}

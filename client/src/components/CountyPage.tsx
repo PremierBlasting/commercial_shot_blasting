@@ -180,12 +180,10 @@ export function CountyPage({ county }: CountyPageProps) {
                 <service.icon className="w-12 h-12 text-[#2C5F7F] mb-4" />
                 <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
-                <Link href="/services">
-                  <a className="text-[#2C5F7F] hover:text-[#1a3d52] font-medium inline-flex items-center gap-2">
+                <Link href="/services" className="text-[#2C5F7F] hover:text-[#1a3d52] font-medium inline-flex items-center gap-2">
                     View All Services
                     <ArrowRight className="w-4 h-4" />
-                  </a>
-                </Link>
+                  </Link>
               </div>
             ))}
           </div>

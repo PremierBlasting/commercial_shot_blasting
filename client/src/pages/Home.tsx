@@ -188,7 +188,7 @@ export default function Home() {
 
       {/* Featured Video Section */}
       <section className="py-20 bg-gradient-to-br from-[#1a3d52] to-[#2C5F7F] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/steel-texture-pattern.png')] opacity-5"></div>
+        <div className="absolute inset-0 opacity-5"></div>
         <div className="container relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">

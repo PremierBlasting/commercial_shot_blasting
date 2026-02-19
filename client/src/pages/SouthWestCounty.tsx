@@ -68,7 +68,7 @@ export default function SouthWestCounty() {
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#1e3a5f] via-[#2d4a6f] to-[#1e3a5f] text-white py-20">
-        <div className="absolute inset-0 bg-[url('/hero-pattern.svg')] opacity-5"></div>
+        <div className="absolute inset-0 opacity-5"></div>
         <div className="container relative">
           <Breadcrumb 
             items={[
@@ -196,7 +196,7 @@ export default function SouthWestCounty() {
             </div>
             <div className="relative">
               <img loading="lazy"
-                src="/shotblasting-action.jpg" 
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/HbuzeUBAKEuLYqVy.jpeg" 
                 alt="Shot blasting services in South West"
                 className="rounded-lg shadow-xl"
               />

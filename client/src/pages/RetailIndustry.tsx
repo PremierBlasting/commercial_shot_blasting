@@ -215,11 +215,9 @@ export default function RetailIndustry() {
                       </span>
                     ))}
                   </div>
-                  <Link href={service.link}>
-                    <a className="inline-flex items-center gap-2 text-[#2C5F7F] font-semibold hover:gap-3 transition-all">
+                  <Link href={service.link} className="inline-flex items-center gap-2 text-[#2C5F7F] font-semibold hover:gap-3 transition-all">
                       Learn More <ArrowRight className="w-4 h-4" />
-                    </a>
-                  </Link>
+                    </Link>
                 </CardContent>
               </Card>
             ))}
@@ -329,11 +327,9 @@ export default function RetailIndustry() {
               >
                 Request a Quote
               </button>
-              <Link href="/free-site-survey">
-                <a className="border-2 border-[#2C5F7F] text-[#2C5F7F] px-8 py-3 rounded-lg font-semibold hover:bg-[#2C5F7F]/10 transition-colors">
+              <Link href="/free-site-survey" className="border-2 border-[#2C5F7F] text-[#2C5F7F] px-8 py-3 rounded-lg font-semibold hover:bg-[#2C5F7F]/10 transition-colors">
                   Book Free Site Survey
-                </a>
-              </Link>
+                </Link>
             </div>
           </div>
         </div>
