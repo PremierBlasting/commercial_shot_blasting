@@ -6,6 +6,7 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import viteConfig from "../../vite.config";
 import { injectMetaTags } from "../metaTags";
+import { generateJsonLd } from "../jsonLd";
 
 export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
@@ -72,6 +73,11 @@ export async function setupVite(app: Express, server: Server) {
       );
       // Inject meta tags for SEO (service area pages)
       template = injectMetaTags(template, url);
+      // Inject JSON-LD structured data for all pages
+      const jsonLdScripts = generateJsonLd(url);
+      if (jsonLdScripts) {
+        template = template.replace('</head>', `    ${jsonLdScripts}\n  </head>`);
+      }
       const page = await vite.transformIndexHtml(url, template);
       res.status(200).set({ "Content-Type": "text/html" }).end(page);
     } catch (e) {
@@ -163,6 +169,11 @@ export function serveStatic(app: Express) {
     let html = fs.readFileSync(indexPath, "utf-8");
     // Inject meta tags for SEO (service area pages)
     html = injectMetaTags(html, req.originalUrl);
+    // Inject JSON-LD structured data for all pages
+    const jsonLdScripts = generateJsonLd(req.originalUrl);
+    if (jsonLdScripts) {
+      html = html.replace('</head>', `    ${jsonLdScripts}\n  </head>`);
+    }
     res.status(200).set({ "Content-Type": "text/html" }).send(html);
   });
 }

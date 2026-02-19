@@ -27,3 +27,8 @@
 - [x] Comprehensive testing of all 176 pages (0 broken images, 0 errors)
 - [x] Fix nested anchor tag warnings in 5 files (13 fixes total)
 - [x] Replace 2 missing placeholder images with existing CDN images
+- [x] Fix "Failed to fetch dynamically imported module" error - stale browser cache from old Vercel deployment, all chunks verified working on production
+- [x] Diagnose schema.org validation issues on service pages
+- [x] Implement JSON-LD structured data (LocalBusiness, Service, BreadcrumbList) across all page types
+- [x] Add JSON-LD to homepage, service pages, location pages, county pages, blog, about, contact
+- [x] Test structured data with schema.org validator - all 11 page types validated, 0 JSON errors
