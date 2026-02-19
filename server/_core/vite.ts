@@ -99,7 +99,10 @@ export function serveStatic(app: Express) {
   }
 
   // Serve static files with aggressive caching for immutable assets
+  // index: false prevents express.static from serving index.html for '/',
+  // so ALL HTML requests go through the catch-all route where JSON-LD is injected
   app.use(express.static(distPath, {
+    index: false,
     maxAge: '1y', // Cache for 1 year (immutable assets have content hashes)
     etag: true,
     lastModified: true,

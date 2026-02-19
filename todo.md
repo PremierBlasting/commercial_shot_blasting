@@ -32,3 +32,5 @@
 - [x] Implement JSON-LD structured data (LocalBusiness, Service, BreadcrumbList) across all page types
 - [x] Add JSON-LD to homepage, service pages, location pages, county pages, blog, about, contact
 - [x] Test structured data with schema.org validator - all 11 page types validated, 0 JSON errors
+- [x] Sync project to new GitHub repo PremierBlasting/Commercial_Shot_Blasting_Account (already connected and up to date)
+- [x] Fix production JSON-LD not appearing: added index:false to express.static so homepage goes through catch-all route with JSON-LD injection
