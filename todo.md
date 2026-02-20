@@ -38,3 +38,17 @@
 - [x] Added client-side JSON-LD injector (jsonld-inject.js) as fallback - generates and injects structured data via browser JS
 - [x] Client-side script covers all page types: homepage, services, industries, locations, counties, blog, about, contact, our work, preparation-cleanup, free-site-survey
 - [x] Script handles SPA navigation (pushState/popstate) to update JSON-LD on route changes
+- [x] Massively expand JSON-LD structured data across ALL pages
+- [x] Add detailed LocalBusiness with reviews, opening hours, payment methods, founding date
+- [x] Add rich Service schemas with pricing hints, availability, duration estimates
+- [x] Add detailed FAQPage schemas on service pages with service-specific FAQs
+- [x] Add HowTo schema for process/preparation pages
+- [x] Add ImageGallery/ImageObject schemas for Our Work page
+- [x] Add detailed BreadcrumbList on every page
+- [x] Add Organization schema with full business details
+- [x] Add ServiceArea schemas with geo coordinates for location pages
+- [x] Add Industry-specific schemas with detailed descriptions
+- [x] Add Blog/Article schemas with author, datePublished, wordCount
+- [x] Add Offer schemas with free quote CTAs on service pages
+- [x] Add review snippets and aggregate ratings
+- [x] Server-side jsonLd.ts kept as baseline; client-side jsonld-inject.js is the primary source of expanded schemas
