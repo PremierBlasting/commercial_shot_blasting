@@ -52,3 +52,4 @@
 - [x] Add Offer schemas with free quote CTAs on service pages
 - [x] Add review snippets and aggregate ratings
 - [x] Server-side jsonLd.ts kept as baseline; client-side jsonld-inject.js is the primary source of expanded schemas
+- [x] Fix duplicate FAQPage JSON-LD: removed server-side injection, now client-side jsonld-inject.js is the sole source of structured data
