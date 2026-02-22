@@ -706,17 +706,8 @@
         }
       });
 
-      // Expanded Local FAQ (8 questions)
-      schemas.push(faqSchema([
-        { q: "Do you provide shot blasting in " + lName + "?", a: "Yes, we have dedicated mobile shot blasting teams covering " + lName + " and the surrounding area. We can be on-site within days of your enquiry. Our " + lName + " team operates 9 mobile units across England and Wales." },
-        { q: "How much does shot blasting cost in " + lName + "?", a: "Costs depend on the project size, surface type, and accessibility. We provide free, no-obligation quotes for all " + lName + " projects. Call 07970 566409 for a quick estimate. Most projects range from £500 to £5,000 depending on scope." },
-        { q: "What services do you offer in " + lName + "?", a: "We offer the full range of shot blasting services in " + lName + " including structural steel, containers, cladding, fire escapes, floor preparation, pipework, telecom towers, and more. All services are mobile - we come to your site." },
-        { q: "How quickly can you start a project in " + lName + "?", a: "We typically provide quotes within 24 hours and can be on-site in " + lName + " within 2-5 working days depending on project size and our current schedule. Emergency projects can be accommodated." },
-        { q: "What surface finish do you achieve in " + lName + "?", a: "We typically achieve SA2.5 (near-white metal) finish which is the industry standard for structural steel preparation before protective coating application. We can also provide SA3 (white metal) finish if required." },
-        { q: "Do you work on weekends in " + lName + "?", a: "Yes, we can work weekends and evenings in " + lName + " to minimize disruption to your operations. Weekend work is subject to availability and may incur a small premium." },
-        { q: "What industries do you serve in " + lName + "?", a: "We serve manufacturing, construction, automotive, aerospace, marine, food processing, pharmaceutical, and many other industries in " + lName + ". Our mobile teams handle both commercial and industrial projects." },
-        { q: "Do you provide containment and cleanup in " + lName + "?", a: "Yes, all our " + lName + " projects include full containment to protect surrounding areas and thorough cleanup after completion. We leave your site clean and ready for the next stage of work." }
-      ]));
+      // FAQPage schema removed - now injected server-side in metaTags.ts to prevent duplication
+      // This eliminates the "Duplicate field 'FAQPage'" error from Google Rich Results Test
 
       // Organization schema with expanded details
       schemas.push({

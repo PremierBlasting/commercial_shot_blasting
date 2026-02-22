@@ -78,3 +78,5 @@
 - [x] Fix useSEO hook to properly replace existing meta tags in HTML head - now updates all OG tags, Twitter cards, and standard meta tags
 - [x] Add comprehensive JSON-LD schema to all 80+ service area pages with LocalBusiness, detailed Service, 8 FAQs, geo coordinates, offer catalog, opening hours, and aggregate ratings
 - [x] Massively expand JSON-LD on local area pages: add Product/Service catalog, ContactPoint, GeoShape, Place, ImageObject, VideoObject, multiple Review items, sameAs social links, additionalType, knowsAbout, areaServed expansion, and more comprehensive business details
+- [x] Investigate and fix "Duplicate field 'FAQPage'" error in JSON-LD schemas to make all 16 items fully valid for Google Rich Results
+- [x] Add comprehensive server-side static JSON-LD schemas to service area pages (alongside JavaScript) for Schema.org validator compatibility and immediate Google access
