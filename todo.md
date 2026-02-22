@@ -57,3 +57,4 @@
 - [x] Add BreadcrumbList schema to all pages in JSON-LD (already present on every page)
 - [x] Add VideoObject schema for homepage video content
 - [x] Add Organization schema across the entire site (now injected on every page)
+- [x] Remove duplicate WhatsApp button at bottom right on mobile (removed from FloatingCallButton, keeping only Call Now button)
