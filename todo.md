@@ -77,3 +77,4 @@
 - [x] Add unique SEO titles and descriptions to static pages (About, Contact, Our Work, Preparation & Cleanup, Free Site Survey) with custom titles and descriptions
 - [x] Fix useSEO hook to properly replace existing meta tags in HTML head - now updates all OG tags, Twitter cards, and standard meta tags
 - [x] Add comprehensive JSON-LD schema to all 80+ service area pages with LocalBusiness, detailed Service, 8 FAQs, geo coordinates, offer catalog, opening hours, and aggregate ratings
+- [x] Massively expand JSON-LD on local area pages: add Product/Service catalog, ContactPoint, GeoShape, Place, ImageObject, VideoObject, multiple Review items, sameAs social links, additionalType, knowsAbout, areaServed expansion, and more comprehensive business details
