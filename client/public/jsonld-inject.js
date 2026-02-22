@@ -517,6 +517,21 @@
       schemas.push(localBiz());
       schemas.push(faqSchema(homeFAQs));
       schemas.push(breadcrumbs([{ name: "Home", url: S }]));
+      // VideoObject for homepage video
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Shot Blasting Steel Sheets in Action",
+        "description": "Watch our precision shot blasting process transform steel sheets, removing rust, scale, and coatings to create the perfect surface for protective finishes. Professional grade equipment delivering precision surface preparation.",
+        "contentUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/CICKcOChLeIGkWWG.mp4",
+        "thumbnailUrl": HERO,
+        "uploadDate": "2024-01-15",
+        "duration": "PT1M30S",
+        "publisher": org(),
+        "embedUrl": S,
+        "inLanguage": "en-GB",
+        "about": { "@type": "Thing", "name": "Shot Blasting Process", "description": "Industrial surface preparation using abrasive media" }
+      });
       // SiteNavigationElement
       schemas.push({
         "@context": "https://schema.org",
@@ -966,6 +981,26 @@
         { name: "Page", url: S + path }
       ]));
     }
+
+    // Add Organization schema to every page for consistent business entity identification
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": S + "/#organization",
+      "name": BN,
+      "url": S,
+      "logo": { "@type": "ImageObject", "url": LOGO, "width": 200, "height": 60 },
+      "telephone": PH,
+      "email": EM,
+      "foundingDate": "2015",
+      "description": "Professional mobile shot blasting company with 9 dedicated teams covering England and Wales. Specialist surface preparation for structural steel, containers, cladding, and all industrial metalwork.",
+      "address": { "@type": "PostalAddress", "addressRegion": "West Midlands", "addressCountry": "GB" },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "England" },
+        { "@type": "AdministrativeArea", "name": "Wales" }
+      ],
+      "sameAs": []
+    });
 
     // Inject all
     for (var x = 0; x < schemas.length; x++) inject(schemas[x]);
