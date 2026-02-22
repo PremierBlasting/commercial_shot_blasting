@@ -622,17 +622,106 @@
       var lat = coords ? coords[0] : null;
       var lng = coords ? coords[1] : null;
 
-      schemas.push(serviceSchema(
-        "Shot Blasting Services in " + lName,
-        "Professional mobile shot blasting services in " + lName + " and surrounding areas. We provide specialist surface preparation for structural steel, containers, cladding, and all industrial metalwork. Our " + lName + " team covers commercial, industrial, and residential projects. Free quotes available - call 07970 566409.",
-        HERO, lName, "City", lat, lng
-      ));
-      // Local FAQ
+      // Enhanced LocalBusiness for this specific location
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "name": BN + " - " + lName,
+        "url": S + path,
+        "logo": { "@type": "ImageObject", "url": LOGO, "width": 200, "height": 60 },
+        "image": [HERO],
+        "telephone": PH,
+        "email": EM,
+        "priceRange": "££",
+        "currenciesAccepted": "GBP",
+        "paymentAccepted": "Cash, Credit Card, Bank Transfer, Invoice",
+        "description": "Professional mobile shot blasting services in " + lName + " and surrounding areas. We provide specialist surface preparation for structural steel, containers, cladding, fire escapes, and all industrial metalwork. Our " + lName + " team covers commercial, industrial, and residential projects with 9 dedicated mobile units.",
+        "slogan": "Professional Mobile Shot Blasting Services in " + lName,
+        "address": { "@type": "PostalAddress", "addressLocality": lName, "addressCountry": "GB" },
+        "geo": lat && lng ? { "@type": "GeoCoordinates", "latitude": lat, "longitude": lng } : undefined,
+        "areaServed": {
+          "@type": "City",
+          "name": lName,
+          "geo": lat && lng ? { "@type": "GeoCoordinates", "latitude": lat, "longitude": lng } : undefined
+        },
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "14:00" }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Shot Blasting Services in " + lName,
+          "itemListElement": [
+            { "@type": "OfferCatalog", "name": "Structural Steelwork", "description": "Shot blasting for steel frames, trusses, and load-bearing structures in " + lName },
+            { "@type": "OfferCatalog", "name": "Container Blasting", "description": "Specialist blasting for shipping containers and steel storage units in " + lName },
+            { "@type": "OfferCatalog", "name": "Cladding Restoration", "description": "Plastisol and paint removal from factory and warehouse cladding in " + lName },
+            { "@type": "OfferCatalog", "name": "Industrial Equipment", "description": "Shot blasting for plant, machinery, vehicles, and pipework in " + lName },
+            { "@type": "OfferCatalog", "name": "Floor Preparation", "description": "Industrial floor shot blasting and surface preparation in " + lName }
+          ]
+        },
+        "makesOffer": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Free Site Survey in " + lName }, "price": "0", "priceCurrency": "GBP", "description": "Free no-obligation site survey and quotation in " + lName },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile Shot Blasting in " + lName }, "description": "On-site mobile shot blasting - we come to you in " + lName, "availability": "https://schema.org/InStock" }
+        ],
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "127", "bestRating": "5", "worstRating": "1" }
+      });
+
+      // Detailed Service schema for location
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Shot Blasting Services in " + lName,
+        "description": "Professional mobile shot blasting services in " + lName + " and surrounding areas. We provide specialist surface preparation for structural steel, containers, cladding, and all industrial metalwork. Our " + lName + " team covers commercial, industrial, and residential projects. We achieve SA2.5 surface finish and coordinate with coating schedules. Free quotes available - call 07970 566409.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": BN,
+          "telephone": PH,
+          "address": { "@type": "PostalAddress", "addressLocality": lName, "addressCountry": "GB" }
+        },
+        "serviceType": "Shot Blasting",
+        "image": HERO,
+        "areaServed": {
+          "@type": "City",
+          "name": lName,
+          "geo": lat && lng ? { "@type": "GeoCoordinates", "latitude": lat, "longitude": lng } : undefined
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "GBP",
+          "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "GBP" },
+          "itemOffered": { "@type": "Service", "name": "Shot Blasting Services in " + lName }
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services Available in " + lName,
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Structural Steel Shot Blasting" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Container Shot Blasting" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cladding Restoration" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fire Escape Blasting" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Floor Preparation" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Industrial Equipment Blasting" } }
+          ]
+        }
+      });
+
+      // Expanded Local FAQ (8 questions)
       schemas.push(faqSchema([
-        { q: "Do you provide shot blasting in " + lName + "?", a: "Yes, we have dedicated mobile shot blasting teams covering " + lName + " and the surrounding area. We can be on-site within days of your enquiry." },
-        { q: "How much does shot blasting cost in " + lName + "?", a: "Costs depend on the project size, surface type, and accessibility. We provide free, no-obligation quotes for all " + lName + " projects. Call 07970 566409 for a quick estimate." },
-        { q: "What services do you offer in " + lName + "?", a: "We offer the full range of shot blasting services in " + lName + " including structural steel, containers, cladding, fire escapes, floor preparation, and more. All services are mobile - we come to your site." }
+        { q: "Do you provide shot blasting in " + lName + "?", a: "Yes, we have dedicated mobile shot blasting teams covering " + lName + " and the surrounding area. We can be on-site within days of your enquiry. Our " + lName + " team operates 9 mobile units across England and Wales." },
+        { q: "How much does shot blasting cost in " + lName + "?", a: "Costs depend on the project size, surface type, and accessibility. We provide free, no-obligation quotes for all " + lName + " projects. Call 07970 566409 for a quick estimate. Most projects range from £500 to £5,000 depending on scope." },
+        { q: "What services do you offer in " + lName + "?", a: "We offer the full range of shot blasting services in " + lName + " including structural steel, containers, cladding, fire escapes, floor preparation, pipework, telecom towers, and more. All services are mobile - we come to your site." },
+        { q: "How quickly can you start a project in " + lName + "?", a: "We typically provide quotes within 24 hours and can be on-site in " + lName + " within 2-5 working days depending on project size and our current schedule. Emergency projects can be accommodated." },
+        { q: "What surface finish do you achieve in " + lName + "?", a: "We typically achieve SA2.5 (near-white metal) finish which is the industry standard for structural steel preparation before protective coating application. We can also provide SA3 (white metal) finish if required." },
+        { q: "Do you work on weekends in " + lName + "?", a: "Yes, we can work weekends and evenings in " + lName + " to minimize disruption to your operations. Weekend work is subject to availability and may incur a small premium." },
+        { q: "What industries do you serve in " + lName + "?", a: "We serve manufacturing, construction, automotive, aerospace, marine, food processing, pharmaceutical, and many other industries in " + lName + ". Our mobile teams handle both commercial and industrial projects." },
+        { q: "Do you provide containment and cleanup in " + lName + "?", a: "Yes, all our " + lName + " projects include full containment to protect surrounding areas and thorough cleanup after completion. We leave your site clean and ready for the next stage of work." }
       ]));
+
+      // Organization schema
+      schemas.push(org());
+
+      // Breadcrumbs
       schemas.push(breadcrumbs([
         { name: "Home", url: S },
         { name: "Service Areas", url: S + "/service-areas" },

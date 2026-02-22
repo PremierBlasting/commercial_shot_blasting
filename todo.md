@@ -75,3 +75,5 @@
 - [x] Add unique SEO titles and descriptions to all industry pages (8 industries) via getIndustrySEO() in useSEO hook
 - [x] Add unique SEO titles and descriptions to blog listing and individual blog posts (Blog.tsx static, BlogPost.tsx dynamic based on post data)
 - [x] Add unique SEO titles and descriptions to static pages (About, Contact, Our Work, Preparation & Cleanup, Free Site Survey) with custom titles and descriptions
+- [x] Fix useSEO hook to properly replace existing meta tags in HTML head - now updates all OG tags, Twitter cards, and standard meta tags
+- [x] Add comprehensive JSON-LD schema to all 80+ service area pages with LocalBusiness, detailed Service, 8 FAQs, geo coordinates, offer catalog, opening hours, and aggregate ratings
