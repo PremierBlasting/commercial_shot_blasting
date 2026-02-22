@@ -1,14 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showPulse, setShowPulse] = useState(true);
   const phoneNumber = "447721375756"; // 07721 375 756 in international format
   const message = encodeURIComponent(
     "Hello, I'm interested in your shot blasting services. Please send me a quote."
   );
 
+  // Stop pulse animation after 10 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPulse(false);
+    }, 10000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleWhatsAppClick = () => {
+    trackEvent('whatsapp_button_click', {
+      event_category: 'Contact',
+      event_label: 'WhatsApp Chat Button',
+      phone_number: phoneNumber,
+      click_location: window.location.pathname,
+    });
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 
@@ -16,8 +32,8 @@ export function WhatsAppWidget() {
     <>
       {/* Floating WhatsApp Button */}
       <div className="fixed top-1/2 -translate-y-1/2 right-6 z-50">
-        {/* Pulse ring animation */}
-        {!isOpen && (
+        {/* Pulse ring animation - stops after 10 seconds or when opened */}
+        {!isOpen && showPulse && (
           <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30" />
         )}
         <button

@@ -63,3 +63,6 @@
 - [x] Add subtle hover effect to WhatsApp and Call Now buttons for better interaction feedback
 - [x] Add subtle pulse animation to WhatsApp button to draw attention on first visit
 - [x] Track Call Now button clicks as 'call_button_click' event in Google Analytics
+- [x] Set up GA4 conversion for call_button_click event (documentation created: GA4_CONVERSION_SETUP.md)
+- [x] Add WhatsApp click tracking as whatsapp_button_click GA event for complete contact funnel visibility
+- [x] Make WhatsApp pulse animation stop after 10 seconds to avoid distracting users on longer visits
