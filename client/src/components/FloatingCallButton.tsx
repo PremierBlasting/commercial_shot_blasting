@@ -7,8 +7,8 @@ export function FloatingCallButton() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 md:hidden">
-      {/* Call Now Button */}
+    <div className="fixed right-6 z-50 md:hidden" style={{ top: 'calc(50% + 44px)' }}>
+      {/* Call Now Button - positioned just below the WhatsApp widget */}
       <a
         href="tel:07970566409"
         className="flex items-center gap-2 bg-[#2C5F7F] text-white px-5 py-3 rounded-full shadow-lg hover:bg-[#234a63] transition-all duration-300"
