@@ -1,7 +1,8 @@
 import { Link } from "wouter";
 import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2 } from "lucide-react";
 import { useState } from "react";
-import { getLocationSEO, useSEO } from "@/hooks/useSEO";
+// SEO is now handled server-side in server/metaTags.ts
+// import { getLocationSEO, useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
@@ -33,8 +34,8 @@ interface LocationPageProps {
 export function LocationPage({ location }: LocationPageProps) {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
-  // Set SEO metadata
-  useSEO(getLocationSEO(location.name));
+  // SEO metadata is now handled server-side in server/metaTags.ts
+  // useSEO(getLocationSEO(location.name));
 
   const breadcrumbItems = [
     { label: "Home", href: "/" },

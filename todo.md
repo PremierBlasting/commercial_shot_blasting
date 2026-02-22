@@ -81,3 +81,4 @@
 - [x] Investigate and fix "Duplicate field 'FAQPage'" error in JSON-LD schemas to make all 16 items fully valid for Google Rich Results
 - [x] Add comprehensive server-side static JSON-LD schemas to service area pages (alongside JavaScript) for Schema.org validator compatibility and immediate Google access
 - [x] Fix meta tag removal logic in metaTags.ts to properly remove all old generic meta descriptions from service area pages
+- [x] Wire up injectMetaTags function in server rendering pipeline so it's called during production SSR
