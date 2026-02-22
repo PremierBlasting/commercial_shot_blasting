@@ -17,7 +17,7 @@ export function WhatsAppWidget() {
       {/* Floating WhatsApp Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 h-16 w-16 rounded-full bg-[#25D366] shadow-lg transition-all hover:scale-110 hover:shadow-xl flex items-center justify-center"
+        className="fixed right-6 z-50 h-16 w-16 rounded-full bg-[#25D366] shadow-lg transition-all hover:scale-110 hover:shadow-xl flex items-center justify-center top-1/2 -translate-y-1/2"
         aria-label="Open WhatsApp chat"
       >
         {isOpen ? (
@@ -37,7 +37,7 @@ export function WhatsAppWidget() {
 
       {/* Chat Widget Popup */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-3rem)] rounded-2xl bg-white shadow-2xl overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
+        <div className="fixed right-6 z-50 w-[380px] max-w-[calc(100vw-3rem)] rounded-2xl bg-white shadow-2xl overflow-hidden animate-in slide-in-from-bottom-4 duration-300 top-1/2 -translate-y-1/2">
           {/* Header */}
           <div className="bg-gradient-to-r from-teal-600 to-teal-700 p-6 relative">
             <button
