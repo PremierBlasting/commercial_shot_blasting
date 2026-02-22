@@ -633,11 +633,12 @@ export function injectMetaTags(html: string, url: string): string {
     const locationName = capitalize(locationSlug);
     const fullUrl = `${SITE_URL}/service-areas/${locationSlug}`;
     
-    // Remove all existing OG and Twitter meta tags
+    // Remove ALL existing meta tags (description, OG, Twitter) to ensure clean slate
     let modifiedHtml = html
-      .replace(/<meta name="description"[^>]*>/g, '')
-      .replace(/<meta property="og:[^"]*"[^>]*>/g, '')
-      .replace(/<meta name="twitter:[^"]*"[^>]*>/g, '');
+      .replace(/<meta\s+name="description"[^>]*>/gi, '')
+      .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '');
     
     // Build meta tags and JSON-LD
     const metaTags = `
@@ -665,11 +666,12 @@ export function injectMetaTags(html: string, url: string): string {
   // Location found in predefined list - use its meta data
   const locationName = capitalize(locationSlug);
   
-  // Remove all existing OG and Twitter meta tags
+  // Remove ALL existing meta tags (description, OG, Twitter) to ensure clean slate
   let modifiedHtml = html
-    .replace(/<meta name="description"[^>]*>/g, '')
-    .replace(/<meta property="og:[^"]*"[^>]*>/g, '')
-    .replace(/<meta name="twitter:[^"]*"[^>]*>/g, '');
+    .replace(/<meta\s+name="description"[^>]*>/gi, '')
+    .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+    .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+    .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '');
   
   // Build meta tags and JSON-LD
   const metaTags = `
