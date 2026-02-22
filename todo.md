@@ -66,3 +66,6 @@
 - [x] Set up GA4 conversion for call_button_click event (documentation created: GA4_CONVERSION_SETUP.md)
 - [x] Add WhatsApp click tracking as whatsapp_button_click GA event for complete contact funnel visibility
 - [x] Make WhatsApp pulse animation stop after 10 seconds to avoid distracting users on longer visits
+- [x] Add relevant keywords to homepage content for SEO (meta keywords tag with 10 relevant terms)
+- [x] Update homepage title to 30-60 characters using document.title (68 chars: 'Commercial Shot Blasting Services UK | Industrial Surface Preparation')
+- [x] Add meta description of 50-160 characters to homepage (144 chars with key services and CTA)

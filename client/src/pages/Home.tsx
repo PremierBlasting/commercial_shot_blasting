@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Star, Quote, X } from "lucide-react";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
 import { HubSpotForm } from "@/components/HubSpotForm";
 import { Header } from "@/components/Header";
@@ -36,6 +36,29 @@ export default function Home() {
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxImages, setLightboxImages] = useState<string[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  // Set SEO title and meta description
+  useEffect(() => {
+    document.title = "Commercial Shot Blasting Services UK | Industrial Surface Preparation";
+    
+    // Update or create meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', 'Professional commercial and industrial shot blasting services across the UK. Expert surface preparation for steel, concrete, and metal. Free quotes available.');
+
+    // Update or create meta keywords
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.setAttribute('name', 'keywords');
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', 'shot blasting, commercial shot blasting, industrial shot blasting, surface preparation, steel blasting, concrete blasting, metal blasting, UK shot blasting services, grit blasting, abrasive blasting');
+  }, []);
 
   const openQuotePopup = () => setQuotePopupOpen(true);
 
