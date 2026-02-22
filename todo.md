@@ -69,3 +69,9 @@
 - [x] Add relevant keywords to homepage content for SEO (meta keywords tag with 10 relevant terms)
 - [x] Update homepage title to 30-60 characters using document.title (68 chars: 'Commercial Shot Blasting Services UK | Industrial Surface Preparation')
 - [x] Add meta description of 50-160 characters to homepage (144 chars with key services and CTA)
+- [x] Add unique SEO titles and descriptions to all service pages (18 services) via getServiceSEO() in useSEO hook
+- [x] Add unique SEO titles and descriptions to all location pages (80+ locations) via getLocationSEO() in LocationPage component
+- [x] Add unique SEO titles and descriptions to all county pages (15 counties) via getCountySEO() in useSEO hook
+- [x] Add unique SEO titles and descriptions to all industry pages (8 industries) via getIndustrySEO() in useSEO hook
+- [x] Add unique SEO titles and descriptions to blog listing and individual blog posts (Blog.tsx static, BlogPost.tsx dynamic based on post data)
+- [x] Add unique SEO titles and descriptions to static pages (About, Contact, Our Work, Preparation & Cleanup, Free Site Survey) with custom titles and descriptions

@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { getLocationSEO, useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
@@ -32,54 +33,8 @@ interface LocationPageProps {
 export function LocationPage({ location }: LocationPageProps) {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
-  useEffect(() => {
-    document.title = `Shot Blasting ${location.name} | Commercial & Industrial Services`;
-    
-    // Set meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', location.description);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = location.description;
-      document.head.appendChild(meta);
-    }
-
-    // Set keywords meta tag
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    const keywords = `shot blasting ${location.name}, rust removal ${location.name}, surface preparation ${location.name}, industrial blasting ${location.county}`;
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', keywords);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'keywords';
-      meta.content = keywords;
-      document.head.appendChild(meta);
-    }
-
-    // Set Open Graph meta tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const titleContent = `Shot Blasting ${location.name} | Commercial & Industrial Services`;
-    if (ogTitle) {
-      ogTitle.setAttribute('content', titleContent);
-    } else {
-      const meta = document.createElement('meta');
-      meta.setAttribute('property', 'og:title');
-      meta.content = titleContent;
-      document.head.appendChild(meta);
-    }
-
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    if (ogDescription) {
-      ogDescription.setAttribute('content', location.description);
-    } else {
-      const meta = document.createElement('meta');
-      meta.setAttribute('property', 'og:description');
-      meta.content = location.description;
-      document.head.appendChild(meta);
-    }
-  }, [location]);
+  // Set SEO metadata
+  useSEO(getLocationSEO(location.name));
 
   const breadcrumbItems = [
     { label: "Home", href: "/" },

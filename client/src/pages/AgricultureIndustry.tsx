@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, CheckCircle, ArrowRight, Tractor, Wheat, Shield, Clock } from "lucide-react";
 import { useState } from "react";
+import { getIndustrySEO, useSEO } from "@/hooks/useSEO";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -10,6 +11,9 @@ import { BackToTop } from "@/components/BackToTop";
 
 export default function AgricultureIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
+  // Set SEO metadata
+  useSEO(getIndustrySEO("Agriculture", "Professional shot blasting for agricultural machinery and equipment. Restore tractors, harvesters, and farm implements."));
 
   const agricultureServices = [
     {

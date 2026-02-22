@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, CheckCircle, ArrowRight, Truck, Package, Shield, Clock } from "lucide-react";
 import { useState } from "react";
+import { getIndustrySEO, useSEO } from "@/hooks/useSEO";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -10,6 +11,9 @@ import { BackToTop } from "@/components/BackToTop";
 
 export default function TransportLogisticsIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
+  // Set SEO metadata
+  useSEO(getIndustrySEO("Transport & Logistics", "Shot blasting for transport and logistics equipment. Surface preparation for trailers, containers, and fleet vehicles."));
 
   const transportServices = [
     {

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock, Shield, Award } from "lucide-react";
 import { useState } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import { HubSpotForm } from "@/components/HubSpotForm";
 import { Header } from "@/components/Header";
 import { QuotePopup } from "@/components/QuotePopup";
@@ -10,6 +11,9 @@ import { BackToTop } from "@/components/BackToTop";
 
 import { Footer } from "@/components/Footer";
 export default function Contact() {
+  // Set SEO metadata
+  useSEO({ title: "Contact Us | Commercial Shot Blasting", description: "Get in touch with Commercial Shot Blasting for a free quote. Call 07970 566409 or fill out our contact form for expert surface preparation services." });
+
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   const openQuotePopup = () => setQuotePopupOpen(true);

@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, CheckCircle, ArrowRight, ShoppingCart, Store, Sparkles, RefreshCw, Clock, Shield, TrendingUp, Palette } from "lucide-react";
 import { useState } from "react";
+import { getIndustrySEO, useSEO } from "@/hooks/useSEO";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -9,6 +10,9 @@ import { BackToTop } from "@/components/BackToTop";
 
 export default function RetailIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
+  // Set SEO metadata
+  useSEO(getIndustrySEO("Retail", "Commercial shot blasting for retail and hospitality sectors. Restore shopfronts, fixtures, and commercial metalwork."));
 
   const retailServices = [
     {

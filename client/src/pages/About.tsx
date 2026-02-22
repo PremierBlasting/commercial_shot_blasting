@@ -3,11 +3,15 @@ import { Footer } from "@/components/Footer";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Shield, Award, Clock, Users, CheckCircle, Phone } from "lucide-react";
 import { useState } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import { QuotePopup } from "@/components/QuotePopup";
 import { trackPhoneCall } from "@/lib/analytics";
 import { Breadcrumb } from "@/components/Breadcrumb";
 
 export default function About() {
+  // Set SEO metadata
+  useSEO({ title: "About Us | Commercial Shot Blasting", description: "Learn about Commercial Shot Blasting - expert surface preparation services across the UK. Professional team, modern equipment, quality results." });
+
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
   const openQuotePopup = () => setQuotePopupOpen(true);
 

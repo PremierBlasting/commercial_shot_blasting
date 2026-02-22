@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, CheckCircle, ArrowRight, Anchor, Ship, Shield, Clock } from "lucide-react";
 import { useState } from "react";
+import { getIndustrySEO, useSEO } from "@/hooks/useSEO";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -10,6 +11,9 @@ import { BackToTop } from "@/components/BackToTop";
 
 export default function MarineIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
+  // Set SEO metadata
+  useSEO(getIndustrySEO("Marine", "Professional shot blasting for marine and offshore applications. Corrosion removal for vessels, platforms, and maritime equipment."));
 
   const marineServices = [
     {

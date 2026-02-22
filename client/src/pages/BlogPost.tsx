@@ -1,17 +1,24 @@
-import { trpc } from "@/lib/trpc";
+import { Button } from "@/components/ui/button";
 import { Calendar, Tag, ArrowLeft, Share2 } from "lucide-react";
 import { Link, useRoute } from "wouter";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import ReactMarkdown from 'react-markdown';
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function BlogPost() {
   const [, params] = useRoute("/blog/:slug");
   const slug = params?.slug || "";
 
   const { data: post, isLoading } = trpc.blog.getBySlug.useQuery({ slug });
+
+  // Set dynamic SEO metadata based on blog post
+  useSEO({
+    title: post?.title ? `${post.title} | Commercial Shot Blasting Blog` : "Blog Post | Commercial Shot Blasting",
+    description: post?.excerpt || "Expert insights on shot blasting and surface preparation from Commercial Shot Blasting.",
+    keywords: post?.tags?.join(', ') || "shot blasting, surface preparation, industrial cleaning"
+  });
 
   const handleShare = async () => {
     if (navigator.share) {

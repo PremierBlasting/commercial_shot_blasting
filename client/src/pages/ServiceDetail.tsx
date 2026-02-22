@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link, useParams } from "wouter";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, ArrowLeft, Clock, Shield, Award, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import { getServiceSEO, useSEO } from "@/hooks/useSEO";
 import { getServiceById, services } from "@/data/services";
 import { getServiceGallery, getServiceGalleries } from "@/data/serviceGalleries";
 import { QuotePopup } from "@/components/QuotePopup";
@@ -20,6 +21,11 @@ export default function ServiceDetail() {
   const service = getServiceById(params.id || "");
 
   const openQuotePopup = () => setQuotePopupOpen(true);
+
+  // Set SEO metadata for this service
+  if (service) {
+    useSEO(getServiceSEO(service.title, service.description));
+  }
 
   if (!service) {
     return (

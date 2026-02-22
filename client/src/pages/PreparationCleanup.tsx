@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -8,6 +10,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Phone, Mail, Download } from "lucide-react";
 
 export default function PreparationCleanup() {
+  // Set SEO metadata
+  useSEO({ title: "Surface Preparation & Cleanup Process | Shot Blasting", description: "Our comprehensive surface preparation and cleanup process. Professional shot blasting with complete site protection and waste management." });
+
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   useEffect(() => {

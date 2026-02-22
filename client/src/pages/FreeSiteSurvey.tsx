@@ -2,12 +2,16 @@ import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, CheckCircle, ArrowRight, ClipboardCheck, Calendar, Clock, MapPin, Camera, FileText, Users, Ruler, Shield, Truck, MessageSquare, ThumbsUp } from "lucide-react";
 import { useState } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
 
 export default function FreeSiteSurvey() {
+  // Set SEO metadata
+  useSEO({ title: "Free Site Survey | Commercial Shot Blasting", description: "Book your free site survey today. Expert assessment of your shot blasting requirements with no obligation quote. Call 07970 566409." });
+
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   const surveyIncludes = [

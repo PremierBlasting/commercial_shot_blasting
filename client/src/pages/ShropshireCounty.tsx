@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Phone, MapPin, ArrowRight, Building2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { getCountySEO, useSEO } from "@/hooks/useSEO";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -15,45 +16,8 @@ const towns = [
 export default function ShropshireCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
-  useEffect(() => {
-    document.title = "Shot Blasting Shropshire | Service Areas";
-    
-    // Set keywords meta tag
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'shot blasting Shropshire, mobile shot blasting, rust removal, surface preparation, Shropshire');
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'keywords';
-      meta.content = 'shot blasting Shropshire, mobile shot blasting, rust removal, surface preparation, Shropshire';
-      document.head.appendChild(meta);
-    }
-
-    // Set meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Expert shot blasting services across Shropshire. Covering Shrewsbury, Telford and surrounding areas with mobile shot blasting for commercial and industrial projects.');
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = 'Expert shot blasting services across Shropshire. Covering Shrewsbury, Telford and surrounding areas with mobile shot blasting for commercial and industrial projects.';
-      document.head.appendChild(meta);
-    }
-
-    // Set Open Graph meta tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) {
-      ogTitle.setAttribute('content', 'Shot Blasting Shropshire | Service Areas');
-    }
-
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    if (ogDescription) {
-      ogDescription.setAttribute('content', 'Expert shot blasting services across Shropshire. Covering Shrewsbury, Telford and surrounding areas with mobile shot blasting for commercial and industrial projects.');
-    }
-
-    // Scroll to top
-    window.scrollTo(0, 0);
-  }, []);
+  // Set SEO metadata
+  useSEO(getCountySEO("Shropshire"));
 
   return (
     <div className="min-h-screen bg-background">

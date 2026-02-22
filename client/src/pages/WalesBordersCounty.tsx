@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Phone, MapPin, ArrowRight, Building2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { getCountySEO, useSEO } from "@/hooks/useSEO";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -17,45 +18,8 @@ const towns = [
 export default function WalesBordersCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
-  useEffect(() => {
-    document.title = "Shot Blasting Wales & Borders | Service Areas";
-    
-    // Set keywords meta tag
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'shot blasting Wales & Borders, mobile shot blasting, rust removal, surface preparation, Wales & Borders');
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'keywords';
-      meta.content = 'shot blasting Wales & Borders, mobile shot blasting, rust removal, surface preparation, Wales & Borders';
-      document.head.appendChild(meta);
-    }
-
-    // Set meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional shot blasting services across Wales and the border counties. Covering Cardiff, Hereford, Wrexham, Newport and surrounding areas.');
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = 'Professional shot blasting services across Wales and the border counties. Covering Cardiff, Hereford, Wrexham, Newport and surrounding areas.';
-      document.head.appendChild(meta);
-    }
-
-    // Set Open Graph meta tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) {
-      ogTitle.setAttribute('content', 'Shot Blasting Wales & Borders | Service Areas');
-    }
-
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    if (ogDescription) {
-      ogDescription.setAttribute('content', 'Professional shot blasting services across Wales and the border counties. Covering Cardiff, Hereford, Wrexham, Newport and surrounding areas.');
-    }
-
-    // Scroll to top
-    window.scrollTo(0, 0);
-  }, []);
+  // Set SEO metadata
+  useSEO(getCountySEO("Wales & Borders"));
 
   return (
     <div className="min-h-screen bg-background">

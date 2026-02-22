@@ -1,12 +1,20 @@
-import { trpc } from "@/lib/trpc";
+import { Button } from "@/components/ui/card";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Tag } from "lucide-react";
 import { Link } from "wouter";
 import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Footer } from "@/components/Footer";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Blog() {
+  // Set SEO metadata
+  useSEO({ 
+    title: "Shot Blasting Blog | Industry News & Tips", 
+    description: "Expert insights on shot blasting, surface preparation, and industrial cleaning. Latest news, techniques, and best practices from our team.",
+    keywords: "shot blasting blog, surface preparation tips, industrial cleaning, blasting techniques, industry news"
+  });
+
   const { data: posts, isLoading } = trpc.blog.list.useQuery();
 
   return (

@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Phone, MapPin, ArrowRight, Building2 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { getCountySEO, useSEO } from "@/hooks/useSEO";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -15,41 +16,8 @@ const towns = [
 export default function NottinghamshireCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
-  useEffect(() => {
-    document.title = "Shot Blasting Nottinghamshire | Service Areas";
-    
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', 'shot blasting Nottinghamshire, mobile shot blasting, rust removal, surface preparation, Nottinghamshire');
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'keywords';
-      meta.content = 'shot blasting Nottinghamshire, mobile shot blasting, rust removal, surface preparation, Nottinghamshire';
-      document.head.appendChild(meta);
-    }
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Shot Blasting Nottinghamshire - Professional rust removal & surface preparation. Covering Nottingham, Mansfield & surrounding areas. Call 07970 566409');
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = 'Shot Blasting Nottinghamshire - Professional rust removal & surface preparation. Covering Nottingham, Mansfield & surrounding areas. Call 07970 566409';
-      document.head.appendChild(meta);
-    }
-
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) {
-      ogTitle.setAttribute('content', 'Shot Blasting Nottinghamshire | Service Areas');
-    }
-
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    if (ogDescription) {
-      ogDescription.setAttribute('content', 'Shot Blasting Nottinghamshire - Professional rust removal & surface preparation. Covering Nottingham, Mansfield & surrounding areas. Call 07970 566409');
-    }
-
-    window.scrollTo(0, 0);
-  }, []);
+  // Set SEO metadata
+  useSEO(getCountySEO("Nottinghamshire"));
 
   return (
     <div className="min-h-screen bg-background">

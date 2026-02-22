@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, CheckCircle, ArrowRight, Plane, Shield, Award, Cog, FileCheck, Gauge, Target, Zap } from "lucide-react";
 import { useState } from "react";
+import { getIndustrySEO, useSEO } from "@/hooks/useSEO";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -10,6 +11,9 @@ import { trackPhoneCall } from "@/lib/analytics";
 
 export default function AerospaceIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
+  // Set SEO metadata
+  useSEO(getIndustrySEO("Aerospace", "Specialist shot blasting for aerospace components. Precision surface preparation meeting aviation industry standards."));
 
   const aerospaceServices = [
     {

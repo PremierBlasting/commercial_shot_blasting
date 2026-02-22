@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, CheckCircle, ArrowRight, Factory, Cog, TrendingUp, Zap } from "lucide-react";
 import { useState } from "react";
+import { getIndustrySEO, useSEO } from "@/hooks/useSEO";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -9,6 +10,9 @@ import { BackToTop } from "@/components/BackToTop";
 
 export default function ManufacturingIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
+  // Set SEO metadata
+  useSEO(getIndustrySEO("Manufacturing", "Industrial shot blasting for manufacturing facilities. Surface preparation for production equipment, racking, and infrastructure."));
 
   const manufacturingServices = [
     {

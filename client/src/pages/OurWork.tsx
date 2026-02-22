@@ -1,11 +1,11 @@
+import { useState, useMemo } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-
 import { OptimizedImage, getWebPUrl, getThumbnailUrl } from "@/components/OptimizedImage";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Phone, Mail, MapPin, ArrowLeft, ArrowRight, Star, Quote, X } from "lucide-react";
-import { useState, useMemo } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -246,6 +246,9 @@ const testimonials = [
 ];
 
 export default function OurWork() {
+  // Set SEO metadata
+  useSEO({ title: "Our Work | Commercial Shot Blasting Gallery", description: "View our portfolio of commercial shot blasting projects. Before and after photos showcasing our expert surface preparation work across the UK." });
+
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
