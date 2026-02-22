@@ -59,3 +59,5 @@
 - [x] Add Organization schema across the entire site (now injected on every page)
 - [x] Remove duplicate WhatsApp button at bottom right on mobile (removed from FloatingCallButton, keeping only Call Now button)
 - [x] Move floating Call Now button on mobile to sit just below WhatsApp button at vertical center
+- [x] Make Call Now button a circle icon like WhatsApp button for consistent mobile design
+- [x] Add subtle hover effect to WhatsApp and Call Now buttons for better interaction feedback
