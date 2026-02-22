@@ -15,11 +15,16 @@ export function WhatsAppWidget() {
   return (
     <>
       {/* Floating WhatsApp Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-1/2 -translate-y-1/2 right-6 z-50 h-14 w-14 rounded-full bg-[#25D366] shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl hover:bg-[#20BA5A] active:scale-95 flex items-center justify-center"
-        aria-label="Open WhatsApp chat"
-      >
+      <div className="fixed top-1/2 -translate-y-1/2 right-6 z-50">
+        {/* Pulse ring animation */}
+        {!isOpen && (
+          <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30" />
+        )}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="relative h-14 w-14 rounded-full bg-[#25D366] shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl hover:bg-[#20BA5A] active:scale-95 flex items-center justify-center"
+          aria-label="Open WhatsApp chat"
+        >
         {isOpen ? (
           <X className="h-8 w-8 text-white" />
         ) : (
@@ -31,9 +36,10 @@ export function WhatsAppWidget() {
             <path d="M16 0C7.164 0 0 7.164 0 16c0 2.828 0.74 5.484 2.028 7.788L0.084 31.912l8.34-2.188C10.656 30.96 13.272 32 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.344c-2.508 0-4.872-0.696-6.88-1.908l-0.492-0.292-5.108 1.34 1.364-4.988-0.32-0.512C3.084 21.004 2.344 18.564 2.344 16c0-7.536 6.12-13.656 13.656-13.656S29.656 8.464 29.656 16 23.536 29.344 16 29.344zm7.48-10.216c-0.408-0.204-2.416-1.192-2.792-1.328-0.376-0.136-0.648-0.204-0.92 0.204s-1.056 1.328-1.296 1.6c-0.24 0.272-0.48 0.308-0.888 0.104-0.408-0.204-1.72-0.632-3.276-2.02-1.212-1.08-2.028-2.412-2.268-2.82s-0.024-0.628 0.18-0.832c0.184-0.184 0.408-0.48 0.612-0.72 0.204-0.24 0.272-0.408 0.408-0.68 0.136-0.272 0.068-0.512-0.032-0.72-0.104-0.204-0.92-2.216-1.26-3.036-0.332-0.796-0.668-0.688-0.92-0.7-0.236-0.012-0.508-0.016-0.78-0.016s-0.72 0.104-1.096 0.512c-0.376 0.408-1.436 1.404-1.436 3.42s1.472 3.968 1.676 4.24c0.204 0.272 2.828 4.316 6.852 6.052 0.956 0.412 1.704 0.66 2.288 0.844 0.964 0.308 1.84 0.264 2.532 0.16 0.772-0.116 2.416-0.988 2.756-1.94 0.34-0.952 0.34-1.768 0.24-1.94-0.104-0.172-0.376-0.272-0.784-0.476z" />
           </svg>
         )}
-        {/* Red notification dot */}
-        <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 border-2 border-white"></span>
-      </button>
+          {/* Red notification dot */}
+          <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 border-2 border-white"></span>
+        </button>
+      </div>
 
       {/* Chat Widget Popup */}
       {isOpen && (

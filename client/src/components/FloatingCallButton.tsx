@@ -1,9 +1,14 @@
 import { Phone } from "lucide-react";
-import { trackPhoneCall } from "@/lib/analytics";
+import { trackEvent } from "@/lib/analytics";
 
 export function FloatingCallButton() {
   const handleCallClick = () => {
-    trackPhoneCall('07970566409', 'Floating Call Button');
+    trackEvent('call_button_click', {
+      event_category: 'Contact',
+      event_label: 'Floating Call Button',
+      phone_number: '07970566409',
+      click_location: window.location.pathname,
+    });
   };
 
   return (
