@@ -83,3 +83,4 @@
 - [x] Fix meta tag removal logic in metaTags.ts to properly remove all old generic meta descriptions from service area pages
 - [x] Wire up injectMetaTags function in server rendering pipeline so it's called during production SSR
 - [x] Fix production deployment meta tag injection - reverted to client-side useSEO with optimized descriptions that work in static deployment
+- [x] Investigate why old meta tags still appear on production after publishing checkpoint eff829be with client-side useSEO - added comprehensive meta tag placeholders to index.html
