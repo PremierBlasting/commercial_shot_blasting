@@ -82,3 +82,4 @@
 - [x] Add comprehensive server-side static JSON-LD schemas to service area pages (alongside JavaScript) for Schema.org validator compatibility and immediate Google access
 - [x] Fix meta tag removal logic in metaTags.ts to properly remove all old generic meta descriptions from service area pages
 - [x] Wire up injectMetaTags function in server rendering pipeline so it's called during production SSR
+- [x] Fix production deployment meta tag injection - reverted to client-side useSEO with optimized descriptions that work in static deployment

@@ -70,9 +70,9 @@ export function getServiceSEO(serviceName: string, serviceDescription: string): 
  */
 export function getLocationSEO(locationName: string): SEOConfig {
   return {
-    title: `Shot Blasting ${locationName} | Commercial & Industrial Services`,
-    description: `Professional shot blasting services in ${locationName}. Expert surface preparation for commercial and industrial projects. Free quotes and site surveys available.`,
-    keywords: `shot blasting ${locationName}, ${locationName} shot blasting, commercial shot blasting ${locationName}, industrial blasting ${locationName}`,
+    title: `Shot Blasting ${locationName} | Industrial Services`,
+    description: `Shot Blasting ${locationName} - Local experts in rust removal & industrial cleaning. Same-day response available. Call 07970 566409`,
+    keywords: `shot blasting ${locationName}, ${locationName} shot blasting, commercial shot blasting ${locationName}, industrial blasting ${locationName}, rust removal ${locationName}`,
     image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png"
   };
 }
