@@ -202,3 +202,22 @@ export const callTrackingEvents = mysqlTable("call_tracking_events", {
 
 export type CallTrackingEvent = typeof callTrackingEvents.$inferSelect;
 export type InsertCallTrackingEvent = typeof callTrackingEvents.$inferInsert;
+
+/**
+ * Subscription Cancellations table for tracking when users cancel.
+ */
+export const subscriptionCancellations = mysqlTable("subscription_cancellations", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  cancelledAt: timestamp("cancelledAt").defaultNow().notNull(),
+});
+
+/**
+ * Win-back Emails table for tracking sent win-back emails.
+ */
+export const winbackEmails = mysqlTable("winback_emails", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  type: mysqlEnum("type", ["7-day", "30-day"]).notNull(),
+  sentAt: timestamp("sentAt").defaultNow().notNull(),
+});
