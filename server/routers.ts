@@ -36,6 +36,7 @@ import {
 import { storagePut } from "./storage";
 import { nanoid } from "nanoid";
 import { sitemapRouter } from "./sitemap";
+import { winbackRouter } from "./winback";
 
 // Admin check middleware
 const adminProcedure = protectedProcedure.use(({ ctx, next }) => {
@@ -46,6 +47,7 @@ const adminProcedure = protectedProcedure.use(({ ctx, next }) => {
 });
 
 export const appRouter = router({
+  winback: winbackRouter,
   system: systemRouter,
   sitemap: sitemapRouter,
   auth: router({
