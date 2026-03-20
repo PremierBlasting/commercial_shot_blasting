@@ -79,7 +79,6 @@
           "author": { "@type": "Person", "name": "Jordan King" },
           "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
           "reviewBody": "Really happy with this team. Our factory cladding had original plastisol and multiple layers of paint. It turned out to be a much more difficult job than expected but Graham didn't let us down and put in extra hours to make sure we stayed in budget. The surfaces were left flawless.",
-          "datePublished": "2024-11-15",
           "itemReviewed": { "@type": "LocalBusiness", "name": BN }
         }
       ],
@@ -747,7 +746,6 @@
         "author": { "@type": "Person", "name": "Jordan King" },
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
         "reviewBody": "Really happy with this team. Our factory cladding had original plastisol and multiple layers of paint. It turned out to be a much more difficult job than expected but Graham didn't let us down and put in extra hours to make sure we stayed in budget. The surfaces were left flawless.",
-        "datePublished": "2024-11-15",
         "itemReviewed": { "@type": "LocalBusiness", "name": BN, "address": { "@type": "PostalAddress", "addressLocality": lName, "addressCountry": "GB" } }
       });
 
@@ -757,7 +755,6 @@
         "author": { "@type": "Person", "name": "Sarah Mitchell" },
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
         "reviewBody": "Excellent service from start to finish. The team arrived on time, worked efficiently, and the quality of the shot blasting was outstanding. Our structural steel looks brand new. Highly recommend for any commercial project.",
-        "datePublished": "2024-10-22",
         "itemReviewed": { "@type": "LocalBusiness", "name": BN, "address": { "@type": "PostalAddress", "addressLocality": lName, "addressCountry": "GB" } }
       });
 
@@ -767,7 +764,6 @@
         "author": { "@type": "Person", "name": "David Thompson" },
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
         "reviewBody": "We needed our shipping containers blasted urgently for a new contract. Commercial Shot Blasting responded immediately, provided a competitive quote, and completed the work within 48 hours. Professional, reliable, and great value.",
-        "datePublished": "2024-09-18",
         "itemReviewed": { "@type": "LocalBusiness", "name": BN, "address": { "@type": "PostalAddress", "addressLocality": lName, "addressCountry": "GB" } }
       });
 

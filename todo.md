@@ -85,3 +85,4 @@
 - [x] Fix production deployment meta tag injection - reverted to client-side useSEO with optimized descriptions that work in static deployment
 - [x] Investigate why old meta tags still appear on production after publishing checkpoint eff829be with client-side useSEO - added comprehensive meta tag placeholders to index.html
 - [x] Implement pre-rendering build script to generate static HTML files for all 638 location pages with baked-in meta tags
+- [x] Remove hardcoded datePublished/dateModified from service area JSON-LD schemas to prevent Google showing dates in search results

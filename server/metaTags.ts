@@ -419,8 +419,7 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
     },
     "author": { "@type": "Person", "name": "Jordan King" },
     "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-    "reviewBody": `Excellent service from ${BUSINESS_NAME}. They blasted our factory cladding in ${locationName} and the results were outstanding. Professional team, competitive pricing, and minimal disruption to our operations.`,
-    "datePublished": "2025-11-15"
+    "reviewBody": `Excellent service from ${BUSINESS_NAME}. They blasted our factory cladding in ${locationName} and the results were outstanding. Professional team, competitive pricing, and minimal disruption to our operations.`
   });
 
   schemas.push({
@@ -432,8 +431,7 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
     },
     "author": { "@type": "Person", "name": "Sarah Mitchell" },
     "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-    "reviewBody": `We needed urgent structural steel blasting in ${locationName} and they delivered perfectly. Fast response, quality finish (SA2.5), and thorough cleanup. Highly recommend for commercial projects.`,
-    "datePublished": "2025-10-22"
+    "reviewBody": `We needed urgent structural steel blasting in ${locationName} and they delivered perfectly. Fast response, quality finish (SA2.5), and thorough cleanup. Highly recommend for commercial projects.`
   });
 
   schemas.push({
@@ -445,8 +443,7 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
     },
     "author": { "@type": "Person", "name": "David Thompson" },
     "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-    "reviewBody": `Top-notch container blasting service in ${locationName}. They handled 15 shipping containers for our depot and every one came out perfect. Great value and very professional throughout.`,
-    "datePublished": "2025-09-08"
+    "reviewBody": `Top-notch container blasting service in ${locationName}. They handled 15 shipping containers for our depot and every one came out perfect. Great value and very professional throughout.`
   });
 
   // 6. ImageObject Schema
@@ -560,7 +557,6 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
     "name": `Shot Blasting Services Demonstration - ${locationName}`,
     "description": `Watch our professional shot blasting team in action in ${locationName}. See the complete process from setup to finished surface.`,
     "thumbnailUrl": HERO_IMAGE,
-    "uploadDate": "2025-01-15",
     "duration": "PT3M45S",
     "contentUrl": `${SITE_URL}/videos/shot-blasting-demo.mp4`,
     "embedUrl": `${SITE_URL}/videos/shot-blasting-demo`,
