@@ -50,6 +50,11 @@ const serviceAreasDir = path.join(distPath, 'service-areas');
 if (!fs.existsSync(serviceAreasDir)) {
   fs.mkdirSync(serviceAreasDir, { recursive: true });
 }
+// Also create service-areas directory in client/public for dev mode serving
+const clientPublicServiceAreasDir = path.join(projectRoot, 'client/public/service-areas');
+if (!fs.existsSync(clientPublicServiceAreasDir)) {
+  fs.mkdirSync(clientPublicServiceAreasDir, { recursive: true });
+}
 
 // Constants
 const SITE_URL = 'https://www.commercialshotblasting.co.uk';
@@ -333,6 +338,8 @@ for (const location of locations) {
     const outputPath = path.join(serviceAreasDir, `${location.slug}.html`);
     
     fs.writeFileSync(outputPath, locationHtml, 'utf-8');
+    // Also write to client/public for dev mode
+    fs.writeFileSync(path.join(clientPublicServiceAreasDir, `${location.slug}.html`), locationHtml, 'utf-8');
     successCount++;
     
     if (successCount % 50 === 0) {

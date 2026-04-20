@@ -24,31 +24,16 @@ export async function setupVite(app: Express, server: Server) {
 
   app.use(vite.middlewares);
   
-  // Detect crawlers (including Manus SEO crawler)
-  function isCrawler(userAgent: string): boolean {
-    const crawlerPatterns = [
-      /bot/i, /crawler/i, /spider/i, /crawling/i,
-      /facebookexternalhit/i, /twitterbot/i, /linkedinbot/i,
-      /slackbot/i, /whatsapp/i, /telegram/i,
-      /googlebot/i, /bingbot/i, /yandex/i, /baiduspider/i,
-      /lighthouse/i, /pagespeed/i, /gtmetrix/i,
-      /manus/i, /headless/i, /phantom/i, /selenium/i
-    ];
-    return crawlerPatterns.some(pattern => pattern.test(userAgent));
-  }
-
-  // Serve static HTML files for service area pages when accessed by crawlers
+  // Serve pre-rendered HTML for ALL /service-areas/:location requests (dev mode)
+  // Ensures crawlers, validators, and users all receive full JSON-LD schemas
   app.use("/service-areas/:location", async (req, res, next) => {
-    const userAgent = req.headers['user-agent'] || '';
+    const location = req.params.location;
+    const staticHtmlPath = path.resolve(import.meta.dirname, '../..', 'client/public/service-areas', `${location}.html`);
     
-    if (isCrawler(userAgent)) {
-      const location = req.params.location;
-      const staticHtmlPath = path.resolve(import.meta.dirname, '../..', 'client/public/service-areas', `${location}.html`);
-      
-      if (fs.existsSync(staticHtmlPath)) {
-        const html = fs.readFileSync(staticHtmlPath, 'utf-8');
-        return res.status(200).set({ 'Content-Type': 'text/html' }).send(html);
-      }
+    if (fs.existsSync(staticHtmlPath)) {
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      const html = fs.readFileSync(staticHtmlPath, 'utf-8');
+      return res.status(200).set({ 'Content-Type': 'text/html' }).send(html);
     }
     
     next();
@@ -131,31 +116,16 @@ export function serveStatic(app: Express) {
     }
   }));
 
-  // Detect crawlers (including Manus SEO crawler)
-  function isCrawler(userAgent: string): boolean {
-    const crawlerPatterns = [
-      /bot/i, /crawler/i, /spider/i, /crawling/i,
-      /facebookexternalhit/i, /twitterbot/i, /linkedinbot/i,
-      /slackbot/i, /whatsapp/i, /telegram/i,
-      /googlebot/i, /bingbot/i, /yandex/i, /baiduspider/i,
-      /lighthouse/i, /pagespeed/i, /gtmetrix/i,
-      /manus/i, /headless/i, /phantom/i, /selenium/i
-    ];
-    return crawlerPatterns.some(pattern => pattern.test(userAgent));
-  }
-
-  // Serve static HTML files for service area pages when accessed by crawlers
+  // Serve pre-rendered HTML for ALL /service-areas/:location requests (production)
+  // Ensures crawlers, validators, and users all receive full JSON-LD schemas
   app.use("/service-areas/:location", (req, res, next) => {
-    const userAgent = req.headers['user-agent'] || '';
+    const location = req.params.location;
+    const staticHtmlPath = path.resolve(distPath, 'service-areas', `${location}.html`);
     
-    if (isCrawler(userAgent)) {
-      const location = req.params.location;
-      const staticHtmlPath = path.resolve(distPath, 'service-areas', `${location}.html`);
-      
-      if (fs.existsSync(staticHtmlPath)) {
-        const html = fs.readFileSync(staticHtmlPath, 'utf-8');
-        return res.status(200).set({ 'Content-Type': 'text/html' }).send(html);
-      }
+    if (fs.existsSync(staticHtmlPath)) {
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      const html = fs.readFileSync(staticHtmlPath, 'utf-8');
+      return res.status(200).set({ 'Content-Type': 'text/html' }).send(html);
     }
     
     next();
