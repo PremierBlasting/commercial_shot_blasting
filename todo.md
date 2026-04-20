@@ -86,3 +86,7 @@
 - [x] Investigate why old meta tags still appear on production after publishing checkpoint eff829be with client-side useSEO - added comprehensive meta tag placeholders to index.html
 - [x] Implement pre-rendering build script to generate static HTML files for all 638 location pages with baked-in meta tags
 - [x] Remove hardcoded datePublished/dateModified from service area JSON-LD schemas to prevent Google showing dates in search results
+- [x] Add additional JSON-LD schema types to service area pages (GeoCircle, OfferCatalog, ContactPoint, SiteLinksSearchBox, etc.)
+- [x] Generate sitemap.xml with all 638 service area pages and submit to Google Search Console
+- [x] Inject canonical link tags into each pre-rendered page head to prevent duplicate content
+- [x] Fix TypeScript errors in Blog.tsx, BlogPost.tsx, and PreparationCleanup.tsx

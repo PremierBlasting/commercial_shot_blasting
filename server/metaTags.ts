@@ -599,6 +599,141 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
     ]
   });
 
+  // 12. WebSite Schema with SearchAction (SiteLinksSearchBox)
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": BUSINESS_NAME,
+    "url": SITE_URL,
+    "description": "Professional mobile shot blasting services across England and Wales",
+    "publisher": { "@type": "Organization", "name": BUSINESS_NAME },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${SITE_URL}/service-areas/{search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
+    }
+  });
+
+  // 13. WebPage Schema
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    "url": url,
+    "name": `Shot Blasting ${locationName} | Commercial Shot Blasting`,
+    "description": `Professional mobile shot blasting services in ${locationName}. Rust removal, surface preparation, and industrial cleaning for commercial and industrial clients.`,
+    "isPartOf": { "@type": "WebSite", "@id": `${SITE_URL}/#website`, "name": BUSINESS_NAME, "url": SITE_URL },
+    "about": { "@type": "LocalBusiness", "name": `${BUSINESS_NAME} - ${locationName}` },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": `${SITE_URL}/service-areas` },
+        { "@type": "ListItem", "position": 3, "name": locationName, "item": url }
+      ]
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", ".hero-description", ".service-description"]
+    },
+    "inLanguage": "en-GB",
+    "potentialAction": [
+      { "@type": "ReadAction", "target": [url] }
+    ]
+  });
+
+  // 14. ItemList Schema (services offered at this location)
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": `Shot Blasting Services Available in ${locationName}`,
+    "description": `Full list of professional shot blasting and surface preparation services available in ${locationName}`,
+    "numberOfItems": 8,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Structural Steel Shot Blasting", "url": `${SITE_URL}/services/structural-steel-shot-blasting` },
+      { "@type": "ListItem", "position": 2, "name": "Container Shot Blasting", "url": `${SITE_URL}/services/container-shot-blasting` },
+      { "@type": "ListItem", "position": 3, "name": "Factory Cladding Restoration", "url": `${SITE_URL}/services/factory-cladding-shot-blasting` },
+      { "@type": "ListItem", "position": 4, "name": "Industrial Floor Preparation", "url": `${SITE_URL}/services/floor-shot-blasting` },
+      { "@type": "ListItem", "position": 5, "name": "Fire Escape Shot Blasting", "url": `${SITE_URL}/services/fire-escape-shot-blasting` },
+      { "@type": "ListItem", "position": 6, "name": "Pipework & Steelwork Blasting", "url": `${SITE_URL}/services/pipework-shot-blasting` },
+      { "@type": "ListItem", "position": 7, "name": "Telecom Tower Blasting", "url": `${SITE_URL}/services/telecom-tower-shot-blasting` },
+      { "@type": "ListItem", "position": 8, "name": "Agricultural Equipment Blasting", "url": `${SITE_URL}/services/agricultural-shot-blasting` }
+    ]
+  });
+
+  // 15. GeoShape / Service Area Circle Schema
+  if (lat && lng) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": `Mobile Shot Blasting Coverage - ${locationName}`,
+      "description": `We cover ${locationName} and all surrounding areas within approximately 30 miles. Our mobile units travel to your site.`,
+      "provider": { "@type": "LocalBusiness", "name": BUSINESS_NAME, "telephone": PHONE },
+      "areaServed": [
+        { "@type": "City", "name": locationName },
+        {
+          "@type": "GeoShape",
+          "circle": `${lat} ${lng} 48280`
+        }
+      ],
+      "serviceType": "Mobile Shot Blasting",
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": url,
+        "servicePhone": PHONE,
+        "servicePostalAddress": {
+          "@type": "PostalAddress",
+          "addressLocality": locationName,
+          "addressCountry": "GB"
+        },
+        "availableLanguage": "English"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": `Free Site Survey in ${locationName}`,
+        "price": "0",
+        "priceCurrency": "GBP",
+        "availability": "https://schema.org/InStock"
+      }
+    });
+  }
+
+  // 16. Event Schema (Free Site Survey)
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": `Free Shot Blasting Site Survey - ${locationName}`,
+    "description": `Book a free, no-obligation site survey for your shot blasting project in ${locationName}. Our expert team will assess your requirements and provide a detailed quotation.`,
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": locationName,
+      "address": { "@type": "PostalAddress", "addressLocality": locationName, "addressCountry": "GB" }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": BUSINESS_NAME,
+      "url": SITE_URL,
+      "telephone": PHONE
+    },
+    "offers": {
+      "@type": "Offer",
+      "name": "Free Site Survey",
+      "price": "0",
+      "priceCurrency": "GBP",
+      "url": `${SITE_URL}/free-site-survey`,
+      "availability": "https://schema.org/InStock"
+    },
+    "performer": {
+      "@type": "Organization",
+      "name": BUSINESS_NAME
+    }
+  });
+
   // Convert all schemas to JSON-LD script tags
   return schemas.map(schema => 
     `<script type="application/ld+json">${JSON.stringify(schema)}</script>`

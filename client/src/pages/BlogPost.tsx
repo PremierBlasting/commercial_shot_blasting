@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import ReactMarkdown from 'react-markdown';
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { useSEO } from "@/hooks/useSEO";
+import { trpc } from "@/lib/trpc";
 
 export default function BlogPost() {
   const [, params] = useRoute("/blog/:slug");
@@ -17,7 +18,7 @@ export default function BlogPost() {
   useSEO({
     title: post?.title ? `${post.title} | Commercial Shot Blasting Blog` : "Blog Post | Commercial Shot Blasting",
     description: post?.excerpt || "Expert insights on shot blasting and surface preparation from Commercial Shot Blasting.",
-    keywords: post?.tags?.join(', ') || "shot blasting, surface preparation, industrial cleaning"
+    keywords: (post?.tags ? (typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags).join(', ') : undefined) || "shot blasting, surface preparation, industrial cleaning"
   });
 
   const handleShare = async () => {

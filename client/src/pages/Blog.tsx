@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Tag } from "lucide-react";
 import { Link } from "wouter";
@@ -6,7 +6,7 @@ import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Footer } from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
-
+import { trpc } from "@/lib/trpc";
 export default function Blog() {
   // Set SEO metadata
   useSEO({ 

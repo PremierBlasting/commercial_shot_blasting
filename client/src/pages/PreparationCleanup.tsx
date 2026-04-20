@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { useSEO } from "@/hooks/useSEO";
 import { useState, useEffect } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Footer } from "@/components/Footer";
