@@ -298,6 +298,8 @@ function injectMetaTags(html, location) {
   html = html.replace(/<link\s+rel="canonical"[^>]*>/gi, '');
   // Remove any existing JSON-LD script tags
   html = html.replace(/<script\s+type="application\/ld\+json">[\s\S]*?<\/script>/gi, '');
+  // Remove jsonld-inject.js - schemas are now inlined directly, no need for client-side injection
+  html = html.replace(/<script\s+src="\/jsonld-inject\.js"><\/script>/gi, '');
 
   const jsonLd = generateSchemas(location.slug, location.name, url);
 
