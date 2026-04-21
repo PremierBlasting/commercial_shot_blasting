@@ -705,8 +705,21 @@
         }
       });
 
-      // FAQPage schema removed - now injected server-side in metaTags.ts to prevent duplication
-      // This eliminates the "Duplicate field 'FAQPage'" error from Google Rich Results Test
+      // FAQPage schema for location pages (client-side injection)
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Do you provide shot blasting in " + lName + "?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we have dedicated mobile shot blasting teams covering " + lName + " and the surrounding area. We can be on-site within days of your enquiry. Call 07970 566409 for a free quote." } },
+          { "@type": "Question", "name": "How much does shot blasting cost in " + lName + "?", "acceptedAnswer": { "@type": "Answer", "text": "Costs depend on the project size, surface type, and accessibility. We provide free, no-obligation quotes for all " + lName + " projects. Call 07970 566409 for a quick estimate. Most projects range from \u00a3500 to \u00a35,000 depending on scope." } },
+          { "@type": "Question", "name": "What services do you offer in " + lName + "?", "acceptedAnswer": { "@type": "Answer", "text": "We offer the full range of shot blasting services in " + lName + " including structural steel, containers, cladding, fire escapes, floor preparation, pipework, and more. All services are mobile - we come to your site." } },
+          { "@type": "Question", "name": "How quickly can you start a project in " + lName + "?", "acceptedAnswer": { "@type": "Answer", "text": "We typically provide quotes within 24 hours and can be on-site in " + lName + " within 2-5 working days depending on project size and our current schedule. Emergency projects can be accommodated." } },
+          { "@type": "Question", "name": "What surface finish do you achieve in " + lName + "?", "acceptedAnswer": { "@type": "Answer", "text": "We typically achieve SA2.5 (near-white metal) finish which is the industry standard for structural steel preparation before protective coating application. We can also provide SA3 (white metal) finish if required." } },
+          { "@type": "Question", "name": "Do you work on weekends in " + lName + "?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we can work weekends and evenings in " + lName + " to minimize disruption to your operations. Weekend work is subject to availability and may incur a small premium." } },
+          { "@type": "Question", "name": "What industries do you serve in " + lName + "?", "acceptedAnswer": { "@type": "Answer", "text": "We serve manufacturing, construction, automotive, aerospace, marine, food processing, pharmaceutical, and many other industries in " + lName + ". Our mobile teams handle both commercial and industrial projects." } },
+          { "@type": "Question", "name": "Do you provide containment and cleanup in " + lName + "?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, all our " + lName + " projects include full containment to protect surrounding areas and thorough cleanup after completion. We leave your site clean and ready for the next stage of work." } }
+        ]
+      });
 
       // Organization schema with expanded details
       schemas.push({
