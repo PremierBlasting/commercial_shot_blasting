@@ -1309,9 +1309,12 @@
     for (var x = 0; x < schemas.length; x++) inject(schemas[x]);
   }
 
-  // Run immediately
-  generate();
-
+  // Run after DOM is ready so document.head is available
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", generate);
+  } else {
+    generate();
+  }
   // SPA navigation support
   window.addEventListener("popstate", function() { setTimeout(generate, 100); });
   var _ps = history.pushState;
