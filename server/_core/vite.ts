@@ -24,20 +24,8 @@ export async function setupVite(app: Express, server: Server) {
 
   app.use(vite.middlewares);
   
-  // Serve pre-rendered HTML for ALL /service-areas/:location requests (dev mode)
-  // Ensures crawlers, validators, and users all receive full JSON-LD schemas
-  app.use("/service-areas/:location", async (req, res, next) => {
-    const location = req.params.location;
-    const staticHtmlPath = path.resolve(import.meta.dirname, '../..', 'client/public/service-areas', `${location}.html`);
-    
-    if (fs.existsSync(staticHtmlPath)) {
-      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-      const html = fs.readFileSync(staticHtmlPath, 'utf-8');
-      return res.status(200).set({ 'Content-Type': 'text/html' }).send(html);
-    }
-    
-    next();
-  });
+  // Service area pages fall through to the catch-all below where injectMetaTags
+  // injects all JSON-LD schemas server-side into the index.html template
   
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
@@ -116,22 +104,10 @@ export function serveStatic(app: Express) {
     }
   }));
 
-  // Serve pre-rendered HTML for ALL /service-areas/:location requests (production)
-  // Ensures crawlers, validators, and users all receive full JSON-LD schemas
-  app.use("/service-areas/:location", (req, res, next) => {
-    const location = req.params.location;
-    const staticHtmlPath = path.resolve(distPath, 'service-areas', `${location}.html`);
-    
-    if (fs.existsSync(staticHtmlPath)) {
-      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-      const html = fs.readFileSync(staticHtmlPath, 'utf-8');
-      return res.status(200).set({ 'Content-Type': 'text/html' }).send(html);
-    }
-    
-    next();
-  });
+  // Service area pages fall through to the catch-all below where injectMetaTags
+  // injects all JSON-LD schemas server-side into the index.html template
 
-  // fall through to index.html if the file doesn't exist
+  // Serve index.html for all routes (SPA fallback) with server-side meta/schema injection
   app.use("*", (req, res) => {
     const indexPath = path.resolve(distPath, "index.html");
     let html = fs.readFileSync(indexPath, "utf-8");
