@@ -90,3 +90,4 @@
 - [x] Generate sitemap.xml with all 638 service area pages and submit to Google Search Console
 - [x] Inject canonical link tags into each pre-rendered page head to prevent duplicate content
 - [x] Fix TypeScript errors in Blog.tsx, BlogPost.tsx, and PreparationCleanup.tsx
+- [x] Add 301 redirect from www.commercialshotblasting.co.uk to commercialshotblasting.co.uk in Express server
