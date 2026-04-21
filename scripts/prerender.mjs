@@ -23,16 +23,14 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
-
-// Read the base HTML template from dist/public
-const distPath = path.join(projectRoot, 'dist/public');
-const indexHtmlPath = path.join(distPath, 'index.html');
-
+// Read the base HTML template from client/index.html
+// We use the source template, not the built dist, so we don't write to dist/public
+// (which would cause express.static to serve them and bypass server-side schema injection)
+const indexHtmlPath = path.join(projectRoot, 'client/index.html');
 if (!fs.existsSync(indexHtmlPath)) {
-  console.error('❌ Error: dist/index.html not found. Run `pnpm build` first.');
+  console.error('❌ Error: client/index.html not found.');
   process.exit(1);
 }
-
 const baseHtml = fs.readFileSync(indexHtmlPath, 'utf-8');
 
 // Read location data from JSON file
@@ -45,16 +43,17 @@ if (!fs.existsSync(locationsJsonPath)) {
 const locations = JSON.parse(fs.readFileSync(locationsJsonPath, 'utf-8'));
 console.log(`📄 Found ${locations.length} locations to pre-render`);
 
-// Create service-areas directory in dist
-const serviceAreasDir = path.join(distPath, 'service-areas');
+// NOTE: We no longer write pre-rendered HTML to dist/public/service-areas/
+// because express.static would serve those files and bypass the server-side
+// injectMetaTags() function that injects all JSON-LD schemas.
+// Schemas are now injected server-side at request time via server/metaTags.ts
+
+// Keep client/public/service-areas for reference only (not served in production)
+const serviceAreasDir = path.join(projectRoot, 'client/public/service-areas');
 if (!fs.existsSync(serviceAreasDir)) {
   fs.mkdirSync(serviceAreasDir, { recursive: true });
 }
-// Also create service-areas directory in client/public for dev mode serving
-const clientPublicServiceAreasDir = path.join(projectRoot, 'client/public/service-areas');
-if (!fs.existsSync(clientPublicServiceAreasDir)) {
-  fs.mkdirSync(clientPublicServiceAreasDir, { recursive: true });
-}
+const clientPublicServiceAreasDir = serviceAreasDir;
 
 // Constants
 const SITE_URL = 'https://commercialshotblasting.co.uk';
@@ -340,8 +339,6 @@ for (const location of locations) {
     const outputPath = path.join(serviceAreasDir, `${location.slug}.html`);
     
     fs.writeFileSync(outputPath, locationHtml, 'utf-8');
-    // Also write to client/public for dev mode
-    fs.writeFileSync(path.join(clientPublicServiceAreasDir, `${location.slug}.html`), locationHtml, 'utf-8');
     successCount++;
     
     if (successCount % 50 === 0) {
