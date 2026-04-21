@@ -18,7 +18,7 @@ export default function LincolnshireCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getCountySEO("Lincolnshire"));
+  useSEO(getCountySEO("Lincolnshire", "lincolnshire"));
 
   return (
     <div className="min-h-screen bg-background">

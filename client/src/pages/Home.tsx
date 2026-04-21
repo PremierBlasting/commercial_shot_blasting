@@ -58,6 +58,15 @@ export default function Home() {
       document.head.appendChild(metaKeywords);
     }
     metaKeywords.setAttribute('content', 'shot blasting, commercial shot blasting, industrial shot blasting, surface preparation, steel blasting, concrete blasting, metal blasting, UK shot blasting services, grit blasting, abrasive blasting');
+
+    // Set canonical URL for homepage
+    let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = 'https://commercialshotblasting.co.uk';
   }, []);
 
   const openQuotePopup = () => setQuotePopupOpen(true);

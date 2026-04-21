@@ -22,7 +22,7 @@ export default function HertfordshireBedfordshireCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getCountySEO("Hertfordshire & Bedfordshire"));
+  useSEO(getCountySEO("Hertfordshire & Bedfordshire", "hertfordshire"));
 
   return (
     <div className="min-h-screen bg-background">

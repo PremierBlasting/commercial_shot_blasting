@@ -13,7 +13,7 @@ export default function AerospaceIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getIndustrySEO("Aerospace", "Specialist shot blasting for aerospace components. Precision surface preparation meeting aviation industry standards."));
+  useSEO(getIndustrySEO("Aerospace", "Specialist shot blasting for aerospace components. Precision surface preparation meeting aviation industry standards.", "aerospace"));
 
   const aerospaceServices = [
     {

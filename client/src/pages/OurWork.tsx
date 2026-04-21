@@ -247,7 +247,7 @@ const testimonials = [
 
 export default function OurWork() {
   // Set SEO metadata
-  useSEO({ title: "Our Work | Commercial Shot Blasting Gallery", description: "View our portfolio of commercial shot blasting projects. Before and after photos showcasing our expert surface preparation work across the UK." });
+  useSEO({ title: "Our Work | Commercial Shot Blasting Gallery", description: "View our portfolio of commercial shot blasting projects. Before and after photos showcasing our expert surface preparation work across the UK.", canonical: "https://commercialshotblasting.co.uk/our-work" });
 
   const [selectedCategory, setSelectedCategory] = useState("All");
 

@@ -19,7 +19,7 @@ export default function WalesBordersCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getCountySEO("Wales & Borders"));
+  useSEO(getCountySEO("Wales & Borders", "wales-borders"));
 
   return (
     <div className="min-h-screen bg-background">

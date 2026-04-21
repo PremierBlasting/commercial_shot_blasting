@@ -91,3 +91,4 @@
 - [x] Inject canonical link tags into each pre-rendered page head to prevent duplicate content
 - [x] Fix TypeScript errors in Blog.tsx, BlogPost.tsx, and PreparationCleanup.tsx
 - [x] Add 301 redirect from www.commercialshotblasting.co.uk to commercialshotblasting.co.uk in Express server
+- [x] Add canonical URL tags to all pages (server-side metaTags.ts + client-side useSEO hook)

@@ -13,7 +13,7 @@ export default function AgricultureIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getIndustrySEO("Agriculture", "Professional shot blasting for agricultural machinery and equipment. Restore tractors, harvesters, and farm implements."));
+  useSEO(getIndustrySEO("Agriculture", "Professional shot blasting for agricultural machinery and equipment. Restore tractors, harvesters, and farm implements.", "agriculture"));
 
   const agricultureServices = [
     {

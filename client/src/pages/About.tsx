@@ -10,7 +10,7 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 
 export default function About() {
   // Set SEO metadata
-  useSEO({ title: "About Us | Commercial Shot Blasting", description: "Learn about Commercial Shot Blasting - expert surface preparation services across the UK. Professional team, modern equipment, quality results." });
+  useSEO({ title: "About Us | Commercial Shot Blasting", description: "Learn about Commercial Shot Blasting - expert surface preparation services across the UK. Professional team, modern equipment, quality results.", canonical: "https://commercialshotblasting.co.uk/about" });
 
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
   const openQuotePopup = () => setQuotePopupOpen(true);

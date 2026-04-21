@@ -29,7 +29,7 @@ export default function WestMidlandsCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getCountySEO("West Midlands"));
+  useSEO(getCountySEO("West Midlands", "west-midlands"));
 
   return (
     <div className="min-h-screen bg-background">

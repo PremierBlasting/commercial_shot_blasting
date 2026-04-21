@@ -13,7 +13,7 @@ export default function HeritageRestorationIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getIndustrySEO("Heritage Restoration", "Specialist shot blasting for heritage and restoration projects. Preserve historic metalwork with expert surface preparation."));
+  useSEO(getIndustrySEO("Heritage Restoration", "Specialist shot blasting for heritage and restoration projects. Preserve historic metalwork with expert surface preparation.", "heritage-restoration"));
 
   const heritageServices = [
     {

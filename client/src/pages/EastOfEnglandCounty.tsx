@@ -29,7 +29,7 @@ export default function EastOfEnglandCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getCountySEO("East of England"));
+  useSEO(getCountySEO("East of England", "east-of-england"));
 
   return (
     <div className="min-h-screen bg-background">

@@ -13,7 +13,7 @@ export default function ConstructionIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getIndustrySEO("Construction", "Commercial shot blasting for construction equipment and structural steelwork. Expert surface preparation for the building industry."));
+  useSEO(getIndustrySEO("Construction", "Commercial shot blasting for construction equipment and structural steelwork. Expert surface preparation for the building industry.", "construction"));
 
   const constructionServices = [
     {

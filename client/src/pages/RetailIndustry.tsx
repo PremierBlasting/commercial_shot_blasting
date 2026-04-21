@@ -12,7 +12,7 @@ export default function RetailIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getIndustrySEO("Retail", "Commercial shot blasting for retail and hospitality sectors. Restore shopfronts, fixtures, and commercial metalwork."));
+  useSEO(getIndustrySEO("Retail", "Commercial shot blasting for retail and hospitality sectors. Restore shopfronts, fixtures, and commercial metalwork.", "retail"));
 
   const retailServices = [
     {

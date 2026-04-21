@@ -19,7 +19,7 @@ export default function NorthamptonshireCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getCountySEO("Northamptonshire"));
+  useSEO(getCountySEO("Northamptonshire", "northamptonshire"));
 
   return (
     <div className="min-h-screen bg-background">

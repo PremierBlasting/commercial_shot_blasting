@@ -13,7 +13,7 @@ export default function TransportLogisticsIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getIndustrySEO("Transport & Logistics", "Shot blasting for transport and logistics equipment. Surface preparation for trailers, containers, and fleet vehicles."));
+  useSEO(getIndustrySEO("Transport & Logistics", "Shot blasting for transport and logistics equipment. Surface preparation for trailers, containers, and fleet vehicles.", "transport-logistics"));
 
   const transportServices = [
     {

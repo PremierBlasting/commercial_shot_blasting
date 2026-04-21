@@ -17,7 +17,7 @@ export default function NottinghamshireCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getCountySEO("Nottinghamshire"));
+  useSEO(getCountySEO("Nottinghamshire", "nottinghamshire"));
 
   return (
     <div className="min-h-screen bg-background">

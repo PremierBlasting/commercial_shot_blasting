@@ -771,9 +771,13 @@ export function injectMetaTags(html: string, url: string): string {
       .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
       .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '');
     
+    // Remove any existing canonical link to avoid duplicates
+    modifiedHtml = modifiedHtml.replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+
     // Build meta tags and JSON-LD
     const metaTags = `
     <title>Shot Blasting ${locationName} | Industrial Services</title>
+    <link rel="canonical" href="${fullUrl}" />
     <meta name="description" content="Shot Blasting ${locationName} - Professional rust removal & surface preparation. Expert commercial blasting. Call ${PHONE}" />
     <meta property="og:title" content="Shot Blasting ${locationName} | Industrial Services" />
     <meta property="og:description" content="Shot Blasting ${locationName} - Professional rust removal & surface preparation. Expert commercial blasting. Call ${PHONE}" />
@@ -804,9 +808,13 @@ export function injectMetaTags(html: string, url: string): string {
     .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
     .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '');
   
+  // Remove any existing canonical link to avoid duplicates
+  modifiedHtml = modifiedHtml.replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+
   // Build meta tags and JSON-LD
   const metaTags = `
     <title>${meta.title}</title>
+    <link rel="canonical" href="${meta.url}" />
     <meta name="description" content="${meta.description}" />
     <meta property="og:title" content="${meta.title}" />
     <meta property="og:description" content="${meta.description}" />

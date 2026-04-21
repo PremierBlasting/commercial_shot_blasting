@@ -12,7 +12,7 @@ export default function ManufacturingIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getIndustrySEO("Manufacturing", "Industrial shot blasting for manufacturing facilities. Surface preparation for production equipment, racking, and infrastructure."));
+  useSEO(getIndustrySEO("Manufacturing", "Industrial shot blasting for manufacturing facilities. Surface preparation for production equipment, racking, and infrastructure.", "manufacturing"));
 
   const manufacturingServices = [
     {

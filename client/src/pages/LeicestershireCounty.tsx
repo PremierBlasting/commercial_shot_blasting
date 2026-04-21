@@ -18,7 +18,7 @@ export default function LeicestershireCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getCountySEO("Leicestershire"));
+  useSEO(getCountySEO("Leicestershire", "leicestershire"));
 
   return (
     <div className="min-h-screen bg-background">

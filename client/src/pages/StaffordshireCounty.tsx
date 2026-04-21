@@ -23,7 +23,7 @@ export default function StaffordshireCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getCountySEO("Staffordshire"));
+  useSEO(getCountySEO("Staffordshire", "staffordshire"));
 
   return (
     <div className="min-h-screen bg-background">

@@ -12,7 +12,8 @@ export default function Blog() {
   useSEO({ 
     title: "Shot Blasting Blog | Industry News & Tips", 
     description: "Expert insights on shot blasting, surface preparation, and industrial cleaning. Latest news, techniques, and best practices from our team.",
-    keywords: "shot blasting blog, surface preparation tips, industrial cleaning, blasting techniques, industry news"
+    keywords: "shot blasting blog, surface preparation tips, industrial cleaning, blasting techniques, industry news",
+    canonical: "https://commercialshotblasting.co.uk/blog"
   });
 
   const { data: posts, isLoading } = trpc.blog.list.useQuery();

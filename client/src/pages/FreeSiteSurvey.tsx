@@ -10,7 +10,7 @@ import { BackToTop } from "@/components/BackToTop";
 
 export default function FreeSiteSurvey() {
   // Set SEO metadata
-  useSEO({ title: "Free Site Survey | Commercial Shot Blasting", description: "Book your free site survey today. Expert assessment of your shot blasting requirements with no obligation quote. Call 07970 566409." });
+  useSEO({ title: "Free Site Survey | Commercial Shot Blasting", description: "Book your free site survey today. Expert assessment of your shot blasting requirements with no obligation quote. Call 07970 566409.", canonical: "https://commercialshotblasting.co.uk/free-site-survey" });
 
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 

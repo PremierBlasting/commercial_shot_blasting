@@ -24,7 +24,7 @@ export default function SouthEastCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getCountySEO("South East"));
+  useSEO(getCountySEO("South East", "south-east"));
 
   return (
     <div className="min-h-screen bg-background">

@@ -10,7 +10,7 @@ import { CheckCircle, Phone, Mail, Download } from "lucide-react";
 
 export default function PreparationCleanup() {
   // Set SEO metadata
-  useSEO({ title: "Surface Preparation & Cleanup Process | Shot Blasting", description: "Our comprehensive surface preparation and cleanup process. Professional shot blasting with complete site protection and waste management." });
+  useSEO({ title: "Surface Preparation & Cleanup Process | Shot Blasting", description: "Our comprehensive surface preparation and cleanup process. Professional shot blasting with complete site protection and waste management.", canonical: "https://commercialshotblasting.co.uk/preparation-cleanup" });
 
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 

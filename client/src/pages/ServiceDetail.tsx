@@ -24,7 +24,7 @@ export default function ServiceDetail() {
 
   // Set SEO metadata for this service
   if (service) {
-    useSEO(getServiceSEO(service.title, service.description));
+    useSEO({ ...getServiceSEO(service.title, service.description), canonical: `https://commercialshotblasting.co.uk/services/${params.id}` });
   }
 
   if (!service) {

@@ -18,7 +18,8 @@ export default function BlogPost() {
   useSEO({
     title: post?.title ? `${post.title} | Commercial Shot Blasting Blog` : "Blog Post | Commercial Shot Blasting",
     description: post?.excerpt || "Expert insights on shot blasting and surface preparation from Commercial Shot Blasting.",
-    keywords: (post?.tags ? (typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags).join(', ') : undefined) || "shot blasting, surface preparation, industrial cleaning"
+    keywords: (post?.tags ? (typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags).join(', ') : undefined) || "shot blasting, surface preparation, industrial cleaning",
+    canonical: slug ? `https://commercialshotblasting.co.uk/blog/${slug}` : undefined
   });
 
   const handleShare = async () => {

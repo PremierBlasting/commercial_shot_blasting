@@ -13,7 +13,7 @@ export default function MarineIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getIndustrySEO("Marine", "Professional shot blasting for marine and offshore applications. Corrosion removal for vessels, platforms, and maritime equipment."));
+  useSEO(getIndustrySEO("Marine", "Professional shot blasting for marine and offshore applications. Corrosion removal for vessels, platforms, and maritime equipment.", "marine"));
 
   const marineServices = [
     {

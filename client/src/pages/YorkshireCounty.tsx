@@ -22,7 +22,7 @@ export default function YorkshireCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getCountySEO("Yorkshire"));
+  useSEO(getCountySEO("Yorkshire", "yorkshire"));
 
   return (
     <div className="min-h-screen bg-background">

@@ -28,7 +28,7 @@ export default function NorthWestCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getCountySEO("North West"));
+  useSEO(getCountySEO("North West", "north-west"));
 
   return (
     <div className="min-h-screen bg-background">

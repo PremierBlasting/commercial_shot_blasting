@@ -18,7 +18,7 @@ export default function DerbyshireCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getCountySEO("Derbyshire"));
+  useSEO(getCountySEO("Derbyshire", "derbyshire"));
 
   return (
     <div className="min-h-screen bg-background">

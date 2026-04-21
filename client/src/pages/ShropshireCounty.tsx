@@ -17,7 +17,7 @@ export default function ShropshireCounty() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   // Set SEO metadata
-  useSEO(getCountySEO("Shropshire"));
+  useSEO(getCountySEO("Shropshire", "shropshire"));
 
   return (
     <div className="min-h-screen bg-background">
