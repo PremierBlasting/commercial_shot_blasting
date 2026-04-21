@@ -23,7 +23,7 @@ if (!fs.existsSync(locationsJsonPath)) {
 const locations = JSON.parse(fs.readFileSync(locationsJsonPath, 'utf-8'));
 console.log(`📄 Generating sitemap for ${locations.length} service area pages...`);
 
-const SITE_URL = 'https://www.commercialshotblasting.co.uk';
+const SITE_URL = 'https://commercialshotblasting.co.uk';
 const TODAY = new Date().toISOString().split('T')[0];
 
 // Generate sitemap-service-areas.xml

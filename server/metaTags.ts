@@ -26,152 +26,152 @@ const locationMeta: Record<string, LocationMeta> = {
   "birmingham": {
     title: "Shot Blasting Birmingham | Commercial & Industrial",
     description: "Shot Blasting Birmingham - Professional rust removal & surface preparation. Fast turnaround for commercial & industrial projects. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/birmingham"
+    url: "https://commercialshotblasting.co.uk/service-areas/birmingham"
   },
   "wolverhampton": {
     title: "Shot Blasting Wolverhampton",
     description: "Shot Blasting Wolverhampton - Expert metal cleaning for manufacturing & automotive sectors. Competitive pricing. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/wolverhampton"
+    url: "https://commercialshotblasting.co.uk/service-areas/wolverhampton"
   },
   "coventry": {
     title: "Shot Blasting Coventry",
     description: "Shot Blasting Coventry - Specialist surface preparation serving the automotive industry. Quality guaranteed. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/coventry"
+    url: "https://commercialshotblasting.co.uk/service-areas/coventry"
   },
   "leicester": {
     title: "Shot Blasting Leicester",
     description: "Shot Blasting Leicester - Precision blasting for industrial facilities across the East Midlands. Free quotes. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/leicester"
+    url: "https://commercialshotblasting.co.uk/service-areas/leicester"
   },
   "derby": {
     title: "Shot Blasting Derby",
     description: "Shot Blasting Derby - Professional metal surface preparation for commercial projects. Experienced team. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/derby"
+    url: "https://commercialshotblasting.co.uk/service-areas/derby"
   },
   "nottingham": {
     title: "Shot Blasting Nottingham | Industrial Services",
     description: "Shot Blasting Nottingham - Local experts in rust removal & industrial cleaning. Same-day response available. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/nottingham"
+    url: "https://commercialshotblasting.co.uk/service-areas/nottingham"
   },
   "sheffield": {
     title: "Shot Blasting Sheffield",
     description: "Shot Blasting Sheffield - Specialist steel cleaning for manufacturing & engineering sectors. Fast service. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/sheffield"
+    url: "https://commercialshotblasting.co.uk/service-areas/sheffield"
   },
   "leeds": {
     title: "Shot Blasting Leeds",
     description: "Shot Blasting Leeds - Expert rust removal & coating preparation for Yorkshire industries. Reliable service. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/leeds"
+    url: "https://commercialshotblasting.co.uk/service-areas/leeds"
   },
   "manchester": {
     title: "Shot Blasting Manchester",
     description: "Shot Blasting Manchester - Industrial cleaning & surface profiling for Greater Manchester businesses. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/manchester"
+    url: "https://commercialshotblasting.co.uk/service-areas/manchester"
   },
   "liverpool": {
     title: "Shot Blasting Liverpool",
     description: "Shot Blasting Liverpool - Marine & industrial blasting specialists serving Merseyside. Competitive rates. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/liverpool"
+    url: "https://commercialshotblasting.co.uk/service-areas/liverpool"
   },
   "chester": {
     title: "Shot Blasting Chester",
     description: "Shot Blasting Chester - Heritage & modern surface preparation across Cheshire. Expert team. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/chester"
+    url: "https://commercialshotblasting.co.uk/service-areas/chester"
   },
   "stoke-on-trent": {
     title: "Shot Blasting Stoke-on-Trent",
     description: "Shot Blasting Stoke - Industrial cleaning for Staffordshire manufacturers. Fast turnaround times. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/stoke-on-trent"
+    url: "https://commercialshotblasting.co.uk/service-areas/stoke-on-trent"
   },
   "shrewsbury": {
     title: "Shot Blasting Shrewsbury",
     description: "Shot Blasting Shrewsbury - Professional blasting services for Shropshire businesses. Quality results. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/shrewsbury"
+    url: "https://commercialshotblasting.co.uk/service-areas/shrewsbury"
   },
   "worcester": {
     title: "Shot Blasting Worcester",
     description: "Shot Blasting Worcester - Specialist surface preparation across Worcestershire. Reliable & efficient. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/worcester"
+    url: "https://commercialshotblasting.co.uk/service-areas/worcester"
   },
   "hereford": {
     title: "Shot Blasting Hereford",
     description: "Shot Blasting Hereford - Agricultural & industrial blasting for Herefordshire. Competitive pricing. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/hereford"
+    url: "https://commercialshotblasting.co.uk/service-areas/hereford"
   },
   "gloucester": {
     title: "Shot Blasting Gloucester",
     description: "Shot Blasting Gloucester - Professional metal cleaning across Gloucestershire. Free quotes available. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/gloucester"
+    url: "https://commercialshotblasting.co.uk/service-areas/gloucester"
   },
   "bristol": {
     title: "Shot Blasting Bristol",
     description: "Shot Blasting Bristol - Marine, automotive & industrial blasting in the South West. Expert service. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/bristol"
+    url: "https://commercialshotblasting.co.uk/service-areas/bristol"
   },
   "cardiff": {
     title: "Shot Blasting Cardiff",
     description: "Shot Blasting Cardiff - Professional surface preparation serving South Wales businesses. Quality assured. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/cardiff"
+    url: "https://commercialshotblasting.co.uk/service-areas/cardiff"
   },
   "wrexham": {
     title: "Shot Blasting Wrexham",
     description: "Shot Blasting Wrexham - Industrial & commercial blasting across North Wales. Experienced team. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/wrexham"
+    url: "https://commercialshotblasting.co.uk/service-areas/wrexham"
   },
   "oxford": {
     title: "Shot Blasting Oxford",
     description: "Shot Blasting Oxford - Heritage-sensitive & modern surface preparation in Oxfordshire. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/oxford"
+    url: "https://commercialshotblasting.co.uk/service-areas/oxford"
   },
   "swindon": {
     title: "Shot Blasting Swindon",
     description: "Shot Blasting Swindon - Automotive & manufacturing blasting specialists in Wiltshire. Fast service. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/swindon"
+    url: "https://commercialshotblasting.co.uk/service-areas/swindon"
   },
   "milton-keynes": {
     title: "Shot Blasting Milton Keynes",
     description: "Shot Blasting Milton Keynes - Commercial surface preparation across Buckinghamshire. Professional results. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/milton-keynes"
+    url: "https://commercialshotblasting.co.uk/service-areas/milton-keynes"
   },
   "northampton": {
     title: "Shot Blasting Northampton",
     description: "Shot Blasting Northampton - Quality metal surface preparation for local industries. Competitive pricing. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/northampton"
+    url: "https://commercialshotblasting.co.uk/service-areas/northampton"
   },
   "peterborough": {
     title: "Shot Blasting Peterborough",
     description: "Shot Blasting Peterborough - Industrial cleaning & rust removal across Cambridgeshire. Reliable service. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/peterborough"
+    url: "https://commercialshotblasting.co.uk/service-areas/peterborough"
   },
   "cambridge": {
     title: "Shot Blasting Cambridge",
     description: "Shot Blasting Cambridge - Precision surface preparation for high-tech & traditional industries. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/cambridge"
+    url: "https://commercialshotblasting.co.uk/service-areas/cambridge"
   },
   "norwich": {
     title: "Shot Blasting Norwich",
     description: "Shot Blasting Norwich - Professional blasting services across Norfolk. Agricultural & industrial specialists. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/norwich"
+    url: "https://commercialshotblasting.co.uk/service-areas/norwich"
   },
   "ipswich": {
     title: "Shot Blasting Ipswich",
     description: "Shot Blasting Ipswich - Marine & industrial surface preparation in Suffolk. Competitive rates. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/ipswich"
+    url: "https://commercialshotblasting.co.uk/service-areas/ipswich"
   },
   "lincoln": {
     title: "Shot Blasting Lincoln",
     description: "Shot Blasting Lincoln - Agricultural & industrial blasting specialists in Lincolnshire. Fast turnaround. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/lincoln"
+    url: "https://commercialshotblasting.co.uk/service-areas/lincoln"
   },
   "chesterfield": {
     title: "Shot Blasting Chesterfield",
     description: "Shot Blasting Chesterfield - Expert surface preparation for Derbyshire manufacturers. Competitive pricing. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/chesterfield"
+    url: "https://commercialshotblasting.co.uk/service-areas/chesterfield"
   },
   "stratford-upon-avon": {
     title: "Shot Blasting Stratford-upon-Avon",
     description: "Shot Blasting Stratford - Heritage & modern blasting in Warwickshire. Sensitive restoration work. Call 07970 566409",
-    url: "https://www.commercialshotblasting.co.uk/service-areas/stratford-upon-avon"
+    url: "https://commercialshotblasting.co.uk/service-areas/stratford-upon-avon"
   }
 };
 

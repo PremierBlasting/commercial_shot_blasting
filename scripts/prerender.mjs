@@ -57,7 +57,7 @@ if (!fs.existsSync(clientPublicServiceAreasDir)) {
 }
 
 // Constants
-const SITE_URL = 'https://www.commercialshotblasting.co.uk';
+const SITE_URL = 'https://commercialshotblasting.co.uk';
 const PHONE = '07970 566409';
 const EMAIL = 'info@commercialshotblasting.co.uk';
 const LOGO = 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ATzSAikYtVvYiYkQ.svg';

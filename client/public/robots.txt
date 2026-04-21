@@ -33,6 +33,7 @@ Allow: /*.webp
 
 # Sitemap references - all sitemaps for efficient discovery
 Sitemap: https://commercialshotblasting.co.uk/sitemap.xml
+Sitemap: https://commercialshotblasting.co.uk/sitemap-service-areas.xml
 Sitemap: https://commercialshotblasting.co.uk/sitemap-main.xml
 Sitemap: https://commercialshotblasting.co.uk/sitemap-counties.xml
 Sitemap: https://commercialshotblasting.co.uk/sitemap-locations-1.xml
