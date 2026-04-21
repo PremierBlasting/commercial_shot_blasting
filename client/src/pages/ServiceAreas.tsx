@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Header } from "@/components/Header";
@@ -342,6 +343,12 @@ const locationSlugMap: Record<string, string> = {
 };
 
 export default function ServiceAreas() {
+  useSEO({
+    title: "Shot Blasting Service Areas | UK Coverage | Commercial Shot Blasting",
+    description: "Commercial Shot Blasting covers the whole of the UK. Find your nearest service area and get a free quote for professional shot blasting services.",
+    canonical: "https://commercialshotblasting.co.uk/service-areas"
+  });
+
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   return (

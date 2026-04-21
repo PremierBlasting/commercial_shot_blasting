@@ -92,3 +92,4 @@
 - [x] Fix TypeScript errors in Blog.tsx, BlogPost.tsx, and PreparationCleanup.tsx
 - [x] Add 301 redirect from www.commercialshotblasting.co.uk to commercialshotblasting.co.uk in Express server
 - [x] Add canonical URL tags to all pages (server-side metaTags.ts + client-side useSEO hook)
+- [x] Add canonical URL tags to Services and ServiceAreas index pages

@@ -144,6 +144,15 @@ export default function Services() {
     if (metaKeywords) {
       metaKeywords.setAttribute('content', 'shot blasting services, steel blasting, industrial blasting, concrete blasting, metal surface preparation, commercial blasting, UK');
     }
+
+    // Set canonical URL
+    let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = 'https://commercialshotblasting.co.uk/services';
   }, []);
 
   return (
