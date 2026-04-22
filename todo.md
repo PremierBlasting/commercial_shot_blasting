@@ -94,3 +94,4 @@
 - [x] Add canonical URL tags to all pages (server-side metaTags.ts + client-side useSEO hook)
 - [x] Add canonical URL tags to Services and ServiceAreas index pages
 - [x] Add structured data JSON-LD schemas (Service, FAQPage, HowTo, BreadcrumbList, WebPage, Organization) for all 18 service pages in metaTags.ts
+- [x] Add ItemList schema to /services index page (server-side: ItemList, WebPage, BreadcrumbList, Organization with OfferCatalog)

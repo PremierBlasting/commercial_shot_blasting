@@ -1254,7 +1254,143 @@ function generateServiceSchemas(serviceId: string): string {
  * @param url - The request URL
  * @returns Modified HTML with injected meta tags and JSON-LD
  */
+function generateServicesIndexSchemas(): string {
+  const servicesUrl = `${SITE_URL}/services`;
+  const serviceList = [
+    { id: 'structural-steel-frames', title: 'Structural Steel Frames Shot Blasting' },
+    { id: 'steel-containers', title: 'Steel Container Shot Blasting' },
+    { id: 'factory-cladding', title: 'Factory & Warehouse Cladding Shot Blasting' },
+    { id: 'fire-escapes', title: 'Fire Escapes & External Stair Towers Shot Blasting' },
+    { id: 'staircases', title: 'Internal Steel Staircases, Balustrades & Handrails Shot Blasting' },
+    { id: 'bridge-steelwork', title: 'Bridge Steelwork Shot Blasting' },
+    { id: 'ladders', title: 'Fixed Ladders & Step-Over Platforms Shot Blasting' },
+    { id: 'warehouse-racking', title: 'Warehouse Racking & Pallet Rack Frames Shot Blasting' },
+    { id: 'pipework', title: 'Process Pipework, Spools & Manifolds Shot Blasting' },
+    { id: 'telecom-towers', title: 'Telecom Masts & Lattice Towers Shot Blasting' },
+    { id: 'floor-preparation', title: 'Floor Preparation & Shot Blasting' },
+    { id: 'powder-coating', title: 'Shot Blasting & Powder Coating' },
+    { id: 'commercial-radiators', title: 'Commercial Radiators Shot Blasting' },
+    { id: 'commercial-vehicles', title: 'Commercial & Agricultural Vehicle Shot Blasting' },
+    { id: 'steel-doors', title: 'Steel Doors & Roller Shutters Shot Blasting' },
+    { id: 'steel-sheeting', title: 'Steel Sheeting Shot Blasting' },
+    { id: 'steel-gates', title: 'Steel Gates & Railings Shot Blasting' },
+    { id: 'plant-machinery', title: 'Plant & Machinery Shot Blasting' },
+  ];
+
+  const schemas = [
+    // 1. ItemList — enables sitelinks-style service list in Google SERPs
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${servicesUrl}#itemlist`,
+      "name": "Shot Blasting Services",
+      "description": "Professional mobile shot blasting services for commercial and industrial applications across the UK.",
+      "url": servicesUrl,
+      "numberOfItems": serviceList.length,
+      "itemListElement": serviceList.map((svc, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": svc.title,
+        "url": `${SITE_URL}/services/${svc.id}`,
+        "item": {
+          "@type": "Service",
+          "name": svc.title,
+          "url": `${SITE_URL}/services/${svc.id}`,
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": BUSINESS_NAME,
+            "telephone": PHONE,
+            "url": SITE_URL
+          }
+        }
+      }))
+    },
+    // 2. WebPage
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${servicesUrl}#webpage`,
+      "url": servicesUrl,
+      "name": `Shot Blasting Services | ${BUSINESS_NAME}`,
+      "description": "Browse all 18 professional shot blasting services offered by Commercial Shot Blasting across the UK — from structural steel and containers to floor preparation and powder coating.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        "name": BUSINESS_NAME,
+        "url": SITE_URL
+      },
+      "inLanguage": "en-GB"
+    },
+    // 3. BreadcrumbList
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": servicesUrl }
+      ]
+    },
+    // 4. Organization
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      "name": BUSINESS_NAME,
+      "url": SITE_URL,
+      "telephone": PHONE,
+      "email": EMAIL,
+      "logo": { "@type": "ImageObject", "url": LOGO },
+      "areaServed": { "@type": "Country", "name": "United Kingdom" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Shot Blasting Services",
+        "itemListElement": serviceList.map((svc, i) => ({
+          "@type": "Offer",
+          "position": i + 1,
+          "itemOffered": {
+            "@type": "Service",
+            "name": svc.title,
+            "url": `${SITE_URL}/services/${svc.id}`
+          }
+        }))
+      }
+    }
+  ];
+
+  return schemas
+    .map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`)
+    .join('\n    ');
+}
+
 export function injectMetaTags(html: string, url: string): string {
+  // Check if this is the /services index page
+  if (url === '/services' || url === '/services/') {
+    const servicesUrl = `${SITE_URL}/services`;
+    let modifiedHtml = html
+      .replace(/<meta\s+name="description"[^>]*>/gi, '')
+      .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+    const metaTags = `
+    <title>Shot Blasting Services | ${BUSINESS_NAME}</title>
+    <link rel="canonical" href="${servicesUrl}" />
+    <meta name="description" content="Browse all 18 professional shot blasting services by Commercial Shot Blasting — structural steel, containers, cladding, floor preparation, powder coating and more. UK-wide mobile service." />
+    <meta property="og:title" content="Shot Blasting Services | ${BUSINESS_NAME}" />
+    <meta property="og:description" content="Browse all 18 professional shot blasting services by Commercial Shot Blasting — structural steel, containers, cladding, floor preparation, powder coating and more. UK-wide mobile service." />
+    <meta property="og:url" content="${servicesUrl}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="${LOGO}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shot Blasting Services | ${BUSINESS_NAME}" />
+    <meta name="twitter:description" content="Browse all 18 professional shot blasting services by Commercial Shot Blasting — structural steel, containers, cladding, floor preparation, powder coating and more. UK-wide mobile service." />
+    <meta name="twitter:image" content="${LOGO}" />
+    ${generateServicesIndexSchemas()}
+  `;
+    modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
+    return modifiedHtml;
+  }
+
   // Check if this is a service page
   const serviceMatch = url.match(/^\/services\/([a-z-]+)/);
   if (serviceMatch) {
