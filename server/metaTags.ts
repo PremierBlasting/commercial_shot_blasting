@@ -1254,6 +1254,122 @@ function generateServiceSchemas(serviceId: string): string {
  * @param url - The request URL
  * @returns Modified HTML with injected meta tags and JSON-LD
  */
+function generateServiceAreasIndexSchemas(): string {
+  const serviceAreasUrl = `${SITE_URL}/service-areas`;
+  const locationList = [
+    { slug: 'birmingham', name: 'Birmingham' },
+    { slug: 'wolverhampton', name: 'Wolverhampton' },
+    { slug: 'coventry', name: 'Coventry' },
+    { slug: 'leicester', name: 'Leicester' },
+    { slug: 'derby', name: 'Derby' },
+    { slug: 'nottingham', name: 'Nottingham' },
+    { slug: 'sheffield', name: 'Sheffield' },
+    { slug: 'leeds', name: 'Leeds' },
+    { slug: 'manchester', name: 'Manchester' },
+    { slug: 'liverpool', name: 'Liverpool' },
+    { slug: 'chester', name: 'Chester' },
+    { slug: 'stoke-on-trent', name: 'Stoke-on-Trent' },
+    { slug: 'shrewsbury', name: 'Shrewsbury' },
+    { slug: 'worcester', name: 'Worcester' },
+    { slug: 'hereford', name: 'Hereford' },
+    { slug: 'gloucester', name: 'Gloucester' },
+    { slug: 'bristol', name: 'Bristol' },
+    { slug: 'cardiff', name: 'Cardiff' },
+    { slug: 'wrexham', name: 'Wrexham' },
+    { slug: 'oxford', name: 'Oxford' },
+    { slug: 'swindon', name: 'Swindon' },
+    { slug: 'milton-keynes', name: 'Milton Keynes' },
+    { slug: 'northampton', name: 'Northampton' },
+    { slug: 'peterborough', name: 'Peterborough' },
+    { slug: 'cambridge', name: 'Cambridge' },
+    { slug: 'norwich', name: 'Norwich' },
+    { slug: 'ipswich', name: 'Ipswich' },
+    { slug: 'lincoln', name: 'Lincoln' },
+    { slug: 'chesterfield', name: 'Chesterfield' },
+    { slug: 'stratford-upon-avon', name: 'Stratford-upon-Avon' },
+  ];
+
+  const schemas = [
+    // 1. ItemList — enables sitelinks-style location list in Google SERPs
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${serviceAreasUrl}#itemlist`,
+      "name": "Shot Blasting Service Areas",
+      "description": "Professional mobile shot blasting services available across the UK. Browse all service areas.",
+      "url": serviceAreasUrl,
+      "numberOfItems": locationList.length,
+      "itemListElement": locationList.map((loc, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": `Shot Blasting ${loc.name}`,
+        "url": `${SITE_URL}/service-areas/${loc.slug}`,
+        "item": {
+          "@type": "Service",
+          "name": `Shot Blasting ${loc.name}`,
+          "url": `${SITE_URL}/service-areas/${loc.slug}`,
+          "areaServed": {
+            "@type": "City",
+            "name": loc.name,
+            "containedInPlace": { "@type": "Country", "name": "United Kingdom" }
+          },
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": BUSINESS_NAME,
+            "telephone": PHONE,
+            "url": SITE_URL
+          }
+        }
+      }))
+    },
+    // 2. WebPage
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${serviceAreasUrl}#webpage`,
+      "url": serviceAreasUrl,
+      "name": `Shot Blasting Service Areas | ${BUSINESS_NAME}`,
+      "description": "Professional mobile shot blasting services across the UK. Browse all service areas covering the Midlands, North West, Yorkshire, South West, Wales, and more.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        "name": BUSINESS_NAME,
+        "url": SITE_URL
+      },
+      "inLanguage": "en-GB"
+    },
+    // 3. BreadcrumbList
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": serviceAreasUrl }
+      ]
+    },
+    // 4. Organization
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      "name": BUSINESS_NAME,
+      "url": SITE_URL,
+      "telephone": PHONE,
+      "email": EMAIL,
+      "logo": { "@type": "ImageObject", "url": LOGO },
+      "areaServed": locationList.map(loc => ({
+        "@type": "City",
+        "name": loc.name,
+        "containedInPlace": { "@type": "Country", "name": "United Kingdom" }
+      }))
+    }
+  ];
+
+  return schemas
+    .map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`)
+    .join('\n    ');
+}
+
 function generateServicesIndexSchemas(): string {
   const servicesUrl = `${SITE_URL}/services`;
   const serviceList = [
@@ -1388,6 +1504,34 @@ export function injectMetaTags(html: string, url: string): string {
     ${generateServicesIndexSchemas()}
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
+    return modifiedHtml;
+  }
+
+  // Check if this is the /service-areas index page
+  if (url === '/service-areas' || url === '/service-areas/') {
+    const serviceAreasUrl = `${SITE_URL}/service-areas`;
+    let modifiedHtml = html
+      .replace(/<meta\s+name="description"[^>]*>/gi, '')
+      .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+    const areaMetaTags = `
+    <title>Shot Blasting Service Areas | ${BUSINESS_NAME}</title>
+    <link rel="canonical" href="${serviceAreasUrl}" />
+    <meta name="description" content="Commercial Shot Blasting provides professional mobile shot blasting services across the UK. Browse our service areas covering the Midlands, North West, Yorkshire, South West, Wales, and more." />
+    <meta property="og:title" content="Shot Blasting Service Areas | ${BUSINESS_NAME}" />
+    <meta property="og:description" content="Commercial Shot Blasting provides professional mobile shot blasting services across the UK. Browse our service areas covering the Midlands, North West, Yorkshire, South West, Wales, and more." />
+    <meta property="og:url" content="${serviceAreasUrl}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="${LOGO}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shot Blasting Service Areas | ${BUSINESS_NAME}" />
+    <meta name="twitter:description" content="Commercial Shot Blasting provides professional mobile shot blasting services across the UK. Browse our service areas covering the Midlands, North West, Yorkshire, South West, Wales, and more." />
+    <meta name="twitter:image" content="${LOGO}" />
+    ${generateServiceAreasIndexSchemas()}
+  `;
+    modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, areaMetaTags);
     return modifiedHtml;
   }
 
