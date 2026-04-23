@@ -14,17 +14,8 @@ import { ServiceRadiusMap } from "@/components/ServiceRadiusMap";
 import { trackPhoneCall } from "@/lib/analytics";
 import { FAQSchema, generateLocationFAQs } from "@/components/FAQSchema";
 
-export interface LocationData {
-  name: string;
-  slug: string;
-  county: string;
-  countySlug: string;
-  region: string;
-  description: string;
-  industries?: string[];
-  nearbyAreas?: string[];
-  faqs: { question: string; answer: string; }[];
-}
+import { LocationData } from '@shared/locationData';
+export type { LocationData };
 
 interface LocationPageProps {
   location: LocationData;

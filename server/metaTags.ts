@@ -1,5 +1,6 @@
 // Server-side meta tag and JSON-LD injection for SEO
 // This ensures OG tags and structured data are in the initial HTML for crawlers
+import { locationData } from "@shared/locationData";
 
 interface LocationMeta {
   title: string;
@@ -1574,7 +1575,111 @@ function generateHomepageSchemas(): string {
 
   return schemas
     .map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`)
-    .join('\n    ');
+     .join('\n    ');
+}
+
+function generateServiceAreaBodyHTML(locationSlug: string): string {
+  const loc = locationData[locationSlug];
+  if (!loc) return "";
+
+  const name = loc.name;
+  const county = loc.county;
+  const region = loc.region;
+  const description = loc.description;
+  const faqs = loc.faqs;
+  const countySlug = loc.countySlug;
+
+  const services = [
+    "Rust Removal & Surface Preparation",
+    "Paint & Coating Stripping",
+    "Metal Surface Cleaning",
+    "Concrete Floor Preparation",
+    "Industrial Equipment Blasting",
+    "Vehicle & Machinery Restoration"
+  ];
+
+  const whyUs = [
+    { title: "Mobile Service", text: `We bring our fully equipped mobile units directly to your location in ${name}, saving you time and transportation costs.` },
+    { title: "Expert Team", text: `Our experienced operators deliver consistent, high-quality results on every project across ${county}.` },
+    { title: "Commercial Focus", text: `Specializing in commercial and industrial applications, we understand the demands of business operations in ${name}.` },
+    { title: "Fast Response", text: `Quick response times and flexible scheduling to meet your project deadlines in ${name} and surrounding areas.` },
+    { title: "Local Knowledge", text: `Familiar with ${name} and the ${region}, we provide reliable service you can count on.` },
+    { title: "Free Quotes", text: `No-obligation quotations for all projects in ${name}. Call us today to discuss your requirements.` }
+  ];
+
+  const faqHtml = faqs.map((faq, i) => `
+    <div class="ssr-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name"><span class="ssr-q">Q:</span> ${escHtml(faq.question)}</h3>
+      <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+        <p itemprop="text">${escHtml(faq.answer)}</p>
+      </div>
+    </div>`).join("");
+
+  const servicesHtml = services.map(s => `<li class="ssr-service-item">${escHtml(s)}</li>`).join("");
+  const whyHtml = whyUs.map(w => `
+    <div class="ssr-why-item">
+      <h3>${escHtml(w.title)}</h3>
+      <p>${escHtml(w.text)}</p>
+    </div>`).join("");
+
+  return `
+<div id="ssr-content" aria-hidden="false" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
+  <nav aria-label="Breadcrumb">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="${SITE_URL}/"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1" />
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="${SITE_URL}/service-areas"><span itemprop="name">Service Areas</span></a>
+        <meta itemprop="position" content="2" />
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="${SITE_URL}/counties/${countySlug}"><span itemprop="name">${escHtml(county)}</span></a>
+        <meta itemprop="position" content="3" />
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name">${escHtml(name)}</span>
+        <meta itemprop="position" content="4" />
+      </li>
+    </ol>
+  </nav>
+  <main itemscope itemtype="https://schema.org/WebPage">
+    <header>
+      <h1>Shot Blasting Services in ${escHtml(name)}</h1>
+      <p>${escHtml(description)}</p>
+      <p>Expert mobile shot blasting services throughout ${escHtml(name)} and ${escHtml(county)}. Professional rust removal and surface preparation for commercial and industrial clients.</p>
+      <p>Call us: <a href="tel:${PHONE.replace(/\s/g, "")}">${PHONE}</a></p>
+    </header>
+    <section aria-label="Why Choose Us">
+      <h2>Why Choose ${escHtml(BUSINESS_NAME)} in ${escHtml(name)}?</h2>
+      ${whyHtml}
+    </section>
+    <section aria-label="Services">
+      <h2>Shot Blasting Services in ${escHtml(name)}</h2>
+      <ul>${servicesHtml}</ul>
+    </section>
+    <section aria-label="Frequently Asked Questions" itemscope itemtype="https://schema.org/FAQPage">
+      <h2>FAQs About Shot Blasting in ${escHtml(name)}</h2>
+      ${faqHtml}
+    </section>
+    <section aria-label="Contact">
+      <h2>Ready to Start Your Project in ${escHtml(name)}?</h2>
+      <p>Get a free, no-obligation quote for your shot blasting project. Call us today or request a quote online.</p>
+      <p>Phone: <a href="tel:${PHONE.replace(/\s/g, "")}">${PHONE}</a></p>
+      <p>Email: <a href="mailto:info@commercialshotblasting.co.uk">info@commercialshotblasting.co.uk</a></p>
+    </section>
+  </main>
+</div>`;
+}
+
+function escHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 export function injectMetaTags(html: string, url: string): string {
@@ -1743,6 +1848,12 @@ export function injectMetaTags(html: string, url: string): string {
       metaTags
     );
     
+    // Inject server-side body HTML for SEO crawlability
+    const bodyHtml = generateServiceAreaBodyHTML(locationSlug);
+    if (bodyHtml) {
+      modifiedHtml = modifiedHtml.replace('<body>', `<body>${bodyHtml}`);
+    }
+    
     return modifiedHtml;
   }
   
@@ -1779,6 +1890,12 @@ export function injectMetaTags(html: string, url: string): string {
     /<title>.*?<\/title>/,
     metaTags
   );
+  
+  // Inject server-side body HTML for SEO crawlability
+  const bodyHtml = generateServiceAreaBodyHTML(locationSlug);
+  if (bodyHtml) {
+    modifiedHtml = modifiedHtml.replace('<body>', `<body>${bodyHtml}`);
+  }
   
   return modifiedHtml;
 }

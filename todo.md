@@ -97,3 +97,4 @@
 - [x] Add ItemList schema to /services index page (server-side: ItemList, WebPage, BreadcrumbList, Organization with OfferCatalog)
 - [x] Add ItemList schema to /service-areas index page (server-side: ItemList with 30 locations, WebPage, BreadcrumbList, Organization with areaServed)
 - [x] Add SiteNavigationElement schema to homepage (server-side: WebSite with SearchAction, SiteNavigationElement, LocalBusiness with opening hours, WebPage, BreadcrumbList)
+- [x] Add server-side HTML body injection to service area pages (SSR content for crawlers: h1, h2, h3, FAQ microdata, breadcrumb, services list, contact)

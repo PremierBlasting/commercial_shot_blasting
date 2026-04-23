@@ -1,4 +1,15 @@
-import { LocationData } from "@shared/locationData";
+export interface LocationData {
+  name: string;
+  slug: string;
+  county: string;
+  countySlug: string;
+  region: string;
+  description: string;
+  industries?: string[];
+  nearbyAreas?: string[];
+  faqs: { question: string; answer: string; }[];
+}
+
 
 export const locationData: Record<string, LocationData> = {
   "luton": {
