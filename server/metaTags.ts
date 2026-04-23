@@ -1478,7 +1478,133 @@ function generateServicesIndexSchemas(): string {
     .join('\n    ');
 }
 
+function generateHomepageSchemas(): string {
+  const navItems = [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Services', url: `${SITE_URL}/services` },
+    { name: 'Industries', url: `${SITE_URL}/industries` },
+    { name: 'Preparation & Cleanup', url: `${SITE_URL}/preparation-cleanup` },
+    { name: 'Our Work', url: `${SITE_URL}/our-work` },
+    { name: 'Service Areas', url: `${SITE_URL}/service-areas` },
+    { name: 'Blog', url: `${SITE_URL}/blog` },
+    { name: 'About', url: `${SITE_URL}/about` },
+    { name: 'Contact', url: `${SITE_URL}/contact` },
+    { name: 'Free Site Survey', url: `${SITE_URL}/free-site-survey` },
+  ];
+
+  const schemas = [
+    // 1. WebSite with SiteLinksSearchBox
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      "name": BUSINESS_NAME,
+      "url": SITE_URL,
+      "description": "Professional mobile shot blasting services for commercial and industrial applications across the UK.",
+      "inLanguage": "en-GB",
+      "publisher": {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        "name": BUSINESS_NAME
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${SITE_URL}/service-areas/{search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    // 2. SiteNavigationElement — signals primary nav to Google for sitelinks
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${SITE_URL}/#sitenavigation`,
+      "name": "Site Navigation",
+      "itemListElement": navItems.map((item, i) => ({
+        "@type": "SiteNavigationElement",
+        "position": i + 1,
+        "name": item.name,
+        "url": item.url
+      }))
+    },
+    // 3. Organization
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": `${SITE_URL}/#organization`,
+      "name": BUSINESS_NAME,
+      "url": SITE_URL,
+      "telephone": PHONE,
+      "email": EMAIL,
+      "logo": { "@type": "ImageObject", "url": LOGO },
+      "image": LOGO,
+      "description": "Professional mobile shot blasting services for commercial and industrial applications across the UK. Specialists in rust removal, surface preparation, and industrial cleaning.",
+      "priceRange": "££",
+      "areaServed": { "@type": "Country", "name": "United Kingdom" },
+      "sameAs": [],
+      "hasMap": `${SITE_URL}/contact`,
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:00" }
+      ]
+    },
+    // 4. WebPage (homepage)
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      "url": SITE_URL,
+      "name": `${BUSINESS_NAME} | Professional Shot Blasting Services UK`,
+      "description": "Professional mobile shot blasting services for commercial and industrial applications across the UK. Specialists in rust removal, surface preparation, and industrial cleaning.",
+      "isPartOf": { "@type": "WebSite", "@id": `${SITE_URL}/#website` },
+      "about": { "@type": "LocalBusiness", "@id": `${SITE_URL}/#organization` },
+      "inLanguage": "en-GB"
+    },
+    // 5. BreadcrumbList (homepage)
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL }
+      ]
+    }
+  ];
+
+  return schemas
+    .map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`)
+    .join('\n    ');
+}
+
 export function injectMetaTags(html: string, url: string): string {
+  // Check if this is the homepage
+  if (url === '/' || url === '') {
+    let modifiedHtml = html
+      .replace(/<meta\s+name="description"[^>]*>/gi, '')
+      .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+    const homeMetaTags = `
+    <title>${BUSINESS_NAME} | Professional Shot Blasting Services UK</title>
+    <link rel="canonical" href="${SITE_URL}/" />
+    <meta name="description" content="Professional mobile shot blasting services for commercial and industrial applications across the UK. Specialists in rust removal, surface preparation, and industrial cleaning. Call 07970 566409." />
+    <meta property="og:title" content="${BUSINESS_NAME} | Professional Shot Blasting Services UK" />
+    <meta property="og:description" content="Professional mobile shot blasting services for commercial and industrial applications across the UK. Specialists in rust removal, surface preparation, and industrial cleaning." />
+    <meta property="og:url" content="${SITE_URL}/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="${LOGO}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${BUSINESS_NAME} | Professional Shot Blasting Services UK" />
+    <meta name="twitter:description" content="Professional mobile shot blasting services for commercial and industrial applications across the UK. Specialists in rust removal, surface preparation, and industrial cleaning." />
+    <meta name="twitter:image" content="${LOGO}" />
+    ${generateHomepageSchemas()}
+  `;
+    modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, homeMetaTags);
+    return modifiedHtml;
+  }
+
   // Check if this is the /services index page
   if (url === '/services' || url === '/services/') {
     const servicesUrl = `${SITE_URL}/services`;

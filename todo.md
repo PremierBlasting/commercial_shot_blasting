@@ -96,3 +96,4 @@
 - [x] Add structured data JSON-LD schemas (Service, FAQPage, HowTo, BreadcrumbList, WebPage, Organization) for all 18 service pages in metaTags.ts
 - [x] Add ItemList schema to /services index page (server-side: ItemList, WebPage, BreadcrumbList, Organization with OfferCatalog)
 - [x] Add ItemList schema to /service-areas index page (server-side: ItemList with 30 locations, WebPage, BreadcrumbList, Organization with areaServed)
+- [x] Add SiteNavigationElement schema to homepage (server-side: WebSite with SearchAction, SiteNavigationElement, LocalBusiness with opening hours, WebPage, BreadcrumbList)
