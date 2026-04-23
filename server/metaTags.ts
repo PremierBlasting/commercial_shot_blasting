@@ -1908,3 +1908,4 @@ export function injectMetaTags(html: string, url: string): string {
   return modifiedHtml;
 }
 // SSR body injection checkpoint - 20260423113933
+// Force publish: 20260423134613
