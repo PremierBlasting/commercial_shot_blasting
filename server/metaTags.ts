@@ -1851,7 +1851,11 @@ export function injectMetaTags(html: string, url: string): string {
     // Inject server-side body HTML for SEO crawlability
     const bodyHtml = generateServiceAreaBodyHTML(locationSlug);
     if (bodyHtml) {
-      modifiedHtml = modifiedHtml.replace('<body>', `<body>${bodyHtml}`);
+      if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
+        modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', bodyHtml);
+      } else {
+        modifiedHtml = modifiedHtml.replace(/<body[^>]*>/, (match) => `${match}\n${bodyHtml}`);
+      }
     }
     
     return modifiedHtml;
@@ -1894,7 +1898,11 @@ export function injectMetaTags(html: string, url: string): string {
   // Inject server-side body HTML for SEO crawlability
   const bodyHtml = generateServiceAreaBodyHTML(locationSlug);
   if (bodyHtml) {
-    modifiedHtml = modifiedHtml.replace('<body>', `<body>${bodyHtml}`);
+    if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
+      modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', bodyHtml);
+    } else {
+      modifiedHtml = modifiedHtml.replace(/<body[^>]*>/, (match) => `${match}\n${bodyHtml}`);
+    }
   }
   
   return modifiedHtml;
