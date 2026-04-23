@@ -1099,6 +1099,372 @@ const serviceMeta: Record<string, ServiceMeta> = {
   }
 };
 
+
+/**
+ * Generate SSR body HTML for service pages so crawlers see full content
+ */
+function generateServiceBodyHTML(serviceId: string): string {
+  const escHtml = (s: string) => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+
+  const serviceData: Record<string, {
+    title: string; tagline: string; description: string;
+    steps: Array<{title: string; description: string}>;
+    applications: string[];
+    faqs: Array<{q: string; a: string}>;
+  }> = {
+    "structural-steel-frames": {
+      title: "Structural Steel Frames",
+      tagline: "Comprehensive Shot Blasting for Structural Steelwork",
+      description: "Our structural steel frame shot blasting service delivers exceptional surface preparation for all types of building frames, roof trusses, and load-bearing steel structures. We remove mill scale, rust,",
+      steps: [
+        { title: "Structural Assessment", description: "We inspect the steel frame components to determine appropriate blast media, pressure settings, and surface preparation r" },
+        { title: "Component Preparation", description: "Frame sections are positioned for optimal blast coverage. Critical areas such as bolt holes and connection points are pr" },
+        { title: "Shot Blasting", description: "Using appropriate blast media, we systematically clean all frame surfaces to achieve professional cleanliness for your c" },
+        { title: "Quality Inspection", description: "We conduct thorough inspections to ensure all surfaces meet the required cleanliness and profile specifications." },
+      ],
+      applications: ["Building frame structures", "Roof trusses and purlins", "Portal frame components", "Mezzanine floor structures", "Industrial building frames", "Warehouse structural steelwork"],
+      faqs: [
+        { q: "Can you blast structural steel frames on-site?", a: "Yes, we provide mobile shot blasting services and can work at your premises. For components requiring galvanizing, we ensure complete coverage and professional cleanliness for protective treatments. We coordinate timing " },
+        { q: "How long does the process take?", a: "Timeline depends on the size and complexity of the frame structure. A typical portal frame bay can be processed in 2-3 days. We can provide a detailed timeline after assessing your specific requirements." },
+      ],
+    },
+    "steel-containers": {
+      title: "Steel Container Blasting",
+      tagline: "Specialist Shot Blasting for Steel Containers & Storage Structures",
+      description: "We are specialists in shot blasting services for steel containers and large storage structures. Our skilled team uses advanced blasting techniques to remove rust, old coatings, and surface contaminant",
+      steps: [
+        { title: "Preparation & Containment", description: "We begin with inspection and masking, then protect surrounding areas with sheeting and seals to control dust and debris." },
+        { title: "Precision Shot Blasting", description: "Using the correct media and pressure for the substrate, we remove corrosion and old coatings without compromising the st" },
+        { title: "Final Clean Down", description: "On completion, we carry out a meticulous clean-up: collecting residues and waste, leaving the area ready for repainting " },
+      ],
+      applications: ["Shipping Containers", "Storage Tanks", "Refrigerated Containers", "Grain Silos", "Bulk Waste & Recycling Containers", "Fuel Storage Cylinders"],
+      faqs: [
+        { q: "What types of steel containers can you blast?", a: "We can blast all types of steel containers including shipping containers, storage tanks, refrigerated units, grain silos, fuel storage cylinders, water tanks, and more. Our techniques are suitable for both standard and s" },
+        { q: "Can you blast containers on-site?", a: "Yes, we can provide on-site shot blasting services for large containers and storage structures that cannot be easily transported. We implement comprehensive containment systems to control dust and debris." },
+      ],
+    },
+    "factory-cladding": {
+      title: "Factory & Warehouse Cladding",
+      tagline: "Professional Cladding Surface Restoration",
+      description: "Specialist shot blasting for factory and industrial cladding panels. We remove original plastisol, multiple layers of paint, rust, and weathering from metal cladding to restore surfaces to bare metal ",
+      steps: [
+        { title: "Site Assessment", description: "We assess cladding condition, coating types, and access requirements to plan the most effective blasting approach." },
+        { title: "Area Protection", description: "Work zones are contained and protected to control blast media and prevent contamination of surrounding areas." },
+        { title: "Controlled Blasting", description: "Using appropriate pressure and media, we systematically remove all coatings while preserving the cladding substrate." },
+        { title: "Surface Inspection", description: "Cleaned panels are inspected to ensure complete coating removal and proper surface profile for recoating." },
+      ],
+      applications: ["Factory wall cladding", "Warehouse exterior panels", "Industrial building facades", "Commercial property cladding", "Agricultural building cladding", "Storage facility exteriors"],
+      faqs: [
+        { q: "Can you blast cladding in place?", a: "Yes, we can blast cladding panels while installed on buildings using specialized containment and access equipment, minimizing disruption to your operations." },
+        { q: "Will shot blasting damage thin cladding panels?", a: "No. Our experienced technicians use controlled pressure and appropriate blast media to remove coatings without damaging the underlying metal panels." },
+        { q: "How long before cladding needs recoating after blasting?", a: "We coordinate closely with coating contractors to apply new coatings within 24-48 hours of blasting to prevent surface oxidation and ensure optimal adhesion." },
+      ],
+    },
+    "fire-escapes": {
+      title: "Fire Escapes & External Stair Towers",
+      tagline: "Specialist Shot Blasting for Fire Safety Infrastructure",
+      description: "Our fire escape and external stair tower shot blasting service provides comprehensive surface preparation for emergency egress systems. We remove rust, old paint, and corrosion from fire escape struct",
+      steps: [
+        { title: "Safety Assessment", description: "We inspect the fire escape structure to assess condition, identify structural concerns, and determine appropriate blast " },
+        { title: "Access Planning", description: "We coordinate access arrangements and safety measures for working at height, ensuring health and safety practices." },
+        { title: "Shot Blasting", description: "Using appropriate blast media and pressure settings, we systematically clean all fire escape surfaces including stairs, " },
+        { title: "Quality Verification", description: "We conduct thorough inspections to ensure all surfaces meet the required cleanliness and profile specifications for coat" },
+      ],
+      applications: ["External fire escape stairs", "Fire escape towers", "Emergency egress systems", "External stair structures", "Fire escape landings and platforms", "Fire escape handrails and balustrades"],
+      faqs: [
+        { q: "Can you work on fire escapes while the building is occupied?", a: "Yes, we can coordinate work schedules to minimize disruption and maintain emergency egress routes. We work with building management to ensure alternative fire escape routes are available during refurbishment work." },
+        { q: "Do you provide structural assessment after blasting?", a: "We can coordinate with structural engineers to provide certification as required. Our shot blasting process reveals the true condition of the steel, allowing for accurate structural assessment." },
+        { q: "What coatings do you recommend for fire escapes?", a: "We typically recommend intumescent fire-resistant coatings or hot-dip galvanizing for maximum corrosion protection and fire safety compliance. We can advise on the most appropriate system for your specific requirements." },
+      ],
+    },
+    "staircases": {
+      title: "Internal Steel Staircases, Balustrades & Handrails",
+      tagline: "Precision Shot Blasting for Architectural Metalwork",
+      description: "Our internal steel staircase and balustrade shot blasting service provides meticulous surface preparation for architectural metalwork. We remove rust, old paint, powder coating, and welding residue fr",
+      steps: [
+        { title: "Component Assessment", description: "We inspect the metalwork to assess condition, identify any delicate features, and determine appropriate blast media and " },
+        { title: "Preparation & Masking", description: "Components are prepared for blasting. Threaded connections, bearing surfaces, and delicate features are masked or protec" },
+        { title: "Precision Blasting", description: "Using fine-grade blast media and controlled pressure, we carefully clean all surfaces while preserving fine details and " },
+        { title: "Quality Inspection", description: "We conduct detailed inspections to ensure all surfaces meet the required cleanliness and profile specifications for your" },
+      ],
+      applications: ["Internal steel staircases", "Balustrades and handrails", "Decorative metalwork", "Architectural steel features", "Heritage staircase restoration", "Commercial building staircases"],
+      faqs: [
+        { q: "Can you blast staircases without damaging decorative details?", a: "Yes, we use fine-grade blast media and carefully controlled pressure settings to clean surfaces while preserving fine details, threads, and dimensional tolerances. Our technicians are experienced in handling delicate arc" },
+        { q: "Do you remove staircases for blasting or work on-site?", a: "Yes, we provide mobile shot blasting services and work at your premises. We can blast fire escapes in situ or coordinate with you if components need to be removed for access. Our mobile units are equipped for complete co" },
+        { q: "What finishes can be applied after blasting?", a: "After shot blasting, staircases and balustrades can be powder coated, wet painted, galvanized, or left with a clear protective coating. We can coordinate finishing services or provide components ready for your chosen fin" },
+      ],
+    },
+    "bridge-steelwork": {
+      title: "Bridge Steelwork (Girders, Crossmembers, Parapet Rails)",
+      tagline: "Specialist Shot Blasting for Bridge Infrastructure",
+      description: "Our bridge steelwork shot blasting service provides comprehensive surface preparation for all types of bridge components including girders, crossmembers, parapet rails, and support structures. We remo",
+      steps: [
+        { title: "Structural Survey", description: "We conduct a detailed survey of the bridge steelwork to assess condition, identify structural concerns, and determine ap" },
+        { title: "Access & Safety Planning", description: "We coordinate access arrangements, traffic management, and safety measures for working on bridge structures, ensuring hi" },
+        { title: "Shot Blasting", description: "Using appropriate blast media and pressure settings, we systematically clean all bridge steelwork surfaces to achieve pr" },
+        { title: "Quality Verification", description: "We conduct thorough inspections and, where required, perform surface cleanliness testing to verify compliance with bridg" },
+      ],
+      applications: ["Bridge girders and beams", "Bridge crossmembers and bracing", "Parapet rails and barriers", "Bridge support structures", "Footbridge steelwork", "Railway bridge components"],
+      faqs: [
+        { q: "Can you work on bridges while they remain open to traffic?", a: "Yes, we can coordinate work schedules with highway authorities to minimize disruption. We typically work during night-time closures or use lane closures with traffic management systems." },
+        { q: "What surface preparation standards do you achieve for bridge work?", a: "We routinely achieve professional cleanliness and SA 3 surface preparation to industry standards, which are required for highway and railway bridge coating systems. We can provide certification as required by highway aut" },
+        { q: "Do you handle environmental containment for bridge blasting?", a: "Yes, we implement comprehensive containment systems to capture spent blast media and debris, preventing environmental contamination of waterways or surrounding areas. We comply with all waste management practices." },
+      ],
+    },
+    "ladders": {
+      title: "Fixed Ladders & Step-Over Platforms",
+      tagline: "Specialist Shot Blasting for Access Infrastructure",
+      description: "Our fixed ladder and step-over platform shot blasting service provides comprehensive surface preparation for industrial access systems. We remove rust, old paint, and corrosion from fixed ladders, cag",
+      steps: [
+        { title: "Safety Assessment", description: "We inspect the access system to assess condition, identify structural concerns, and determine appropriate blast media an" },
+        { title: "Component Preparation", description: "Ladder sections, platforms, and safety cages are prepared for blasting. Critical connection points and safety features a" },
+        { title: "Shot Blasting", description: "Using appropriate blast media and pressure settings, we systematically clean all access system surfaces including rungs," },
+        { title: "Quality Verification", description: "We conduct thorough inspections to ensure all surfaces meet the required cleanliness and profile specifications for coat" },
+      ],
+      applications: ["Fixed vertical ladders", "Caged ladder systems", "Step-over platforms", "Industrial access ladders", "Roof access systems", "Tank access ladders"],
+      faqs: [
+        { q: "Can you blast fixed ladders in situ?", a: "Yes, we provide mobile shot blasting services at your location. For ladders requiring galvanizing, we ensure complete coverage and cleanliness. We can work with ladders in situ or coordinate if sections need removal for " },
+        { q: "What protective coatings do you recommend for access systems?", a: "We typically recommend hot-dip galvanizing for maximum corrosion protection and durability, especially for outdoor or harsh environment applications. For indoor systems, powder coating or high-performance paint systems m" },
+      ],
+    },
+    "warehouse-racking": {
+      title: "Warehouse Racking & Pallet Rack Frames",
+      tagline: "Professional Shot Blasting for Storage Infrastructure",
+      description: "Our specialist warehouse racking shot blasting service provides comprehensive surface preparation for pallet racking systems, storage frames, and industrial shelving. We remove rust, old powder coatin",
+      steps: [
+        { title: "Assessment", description: "We inspect the racking components to determine the appropriate blast media, pressure settings, and surface preparation r" },
+        { title: "Disassembly & Preparation", description: "If required, we can coordinate the disassembly of racking components at your premises to ensure optimal access for mobil" },
+        { title: "Shot Blasting", description: "Our skilled technicians systematically blast all racking surfaces, removing rust, old coatings, and contaminants to achi" },
+        { title: "Quality Inspection", description: "We conduct thorough quality checks to ensure all surfaces meet the required profile and cleanliness specifications for c" },
+      ],
+      applications: ["Pallet racking uprights and beams", "Cantilever racking systems", "Drive-in and drive-through racking", "Mezzanine floor support structures", "Industrial shelving units", "Warehouse storage frames"],
+      faqs: [
+        { q: "Can you blast racking on-site or does it need to be removed?", a: "Yes, we provide mobile shot blasting services at your warehouse location. We can blast racking in situ or coordinate disassembly if needed for optimal access. Our mobile units ensure complete coverage and proper containm" },
+        { q: "How long does the warehouse racking blasting process take?", a: "Timeline depends on the quantity and condition of components. A typical pallet racking bay (2 uprights and 4 beams) can be processed in 1-2 days. We can provide a detailed timeline after assessing your specific requireme" },
+        { q: "Will shot blasting damage the structural integrity of the racking?", a: "No, when performed correctly by trained professionals, shot blasting actually reveals the true condition of the metal and prepares it for protective coatings that enhance longevity. We use appropriate blast media and pre" },
+        { q: "Can you coordinate powder coating after blasting?", a: "Yes, we work with trusted powder coating partners and can arrange complete refurbishment services including blasting, coating, and reinstallation of your warehouse racking systems." },
+      ],
+    },
+    "pipework": {
+      title: "Process Pipework, Spools & Manifolds",
+      tagline: "Precision Cleaning for Industrial Pipework Systems",
+      description: "Our specialized pipework shot blasting service delivers exceptional surface preparation for industrial process pipework, spools, manifolds, and piping systems. We provide precision cleaning that meets",
+      steps: [
+        { title: "Specification Review", description: "We review your cleanliness requirements, material specifications, and industry standards to determine the appropriate bl" },
+        { title: "Component Preparation", description: "Pipework components are inspected, masked if necessary, and positioned for optimal blast coverage while protecting threa" },
+        { title: "Precision Blasting", description: "Using fine-grade blast media and controlled pressure, we systematically clean all pipework surfaces to achieve the speci" },
+        { title: "Cleanliness Verification", description: "We conduct thorough inspections to ensure optimal surface cleanliness and preparation quality." },
+      ],
+      applications: ["Food processing pipework and spools", "Pharmaceutical process piping", "Chemical plant manifolds and headers", "Dairy industry stainless steel pipework", "Brewery and beverage processing pipes", "Hygienic process equipment"],
+      faqs: [
+        { q: "What cleanliness levels can you achieve for pipework?", a: "We achieve high cleanliness levels suitable for food-grade, pharmaceutical, and chemical applications, meeting specific industry requirements for each sector." },
+        { q: "Can you blast stainless steel pipework without damaging it?", a: "Yes, we use appropriate blast media such as aluminum oxide or glass bead, combined with controlled pressure settings, to clean stainless steel without embedding contaminants or damaging the passive layer. We can also coo" },
+        { q: "Do you provide certification for food-grade or pharmaceutical pipework?", a: "Yes, we can provide material certificates, process documentation, and cleanliness certification as required for regulated industries. We maintain full traceability and quality records for all processed components." },
+        { q: "What size pipework can you accommodate?", a: "We can process pipework ranging from small bore (1/2 inch) up to large diameter pipes and manifolds. Our facility can accommodate spools up to 6 meters in length. Contact us to discuss your specific requirements." },
+      ],
+    },
+    "telecom-towers": {
+      title: "Telecom Masts & Lattice Towers",
+      tagline: "Specialist Shot Blasting for Telecommunications Infrastructure",
+      description: "Our specialist telecommunications tower shot blasting service provides comprehensive surface preparation for telecom masts, lattice towers, antenna supports, and associated infrastructure. We remove r",
+      steps: [
+        { title: "Structural Assessment", description: "We inspect tower components to assess condition, determine appropriate blast media, and identify any structural concerns" },
+        { title: "Component Preparation", description: "Tower sections, legs, bracing members, and mounting brackets are prepared for blasting. Critical areas such as bolt hole" },
+        { title: "Shot Blasting", description: "Using appropriate blast media and pressure settings, we systematically clean all tower surfaces to achieve optimal clean" },
+        { title: "Quality Verification", description: "We conduct thorough inspections to ensure all surfaces meet the required cleanliness and profile specifications for galv" },
+      ],
+      applications: ["Telecommunications lattice towers", "Monopole mast sections", "Guyed tower components", "Antenna mounting brackets and platforms", "Tower leg sections and bracing members", "Microwave dish support structures"],
+      faqs: [
+        { q: "Can you blast telecommunications towers on-site?", a: "Yes, we provide mobile shot blasting services for telecom towers at your site. For components requiring galvanizing, we ensure professional cleanliness for hot-dip galvanizing. We coordinate timing with galvanizing sched" },
+        { q: "How do you handle the logistics of tower dismantling and transport?", a: "We can coordinate with specialist tower erection companies to handle dismantling, transport, and reinstallation. Alternatively, if you have your own contractors, we can work with them to ensure smooth coordination of the" },
+        { q: "Can you blast tower components that have been previously galvanized?", a: "Yes, we can remove old galvanizing, rust, and corrosion from previously galvanized components, preparing them for re-galvanizing. This is a common requirement for tower refurbishment projects where the original galvanizi" },
+      ],
+    },
+    "floor-preparation": {
+      title: "Floor Preparation & Shot Blasting",
+      tagline: "Professional Floor Surface Preparation",
+      description: "Specialist shot blasting services for floor preparation across commercial and industrial facilities. We employ robust and efficient shot blasting techniques to ensure your floor surfaces are aesthetic",
+      steps: [
+        { title: "Pre-Work Preparation", description: "We contain the work area by sheeting floors and sealing doorways and cracks to protect surrounding areas and control dus" },
+        { title: "Precision Blasting", description: "Using controlled low-pressure shot blasting, we remove unwanted coatings and reveal the original surface characteristics" },
+        { title: "Surface Profiling", description: "The blasting process creates the optimal surface texture for maximum adhesion of subsequent coatings or treatments." },
+        { title: "Complete Cleanup", description: "We perform thorough cleanup, removing all waste materials and leaving your facility clean and ready for the next phase." },
+      ],
+      applications: ["Asphalt surface re-texturing", "Bridge laitance removal", "Car park decking preparation", "Cleaning and texturing old concrete", "Paint removal from concrete floors", "Epoxy coating removal"],
+      faqs: [
+        { q: "What types of floor coatings can be removed?", a: "Our shot blasting equipment can remove virtually any floor coating including paint, epoxy, tar, adhesives, and surface laitance from concrete floors." },
+        { q: "How long does floor preparation take?", a: "Project duration depends on floor area and coating thickness. Most commercial floors can be prepared at 100-300 square meters per day." },
+        { q: "Will shot blasting damage my concrete floor?", a: "No. When performed correctly by trained professionals, shot blasting removes only the surface coating and creates beneficial texture for new coatings without damaging the concrete substrate." },
+      ],
+    },
+    "powder-coating": {
+      title: "Shot Blasting & Powder Coating",
+      tagline: "End-to-End Metal Surface Solutions",
+      description: "Complete metal surface preparation and powder coating service for commercial and industrial applications. We combine high-pressure shot blasting with premium powder coating application in one seamless",
+      steps: [
+        { title: "Meticulous Preparation", description: "We contain and protect your site, then use abrasive blasting to strip away old paint, rust, and contaminants, creating t" },
+        { title: "High-Performance Coating", description: "Immediately after preparation, we apply premium powder coating that bonds firmly to the metal surface, preventing flash " },
+        { title: "Curing Process", description: "The powder coating is professionally cured to create a tough, uniform finish that resists weathering, corrosion, and wea" },
+        { title: "Hassle-Free Completion", description: "We handle cleanup and leave your premises tidy with a superior powder-coated finish ready for immediate use." },
+      ],
+      applications: ["Structural steel frame preparation", "Warehouse and factory cladding", "Machinery and equipment refurbishment", "Staircases, railings, and balustrades", "Storage tanks and fabrications", "Metal components for assembly"],
+      faqs: [
+        { q: "Why combine shot blasting with powder coating?", a: "Integrating both services eliminates the risk of flash rust between preparation and coating, ensures optimal surface profile for adhesion, and provides single-source accountability with faster turnaround." },
+        { q: "What metals can be powder coated?", a: "We can powder coat most metals including steel, stainless steel, aluminum, and galvanized surfaces after proper shot blasting preparation." },
+        { q: "How durable is powder coating?", a: "When applied over properly shot-blasted surfaces, powder coating provides exceptional durability, typically lasting 15-20 years outdoors and even longer in protected environments." },
+      ],
+    },
+    "commercial-radiators": {
+      title: "Commercial Radiators Shot Blasting",
+      tagline: "Professional Restoration for Cast Iron & Steel Radiators",
+      description: "Our commercial radiators shot blasting service provides comprehensive restoration for cast iron and steel radiators in commercial buildings, heritage properties, and industrial facilities. We remove d",
+      steps: [
+        { title: "Radiator Assessment", description: "We inspect each radiator to assess condition, identify material type (cast iron or steel), and determine appropriate bla" },
+        { title: "Valve & Fitting Protection", description: "Threaded connections, valve seats, and critical fittings are masked or protected to preserve functionality during blasti" },
+        { title: "Controlled Shot Blasting", description: "Using carefully selected media and pressure settings, we systematically remove all paint layers, rust, and corrosion fro" },
+        { title: "Internal Cleaning", description: "For radiators requiring internal restoration, we can clean internal waterways to remove sludge and scale buildup." },
+      ],
+      applications: ["Victorian cast iron column radiators", "Commercial building heating systems", "Heritage property radiator restoration", "School and hospital radiators", "Industrial facility heating equipment", "Period property refurbishment projects"],
+      faqs: [
+        { q: "Can you blast cast iron radiators without damaging them?", a: "Yes, we use appropriate blast media and controlled pressure settings specifically for cast iron. Our technicians are experienced in preserving the integrity of cast iron while removing paint and rust. We protect threaded" },
+        { q: "How many paint layers can you remove?", a: "We can remove virtually unlimited paint layers. Many heritage radiators have 10-20 layers of paint accumulated over a century. Our shot blasting process efficiently removes all layers while preserving the original cast i" },
+        { q: "Do you offer powder coating after shot blasting?", a: "Yes, we work with specialist radiator coating partners and can arrange complete refurbishment services including blasting, powder coating in period-appropriate or modern colors, and pressure testing before reinstallation" },
+        { q: "Can you restore radiators that are still installed?", a: "For best results, radiators should be removed from the property for workshop-based shot blasting. This ensures complete coverage, protects surrounding areas, and allows for thorough inspection and coating. We can coordin" },
+      ],
+    },
+    "commercial-vehicles": {
+      title: "Commercial & Agricultural Vehicle Shot Blasting",
+      tagline: "Heavy-Duty Restoration for Farm & Warehouse Vehicles",
+      description: "Our commercial and agricultural vehicle shot blasting service provides comprehensive restoration for heavy-duty trucks, farm machinery, warehouse vehicles, and industrial transport equipment. We speci",
+      steps: [
+        { title: "Vehicle Assessment", description: "Comprehensive inspection of vehicle condition, chassis integrity, and component identification to determine optimal blas" },
+        { title: "Component Disassembly", description: "Removal of sensitive components, electrical systems, and mechanical parts that require protection during blasting." },
+        { title: "Heavy-Duty Shot Blasting", description: "Systematic blasting of chassis, body panels, and wheels using industrial-grade media to remove all corrosion, paint, and" },
+        { title: "Detailed Cleaning", description: "Thorough cleaning of hard-to-reach areas, joints, and structural members to ensure complete surface preparation." },
+      ],
+      applications: ["Farm trucks and agricultural vehicles", "Warehouse forklifts and material handlers", "Commercial delivery trucks", "Industrial transport vehicles", "Vintage commercial vehicle restoration", "Fleet vehicle refurbishment"],
+      faqs: [
+        { q: "Can you blast complete vehicle chassis?", a: "Yes, we specialize in complete chassis restoration for commercial and agricultural vehicles. Our facility can accommodate large farm trucks, warehouse vehicles, and industrial equipment. We systematically blast all chass" },
+        { q: "Do you work on vintage commercial vehicles?", a: "Absolutely. We have extensive experience restoring vintage farm trucks, classic commercial vehicles, and heritage agricultural machinery. Our careful approach preserves original features while removing decades of corrosi" },
+        { q: "How long does vehicle restoration take?", a: "Complete chassis restoration typically takes 3-5 days depending on vehicle size and condition. Wheel sets can be processed in 1-2 days. For fleet refurbishment projects, we can establish dedicated workflows to process mu" },
+        { q: "What coating should I apply after shot blasting?", a: "For commercial vehicles, we recommend epoxy primer followed by polyurethane topcoat for maximum durability in harsh operating environments. For farm vehicles exposed to chemicals and weather, consider zinc-rich primer sy" },
+      ],
+    },
+    "steel-doors": {
+      title: "Steel Doors & Roller Shutters Shot Blasting",
+      tagline: "Professional Restoration for Industrial Doors & Security Shutters",
+      description: "Our steel doors and roller shutters shot blasting service provides comprehensive restoration for industrial doors, warehouse roller shutters, security doors, and commercial access systems. We remove r",
+      steps: [
+        { title: "Door Assessment & Planning", description: "Comprehensive evaluation of door condition, mechanism type, and access requirements for efficient restoration workflow." },
+        { title: "Component Removal & Protection", description: "Careful removal of mechanisms, motors, and sensitive components. Protection of surrounding building fabric and operation" },
+        { title: "Industrial Shot Blasting", description: "Systematic removal of all coatings, rust, and corrosion from door panels, roller slats, and frames using controlled blas" },
+        { title: "Mechanism Cleaning", description: "Detailed cleaning of tracks, guides, and mounting hardware to ensure smooth operation after restoration." },
+      ],
+      applications: ["Warehouse loading bay doors", "Industrial roller shutters", "Commercial security doors", "Factory access doors", "Storage facility doors", "Retail security shutters"],
+      faqs: [
+        { q: "Can you blast roller shutters without removing them?", a: "In most cases, yes. We can shot blast roller shutters in situ using containment systems to protect the building interior and surrounding areas. For severely corroded shutters or those requiring mechanism work, removal to" },
+        { q: "Will shot blasting affect door operation?", a: "Shot blasting improves door operation by removing corrosion and contamination that can bind mechanisms. We carefully protect motors, sensors, and control systems during the process. After restoration and coating, doors t" },
+        { q: "How long does door restoration take?", a: "A typical warehouse roller shutter can be shot blasted in 1-2 days depending on size and condition. Large industrial doors or multiple door sets may require longer. We work efficiently to minimize operational disruption " },
+        { q: "What coating should I apply after shot blasting?", a: "For industrial doors and roller shutters, we recommend epoxy primer followed by polyurethane topcoat for maximum durability in demanding environments. For high-traffic areas, consider powder coating for superior abrasion" },
+      ],
+    },
+    "steel-sheeting": {
+      title: "Steel Sheeting Shot Blasting",
+      tagline: "Professional Surface Preparation for Steel Sheets & Panels",
+      description: "Our steel sheeting shot blasting service provides comprehensive surface preparation for steel sheets, panels, and flat metal products. We remove mill scale, rust, and old coatings from steel sheeting ",
+      steps: [
+        { title: "Sheet Assessment", description: "We inspect the steel sheeting to assess condition, thickness, and determine appropriate blast media and pressure setting" },
+        { title: "Surface Preparation", description: "Sheets are positioned for optimal blast coverage. We ensure proper support to prevent distortion during the blasting pro" },
+        { title: "Systematic Shot Blasting", description: "Using controlled techniques, we systematically blast entire sheet surfaces to achieve uniform cleanliness and consistent" },
+        { title: "Edge Treatment", description: "Special attention to sheet edges and corners to ensure complete coverage and preparation for welding or joining." },
+      ],
+      applications: ["Roofing sheets and panels", "Cladding panels for buildings", "Structural steel plates", "Fabrication sheet material", "Industrial equipment panels", "Storage tank panels"],
+      faqs: [
+        { q: "Can you blast thin steel sheeting without causing distortion?", a: "Yes, we adjust blast pressure and media selection based on sheet thickness and material grade. Our technicians are experienced in processing thin gauge material while maintaining flatness and preventing distortion." },
+        { q: "What sheet sizes can you accommodate?", a: "We can process steel sheets of various sizes, from small panels to large structural plates. Our equipment and facility can handle standard roofing and cladding sheet dimensions as well as custom-sized fabrication materia" },
+        { q: "How quickly can you process steel sheeting?", a: "Processing time depends on sheet size, quantity, and condition. We can typically process standard roofing sheets efficiently in batches. For large projects, we can establish dedicated workflows to meet your schedule requ" },
+        { q: "Do you offer coating services after shot blasting?", a: "Yes, we can coordinate with coating contractors or provide recommendations for powder coating, galvanizing, or paint systems. We ensure timing is optimized to minimize surface oxidation between blasting and coating." },
+      ],
+    },
+    "steel-gates": {
+      title: "Steel Gates & Railings Shot Blasting",
+      tagline: "Precision Restoration for Commercial & Industrial Gates",
+      description: "Our steel gates and railings shot blasting service provides comprehensive restoration for commercial and industrial entrance gates, perimeter railings, and decorative metalwork. We remove rust, old pa",
+      steps: [
+        { title: "Site Survey & Access Assessment", description: "Comprehensive evaluation of gate condition, access requirements, and surrounding area protection needs." },
+        { title: "Area Protection & Masking", description: "Installation of containment systems and protective sheeting to safeguard brick pillars, walls, and surrounding areas." },
+        { title: "Controlled Shot Blasting", description: "Systematic removal of all coatings, rust, and corrosion using carefully selected media and pressure settings." },
+        { title: "Detail Cleaning", description: "Meticulous cleaning of ornate scrollwork, finials, and decorative elements to preserve intricate features." },
+      ],
+      applications: ["Commercial property entrance gates", "Industrial site security gates", "Decorative perimeter railings", "Ornate heritage gates", "Automated sliding and swing gates", "Pedestrian access gates"],
+      faqs: [
+        { q: "Can you work on gates without removing them?", a: "Yes, we can shot blast gates in situ in most cases. We use containment systems and protective sheeting to prevent damage to surrounding areas. For complex restorations or gates with severe structural issues, removal may " },
+        { q: "Will shot blasting damage ornate details?", a: "No, our technicians are trained in working with decorative metalwork. We adjust blast pressure and media selection to safely clean intricate details without causing damage. Shot blasting actually reveals fine details tha" },
+        { q: "How long does gate restoration take?", a: "Typical entrance gates can be shot blasted in 1-2 days depending on size and complexity. Large ornate gates or multiple gate sets may require longer. We work efficiently to minimize security disruption and can coordinate" },
+        { q: "What coating should I apply after shot blasting?", a: "We recommend hot-dip galvanizing for maximum longevity, powder coating for decorative finishes, or high-quality metal paint systems. The choice depends on your aesthetic preferences, budget, and exposure conditions. We c" },
+      ],
+    },
+    "plant-machinery": {
+      title: "Plant & Machinery Shot Blasting",
+      tagline: "On-Site Shot Blasting for Construction & Agricultural Equipment",
+      description: "Our mobile plant and machinery shot blasting service brings professional surface preparation directly to your site. We specialize in restoring construction equipment, agricultural machinery, and indus",
+      steps: [
+        { title: "Site Assessment", description: "Our team visits your location to assess the machinery, determine blast media requirements, and plan containment setup to" },
+        { title: "Equipment Preparation", description: "We protect sensitive components like hydraulics, electronics, and bearings. Critical areas are masked to ensure only int" },
+        { title: "Containment Setup", description: "Professional containment systems are deployed to capture blast media and debris, ensuring waste management and site clea" },
+        { title: "Shot Blasting", description: "Using appropriate blast media for the equipment type, we systematically remove rust, paint, and corrosion from all acces" },
+      ],
+      applications: ["Excavators and diggers", "Bulldozers and loaders", "Cranes and lifting equipment", "Agricultural tractors", "Combine harvesters", "Industrial compressors"],
+      faqs: [
+        { q: "Can you shot blast machinery on-site without moving it?", a: "Yes, our mobile shot blasting service is specifically designed to work on-site. We bring all necessary equipment, containment systems, and blast media to your location, eliminating the need for expensive transportation a" },
+        { q: "What types of plant and machinery can you shot blast?", a: "We can shot blast virtually any construction or agricultural equipment including excavators, bulldozers, loaders, cranes, tractors, harvesters, compressors, generators, and more. Our mobile setup adapts to equipment of a" },
+        { q: "How do you protect sensitive components during blasting?", a: "Before blasting begins, our experienced team carefully masks and protects all sensitive components including hydraulic systems, electrical components, bearings, seals, and glass. We use specialized protective materials a" },
+        { q: "Will shot blasting damage my equipment?", a: "No, when performed by experienced professionals using appropriate blast media and pressure settings, shot blasting is completely safe for machinery. We select media types and blast parameters specifically for each equipm" },
+      ],
+    },
+  };
+
+  const d = serviceData[serviceId];
+  if (!d) return "";
+
+  const stepsHtml = d.steps.map((s, i) => `
+    <div class="ssr-step">
+      <h3>${i+1}. ${escHtml(s.title)}</h3>
+      <p>${escHtml(s.description)}</p>
+    </div>`).join("");
+
+  const appsHtml = d.applications.map(a => `<li>${escHtml(a)}</li>`).join("");
+
+  const faqsHtml = d.faqs.map(f => `
+    <div class="ssr-faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">${escHtml(f.q)}</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">${escHtml(f.a)}</p>
+      </div>
+    </div>`).join("");
+
+  return `
+<div id="ssr-service-content" aria-hidden="true" style="position:absolute;left:-9999px;top:0;width:1px;height:1px;overflow:hidden;" itemscope itemtype="https://schema.org/Service">
+  <nav aria-label="Breadcrumb"><ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"/></li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}/services"><span itemprop="name">Services</span></a><meta itemprop="position" content="2"/></li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">${escHtml(d.title)}</span><meta itemprop="position" content="3"/></li>
+  </ol></nav>
+  <h1 itemprop="name">${escHtml(d.title)}</h1>
+  <p itemprop="description">${escHtml(d.tagline)}</p>
+  <p>${escHtml(d.description)}</p>
+  <section class="ssr-process"><h2>Our Process</h2>${stepsHtml}</section>
+  <section class="ssr-applications"><h2>Applications</h2><ul>${appsHtml}</ul></section>
+  <section class="ssr-faqs" itemscope itemtype="https://schema.org/FAQPage"><h2>Frequently Asked Questions</h2>${faqsHtml}</section>
+  <section class="ssr-contact">
+    <h2>Get a Free Quote for ${escHtml(d.title)}</h2>
+    <p>Contact Commercial Shot Blasting for professional ${escHtml(d.title.toLowerCase())} services across the UK.</p>
+    <p>Phone: <a href="tel:${PHONE}">${PHONE}</a></p>
+    <p>Email: <a href="mailto:${EMAIL}">${EMAIL}</a></p>
+  </section>
+</div>`;
+}
+
 /**
  * Generate comprehensive JSON-LD schemas for service pages
  */
@@ -1796,11 +2162,19 @@ export function injectMetaTags(html: string, url: string): string {
     ${generateServiceSchemas(serviceId)}
   `;
       modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
+      // Inject SSR body HTML for crawlers
+      const serviceBodyHtml = generateServiceBodyHTML(serviceId);
+      if (serviceBodyHtml) {
+        if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
+          modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', serviceBodyHtml);
+        } else {
+          modifiedHtml = modifiedHtml.replace(/<body[^>]*>/, (match) => `${match}\n${serviceBodyHtml}`);
+        }
+      }
       return modifiedHtml;
     }
   }
-
-  // Check if this is a service area page
+  // Check if this is a service area pagee
   const serviceAreaMatch = url.match(/\/service-areas\/([a-z-]+)/);
   
   if (!serviceAreaMatch) {
