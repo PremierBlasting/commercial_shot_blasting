@@ -65,6 +65,16 @@ export function serveStatic(app: Express) {
     process.env.NODE_ENV === "development"
       ? path.resolve(__dirname_vite, "../..", "dist", "public")
       : path.resolve(__dirname_vite, "public");
+  console.log(`[SSR] __dirname_vite: ${__dirname_vite}`);
+  console.log(`[SSR] distPath: ${distPath}`);
+  console.log(`[SSR] distPath exists: ${fs.existsSync(distPath)}`);
+  const indexHtmlPath = path.resolve(distPath, 'index.html');
+  console.log(`[SSR] index.html exists: ${fs.existsSync(indexHtmlPath)}`);
+  if (fs.existsSync(indexHtmlPath)) {
+    const sample = fs.readFileSync(indexHtmlPath, 'utf-8');
+    console.log(`[SSR] index.html has SSR_CONTENT: ${sample.includes('<!--SSR_CONTENT-->')}`);
+    console.log(`[SSR] index.html length: ${sample.length}`);
+  }
   if (!fs.existsSync(distPath)) {
     console.error(
       `Could not find the build directory: ${distPath}, make sure to build the client first`
