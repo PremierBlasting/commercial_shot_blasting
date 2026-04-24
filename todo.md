@@ -100,3 +100,4 @@
 - [x] Add server-side HTML body injection to service area pages (SSR content for crawlers: h1, h2, h3, FAQ microdata, breadcrumb, services list, contact)
 - [x] Add SSR body HTML injection to all 18 service pages (/services/:id) in metaTags.ts
 - [x] Pre-render all 638 service area pages into static HTML files at build time with full body content
+- [x] Write pre-rendered pages as extensionless files for clean URL matching on static hosting

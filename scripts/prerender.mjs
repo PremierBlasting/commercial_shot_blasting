@@ -382,8 +382,11 @@ let errorCount = 0;
 for (const location of locations) {
   try {
     const locationHtml = injectMetaTags(baseHtml, location);
-    const outputPath = path.join(serviceAreasDir, `${location.slug}.html`);
-    
+    // Write as .html for direct access
+    const outputPathHtml = path.join(serviceAreasDir, `${location.slug}.html`);
+    fs.writeFileSync(outputPathHtml, locationHtml, 'utf-8');
+    // Also write as extensionless file so static server matches /service-areas/nottingham directly
+    const outputPath = path.join(serviceAreasDir, location.slug);
     fs.writeFileSync(outputPath, locationHtml, 'utf-8');
     successCount++;
     
