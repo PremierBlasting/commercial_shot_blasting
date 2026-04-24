@@ -23,10 +23,9 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
-// Read the base HTML template from client/index.html
-// We use the source template, not the built dist, so we don't write to dist/public
-// (which would cause express.static to serve them and bypass server-side schema injection)
-const indexHtmlPath = path.join(projectRoot, 'client/index.html');
+// Read the base HTML template from the BUILT dist/public/index.html
+// Pre-rendered files go to dist/public/service-areas/ — served directly by express.static
+const indexHtmlPath = path.join(projectRoot, 'dist/public/index.html');
 if (!fs.existsSync(indexHtmlPath)) {
   console.error('❌ Error: client/index.html not found.');
   process.exit(1);
@@ -43,17 +42,12 @@ if (!fs.existsSync(locationsJsonPath)) {
 const locations = JSON.parse(fs.readFileSync(locationsJsonPath, 'utf-8'));
 console.log(`📄 Found ${locations.length} locations to pre-render`);
 
-// NOTE: We no longer write pre-rendered HTML to dist/public/service-areas/
-// because express.static would serve those files and bypass the server-side
-// injectMetaTags() function that injects all JSON-LD schemas.
-// Schemas are now injected server-side at request time via server/metaTags.ts
-
-// Keep client/public/service-areas for reference only (not served in production)
-const serviceAreasDir = path.join(projectRoot, 'client/public/service-areas');
+// Write pre-rendered HTML files to dist/public/service-areas/
+// express.static serves these directly — full HTML, no runtime processing needed.
+const serviceAreasDir = path.join(projectRoot, 'dist/public/service-areas');
 if (!fs.existsSync(serviceAreasDir)) {
   fs.mkdirSync(serviceAreasDir, { recursive: true });
 }
-const clientPublicServiceAreasDir = serviceAreasDir;
 
 // Constants
 const SITE_URL = 'https://commercialshotblasting.co.uk';
@@ -80,7 +74,7 @@ const locCoords = {
 /**
  * Generate JSON-LD schemas for a location page
  */
-function generateSchemas(slug, name, url) {
+function generateSchemas(slug, name, url, county, region, faqs) {
   const coords = locCoords[slug];
   const lat = coords ? coords[0] : null;
   const lng = coords ? coords[1] : null;
@@ -100,11 +94,15 @@ function generateSchemas(slug, name, url) {
     "priceRange": "££",
     "currenciesAccepted": "GBP",
     "paymentAccepted": "Cash, Credit Card, Bank Transfer, Invoice",
-    "description": `Professional mobile shot blasting services in ${name} and surrounding areas. We provide specialist surface preparation for structural steel, containers, cladding, fire escapes, and all industrial metalwork.`,
+    "description": `Professional mobile shot blasting services in ${name}${county ? `, ${county}` : ''} and surrounding areas. We provide specialist surface preparation for structural steel, containers, cladding, fire escapes, and all industrial metalwork.`,
     "slogan": `Professional Mobile Shot Blasting Services in ${name}`,
-    "address": { "@type": "PostalAddress", "addressLocality": name, "addressCountry": "GB" },
+    "address": { "@type": "PostalAddress", "addressLocality": name, ...(county ? { "addressRegion": county } : {}), "addressCountry": "GB" },
     ...(lat && lng ? { "geo": { "@type": "GeoCoordinates", "latitude": lat, "longitude": lng } } : {}),
-    "areaServed": { "@type": "City", "name": name },
+    "areaServed": [
+      { "@type": "City", "name": name },
+      ...(county ? [{ "@type": "AdministrativeArea", "name": county }] : []),
+      ...(region && region !== county ? [{ "@type": "AdministrativeArea", "name": region }] : []),
+    ],
     "openingHoursSpecification": [
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" },
       { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "14:00" }
@@ -280,51 +278,99 @@ function generateSchemas(slug, name, url) {
 }
 
 /**
- * Inject meta tags, canonical URL, and JSON-LD into HTML
+ * Escape HTML special characters
+ */
+function esc(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+/**
+ * Generate full visible body HTML for a location page
+ * This is what Google reads — all the content visible on the page before JS executes
+ */
+function generateBodyHTML(location) {
+  const { slug, name, county, region, description, faqs } = location;
+  const url = `${SITE_URL}/service-areas/${slug}`;
+  const countyLine = county ? `, ${esc(county)}` : '';
+  const regionLine = esc(region || 'the UK');
+
+  const servicesHtml = [
+    ['Structural Steel Frames', `Shot blasting for steel frames, beams, and structures in ${esc(name)}.`],
+    ['Shipping Containers', `Full interior and exterior blasting for containers in ${esc(name)}.`],
+    ['Factory Cladding', `Plastisol and paint removal from factory cladding panels in ${esc(name)}.`],
+    ['Concrete Floors', `Industrial floor preparation for coatings and screeds in ${esc(name)}.`],
+    ['Fire Escapes', `Rust removal and surface preparation for fire escape steelwork in ${esc(name)}.`],
+    ['Plant &amp; Machinery', `Mobile blasting for plant, machinery, and agricultural equipment.`],
+    ['Pipework &amp; Steelwork', `Blasting for pipework, fabrications, and general steelwork.`],
+    ['Agricultural Equipment', `Specialist blasting for farm machinery and equipment.`],
+  ].map(([t, d]) => `<div itemscope itemtype="https://schema.org/Service"><h3 itemprop="name">${t}</h3><p itemprop="description">${d}</p></div>`).join('');
+
+  const faqList = (faqs && faqs.length > 0) ? faqs : [
+    { question: `Do you provide shot blasting services in ${name}?`, answer: `Yes, we provide comprehensive mobile shot blasting services throughout ${name}${countyLine} and the surrounding area.` },
+    { question: `How much does shot blasting cost in ${name}?`, answer: `Costs depend on project size, surface type, and accessibility. We provide free, no-obligation quotes. Call ${PHONE} for a quick estimate.` },
+    { question: `What services do you offer in ${name}?`, answer: `We offer structural steel, containers, cladding, fire escapes, floor preparation, pipework, plant and machinery blasting in ${name}.` },
+    { question: `How quickly can you start in ${name}?`, answer: `We typically provide quotes within 24 hours and can be on-site in ${name} within 2-5 working days.` },
+  ];
+  const faqsHtml = faqList.map(faq => `<div itemscope itemtype="https://schema.org/Question"><h3 itemprop="name">${esc(faq.question)}</h3><div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer"><p itemprop="text">${esc(faq.answer)}</p></div></div>`).join('');
+
+  return `<div id="ssr-location-content" itemscope itemtype="https://schema.org/WebPage" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;"><nav aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><ol><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}/service-areas"><span itemprop="name">Service Areas</span></a><meta itemprop="position" content="2"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${url}"><span itemprop="name">${esc(name)}</span></a><meta itemprop="position" content="3"/></li></ol></nav><article itemscope itemtype="https://schema.org/LocalBusiness"><h1 itemprop="name">Shot Blasting Services in ${esc(name)}${countyLine}</h1><p itemprop="description">${esc(description || `Professional mobile shot blasting services in ${name}${countyLine}. Rust removal, surface preparation, and industrial cleaning.`)}</p><div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="addressLocality">${esc(name)}</span>${county ? `<span itemprop="addressRegion">${esc(county)}</span>` : ''}<span itemprop="addressCountry">GB</span></div><span itemprop="telephone">${PHONE}</span><span itemprop="email">${EMAIL}</span><section><h2>Why Choose Commercial Shot Blasting in ${esc(name)}?</h2><p>We are specialists in mobile shot blasting, serving ${esc(name)}${countyLine} and the wider ${regionLine} region. Our fully equipped mobile units travel directly to your site.</p><ul><li>Mobile units come to your site in ${esc(name)} — no transport costs</li><li>Experienced team with 10+ years in industrial surface preparation</li><li>All work carried out to BS EN ISO 8501-1 standards</li><li>Free, no-obligation site surveys and quotations</li><li>Same-day response available for urgent projects</li></ul></section><section><h2>Our Shot Blasting Services in ${esc(name)}</h2><div itemscope itemtype="https://schema.org/ItemList">${servicesHtml}</div></section><section itemscope itemtype="https://schema.org/FAQPage"><h2>Frequently Asked Questions — Shot Blasting in ${esc(name)}</h2>${faqsHtml}</section><section><h2>Get a Free Quote for Shot Blasting in ${esc(name)}</h2><p>Contact our team for a free, no-obligation quotation covering ${esc(name)}${countyLine} and all surrounding areas.</p><p>Call <a href="tel:${PHONE.replace(/\s/g,'')}">${PHONE}</a> or email <a href="mailto:${EMAIL}">${EMAIL}</a>.</p><a href="${SITE_URL}/contact">Request a Free Quote</a></section></article></div>`;
+}
+
+/**
+ * Inject meta tags, canonical URL, JSON-LD, and full body HTML into the base template
  */
 function injectMetaTags(html, location) {
-  const title = `Shot Blasting ${location.name} | Industrial Services`;
-  const description = `Shot Blasting ${location.name} - Local experts in rust removal & industrial cleaning. Same-day response available. Call 07970 566409`;
-  const url = `${SITE_URL}/service-areas/${location.slug}`;
+  const { slug, name, county, region, description, faqs } = location;
+  const title = `Shot Blasting ${name}${county ? `, ${county}` : ''} | ${BUSINESS_NAME}`;
+  const metaDesc = description || `Shot Blasting ${name} - Local experts in rust removal & industrial cleaning. Same-day response available. Call ${PHONE}`;
+  const url = `${SITE_URL}/service-areas/${slug}`;
   const image = HERO_IMAGE;
 
-  // Remove existing meta tags for a clean slate
+  // Remove existing head elements for a clean slate
+  html = html.replace(/<title>.*?<\/title>/gi, '');
   html = html.replace(/<meta\s+name="description"[^>]*>/gi, '');
   html = html.replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '');
   html = html.replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '');
   html = html.replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '');
-  // Remove any existing canonical tags
   html = html.replace(/<link\s+rel="canonical"[^>]*>/gi, '');
-  // Remove any existing JSON-LD script tags
   html = html.replace(/<script\s+type="application\/ld\+json">[\s\S]*?<\/script>/gi, '');
-  // Remove jsonld-inject.js - schemas are now inlined directly, no need for client-side injection
   html = html.replace(/<script\s+src="\/jsonld-inject\.js"><\/script>/gi, '');
+  html = html.replace(/<script\s+src="\/schema-bootstrap\.js"[^>]*><\/script>/gi, '');
+  html = html.replace(/<script\s+src="\/schema-service\.js"[^>]*><\/script>/gi, '');
 
-  const jsonLd = generateSchemas(location.slug, location.name, url);
+  const jsonLd = generateSchemas(slug, name, url, county, region, faqs);
 
-  const metaTags = `<title>${title}</title>
+  const headTags = `<title>${esc(title)}</title>
     <link rel="canonical" href="${url}" />
     <link rel="alternate" hreflang="en-gb" href="${url}" />
     <link rel="alternate" hreflang="en" href="${url}" />
     <link rel="alternate" hreflang="x-default" href="${url}" />
-    <meta name="description" content="${description}" />
+    <meta name="description" content="${esc(metaDesc)}" />
     <meta name="geo.region" content="GB" />
-    <meta name="geo.placename" content="${location.name}" />
+    <meta name="geo.placename" content="${esc(name)}" />
     <meta name="language" content="en-GB" />
-    <meta property="og:title" content="${title}" />
-    <meta property="og:description" content="${description}" />
+    <meta property="og:title" content="${esc(title)}" />
+    <meta property="og:description" content="${esc(metaDesc)}" />
     <meta property="og:url" content="${url}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${image}" />
     <meta property="og:locale" content="en_GB" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${title}" />
-    <meta name="twitter:description" content="${description}" />
+    <meta name="twitter:title" content="${esc(title)}" />
+    <meta name="twitter:description" content="${esc(metaDesc)}" />
     <meta name="twitter:image" content="${image}" />
     ${jsonLd}`;
 
-  // Replace the title tag with all meta tags and JSON-LD
-  html = html.replace(/<title>.*?<\/title>/, metaTags);
+  // Insert head tags before </head>
+  html = html.replace('</head>', `${headTags}\n</head>`);
+
+  // Insert full body HTML — replace SSR_CONTENT placeholder or insert before root div
+  const bodyHtml = generateBodyHTML(location);
+  if (html.includes('<!--SSR_CONTENT-->')) {
+    html = html.replace('<!--SSR_CONTENT-->', bodyHtml);
+  } else {
+    html = html.replace('<div id="root">', `${bodyHtml}\n  <div id="root">`);
+  }
 
   return html;
 }
