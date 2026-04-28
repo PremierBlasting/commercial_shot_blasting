@@ -52,7 +52,7 @@ export default function ServiceDetail() {
         <div className="container">
           <Breadcrumb items={[
             { label: "Home", href: "/" },
-            { label: "Services", href: "/#services" },
+            { label: "Services", href: "/services" },
             { label: service.title, href: `/services/${service.id}`, isCurrentPage: true }
           ]} />
         </div>
@@ -60,6 +60,16 @@ export default function ServiceDetail() {
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white py-16 lg:py-24">
+        {/* Hidden LCP preload image — tells browser to fetch hero image at highest priority */}
+        <img
+          src={service.heroImage}
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          className="absolute w-0 h-0 overflow-hidden opacity-0 pointer-events-none"
+        />
         <div className="absolute inset-0 bg-black/30" style={{
           backgroundImage: `url(${service.heroImage})`,
           backgroundSize: 'cover',
@@ -67,7 +77,7 @@ export default function ServiceDetail() {
           backgroundBlendMode: 'overlay'
         }} />
         <div className="container relative z-10">
-          <Link href="/#services" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-4 transition">
+          <Link href="/services" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-4 transition">
             <ArrowLeft className="w-4 h-4" />
             Back to Services
           </Link>
@@ -1176,26 +1186,35 @@ export default function ServiceDetail() {
               )}
 
               {/* FAQs */}
-              <div>
+              <div itemScope itemType="https://schema.org/FAQPage">
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Frequently Asked Questions
                 </h2>
                 <div className="space-y-3">
                   {service.faqs.map((faq, index) => (
-                    <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden" itemScope itemType="https://schema.org/Question">
                       <button
+                        type="button"
+                        aria-expanded={expandedFaq === index}
+                        aria-controls={`faq-answer-${index}`}
                         className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition"
                         onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
                       >
-                        <span className="font-semibold text-[#2C5F7F]">{faq.question}</span>
+                        <span className="font-semibold text-[#2C5F7F]" itemProp="name">{faq.question}</span>
                         {expandedFaq === index ? (
-                          <ChevronUp className="w-5 h-5 text-[#2C5F7F]" />
+                          <ChevronUp className="w-5 h-5 text-[#2C5F7F]" aria-hidden="true" />
                         ) : (
-                          <ChevronDown className="w-5 h-5 text-[#2C5F7F]" />
+                          <ChevronDown className="w-5 h-5 text-[#2C5F7F]" aria-hidden="true" />
                         )}
                       </button>
-                      <div className={`overflow-hidden transition-all duration-300 ${expandedFaq === index ? 'max-h-96' : 'max-h-0'}`}>
-                        <p className="px-6 pb-4 text-gray-600">{faq.answer}</p>
+                      <div
+                        id={`faq-answer-${index}`}
+                        role="region"
+                        aria-labelledby={`faq-btn-${index}`}
+                        className={`overflow-hidden transition-all duration-300 ${expandedFaq === index ? 'max-h-96' : 'max-h-0'}`}
+                        itemScope itemType="https://schema.org/Answer"
+                      >
+                        <p className="px-6 pb-4 text-gray-600" itemProp="text">{faq.answer}</p>
                       </div>
                     </div>
                   ))}

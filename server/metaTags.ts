@@ -2149,6 +2149,7 @@ export function injectMetaTags(html: string, url: string): string {
 
       const metaTags = `
     <title>${svc.title} | ${BUSINESS_NAME}</title>
+    <link rel="preload" as="image" href="${svc.heroImage}" />
     <link rel="canonical" href="${pageUrl}" />
     <meta name="description" content="${svc.description.replace(/"/g, '&quot;')}" />
     <meta property="og:title" content="${svc.title} | ${BUSINESS_NAME}" />
@@ -2156,6 +2157,10 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:url" content="${pageUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${svc.heroImage}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${svc.title} | ${BUSINESS_NAME}" />
     <meta name="twitter:description" content="${svc.description.replace(/"/g, '&quot;')}" />

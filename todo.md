@@ -117,3 +117,9 @@
 - [x] Add Browse by County link to mobile navigation drawer
 - [x] Add Browse other counties section to county detail pages
 - [x] Add /counties and /industries hub URLs to sitemap-main.xml
+- [x] Item 1: Fix breadcrumb /#services → /services in ServiceDetail.tsx and metaTags.ts
+- [x] Item 2: Add og:image:width, og:image:height, og:locale to service meta tags in metaTags.ts
+- [x] Item 3: Add fetchpriority hero image preload in ServiceDetail.tsx and metaTags.ts
+- [x] Item 4: Add aria-expanded/aria-controls/type=button to FAQ accordion in ServiceDetail.tsx
+- [x] Item 7: Add preconnect for files.manuscdn.com to index.html
+- [x] Item 9: Add itemscope/itemtype microdata to visible FAQ accordion in ServiceDetail.tsx
