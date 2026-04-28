@@ -2067,6 +2067,10 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:url" content="${SITE_URL}/" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${LOGO}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${BUSINESS_NAME} | Professional Shot Blasting Services UK" />
     <meta name="twitter:description" content="Professional mobile shot blasting services for commercial and industrial applications across the UK. Specialists in rust removal, surface preparation, and industrial cleaning." />
@@ -2095,6 +2099,10 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:url" content="${servicesUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${LOGO}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Shot Blasting Services | ${BUSINESS_NAME}" />
     <meta name="twitter:description" content="Browse all 18 professional shot blasting services by Commercial Shot Blasting — structural steel, containers, cladding, floor preparation, powder coating and more. UK-wide mobile service." />
@@ -2123,6 +2131,10 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:url" content="${serviceAreasUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${LOGO}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Shot Blasting Service Areas | ${BUSINESS_NAME}" />
     <meta name="twitter:description" content="Commercial Shot Blasting provides professional mobile shot blasting services across the UK. Browse our service areas covering the Midlands, North West, Yorkshire, South West, Wales, and more." />
@@ -2379,6 +2391,11 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:description" content="Shot Blasting ${locationName} - Professional rust removal & surface preparation. Expert commercial blasting. Call ${PHONE}" />
     <meta property="og:url" content="${fullUrl}" />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="${HERO_IMAGE}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Shot Blasting ${locationName} | Industrial Services" />
     <meta name="twitter:description" content="Shot Blasting ${locationName} - Professional rust removal & surface preparation. Expert commercial blasting. Call ${PHONE}" />
@@ -2426,6 +2443,11 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:description" content="${meta.description}" />
     <meta property="og:url" content="${meta.url}" />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="${HERO_IMAGE}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${meta.title}" />
     <meta name="twitter:description" content="${meta.description}" />

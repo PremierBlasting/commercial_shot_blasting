@@ -128,3 +128,5 @@
 - [x] Item 8: Replace Google Fonts CDN with @fontsource self-hosted fonts
 - [x] Item 10: Replace sidebar service text list with Related Services card grid
 - [x] Apply og:image:width/height and og:locale to county and industry meta tag handlers
+- [x] Add Related Services card grid to service area town pages
+- [x] Add full og:image:width/height/locale/site_name to homepage and service area meta tag handlers

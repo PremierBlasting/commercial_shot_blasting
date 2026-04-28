@@ -15,6 +15,7 @@ import { trackPhoneCall } from "@/lib/analytics";
 import { FAQSchema, generateLocationFAQs } from "@/components/FAQSchema";
 
 import { LocationData } from '@shared/locationData';
+import { services } from '@/data/services';
 export type { LocationData };
 
 interface LocationPageProps {
@@ -302,6 +303,48 @@ export function LocationPage({ location }: LocationPageProps) {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="py-14 bg-white">
+        <div className="container">
+          <div className="text-center mb-8">
+            <p className="text-[#2C5F7F] font-medium mb-2">What We Offer</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Our Shot Blasting Services in {location.name}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {services.slice(0, 8).map((s) => (
+              <Link
+                key={s.id}
+                href={`/services/${s.id}`}
+                className="group flex gap-3 bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-shadow border border-gray-100"
+              >
+                <div className="w-16 flex-shrink-0 overflow-hidden">
+                  <img
+                    src={s.heroImage}
+                    alt={s.title}
+                    width="64"
+                    height="64"
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="flex flex-col justify-center py-3 pr-3 min-w-0">
+                  <span className="font-semibold text-[#2C5F7F] text-sm leading-tight group-hover:underline">{s.shortTitle}</span>
+                  <span className="text-xs text-gray-500 mt-0.5 line-clamp-2">{s.tagline.split(' ').slice(0, 5).join(' ')}…</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-6">
+            <Link href="/services" className="inline-flex items-center gap-2 text-sm text-[#2C5F7F] font-medium hover:underline">
+              <ArrowRight className="w-4 h-4" />
+              View all 18 services
+            </Link>
           </div>
         </div>
       </section>
