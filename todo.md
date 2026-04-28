@@ -103,3 +103,6 @@
 - [x] Write pre-rendered pages as extensionless files for clean URL matching on static hosting
 - [x] Pre-render all 25 county pages as static HTML files (extensionless + .html) at build time
 - [x] Pre-render all 8 industry pages as static HTML files (extensionless + .html) at build time
+- [x] Update sitemap generator to include all 25 county and 8 industry URLs
+- [x] Add server-side meta tag + JSON-LD + SSR body injection for /counties/:slug in metaTags.ts
+- [x] Add server-side meta tag + JSON-LD + SSR body injection for /industries/:slug in metaTags.ts
