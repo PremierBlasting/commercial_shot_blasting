@@ -114,3 +114,6 @@
 - [x] Add region filter tabs to /counties hub page
 - [x] Add Counties section to /service-areas page
 - [x] Add /counties and /industries links to main navigation header
+- [x] Add Browse by County link to mobile navigation drawer
+- [x] Add Browse other counties section to county detail pages
+- [x] Add /counties and /industries hub URLs to sitemap-main.xml

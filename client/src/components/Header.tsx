@@ -1112,7 +1112,16 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                 <Link href="/industries/aerospace" className="block py-2 px-3 text-white/80 hover:text-white hover:bg-white/10 rounded transition text-sm" onClick={closeMobileMenu}>Aerospace</Link>
                 <Link href="/industries/marine" className="block py-2 px-3 text-white/80 hover:text-white hover:bg-white/10 rounded transition text-sm" onClick={closeMobileMenu}>Marine</Link>
                 <Link href="/industries/agriculture" className="block py-2 px-3 text-white/80 hover:text-white hover:bg-white/10 rounded transition text-sm" onClick={closeMobileMenu}>Agriculture</Link>
+                <Link href="/industries/transport-logistics" className="block py-2 px-3 text-white/80 hover:text-white hover:bg-white/10 rounded transition text-sm" onClick={closeMobileMenu}>Transport & Logistics</Link>
+                <Link href="/industries/heritage-restoration" className="block py-2 px-3 text-white/80 hover:text-white hover:bg-white/10 rounded transition text-sm" onClick={closeMobileMenu}>Heritage & Restoration</Link>
               </div>
+              <Link
+                href="/industries"
+                className="block mt-2 py-2 px-3 text-center bg-white/10 text-white hover:bg-white/20 rounded-lg transition text-sm font-medium"
+                onClick={closeMobileMenu}
+              >
+                View All Industries →
+              </Link>
             </div>
             
             <Link href="/preparation-cleanup" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Preparation & Cleanup</Link>
@@ -1179,14 +1188,23 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                 )}
               </div>
               
-              {/* View All Link */}
-              <Link
-                href="/service-areas"
-                className="block mt-3 py-2 px-3 text-center bg-white/10 text-white hover:bg-white/20 rounded-lg transition text-sm font-medium"
-                onClick={closeMobileMenu}
-              >
-                View All 102 Service Areas →
-              </Link>
+              {/* View All Links */}
+              <div className="mt-3 flex flex-col gap-2">
+                <Link
+                  href="/service-areas"
+                  className="block py-2 px-3 text-center bg-white/10 text-white hover:bg-white/20 rounded-lg transition text-sm font-medium"
+                  onClick={closeMobileMenu}
+                >
+                  View All 102 Service Areas →
+                </Link>
+                <Link
+                  href="/counties"
+                  className="block py-2 px-3 text-center border border-white/30 text-white hover:bg-white/10 rounded-lg transition text-sm font-medium"
+                  onClick={closeMobileMenu}
+                >
+                  Browse by County →
+                </Link>
+              </div>
             </div>
             
             <a href="/about" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">About</a>
