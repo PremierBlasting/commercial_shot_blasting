@@ -642,12 +642,13 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
       "cssSelector": ["h1", ".hero-description", ".service-description"]
     },
     "inLanguage": "en-GB",
+    "datePublished": "2024-01-01",
+    "dateModified": new Date().toISOString().split('T')[0],
     "potentialAction": [
       { "@type": "ReadAction", "target": [url] }
     ]
   });
-
-  // 14. ItemList Schema (services offered at this location)
+  // 14. ItemList Schemaa (services offered at this location)
   schemas.push({
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -2075,6 +2076,7 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:title" content="${BUSINESS_NAME} | Professional Shot Blasting Services UK" />
     <meta name="twitter:description" content="Professional mobile shot blasting services for commercial and industrial applications across the UK. Specialists in rust removal, surface preparation, and industrial cleaning." />
     <meta name="twitter:image" content="${LOGO}" />
+    <meta name="twitter:image:alt" content="Commercial Shot Blasting — professional mobile shot blasting services across the UK" />
     ${generateHomepageSchemas()}
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, homeMetaTags);
@@ -2107,6 +2109,7 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:title" content="Shot Blasting Services | ${BUSINESS_NAME}" />
     <meta name="twitter:description" content="Browse all 18 professional shot blasting services by Commercial Shot Blasting — structural steel, containers, cladding, floor preparation, powder coating and more. UK-wide mobile service." />
     <meta name="twitter:image" content="${LOGO}" />
+    <meta name="twitter:image:alt" content="Browse all professional shot blasting services by Commercial Shot Blasting" />
     ${generateServicesIndexSchemas()}
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
@@ -2139,6 +2142,7 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:title" content="Shot Blasting Service Areas | ${BUSINESS_NAME}" />
     <meta name="twitter:description" content="Commercial Shot Blasting provides professional mobile shot blasting services across the UK. Browse our service areas covering the Midlands, North West, Yorkshire, South West, Wales, and more." />
     <meta name="twitter:image" content="${LOGO}" />
+    <meta name="twitter:image:alt" content="Commercial Shot Blasting service areas across the UK Midlands, North West, Yorkshire and more" />
     ${generateServiceAreasIndexSchemas()}
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, areaMetaTags);
@@ -2177,6 +2181,7 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:title" content="${svc.title} | ${BUSINESS_NAME}" />
     <meta name="twitter:description" content="${svc.description.replace(/"/g, '&quot;')}" />
     <meta name="twitter:image" content="${svc.heroImage}" />
+    <meta name="twitter:image:alt" content="${svc.title} — professional shot blasting service by Commercial Shot Blasting" />
     ${generateServiceSchemas(serviceId)}
   `;
       modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
@@ -2285,6 +2290,7 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:title" content="${pageTitle}" />
     <meta name="twitter:description" content="${metaDesc}" />
     <meta name="twitter:image" content="${HERO_IMAGE}" />
+    <meta name="twitter:image:alt" content="Shot blasting services in ${county.name} — rust removal and surface preparation by Commercial Shot Blasting" />
     ${schemas}
   `;
       modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
@@ -2348,6 +2354,7 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:title" content="${pageTitle}" />
     <meta name="twitter:description" content="${metaDesc}" />
     <meta name="twitter:image" content="${HERO_IMAGE}" />
+    <meta name="twitter:image:alt" content="Shot blasting for the ${industry.name} industry — professional surface preparation by Commercial Shot Blasting" />
     ${schemas}
   `;
       modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
@@ -2399,6 +2406,9 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Shot Blasting ${locationName} | Industrial Services" />
     <meta name="twitter:description" content="Shot Blasting ${locationName} - Professional rust removal & surface preparation. Expert commercial blasting. Call ${PHONE}" />
+    <meta name="twitter:image" content="${HERO_IMAGE}" />
+    <meta name="twitter:image:alt" content="Professional shot blasting services in ${locationName} — rust removal and surface preparation" />
+    <link rel="preload" as="image" href="${HERO_IMAGE}" />
     ${generateLocationSchemas(locationSlug, locationName, fullUrl)}
   `;
     
@@ -2451,6 +2461,9 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${meta.title}" />
     <meta name="twitter:description" content="${meta.description}" />
+    <meta name="twitter:image" content="${HERO_IMAGE}" />
+    <meta name="twitter:image:alt" content="Professional shot blasting services in ${locationName} — rust removal and surface preparation" />
+    <link rel="preload" as="image" href="${HERO_IMAGE}" />
     ${generateLocationSchemas(locationSlug, locationName, meta.url)}
   `;
   

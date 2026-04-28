@@ -130,3 +130,13 @@
 - [x] Apply og:image:width/height and og:locale to county and industry meta tag handlers
 - [x] Add Related Services card grid to service area town pages
 - [x] Add full og:image:width/height/locale/site_name to homepage and service area meta tag handlers
+- [x] Local area #1: Add twitter:image:alt to all meta tag handlers
+- [x] Local area #2: Add dateModified to location WebPage schema
+- [ ] Local area #3: Add VideoObject schema to location pages
+- [ ] Local area #4: Add SpeakableSpecification to location WebPage schema
+- [ ] Local area #5: Add aria-label to ServiceRadiusMap section
+- [ ] Local area #6: Convert nearby towns to internal anchor links
+- [ ] Local area #7: Add visible AggregateRating badge to location hero
+- [ ] Local area #8: Add hero image preload link for location pages
+- [ ] Local area #9: Add Industries We Serve section to location pages
+- [ ] Local area #10: Add sticky mobile Get a Quote bar to location pages
