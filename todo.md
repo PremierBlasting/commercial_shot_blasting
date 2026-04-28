@@ -123,3 +123,8 @@
 - [x] Item 4: Add aria-expanded/aria-controls/type=button to FAQ accordion in ServiceDetail.tsx
 - [x] Item 7: Add preconnect for files.manuscdn.com to index.html
 - [x] Item 9: Add itemscope/itemtype microdata to visible FAQ accordion in ServiceDetail.tsx
+- [x] Item 5: Add manualChunks to vite.config.ts to split vendor/ui/locationData bundles
+- [x] Item 6: Add explicit width/height to all gallery img tags in ServiceDetail.tsx
+- [x] Item 8: Replace Google Fonts CDN with @fontsource self-hosted fonts
+- [x] Item 10: Replace sidebar service text list with Related Services card grid
+- [x] Apply og:image:width/height and og:locale to county and industry meta tag handlers

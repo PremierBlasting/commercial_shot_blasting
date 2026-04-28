@@ -384,25 +384,25 @@ export default function ServiceDetail() {
                     <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">Before: Deteriorated Condition</h3>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nDiJIffDROFUfBYC.webp" alt="Warehouse exterior showing deteriorated cladding" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nDiJIffDROFUfBYC.webp" alt="Warehouse exterior showing deteriorated cladding" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="bg-gray-100 p-3">
                           <p className="text-sm text-gray-700">Warehouse exterior with severely deteriorated cladding panels</p>
                         </div>
                       </div>
                       <div className="overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/EJZMOUkXCoXpIjNL.webp" alt="Cladding showing multiple paint layers and rust" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/EJZMOUkXCoXpIjNL.webp" alt="Cladding showing multiple paint layers and rust" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="bg-gray-100 p-3">
                           <p className="text-sm text-gray-700">Multiple paint layers and plastisol coating failure</p>
                         </div>
                       </div>
                       <div className="overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ShAmhowZRxeobSpd.webp" alt="Close-up of deteriorated cladding panels" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ShAmhowZRxeobSpd.webp" alt="Close-up of deteriorated cladding panels" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="bg-gray-100 p-3">
                           <p className="text-sm text-gray-700">Close-up showing extent of coating deterioration</p>
                         </div>
                       </div>
                       <div className="overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/OLYVVNhYYTMNqZfx.webp" alt="Detailed view of peeling paint and rust" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/OLYVVNhYYTMNqZfx.webp" alt="Detailed view of peeling paint and rust" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="bg-gray-100 p-3">
                           <p className="text-sm text-gray-700">Peeling paint, rust, and surface contamination</p>
                         </div>
@@ -414,7 +414,7 @@ export default function ServiceDetail() {
                   <div>
                     <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">After: Complete Restoration</h3>
                     <div className="overflow-hidden rounded-lg shadow-xl">
-                      <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/KyCmngNuTocwBizZ.webp" alt="Fully restored warehouse cladding - clean bare metal" className="w-full h-96 object-cover" />
+                      <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/KyCmngNuTocwBizZ.webp" alt="Fully restored warehouse cladding - clean bare metal" className="w-full h-96 object-cover" width="800" height="384" />
                       <div className="bg-gradient-to-r from-green-50 to-blue-50 p-4">
                         <p className="text-lg font-semibold text-gray-800 mb-2">Transformation Complete</p>
                         <p className="text-gray-700">Clean, uniform bare metal surfaces ready for protective coating. All plastisol, paint layers, rust, and contaminants completely removed while preserving panel integrity.</p>
@@ -438,7 +438,7 @@ export default function ServiceDetail() {
                   <div className="mb-8">
                     <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">Before: Mill-Finished Condition</h3>
                     <div className="overflow-hidden rounded-lg shadow-xl">
-                      <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/kUmVTjjoKHDIHFAO.webp" alt="Structural steel frames before blasting - mill scale and surface contaminants" className="w-full h-96 object-cover" />
+                      <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/kUmVTjjoKHDIHFAO.webp" alt="Structural steel frames before blasting - mill scale and surface contaminants" className="w-full h-96 object-cover" width="800" height="384" />
                       <div className="bg-gray-100 p-4">
                         <p className="text-gray-700">Complex truss systems and frame members with mill scale, welding residue, and surface contaminants requiring complete removal for protective coating application.</p>
                       </div>
@@ -449,7 +449,7 @@ export default function ServiceDetail() {
                   <div className="mb-8">
                     <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">During: Shot Blasting in Progress</h3>
                     <div className="overflow-hidden rounded-lg shadow-xl">
-                      <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YizUCJQkPbbGxZaj.webp" alt="Shot blasting process on structural steel trusses" className="w-full h-96 object-cover" />
+                      <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YizUCJQkPbbGxZaj.webp" alt="Shot blasting process on structural steel trusses" className="w-full h-96 object-cover" width="800" height="384" />
                       <div className="bg-blue-50 p-4">
                         <p className="text-gray-700">Systematic shot blasting across the entire ceiling framework, removing all mill scale and contaminants from truss members, connection points, and hard-to-reach areas within the lattice structure.</p>
                       </div>
@@ -461,13 +461,13 @@ export default function ServiceDetail() {
                     <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">After: Complete Restoration</h3>
                     <div className="grid md:grid-cols-2 gap-4 mb-4">
                       <div className="overflow-hidden rounded-lg shadow-xl">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/dTdJurYnGVEyWpbY.webp" alt="Restored structural steel frames - clean bare metal" className="w-full h-80 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/dTdJurYnGVEyWpbY.webp" alt="Restored structural steel frames - clean bare metal" className="w-full h-80 object-cover" width="800" height="320" />
                         <div className="bg-gradient-to-r from-green-50 to-blue-50 p-3">
                           <p className="text-sm text-gray-700">Uniform clean bare metal surfaces across all truss members and frame sections</p>
                         </div>
                       </div>
                       <div className="overflow-hidden rounded-lg shadow-xl">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sfYytKimJALnaoJp.webp" alt="Complete view of restored structural framework" className="w-full h-80 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sfYytKimJALnaoJp.webp" alt="Complete view of restored structural framework" className="w-full h-80 object-cover" width="800" height="320" />
                         <div className="bg-gradient-to-r from-green-50 to-blue-50 p-3">
                           <p className="text-sm text-gray-700">Complete structural framework prepared to specification, ready for protective coating</p>
                         </div>
@@ -496,25 +496,25 @@ export default function ServiceDetail() {
                     <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">Before: Decades of Deterioration</h3>
                     <div className="grid md:grid-cols-2 gap-4 mb-4">
                       <div className="overflow-hidden rounded-lg shadow-xl">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/BCVEWSyxoxobkShs.webp" alt="Gate showing rust and peeling paint on decorative railings" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/BCVEWSyxoxobkShs.webp" alt="Gate showing rust and peeling paint on decorative railings" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="bg-gray-100 p-3">
                           <p className="text-sm text-gray-700">Decorative railings obscured by multiple layers of failing paint and rust</p>
                         </div>
                       </div>
                       <div className="overflow-hidden rounded-lg shadow-xl">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ukYDayCAynvtHeQN.webp" alt="Close-up of corroded gate base and lower sections" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ukYDayCAynvtHeQN.webp" alt="Close-up of corroded gate base and lower sections" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="bg-gray-100 p-3">
                           <p className="text-sm text-gray-700">Severe corrosion at gate base where water pooling accelerated deterioration</p>
                         </div>
                       </div>
                       <div className="overflow-hidden rounded-lg shadow-xl">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/vGlLQoXjGLXYCoMx.webp" alt="Ornate gate panels with paint buildup hiding details" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/vGlLQoXjGLXYCoMx.webp" alt="Ornate gate panels with paint buildup hiding details" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="bg-gray-100 p-3">
                           <p className="text-sm text-gray-700">Ornate scrollwork and finials hidden under decades of paint buildup</p>
                         </div>
                       </div>
                       <div className="overflow-hidden rounded-lg shadow-xl">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/KrGPEgPLTilbUhSf.webp" alt="Full gate view showing overall deteriorated condition" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/KrGPEgPLTilbUhSf.webp" alt="Full gate view showing overall deteriorated condition" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="bg-gray-100 p-3">
                           <p className="text-sm text-gray-700">Complete gate structure requiring comprehensive restoration</p>
                         </div>
@@ -527,13 +527,13 @@ export default function ServiceDetail() {
                     <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">During: Careful Shot Blasting Process</h3>
                     <div className="grid md:grid-cols-2 gap-4 mb-4">
                       <div className="overflow-hidden rounded-lg shadow-xl">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/BRCclHuFIyhVwMtW.webp" alt="Shot blasting in progress on ornate gate panels" className="w-full h-80 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/BRCclHuFIyhVwMtW.webp" alt="Shot blasting in progress on ornate gate panels" className="w-full h-80 object-cover" width="800" height="320" />
                         <div className="bg-blue-50 p-3">
                           <p className="text-sm text-gray-700">Systematic blasting revealing the intricate Victorian scrollwork beneath paint layers</p>
                         </div>
                       </div>
                       <div className="overflow-hidden rounded-lg shadow-xl">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/jARZUONAnrAcTSCp.webp" alt="Partial restoration showing contrast between cleaned and uncleaned sections" className="w-full h-80 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/jARZUONAnrAcTSCp.webp" alt="Partial restoration showing contrast between cleaned and uncleaned sections" className="w-full h-80 object-cover" width="800" height="320" />
                         <div className="bg-blue-50 p-3">
                           <p className="text-sm text-gray-700">Dramatic contrast between restored bare metal and remaining deteriorated sections</p>
                         </div>
@@ -545,7 +545,7 @@ export default function ServiceDetail() {
                   <div>
                     <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">After: Restored to Original Splendor</h3>
                     <div className="overflow-hidden rounded-lg shadow-xl mb-4">
-                      <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/rKYIkcbbMglpUOCS.webp" alt="Fully restored Victorian gates - clean bare metal revealing ornate details" className="w-full h-96 object-cover" />
+                      <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/rKYIkcbbMglpUOCS.webp" alt="Fully restored Victorian gates - clean bare metal revealing ornate details" className="w-full h-96 object-cover" width="800" height="384" />
                       <div className="bg-gradient-to-r from-green-50 to-blue-50 p-4">
                         <p className="text-gray-700">Complete gate restoration revealing the full beauty of Victorian craftsmanship - all decorative scrollwork, finials, and ornate details preserved and prepared for protective coating.</p>
                       </div>
@@ -569,6 +569,7 @@ export default function ServiceDetail() {
                       src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/rHwvfVVLlyNaSMZs.webp" 
                       alt="Professional shot blasting of external industrial staircase and fire escape structure" 
                       className="w-full h-auto object-cover"
+                      width="800" height="600"
                     />
                     <div className="bg-gradient-to-r from-blue-50 to-gray-50 p-6">
                       <p className="text-lg font-semibold text-gray-800 mb-3">Expert Surface Preparation for Safety-Critical Infrastructure</p>
@@ -598,19 +599,19 @@ export default function ServiceDetail() {
                     <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">Before: Heavy Contamination</h3>
                     <div className="grid md:grid-cols-3 gap-4 mb-4">
                       <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/qqAnMmPLbNnejVvb.webp" alt="Industrial container with heavy paint buildup and surface contamination" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/qqAnMmPLbNnejVvb.webp" alt="Industrial container with heavy paint buildup and surface contamination" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Heavy paint buildup and rust on exterior surfaces</p>
                         </div>
                       </div>
                       <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/KivwrIlgnkOOUjil.webp" alt="Close-up of container showing multiple coating layers and corrosion" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/KivwrIlgnkOOUjil.webp" alt="Close-up of container showing multiple coating layers and corrosion" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Multiple coating layers hiding structural condition</p>
                         </div>
                       </div>
                       <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ewbZNgGxvcWdUSGF.webp" alt="Full view of contaminated container showing overall deteriorated state" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ewbZNgGxvcWdUSGF.webp" alt="Full view of contaminated container showing overall deteriorated state" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Overall contamination preventing proper inspection</p>
                         </div>
@@ -626,13 +627,13 @@ export default function ServiceDetail() {
                     <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">After: Complete Restoration</h3>
                     <div className="grid md:grid-cols-2 gap-4 mb-4">
                       <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VyCmYEOFdptpWOXx.webp" alt="Fully restored container showing clean bare metal surface" className="w-full h-80 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VyCmYEOFdptpWOXx.webp" alt="Fully restored container showing clean bare metal surface" className="w-full h-80 object-cover" width="800" height="320" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Clean bare metal with uniform surface profile</p>
                         </div>
                       </div>
                       <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/gGUgmjtZGIcqyGOc.webp" alt="Restored container ready for food-grade coating application" className="w-full h-80 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/gGUgmjtZGIcqyGOc.webp" alt="Restored container ready for food-grade coating application" className="w-full h-80 object-cover" width="800" height="320" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Ready for food-grade protective coating</p>
                         </div>
@@ -688,19 +689,19 @@ export default function ServiceDetail() {
                     <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">Before: Multiple Paint Layers</h3>
                     <div className="grid md:grid-cols-3 gap-4 mb-4">
                       <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/SlVtCiMslwBZCygu.webp" alt="Victorian cast iron radiator with decades of paint buildup" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/SlVtCiMslwBZCygu.webp" alt="Victorian cast iron radiator with decades of paint buildup" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Decades of paint buildup obscuring decorative details</p>
                         </div>
                       </div>
                       <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/hrKsPNdzqxMtdMrt.webp" alt="Cast iron radiator showing multiple coating layers and surface rust" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/hrKsPNdzqxMtdMrt.webp" alt="Cast iron radiator showing multiple coating layers and surface rust" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Multiple coating layers hiding original cast iron surface</p>
                         </div>
                       </div>
                       <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/MYCLPZbqNhyjoDUf.webp" alt="Heritage radiator with paint buildup on decorative features" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/MYCLPZbqNhyjoDUf.webp" alt="Heritage radiator with paint buildup on decorative features" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Paint buildup on ornate scrollwork and manufacturer badges</p>
                         </div>
@@ -716,19 +717,19 @@ export default function ServiceDetail() {
                     <h3 className="text-2xl font-semibold text-[#2C5F7F] mb-4">After: Complete Restoration</h3>
                     <div className="grid md:grid-cols-3 gap-4 mb-4">
                       <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/JodubQsfCdJBalxf.webp" alt="Fully restored cast iron radiator with clean bare metal finish" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/JodubQsfCdJBalxf.webp" alt="Fully restored cast iron radiator with clean bare metal finish" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Clean bare metal revealing original cast iron details</p>
                         </div>
                       </div>
                       <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TjDtvirrykwibNWB.webp" alt="Restored radiator showing preserved decorative features" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TjDtvirrykwibNWB.webp" alt="Restored radiator showing preserved decorative features" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Preserved decorative features and manufacturer markings</p>
                         </div>
                       </div>
                       <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/GnrfZIxCKwAhAYQa.webp" alt="Heritage radiator ready for powder coating" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/GnrfZIxCKwAhAYQa.webp" alt="Heritage radiator ready for powder coating" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Ready for period-appropriate powder coating</p>
                         </div>
@@ -736,19 +737,19 @@ export default function ServiceDetail() {
                     </div>
                     <div className="grid md:grid-cols-3 gap-4 mb-4">
                       <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/vgkYjzbVHkUxWoGF.webp" alt="Restored radiator with uniform surface preparation" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/vgkYjzbVHkUxWoGF.webp" alt="Restored radiator with uniform surface preparation" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Uniform surface preparation for optimal coating adhesion</p>
                         </div>
                       </div>
                       <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YnXbvpmGJJkuBtrE.webp" alt="Multiple restored radiators showing consistent quality" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YnXbvpmGJJkuBtrE.webp" alt="Multiple restored radiators showing consistent quality" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Consistent restoration quality across all radiators</p>
                         </div>
                       </div>
                       <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/txCLZUCghPVHpmDV.webp" alt="Restored radiators in heritage building setting" className="w-full h-64 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/txCLZUCghPVHpmDV.webp" alt="Restored radiators in heritage building setting" className="w-full h-64 object-cover" width="800" height="256" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Restored radiators preserving heritage building character</p>
                         </div>
@@ -811,13 +812,13 @@ export default function ServiceDetail() {
                       <h4 className="text-xl font-semibold text-[#2C5F7F] mb-4">Before: Heavy Contamination</h4>
                       <div className="grid md:grid-cols-2 gap-4 mb-4">
                         <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/tHLYvHalejNIPAcU.webp" alt="Commercial vehicle wheel with heavy rust and paint buildup" className="w-full h-64 object-cover" />
+                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/tHLYvHalejNIPAcU.webp" alt="Commercial vehicle wheel with heavy rust and paint buildup" className="w-full h-64 object-cover" width="800" height="256" />
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                             <p className="text-white text-sm">Black wheels showing decades of paint and contamination</p>
                           </div>
                         </div>
                         <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/HkomWojvEVpKqkTd.webp" alt="Commercial vehicle with black contaminated wheels before blasting" className="w-full h-64 object-cover" />
+                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/HkomWojvEVpKqkTd.webp" alt="Commercial vehicle with black contaminated wheels before blasting" className="w-full h-64 object-cover" width="800" height="256" />
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                             <p className="text-white text-sm">Complete vehicle with black wheels before restoration</p>
                           </div>
@@ -833,20 +834,20 @@ export default function ServiceDetail() {
                       <h4 className="text-xl font-semibold text-[#2C5F7F] mb-4">After: Complete Vehicle Restoration</h4>
                       <div className="grid md:grid-cols-2 gap-4 mb-4">
                         <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UtrdLMVdOufcKhWu.webp" alt="Restored commercial vehicle with silver shot-blasted wheels" className="w-full h-64 object-cover" />
+                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UtrdLMVdOufcKhWu.webp" alt="Restored commercial vehicle with silver shot-blasted wheels" className="w-full h-64 object-cover" width="800" height="256" />
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                             <p className="text-white text-sm">Silver shot-blasted wheels ready for protective coating</p>
                           </div>
                         </div>
                         <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/NtAgxBOsLSxEcmau.webp" alt="Vintage farm truck with clean bare metal wheels" className="w-full h-64 object-cover" />
+                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/NtAgxBOsLSxEcmau.webp" alt="Vintage farm truck with clean bare metal wheels" className="w-full h-64 object-cover" width="800" height="256" />
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                             <p className="text-white text-sm">Vintage farm truck with clean bare metal finish</p>
                           </div>
                         </div>
                       </div>
                       <div className="relative group overflow-hidden rounded-lg shadow-lg mb-4">
-                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/BRvOXCCcVdxnccNs.webp" alt="Silver shot-blasted wheel showing clean bare metal finish" className="w-full h-96 object-cover" />
+                        <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/BRvOXCCcVdxnccNs.webp" alt="Silver shot-blasted wheel showing clean bare metal finish" className="w-full h-96 object-cover" width="800" height="384" />
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                           <p className="text-white text-sm">Closeup of silver shot-blasted wheel ready for protective coating</p>
                         </div>
@@ -897,13 +898,13 @@ export default function ServiceDetail() {
                       <h4 className="text-xl font-semibold text-[#2C5F7F] mb-4">Complete Chassis Shot Blasting</h4>
                       <div className="grid md:grid-cols-2 gap-4 mb-4">
                         <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/koLOHgMdGsRNPgwR.webp" alt="Bare chassis frame showing structural members and roll cage" className="w-full h-64 object-cover" />
+                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/koLOHgMdGsRNPgwR.webp" alt="Bare chassis frame showing structural members and roll cage" className="w-full h-64 object-cover" width="800" height="256" />
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                             <p className="text-white text-sm">Bare chassis frame with roll cage and structural members exposed</p>
                           </div>
                         </div>
                         <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/BYEgkqLHdBsgDKBx.webp" alt="Chassis interior showing clean metal finish" className="w-full h-64 object-cover" />
+                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/BYEgkqLHdBsgDKBx.webp" alt="Chassis interior showing clean metal finish" className="w-full h-64 object-cover" width="800" height="256" />
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                             <p className="text-white text-sm">Interior chassis members with uniform bare metal finish</p>
                           </div>
@@ -911,13 +912,13 @@ export default function ServiceDetail() {
                       </div>
                       <div className="grid md:grid-cols-2 gap-4 mb-4">
                         <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/dOmiXhBKkfrGYupf.webp" alt="Rear chassis section showing complete restoration" className="w-full h-64 object-cover" />
+                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/dOmiXhBKkfrGYupf.webp" alt="Rear chassis section showing complete restoration" className="w-full h-64 object-cover" width="800" height="256" />
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                             <p className="text-white text-sm">Rear chassis section with complete corrosion removal</p>
                           </div>
                         </div>
                         <div className="relative group overflow-hidden rounded-lg shadow-lg">
-                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/tUbZeruzANlwAshs.webp" alt="Complete chassis ready for protective coating" className="w-full h-64 object-cover" />
+                          <img loading="lazy" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/tUbZeruzANlwAshs.webp" alt="Complete chassis ready for protective coating" className="w-full h-64 object-cover" width="800" height="256" />
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                             <p className="text-white text-sm">Complete chassis prepared for commercial-grade coating</p>
                           </div>
@@ -978,6 +979,7 @@ export default function ServiceDetail() {
                             src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/rvKzmpIsXEvNwazt.webp"
                             alt="Warehouse exterior showing contaminated roller shutter before restoration"
                             className="w-full h-full object-cover"
+                            width="800" height="600"
                           />
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                             <p className="text-white text-sm">Warehouse exterior with contaminated roller shutter</p>
@@ -988,6 +990,7 @@ export default function ServiceDetail() {
                             src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/iRuKGPmSGJLGdqJY.webp"
                             alt="Roller shutter slats with severe rust staining and paint degradation"
                             className="w-full h-full object-cover"
+                            width="800" height="600"
                           />
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                             <p className="text-white text-sm">Severe rust staining and paint degradation on slats</p>
@@ -1004,6 +1007,7 @@ export default function ServiceDetail() {
                             src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/zECMRCXJWWoPsZmS.webp"
                             alt="Restored roller shutter with uniform bare metal finish"
                             className="w-full h-full object-cover"
+                            width="800" height="600"
                           />
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                             <p className="text-white text-sm">Uniform bare metal finish ready for coating</p>
@@ -1014,6 +1018,7 @@ export default function ServiceDetail() {
                             src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/FxVTSCsOqjeUkhvA.webp"
                             alt="Complete warehouse exterior with restored roller shutter"
                             className="w-full h-full object-cover"
+                            width="800" height="600"
                           />
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                             <p className="text-white text-sm">Complete restoration with professional finish</p>
@@ -1158,6 +1163,7 @@ export default function ServiceDetail() {
                             src={study.image} 
                             alt={study.title}
                             className="w-full h-48 md:h-full object-cover"
+                            width="400" height="300"
                           />
                         </div>
                         <CardContent className="md:w-2/3 p-6">
@@ -1285,28 +1291,43 @@ export default function ServiceDetail() {
                 </CardContent>
               </Card>
 
-              {/* Other Services */}
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    Other Services
-                  </h3>
-                  <div className="space-y-2">
-                    {otherServices.map((s) => (
-                      <Link 
-                        key={s.id} 
-                        href={`/services/${s.id}`}
-                        className="block px-4 py-3 rounded-lg hover:bg-[#2C5F7F]/10 transition text-gray-700 hover:text-[#2C5F7F]"
-                      >
-                        <span className="flex items-center gap-2">
-                          <ArrowRight className="w-4 h-4" />
-                          {s.title}
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              {/* Related Services card grid */}
+              <div>
+                <h3 className="text-xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Related Services
+                </h3>
+                <div className="grid grid-cols-1 gap-4">
+                  {otherServices.slice(0, 4).map((s) => (
+                    <Link
+                      key={s.id}
+                      href={`/services/${s.id}`}
+                      className="group flex gap-3 bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow border border-gray-100"
+                    >
+                      <div className="w-20 flex-shrink-0 overflow-hidden">
+                        <img
+                          src={s.heroImage}
+                          alt={s.title}
+                          width="80"
+                          height="80"
+                          loading="lazy"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="flex flex-col justify-center py-3 pr-3 min-w-0">
+                        <span className="font-semibold text-[#2C5F7F] text-sm leading-tight group-hover:underline">{s.title}</span>
+                        <span className="text-xs text-gray-500 mt-1 line-clamp-2">{s.tagline}</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+                <Link
+                  href="/services"
+                  className="mt-4 flex items-center gap-2 text-sm text-[#2C5F7F] font-medium hover:underline"
+                >
+                  <ArrowRight className="w-4 h-4" />
+                  View all services
+                </Link>
+              </div>
             </div>
           </div>
         </div>

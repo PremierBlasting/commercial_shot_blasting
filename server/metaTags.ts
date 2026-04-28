@@ -2265,6 +2265,10 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:url" content="${pageUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${HERO_IMAGE}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${pageTitle}" />
     <meta name="twitter:description" content="${metaDesc}" />
@@ -2324,6 +2328,10 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:url" content="${pageUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${HERO_IMAGE}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${pageTitle}" />
     <meta name="twitter:description" content="${metaDesc}" />

@@ -167,6 +167,29 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // Keep large location/county data in its own chunk so service/area pages
+          // only load it when needed, not on every page.
+          if (id.includes('locationData') || id.includes('countyData')) {
+            return 'location-data';
+          }
+          // React core + DOM in one stable vendor chunk (long-term cacheable)
+          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
+            return 'vendor-react';
+          }
+          // Radix UI + shadcn components in a separate UI chunk
+          if (id.includes('node_modules/@radix-ui/') || id.includes('node_modules/lucide-react')) {
+            return 'vendor-ui';
+          }
+          // tRPC + tanstack query client
+          if (id.includes('node_modules/@trpc/') || id.includes('node_modules/@tanstack/')) {
+            return 'vendor-trpc';
+          }
+        },
+      },
+    },
   },
   server: {
     host: true,
