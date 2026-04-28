@@ -1,0 +1,140 @@
+[
+  {
+    "slug": "aerospace",
+    "name": "Aerospace",
+    "description": "Precision shot blasting and peening for landing gear assemblies, struts, and associated components. Critical surface preparation meeting stringent aerospace specifications for fatigue life enhancement.",
+    "faqs": [],
+    "sections": [
+      "\n              Aerospace Industry Challenges\n            ",
+      "\n              Aerospace Shot Blasting Solutions\n            ",
+      "\n              Our Aerospace Process Workflow\n            ",
+      "\n                Benefits for Aerospace Customers\n              "
+    ],
+    "services": [
+      "{challenge.title}",
+      "\n                    {service.title}\n                  ",
+      "{step.title}",
+      "\n                Quality Features\n              ",
+      "\n                  {caseStudy.title}\n                "
+    ]
+  },
+  {
+    "slug": "agriculture",
+    "name": "Agriculture",
+    "description": "Complete shot blasting for agricultural machinery including tractors, combines, and harvesters. Remove rust, old paint, and prepare for powder coating or repainting.",
+    "faqs": [],
+    "sections": [
+      "\n              Agricultural Shot Blasting Services\n            ",
+      "\n              Agricultural Challenges We Solve\n            ",
+      "\n                {caseStudy.title}\n              ",
+      "\n            Ready to Restore Your Farm Equipment?\n          "
+    ],
+    "services": [
+      "{service.title}",
+      "{challenge.title}"
+    ]
+  },
+  {
+    "slug": "construction",
+    "name": "Construction",
+    "description": "Comprehensive shot blasting for building frames, roof trusses, and load-bearing steel structures. Essential for new construction projects and structural refurbishment.",
+    "faqs": [],
+    "sections": [
+      "\n              Construction Industry Challenges\n            ",
+      "\n              Construction Shot Blasting Solutions\n            ",
+      "\n              Construction Project Case Study\n            ",
+      "\n            Ready to Start Your Construction Project?\n          "
+    ],
+    "services": [
+      "{challenge.title}",
+      "\n                    {service.title}\n                  ",
+      "\n                  {caseStudy.title}\n                ",
+      "\n                  Free Download: Steel Preparation Best Practices Guide\n                "
+    ]
+  },
+  {
+    "slug": "heritage-restoration",
+    "name": "Heritage Restoration",
+    "description": "Specialist shot blasting for Grade I and II listed buildings. Gentle cleaning that preserves original features, casting marks, and historical integrity while removing corrosion.",
+    "faqs": [],
+    "sections": [
+      "\n              Heritage Restoration Services\n            ",
+      "\n              Heritage Conservation Challenges\n            ",
+      "\n                {caseStudy.title}\n              ",
+      "\n            Ready to Restore Your Heritage Project?\n          "
+    ],
+    "services": [
+      "{service.title}",
+      "{challenge.title}"
+    ]
+  },
+  {
+    "slug": "manufacturing",
+    "name": "Manufacturing",
+    "description": "Professional shot blasting for warehouse racking systems and storage infrastructure. Extend the life of your material handling equipment with cost-effective refurbishment.",
+    "faqs": [],
+    "sections": [
+      "\n              Manufacturing Industry Challenges\n            ",
+      "\n              Manufacturing Shot Blasting Solutions\n            ",
+      "\n              Manufacturing Project Case Study\n            ",
+      "\n              Manufacturing Sectors\n            "
+    ],
+    "services": [
+      "{challenge.title}",
+      "\n                    {service.title}\n                  ",
+      "\n                  {caseStudy.title}\n                ",
+      "{sector.title}",
+      "\n                  Warehouse Racking Refurbishment vs. Replacement: A Cost-Benefit Analysis\n                "
+    ]
+  },
+  {
+    "slug": "marine",
+    "name": "Marine",
+    "description": "Complete hull surface preparation for commercial vessels, cargo ships, and tankers. Remove marine growth, rust, and old coatings to bare metal.",
+    "faqs": [],
+    "sections": [
+      "\n              Marine Shot Blasting Solutions\n            ",
+      "\n              Marine Industry Challenges We Solve\n            ",
+      "\n                {caseStudy.title}\n              ",
+      "\n            Ready to Start Your Marine Project?\n          "
+    ],
+    "services": [
+      "{service.title}",
+      "{challenge.title}"
+    ]
+  },
+  {
+    "slug": "retail",
+    "name": "Retail",
+    "description": "Professional shot blasting and refurbishment of shopping trolleys, baskets, and carts. Remove rust, old paint, and damage to restore equipment to like-new condition at a fraction of replacement cost.",
+    "faqs": [],
+    "sections": [
+      "\n              Retail Industry Challenges\n            ",
+      "\n              Retail Shot Blasting Solutions\n            ",
+      "\n                Benefits for Retail Businesses\n              ",
+      "\n              Retail Project Case Study\n            "
+    ],
+    "services": [
+      "{challenge.title}",
+      "\n                    {service.title}\n                  ",
+      "\n                Relevant Standards & Regulations\n              ",
+      "\n                  {caseStudy.title}\n                "
+    ]
+  },
+  {
+    "slug": "transport-logistics",
+    "name": "Transport & Logistics",
+    "description": "Complete shot blasting for trucks, vans, and delivery vehicles. Remove rust from chassis, cabs, and body panels for fleet refurbishment programs.",
+    "faqs": [],
+    "sections": [
+      "\n              Transport & Logistics Solutions\n            ",
+      "\n              Transport & Logistics Challenges We Solve\n            ",
+      "\n                {caseStudy.title}\n              ",
+      "\n            Ready to Refurbish Your Fleet?\n          "
+    ],
+    "services": [
+      "{service.title}",
+      "{challenge.title}"
+    ]
+  }
+]

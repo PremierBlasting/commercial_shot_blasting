@@ -101,3 +101,5 @@
 - [x] Add SSR body HTML injection to all 18 service pages (/services/:id) in metaTags.ts
 - [x] Pre-render all 638 service area pages into static HTML files at build time with full body content
 - [x] Write pre-rendered pages as extensionless files for clean URL matching on static hosting
+- [x] Pre-render all 25 county pages as static HTML files (extensionless + .html) at build time
+- [x] Pre-render all 8 industry pages as static HTML files (extensionless + .html) at build time
