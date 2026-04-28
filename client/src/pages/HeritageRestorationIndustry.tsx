@@ -90,7 +90,7 @@ export default function HeritageRestorationIndustry() {
       <Breadcrumb 
         items={[
           { label: "Home", href: "/" },
-          { label: "Industries", href: "/#industries" },
+          { label: "Industries", href: "/industries" },
           { label: "Heritage & Restoration", href: "/industries/heritage-restoration", isCurrentPage: true }
         ]}
         className="container mt-4"

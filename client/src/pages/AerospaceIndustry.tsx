@@ -143,7 +143,7 @@ export default function AerospaceIndustry() {
       <Breadcrumb 
         items={[
           { label: "Home", href: "/" },
-          { label: "Industries", href: "/#industries" },
+          { label: "Industries", href: "/industries" },
           { label: "Aerospace", href: "/industries/aerospace", isCurrentPage: true }
         ]}
         className="container mt-4"

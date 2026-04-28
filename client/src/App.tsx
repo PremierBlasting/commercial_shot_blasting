@@ -34,6 +34,7 @@ const Admin = lazy(() => import("./pages/Admin"));
 const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
 const Services = lazy(() => import("./pages/Services"));
 const Industries = lazy(() => import("./pages/Industries"));
+const Counties = lazy(() => import("./pages/Counties"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Blog = lazy(() => import("./pages/Blog"));
@@ -218,6 +219,7 @@ function Router() {
         <Route path={"/services"} component={Services} />
         <Route path={"/services/:id"} component={ServiceDetail} />
         <Route path={"/industries"} component={Industries} />
+        <Route path={"/counties"} component={Counties} />
         <Route path="/industries/construction" component={ConstructionIndustry} />
         <Route path="/industries/manufacturing" component={ManufacturingIndustry} />
         <Route path="/industries/retail" component={RetailIndustry} />

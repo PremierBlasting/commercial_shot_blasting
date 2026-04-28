@@ -90,7 +90,7 @@ export default function TransportLogisticsIndustry() {
       <Breadcrumb 
         items={[
           { label: "Home", href: "/" },
-          { label: "Industries", href: "/#industries" },
+          { label: "Industries", href: "/industries" },
           { label: "Transport & Logistics", href: "/industries/transport-logistics", isCurrentPage: true }
         ]}
         className="container mt-4"

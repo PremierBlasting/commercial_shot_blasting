@@ -2176,6 +2176,46 @@ export function injectMetaTags(html: string, url: string): string {
     }
   }
 
+  // ── Counties index page: /counties ────────────────────────────────────────
+  if (url === '/counties' || url === '/counties/') {
+    const countiesTitle = 'Shot Blasting Services by County | Commercial Shot Blasting';
+    const countiesDesc = 'Browse our professional shot blasting services by county. We cover 25 counties across the Midlands, Yorkshire, North West, East of England, South West, and Wales Borders.';
+    const countiesUrl = `${SITE_URL}/counties`;
+    let modifiedHtml = html;
+    modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${countiesTitle}</title>`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${countiesDesc}" />`);
+    modifiedHtml = modifiedHtml.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${countiesUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${countiesTitle}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${countiesDesc}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${countiesUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:title"[^>]*>/, `<meta name="twitter:title" content="${countiesTitle}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:description"[^>]*>/, `<meta name="twitter:description" content="${countiesDesc}" />`);
+    const breadcrumbSchema = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Counties","item":countiesUrl}]});
+    const webPageSchema = JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":countiesTitle,"description":countiesDesc,"url":countiesUrl});
+    modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n</head>`);
+    return modifiedHtml;
+  }
+
+  // ── Industries index page: /industries ──────────────────────────────────────
+  if (url === '/industries' || url === '/industries/') {
+    const industriesTitle = 'Industries We Serve | Shot Blasting Services | Commercial Shot Blasting';
+    const industriesDesc = 'Professional shot blasting services across diverse sectors. Construction, manufacturing, aerospace, marine, agriculture, retail, transport, and heritage restoration.';
+    const industriesUrl = `${SITE_URL}/industries`;
+    let modifiedHtml = html;
+    modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${industriesTitle}</title>`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${industriesDesc}" />`);
+    modifiedHtml = modifiedHtml.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${industriesUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${industriesTitle}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${industriesDesc}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${industriesUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:title"[^>]*>/, `<meta name="twitter:title" content="${industriesTitle}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:description"[^>]*>/, `<meta name="twitter:description" content="${industriesDesc}" />`);
+    const breadcrumbSchema = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Industries","item":industriesUrl}]});
+    const webPageSchema = JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":industriesTitle,"description":industriesDesc,"url":industriesUrl});
+    modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n</head>`);
+    return modifiedHtml;
+  }
+
   // ── County pages: /counties/:slug ──────────────────────────────────────────
   const countyMatch = url.match(/^\/counties\/([a-z-]+)/);
   if (countyMatch) {

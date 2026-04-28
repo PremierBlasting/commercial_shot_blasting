@@ -99,8 +99,7 @@ export function CountyPage({ county }: CountyPageProps) {
         <div className="container">
           <Breadcrumb items={[
             { label: "Home", href: "/" },
-            { label: "Service Areas", href: "/service-areas" },
-            { label: county.region, href: `/service-areas#${county.region.toLowerCase().replace(/\s+/g, '-')}` },
+            { label: "Counties", href: "/counties" },
             { label: county.name, href: `/counties/${county.slug}`, isCurrentPage: true }
           ]} />
         </div>

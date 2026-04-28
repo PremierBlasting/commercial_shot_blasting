@@ -106,3 +106,8 @@
 - [x] Update sitemap generator to include all 25 county and 8 industry URLs
 - [x] Add server-side meta tag + JSON-LD + SSR body injection for /counties/:slug in metaTags.ts
 - [x] Add server-side meta tag + JSON-LD + SSR body injection for /industries/:slug in metaTags.ts
+- [x] Create /industries index grid page listing all 8 industries with links
+- [x] Create /counties index listing page listing all 25 counties with links
+- [x] Add breadcrumb navigation component to all 8 industry detail pages
+- [x] Add breadcrumb navigation component to all 25 county detail pages
+- [x] Add server-side meta tags for /industries and /counties index routes

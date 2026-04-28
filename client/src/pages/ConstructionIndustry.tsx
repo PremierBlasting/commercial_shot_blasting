@@ -90,7 +90,7 @@ export default function ConstructionIndustry() {
       <Breadcrumb 
         items={[
           { label: "Home", href: "/" },
-          { label: "Industries", href: "/#industries" },
+          { label: "Industries", href: "/industries" },
           { label: "Construction", href: "/industries/construction", isCurrentPage: true }
         ]}
         className="container mt-4"
