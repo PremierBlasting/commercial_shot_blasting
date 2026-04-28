@@ -111,3 +111,6 @@
 - [x] Add breadcrumb navigation component to all 8 industry detail pages
 - [x] Add breadcrumb navigation component to all 25 county detail pages
 - [x] Add server-side meta tags for /industries and /counties index routes
+- [x] Add region filter tabs to /counties hub page
+- [x] Add Counties section to /service-areas page
+- [x] Add /counties and /industries links to main navigation header

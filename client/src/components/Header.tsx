@@ -885,6 +885,16 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                       <div className="text-xs text-gray-500 group-hover:text-white/80 mt-0.5">Listed buildings, historic bridges, museum artifacts</div>
                     </Link>
                   </div>
+                  {/* View All Industries */}
+                  <div className="mt-3 pt-3 border-t border-gray-100">
+                    <Link
+                      href="/industries"
+                      className="flex items-center justify-center gap-2 w-full py-2 bg-[#2C5F7F] text-white rounded-lg hover:bg-[#1a3d52] transition-colors font-medium text-sm"
+                      onClick={() => setIndustriesOpen(false)}
+                    >
+                      View All Industries
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -991,15 +1001,22 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                     ))}
                   </div>
                   
-                  {/* View All Link */}
-                  <div className="mt-5 pt-4 border-t border-gray-100">
+                  {/* View All Links */}
+                  <div className="mt-5 pt-4 border-t border-gray-100 flex gap-3">
                     <Link
                       href="/service-areas"
-                      className="flex items-center justify-center gap-2 w-full py-2.5 bg-[#2C5F7F] text-white rounded-lg hover:bg-[#1a3d52] transition-colors font-medium"
+                      className="flex items-center justify-center gap-2 flex-1 py-2.5 bg-[#2C5F7F] text-white rounded-lg hover:bg-[#1a3d52] transition-colors font-medium text-sm"
                       onClick={() => setAreasOpen(false)}
                     >
                       <MapPin className="w-4 h-4" />
                       View All Service Areas
+                    </Link>
+                    <Link
+                      href="/counties"
+                      className="flex items-center justify-center gap-2 flex-1 py-2.5 border-2 border-[#2C5F7F] text-[#2C5F7F] rounded-lg hover:bg-[#2C5F7F] hover:text-white transition-colors font-medium text-sm"
+                      onClick={() => setAreasOpen(false)}
+                    >
+                      Browse by County
                     </Link>
                   </div>
                 </div>

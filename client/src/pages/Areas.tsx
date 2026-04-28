@@ -1,16 +1,29 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { QuotePopup } from "@/components/QuotePopup";
 import { DeferredServiceAreasMap } from "@/components/DeferredServiceAreasMap";
 import { Link } from "wouter";
+import { countyData } from "@/data/countyData";
 import { 
   MapPin, 
   Phone, 
   ArrowRight,
   Search
 } from "lucide-react";
+
+const countiesForAreas = Object.values(countyData).sort((a, b) => a.name.localeCompare(b.name));
+const regionColoursAreas: Record<string, string> = {
+  "West Midlands": "#2C5F7F",
+  "East Midlands": "#3a7d5e",
+  "Yorkshire": "#7d3a3a",
+  "North West": "#5a3a7d",
+  "East of England": "#7d6a3a",
+  "South West": "#3a6a7d",
+  "Wales Borders": "#3a7d4a",
+};
 
 // All regions with their locations - matches the dropdown menu structure
 const allRegions = [
@@ -525,6 +538,47 @@ export default function Areas() {
               </button>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Counties Section */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <div className="text-center mb-10">
+            <p className="text-[#2C5F7F] font-medium mb-2 uppercase tracking-wide text-sm">Browse by County</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Shot Blasting by County
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We cover {countiesForAreas.length} counties across England and Wales. Click your county for local service details, towns covered, and FAQs.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-8">
+            {countiesForAreas.map((county) => {
+              const colour = regionColoursAreas[county.region] || "#2C5F7F";
+              return (
+                <Link key={county.slug} href={`/counties/${county.slug}`}>
+                  <Card className="h-full hover:shadow-md transition-all duration-200 cursor-pointer group border-l-4" style={{ borderLeftColor: colour }}>
+                    <CardHeader className="p-3 pb-1">
+                      <CardTitle className="text-sm font-semibold group-hover:text-[#2C5F7F] transition-colors leading-tight">
+                        {county.name}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-3 pt-0">
+                      <p className="text-xs text-gray-500 truncate">{county.region}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
+          </div>
+          <div className="text-center">
+            <Link href="/counties">
+              <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                View All Counties <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
