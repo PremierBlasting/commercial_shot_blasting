@@ -132,11 +132,21 @@
 - [x] Add full og:image:width/height/locale/site_name to homepage and service area meta tag handlers
 - [x] Local area #1: Add twitter:image:alt to all meta tag handlers
 - [x] Local area #2: Add dateModified to location WebPage schema
-- [ ] Local area #3: Add VideoObject schema to location pages
-- [ ] Local area #4: Add SpeakableSpecification to location WebPage schema
-- [ ] Local area #5: Add aria-label to ServiceRadiusMap section
-- [ ] Local area #6: Convert nearby towns to internal anchor links
-- [ ] Local area #7: Add visible AggregateRating badge to location hero
-- [ ] Local area #8: Add hero image preload link for location pages
-- [ ] Local area #9: Add Industries We Serve section to location pages
-- [ ] Local area #10: Add sticky mobile Get a Quote bar to location pages
+- [x] Local area #3: Add VideoObject schema to location pages
+- [x] Local area #4: Add SpeakableSpecification to location WebPage schema
+- [x] Local area #5: Add aria-label to ServiceRadiusMap section
+- [x] Local area #6: Convert nearby towns to internal anchor links
+- [x] Local area #7: Add visible AggregateRating badge to location hero
+- [x] Local area #8: Add hero image preload link for location pages
+- [x] Local area #9: Add Industries We Serve section to location pages
+- [x] Local area #10: Add sticky mobile Get a Quote bar to location pages
+- [x] Service #1: twitter:image:alt on service meta handler
+- [x] Service #2: dateModified/datePublished in service WebPage schema
+- [x] Service #3: VideoObject schema for steel sheeting video
+- [x] Service #4: speakable on service WebPage schema
+- [x] Service #5: Visible testimonial / star rating block in ServiceDetail
+- [x] Service #6: max-image-preview:large robots meta tag
+- [x] Service #7: inLanguage + isPartOf on Service schema
+- [x] Service #8: Service Coverage location link section
+- [x] Service #9: Client-side canonical in useSEO hook (already implemented)
+- [x] Service #10: Sticky mobile CTA bar in ServiceDetail

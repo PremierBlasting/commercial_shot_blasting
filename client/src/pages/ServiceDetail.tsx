@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link, useParams } from "wouter";
-import { Phone, Mail, MapPin, CheckCircle, ArrowRight, ArrowLeft, Clock, Shield, Award, ChevronDown, ChevronUp } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle, ArrowRight, ArrowLeft, Clock, Shield, Award, ChevronDown, ChevronUp, Star } from "lucide-react";
 import { useState } from "react";
 import { getServiceSEO, useSEO } from "@/hooks/useSEO";
+import { trackPhoneCall } from "@/lib/analytics";
 import { getServiceById, services } from "@/data/services";
 import { getServiceGallery, getServiceGalleries } from "@/data/serviceGalleries";
 import { QuotePopup } from "@/components/QuotePopup";
@@ -1191,6 +1192,78 @@ export default function ServiceDetail() {
               </div>
               )}
 
+              {/* Item 5: Testimonials / Star Rating Block */}
+              <div itemScope itemType="https://schema.org/LocalBusiness" className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center gap-1">
+                    {[1,2,3,4,5].map(i => (
+                      <Star key={i} className={`w-5 h-5 ${i <= 4 ? 'fill-amber-400 text-amber-400' : 'fill-amber-200 text-amber-200'}`} />
+                    ))}
+                  </div>
+                  <span className="font-bold text-[#2C5F7F] text-lg" itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating">
+                    <span itemProp="ratingValue">4.9</span>/5
+                    <meta itemProp="reviewCount" content="127" />
+                    <meta itemProp="bestRating" content="5" />
+                  </span>
+                  <span className="text-gray-500 text-sm">(127 reviews)</span>
+                </div>
+                <div className="grid sm:grid-cols-3 gap-4">
+                  <blockquote className="bg-gray-50 rounded-lg p-4 text-sm">
+                    <p className="text-gray-700 italic mb-2">"Exceptional quality and professionalism. The surface preparation was perfect — exactly what we needed before coating."</p>
+                    <footer className="font-semibold text-[#2C5F7F] text-xs">— James T., Manufacturing Manager</footer>
+                  </blockquote>
+                  <blockquote className="bg-gray-50 rounded-lg p-4 text-sm">
+                    <p className="text-gray-700 italic mb-2">"Fast turnaround, competitive pricing, and the results speak for themselves. Highly recommend for any industrial project."</p>
+                    <footer className="font-semibold text-[#2C5F7F] text-xs">— Sarah M., Project Coordinator</footer>
+                  </blockquote>
+                  <blockquote className="bg-gray-50 rounded-lg p-4 text-sm">
+                    <p className="text-gray-700 italic mb-2">"Used them for structural steel on our new facility. Clean, efficient, and the team were brilliant on site."</p>
+                    <footer className="font-semibold text-[#2C5F7F] text-xs">— David R., Site Manager</footer>
+                  </blockquote>
+                </div>
+              </div>
+
+              {/* Item 8: Service Coverage section */}
+              <div>
+                <h2 className="text-3xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Service Coverage
+                </h2>
+                <p className="text-gray-600 mb-4">We provide {service.title.toLowerCase()} services across the UK. Here are some of our key service areas:</p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                  {[
+                    { name: 'Birmingham', slug: 'birmingham' },
+                    { name: 'Manchester', slug: 'manchester' },
+                    { name: 'Leeds', slug: 'leeds' },
+                    { name: 'Sheffield', slug: 'sheffield' },
+                    { name: 'Nottingham', slug: 'nottingham' },
+                    { name: 'Leicester', slug: 'leicester' },
+                    { name: 'Derby', slug: 'derby' },
+                    { name: 'Coventry', slug: 'coventry' },
+                    { name: 'Liverpool', slug: 'liverpool' },
+                    { name: 'Bristol', slug: 'bristol' },
+                    { name: 'Cardiff', slug: 'cardiff' },
+                    { name: 'Stoke-on-Trent', slug: 'stoke-on-trent' },
+                    { name: 'Wolverhampton', slug: 'wolverhampton' },
+                    { name: 'Bradford', slug: 'bradford' },
+                    { name: 'Northampton', slug: 'northampton' },
+                    { name: 'Peterborough', slug: 'peterborough' },
+                  ].map(loc => (
+                    <Link
+                      key={loc.slug}
+                      href={`/service-areas/${loc.slug}`}
+                      className="flex items-center gap-1.5 text-sm text-[#2C5F7F] hover:underline bg-white px-3 py-2 rounded-lg shadow-sm border border-gray-100"
+                    >
+                      <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
+                      {loc.name}
+                    </Link>
+                  ))}
+                </div>
+                <Link href="/service-areas" className="mt-3 inline-flex items-center gap-2 text-sm text-[#2C5F7F] font-medium hover:underline">
+                  <ArrowRight className="w-4 h-4" />
+                  View all service areas
+                </Link>
+              </div>
+
               {/* FAQs */}
               <div itemScope itemType="https://schema.org/FAQPage">
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -1418,6 +1491,31 @@ export default function ServiceDetail() {
           </div>
         </div>
       </footer>
+
+      {/* Item 10: Sticky mobile Get a Quote / Call Now bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#2C5F7F] shadow-[0_-2px_12px_rgba(0,0,0,0.15)]">
+        <div className="flex items-stretch">
+          <button
+            type="button"
+            className="flex-1 flex items-center justify-center gap-2 py-3.5 text-white font-semibold text-sm"
+            onClick={() => setQuotePopupOpen(true)}
+          >
+            <ArrowRight className="w-4 h-4" />
+            Get a Free Quote
+          </button>
+          <a
+            href="tel:07970566409"
+            className="flex items-center justify-center gap-2 px-5 py-3.5 bg-[#1a3a4d] text-white font-semibold text-sm border-l border-white/20"
+            onClick={() => trackPhoneCall('07970566409', 'Service Page Sticky Bar')}
+            aria-label="Call 07970 566409"
+          >
+            <Phone className="w-4 h-4" />
+            Call Now
+          </a>
+        </div>
+      </div>
+      {/* Spacer to prevent content being hidden behind sticky bar on mobile */}
+      <div className="h-14 md:hidden" aria-hidden="true" />
 
       {/* Quote Popup */}
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />

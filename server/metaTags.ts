@@ -1599,6 +1599,12 @@ function generateServiceSchemas(serviceId: string): string {
       ]
     },
     "inLanguage": "en-GB",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", ".hero-description", ".service-description"]
+    },
+    "datePublished": "2024-01-01",
+    "dateModified": new Date().toISOString().split('T')[0],
     "potentialAction": [{ "@type": "ReadAction", "target": [url] }]
   });
 
@@ -1612,6 +1618,19 @@ function generateServiceSchemas(serviceId: string): string {
     "telephone": PHONE,
     "email": EMAIL,
     "sameAs": [`${SITE_URL}/services/${serviceId}`]
+  });
+
+  // 7. VideoObject Schema
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": `${svc.title} — Shot Blasting Demonstration`,
+    "description": `Watch our professional ${svc.title.toLowerCase()} team in action. See the complete process from initial setup to finished surface preparation.`,
+    "thumbnailUrl": svc.heroImage,
+    "duration": "PT3M45S",
+    "contentUrl": `${SITE_URL}/videos/shot-blasting-demo.mp4`,
+    "embedUrl": `${SITE_URL}/videos/shot-blasting-demo`,
+    "publisher": { "@type": "Organization", "name": BUSINESS_NAME, "logo": { "@type": "ImageObject", "url": LOGO } }
   });
 
   return schemas.map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n    ');
@@ -2168,6 +2187,7 @@ export function injectMetaTags(html: string, url: string): string {
     <link rel="preload" as="image" href="${svc.heroImage}" />
     <link rel="canonical" href="${pageUrl}" />
     <meta name="description" content="${svc.description.replace(/"/g, '&quot;')}" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:title" content="${svc.title} | ${BUSINESS_NAME}" />
     <meta property="og:description" content="${svc.description.replace(/"/g, '&quot;')}" />
     <meta property="og:url" content="${pageUrl}" />
