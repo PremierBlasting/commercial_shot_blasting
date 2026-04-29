@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, CheckCircle, ArrowRight, Tractor, Wheat, Shield, Clock } from "lucide-react";
+import { Phone, Mail, CheckCircle, ArrowRight, Tractor, Wheat, Shield, Clock, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useState } from "react";
 import { getIndustrySEO, useSEO } from "@/hooks/useSEO";
 import { QuotePopup } from "@/components/QuotePopup";
@@ -11,6 +11,16 @@ import { BackToTop } from "@/components/BackToTop";
 
 export default function AgricultureIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const farmProjectImages = [
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(4)_5d798006.jpeg", alt: "Farm barn concrete panels after shot blasting — side elevation showing clean surface" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(5)_d258dff2.jpeg", alt: "Farm building steel frame and concrete panels mid-blast, showing rust removal progress" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(6)_5c09aa7a.jpeg", alt: "Agricultural barn wall after shot blasting with tractor visible in background" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(3)_cf8ab7c2.jpeg", alt: "Farm building concrete panels blasted clean with scissor lift on site" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.42(1)_a8f17ecc.jpeg", alt: "Long barn wall fully shot blasted — clean grey concrete surface ready for coating" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.42(2)_2bf96553.jpeg", alt: "Agricultural building end gable after shot blasting — corrugated steel and concrete" },
+  ];
 
   // Set SEO metadata
   useSEO(getIndustrySEO("Agriculture", "Professional shot blasting for agricultural machinery and equipment. Restore tractors, harvesters, and farm implements.", "agriculture"));
@@ -253,6 +263,110 @@ export default function AgricultureIndustry() {
           </div>
         </div>
       </section>
+
+      {/* Recent Projects Gallery */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <span className="text-[#4a7c59] font-semibold text-sm uppercase tracking-wider">Recent Work</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+              Farm Building Shot Blasting Project
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Concrete panel and steel frame surface preparation on a working farm — blast cleaned and ready for protective coating.
+            </p>
+          </div>
+
+          {/* Photo Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
+            {farmProjectImages.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => setLightboxIndex(i)}
+                className="relative aspect-[4/3] overflow-hidden rounded-lg group focus:outline-none focus:ring-2 focus:ring-[#4a7c59]"
+                aria-label={`View full size: ${img.alt}`}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-full">
+                    View
+                  </span>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Video */}
+          <div className="max-w-3xl mx-auto">
+            <div className="relative rounded-xl overflow-hidden shadow-lg bg-black aspect-video">
+              <video
+                controls
+                preload="metadata"
+                className="w-full h-full object-cover"
+                poster="/manus-storage/WhatsAppImage2026-04-27at16.58.42(1)_a8f17ecc.jpeg"
+              >
+                <source src="/manus-storage/WhatsAppVideo2026-04-27at09.27.29(1)_3886b1d3.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <p className="text-center text-sm text-gray-500 mt-3">On-site shot blasting of farm building concrete panels and steel frame</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox */}
+      {lightboxIndex !== null && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setLightboxIndex(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image lightbox"
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            onClick={() => setLightboxIndex(null)}
+            aria-label="Close lightbox"
+          >
+            <X className="w-8 h-8" />
+          </button>
+          <button
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+            onClick={(e) => { e.stopPropagation(); setLightboxIndex(idx => idx !== null ? (idx + farmProjectImages.length - 1) % farmProjectImages.length : 0); }}
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="w-10 h-10" />
+          </button>
+          <img
+            src={farmProjectImages[lightboxIndex].src}
+            alt={farmProjectImages[lightboxIndex].alt}
+            className="max-h-[85vh] max-w-full rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+            onClick={(e) => { e.stopPropagation(); setLightboxIndex(idx => idx !== null ? (idx + 1) % farmProjectImages.length : 0); }}
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-10 h-10" />
+          </button>
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            {farmProjectImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={(e) => { e.stopPropagation(); setLightboxIndex(i); }}
+                className={`w-2 h-2 rounded-full transition-colors ${i === lightboxIndex ? 'bg-white' : 'bg-white/40'}`}
+                aria-label={`Go to image ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* CTA Section */}
       <section className="py-16 bg-[#4a7c59] text-white">
