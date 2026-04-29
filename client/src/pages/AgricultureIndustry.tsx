@@ -43,7 +43,7 @@ export default function AgricultureIndustry() {
     {
       title: "Agricultural Buildings & Structures",
       description: "Shot blasting for barn frames, grain silos, and farm building steelwork. Prepare surfaces for protective coatings in harsh rural environments.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sUfXaBUgQWNMAvEc.webp",
+      image: "/manus-storage/WhatsAppImage2026-04-27at16.58.42(1)_a8f17ecc.jpeg",
       link: "/services/structural-steel-frames",
       benefits: ["Weather protection", "Long-lasting finish", "Structural integrity"]
     },
@@ -270,10 +270,10 @@ export default function AgricultureIndustry() {
           <div className="text-center mb-12">
             <span className="text-[#4a7c59] font-semibold text-sm uppercase tracking-wider">Recent Work</span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
-              Farm Building Shot Blasting Project
+              Farm Building Shot Blasting — Shropshire, April 2026
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Concrete panel and steel frame surface preparation on a working farm — blast cleaned and ready for protective coating.
+              Concrete panel and steel frame surface preparation on a working Shropshire farm — blast cleaned and ready for protective coating.
             </p>
           </div>
 
