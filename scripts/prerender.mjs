@@ -175,7 +175,7 @@ function generateSchemas(slug, name, url, county, region, faqs) {
     "@type": "WebPage",
     "@id": `${url}#webpage`,
     "url": url,
-    "name": `Shot Blasting ${name} | Commercial Shot Blasting`,
+    "name": `Shot Blasting Services in ${name} | Commercial Shot Blasting`,
     "description": `Professional mobile shot blasting services in ${name}. Rust removal, surface preparation, and industrial cleaning for commercial and industrial clients.`,
     "isPartOf": { "@type": "WebSite", "name": BUSINESS_NAME, "url": SITE_URL },
     "breadcrumb": {
@@ -321,8 +321,8 @@ function generateBodyHTML(location) {
  */
 function injectMetaTags(html, location) {
   const { slug, name, county, region, description, faqs } = location;
-  const title = `Shot Blasting ${name}${county ? `, ${county}` : ''} | ${BUSINESS_NAME}`;
-  const metaDesc = description || `Shot Blasting ${name} - Local experts in rust removal & industrial cleaning. Same-day response available. Call ${PHONE}`;
+  const title = `Shot Blasting Services in ${name}${county ? `, ${county}` : ''} | ${BUSINESS_NAME}`;
+  const metaDesc = description || `Professional shot blasting services in ${name}${county ? `, ${county}` : ''} — mobile rust removal & surface preparation for commercial and industrial clients. Free quote. Call ${PHONE}`;
   const url = `${SITE_URL}/service-areas/${slug}`;
   const image = HERO_IMAGE;
 
@@ -359,6 +359,7 @@ function injectMetaTags(html, location) {
     <meta name="twitter:title" content="${esc(title)}" />
     <meta name="twitter:description" content="${esc(metaDesc)}" />
     <meta name="twitter:image" content="${image}" />
+    <meta name="twitter:image:alt" content="${esc(title)} — Commercial Shot Blasting" />
     ${jsonLd}`;
 
   // Insert head tags before </head>

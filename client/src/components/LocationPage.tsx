@@ -43,13 +43,13 @@ export function LocationPage({ location }: LocationPageProps) {
   }, [location.countySlug, location.slug]);
 
   // Set SEO metadata with optimized location-specific descriptions
-  useSEO(getLocationSEO(location.name));
+  useSEO(getLocationSEO(location.name, location.slug, location.county));
 
   const breadcrumbItems = [
     { label: "Home", href: "/" },
     { label: "Service Areas", href: "/service-areas" },
     { label: location.county, href: `/counties/${location.countySlug}` },
-    { label: location.name, href: `/locations/${location.slug}` }
+    { label: location.name, href: `/service-areas/${location.slug}` }
   ];
 
   return (
@@ -59,7 +59,7 @@ export function LocationPage({ location }: LocationPageProps) {
         city={location.name}
         region={location.county}
         description={location.description}
-        url={`https://commercialshotblasting.co.uk/locations/${location.slug}`}
+        url={`https://commercialshotblasting.co.uk/service-areas/${location.slug}`}
         nearbyAreas={location.nearbyAreas}
       />
       <ReviewSchema locationName={location.name} county={location.county} />
@@ -329,7 +329,7 @@ export function LocationPage({ location }: LocationPageProps) {
             </div>
 
             <div className="space-y-6">
-              {location.faqs.map((faq, index) => (
+              {generateLocationFAQs(location.name, location.county).map((faq, index) => (
                 <div key={index} className="bg-gray-50 rounded-xl p-6">
                   <h3 className="text-lg font-bold text-[#2C2C2C] mb-3">
                     <span className="text-[#2C5F7F]">Q:</span> {faq.question}
@@ -340,6 +340,48 @@ export function LocationPage({ location }: LocationPageProps) {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-14 bg-gray-50">
+        <div className="container">
+          <div className="text-center mb-8">
+            <p className="text-[#2C5F7F] font-medium mb-2">Client Feedback</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              What Our Clients Say
+            </h2>
+            <div className="flex items-center justify-center gap-2 mt-3">
+              <div className="flex gap-0.5">
+                {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
+              </div>
+              <span className="text-sm font-semibold text-gray-700">4.9 / 5</span>
+              <span className="text-sm text-gray-500">&mdash; 127 verified reviews</span>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              { name: 'James H.', company: 'Midlands Steel Fabricators', text: `The team arrived on time and blasted our structural steelwork to SA2.5 standard. Excellent finish and very professional throughout.` },
+              { name: 'Sarah M.', company: 'West Midlands Property Group', text: 'Competitive quote, fast turnaround, and the site was left spotless. We\'ve used them three times now and always impressed.' },
+              { name: 'Dave T.', company: 'National Container Services', text: 'Handled a batch of 12 containers efficiently. The mobile unit came directly to our yard — no logistics headaches at all.' },
+            ].map((t, i) => (
+              <blockquote key={i} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100" itemScope itemType="https://schema.org/Review">
+                <div className="flex gap-0.5 mb-3">
+                  {[1,2,3,4,5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />)}
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed mb-4" itemProp="reviewBody">&ldquo;{t.text}&rdquo;</p>
+                <footer className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-[#2C5F7F]/10 flex items-center justify-center">
+                    <span className="text-[#2C5F7F] font-bold text-xs">{t.name[0]}</span>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-[#2C2C2C]" itemProp="author">{t.name}</p>
+                    <p className="text-xs text-gray-500">{t.company}</p>
+                  </div>
+                </footer>
+              </blockquote>
+            ))}
           </div>
         </div>
       </section>

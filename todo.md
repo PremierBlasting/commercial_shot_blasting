@@ -150,3 +150,20 @@
 - [x] Service #8: Service Coverage location link section
 - [x] Service #9: Client-side canonical in useSEO hook (already implemented)
 - [x] Service #10: Sticky mobile CTA bar in ServiceDetail
+
+## Local Area Page SEO Round 2 (14 items)
+
+- [ ] Local2 #1: Add "Services" to prerender.mjs title tag
+- [ ] Local2 #2: Fix client-side getLocationSEO title to include "Services in"
+- [ ] Local2 #3: Improve meta description to include "services" keyword
+- [ ] Local2 #4: Add dateModified/datePublished to location WebPage schema in metaTags.ts
+- [ ] Local2 #5: Add speakable to location WebPage schema in metaTags.ts
+- [ ] Local2 #6: Add uploadDate to VideoObject schema in generateLocationSchemas
+- [ ] Local2 #7: Add twitter:image:alt to prerender.mjs head tags
+- [ ] Local2 #8: Fix CountyPage.tsx links from /locations/ to /service-areas/
+- [ ] Local2 #9: Fix LocalBusinessSchema URL from /locations/ to /service-areas/
+- [ ] Local2 #10: Fix breadcrumb href from /locations/ to /service-areas/
+- [ ] Local2 #11: Add SSR body content injection to county pre-rendered pages
+- [ ] Local2 #12: Swap visible FAQ section from location.faqs to generateLocationFAQs
+- [ ] Local2 #13: Add visible testimonial block to LocationPage.tsx
+- [ ] Local2 #14: Pass slug to useSEO/getLocationSEO for correct client-side canonical

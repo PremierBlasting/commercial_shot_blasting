@@ -26,153 +26,153 @@ const locCoords: Record<string, [number, number]> = {
 // Location data for meta tags (must match client/src/data/locationData.ts)
 const locationMeta: Record<string, LocationMeta> = {
   "birmingham": {
-    title: "Shot Blasting Birmingham | Commercial & Industrial",
-    description: "Shot Blasting Birmingham - Professional rust removal & surface preparation. Fast turnaround for commercial & industrial projects. Call 07970 566409",
+    title: "Shot Blasting Services in Birmingham | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Birmingham — mobile rust removal & surface preparation for commercial and industrial clients. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/birmingham"
   },
   "wolverhampton": {
-    title: "Shot Blasting Wolverhampton",
-    description: "Shot Blasting Wolverhampton - Expert metal cleaning for manufacturing & automotive sectors. Competitive pricing. Call 07970 566409",
+    title: "Shot Blasting Services in Wolverhampton | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Wolverhampton — mobile rust removal & surface preparation for manufacturing and automotive clients. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/wolverhampton"
   },
   "coventry": {
-    title: "Shot Blasting Coventry",
-    description: "Shot Blasting Coventry - Specialist surface preparation serving the automotive industry. Quality guaranteed. Call 07970 566409",
+    title: "Shot Blasting Services in Coventry | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Coventry — specialist surface preparation for the automotive industry. Quality guaranteed. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/coventry"
   },
   "leicester": {
-    title: "Shot Blasting Leicester",
-    description: "Shot Blasting Leicester - Precision blasting for industrial facilities across the East Midlands. Free quotes. Call 07970 566409",
+    title: "Shot Blasting Services in Leicester | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Leicester — precision rust removal & surface preparation for industrial facilities across the East Midlands. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/leicester"
   },
   "derby": {
-    title: "Shot Blasting Derby",
-    description: "Shot Blasting Derby - Professional metal surface preparation for commercial projects. Experienced team. Call 07970 566409",
+    title: "Shot Blasting Services in Derby | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Derby — mobile metal surface preparation for commercial projects. Experienced team. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/derby"
   },
   "nottingham": {
-    title: "Shot Blasting Nottingham | Industrial Services",
-    description: "Shot Blasting Nottingham - Local experts in rust removal & industrial cleaning. Same-day response available. Call 07970 566409",
+    title: "Shot Blasting Services in Nottingham | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Nottingham — local experts in rust removal & industrial cleaning. Same-day response available. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/nottingham"
   },
   "sheffield": {
-    title: "Shot Blasting Sheffield",
-    description: "Shot Blasting Sheffield - Specialist steel cleaning for manufacturing & engineering sectors. Fast service. Call 07970 566409",
+    title: "Shot Blasting Services in Sheffield | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Sheffield — specialist steel cleaning for manufacturing & engineering sectors. Fast service. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/sheffield"
   },
   "leeds": {
-    title: "Shot Blasting Leeds",
-    description: "Shot Blasting Leeds - Expert rust removal & coating preparation for Yorkshire industries. Reliable service. Call 07970 566409",
+    title: "Shot Blasting Services in Leeds | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Leeds — expert rust removal & coating preparation for Yorkshire industries. Reliable service. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/leeds"
   },
   "manchester": {
-    title: "Shot Blasting Manchester",
-    description: "Shot Blasting Manchester - Industrial cleaning & surface profiling for Greater Manchester businesses. Call 07970 566409",
+    title: "Shot Blasting Services in Manchester | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Manchester — industrial cleaning & surface profiling for Greater Manchester businesses. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/manchester"
   },
   "liverpool": {
-    title: "Shot Blasting Liverpool",
-    description: "Shot Blasting Liverpool - Marine & industrial blasting specialists serving Merseyside. Competitive rates. Call 07970 566409",
+    title: "Shot Blasting Services in Liverpool | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Liverpool — marine & industrial blasting specialists serving Merseyside. Competitive rates. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/liverpool"
   },
   "chester": {
-    title: "Shot Blasting Chester",
-    description: "Shot Blasting Chester - Heritage & modern surface preparation across Cheshire. Expert team. Call 07970 566409",
+    title: "Shot Blasting Services in Chester | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Chester — heritage & modern surface preparation across Cheshire. Expert team. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/chester"
   },
   "stoke-on-trent": {
-    title: "Shot Blasting Stoke-on-Trent",
-    description: "Shot Blasting Stoke - Industrial cleaning for Staffordshire manufacturers. Fast turnaround times. Call 07970 566409",
+    title: "Shot Blasting Services in Stoke-on-Trent | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Stoke-on-Trent — industrial cleaning for Staffordshire manufacturers. Fast turnaround. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/stoke-on-trent"
   },
   "shrewsbury": {
-    title: "Shot Blasting Shrewsbury",
-    description: "Shot Blasting Shrewsbury - Professional blasting services for Shropshire businesses. Quality results. Call 07970 566409",
+    title: "Shot Blasting Services in Shrewsbury | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Shrewsbury — mobile blasting for Shropshire businesses. Quality results. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/shrewsbury"
   },
   "worcester": {
-    title: "Shot Blasting Worcester",
-    description: "Shot Blasting Worcester - Specialist surface preparation across Worcestershire. Reliable & efficient. Call 07970 566409",
+    title: "Shot Blasting Services in Worcester | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Worcester — specialist surface preparation across Worcestershire. Reliable & efficient. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/worcester"
   },
   "hereford": {
-    title: "Shot Blasting Hereford",
-    description: "Shot Blasting Hereford - Agricultural & industrial blasting for Herefordshire. Competitive pricing. Call 07970 566409",
+    title: "Shot Blasting Services in Hereford | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Hereford — agricultural & industrial blasting for Herefordshire. Competitive pricing. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/hereford"
   },
   "gloucester": {
-    title: "Shot Blasting Gloucester",
-    description: "Shot Blasting Gloucester - Professional metal cleaning across Gloucestershire. Free quotes available. Call 07970 566409",
+    title: "Shot Blasting Services in Gloucester | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Gloucester — mobile metal cleaning across Gloucestershire. Free quotes available. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/gloucester"
   },
   "bristol": {
-    title: "Shot Blasting Bristol",
-    description: "Shot Blasting Bristol - Marine, automotive & industrial blasting in the South West. Expert service. Call 07970 566409",
+    title: "Shot Blasting Services in Bristol | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Bristol — marine, automotive & industrial blasting in the South West. Expert service. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/bristol"
   },
   "cardiff": {
-    title: "Shot Blasting Cardiff",
-    description: "Shot Blasting Cardiff - Professional surface preparation serving South Wales businesses. Quality assured. Call 07970 566409",
+    title: "Shot Blasting Services in Cardiff | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Cardiff — mobile surface preparation serving South Wales businesses. Quality assured. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/cardiff"
   },
   "wrexham": {
-    title: "Shot Blasting Wrexham",
-    description: "Shot Blasting Wrexham - Industrial & commercial blasting across North Wales. Experienced team. Call 07970 566409",
+    title: "Shot Blasting Services in Wrexham | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Wrexham — industrial & commercial blasting across North Wales. Experienced team. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/wrexham"
   },
   "oxford": {
-    title: "Shot Blasting Oxford",
-    description: "Shot Blasting Oxford - Heritage-sensitive & modern surface preparation in Oxfordshire. Call 07970 566409",
+    title: "Shot Blasting Services in Oxford | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Oxford — heritage-sensitive & modern surface preparation in Oxfordshire. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/oxford"
   },
   "swindon": {
-    title: "Shot Blasting Swindon",
-    description: "Shot Blasting Swindon - Automotive & manufacturing blasting specialists in Wiltshire. Fast service. Call 07970 566409",
+    title: "Shot Blasting Services in Swindon | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Swindon — automotive & manufacturing blasting specialists in Wiltshire. Fast service. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/swindon"
   },
   "milton-keynes": {
-    title: "Shot Blasting Milton Keynes",
-    description: "Shot Blasting Milton Keynes - Commercial surface preparation across Buckinghamshire. Professional results. Call 07970 566409",
+    title: "Shot Blasting Services in Milton Keynes | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Milton Keynes — commercial surface preparation across Buckinghamshire. Professional results. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/milton-keynes"
   },
   "northampton": {
-    title: "Shot Blasting Northampton",
-    description: "Shot Blasting Northampton - Quality metal surface preparation for local industries. Competitive pricing. Call 07970 566409",
+    title: "Shot Blasting Services in Northampton | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Northampton — quality metal surface preparation for local industries. Competitive pricing. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/northampton"
   },
   "peterborough": {
-    title: "Shot Blasting Peterborough",
-    description: "Shot Blasting Peterborough - Industrial cleaning & rust removal across Cambridgeshire. Reliable service. Call 07970 566409",
+    title: "Shot Blasting Services in Peterborough | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Peterborough — industrial cleaning & rust removal across Cambridgeshire. Reliable service. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/peterborough"
   },
   "cambridge": {
-    title: "Shot Blasting Cambridge",
-    description: "Shot Blasting Cambridge - Precision surface preparation for high-tech & traditional industries. Call 07970 566409",
+    title: "Shot Blasting Services in Cambridge | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Cambridge — precision surface preparation for high-tech & traditional industries. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/cambridge"
   },
   "norwich": {
-    title: "Shot Blasting Norwich",
-    description: "Shot Blasting Norwich - Professional blasting services across Norfolk. Agricultural & industrial specialists. Call 07970 566409",
+    title: "Shot Blasting Services in Norwich | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Norwich — agricultural & industrial specialists across Norfolk. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/norwich"
   },
   "ipswich": {
-    title: "Shot Blasting Ipswich",
-    description: "Shot Blasting Ipswich - Marine & industrial surface preparation in Suffolk. Competitive rates. Call 07970 566409",
+    title: "Shot Blasting Services in Ipswich | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Ipswich — marine & industrial surface preparation in Suffolk. Competitive rates. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/ipswich"
   },
   "lincoln": {
-    title: "Shot Blasting Lincoln",
-    description: "Shot Blasting Lincoln - Agricultural & industrial blasting specialists in Lincolnshire. Fast turnaround. Call 07970 566409",
+    title: "Shot Blasting Services in Lincoln | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Lincoln — agricultural & industrial blasting specialists in Lincolnshire. Fast turnaround. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/lincoln"
   },
   "chesterfield": {
-    title: "Shot Blasting Chesterfield",
-    description: "Shot Blasting Chesterfield - Expert surface preparation for Derbyshire manufacturers. Competitive pricing. Call 07970 566409",
+    title: "Shot Blasting Services in Chesterfield | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Chesterfield — expert surface preparation for Derbyshire manufacturers. Competitive pricing. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/chesterfield"
   },
   "stratford-upon-avon": {
-    title: "Shot Blasting Stratford-upon-Avon",
-    description: "Shot Blasting Stratford - Heritage & modern blasting in Warwickshire. Sensitive restoration work. Call 07970 566409",
+    title: "Shot Blasting Services in Stratford-upon-Avon | Commercial Shot Blasting",
+    description: "Professional shot blasting services in Stratford-upon-Avon — heritage & modern blasting in Warwickshire. Sensitive restoration work. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/stratford-upon-avon"
   }
 };
@@ -559,6 +559,7 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
     "name": `Shot Blasting Services Demonstration - ${locationName}`,
     "description": `Watch our professional shot blasting team in action in ${locationName}. See the complete process from setup to finished surface.`,
     "thumbnailUrl": HERO_IMAGE,
+    "uploadDate": "2024-03-15",
     "duration": "PT3M45S",
     "contentUrl": `${SITE_URL}/videos/shot-blasting-demo.mp4`,
     "embedUrl": `${SITE_URL}/videos/shot-blasting-demo`,
@@ -625,7 +626,7 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
     "@type": "WebPage",
     "@id": `${url}#webpage`,
     "url": url,
-    "name": `Shot Blasting ${locationName} | Commercial Shot Blasting`,
+    "name": `Shot Blasting Services in ${locationName} | Commercial Shot Blasting`,
     "description": `Professional mobile shot blasting services in ${locationName}. Rust removal, surface preparation, and industrial cleaning for commercial and industrial clients.`,
     "isPartOf": { "@type": "WebSite", "@id": `${SITE_URL}/#website`, "name": BUSINESS_NAME, "url": SITE_URL },
     "about": { "@type": "LocalBusiness", "name": `${BUSINESS_NAME} - ${locationName}` },
@@ -2314,6 +2315,24 @@ export function injectMetaTags(html: string, url: string): string {
     ${schemas}
   `;
       modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
+
+      // Inject SSR body content for county pages so Googlebot can crawl location links
+      const countyLocations = Object.values(locationData)
+        .filter(loc => loc.countySlug === countySlug)
+        .slice(0, 30);
+      if (countyLocations.length > 0) {
+        const esc = (s: string) => String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        const locLinksHtml = countyLocations.map(loc =>
+          `<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}/service-areas/${loc.slug}"><span itemprop="name">Shot Blasting Services in ${esc(loc.name)}</span></a></li>`
+        ).join('');
+        const countyBodyHtml = `<div id="ssr-county-content" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;" itemscope itemtype="https://schema.org/WebPage"><nav aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><ol><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}/counties"><span itemprop="name">Counties</span></a><meta itemprop="position" content="2"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${pageUrl}"><span itemprop="name">${esc(county.name)}</span></a><meta itemprop="position" content="3"/></li></ol></nav><article><h1>Shot Blasting Services in ${esc(county.name)}</h1><p>${esc(county.description || `Professional mobile shot blasting services across ${county.name}. Our mobile units cover all major towns and cities.`)}</p><section><h2>Areas We Cover in ${esc(county.name)}</h2><ul itemscope itemtype="https://schema.org/ItemList">${locLinksHtml}</ul></section><section><h2>Get a Free Quote for Shot Blasting in ${esc(county.name)}</h2><p>Call <a href="tel:07970566409">07970 566409</a> or email <a href="mailto:info@commercialshotblasting.co.uk">info@commercialshotblasting.co.uk</a>.</p></section></article></div>`;
+        if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
+          modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', countyBodyHtml);
+        } else {
+          modifiedHtml = modifiedHtml.replace(/<body[^>]*>/, (match: string) => `${match}\n${countyBodyHtml}`);
+        }
+      }
+
       return modifiedHtml;
     }
   }
@@ -2411,11 +2430,11 @@ export function injectMetaTags(html: string, url: string): string {
 
     // Build meta tags and JSON-LD
     const metaTags = `
-    <title>Shot Blasting ${locationName} | Industrial Services</title>
+    <title>Shot Blasting Services in ${locationName} | Commercial Shot Blasting</title>
     <link rel="canonical" href="${fullUrl}" />
-    <meta name="description" content="Shot Blasting ${locationName} - Professional rust removal & surface preparation. Expert commercial blasting. Call ${PHONE}" />
-    <meta property="og:title" content="Shot Blasting ${locationName} | Industrial Services" />
-    <meta property="og:description" content="Shot Blasting ${locationName} - Professional rust removal & surface preparation. Expert commercial blasting. Call ${PHONE}" />
+    <meta name="description" content="Professional shot blasting services in ${locationName} — mobile rust removal & surface preparation for commercial and industrial clients. Free quote. Call ${PHONE}" />
+    <meta property="og:title" content="Shot Blasting Services in ${locationName} | Commercial Shot Blasting" />
+    <meta property="og:description" content="Professional shot blasting services in ${locationName} — mobile rust removal & surface preparation for commercial and industrial clients. Free quote. Call ${PHONE}" />
     <meta property="og:url" content="${fullUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${HERO_IMAGE}" />
@@ -2424,10 +2443,10 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Shot Blasting ${locationName} | Industrial Services" />
-    <meta name="twitter:description" content="Shot Blasting ${locationName} - Professional rust removal & surface preparation. Expert commercial blasting. Call ${PHONE}" />
+    <meta name="twitter:title" content="Shot Blasting Services in ${locationName} | Commercial Shot Blasting" />
+    <meta name="twitter:description" content="Professional shot blasting services in ${locationName} — mobile rust removal & surface preparation for commercial clients. Free quote. Call ${PHONE}" />
     <meta name="twitter:image" content="${HERO_IMAGE}" />
-    <meta name="twitter:image:alt" content="Professional shot blasting services in ${locationName} — rust removal and surface preparation" />
+    <meta name="twitter:image:alt" content="Shot blasting services in ${locationName} — Commercial Shot Blasting" />
     <link rel="preload" as="image" href="${HERO_IMAGE}" />
     ${generateLocationSchemas(locationSlug, locationName, fullUrl)}
   `;
@@ -2482,7 +2501,7 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:title" content="${meta.title}" />
     <meta name="twitter:description" content="${meta.description}" />
     <meta name="twitter:image" content="${HERO_IMAGE}" />
-    <meta name="twitter:image:alt" content="Professional shot blasting services in ${locationName} — rust removal and surface preparation" />
+    <meta name="twitter:image:alt" content="Shot blasting services in ${locationName} — Commercial Shot Blasting" />
     <link rel="preload" as="image" href="${HERO_IMAGE}" />
     ${generateLocationSchemas(locationSlug, locationName, meta.url)}
   `;

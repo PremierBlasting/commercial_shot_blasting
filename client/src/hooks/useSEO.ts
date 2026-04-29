@@ -93,11 +93,12 @@ export function getServiceSEO(serviceName: string, serviceDescription: string): 
 /**
  * Generate SEO config for location pages
  */
-export function getLocationSEO(locationName: string, slug?: string): SEOConfig {
+export function getLocationSEO(locationName: string, slug?: string, county?: string): SEOConfig {
+  const countyStr = county ? `, ${county}` : '';
   return {
-    title: `Shot Blasting ${locationName} | Industrial Services`,
-    description: `Shot Blasting ${locationName} - Local experts in rust removal & industrial cleaning. Same-day response available. Call 07970 566409`,
-    keywords: `shot blasting ${locationName}, ${locationName} shot blasting, commercial shot blasting ${locationName}, industrial blasting ${locationName}, rust removal ${locationName}`,
+    title: `Shot Blasting Services in ${locationName}${countyStr} | Commercial Shot Blasting`,
+    description: `Professional shot blasting services in ${locationName}${countyStr} — mobile rust removal & surface preparation for commercial and industrial clients. Free quote. Call 07970 566409`,
+    keywords: `shot blasting services ${locationName}, ${locationName} shot blasting, commercial shot blasting ${locationName}, industrial blasting ${locationName}, rust removal ${locationName}`,
     image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
     canonical: slug ? `${SITE_URL}/service-areas/${slug}` : undefined
   };
