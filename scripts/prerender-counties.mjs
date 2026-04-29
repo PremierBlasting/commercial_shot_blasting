@@ -294,11 +294,7 @@ for (const county of counties) {
   try {
     const countyHtml = injectCountyPage(baseHtml, county);
 
-    // Write as .html for direct access
-    const outputPathHtml = path.join(countiesDir, `${county.slug}.html`);
-    fs.writeFileSync(outputPathHtml, countyHtml, 'utf-8');
-
-    // Also write as extensionless file so static server matches /counties/bedfordshire directly
+    // Write as extensionless file so static server matches /counties/bedfordshire directly
     const outputPath = path.join(countiesDir, county.slug);
     fs.writeFileSync(outputPath, countyHtml, 'utf-8');
 
@@ -311,7 +307,7 @@ for (const county of counties) {
 }
 
 console.log(`\n🎉 County pre-rendering complete!`);
-console.log(`   ✅ Successfully generated: ${successCount} counties (${successCount * 2} files — extensionless + .html)`);
+console.log(`   ✅ Successfully generated: ${successCount} counties (extensionless files only)`);
 if (errorCount > 0) {
   console.log(`   ❌ Errors: ${errorCount} pages`);
 }

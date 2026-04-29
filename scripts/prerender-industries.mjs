@@ -491,11 +491,7 @@ for (const industry of industries) {
   try {
     const industryHtml = injectIndustryPage(baseHtml, industry);
 
-    // Write as .html for direct access
-    const outputPathHtml = path.join(industriesDir, `${industry.slug}.html`);
-    fs.writeFileSync(outputPathHtml, industryHtml, 'utf-8');
-
-    // Also write as extensionless file so static server matches /industries/aerospace directly
+    // Write as extensionless file so static server matches /industries/aerospace directly
     const outputPath = path.join(industriesDir, industry.slug);
     fs.writeFileSync(outputPath, industryHtml, 'utf-8');
 
@@ -508,7 +504,7 @@ for (const industry of industries) {
 }
 
 console.log(`\n🎉 Industry pre-rendering complete!`);
-console.log(`   ✅ Successfully generated: ${successCount} industries (${successCount * 2} files — extensionless + .html)`);
+console.log(`   ✅ Successfully generated: ${successCount} industries (extensionless files only)`);
 if (errorCount > 0) {
   console.log(`   ❌ Errors: ${errorCount} pages`);
 }

@@ -277,11 +277,7 @@ for (const service of services) {
   try {
     const serviceHtml = injectServicePage(baseHtml, service);
 
-    // Write as .html for direct access
-    const outputPathHtml = path.join(servicesDir, `${service.id}.html`);
-    fs.writeFileSync(outputPathHtml, serviceHtml, 'utf-8');
-
-    // Also write as extensionless file so static server matches /services/structural-steel-frames directly
+    // Write as extensionless file so static server matches /services/structural-steel-frames directly
     const outputPath = path.join(servicesDir, service.id);
     fs.writeFileSync(outputPath, serviceHtml, 'utf-8');
 
@@ -294,7 +290,7 @@ for (const service of services) {
 }
 
 console.log(`\n🎉 Service pre-rendering complete!`);
-console.log(`   ✅ Successfully generated: ${successCount} services (${successCount * 2} files — extensionless + .html)`);
+console.log(`   ✅ Successfully generated: ${successCount} services (extensionless files only)`);
 if (errorCount > 0) {
   console.log(`   ❌ Errors: ${errorCount} pages`);
 }
