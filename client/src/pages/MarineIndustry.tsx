@@ -254,6 +254,89 @@ export default function MarineIndustry() {
         </div>
       </section>
 
+      {/* Before & After Gallery */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <span className="text-[#1e4159] font-semibold text-sm uppercase tracking-wider">Real Job Photos</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+              Marine Engine Block — Before &amp; After
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Large-format marine diesel engine block stripped of decades of rust, paint and corrosion. Shot blasted back to bare metal, ready for inspection and recoating.
+            </p>
+          </div>
+
+          {/* Before row */}
+          <div className="mb-6">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-red-100 text-red-700">Before</span>
+              <span className="text-gray-500 text-sm">Heavy rust, old paint and scale covering the entire block</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="overflow-hidden rounded-xl shadow-md aspect-[4/3]">
+                <img
+                  src="/manus-storage/marine-before-1_01d5fffa.jpg"
+                  alt="Marine engine block before shot blasting — top view showing heavy rust and old paint"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+              <div className="overflow-hidden rounded-xl shadow-md aspect-[4/3]">
+                <img
+                  src="/manus-storage/marine-before-2_c23a76dd.jpg"
+                  alt="Marine engine block before shot blasting — side view showing corrosion and paint build-up"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* After row */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-700">After</span>
+              <span className="text-gray-500 text-sm">Bare metal finish — all rust, paint and scale completely removed</span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="overflow-hidden rounded-xl shadow-md aspect-[4/3]">
+                <img
+                  src="/manus-storage/marine-after-1_dc53f2eb.jpg"
+                  alt="Marine engine block after shot blasting — clean bare metal top view"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+              <div className="overflow-hidden rounded-xl shadow-md aspect-[4/3]">
+                <img
+                  src="/manus-storage/marine-after-2_30cf45df.jpg"
+                  alt="Marine engine block after shot blasting — clean bare metal side view"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+              <div className="overflow-hidden rounded-xl shadow-md aspect-[4/3]">
+                <img
+                  src="/manus-storage/marine-after-3_9ab0feb6.jpg"
+                  alt="Marine engine block after shot blasting — full length view of clean block"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+              <div className="overflow-hidden rounded-xl shadow-md aspect-[4/3]">
+                <img
+                  src="/manus-storage/marine-after-4_292300df.jpg"
+                  alt="Marine engine block after shot blasting — V-configuration end view showing clean metal"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-[#1e4159] text-white">
         <div className="container text-center">
