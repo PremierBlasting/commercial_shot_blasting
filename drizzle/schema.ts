@@ -201,3 +201,18 @@ export const callTrackingEvents = mysqlTable("call_tracking_events", {
 
 export type CallTrackingEvent = typeof callTrackingEvents.$inferSelect;
 export type InsertCallTrackingEvent = typeof callTrackingEvents.$inferInsert;
+
+/**
+ * Service Area Content table for storing AI-refreshed content per location
+ * Used by the weekly scheduler to layer fresh content on top of static location pages
+ */
+export const serviceAreaContent = mysqlTable("service_area_content", {
+  id: int("id").autoincrement().primaryKey(),
+  slug: varchar("slug", { length: 255 }).notNull().unique(),
+  customContent: text("customContent").notNull(),
+  lastRefreshed: timestamp("lastRefreshed").defaultNow().notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type ServiceAreaContent = typeof serviceAreaContent.$inferSelect;
+export type InsertServiceAreaContent = typeof serviceAreaContent.$inferInsert;

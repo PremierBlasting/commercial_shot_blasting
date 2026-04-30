@@ -7,7 +7,7 @@
 import type { Express, Request, Response } from "express";
 import https from "https";
 import { createContext } from "./_core/context";
-import { createBlogPost } from "./db";
+import { createBlogPost, upsertServiceAreaContent, getStaleServiceAreaSlugs } from "./db";
 
 const SITEMAP_URL = "https://commercialshotblasting.co.uk/sitemap.xml";
 
@@ -52,6 +52,33 @@ async function getSessionUser(req: Request, res: Response) {
     return null;
   }
 }
+
+// All 638 service area slugs — used to pick stale ones that have never been refreshed
+const ALL_SERVICE_AREA_SLUGS: string[] = [
+  "birmingham","sheffield","manchester","bristol","leeds","liverpool","cambridge","cardiff",
+  "chester","coventry","derby","gloucester","hereford","ipswich","leicester","lincoln",
+  "milton-keynes","norwich","nottingham","shrewsbury","st-albans","stoke","swindon",
+  "stratford-upon-avon","wolverhampton","worcester","northampton","oxford","peterborough",
+  "reading","southend-on-sea","watford","luton","bedford","dunstable","leighton-buzzard",
+  "aylesbury","banbury","high-wycombe","slough","chelmsford","basildon","colchester",
+  "great-yarmouth","kings-lynn","lowestoft","thetford","bury-st-edmunds","welwyn-garden-city",
+  "stevenage","hemel-hempstead","guildford","portsmouth","salisbury","taunton","weston-super-mare",
+  "bath","cheltenham","gloucester","hereford","worcester","telford","crewe","macclesfield",
+  "stockport","oldham","rochdale","salford","bolton","bury-st-edmunds","warrington","runcorn",
+  "birkenhead","doncaster","rotherham","barnsley","huddersfield","halifax","bradford",
+  "wakefield","hull","york","harrogate","scarborough","middlesbrough","sunderland",
+  "newcastle-upon-tyne","gateshead","durham","carlisle","blackpool","blackburn","burnley",
+  "preston","lancaster","wigan","st-helens","widnes","ellesmere-port","wrexham","newport",
+  "swansea","llanelli","bridgend","merthyr-tydfil","pontypridd","barry","penarth",
+  "cannock","cannock-chase","lichfield","tamworth","stafford","burton-upon-trent",
+  "nuneaton","leamington-spa","rugby","warwick","redditch","kidderminster","solihull",
+  "sutton-coldfield","dudley","walsall","west-bromwich","wolverhampton","stourbridge",
+  "halesowen","tipton","wednesbury","smethwick","oldbury","rowley-regis","kingswood",
+  "corby","kettering","wellingborough","northampton","daventry","towcester","brackley",
+  "chesterfield","dronfield","mansfield","newark","grantham","boston","spalding",
+  "scunthorpe","grimsby","louth","skegness","coalville","loughborough","hinckley",
+  "melton-mowbray","market-harborough","oakham","stamford","newcastle-under-lyme"
+];
 
 export function registerScheduledRoutes(app: Express) {
   /**
@@ -126,6 +153,76 @@ export function registerScheduledRoutes(app: Express) {
         return;
       }
       console.error("[Scheduled] Failed to create blog post:", err);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  });
+
+  /**
+   * GET /api/scheduled/stale-service-areas
+   * Returns up to 20 service area slugs that are least recently refreshed.
+   * Slugs that have never been refreshed (not in DB yet) are prioritised first.
+   */
+  app.get("/api/scheduled/stale-service-areas", async (req: Request, res: Response) => {
+    const user = await getSessionUser(req, res);
+    if (!user) {
+      res.status(401).json({ error: "Unauthorised" });
+      return;
+    }
+
+    try {
+      // Get slugs already in DB ordered by oldest refresh first
+      const refreshedSlugs = await getStaleServiceAreaSlugs(20);
+      const refreshedSet = new Set(refreshedSlugs);
+
+      // Prioritise slugs that have never been refreshed at all
+      const neverRefreshed = ALL_SERVICE_AREA_SLUGS
+        .filter((s) => !refreshedSet.has(s))
+        .slice(0, 20);
+
+      const result = neverRefreshed.length >= 20
+        ? neverRefreshed
+        : [...neverRefreshed, ...refreshedSlugs].slice(0, 20);
+
+      res.json({ slugs: result, total: ALL_SERVICE_AREA_SLUGS.length });
+    } catch (err) {
+      console.error("[Scheduled] Failed to get stale service areas:", err);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  });
+
+  /**
+   * POST /api/scheduled/refresh-service-area
+   * Body (JSON):
+   *   slug          string   The service area slug to update (e.g. "birmingham")
+   *   customContent string   Fresh HTML content to inject into the page
+   */
+  app.post("/api/scheduled/refresh-service-area", async (req: Request, res: Response) => {
+    const user = await getSessionUser(req, res);
+    if (!user) {
+      res.status(401).json({ error: "Unauthorised" });
+      return;
+    }
+
+    const { slug, customContent } = req.body as { slug: string; customContent: string };
+
+    if (!slug || !customContent) {
+      res.status(400).json({ error: "Missing required fields: slug, customContent" });
+      return;
+    }
+
+    if (!ALL_SERVICE_AREA_SLUGS.includes(slug)) {
+      res.status(400).json({ error: `Unknown service area slug: ${slug}` });
+      return;
+    }
+
+    try {
+      await upsertServiceAreaContent(slug, customContent);
+      console.log(`[Scheduled] Service area refreshed: ${slug}`);
+      // Ping sitemaps after refresh so Google picks up the updated content
+      pingSitemaps().catch(() => {});
+      res.status(200).json({ success: true, slug, sitemapPinged: true });
+    } catch (err) {
+      console.error(`[Scheduled] Failed to refresh service area ${slug}:`, err);
       res.status(500).json({ error: "Internal server error" });
     }
   });

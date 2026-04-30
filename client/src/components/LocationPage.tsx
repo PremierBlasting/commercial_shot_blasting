@@ -15,7 +15,32 @@ import { trackPhoneCall } from "@/lib/analytics";
 import { FAQSchema, generateLocationFAQs } from "@/components/FAQSchema";
 import { LocationData, locationData } from '@shared/locationData';
 import { services } from '@/data/services';
+import { trpc } from "@/lib/trpc";
 export type { LocationData };
+
+// Sub-component: renders AI-refreshed content for this location if available
+function LocationCustomContent({ slug, locationName }: { slug: string; locationName: string }) {
+  const { data } = trpc.serviceArea.getContent.useQuery({ slug }, { staleTime: 1000 * 60 * 10 });
+  if (!data?.customContent) return null;
+  return (
+    <section className="py-16 bg-[#f0f6fb]">
+      <div className="container">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-[#2C5F7F] font-medium mb-2">Local Expertise</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Shot Blasting in {locationName} — Latest Insights
+            </h2>
+          </div>
+          <div
+            className="blog-prose bg-white rounded-2xl shadow-sm p-8 md:p-12"
+            dangerouslySetInnerHTML={{ __html: data.customContent }}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
 
 const INDUSTRIES = [
   { slug: 'aerospace', name: 'Aerospace' },
@@ -316,6 +341,9 @@ export function LocationPage({ location }: LocationPageProps) {
           </div>
         </div>
       </section>
+
+      {/* AI-Refreshed Local Expertise Section — only shown when scheduler has updated content */}
+      <LocationCustomContent slug={location.slug} locationName={location.name} />
 
       {/* FAQ Section */}
       <section className="py-16 bg-white">

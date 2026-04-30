@@ -15,6 +15,13 @@
       "when": 1771439025796,
       "tag": "0001_warm_ultimo",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1777582108130,
+      "tag": "0002_dapper_punisher",
+      "breakpoints": true
     }
   ]
 }

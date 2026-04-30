@@ -17,7 +17,10 @@ import {
   BlogPost,
   pageContentSections,
   InsertPageContentSection,
-  PageContentSection
+  PageContentSection,
+  serviceAreaContent,
+  ServiceAreaContent,
+  InsertServiceAreaContent
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -395,4 +398,63 @@ export async function upsertPageContentSection(
       ...section
     });
   }
+}
+
+// ── Service Area Content helpers ──────────────────────────────────────────────
+
+/**
+ * Upsert refreshed content for a service area slug.
+ * Called by the weekly scheduler to layer fresh AI content onto static pages.
+ */
+export async function upsertServiceAreaContent(slug: string, customContent: string): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const existing = await db
+    .select({ id: serviceAreaContent.id })
+    .from(serviceAreaContent)
+    .where(eq(serviceAreaContent.slug, slug))
+    .limit(1);
+
+  if (existing.length > 0) {
+    await db
+      .update(serviceAreaContent)
+      .set({ customContent, lastRefreshed: new Date() })
+      .where(eq(serviceAreaContent.slug, slug));
+  } else {
+    await db.insert(serviceAreaContent).values({ slug, customContent });
+  }
+}
+
+/**
+ * Get the custom content for a single service area slug (if it exists).
+ */
+export async function getServiceAreaContent(slug: string): Promise<ServiceAreaContent | null> {
+  const db = await getDb();
+  if (!db) return null;
+
+  const rows = await db
+    .select()
+    .from(serviceAreaContent)
+    .where(eq(serviceAreaContent.slug, slug))
+    .limit(1);
+
+  return rows[0] ?? null;
+}
+
+/**
+ * Get the N service area slugs that were least recently refreshed.
+ * Used by the scheduler to pick the next batch to update.
+ */
+export async function getStaleServiceAreaSlugs(limit: number = 20): Promise<string[]> {
+  const db = await getDb();
+  if (!db) return [];
+
+  const rows = await db
+    .select({ slug: serviceAreaContent.slug })
+    .from(serviceAreaContent)
+    .orderBy(asc(serviceAreaContent.lastRefreshed))
+    .limit(limit);
+
+  return rows.map((r) => r.slug);
 }

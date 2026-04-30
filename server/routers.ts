@@ -32,6 +32,7 @@ import {
   updatePageContentSection,
   deletePageContentSection,
   upsertPageContentSection,
+  getServiceAreaContent,
 } from "./db";
 import { storagePut } from "./storage";
 import { nanoid } from "nanoid";
@@ -714,6 +715,15 @@ export const appRouter = router({
         }
 
         return { success: true, message: "Home page content initialized successfully" };
+      }),
+  }),
+
+  // Service Area refreshed content (from weekly scheduler)
+  serviceArea: router({
+    getContent: publicProcedure
+      .input(z.object({ slug: z.string() }))
+      .query(async ({ input }) => {
+        return await getServiceAreaContent(input.slug);
       }),
   }),
 });
