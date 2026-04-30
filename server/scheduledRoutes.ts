@@ -5,8 +5,39 @@
  * content from the scheduler agent and persist it to the database.
  */
 import type { Express, Request, Response } from "express";
+import https from "https";
 import { createContext } from "./_core/context";
 import { createBlogPost } from "./db";
+
+const SITEMAP_URL = "https://commercialshotblasting.co.uk/sitemap.xml";
+
+/**
+ * Ping Google (and Bing) to notify them the sitemap has been updated.
+ * Fires-and-forgets — never throws, so it can't break the main request.
+ */
+async function pingSitemaps(): Promise<void> {
+  const endpoints = [
+    `https://www.google.com/ping?sitemap=${encodeURIComponent(SITEMAP_URL)}`,
+    `https://www.bing.com/ping?sitemap=${encodeURIComponent(SITEMAP_URL)}`,
+  ];
+  await Promise.allSettled(
+    endpoints.map(
+      (url) =>
+        new Promise<void>((resolve) => {
+          https
+            .get(url, (res) => {
+              res.resume(); // drain response
+              console.log(`[Scheduled] Sitemap ping ${url} → HTTP ${res.statusCode}`);
+              resolve();
+            })
+            .on("error", (err) => {
+              console.warn(`[Scheduled] Sitemap ping failed for ${url}:`, err.message);
+              resolve(); // swallow error
+            });
+        })
+    )
+  );
+}
 
 /**
  * Verify the request carries a valid session cookie with at least "user" role.
@@ -84,7 +115,9 @@ export function registerScheduledRoutes(app: Express) {
       });
 
       console.log(`[Scheduled] Blog post published: "${title}" (${slug})`);
-      res.status(201).json({ success: true, slug });
+      // Notify Google & Bing that the sitemap has been updated (fire-and-forget)
+      pingSitemaps().catch(() => {});
+      res.status(201).json({ success: true, slug, sitemapPinged: true });
     } catch (err: any) {
       // Duplicate slug — post already exists, treat as idempotent success
       if (err?.code === "ER_DUP_ENTRY" || String(err).includes("Duplicate")) {
