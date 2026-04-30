@@ -46,6 +46,7 @@ const About = lazy(() => import("./pages/About"));
 const PreparationCleanup = lazy(() => import("./pages/PreparationCleanup"));
 const FreeSiteSurvey = lazy(() => import("./pages/FreeSiteSurvey"));
 const CallAnalytics = lazy(() => import("./pages/CallAnalytics"));
+const Reviews = lazy(() => import("./pages/Reviews"));
 
 // Lazy-loaded service area pages
 const BirminghamServiceArea = lazy(() => import("./pages/BirminghamServiceArea"));
@@ -216,6 +217,7 @@ function Router() {
         <Route path={"/our-work"} component={OurWork} />
         <Route path={"/admin"} component={Admin} />
         <Route path={"/call-analytics"} component={CallAnalytics} />
+        <Route path={"/reviews"} component={Reviews} />
         <Route path={"/services"} component={Services} />
         <Route path={"/services/:id"} component={ServiceDetail} />
         <Route path={"/industries"} component={Industries} />
