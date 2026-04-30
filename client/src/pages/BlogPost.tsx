@@ -1,12 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { Calendar, Tag, ArrowLeft, Share2 } from "lucide-react";
+import { Calendar, Tag, ArrowLeft, Share2, Clock, User } from "lucide-react";
 import { Link, useRoute } from "wouter";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import ReactMarkdown from 'react-markdown';
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { useSEO } from "@/hooks/useSEO";
 import { trpc } from "@/lib/trpc";
+
+function estimateReadTime(content: string): number {
+  const words = content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
 
 export default function BlogPost() {
   const [, params] = useRoute("/blog/:slug");
@@ -14,46 +18,37 @@ export default function BlogPost() {
 
   const { data: post, isLoading } = trpc.blog.getBySlug.useQuery({ slug });
 
-  // Set dynamic SEO metadata based on blog post
   useSEO({
     title: post?.title ? `${post.title} | Commercial Shot Blasting Blog` : "Blog Post | Commercial Shot Blasting",
     description: post?.excerpt || "Expert insights on shot blasting and surface preparation from Commercial Shot Blasting.",
-    keywords: (post?.tags ? (typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags).join(', ') : undefined) || "shot blasting, surface preparation, industrial cleaning",
-    canonical: slug ? `https://commercialshotblasting.co.uk/blog/${slug}` : undefined
+    keywords: (post?.tags ? (typeof post.tags === "string" ? JSON.parse(post.tags) : post.tags).join(", ") : undefined) || "shot blasting, surface preparation, industrial cleaning",
+    canonical: slug ? `https://commercialshotblasting.co.uk/blog/${slug}` : undefined,
   });
 
   const handleShare = async () => {
     if (navigator.share) {
       try {
-        await navigator.share({
-          title: post?.title,
-          text: post?.excerpt,
-          url: window.location.href,
-        });
-      } catch (err) {
-        console.log('Error sharing:', err);
-      }
+        await navigator.share({ title: post?.title, text: post?.excerpt, url: window.location.href });
+      } catch (_) {}
     } else {
-      // Fallback: copy to clipboard
       navigator.clipboard.writeText(window.location.href);
-      alert('Link copied to clipboard!');
+      alert("Link copied to clipboard!");
     }
   };
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col bg-[#F8F6F1]">
         <Header />
         <div className="flex-grow container py-16">
-          <div className="max-w-4xl mx-auto">
-            <div className="animate-pulse">
-              <div className="h-8 bg-gray-200 rounded w-3/4 mb-8"></div>
-              <div className="h-96 bg-gray-200 rounded mb-8"></div>
-              <div className="space-y-4">
-                <div className="h-4 bg-gray-200 rounded"></div>
-                <div className="h-4 bg-gray-200 rounded"></div>
-                <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-              </div>
+          <div className="max-w-3xl mx-auto animate-pulse space-y-6">
+            <div className="h-6 bg-gray-200 rounded w-1/4" />
+            <div className="h-10 bg-gray-200 rounded w-3/4" />
+            <div className="h-80 bg-gray-200 rounded-2xl" />
+            <div className="space-y-3">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className={`h-4 bg-gray-200 rounded ${i % 3 === 2 ? "w-4/5" : "w-full"}`} />
+              ))}
             </div>
           </div>
         </div>
@@ -64,145 +59,131 @@ export default function BlogPost() {
 
   if (!post) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col bg-[#F8F6F1]">
         <Header />
-        <div className="flex-grow container py-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl font-bold text-[#2C2C2C] mb-4">Blog Post Not Found</h1>
-            <p className="text-gray-600 mb-8">The blog post you're looking for doesn't exist.</p>
-            <Link href="/blog">
-              <Button>
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Blog
-              </Button>
-            </Link>
-          </div>
+        <div className="flex-grow container py-16 text-center">
+          <h1 className="text-4xl font-bold text-[#2C2C2C] mb-4">Blog Post Not Found</h1>
+          <p className="text-gray-600 mb-8">The blog post you're looking for doesn't exist.</p>
+          <Link href="/blog">
+            <Button><ArrowLeft className="w-4 h-4 mr-2" />Back to Blog</Button>
+          </Link>
         </div>
         <Footer />
       </div>
     );
   }
 
-  return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <Breadcrumb items={[
-        { label: "Home", href: "/" },
-        { label: "Blog", href: "/blog" },
-        { label: post.title, href: `/blog/${slug}`, isCurrentPage: true }
-      ]} className="container mt-6" />
+  const tags: string[] = post.tags ? (typeof post.tags === "string" ? JSON.parse(post.tags) : post.tags) : [];
+  const readTime = estimateReadTime(post.content);
+  const publishDate = new Date(post.publishedAt || post.createdAt).toLocaleDateString("en-GB", {
+    day: "numeric", month: "long", year: "numeric",
+  });
 
-      {/* Hero Section with Featured Image */}
-      <div className="relative h-[500px] overflow-hidden">
-        <img loading="lazy"
+  return (
+    <div className="min-h-screen flex flex-col bg-[#F8F6F1]">
+      <Header />
+
+      <Breadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Blog", href: "/blog" },
+          { label: post.title, href: `/blog/${slug}`, isCurrentPage: true },
+        ]}
+        className="container mt-6"
+      />
+
+      {/* ── Hero ── */}
+      <div className="relative h-[480px] md:h-[560px] overflow-hidden mt-4">
+        <img
+          loading="eager"
           src={post.featuredImage}
           alt={post.title}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 container py-12">
-          <div className="max-w-4xl mx-auto text-white">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 container pb-10 md:pb-14">
+          <div className="max-w-3xl mx-auto text-white">
             {post.category && (
-              <span className="inline-block bg-[#2C5F7F] px-4 py-2 rounded font-semibold mb-4">
+              <span className="inline-block bg-[#2C5F7F] text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded mb-4">
                 {post.category}
               </span>
             )}
-            <h1 className="text-5xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
               {post.title}
             </h1>
-            <div className="flex items-center gap-6 text-sm">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                <span>
-                  {new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric',
-                  })}
-                </span>
-              </div>
-              {post.author && <span>By {post.author}</span>}
+            <div className="flex flex-wrap items-center gap-4 text-sm text-white/80">
+              <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" />{publishDate}</span>
+              {post.author && <span className="flex items-center gap-1.5"><User className="w-4 h-4" />{post.author}</span>}
+              <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" />{readTime} min read</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Article Content */}
-      <article className="flex-grow py-16">
+      {/* ── Article ── */}
+      <article className="flex-grow py-12 md:py-16">
         <div className="container">
-          <div className="max-w-4xl mx-auto">
-            {/* Excerpt */}
-            <p className="text-xl text-gray-700 mb-8 pb-8 border-b border-gray-200 italic">
+          <div className="max-w-3xl mx-auto">
+
+            {/* Excerpt / lead */}
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 pb-8 border-b border-gray-300 italic font-light">
               {post.excerpt}
             </p>
 
-            {/* Share Button */}
-            <div className="flex justify-between items-center mb-8">
+            {/* Nav bar */}
+            <div className="flex justify-between items-center mb-10">
               <Link href="/blog">
-                <Button variant="outline">
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Back to Blog
+                <Button variant="outline" className="bg-white">
+                  <ArrowLeft className="w-4 h-4 mr-2" />Back to Blog
                 </Button>
               </Link>
-              <Button variant="outline" onClick={handleShare}>
-                <Share2 className="w-4 h-4 mr-2" />
-                Share
+              <Button variant="outline" className="bg-white" onClick={handleShare}>
+                <Share2 className="w-4 h-4 mr-2" />Share
               </Button>
             </div>
 
-            {/* Article Body */}
-            <div className="prose prose-lg max-w-none">
-              <ReactMarkdown
-                components={{
-                  h1: ({ node, ...props }) => <h1 className="text-4xl font-bold text-[#2C2C2C] mt-8 mb-4" {...props} />,
-                  h2: ({ node, ...props }) => <h2 className="text-3xl font-bold text-[#2C2C2C] mt-8 mb-4" {...props} />,
-                  h3: ({ node, ...props }) => <h3 className="text-2xl font-bold text-[#2C2C2C] mt-6 mb-3" {...props} />,
-                  p: ({ node, ...props }) => <p className="text-gray-700 leading-relaxed mb-4" {...props} />,
-                  ul: ({ node, ...props }) => <ul className="list-disc list-inside mb-4 space-y-2" {...props} />,
-                  ol: ({ node, ...props }) => <ol className="list-decimal list-inside mb-4 space-y-2" {...props} />,
-                  li: ({ node, ...props }) => <li className="text-gray-700" {...props} />,
-                  strong: ({ node, ...props }) => <strong className="font-bold text-[#2C2C2C]" {...props} />,
-                  a: ({ node, ...props }) => <a className="text-[#2C5F7F] hover:underline" {...props} />,
-                  blockquote: ({ node, ...props }) => (
-                    <blockquote className="border-l-4 border-[#2C5F7F] pl-4 italic text-gray-600 my-4" {...props} />
-                  ),
-                }}
-              >
-                {post.content}
-              </ReactMarkdown>
-            </div>
+            {/* ── Prose content ── */}
+            <div
+              className="blog-prose"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
 
             {/* Tags */}
-            {post.tags && JSON.parse(post.tags).length > 0 && (
+            {tags.length > 0 && (
               <div className="mt-12 pt-8 border-t border-gray-200">
-                <h3 className="text-lg font-semibold text-[#2C2C2C] mb-4">Tags</h3>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-4">Tagged</h3>
                 <div className="flex flex-wrap gap-2">
-                  {JSON.parse(post.tags).map((tag: string, index: number) => (
-                    <span
-                      key={index}
-                      className="inline-flex items-center gap-1 bg-gray-100 text-gray-700 px-3 py-2 rounded-lg"
-                    >
-                      <Tag className="w-4 h-4" />
-                      {tag}
+                  {tags.map((tag, i) => (
+                    <span key={i} className="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-gray-700 text-sm px-3 py-1.5 rounded-full shadow-sm">
+                      <Tag className="w-3.5 h-3.5 text-[#2C5F7F]" />{tag}
                     </span>
                   ))}
                 </div>
               </div>
             )}
 
-            {/* CTA Section */}
-            <div className="mt-12 bg-gradient-to-br from-[#2C5F7F] to-[#1e4159] rounded-lg p-8 text-white text-center">
-              <h3 className="text-2xl font-bold mb-4">Need Professional Shot Blasting Services?</h3>
-              <p className="text-lg mb-6">
-                Our expert team is ready to help with your project. Get a free quote today.
+            {/* CTA */}
+            <div className="mt-14 bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] rounded-2xl p-8 md:p-10 text-white text-center shadow-xl">
+              <h3 className="text-2xl md:text-3xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Need Professional Shot Blasting?
+              </h3>
+              <p className="text-white/80 text-lg mb-6 max-w-xl mx-auto">
+                Our expert team covers Birmingham, the West Midlands, and the whole of the UK. Get a free, no-obligation quote today.
               </p>
-              <Link href="/contact">
-                <Button size="lg" variant="outline" className="bg-white text-[#2C5F7F] hover:bg-gray-100">
-                  Get a Free Quote
-                </Button>
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Link href="/contact">
+                  <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-gray-100 font-semibold px-8">
+                    Get a Free Quote
+                  </Button>
+                </Link>
+                <a href="tel:07970566409">
+                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8">
+                    Call 07970 566409
+                  </Button>
+                </a>
+              </div>
             </div>
+
           </div>
         </div>
       </article>
