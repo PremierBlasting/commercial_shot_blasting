@@ -329,6 +329,7 @@ export default function Reviews() {
             src={lightboxSrc}
             alt="Job photo"
             className="max-w-full max-h-full object-contain rounded-lg"
+            loading="lazy"
           />
           <button
             className="absolute top-4 right-4 text-white text-3xl font-bold hover:text-gray-300"

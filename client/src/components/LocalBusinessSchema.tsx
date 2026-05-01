@@ -22,7 +22,7 @@ export function LocalBusinessSchema({
   longitude = "-1.8904",
   postalCode,
   streetAddress,
-  image = "https://shotblast-lwspuaik.manus.spacehttps://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/pmfVKLdZFjhHquad.jpeg",
+  image = "https://shotblast-lwspuaik.manus.spacehttps://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VuHhVjHScCupXhoA.webp",
   nearbyAreas = []
 }: LocalBusinessSchemaProps) {
   const schema = {

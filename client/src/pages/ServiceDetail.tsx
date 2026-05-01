@@ -233,7 +233,7 @@ export default function ServiceDetail() {
                     See the Transformation
                   </h2>
                   <BeforeAfterSlider
-                    beforeImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ZkkgfhAPrAnTLhjt.jpeg"
+                    beforeImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/haHZqelldOXkoMlM.webp"
                     afterImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/CMkvZJYDqVzfcZVX.webp"
                     beforeLabel="Before"
                     afterLabel="After"

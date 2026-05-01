@@ -150,7 +150,38 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
+/**
+ * Vite plugin to inject <link rel="preload" as="style"> for the main CSS file.
+ * This improves First Contentful Paint by hinting the browser to load CSS early.
+ * The plugin runs at generateBundle time so it knows the hashed CSS filename.
+ */
+function vitePluginPreloadMainCss(): Plugin {
+  return {
+    name: 'preload-main-css',
+    apply: 'build',
+    generateBundle(_options, bundle) {
+      // Find the main CSS file in the bundle
+      const cssFile = Object.keys(bundle).find(
+        (key) => key.endsWith('.css') && key.startsWith('assets/index')
+      );
+      if (!cssFile) return;
+
+      // Inject preload link into each HTML file
+      for (const key of Object.keys(bundle)) {
+        const chunk = bundle[key];
+        if (chunk.type === 'asset' && key.endsWith('.html')) {
+          const html = chunk.source as string;
+          const preloadTag = `<link rel="preload" href="/${cssFile}" as="style" />`;
+          if (!html.includes(preloadTag)) {
+            chunk.source = html.replace('</head>', `  ${preloadTag}\n  </head>`);
+          }
+        }
+      }
+    },
+  };
+}
+
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginPreloadMainCss()];
 
 export default defineConfig({
   plugins,

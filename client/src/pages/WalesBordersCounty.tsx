@@ -155,7 +155,7 @@ export default function WalesBordersCounty() {
             </div>
             <div className="relative">
               <img loading="lazy"
-                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/HbuzeUBAKEuLYqVy.jpeg" 
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/jBJWpNzYtnzTGhCr.webp" 
                 alt="Shot blasting services in Wales & Borders"
                 className="rounded-lg shadow-xl"
               />

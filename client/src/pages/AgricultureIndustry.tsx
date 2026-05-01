@@ -347,6 +347,7 @@ export default function AgricultureIndustry() {
             alt={farmProjectImages[lightboxIndex].alt}
             className="max-h-[85vh] max-w-full rounded-lg shadow-2xl"
             onClick={(e) => e.stopPropagation()}
+            loading="lazy"
           />
           <button
             className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"

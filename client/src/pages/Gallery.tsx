@@ -17,16 +17,16 @@ const galleryItems = [
     title: "Industrial Steel Framework",
     category: "Industrial",
     description: "Complete rust and scale removal from structural steel beams in manufacturing facility",
-    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/qyrXOJEcPRjmxoLY.jpeg",
-    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sJdMsmMyZVyLetBM.jpeg",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/PYuQcnZPdrtGvKpt.webp",
+    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/OADkTNFFbpZoKiGq.webp",
   },
   {
     id: 2,
     title: "Factory Floor Preparation",
     category: "Industrial",
     description: "Surface profiling for epoxy coating application in warehouse",
-    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/cXVvuTAbdeFTVVVx.jpeg",
-    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VZeBEQXFztECFuxt.jpeg",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oobgkAAdoehmDaGS.webp",
+    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/CvnbEIFpuaUYRbTJ.webp",
   },
   {
     id: 7,
@@ -41,8 +41,8 @@ const galleryItems = [
     title: "Steel Container Blasting",
     category: "Industrial",
     description: "Storage container surface preparation for recoating",
-    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/JSShRgiabqZYTJwq.jpeg",
-    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/pmfVKLdZFjhHquad.jpeg",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/EzeFEFFvBJowJpSt.webp",
+    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VuHhVjHScCupXhoA.webp",
   },
   // Gates Projects
   {
@@ -50,24 +50,24 @@ const galleryItems = [
     title: "Metal Gate Restoration",
     category: "Gates",
     description: "Full gate blast cleaning and rust removal - transforming rusty gates to pristine condition",
-    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/hbcumstNMnsKkIIm.jpeg",
-    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UoIWRXKynzFcDUZF.jpeg",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XDYRrEoiKXICqMPV.webp",
+    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YsQoUGxpAZiGjrKL.webp",
   },
   {
     id: 15,
     title: "Decorative Gate Blasting",
     category: "Gates",
     description: "Shot blasting ornamental metal gates for paint preparation and rust removal",
-    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xXaKEPifpsODWNyN.jpeg",
-    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/EqNzeCifyGHmlIvo.jpeg",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/kysCNxVHXfixKknH.webp",
+    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/klNuCsnPnbAUOySN.webp",
   },
   {
     id: 16,
     title: "Commercial Gate Restoration",
     category: "Gates",
     description: "Industrial gate surface preparation for protective coating application",
-    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/haOBEzaJkXIVwGnN.jpeg",
-    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UoIWRXKynzFcDUZF.jpeg",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/blkaAyrrwoIyDdjy.webp",
+    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YsQoUGxpAZiGjrKL.webp",
   },
   // Automotive Projects
   {
@@ -100,8 +100,8 @@ const galleryItems = [
     title: "Steel Storage Unit",
     category: "Marine",
     description: "Corrosion removal from steel storage containers",
-    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ZkkgfhAPrAnTLhjt.jpeg",
-    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/EwbJDILMoPDHirrh.jpeg",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/haHZqelldOXkoMlM.webp",
+    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TfcMYUevsUjoZGhl.webp",
   },
   {
     id: 12,
@@ -117,8 +117,8 @@ const galleryItems = [
     title: "Commercial Container",
     category: "Agriculture",
     description: "Heavy equipment restoration and paint preparation",
-    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/HNcnFuZZrovzDGOx.jpeg",
-    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QTPhcsihpBaMtGeB.jpeg",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/MikAxsCYOamTGBLp.webp",
+    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WIGaGZbvcOFFWEbQ.webp",
   },
   {
     id: 13,
@@ -134,7 +134,7 @@ const galleryItems = [
     title: "Steel Balustrade",
     category: "Infrastructure",
     description: "Structural steel preparation for protective coating",
-    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/hbcumstNMnsKkIIm.jpeg",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XDYRrEoiKXICqMPV.webp",
     after: "/images/premier/steel-balustrade.jpeg",
   },
   {
@@ -365,6 +365,8 @@ export default function Gallery() {
                       src={showAfter ? item.after : item.before} 
                       alt={item.title} 
                       className="w-full h-auto max-h-[70vh] object-contain bg-black"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute top-4 left-4">
                       <span className={`text-white text-sm px-3 py-1 rounded font-medium ${showAfter ? 'bg-green-500' : 'bg-red-500'}`}>
@@ -425,6 +427,8 @@ export default function Gallery() {
             alt="Review photo" 
             className="max-w-full max-h-[85vh] object-contain rounded-lg"
             onClick={(e) => e.stopPropagation()}
+            loading="lazy"
+            decoding="async"
           />
           
           {lightboxImages.length > 1 && (
@@ -478,6 +482,8 @@ export default function Gallery() {
                       alt={`Review photo ${idx + 1}`} 
                       className="w-full h-64 md:h-80 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer shadow-md"
                       onClick={() => openLightbox(displayTestimonials[0].images!, idx)}
+                      loading="lazy"
+                      decoding="async"
                     />
                   ))}
                 </div>
@@ -516,6 +522,8 @@ export default function Gallery() {
                         alt={`Review photo ${idx + 1}`} 
                          className="w-full h-48 md:h-64 object-cover rounded hover:scale-105 transition-transform cursor-pointer"
                         onClick={() => openLightbox(testimonial.images!, idx)}
+                        loading="lazy"
+                        decoding="async"
                       />
                     ))}
                   </div>

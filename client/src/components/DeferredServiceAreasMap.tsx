@@ -45,6 +45,8 @@ export function DeferredServiceAreasMap({ onAreaClick, onQuoteClick }: DeferredS
               alt="UK Map Preview"
               className="w-48 h-auto opacity-30"
               style={{ filter: 'brightness(0) invert(1)' }}
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-20 h-20 bg-[#E8B84A]/20 rounded-full flex items-center justify-center">

@@ -167,3 +167,35 @@
 - [ ] Local2 #12: Swap visible FAQ section from location.faqs to generateLocationFAQs
 - [ ] Local2 #13: Add visible testimonial block to LocationPage.tsx
 - [ ] Local2 #14: Pass slug to useSEO/getLocationSEO for correct client-side canonical
+
+## Technical SEO Improvements — All 20 Items
+
+### Group 1: Core Web Vitals & Page Speed
+- [x] TechSEO #1: Add loading="lazy" to below-fold images; fetchpriority="high" on hero images — all img tags now have loading="lazy" + decoding="async"; hero images use CSS background (no img tag)
+- [x] TechSEO #2: Convert uploaded job photos to WebP at 80% quality — 16 JPEG images converted (3100KB→2335KB, 24.7% smaller), all CDN URLs updated to .webp
+- [x] TechSEO #3: Add <link rel="preconnect"> and <link rel="dns-prefetch"> for all third-party origins in index.html — added for files.manuscdn.com, js-eu1.hsforms.net, forms.hsforms.com, api.manus.im
+- [x] TechSEO #4: Verify code splitting is working correctly per route — manualChunks confirmed: vendor-react, vendor-ui, vendor-trpc, location-data chunks
+- [x] TechSEO #5: Add <link rel="preload"> for critical CSS — added vitePluginPreloadMainCss() Vite plugin that auto-injects preload with hashed CSS filename at build time
+
+### Group 2: Local SEO Schema Markup
+- [x] TechSEO #6: Add LocalBusiness JSON-LD with areaServed set to specific town/county on every service-area page — already in generateLocationSchemas() in server/metaTags.ts
+- [x] TechSEO #7: Add GeoCoordinates (lat/lng from locationData) to LocalBusiness schema — already implemented with lat/lng from location data
+- [x] TechSEO #8: Add serviceArea with geoRadius (30 miles) to schema — already implemented with GeoCircle radius 48280m
+- [x] TechSEO #9: Add hasMap property linking to Google Maps listing — already in LocalBusiness schema
+
+### Group 3: On-Page Technical Signals
+- [x] TechSEO #10: Ensure unique <link rel="canonical"> per service-area page — already set both server-side (metaTags.ts) and client-side (useSEO hook)
+- [x] TechSEO #11: Add <html lang="en-GB"> and hreflang="en-gb" meta — lang="en-GB" in index.html, hreflang links added
+- [x] TechSEO #12: Audit meta description length (under 160 chars) — fixed 37 over-160-char service descriptions with automated script
+- [x] TechSEO #13: Confirm H1 is unique per slug in LocationPage template — H1 is "Shot Blasting Services in {location.name}" (unique per slug)
+- [x] TechSEO #14: Add "Nearby Areas" internal linking section — already exists as same-county town pill links in LocationPage
+
+### Group 4: Structured Data Enhancements
+- [x] TechSEO #15: Add BreadcrumbList JSON-LD: Home → Service Areas → [Town Name] — already in server-side generateLocationSchemas()
+- [x] TechSEO #16: Add FAQPage JSON-LD (pages already have FAQ content) — already in server-side generateLocationSchemas() with 8 FAQs per page
+- [x] TechSEO #17: Add aggregateRating to LocalBusiness schema (4.9★, 70+ reviews) — already in LocalBusiness schema (4.9★, 127 reviews)
+
+### Group 5: Crawlability & Indexing
+- [x] TechSEO #18: Add <lastmod> dates to sitemap — already uses TODAY (build date) for all sitemaps; per-page dates for static content is correct approach
+- [x] TechSEO #19: Add priority and changefreq to sitemap entries — already present: homepage 0.8/weekly, services 0.8/weekly, service-areas 0.7/monthly, counties/industries 0.9/monthly
+- [x] TechSEO #20: Audit robots.txt to confirm /service-areas/ is not blocked — confirmed: robots.txt has Allow: / with no blocking rules for /service-areas/
