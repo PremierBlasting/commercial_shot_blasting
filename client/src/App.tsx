@@ -224,51 +224,47 @@ function Router() {
         <Route path={"/services/:id"} component={ServiceDetail} />
         <Route path={"/industries"} component={Industries} />
         <Route path={"/counties"} component={Counties} />
-        {/* Industry Pages — wrapped in industry-specific skeleton */}
-        <Suspense fallback={<IndustryPageSkeleton />}>
-          <Route path="/industries/construction" component={ConstructionIndustry} />
-          <Route path="/industries/manufacturing" component={ManufacturingIndustry} />
-          <Route path="/industries/retail" component={RetailIndustry} />
-          <Route path="/industries/aerospace" component={AerospaceIndustry} />
-          <Route path="/industries/marine" component={MarineIndustry} />
-          <Route path="/industries/agriculture" component={AgricultureIndustry} />
-          <Route path="/industries/transport-logistics" component={TransportLogisticsIndustry} />
-          <Route path="/industries/heritage-restoration" component={HeritageRestorationIndustry} />
-        </Suspense>
+        {/* Industry Pages — each wrapped in its own Suspense so they remain direct Switch children */}
+          <Route path="/industries/construction" component={() => <Suspense fallback={<IndustryPageSkeleton />}><ConstructionIndustry /></Suspense>} />
+          <Route path="/industries/manufacturing" component={() => <Suspense fallback={<IndustryPageSkeleton />}><ManufacturingIndustry /></Suspense>} />
+          <Route path="/industries/retail" component={() => <Suspense fallback={<IndustryPageSkeleton />}><RetailIndustry /></Suspense>} />
+          <Route path="/industries/aerospace" component={() => <Suspense fallback={<IndustryPageSkeleton />}><AerospaceIndustry /></Suspense>} />
+          <Route path="/industries/marine" component={() => <Suspense fallback={<IndustryPageSkeleton />}><MarineIndustry /></Suspense>} />
+          <Route path="/industries/agriculture" component={() => <Suspense fallback={<IndustryPageSkeleton />}><AgricultureIndustry /></Suspense>} />
+          <Route path="/industries/transport-logistics" component={() => <Suspense fallback={<IndustryPageSkeleton />}><TransportLogisticsIndustry /></Suspense>} />
+          <Route path="/industries/heritage-restoration" component={() => <Suspense fallback={<IndustryPageSkeleton />}><HeritageRestorationIndustry /></Suspense>} />
         <Route path="/free-site-survey" component={FreeSiteSurvey} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/terms" component={Terms} />
         <Route path="/blog" component={Blog} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/service-areas" component={Areas} />
-        {/* County Pages (27 counties) — wrapped in county-specific skeleton */}
-        <Suspense fallback={<CountyPageSkeleton />}>
-          <Route path="/counties/bedfordshire" component={BedfordshireCounty} />
-          <Route path="/counties/cambridgeshire" component={CambridgeshireCounty} />
-          <Route path="/counties/hertfordshire" component={HertfordshireCounty} />
-          <Route path="/counties/norfolk" component={NorfolkCounty} />
-          <Route path="/counties/suffolk" component={SuffolkCounty} />
-          <Route path="/counties/derbyshire" component={DerbyshireCounty} />
-          <Route path="/counties/leicestershire" component={LeicestershireCounty} />
-          <Route path="/counties/lincolnshire" component={LincolnshireCounty} />
-          <Route path="/counties/northamptonshire" component={NorthamptonshireCounty} />
-          <Route path="/counties/nottinghamshire" component={NottinghamshireCounty} />
-          <Route path="/counties/herefordshire" component={HerefordshireCounty} />
-          <Route path="/counties/shropshire" component={ShropshireCounty} />
-          <Route path="/counties/staffordshire" component={StaffordshireCounty} />
-          <Route path="/counties/warwickshire" component={WarwickshireCounty} />
-          <Route path="/counties/west-midlands" component={WestMidlandsCounty} />
-          <Route path="/counties/worcestershire" component={WorcestershireCounty} />
-          <Route path="/counties/south-yorkshire" component={SouthYorkshireCounty} />
-          <Route path="/counties/west-yorkshire" component={WestYorkshireCounty} />
-          <Route path="/counties/cheshire" component={CheshireCounty} />
-          <Route path="/counties/gloucestershire" component={GloucestershireCounty} />
-          <Route path="/counties/north-devon" component={NorthDevonCounty} />
-          <Route path="/counties/somerset" component={SomersetCounty} />
-          <Route path="/counties/wiltshire" component={WiltshireCounty} />
-          <Route path="/counties/buckinghamshire" component={BuckinghamshireCounty} />
-          <Route path="/counties/east-wales" component={EastWalesCounty} />
-        </Suspense>
+        {/* County Pages (25 counties) — each wrapped in its own Suspense so they remain direct Switch children */}
+          <Route path="/counties/bedfordshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><BedfordshireCounty /></Suspense>} />
+          <Route path="/counties/cambridgeshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><CambridgeshireCounty /></Suspense>} />
+          <Route path="/counties/hertfordshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><HertfordshireCounty /></Suspense>} />
+          <Route path="/counties/norfolk" component={() => <Suspense fallback={<CountyPageSkeleton />}><NorfolkCounty /></Suspense>} />
+          <Route path="/counties/suffolk" component={() => <Suspense fallback={<CountyPageSkeleton />}><SuffolkCounty /></Suspense>} />
+          <Route path="/counties/derbyshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><DerbyshireCounty /></Suspense>} />
+          <Route path="/counties/leicestershire" component={() => <Suspense fallback={<CountyPageSkeleton />}><LeicestershireCounty /></Suspense>} />
+          <Route path="/counties/lincolnshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><LincolnshireCounty /></Suspense>} />
+          <Route path="/counties/northamptonshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><NorthamptonshireCounty /></Suspense>} />
+          <Route path="/counties/nottinghamshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><NottinghamshireCounty /></Suspense>} />
+          <Route path="/counties/herefordshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><HerefordshireCounty /></Suspense>} />
+          <Route path="/counties/shropshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><ShropshireCounty /></Suspense>} />
+          <Route path="/counties/staffordshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><StaffordshireCounty /></Suspense>} />
+          <Route path="/counties/warwickshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><WarwickshireCounty /></Suspense>} />
+          <Route path="/counties/west-midlands" component={() => <Suspense fallback={<CountyPageSkeleton />}><WestMidlandsCounty /></Suspense>} />
+          <Route path="/counties/worcestershire" component={() => <Suspense fallback={<CountyPageSkeleton />}><WorcestershireCounty /></Suspense>} />
+          <Route path="/counties/south-yorkshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><SouthYorkshireCounty /></Suspense>} />
+          <Route path="/counties/west-yorkshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><WestYorkshireCounty /></Suspense>} />
+          <Route path="/counties/cheshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><CheshireCounty /></Suspense>} />
+          <Route path="/counties/gloucestershire" component={() => <Suspense fallback={<CountyPageSkeleton />}><GloucestershireCounty /></Suspense>} />
+          <Route path="/counties/north-devon" component={() => <Suspense fallback={<CountyPageSkeleton />}><NorthDevonCounty /></Suspense>} />
+          <Route path="/counties/somerset" component={() => <Suspense fallback={<CountyPageSkeleton />}><SomersetCounty /></Suspense>} />
+          <Route path="/counties/wiltshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><WiltshireCounty /></Suspense>} />
+          <Route path="/counties/buckinghamshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><BuckinghamshireCounty /></Suspense>} />
+          <Route path="/counties/east-wales" component={() => <Suspense fallback={<CountyPageSkeleton />}><EastWalesCounty /></Suspense>} />
         {/* Dynamic Location Pages (605 towns and villages) */}
         <Route path="/locations/:slug" component={LocationRouter} />
         <Route path="/service-areas/birmingham" component={BirminghamServiceArea} />
