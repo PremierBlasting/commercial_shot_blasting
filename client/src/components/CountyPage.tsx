@@ -268,7 +268,7 @@ export function CountyPage({ county }: CountyPageProps) {
                   
                   if (locationExists) {
                     return (
-                      <Link key={index} href={`/locations/${slug}`}>
+                      <Link key={index} href={`/service-areas/${slug}`}>
                         <span className="inline-flex items-center px-3 py-1.5 bg-white rounded-full text-sm text-gray-700 border border-gray-200 hover:border-[#2C5F7F] hover:text-[#2C5F7F] cursor-pointer transition-colors">
                           {place}
                         </span>
@@ -320,7 +320,7 @@ export function CountyPage({ county }: CountyPageProps) {
               
               if (locationExists) {
                 return (
-                  <Link key={index} href={`/locations/${slug}`}>
+                  <Link key={index} href={`/service-areas/${slug}`}>
                     <div className="bg-white rounded-lg p-6 border border-gray-200 hover:border-[#2C5F7F] hover:shadow-lg transition-all cursor-pointer group">
                       <div className="flex items-start justify-between mb-3">
                         <h3 className="text-lg font-bold text-[#2C2C2C] group-hover:text-[#2C5F7F] transition-colors">

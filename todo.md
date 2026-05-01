@@ -153,20 +153,20 @@
 
 ## Local Area Page SEO Round 2 (14 items)
 
-- [ ] Local2 #1: Add "Services" to prerender.mjs title tag
-- [ ] Local2 #2: Fix client-side getLocationSEO title to include "Services in"
-- [ ] Local2 #3: Improve meta description to include "services" keyword
-- [ ] Local2 #4: Add dateModified/datePublished to location WebPage schema in metaTags.ts
-- [ ] Local2 #5: Add speakable to location WebPage schema in metaTags.ts
-- [ ] Local2 #6: Add uploadDate to VideoObject schema in generateLocationSchemas
-- [ ] Local2 #7: Add twitter:image:alt to prerender.mjs head tags
-- [ ] Local2 #8: Fix CountyPage.tsx links from /locations/ to /service-areas/
-- [ ] Local2 #9: Fix LocalBusinessSchema URL from /locations/ to /service-areas/
-- [ ] Local2 #10: Fix breadcrumb href from /locations/ to /service-areas/
-- [ ] Local2 #11: Add SSR body content injection to county pre-rendered pages
-- [ ] Local2 #12: Swap visible FAQ section from location.faqs to generateLocationFAQs
-- [ ] Local2 #13: Add visible testimonial block to LocationPage.tsx
-- [ ] Local2 #14: Pass slug to useSEO/getLocationSEO for correct client-side canonical
+- [x] Local2 #1: Add "Services" to prerender.mjs title tag — already present: `Shot Blasting Services in ${name}` ✓
+- [x] Local2 #2: Fix client-side getLocationSEO title to include "Services in" — already present: `Shot Blasting Services in ${locationName}` ✓
+- [x] Local2 #3: Improve meta description to include "services" keyword — already includes "shot blasting services" ✓
+- [x] Local2 #4: Add dateModified/datePublished to location WebPage schema in metaTags.ts — already present at lines 646-647 ✓
+- [x] Local2 #5: Add speakable to location WebPage schema in metaTags.ts — already present at line 641 ✓
+- [x] Local2 #6: Add uploadDate to VideoObject schema in generateLocationSchemas — already present: "uploadDate": "2024-03-15" ✓
+- [x] Local2 #7: Add twitter:image:alt to prerender.mjs head tags — already present at line 362 ✓
+- [x] Local2 #8: Fix CountyPage.tsx links from /locations/ to /service-areas/ — FIXED: 2 occurrences at lines 271, 323 updated
+- [x] Local2 #9: Fix LocalBusinessSchema URL from /locations/ to /service-areas/ — already correct in LocationPage.tsx ✓
+- [x] Local2 #10: Fix breadcrumb href from /locations/ to /service-areas/ — already correct in LocationPage.tsx ✓
+- [x] Local2 #11: Add SSR body content injection to county pre-rendered pages — already implemented in prerender-counties.mjs ✓
+- [x] Local2 #12: Swap visible FAQ section from location.faqs to generateLocationFAQs — already uses generateLocationFAQs ✓
+- [x] Local2 #13: Add visible testimonial block to LocationPage.tsx — already exists (3-card testimonial section) ✓
+- [x] Local2 #14: Pass slug to useSEO/getLocationSEO for correct client-side canonical — already passed: useSEO(getLocationSEO(location.name, location.slug, location.county)) ✓
 
 ## Technical SEO Improvements — All 20 Items
 
