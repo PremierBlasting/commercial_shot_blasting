@@ -2302,7 +2302,7 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:description" content="${metaDesc}" />
     <meta property="og:url" content="${pageUrl}" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="${HERO_IMAGE}" />
+    <meta property="og:image" content="${county.ogImage || HERO_IMAGE}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_GB" />
@@ -2310,9 +2310,10 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${pageTitle}" />
     <meta name="twitter:description" content="${metaDesc}" />
-    <meta name="twitter:image" content="${HERO_IMAGE}" />
+    <meta name="twitter:image" content="${county.ogImage || HERO_IMAGE}" />
     <meta name="twitter:image:alt" content="Shot blasting services in ${county.name} — rust removal and surface preparation by Commercial Shot Blasting" />
     ${schemas}
+    ${county.ogImage ? `<script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","contentUrl":"${county.ogImage}","url":"${county.ogImage}","name":"Shot Blasting Services in ${county.name}","description":"Professional shot blasting and surface preparation services across ${county.name}","width":1200,"height":630,"encodingFormat":"image/webp","representativeOfPage":true,"creditText":"${BUSINESS_NAME}","creator":{"@type":"Organization","name":"${BUSINESS_NAME}","url":"${SITE_URL}"}}</script>` : ''}
   `;
       modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
 

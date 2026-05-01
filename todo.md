@@ -205,3 +205,11 @@
 - [x] County #1: Add og:image:width, og:image:height, og:locale to county page meta tags — server-side already had them; added setOrCreate() helper in CountyPage.tsx useEffect for client-side hydration
 - [x] County #2: Add loading animation skeleton for county pages — created CountyPageSkeleton.tsx (pulse skeleton matching hero/services/industries/towns layout); wrapped all 27 county routes in dedicated Suspense in App.tsx
 - [x] County #3: Add Share on Social Media button to county pages — created ShareButton.tsx (Facebook, X/Twitter, LinkedIn, copy link; uses Web Share API on mobile); added Share section before Footer in CountyPage.tsx
+
+## County Page Hero Images & ImageObject Schema
+
+- [x] County-Image #1: Generate unique hero images for all 25 counties — 28 images generated (25 counties + 3 extras), all cinematic industrial shot blasting scenes specific to each county's industries (Cumbria submarine dock, Somerset aerospace, West Midlands automotive, etc.)
+- [x] County-Image #2: Upload all 25 county WebP images to CDN — all uploaded to CloudFront CDN as .webp files
+- [x] County-Image #3: Update countyData.ts with per-county ogImage URLs — added ogImage field to both client/src/data/countyData.ts and shared/countyData.ts (25 entries each)
+- [x] County-Image #4: Update CountyPage.tsx og:image and twitter:image to use county.ogImage — updated useEffect to call setOrCreate('og:image', county.ogImage) and setOrCreate('twitter:image', county.ogImage)
+- [x] County-Image #5: Add ImageObject JSON-LD schema to each county page — added to both client-side (CountyPage.tsx useEffect) and server-side (metaTags.ts SSR handler); includes contentUrl, width:1200, height:630, encodingFormat:image/webp, representativeOfPage:true, creator:Organization

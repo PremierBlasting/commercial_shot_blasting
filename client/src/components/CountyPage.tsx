@@ -91,7 +91,7 @@ export function CountyPage({ county }: CountyPageProps) {
       document.head.appendChild(meta);
     }
 
-    // og:image:width, og:image:height, og:locale
+    // og:image, og:image:width, og:image:height, og:locale
     const setOrCreate = (property: string, value: string) => {
       const el = document.querySelector(`meta[property="${property}"]`);
       if (el) {
@@ -103,9 +103,49 @@ export function CountyPage({ county }: CountyPageProps) {
         document.head.appendChild(meta);
       }
     };
+    if (county.ogImage) {
+      setOrCreate('og:image', county.ogImage);
+      setOrCreate('twitter:image', county.ogImage);
+      setOrCreate('twitter:image:alt', `Shot blasting services in ${county.name}`);
+    }
     setOrCreate('og:image:width', '1200');
     setOrCreate('og:image:height', '630');
     setOrCreate('og:locale', 'en_GB');
+
+    // ImageObject JSON-LD schema
+    const schemaId = 'county-image-schema';
+    let imageSchema = document.getElementById(schemaId);
+    if (!imageSchema) {
+      imageSchema = document.createElement('script');
+      imageSchema.id = schemaId;
+      (imageSchema as HTMLScriptElement).type = 'application/ld+json';
+      document.head.appendChild(imageSchema);
+    }
+    if (county.ogImage) {
+      imageSchema.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ImageObject',
+        'contentUrl': county.ogImage,
+        'url': county.ogImage,
+        'name': `Shot Blasting Services in ${county.name}`,
+        'description': `Professional shot blasting and surface preparation services across ${county.name}`,
+        'width': 1200,
+        'height': 630,
+        'encodingFormat': 'image/webp',
+        'representativeOfPage': true,
+        'creditText': 'Commercial Shot Blasting',
+        'creator': {
+          '@type': 'Organization',
+          'name': 'Commercial Shot Blasting',
+          'url': 'https://commercialshotblasting.co.uk'
+        }
+      });
+    }
+
+    return () => {
+      const schema = document.getElementById(schemaId);
+      if (schema) schema.remove();
+    };
   }, [county]);
 
   return (
