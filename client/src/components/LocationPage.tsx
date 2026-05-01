@@ -10,6 +10,7 @@ import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { ReviewSchema } from "@/components/ReviewSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { Footer } from "@/components/Footer";
+import { ShareButton } from "@/components/ShareButton";
 import { ServiceRadiusMap } from "@/components/ServiceRadiusMap";
 import { trackPhoneCall } from "@/lib/analytics";
 import { FAQSchema, generateLocationFAQs } from "@/components/FAQSchema";
@@ -544,6 +545,13 @@ export function LocationPage({ location }: LocationPageProps) {
           </a>
         </div>
       </div>
+
+      {/* Share on Social Media */}
+      <ShareButton
+        title={`Shot Blasting Services in ${location.name} | Commercial Shot Blasting`}
+        url={`/service-areas/${location.slug}`}
+        description={`Professional shot blasting services in ${location.name}, ${location.county}. Mobile rust removal and surface preparation for commercial and industrial clients.`}
+      />
 
       <Footer />
 

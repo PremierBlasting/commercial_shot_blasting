@@ -13,6 +13,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { WhatsAppWidget } from "@/components/WhatsAppWidget";
 import { CountyPageSkeleton } from "@/components/CountyPageSkeleton";
+import { IndustryPageSkeleton } from "@/components/IndustryPageSkeleton";
 
 // Loading component for lazy-loaded pages
 function PageLoader() {
@@ -223,14 +224,17 @@ function Router() {
         <Route path={"/services/:id"} component={ServiceDetail} />
         <Route path={"/industries"} component={Industries} />
         <Route path={"/counties"} component={Counties} />
-        <Route path="/industries/construction" component={ConstructionIndustry} />
-        <Route path="/industries/manufacturing" component={ManufacturingIndustry} />
-        <Route path="/industries/retail" component={RetailIndustry} />
-        <Route path="/industries/aerospace" component={AerospaceIndustry} />
-        <Route path="/industries/marine" component={MarineIndustry} />
-        <Route path="/industries/agriculture" component={AgricultureIndustry} />
-        <Route path="/industries/transport-logistics" component={TransportLogisticsIndustry} />
-        <Route path="/industries/heritage-restoration" component={HeritageRestorationIndustry} />
+        {/* Industry Pages — wrapped in industry-specific skeleton */}
+        <Suspense fallback={<IndustryPageSkeleton />}>
+          <Route path="/industries/construction" component={ConstructionIndustry} />
+          <Route path="/industries/manufacturing" component={ManufacturingIndustry} />
+          <Route path="/industries/retail" component={RetailIndustry} />
+          <Route path="/industries/aerospace" component={AerospaceIndustry} />
+          <Route path="/industries/marine" component={MarineIndustry} />
+          <Route path="/industries/agriculture" component={AgricultureIndustry} />
+          <Route path="/industries/transport-logistics" component={TransportLogisticsIndustry} />
+          <Route path="/industries/heritage-restoration" component={HeritageRestorationIndustry} />
+        </Suspense>
         <Route path="/free-site-survey" component={FreeSiteSurvey} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/terms" component={Terms} />

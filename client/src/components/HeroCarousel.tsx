@@ -3,6 +3,8 @@ import { ReactNode, useEffect, useState } from "react";
 interface HeroCarouselProps {
   children: ReactNode;
   className?: string;
+  /** Optional county/location-specific image shown as the first (static) background slide */
+  primaryImage?: string;
 }
 
 // Hero carousel images with their responsive variants
@@ -44,7 +46,7 @@ function getResponsiveImageUrl(image: typeof heroImages[0], width: number): stri
  * Used across homepage and all service area pages for consistent visual experience
  * Automatically serves appropriately sized images based on screen width
  */
-export function HeroCarousel({ children, className = "" }: HeroCarouselProps) {
+export function HeroCarousel({ children, className = "", primaryImage }: HeroCarouselProps) {
   const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1920);
 
   useEffect(() => {
@@ -60,9 +62,18 @@ export function HeroCarousel({ children, className = "" }: HeroCarouselProps) {
     <section className={`relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white overflow-hidden ${className}`}>
       {/* Animated Background Carousel - Responsive Images */}
       <div className="absolute inset-0">
+        {/* County/location-specific primary image shown first (static, no animation) */}
+        {primaryImage && (
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-35"
+            style={{ backgroundImage: `url('${primaryImage}')` }}
+          />
+        )}
+        {/* Generic industrial carousel images (animated, shown when no primaryImage or cycling after) */}
         {heroImages.map((image, index) => {
           const imageUrl = getResponsiveImageUrl(image, screenWidth);
-          const isFirst = index === 0;
+          // When primaryImage is set, all carousel images are animated (none static)
+          const isFirst = !primaryImage && index === 0;
           
           return (
             <div
@@ -71,7 +82,8 @@ export function HeroCarousel({ children, className = "" }: HeroCarouselProps) {
               style={{
                 backgroundImage: `url('${imageUrl}')`,
                 willChange: isFirst ? 'opacity' : 'auto',
-                animation: isFirst ? 'none' : `fadeInOut 70s ease-in-out infinite ${animationDelays[index]}s`,
+                // When primaryImage is set, start carousel animations after a delay so primary shows first
+                animation: isFirst ? 'none' : `fadeInOut 70s ease-in-out infinite ${primaryImage ? animationDelays[index] + 10 : animationDelays[index]}s`,
               }}
             />
           );

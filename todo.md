@@ -213,3 +213,9 @@
 - [x] County-Image #3: Update countyData.ts with per-county ogImage URLs — added ogImage field to both client/src/data/countyData.ts and shared/countyData.ts (25 entries each)
 - [x] County-Image #4: Update CountyPage.tsx og:image and twitter:image to use county.ogImage — updated useEffect to call setOrCreate('og:image', county.ogImage) and setOrCreate('twitter:image', county.ogImage)
 - [x] County-Image #5: Add ImageObject JSON-LD schema to each county page — added to both client-side (CountyPage.tsx useEffect) and server-side (metaTags.ts SSR handler); includes contentUrl, width:1200, height:630, encodingFormat:image/webp, representativeOfPage:true, creator:Organization
+
+## ShareButton & Industry Skeleton (2 items)
+
+- [x] ShareBtn #1: Add ShareButton to LocationPage.tsx — passes location-specific title, url, and description; placed before Footer on all 605 service area pages
+- [x] IndustrySkel #1: Created IndustryPageSkeleton.tsx (pulse skeleton matching hero/services grid/stats/gallery/CTA layout); wrapped all 8 industry routes in dedicated Suspense in App.tsx
+- [x] CountyHero fix: Added primaryImage prop to HeroCarousel.tsx; county pages now show their unique county-specific image as the first background slide before the generic carousel continues; CountyPage.tsx passes county.ogImage as primaryImage

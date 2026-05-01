@@ -174,7 +174,7 @@ export function CountyPage({ county }: CountyPageProps) {
       </section>
 
       {/* Hero Section */}
-      <HeroCarousel className="py-16 md:py-24">
+      <HeroCarousel className="py-16 md:py-24" primaryImage={county.ogImage}>
         <div className="max-w-3xl">
           <p className="text-[#F5F1E8] font-medium mb-2">Professional Shot Blasting Services</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
