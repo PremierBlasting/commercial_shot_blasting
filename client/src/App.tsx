@@ -12,6 +12,7 @@ import { FloatingCallButton } from "./components/FloatingCallButton";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { WhatsAppWidget } from "@/components/WhatsAppWidget";
+import { CountyPageSkeleton } from "@/components/CountyPageSkeleton";
 
 // Loading component for lazy-loaded pages
 function PageLoader() {
@@ -236,32 +237,34 @@ function Router() {
         <Route path="/blog" component={Blog} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/service-areas" component={Areas} />
-        {/* County Pages (27 counties) */}
-        <Route path="/counties/bedfordshire" component={BedfordshireCounty} />
-        <Route path="/counties/cambridgeshire" component={CambridgeshireCounty} />
-        <Route path="/counties/hertfordshire" component={HertfordshireCounty} />
-        <Route path="/counties/norfolk" component={NorfolkCounty} />
-        <Route path="/counties/suffolk" component={SuffolkCounty} />
-        <Route path="/counties/derbyshire" component={DerbyshireCounty} />
-        <Route path="/counties/leicestershire" component={LeicestershireCounty} />
-        <Route path="/counties/lincolnshire" component={LincolnshireCounty} />
-        <Route path="/counties/northamptonshire" component={NorthamptonshireCounty} />
-        <Route path="/counties/nottinghamshire" component={NottinghamshireCounty} />
-        <Route path="/counties/herefordshire" component={HerefordshireCounty} />
-        <Route path="/counties/shropshire" component={ShropshireCounty} />
-        <Route path="/counties/staffordshire" component={StaffordshireCounty} />
-        <Route path="/counties/warwickshire" component={WarwickshireCounty} />
-        <Route path="/counties/west-midlands" component={WestMidlandsCounty} />
-        <Route path="/counties/worcestershire" component={WorcestershireCounty} />
-        <Route path="/counties/south-yorkshire" component={SouthYorkshireCounty} />
-        <Route path="/counties/west-yorkshire" component={WestYorkshireCounty} />
-        <Route path="/counties/cheshire" component={CheshireCounty} />
-        <Route path="/counties/gloucestershire" component={GloucestershireCounty} />
-        <Route path="/counties/north-devon" component={NorthDevonCounty} />
-        <Route path="/counties/somerset" component={SomersetCounty} />
-        <Route path="/counties/wiltshire" component={WiltshireCounty} />
-        <Route path="/counties/buckinghamshire" component={BuckinghamshireCounty} />
-        <Route path="/counties/east-wales" component={EastWalesCounty} />
+        {/* County Pages (27 counties) — wrapped in county-specific skeleton */}
+        <Suspense fallback={<CountyPageSkeleton />}>
+          <Route path="/counties/bedfordshire" component={BedfordshireCounty} />
+          <Route path="/counties/cambridgeshire" component={CambridgeshireCounty} />
+          <Route path="/counties/hertfordshire" component={HertfordshireCounty} />
+          <Route path="/counties/norfolk" component={NorfolkCounty} />
+          <Route path="/counties/suffolk" component={SuffolkCounty} />
+          <Route path="/counties/derbyshire" component={DerbyshireCounty} />
+          <Route path="/counties/leicestershire" component={LeicestershireCounty} />
+          <Route path="/counties/lincolnshire" component={LincolnshireCounty} />
+          <Route path="/counties/northamptonshire" component={NorthamptonshireCounty} />
+          <Route path="/counties/nottinghamshire" component={NottinghamshireCounty} />
+          <Route path="/counties/herefordshire" component={HerefordshireCounty} />
+          <Route path="/counties/shropshire" component={ShropshireCounty} />
+          <Route path="/counties/staffordshire" component={StaffordshireCounty} />
+          <Route path="/counties/warwickshire" component={WarwickshireCounty} />
+          <Route path="/counties/west-midlands" component={WestMidlandsCounty} />
+          <Route path="/counties/worcestershire" component={WorcestershireCounty} />
+          <Route path="/counties/south-yorkshire" component={SouthYorkshireCounty} />
+          <Route path="/counties/west-yorkshire" component={WestYorkshireCounty} />
+          <Route path="/counties/cheshire" component={CheshireCounty} />
+          <Route path="/counties/gloucestershire" component={GloucestershireCounty} />
+          <Route path="/counties/north-devon" component={NorthDevonCounty} />
+          <Route path="/counties/somerset" component={SomersetCounty} />
+          <Route path="/counties/wiltshire" component={WiltshireCounty} />
+          <Route path="/counties/buckinghamshire" component={BuckinghamshireCounty} />
+          <Route path="/counties/east-wales" component={EastWalesCounty} />
+        </Suspense>
         {/* Dynamic Location Pages (605 towns and villages) */}
         <Route path="/locations/:slug" component={LocationRouter} />
         <Route path="/service-areas/birmingham" component={BirminghamServiceArea} />

@@ -199,3 +199,9 @@
 - [x] TechSEO #18: Add <lastmod> dates to sitemap — already uses TODAY (build date) for all sitemaps; per-page dates for static content is correct approach
 - [x] TechSEO #19: Add priority and changefreq to sitemap entries — already present: homepage 0.8/weekly, services 0.8/weekly, service-areas 0.7/monthly, counties/industries 0.9/monthly
 - [x] TechSEO #20: Audit robots.txt to confirm /service-areas/ is not blocked — confirmed: robots.txt has Allow: / with no blocking rules for /service-areas/
+
+## County Page Improvements (3 items)
+
+- [x] County #1: Add og:image:width, og:image:height, og:locale to county page meta tags — server-side already had them; added setOrCreate() helper in CountyPage.tsx useEffect for client-side hydration
+- [x] County #2: Add loading animation skeleton for county pages — created CountyPageSkeleton.tsx (pulse skeleton matching hero/services/industries/towns layout); wrapped all 27 county routes in dedicated Suspense in App.tsx
+- [x] County #3: Add Share on Social Media button to county pages — created ShareButton.tsx (Facebook, X/Twitter, LinkedIn, copy link; uses Web Share API on mobile); added Share section before Footer in CountyPage.tsx

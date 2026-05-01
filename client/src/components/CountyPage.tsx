@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { locationData } from "@/data/locationData";
 import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2 } from "lucide-react";
+import { ShareButton } from "@/components/ShareButton";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { QuotePopup } from "@/components/QuotePopup";
@@ -89,6 +90,22 @@ export function CountyPage({ county }: CountyPageProps) {
       meta.setAttribute('content', county.url);
       document.head.appendChild(meta);
     }
+
+    // og:image:width, og:image:height, og:locale
+    const setOrCreate = (property: string, value: string) => {
+      const el = document.querySelector(`meta[property="${property}"]`);
+      if (el) {
+        el.setAttribute('content', value);
+      } else {
+        const meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        meta.setAttribute('content', value);
+        document.head.appendChild(meta);
+      }
+    };
+    setOrCreate('og:image:width', '1200');
+    setOrCreate('og:image:height', '630');
+    setOrCreate('og:locale', 'en_GB');
   }, [county]);
 
   return (
@@ -560,6 +577,23 @@ export function CountyPage({ county }: CountyPageProps) {
                 View All Counties <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Share Section */}
+      <section className="py-10 bg-gray-50 border-t border-gray-200">
+        <div className="container">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-2xl mx-auto text-center sm:text-left">
+            <div>
+              <p className="font-semibold text-[#2C2C2C] mb-1">Found this useful?</p>
+              <p className="text-sm text-gray-500">Share our shot blasting services in {county.name} with your network.</p>
+            </div>
+            <ShareButton
+              title={`Shot Blasting Services in ${county.name} | Commercial Shot Blasting`}
+              url={county.url}
+              description={county.description}
+            />
           </div>
         </div>
       </section>
