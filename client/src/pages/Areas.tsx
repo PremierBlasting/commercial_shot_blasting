@@ -541,6 +541,171 @@ export default function Areas() {
         </div>
       </section>
 
+      {/* Regional Spotlight Sections — anchor targets for external links */}
+      <section id="greater-manchester" className="py-16 bg-white scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">North West England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Greater Manchester
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Greater Manchester is one of the UK's most industrially active regions, home to a dense concentration of engineering firms, steel fabricators, construction contractors and heritage restoration projects. Commercial Shot Blasting provides professional surface preparation services across the entire conurbation — from Manchester city centre to Bolton, Oldham, Rochdale, Salford and Stockport.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our teams serve heavy engineering workshops, structural steelwork contractors, chemical processing plants and architectural metalwork specialists throughout Greater Manchester. We offer on-site shot blasting, mobile blasting units and workshop-based services to suit every project scale.
+              </p>
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="bg-[#2C5F7F]/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-bold text-[#2C5F7F]">450+</div>
+                  <div className="text-sm text-gray-600">Projects Completed</div>
+                </div>
+                <div className="bg-[#2C5F7F]/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-bold text-[#2C5F7F]">115+</div>
+                  <div className="text-sm text-gray-600">Satisfied Clients</div>
+                </div>
+              </div>
+              <Button
+                className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
+                onClick={() => setQuotePopupOpen(true)}
+              >
+                Get a Quote for Greater Manchester
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Greater Manchester
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Manchester", "Bolton", "Oldham", "Rochdale", "Salford", "Stockport"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Heavy engineering & steel fabrication", "Construction steelwork", "Chemical processing plant", "Heritage & architectural metalwork", "Automotive & manufacturing"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="merseyside" className="py-16 bg-[#f8f5f0] scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="lg:order-2">
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">North West England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Merseyside
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Merseyside's proud maritime and industrial heritage makes it a key area for our shot blasting services. We work with shipyards, port equipment operators, structural steelwork contractors and manufacturing businesses across Liverpool and Birkenhead, delivering surface preparation to the highest standards.
+              </p>
+              <p className="text-gray-600 mb-6">
+                From large-scale industrial vessels and dock infrastructure to fabricated steelwork and architectural metalwork, our Merseyside teams bring the same quality and professionalism that has made us a trusted name across the North West.
+              </p>
+              <Button
+                className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
+                onClick={() => setQuotePopupOpen(true)}
+              >
+                Get a Quote for Merseyside
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="lg:order-1 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Merseyside
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Liverpool", "Birkenhead"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Maritime & shipping infrastructure", "Port equipment & dock machinery", "Structural steelwork", "Manufacturing & fabrication", "Construction"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="essex" className="py-16 bg-white scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">East of England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Essex
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Essex is a major industrial and logistics county, home to substantial manufacturing, construction and engineering activity. We provide professional shot blasting services across Colchester, Chelmsford, Basildon and Southend-on-Sea — covering structural steelwork, industrial plant, agricultural equipment and heritage metalwork for clients throughout the county.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our Essex teams are experienced in working with a wide range of substrates and project types, from large industrial tanks and process vessels to architectural steelwork and construction frames. We provide full surface preparation services to SA 2.5 and Sa 3 standards.
+              </p>
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="bg-[#2C5F7F]/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-bold text-[#2C5F7F]">220+</div>
+                  <div className="text-sm text-gray-600">Projects Completed</div>
+                </div>
+                <div className="bg-[#2C5F7F]/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-bold text-[#2C5F7F]">55+</div>
+                  <div className="text-sm text-gray-600">Satisfied Clients</div>
+                </div>
+              </div>
+              <Button
+                className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
+                onClick={() => setQuotePopupOpen(true)}
+              >
+                Get a Quote for Essex
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Essex
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Colchester", "Chelmsford", "Basildon", "Southend-on-Sea"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-').replace(/'/g, '')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Structural steelwork & construction", "Agricultural machinery", "Industrial plant & process vessels", "Manufacturing & fabrication", "Heritage & architectural metalwork"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Counties Section */}
       <section className="py-16 bg-white">
         <div className="container">

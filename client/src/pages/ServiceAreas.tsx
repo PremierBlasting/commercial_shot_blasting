@@ -113,6 +113,26 @@ const serviceRegions = [
     stats: { projects: "900+", clients: "220+" }
   },
   {
+    id: "greater-manchester",
+    name: "Greater Manchester",
+    countyHref: "/service-areas/north-west",
+    tagline: "Manchester & Surrounds",
+    description: "Greater Manchester is one of the UK's most industrially active regions. We provide professional shot blasting services across Manchester, Bolton, Oldham, Rochdale, Salford and Stockport — serving engineering firms, steel fabricators, construction contractors and heritage restoration projects throughout the conurbation.",
+    locations: ["Manchester", "Bolton", "Oldham", "Rochdale", "Salford", "Stockport"],
+    industries: ["Heavy engineering", "Steel fabrication", "Construction steel", "Chemical processing", "Heritage restoration"],
+    stats: { projects: "450+", clients: "115+" }
+  },
+  {
+    id: "merseyside",
+    name: "Merseyside",
+    countyHref: "/service-areas/north-west",
+    tagline: "Liverpool & Birkenhead",
+    description: "Merseyside's proud maritime and industrial heritage makes it a key area for our shot blasting services. We work with shipyards, port equipment operators, structural steelwork contractors and manufacturing businesses across Liverpool and Birkenhead, delivering surface preparation to the highest standards.",
+    locations: ["Liverpool", "Birkenhead"],
+    industries: ["Maritime & shipping", "Port equipment", "Structural steelwork", "Manufacturing", "Construction"],
+    stats: { projects: "280+", clients: "70+" }
+  },
+  {
     id: "cheshire",
     name: "Cheshire",
     countyHref: "/service-areas/north-west",
@@ -131,6 +151,46 @@ const serviceRegions = [
     locations: ["Norwich", "Cambridge", "Ipswich", "St Albans", "Peterborough", "Colchester", "Chelmsford", "Basildon", "Southend-on-Sea", "Great Yarmouth", "Lowestoft", "King's Lynn", "Thetford", "Bury St Edmunds"],
     industries: ["Agricultural machinery", "Scientific equipment", "Food processing", "Construction", "Heritage restoration"],
     stats: { projects: "800+", clients: "200+" }
+  },
+  {
+    id: "essex",
+    name: "Essex",
+    countyHref: "/service-areas/essex",
+    tagline: "Colchester to Southend",
+    description: "Essex is a major industrial and logistics county, home to substantial manufacturing, construction and engineering activity. We provide professional shot blasting services across Colchester, Chelmsford, Basildon and Southend-on-Sea — covering structural steelwork, industrial plant, agricultural equipment and heritage metalwork for clients throughout the county.",
+    locations: ["Colchester", "Chelmsford", "Basildon", "Southend-on-Sea"],
+    industries: ["Structural steelwork", "Agricultural machinery", "Construction", "Manufacturing", "Heritage restoration"],
+    stats: { projects: "220+", clients: "55+" }
+  },
+  {
+    id: "norfolk",
+    name: "Norfolk",
+    countyHref: "/service-areas/norfolk",
+    tagline: "Agricultural & Coastal",
+    description: "Norfolk's agricultural and coastal industries rely on robust surface preparation. We serve clients across Norwich, King's Lynn, Great Yarmouth, Thetford and Lowestoft — from farm machinery and grain handling equipment to coastal infrastructure and construction steelwork.",
+    locations: ["Norwich", "King's Lynn", "Great Yarmouth", "Thetford", "Lowestoft"],
+    industries: ["Agricultural machinery", "Coastal infrastructure", "Food processing equipment", "Construction", "Marine"],
+    stats: { projects: "180+", clients: "45+" }
+  },
+  {
+    id: "suffolk",
+    name: "Suffolk",
+    countyHref: "/service-areas/suffolk",
+    tagline: "Ipswich & Bury St Edmunds",
+    description: "Suffolk's manufacturing and agricultural sectors require reliable shot blasting services. We cover Ipswich and Bury St Edmunds, working with engineering firms, food processing equipment manufacturers and construction contractors across the county.",
+    locations: ["Ipswich", "Bury St Edmunds"],
+    industries: ["Agricultural machinery", "Food processing", "Engineering", "Construction", "Heritage restoration"],
+    stats: { projects: "150+", clients: "40+" }
+  },
+  {
+    id: "cambridgeshire",
+    name: "Cambridgeshire",
+    countyHref: "/service-areas/cambridgeshire",
+    tagline: "Cambridge & Peterborough",
+    description: "Cambridgeshire combines high-tech industries around Cambridge with heavy engineering and logistics in Peterborough. We provide shot blasting services for scientific instrument manufacturers, construction contractors and agricultural equipment businesses across the county.",
+    locations: ["Cambridge", "Peterborough"],
+    industries: ["Scientific instruments", "Engineering", "Agricultural machinery", "Construction", "Logistics equipment"],
+    stats: { projects: "190+", clients: "48+" }
   },
   {
     id: "hertfordshire-bedfordshire",

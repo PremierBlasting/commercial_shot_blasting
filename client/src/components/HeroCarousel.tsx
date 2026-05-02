@@ -7,28 +7,22 @@ interface HeroCarouselProps {
   primaryImage?: string;
 }
 
-// Hero carousel images with their responsive variants
+// Hero carousel images - real job site photos (no people, no signs)
 const heroImages = [
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YScoptyBJOkODpiP.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/IaTezxmvYekRWxDg.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oVxyFBqOSqiFnIqt.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/pqOtoTHQuOwbPOLz.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XKlLlCHzZpTTWuny.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WlgUvDfPkrrXlejg.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/SsqoUUawKoSGtQTs.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/shnTUJIvAuSqyYuk.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YScoptyBJOkODpiP.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/IaTezxmvYekRWxDg.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oVxyFBqOSqiFnIqt.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XodiuirjAciVPqNJ.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/gkavEmLZDzrMTWcP.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/kZndaBVWsUcdwHni.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TiCUsbsOYeeHdpkl.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/JVQrXgYBjpNYcZtI.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/cWyQGkVlWGsBAIyt.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TAaxJUYrnQuocQjH.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YIlcOYLZKMFfJPVN.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/SRCHoZWLPbipfJBV.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oVUgrJspUxHIJlzq.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/zIjthhhcbMiPBcQV.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/cLzlkrBcbIVUpdEp.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yfLRHDSKOlbmKTqX.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/bKNyxHMyAqWvZPub.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/fbHnyhFWcXYvtcCG.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/edUaNDiKBVUSMBjy.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/gmrazmfRoSdJYfsh.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ePsTUvbFccLyDbOZ.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ICciddnosEnAIFfC.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/NjqAZzTOleBLzDba.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/waVHDpCAkKYwIOCE.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/CPvNOsMChQlXUtRV.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/bMjgkbPUdxQNzwFm.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/PHumNKUQaaOHvgeR.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TzdytIZGBYJOKqLw.webp', '1920w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TrCfGOevnyjotJlo.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/KHFNaLmMCxeAcDHU.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/jtmxbELXXgjBXgEv.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/gdkZsebrzNLTgsHS.webp', '1920w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/creSgmtwmDqfKigK.webp' } },
+  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VlcajxKFizWfRmvv.webp', sizes: {} },
+  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp', sizes: {} },
+  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YBedohTImNkgXOlG.webp', sizes: {} },
+  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wNJxNfMjngkYNOyk.webp', sizes: {} },
+  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp', sizes: {} },
+  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp', sizes: {} },
+  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp', sizes: {} },
+  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp', sizes: {} },
 ];
 
 // Animation delays for each image (in seconds)
 const animationDelays = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65];
 
-function getResponsiveImageUrl(image: typeof heroImages[0], width: number): string {
+function getResponsiveImageUrl(image: { base: string; sizes: Record<string, string> }, width: number): string {
   if (width <= 640 && image.sizes['640w']) {
     return image.sizes['640w'];
   }

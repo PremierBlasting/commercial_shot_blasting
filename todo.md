@@ -219,3 +219,8 @@
 - [x] ShareBtn #1: Add ShareButton to LocationPage.tsx — passes location-specific title, url, and description; placed before Footer on all 605 service area pages
 - [x] IndustrySkel #1: Created IndustryPageSkeleton.tsx (pulse skeleton matching hero/services grid/stats/gallery/CTA layout); wrapped all 8 industry routes in dedicated Suspense in App.tsx
 - [x] CountyHero fix: Added primaryImage prop to HeroCarousel.tsx; county pages now show their unique county-specific image as the first background slide before the generic carousel continues; CountyPage.tsx passes county.ogImage as primaryImage
+
+## Image & Service-Areas Content (3 items)
+- [x] Replace sign-overlay hero/carousel images with real clean industrial shot blasting photos (no people, no signs)
+- [x] Audit service-areas page for all empty/missing content sections (Greater Manchester, Essex, others)
+- [x] Add full content to all empty service-areas sections — added dedicated anchor sections for Greater Manchester, Merseyside, and Essex
