@@ -30,20 +30,24 @@ interface CountyPageProps {
   county: CountyData;
 }
 
-const galleryByCategory: Record<string, { src: string; alt: string; label: string }[]> = {
+const galleryByCategory: Record<string, { src: string; alt: string; label: string; date?: string }[]> = {
   "All": [
-    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VlcajxKFizWfRmvv.webp", alt: "Shot blasting - structural steel preparation", label: "Structural Steel" },
-    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp", alt: "Industrial surface preparation - rust removal", label: "Industrial Plant" },
-    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YBedohTImNkgXOlG.webp", alt: "Commercial shot blasting - machinery cleaning", label: "Machinery" },
-    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wNJxNfMjngkYNOyk.webp", alt: "Shot blasting services - industrial plant", label: "Industrial Plant" },
-    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp", alt: "Surface preparation - steel beams", label: "Structural Steel" },
-    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp", alt: "Industrial blasting - corrosion removal", label: "Industrial Plant" },
-    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(5)_d258dff2.jpeg", alt: "Farm barn concrete panels mid-blast - agriculture", label: "Agriculture" },
-    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.42(1)_a8f17ecc.jpeg", alt: "Farm barn fully shot blasted - agriculture", label: "Agriculture" },
-    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp", alt: "Shot blasting work - commercial project", label: "Commercial" },
-    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp", alt: "Professional blasting - surface treatment", label: "Commercial" },
-    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(4)_5d798006.jpeg", alt: "Agricultural building after shot blasting", label: "Agriculture" },
-    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(6)_5c09aa7a.jpeg", alt: "Agricultural barn wall after shot blasting", label: "Agriculture" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VlcajxKFizWfRmvv.webp", alt: "Shot blasting - structural steel preparation", label: "Structural Steel", date: "2025-09" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp", alt: "Industrial surface preparation - rust removal", label: "Industrial Plant", date: "2025-10" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YBedohTImNkgXOlG.webp", alt: "Commercial shot blasting - machinery cleaning", label: "Machinery", date: "2025-10" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wNJxNfMjngkYNOyk.webp", alt: "Shot blasting services - industrial plant", label: "Industrial Plant", date: "2025-11" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp", alt: "Surface preparation - steel beams", label: "Structural Steel", date: "2025-11" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp", alt: "Industrial blasting - corrosion removal", label: "Industrial Plant", date: "2025-12" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(5)_d258dff2.jpeg", alt: "Farm barn concrete panels mid-blast - agriculture", label: "Agriculture", date: "2026-04" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.42(1)_a8f17ecc.jpeg", alt: "Farm barn fully shot blasted - agriculture", label: "Agriculture", date: "2026-04" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp", alt: "Shot blasting work - commercial project", label: "Commercial", date: "2025-11" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp", alt: "Professional blasting - surface treatment", label: "Commercial", date: "2025-11" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(4)_5d798006.jpeg", alt: "Agricultural building after shot blasting", label: "Agriculture", date: "2026-04" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(6)_5c09aa7a.jpeg", alt: "Agricultural barn wall after shot blasting", label: "Agriculture", date: "2026-04" },
+    { src: "/manus-storage/marine-before-1_01d5fffa.jpg", alt: "Marine diesel engine block before shot blasting", label: "Marine & Offshore", date: "2026-03" },
+    { src: "/manus-storage/marine-after-1_dc53f2eb.jpg", alt: "Marine diesel engine block after shot blasting", label: "Marine & Offshore", date: "2026-03" },
+    { src: "/manus-storage/marine-after-3_9ab0feb6.jpg", alt: "Marine engine block - full length clean view", label: "Marine & Offshore", date: "2026-03" },
+    { src: "/manus-storage/marine-after-4_292300df.jpg", alt: "Marine engine block - V-configuration end view", label: "Marine & Offshore", date: "2026-03" },
   ],
   "Structural Steel": [
     { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VlcajxKFizWfRmvv.webp", alt: "Shot blasting - structural steel preparation", label: "Structural Steel" },
@@ -64,12 +68,20 @@ const galleryByCategory: Record<string, { src: string; alt: string; label: strin
     { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(6)_5c09aa7a.jpeg", alt: "Agricultural barn wall after shot blasting", label: "Agriculture" },
   ],
   "Commercial": [
-    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp", alt: "Shot blasting work - commercial project", label: "Commercial" },
-    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp", alt: "Professional blasting - surface treatment", label: "Commercial" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp", alt: "Shot blasting work - commercial project", label: "Commercial", date: "2025-11" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp", alt: "Professional blasting - surface treatment", label: "Commercial", date: "2025-11" },
+  ],
+  "Marine & Offshore": [
+    { src: "/manus-storage/marine-before-1_01d5fffa.jpg", alt: "Marine diesel engine block before shot blasting - top view", label: "Marine & Offshore", date: "2026-03" },
+    { src: "/manus-storage/marine-after-1_dc53f2eb.jpg", alt: "Marine diesel engine block after shot blasting - clean bare metal", label: "Marine & Offshore", date: "2026-03" },
+    { src: "/manus-storage/marine-before-2_c23a76dd.jpg", alt: "Marine engine block before - side view showing corrosion", label: "Marine & Offshore", date: "2026-03" },
+    { src: "/manus-storage/marine-after-2_30cf45df.jpg", alt: "Marine engine block after - clean side profile", label: "Marine & Offshore", date: "2026-03" },
+    { src: "/manus-storage/marine-after-3_9ab0feb6.jpg", alt: "Marine engine block after shot blasting - full length view", label: "Marine & Offshore", date: "2026-03" },
+    { src: "/manus-storage/marine-after-4_292300df.jpg", alt: "Marine engine block after - V-configuration end view", label: "Marine & Offshore", date: "2026-03" },
   ],
 };
 
-const galleryFilterLabels = ["All", "Structural Steel", "Industrial Plant", "Machinery", "Agriculture", "Commercial"];
+const galleryFilterLabels = ["All", "Most Recent", "Structural Steel", "Industrial Plant", "Machinery", "Agriculture", "Commercial", "Marine & Offshore"];
 
 export function CountyPage({ county }: CountyPageProps) {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -632,7 +644,10 @@ export function CountyPage({ county }: CountyPageProps) {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-8">
-            {(galleryByCategory[galleryFilter] ?? galleryByCategory["All"]).map((img, index) => (
+            {(galleryFilter === "Most Recent"
+              ? [...galleryByCategory["All"]].sort((a, b) => (b.date ?? "").localeCompare(a.date ?? "")).slice(0, 8)
+              : (galleryByCategory[galleryFilter] ?? galleryByCategory["All"])
+            ).map((img, index) => (
               <div key={`${galleryFilter}-${index}`} className="relative aspect-square overflow-hidden rounded-lg group shadow-sm hover:shadow-md transition-shadow">
                 <img
                   src={img.src}

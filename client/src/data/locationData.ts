@@ -8990,4 +8990,46 @@ export const locationData: Record<string, LocationData> = {
       { question: "Do you offer free quotes in Carlisle?", answer: "Yes, we provide free, no-obligation quotations for all projects in Carlisle. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
     ]
   },
+  "gateshead": {
+    name: "Gateshead",
+    slug: "gateshead",
+    county: "Tyne & Wear",
+    countySlug: "tyne-and-wear",
+    region: "North East England",
+    description: "Shot Blasting in Gateshead, Tyne & Wear. Professional surface preparation & rust removal for industrial and commercial clients. Expert mobile blasting. Call 07970 566409",
+    faqs: [
+      { question: "Do you provide shot blasting services in Gateshead?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Gateshead and the wider Tyne & Wear area. Our fully equipped units can reach any location across the town and surrounding industrial estates." },
+      { question: "How quickly can you reach Gateshead?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Gateshead within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
+      { question: "What surfaces can you blast in Gateshead?", answer: "We can blast virtually any surface including structural steel, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our equipment is suitable for both indoor and outdoor applications across industrial and commercial sites." },
+      { question: "Do you offer free quotes in Gateshead?", answer: "Yes, we provide free, no-obligation quotations for all projects in Gateshead. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
+    ]
+  },
+  "south-shields": {
+    name: "South Shields",
+    slug: "south-shields",
+    county: "Tyne & Wear",
+    countySlug: "tyne-and-wear",
+    region: "North East England",
+    description: "Shot Blasting in South Shields, Tyne & Wear. Professional surface preparation & rust removal for marine, industrial and commercial clients. Expert mobile blasting. Call 07970 566409",
+    faqs: [
+      { question: "Do you provide shot blasting services in South Shields?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout South Shields and the surrounding Tyne & Wear area. Our fully equipped units can reach any location including riverside and marine sites." },
+      { question: "How quickly can you reach South Shields?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in South Shields within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
+      { question: "What surfaces can you blast in South Shields?", answer: "We can blast virtually any surface including structural steel, marine components, machinery, vehicles, concrete floors, and metal fabrications. Our equipment is suitable for both indoor and outdoor applications including marine and riverside environments." },
+      { question: "Do you offer free quotes in South Shields?", answer: "Yes, we provide free, no-obligation quotations for all projects in South Shields. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
+    ]
+  },
+  "middlesbrough": {
+    name: "Middlesbrough",
+    slug: "middlesbrough",
+    county: "County Durham",
+    countySlug: "durham",
+    region: "North East England",
+    description: "Shot Blasting in Middlesbrough, Teesside. Professional surface preparation & rust removal for steel, manufacturing and industrial clients. Expert mobile blasting. Call 07970 566409",
+    faqs: [
+      { question: "Do you provide shot blasting services in Middlesbrough?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Middlesbrough and the wider Teesside area. Our fully equipped units can reach any location across the town and surrounding industrial and manufacturing estates." },
+      { question: "How quickly can you reach Middlesbrough?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Middlesbrough within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
+      { question: "What surfaces can you blast in Middlesbrough?", answer: "We can blast virtually any surface including structural steel, manufacturing equipment, machinery, vehicles, concrete floors, and metal fabrications. Our equipment is suitable for both indoor and outdoor applications across Teesside's industrial sector." },
+      { question: "Do you offer free quotes in Middlesbrough?", answer: "Yes, we provide free, no-obligation quotations for all projects in Middlesbrough. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
+    ]
+  },
 };

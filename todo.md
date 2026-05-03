@@ -268,5 +268,12 @@
 - [x] Create service-area pages for Newcastle, Sunderland, Darlington, Carlisle (via dynamic LocationRouter)
 - [x] Register new service-area routes in App.tsx (handled by existing /service-areas/:slug dynamic route)
 - [x] Add gallery industry filter feature to county pages (All, Structural Steel, Industrial Plant, Machinery, Agriculture, Commercial)
-- [ ] Ping IndexNow for new service-area pages and updated pages
+- [x] Ping IndexNow for new service-area pages and updated pages — 10 URLs submitted via Yandex IndexNow (202 Accepted)
 - [x] Add agriculture page photos and video to the Our Work section (3 items: 2 before/after + 1 video)
+
+## Marine Engine, North East Towns, Gallery Enhancements
+- [x] Add marine engine photos from marine industry page to Our Work (2 projects: engine block top + side profile)
+- [x] Add Gateshead, South Shields, Middlesbrough to locationData.ts
+- [x] Create Marine & Offshore gallery filter category in CountyPage.tsx (6 marine engine photos)
+- [x] Add Most Recent sort option to county page gallery filter (sorts All by date, shows 8 newest)
+- [ ] Ping IndexNow for new service-area pages (Gateshead, South Shields, Middlesbrough)

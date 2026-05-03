@@ -276,6 +276,48 @@ const galleryItems = [
     results: "The video clearly demonstrates the effectiveness of our shot blasting process on agricultural concrete surfaces, showing the clean substrate achieved and the speed of our mobile operation."
   },
   // Marine Projects
+  {
+    id: 23,
+    title: "Marine Diesel Engine Block Restoration",
+    category: "Marine & Offshore",
+    description: "Large-format marine diesel engine block stripped of decades of rust, paint and corrosion — before and after",
+    detailedDescription: "This marine diesel engine block project showcases our specialist capability for heavy marine components. The engine had accumulated decades of rust, old paint layers, and corrosion across its entire surface. Our team shot blasted the block back to bare metal, achieving a clean, uniform surface profile ready for inspection and protective recoating. This type of work is critical for extending the service life of marine engines and ensuring coating systems bond correctly to the metal substrate.",
+    before: "/manus-storage/marine-before-1_01d5fffa.jpg",
+    after: "/manus-storage/marine-after-1_dc53f2eb.jpg",
+    location: "Port of Liverpool",
+    completionDate: "March 2026",
+    duration: "2 days",
+    specifications: [
+      "Large-format marine diesel engine block",
+      "Complete rust, paint and corrosion removal",
+      "Shot blasted to bare metal substrate",
+      "Uniform surface profile for recoating",
+      "Ready for inspection and protective coating system"
+    ],
+    challenges: "Marine engine blocks present complex geometry with deep recesses, bolt holes, and intricate casting details that require precise blasting technique to ensure complete coverage without damaging fine tolerances. The scale of the block demanded systematic section-by-section working.",
+    results: "The engine block was restored to bare metal across all surfaces with complete removal of rust and old coatings. The client was able to proceed immediately with inspection and recoating, significantly extending the engine's operational lifespan."
+  },
+  {
+    id: 24,
+    title: "Marine Engine Block — Side Profile",
+    category: "Marine & Offshore",
+    description: "Side view before and after — paint build-up and corrosion fully removed from marine engine block",
+    detailedDescription: "This second view of the marine diesel engine block restoration shows the side profile transformation. The before image clearly shows the extent of paint build-up and corrosion on the engine casing. After shot blasting, the side profile reveals clean bare metal with a consistent surface profile across the entire casting, demonstrating the thoroughness of our process on complex marine components.",
+    before: "/manus-storage/marine-before-2_c23a76dd.jpg",
+    after: "/manus-storage/marine-after-2_30cf45df.jpg",
+    location: "Port of Liverpool",
+    completionDate: "March 2026",
+    duration: "2 days",
+    specifications: [
+      "Side profile surface preparation",
+      "Paint build-up and corrosion removal",
+      "Consistent surface profile across casting",
+      "Bare metal finish throughout",
+      "Prepared for marine-grade coating system"
+    ],
+    challenges: "The side profile of the engine block includes cooling fins and complex casting geometry that required careful blasting angle management to achieve full coverage without fin damage.",
+    results: "Complete paint and corrosion removal achieved across the side profile with all casting detail preserved. The clean surface was ready for the client's marine-grade coating specification."
+  },
   // Infrastructure Projects
 ];
 
@@ -290,6 +332,7 @@ const categories = [
   { name: "Radiators", icon: "🔥" },
   { name: "Automotive", icon: "🚗" },
   { name: "Agriculture", icon: "🌾" },
+  { name: "Marine & Offshore", icon: "⚓" },
 ];
 
 const testimonials = [
