@@ -9032,4 +9032,32 @@ export const locationData: Record<string, LocationData> = {
       { question: "Do you offer free quotes in Middlesbrough?", answer: "Yes, we provide free, no-obligation quotations for all projects in Middlesbrough. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
     ]
   },
+  "hartlepool": {
+    name: "Hartlepool",
+    slug: "hartlepool",
+    county: "County Durham",
+    countySlug: "durham",
+    region: "North East England",
+    description: "Shot Blasting in Hartlepool, County Durham. Professional surface preparation & rust removal for industrial, marine and commercial clients. Expert mobile blasting. Call 07970 566409",
+    faqs: [
+      { question: "Do you provide shot blasting services in Hartlepool?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Hartlepool and the surrounding County Durham area. Our fully equipped units can reach any location including the port, industrial estates, and commercial sites across the town." },
+      { question: "How quickly can you reach Hartlepool?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Hartlepool within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
+      { question: "What surfaces can you blast in Hartlepool?", answer: "We can blast virtually any surface including structural steel, marine components, machinery, vehicles, concrete floors, and metal fabrications. Our equipment is suitable for both indoor and outdoor applications including port and marine environments." },
+      { question: "Do you offer free quotes in Hartlepool?", answer: "Yes, we provide free, no-obligation quotations for all projects in Hartlepool. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
+    ]
+  },
+  "hexham": {
+    name: "Hexham",
+    slug: "hexham",
+    county: "Northumberland",
+    countySlug: "northumberland",
+    region: "North East England",
+    description: "Shot Blasting in Hexham, Northumberland. Professional surface preparation & rust removal for industrial, agricultural and commercial clients. Expert mobile blasting. Call 07970 566409",
+    faqs: [
+      { question: "Do you provide shot blasting services in Hexham?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Hexham and the surrounding Northumberland area. Our fully equipped units can reach any location across the town and surrounding rural and industrial sites in the Tyne Valley." },
+      { question: "How quickly can you reach Hexham?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Hexham within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
+      { question: "What surfaces can you blast in Hexham?", answer: "We can blast virtually any surface including structural steel, agricultural machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our equipment is suitable for both indoor and outdoor applications across industrial, agricultural, and commercial sites in the Tyne Valley." },
+      { question: "Do you offer free quotes in Hexham?", answer: "Yes, we provide free, no-obligation quotations for all projects in Hexham. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
+    ]
+  },
 };

@@ -276,4 +276,9 @@
 - [x] Add Gateshead, South Shields, Middlesbrough to locationData.ts
 - [x] Create Marine & Offshore gallery filter category in CountyPage.tsx (6 marine engine photos)
 - [x] Add Most Recent sort option to county page gallery filter (sorts All by date, shows 8 newest)
-- [ ] Ping IndexNow for new service-area pages (Gateshead, South Shields, Middlesbrough)
+- [x] Ping IndexNow for new service-area pages (Gateshead, South Shields, Middlesbrough) — 4 URLs submitted (202 Accepted)
+
+## Hartlepool & Hexham Service Area Coverage
+- [x] Add Hartlepool (County Durham) to locationData.ts
+- [x] Add Hexham (Northumberland) to locationData.ts
+- [ ] Ping IndexNow for new service-area pages
