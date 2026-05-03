@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "wouter";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,11 +15,11 @@ interface CaseStudy {
   results?: string;
 }
 
-const featuredCaseStudies: CaseStudy[] = [
+const allCaseStudies: CaseStudy[] = [
   {
     id: 2,
     title: "Warehouse Cladding Restoration",
-    category: "Factory/Warehouse Cladding",
+    category: "Industrial",
     description: "Complete removal of original plastisol and multiple paint layers from warehouse cladding, restoring bare metal for new coating system.",
     before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp",
     after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
@@ -30,7 +30,7 @@ const featuredCaseStudies: CaseStudy[] = [
   {
     id: 14,
     title: "Steel Roller Shutter Restoration",
-    category: "Steel Doors & Shutters",
+    category: "Industrial",
     description: "Complete rust and contamination removal from industrial roller shutter doors at a manufacturing facility.",
     before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/CoioYfNmUywtcZxQ.webp",
     after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nQViKddQUSUWiKol.webp",
@@ -41,7 +41,7 @@ const featuredCaseStudies: CaseStudy[] = [
   {
     id: 12,
     title: "Large Steel Tank Restoration",
-    category: "Steel Containers",
+    category: "Industrial",
     description: "Complete rust and paint removal from a large cylindrical steel storage tank with severe corrosion and multiple failed coating layers.",
     before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YBedohTImNkgXOlG.webp",
     after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wNJxNfMjngkYNOyk.webp",
@@ -52,13 +52,46 @@ const featuredCaseStudies: CaseStudy[] = [
   {
     id: 19,
     title: "Commercial Radiator Restoration",
-    category: "Radiators",
+    category: "Commercial",
     description: "Precision restoration of vintage cast iron radiators — decades of paint and rust removed while preserving intricate casting details.",
     before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/zhJKXbmyXfKCFRZy.webp",
     after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oqjuEhatDJBjVZWF.webp",
     location: "UK",
     duration: "2 days",
     results: "Restored to pristine bare metal with all original details preserved. Client noted radiators looked better than when originally installed.",
+  },
+  {
+    id: 16,
+    title: "Commercial Gate Restoration",
+    category: "Commercial",
+    description: "Industrial gate surface preparation — complete rust and contamination removal for protective coating application.",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/FSrLNzhZWsTBjWBp.webp",
+    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/KMeJJHNNjmrVCsLA.webp",
+    location: "UK",
+    duration: "1 day",
+    results: "Gates restored to bare metal with uniform surface profile, ready for new protective coating.",
+  },
+  {
+    id: 17,
+    title: "Heavy-Duty Commercial Vehicle Wheels",
+    category: "Automotive",
+    description: "Complete wheel restoration for vintage farm truck — decades of paint, rust, and agricultural contamination removed.",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/SrqhpzNTsQrjJrai.webp",
+    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/KrNVHUTMekkRtpqq.webp",
+    location: "UK",
+    duration: "2 days",
+    results: "All wheels restored to bare metal with perfect surface preparation for powder coating. Client delighted with the preservation of original details.",
+  },
+  {
+    id: 18,
+    title: "Complete Chassis Restoration",
+    category: "Automotive",
+    description: "Systematic shot blasting of entire warehouse vehicle chassis frame including all structural members and cross-braces.",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/LcgCVRiZgfAKLDhR.webp",
+    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/LcgCVRiZgfAKLDhR.webp",
+    location: "UK",
+    duration: "4 days",
+    results: "Chassis transformed to bare metal with ideal surface profile throughout. All structural members thoroughly cleaned and prepared.",
   },
   {
     id: 21,
@@ -72,6 +105,17 @@ const featuredCaseStudies: CaseStudy[] = [
     results: "All barn elevations blasted clean to bare substrate. Completed on schedule with minimal disruption to farm operations.",
   },
   {
+    id: 22,
+    title: "Agricultural Building Restoration",
+    category: "Agriculture",
+    description: "Concrete and steel agricultural building surfaces shot blasted clean with scissor lift access — full elevation coverage.",
+    before: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(4)_5d798006.jpeg",
+    after: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(6)_5c09aa7a.jpeg",
+    location: "UK",
+    duration: "3 days",
+    results: "Both concrete and steel surfaces prepared to a high standard with complete contamination removal. Building dramatically improved and ready for coating.",
+  },
+  {
     id: 24,
     title: "Marine Diesel Engine Block Restoration",
     category: "Marine & Offshore",
@@ -80,18 +124,44 @@ const featuredCaseStudies: CaseStudy[] = [
     after: "/manus-storage/marine-after-1_dc53f2eb.jpg",
     location: "UK",
     duration: "3 days",
-    results: "Engine block restored to bare metal across all surfaces. Client proceeded immediately with inspection and recoating.",
+    results: "Engine block restored to bare metal across all surfaces. Client proceeded immediately with inspection and recoating, significantly extending the engine's operational lifespan.",
+  },
+  {
+    id: 25,
+    title: "Marine Engine Block — Side Profile",
+    category: "Marine & Offshore",
+    description: "Side view before and after — paint build-up and corrosion fully removed from marine engine block casting.",
+    before: "/manus-storage/marine-before-2_c23a76dd.jpg",
+    after: "/manus-storage/marine-after-2_30cf45df.jpg",
+    location: "UK",
+    duration: "3 days",
+    results: "Complete paint and corrosion removal achieved across the side profile with all casting detail preserved. Ready for marine-grade coating specification.",
   },
 ];
 
+const categories = [
+  { id: "all", label: "All Projects" },
+  { id: "Industrial", label: "Industrial" },
+  { id: "Commercial", label: "Commercial" },
+  { id: "Automotive", label: "Automotive" },
+  { id: "Agriculture", label: "Agriculture" },
+  { id: "Marine & Offshore", label: "Marine & Offshore" },
+];
+
 export function CaseStudies() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [expandedId, setExpandedId] = useState<number | null>(null);
   const [beforeAfterState, setBeforeAfterState] = useState<Record<number, "before" | "after">>({});
 
+  const filteredStudies = useMemo(() => {
+    if (activeCategory === "all") return allCaseStudies;
+    return allCaseStudies.filter((s) => s.category === activeCategory);
+  }, [activeCategory]);
+
   const toggleBeforeAfter = (id: number) => {
-    setBeforeAfterState(prev => ({
+    setBeforeAfterState((prev) => ({
       ...prev,
-      [id]: prev[id] === "after" ? "before" : "after",
+      [id]: prev[id] === "before" ? "after" : "before",
     }));
   };
 
@@ -102,11 +172,16 @@ export function CaseStudies() {
 
   const getLabel = (id: number) => (beforeAfterState[id] === "before" ? "Before" : "After");
 
+  const handleCategoryChange = (cat: string) => {
+    setActiveCategory(cat);
+    setExpandedId(null);
+  };
+
   return (
     <section className="py-20 bg-white" id="case-studies">
       <div className="container">
         {/* Header */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-10">
           <p className="text-[#2C5F7F] font-medium mb-2 uppercase tracking-wide text-sm">Real Results</p>
           <h2
             className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-4"
@@ -115,14 +190,52 @@ export function CaseStudies() {
             Case Studies
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Explore a selection of our completed projects — click any card to toggle between before and after, and see the results we deliver.
+            Explore our completed projects by industry. Click any image to toggle between before and after.
           </p>
         </div>
 
+        {/* Category Filter Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
+          {categories.map((cat) => {
+            const count = cat.id === "all"
+              ? allCaseStudies.length
+              : allCaseStudies.filter((s) => s.category === cat.id).length;
+            const isActive = activeCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => handleCategoryChange(cat.id)}
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border ${
+                  isActive
+                    ? "bg-[#2C5F7F] text-white border-[#2C5F7F] shadow-md"
+                    : "bg-white text-[#2C5F7F] border-[#2C5F7F]/30 hover:border-[#2C5F7F] hover:bg-[#2C5F7F]/5"
+                }`}
+              >
+                {cat.label}
+                <span
+                  className={`ml-2 text-xs px-1.5 py-0.5 rounded-full font-bold ${
+                    isActive ? "bg-white/20 text-white" : "bg-[#2C5F7F]/10 text-[#2C5F7F]"
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Results count */}
+        <p className="text-center text-sm text-gray-500 mb-8">
+          Showing <span className="font-semibold text-[#2C2C2C]">{filteredStudies.length}</span> project{filteredStudies.length !== 1 ? "s" : ""}
+          {activeCategory !== "all" && (
+            <> in <span className="font-semibold text-[#2C5F7F]">{activeCategory}</span></>
+          )}
+        </p>
+
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredCaseStudies.map((study) => {
-            const isExpanded = activeIndex === study.id;
+          {filteredStudies.map((study) => {
+            const isExpanded = expandedId === study.id;
             const imgSrc = getImage(study);
             const label = getLabel(study.id);
 
@@ -132,7 +245,10 @@ export function CaseStudies() {
                 className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col"
               >
                 {/* Image with before/after toggle */}
-                <div className="relative overflow-hidden aspect-[4/3] cursor-pointer" onClick={() => toggleBeforeAfter(study.id)}>
+                <div
+                  className="relative overflow-hidden aspect-[4/3] cursor-pointer"
+                  onClick={() => toggleBeforeAfter(study.id)}
+                >
                   <img
                     src={imgSrc}
                     alt={`${study.title} — ${label}`}
@@ -140,15 +256,19 @@ export function CaseStudies() {
                     loading="lazy"
                   />
                   {/* Before/After badge */}
-                  <div className="absolute top-3 left-3 flex gap-2">
+                  <div className="absolute top-3 left-3">
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-bold shadow transition-all ${
-                        label === "After"
-                          ? "bg-[#2C5F7F] text-white"
-                          : "bg-amber-500 text-white"
+                        label === "After" ? "bg-[#2C5F7F] text-white" : "bg-amber-500 text-white"
                       }`}
                     >
                       {label}
+                    </span>
+                  </div>
+                  {/* Category badge */}
+                  <div className="absolute top-3 right-3">
+                    <span className="bg-white/90 text-[#2C5F7F] text-xs font-semibold px-2 py-1 rounded-full shadow">
+                      {study.category}
                     </span>
                   </div>
                   {/* Toggle hint */}
@@ -157,17 +277,14 @@ export function CaseStudies() {
                     <span>Toggle</span>
                     <ChevronRight className="w-3 h-3" />
                   </div>
-                  {/* Category badge */}
-                  <div className="absolute top-3 right-3">
-                    <span className="bg-white/90 text-[#2C5F7F] text-xs font-semibold px-2 py-1 rounded-full shadow">
-                      {study.category}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-lg font-bold text-[#2C2C2C] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  <h3
+                    className="text-lg font-bold text-[#2C2C2C] mb-2"
+                    style={{ fontFamily: "'Playfair Display', serif" }}
+                  >
                     {study.title}
                   </h3>
                   <p className="text-gray-600 text-sm mb-4 flex-1">{study.description}</p>
@@ -190,13 +307,15 @@ export function CaseStudies() {
 
                   {/* Results accordion */}
                   {study.results && (
-                    <div className="mb-4">
+                    <div className="mb-2">
                       <button
                         className="text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1"
-                        onClick={() => setActiveIndex(isExpanded ? null : study.id)}
+                        onClick={() => setExpandedId(isExpanded ? null : study.id)}
                       >
                         {isExpanded ? "Hide Results" : "View Results"}
-                        <ArrowRight className={`w-3 h-3 transition-transform ${isExpanded ? "rotate-90" : ""}`} />
+                        <ArrowRight
+                          className={`w-3 h-3 transition-transform duration-200 ${isExpanded ? "rotate-90" : ""}`}
+                        />
                       </button>
                       {isExpanded && (
                         <p className="mt-2 text-xs text-gray-600 bg-[#F5F1E8] rounded-lg p-3 leading-relaxed">
@@ -210,6 +329,19 @@ export function CaseStudies() {
             );
           })}
         </div>
+
+        {/* Empty state */}
+        {filteredStudies.length === 0 && (
+          <div className="text-center py-16 text-gray-500">
+            <p className="text-lg mb-4">No projects found in this category.</p>
+            <button
+              className="text-[#2C5F7F] font-semibold hover:underline"
+              onClick={() => handleCategoryChange("all")}
+            >
+              View all projects
+            </button>
+          </div>
+        )}
 
         {/* CTA */}
         <div className="text-center mt-12">

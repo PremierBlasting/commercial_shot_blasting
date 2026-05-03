@@ -292,3 +292,6 @@
 
 ## Case Studies Section on Homepage
 - [x] Build Case Studies section on homepage showcasing featured projects from Our Work (6 featured projects, before/after toggle, results accordion, CTA to full gallery)
+
+## Case Studies Filter Tabs
+- [x] Add industry category filter tabs to Case Studies section on homepage (All, Industrial, Commercial, Automotive, Agriculture, Marine & Offshore — with project counts and results count)
