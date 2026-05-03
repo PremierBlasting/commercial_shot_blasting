@@ -375,6 +375,8 @@ function Router() {
         <Route path="/service-areas/wellingborough" component={WellingboroughServiceArea} />
         <Route path="/service-areas/welwyn-garden-city" component={WelwynGardenCityServiceArea} />
         <Route path="/service-areas/weston-super-mare" component={WestonSuperMareServiceArea} />
+        {/* Dynamic catch-all for all remaining service-area location pages */}
+        <Route path="/service-areas/:slug" component={() => <Suspense fallback={<div className="min-h-screen bg-background" />}><LocationRouter /></Suspense>} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />

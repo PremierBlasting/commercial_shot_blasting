@@ -234,3 +234,7 @@
 - [x] Create NorthYorkshireCounty.tsx page component and register route in App.tsx
 - [x] Add South Yorkshire and North Yorkshire spotlight sections to service-areas page with anchor IDs
 - [x] Split Yorkshire allRegions entry into South Yorkshire, West Yorkshire, North Yorkshire with countyHref links
+## 404 Fix - All Service Area Pages (Priority)
+- [x] Audit all 638 location slugs vs registered routes — found 536 missing (only 102 registered individually)
+- [x] Add dynamic catch-all route /service-areas/:slug → LocationRouter to fix all 536 missing pages
+- [x] Spot-checked 28 previously-404ing pages — all now return 200
