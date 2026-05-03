@@ -9060,4 +9060,32 @@ export const locationData: Record<string, LocationData> = {
       { question: "Do you offer free quotes in Hexham?", answer: "Yes, we provide free, no-obligation quotations for all projects in Hexham. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
     ]
   },
+  "morpeth": {
+    name: "Morpeth",
+    slug: "morpeth",
+    county: "Northumberland",
+    countySlug: "northumberland",
+    region: "North East England",
+    description: "Shot Blasting in Morpeth, Northumberland. Professional surface preparation & rust removal for industrial, agricultural and commercial clients. Expert mobile blasting. Call 07970 566409",
+    faqs: [
+      { question: "Do you provide shot blasting services in Morpeth?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Morpeth and the surrounding Northumberland area. Our fully equipped units can reach any location across the town and surrounding rural and industrial sites." },
+      { question: "How quickly can you reach Morpeth?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Morpeth within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
+      { question: "What surfaces can you blast in Morpeth?", answer: "We can blast virtually any surface including structural steel, agricultural machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our equipment is suitable for both indoor and outdoor applications across industrial, agricultural, and commercial sites throughout Northumberland." },
+      { question: "Do you offer free quotes in Morpeth?", answer: "Yes, we provide free, no-obligation quotations for all projects in Morpeth. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
+    ]
+  },
+  "alnwick": {
+    name: "Alnwick",
+    slug: "alnwick",
+    county: "Northumberland",
+    countySlug: "northumberland",
+    region: "North East England",
+    description: "Shot Blasting in Alnwick, Northumberland. Professional surface preparation & rust removal for industrial, agricultural, heritage and commercial clients. Expert mobile blasting. Call 07970 566409",
+    faqs: [
+      { question: "Do you provide shot blasting services in Alnwick?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Alnwick and the surrounding Northumberland area. Our fully equipped units can reach any location across the town and surrounding rural and coastal sites in north Northumberland." },
+      { question: "How quickly can you reach Alnwick?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Alnwick within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
+      { question: "What surfaces can you blast in Alnwick?", answer: "We can blast virtually any surface including structural steel, agricultural machinery, vehicles, concrete floors, stone and brick walls, and metal fabrications. Our equipment is suitable for both indoor and outdoor applications including heritage buildings, farms, and industrial sites across north Northumberland." },
+      { question: "Do you offer free quotes in Alnwick?", answer: "Yes, we provide free, no-obligation quotations for all projects in Alnwick. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
+    ]
+  },
 };

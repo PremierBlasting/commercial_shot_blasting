@@ -281,4 +281,11 @@
 ## Hartlepool & Hexham Service Area Coverage
 - [x] Add Hartlepool (County Durham) to locationData.ts
 - [x] Add Hexham (Northumberland) to locationData.ts
+- [x] Ping IndexNow for new service-area pages — 2 URLs submitted via Yandex IndexNow (202 Accepted)
+
+## County Page Links, Morpeth/Alnwick, Service Areas Search
+- [x] Add Hartlepool link to Durham county page towns list (auto-linked via townsAndVillages in countyData)
+- [x] Add Hexham link to Northumberland county page towns list (auto-linked via townsAndVillages in countyData)
+- [x] Add Morpeth and Alnwick to locationData.ts
+- [x] Add filter/search bar to service areas page (already existed with real-time search + region filter buttons)
 - [ ] Ping IndexNow for new service-area pages
