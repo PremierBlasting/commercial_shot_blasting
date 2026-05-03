@@ -998,6 +998,111 @@ export const countyData: Record<string, CountyData> = {
       }
     ]
   },
+  "berkshire": {
+    name: "Berkshire",
+    slug: "berkshire",
+    region: "South East England",
+    description: "Professional shot blasting services throughout Berkshire. Serving Reading, Slough, Bracknell, Windsor, Newbury, and surrounding areas with expert surface preparation and industrial blasting solutions.",
+    url: "https://commercialshotblasting.co.uk/counties/berkshire",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp",
+    latitude: 51.4543,
+    longitude: -1.0,
+    majorTowns: ["Reading", "Slough", "Bracknell", "Windsor"],
+    industries: ["Commercial Construction", "Logistics", "Manufacturing", "Industrial Plant"],
+    townsAndVillages: ["Ascot", "Bracknell", "Caversham", "Crowthorne", "Eton", "Hungerford", "Maidenhead", "Newbury", "Reading", "Sandhurst", "Slough", "Thatcham", "Twyford", "Windsor", "Wokingham"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Berkshire?",
+        answer: "Yes, we provide mobile shot blasting services across all of Berkshire. Our fully equipped mobile units can reach any location in the county, including Reading, Slough, Bracknell, Windsor, and surrounding areas."
+      },
+      {
+        question: "How quickly can you reach my location in Berkshire?",
+        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Berkshire within 2-5 working days, depending on your location and our current schedule."
+      },
+      {
+        question: "What types of surfaces can you blast in Berkshire?",
+        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications."
+      },
+      {
+        question: "Do I need to provide anything for the shot blasting work in Berkshire?",
+        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply."
+      },
+      {
+        question: "How do I get a quote for shot blasting services in Berkshire?",
+        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Berkshire to provide an accurate, no-obligation quotation."
+      }
+    ]
+  },
+  "hampshire": {
+    name: "Hampshire",
+    slug: "hampshire",
+    region: "South England",
+    description: "Professional shot blasting services throughout Hampshire. Serving Southampton, Portsmouth, Basingstoke, Winchester, and surrounding areas with expert surface preparation, marine blasting, and industrial solutions.",
+    url: "https://commercialshotblasting.co.uk/counties/hampshire",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp",
+    latitude: 51.0577,
+    longitude: -1.3081,
+    majorTowns: ["Southampton", "Portsmouth", "Basingstoke", "Winchester"],
+    industries: ["Marine & Shipbuilding", "Aerospace & Defence", "Commercial Construction", "Industrial Plant"],
+    townsAndVillages: ["Aldershot", "Alresford", "Alton", "Andover", "Basingstoke", "Eastleigh", "Fareham", "Fleet", "Gosport", "Havant", "Hook", "Lymington", "New Milton", "Portsmouth", "Ringwood", "Romsey", "Southampton", "Tadley", "Waterlooville", "Winchester"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Hampshire?",
+        answer: "Yes, we provide mobile shot blasting services across all of Hampshire. Our fully equipped mobile units can reach any location in the county, including Southampton, Portsmouth, Basingstoke, Winchester, and surrounding areas."
+      },
+      {
+        question: "Do you work on marine and port projects in Hampshire?",
+        answer: "Yes, we have extensive experience in marine environments including shipyards, port facilities, and offshore structures in the Southampton and Portsmouth areas. We understand the specific requirements for marine surface preparation."
+      },
+      {
+        question: "What surface preparation standards do you work to in Hampshire?",
+        answer: "We work to BS EN ISO 8501-1 standards, achieving SA 2.5 (near white metal) and SA 3 (white metal) finishes as required. All work is documented with before and after reports."
+      },
+      {
+        question: "Do I need to provide anything for the shot blasting work in Hampshire?",
+        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply."
+      },
+      {
+        question: "How do I get a quote for shot blasting services in Hampshire?",
+        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Hampshire to provide an accurate, no-obligation quotation."
+      }
+    ]
+  },
+  "lancashire": {
+    name: "Lancashire",
+    slug: "lancashire",
+    region: "North West England",
+    description: "Professional shot blasting services throughout Lancashire. Serving Preston, Blackburn, Burnley, Lancaster, and surrounding areas with expert surface preparation and industrial blasting solutions.",
+    url: "https://commercialshotblasting.co.uk/counties/lancashire",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp",
+    latitude: 53.7632,
+    longitude: -2.7044,
+    majorTowns: ["Preston", "Blackburn", "Burnley", "Lancaster"],
+    industries: ["Manufacturing", "Textiles & Engineering", "Energy", "Construction"],
+    townsAndVillages: ["Accrington", "Barnoldswick", "Blackpool", "Chorley", "Clitheroe", "Colne", "Darwen", "Fleetwood", "Garstang", "Great Harwood", "Haslingden", "Kirkham", "Lancaster", "Leyland", "Longridge", "Lytham St Annes", "Morecambe", "Nelson", "Ormskirk", "Oswaldtwistle", "Padiham", "Poulton-le-Fylde", "Preston", "Rawtenstall", "Skelmersdale", "Thornton-Cleveleys"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Lancashire?",
+        answer: "Yes, we provide mobile shot blasting services across all of Lancashire. Our fully equipped mobile units can reach any location in the county, including Preston, Blackburn, Burnley, Lancaster, and surrounding areas."
+      },
+      {
+        question: "How quickly can you reach my location in Lancashire?",
+        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Lancashire within 2-5 working days, depending on your location and our current schedule."
+      },
+      {
+        question: "What types of surfaces can you blast in Lancashire?",
+        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications."
+      },
+      {
+        question: "Do I need to provide anything for the shot blasting work in Lancashire?",
+        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply."
+      },
+      {
+        question: "How do I get a quote for shot blasting services in Lancashire?",
+        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Lancashire to provide an accurate, no-obligation quotation."
+      }
+    ]
+  },
   "east-wales": {
     name: "East Wales",
     slug: "east-wales",

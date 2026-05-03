@@ -238,3 +238,16 @@
 - [x] Audit all 638 location slugs vs registered routes — found 536 missing (only 102 registered individually)
 - [x] Add dynamic catch-all route /service-areas/:slug → LocationRouter to fix all 536 missing pages
 - [x] Spot-checked 28 previously-404ing pages — all now return 200
+
+## New County Pages: Berkshire, Hampshire, Lancashire
+- [x] Add Berkshire, Hampshire, Lancashire county data to countyData.ts
+- [x] Create BerkshireCounty.tsx, HampshireCounty.tsx, LancashireCounty.tsx page components
+- [x] Register Berkshire, Hampshire, Lancashire routes in App.tsx
+- [x] Add Lancashire spotlight section to Areas.tsx service-areas page
+- [x] Add Berkshire and Hampshire countyHref links in Areas.tsx county grid
+- [x] Add Lancashire to county grid in Areas.tsx
+- [x] Add Lancashire to Header.tsx desktop nav (North West section)
+- [x] Add Lancashire to Header.tsx mobile nav (North West section)
+- [x] Update Berkshire and Hampshire countyHref in Header.tsx desktop nav to point to county pages
+- [x] Update Hampshire mobile nav with more locations
+- [ ] Ping Google IndexNow for new county pages (berkshire, hampshire, lancashire)

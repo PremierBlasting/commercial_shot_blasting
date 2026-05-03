@@ -144,6 +144,15 @@ const compactAreasLinks = [
   },
   // North West - split into Greater Manchester, Merseyside, Cheshire, Lancashire
   {
+    region: "Lancashire",
+    countyHref: "/counties/lancashire",
+    keyLocations: [
+      { title: "Preston", href: "/service-areas/preston" },
+      { title: "Blackburn", href: "/service-areas/blackburn" },
+    ],
+    totalCount: 8
+  },
+  {
     region: "Greater Manchester",
     countyHref: "/service-areas#greater-manchester",
     keyLocations: [
@@ -275,7 +284,7 @@ const compactAreasLinks = [
   },
   {
     region: "Berkshire",
-    countyHref: "/service-areas#berkshire",
+    countyHref: "/counties/berkshire",
     keyLocations: [
       { title: "Reading", href: "/service-areas/reading" },
       { title: "Slough", href: "/service-areas/slough" },
@@ -301,11 +310,12 @@ const compactAreasLinks = [
   },
   {
     region: "Hampshire",
-    countyHref: "/service-areas#hampshire",
+    countyHref: "/counties/hampshire",
     keyLocations: [
       { title: "Portsmouth", href: "/service-areas/portsmouth" },
+      { title: "Southampton", href: "/service-areas/southampton" },
     ],
-    totalCount: 1
+    totalCount: 3
   },
   {
     region: "Shropshire",
@@ -450,7 +460,20 @@ const fullAreasLinks = [
       { title: "Northallerton", href: "/service-areas/northallerton" },
     ]
   },
-  // North West - split into Greater Manchester, Merseyside, Cheshire
+  // North West - split into Greater Manchester, Merseyside, Cheshire, Lancashire
+  {
+    region: "Lancashire",
+    locations: [
+      { title: "Preston", href: "/service-areas/preston" },
+      { title: "Blackburn", href: "/service-areas/blackburn" },
+      { title: "Burnley", href: "/service-areas/burnley" },
+      { title: "Lancaster", href: "/service-areas/lancaster" },
+      { title: "Chorley", href: "/service-areas/chorley" },
+      { title: "Blackpool", href: "/service-areas/blackpool" },
+      { title: "Accrington", href: "/service-areas/accrington" },
+      { title: "Leyland", href: "/service-areas/leyland" },
+    ]
+  },
   {
     region: "Greater Manchester",
     locations: [
@@ -596,6 +619,8 @@ const fullAreasLinks = [
     region: "Hampshire",
     locations: [
       { title: "Portsmouth", href: "/service-areas/portsmouth" },
+      { title: "Southampton", href: "/service-areas/southampton" },
+      { title: "Basingstoke", href: "/service-areas/basingstoke" },
     ]
   },
   {

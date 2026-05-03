@@ -275,6 +275,7 @@ const allRegions = [
   },
   {
     region: "Berkshire",
+    countyHref: "/counties/berkshire",
     locations: [
       { title: "Reading", href: "/service-areas/reading" },
       { title: "Slough", href: "/service-areas/slough" },
@@ -297,8 +298,11 @@ const allRegions = [
   },
   {
     region: "Hampshire",
+    countyHref: "/counties/hampshire",
     locations: [
       { title: "Portsmouth", href: "/service-areas/portsmouth" },
+      { title: "Southampton", href: "/service-areas/southampton" },
+      { title: "Basingstoke", href: "/service-areas/basingstoke" },
     ]
   },
   {
@@ -323,6 +327,20 @@ const allRegions = [
       { title: "Cardiff", href: "/service-areas/cardiff" },
       { title: "Wrexham", href: "/service-areas/wrexham" },
       { title: "Newport", href: "/service-areas/newport" },
+    ]
+  },
+  {
+    region: "Lancashire",
+    countyHref: "/counties/lancashire",
+    locations: [
+      { title: "Preston", href: "/service-areas/preston" },
+      { title: "Blackburn", href: "/service-areas/blackburn" },
+      { title: "Burnley", href: "/service-areas/burnley" },
+      { title: "Lancaster", href: "/service-areas/lancaster" },
+      { title: "Chorley", href: "/service-areas/chorley" },
+      { title: "Blackpool", href: "/service-areas/blackpool" },
+      { title: "Accrington", href: "/service-areas/accrington" },
+      { title: "Leyland", href: "/service-areas/leyland" },
     ]
   },
 ];
@@ -1350,6 +1368,63 @@ export default function Areas() {
               <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
               <ul className="space-y-2 text-gray-600">
                 {["Agricultural equipment & machinery", "Manufacturing & fabrication", "Commercial construction & steelwork", "Heritage & listed building restoration", "Industrial plant & machinery"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Lancashire Section */}
+      <section id="lancashire" className="py-16 bg-white scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">North West England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Lancashire
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Lancashire's strong manufacturing, engineering, and energy sectors generate consistent demand for professional surface preparation. We serve Preston, Blackburn, Burnley, Lancaster, Chorley, and surrounding areas with shot blasting for industrial plant, structural steel, and heavy machinery.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our Lancashire teams are well-placed to serve the county's diverse industrial base, from textile engineering heritage sites to modern energy infrastructure and commercial construction projects.
+              </p>
+              <div className="flex gap-3 flex-wrap mb-6">
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">180+</div><div className="text-xs text-gray-500">Projects Completed</div></div>
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">45+</div><div className="text-xs text-gray-500">Clients Served</div></div>
+              </div>
+              <div className="flex gap-3 flex-wrap">
+                <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
+                  Get a Quote for Lancashire
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+                <Link href="/counties/lancashire">
+                  <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                    View Lancashire Page
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="bg-[#f8f5f0] rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Lancashire
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Preston", "Blackburn", "Burnley", "Lancaster", "Chorley", "Blackpool", "Accrington", "Clitheroe", "Morecambe", "Leyland"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Manufacturing & engineering plant", "Textiles & heritage industrial buildings", "Energy & utilities infrastructure", "Commercial construction & steelwork", "Agricultural machinery & equipment"].map(ind => (
                   <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
                 ))}
               </ul>
