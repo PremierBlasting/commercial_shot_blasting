@@ -679,7 +679,65 @@ export default function Areas() {
         </div>
       </section>
 
-      <section id="greater-manchester" className="py-16 bg-[#f8f5f0] scroll-mt-20">
+      <section id="west-yorkshire" className="py-16 bg-[#f8f5f0] scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">Yorkshire</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in West Yorkshire
+              </h2>
+              <p className="text-gray-600 mb-4">
+                West Yorkshire is one of England's most industrially significant regions, home to a dense concentration of manufacturing, engineering, textile, and construction businesses. Leeds, Bradford, Huddersfield, Halifax, and Wakefield all have deep industrial roots and a continuing demand for high-quality surface preparation services.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Commercial Shot Blasting serves the full breadth of West Yorkshire's industrial sector — from structural steelwork and heavy plant to automotive restoration and heritage metalwork. Our mobile teams operate throughout the region, delivering on-site shot blasting with minimal disruption to your operations.
+              </p>
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="bg-[#2C5F7F]/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-bold text-[#2C5F7F]">320+</div>
+                  <div className="text-sm text-gray-600">Projects Completed</div>
+                </div>
+                <div className="bg-[#2C5F7F]/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-bold text-[#2C5F7F]">80+</div>
+                  <div className="text-sm text-gray-600">Satisfied Clients</div>
+                </div>
+              </div>
+              <Button
+                className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
+                onClick={() => setQuotePopupOpen(true)}
+              >
+                Get a Quote for West Yorkshire
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in West Yorkshire
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Leeds", "Bradford", "Huddersfield", "Halifax", "Wakefield", "Dewsbury", "Batley", "Keighley", "Pontefract", "Castleford"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Manufacturing & engineering", "Textile & industrial plant", "Construction & structural steelwork", "Automotive & vehicle restoration", "Heritage & architectural metalwork"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="greater-manchester" className="py-16 bg-white scroll-mt-20">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
