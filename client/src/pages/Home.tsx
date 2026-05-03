@@ -13,6 +13,7 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import ServiceSelector from "@/components/ServiceSelector";
 import HomeFAQ from "@/components/HomeFAQ";
 import { ResponsiveHeroBackground } from "@/components/ResponsiveHeroBackground";
+import { CaseStudies } from "@/components/CaseStudies";
 import { trpc } from "@/lib/trpc";
 
 const testimonials = [
@@ -479,6 +480,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Case Studies Section */}
+      <CaseStudies />
 
       {/* CTA Section */}
       <section className="py-16 bg-[#2C5F7F] text-white">

@@ -288,4 +288,7 @@
 - [x] Add Hexham link to Northumberland county page towns list (auto-linked via townsAndVillages in countyData)
 - [x] Add Morpeth and Alnwick to locationData.ts
 - [x] Add filter/search bar to service areas page (already existed with real-time search + region filter buttons)
-- [ ] Ping IndexNow for new service-area pages
+- [x] Ping IndexNow for new service-area pages — 2 URLs submitted via Yandex IndexNow (202 Accepted)
+
+## Case Studies Section on Homepage
+- [x] Build Case Studies section on homepage showcasing featured projects from Our Work (6 featured projects, before/after toggle, results accordion, CTA to full gallery)
