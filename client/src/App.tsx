@@ -180,6 +180,8 @@ const SomersetCounty = lazy(() => import("./pages/counties/SomersetCounty"));
 const WiltshireCounty = lazy(() => import("./pages/counties/WiltshireCounty"));
 const BuckinghamshireCounty = lazy(() => import("./pages/counties/BuckinghamshireCounty"));
 const EastWalesCounty = lazy(() => import("./pages/counties/EastWalesCounty"));
+const GreaterManchesterCounty = lazy(() => import("./pages/counties/GreaterManchesterCounty"));
+const EssexCounty = lazy(() => import("./pages/counties/EssexCounty"));
 
 // Dynamic location router for all 605 towns and villages
 const LocationRouter = lazy(() => import("./pages/LocationRouter"));
@@ -265,6 +267,8 @@ function Router() {
           <Route path="/counties/wiltshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><WiltshireCounty /></Suspense>} />
           <Route path="/counties/buckinghamshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><BuckinghamshireCounty /></Suspense>} />
           <Route path="/counties/east-wales" component={() => <Suspense fallback={<CountyPageSkeleton />}><EastWalesCounty /></Suspense>} />
+          <Route path="/counties/greater-manchester" component={() => <Suspense fallback={<CountyPageSkeleton />}><GreaterManchesterCounty /></Suspense>} />
+          <Route path="/counties/essex" component={() => <Suspense fallback={<CountyPageSkeleton />}><EssexCounty /></Suspense>} />
         {/* Dynamic Location Pages (605 towns and villages) */}
         <Route path="/locations/:slug" component={LocationRouter} />
         <Route path="/service-areas/birmingham" component={BirminghamServiceArea} />

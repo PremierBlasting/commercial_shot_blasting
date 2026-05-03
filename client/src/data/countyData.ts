@@ -892,6 +892,76 @@ export const countyData: Record<string, CountyData> = {
       }
     ]
   },
+  "greater-manchester": {
+    name: "Greater Manchester",
+    slug: "greater-manchester",
+    region: "North West",
+    description: "Professional shot blasting services in Greater Manchester. Rust removal, surface prep & industrial blasting across Manchester, Bolton, Oldham, Rochdale, Salford and Stockport. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/counties/greater-manchester",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp",
+    latitude: 53.4808,
+    longitude: -2.2426,
+    majorTowns: ["Manchester", "Bolton", "Oldham", "Rochdale", "Salford", "Stockport"],
+    industries: ["Engineering", "Manufacturing", "Construction", "Chemical Processing"],
+    townsAndVillages: ["Altrincham", "Ashton-under-Lyne", "Bury", "Cheadle", "Droylsden", "Eccles", "Failsworth", "Farnworth", "Gatley", "Gorton", "Heywood", "Hyde", "Irlam", "Leigh", "Levenshulme", "Littleborough", "Middleton", "Milnrow", "Mossley", "Partington", "Pendlebury", "Radcliffe", "Ramsbottom", "Sale", "Stretford", "Swinton", "Urmston", "Walkden", "Whitefield", "Wigan", "Wythenshawe"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Greater Manchester?",
+        answer: "Yes, we provide mobile shot blasting services across all of Greater Manchester. Our fully equipped mobile units can reach any location in the conurbation, including Manchester, Bolton, Oldham, Rochdale, Salford and Stockport."
+      },
+      {
+        question: "How quickly can you reach my location in Greater Manchester?",
+        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Greater Manchester within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+      },
+      {
+        question: "What types of surfaces can you blast in commercial settings?",
+        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+      },
+      {
+        question: "Do I need to provide anything for the shot blasting work in Greater Manchester?",
+        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+      },
+      {
+        question: "How do I get a quote for shot blasting services?",
+        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Greater Manchester to provide an accurate, no-obligation quotation."
+      }
+    ]
+  },
+  "essex": {
+    name: "Essex",
+    slug: "essex",
+    region: "East of England",
+    description: "Professional shot blasting services in Essex. Rust removal, surface prep & industrial blasting across Colchester, Chelmsford, Basildon and Southend-on-Sea. Call 07970 566409",
+    url: "https://commercialshotblasting.co.uk/counties/essex",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp",
+    latitude: 51.7343,
+    longitude: 0.4691,
+    majorTowns: ["Colchester", "Chelmsford", "Basildon", "Southend-on-Sea"],
+    industries: ["Manufacturing", "Construction", "Agriculture", "Logistics"],
+    townsAndVillages: ["Billericay", "Braintree", "Brentwood", "Burnham-on-Crouch", "Canvey Island", "Clacton-on-Sea", "Dunmow", "Epping", "Grays", "Halstead", "Harlow", "Harwich", "Ingatestone", "Laindon", "Loughton", "Maldon", "Mersea Island", "Rayleigh", "Rochford", "Saffron Walden", "Stanford-le-Hope", "Stansted Mountfitchet", "Tilbury", "Wickford", "Witham"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Essex?",
+        answer: "Yes, we provide mobile shot blasting services across all of Essex. Our fully equipped mobile units can reach any location in the county, including Colchester, Chelmsford, Basildon and Southend-on-Sea."
+      },
+      {
+        question: "How quickly can you reach my location in Essex?",
+        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Essex within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+      },
+      {
+        question: "What types of surfaces can you blast in commercial settings?",
+        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+      },
+      {
+        question: "Do I need to provide anything for the shot blasting work in Essex?",
+        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+      },
+      {
+        question: "How do I get a quote for shot blasting services?",
+        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Essex to provide an accurate, no-obligation quotation."
+      }
+    ]
+  },
   "east-wales": {
     name: "East Wales",
     slug: "east-wales",

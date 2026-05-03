@@ -133,6 +133,7 @@ const allRegions = [
   },
   {
     region: "Greater Manchester",
+    countyHref: "/counties/greater-manchester",
     locations: [
       { title: "Manchester", href: "/service-areas/manchester" },
       { title: "Bolton", href: "/service-areas/bolton" },
@@ -189,6 +190,7 @@ const allRegions = [
   },
   {
     region: "Essex",
+    countyHref: "/counties/essex",
     locations: [
       { title: "Colchester", href: "/service-areas/colchester" },
       { title: "Chelmsford", href: "/service-areas/chelmsford" },
@@ -706,6 +708,163 @@ export default function Areas() {
         </div>
       </section>
 
+      {/* Bristol & Bath Spotlight */}
+      <section id="bristol-bath" className="py-16 bg-[#f8f5f0] scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="lg:order-2">
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">South West England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Bristol &amp; Bath
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Bristol and Bath form one of the South West's most dynamic industrial and commercial corridors. Bristol's aerospace, engineering and construction sectors generate significant demand for professional surface preparation, while Bath's heritage restoration and architectural metalwork projects require the precision and care our teams are known for.
+              </p>
+              <p className="text-gray-600 mb-6">
+                From large industrial fabrications and structural steelwork in the Bristol docks area to heritage ironwork and decorative metalwork in Bath, Commercial Shot Blasting delivers consistent, high-quality results across the entire region.
+              </p>
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="bg-[#2C5F7F]/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-bold text-[#2C5F7F]">180+</div>
+                  <div className="text-sm text-gray-600">Projects Completed</div>
+                </div>
+                <div className="bg-[#2C5F7F]/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-bold text-[#2C5F7F]">45+</div>
+                  <div className="text-sm text-gray-600">Satisfied Clients</div>
+                </div>
+              </div>
+              <Button
+                className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
+                onClick={() => setQuotePopupOpen(true)}
+              >
+                Get a Quote for Bristol &amp; Bath
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="lg:order-1 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Bristol &amp; Bath
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Bristol", "Bath", "Kingswood"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Aerospace & advanced manufacturing", "Structural steelwork & construction", "Heritage & architectural metalwork", "Industrial plant & process equipment", "Marine & dock infrastructure"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Oxfordshire Spotlight */}
+      <section id="oxfordshire" className="py-16 bg-white scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">South East England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Oxfordshire
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Oxfordshire combines world-class research and technology industries with a strong agricultural and heritage sector. We provide professional shot blasting services across Oxford and Banbury, serving precision engineering firms, construction contractors, agricultural equipment operators and heritage restoration specialists throughout the county.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Whether you need surface preparation for structural steelwork on a commercial development, rust removal from agricultural machinery, or careful blasting for heritage ironwork, our Oxfordshire teams deliver to the highest standards.
+              </p>
+              <Button
+                className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
+                onClick={() => setQuotePopupOpen(true)}
+              >
+                Get a Quote for Oxfordshire
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Oxfordshire
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Oxford", "Banbury"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Precision engineering & technology", "Agricultural machinery & equipment", "Heritage & architectural metalwork", "Structural steelwork & construction", "Research & laboratory infrastructure"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Surrey Spotlight */}
+      <section id="surrey" className="py-16 bg-[#f8f5f0] scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="lg:order-2">
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">South East England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Surrey
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Surrey is home to a diverse mix of commercial, industrial and heritage projects. We serve Guildford and the surrounding area, providing professional shot blasting for structural steelwork, commercial construction, industrial plant and heritage metalwork restoration. Our Surrey teams work closely with contractors, fabricators and building owners throughout the county.
+              </p>
+              <p className="text-gray-600 mb-6">
+                From preparing steelwork for protective coatings on commercial developments to restoring heritage ironwork on listed buildings, Commercial Shot Blasting brings the same expertise and attention to detail that our clients across the South East rely on.
+              </p>
+              <Button
+                className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
+                onClick={() => setQuotePopupOpen(true)}
+              >
+                Get a Quote for Surrey
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="lg:order-1 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Surrey
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Guildford"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Commercial construction & steelwork", "Heritage & listed building restoration", "Industrial plant & machinery", "Architectural metalwork", "Property development & refurbishment"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Counties Section */}
       <section className="py-16 bg-white">
         <div className="container">
@@ -718,22 +877,32 @@ export default function Areas() {
               We cover {countiesForAreas.length} counties across England and Wales. Click your county for local service details, towns covered, and FAQs.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
             {countiesForAreas.map((county) => {
               const colour = regionColoursAreas[county.region] || "#2C5F7F";
               return (
-                <Link key={county.slug} href={`/counties/${county.slug}`}>
-                  <Card className="h-full hover:shadow-md transition-all duration-200 cursor-pointer group border-l-4" style={{ borderLeftColor: colour }}>
-                    <CardHeader className="p-3 pb-1">
-                      <CardTitle className="text-sm font-semibold group-hover:text-[#2C5F7F] transition-colors leading-tight">
-                        {county.name}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-3 pt-0">
-                      <p className="text-xs text-gray-500 truncate">{county.region}</p>
-                    </CardContent>
-                  </Card>
-                </Link>
+                <Card key={county.slug} className="h-full hover:shadow-md transition-all duration-200 border-l-4 flex flex-col" style={{ borderLeftColor: colour }}>
+                  <CardHeader className="p-4 pb-2">
+                    <CardTitle className="text-sm font-semibold text-[#1a3d52] leading-tight">
+                      {county.name}
+                    </CardTitle>
+                    <p className="text-xs text-gray-500">{county.region}</p>
+                  </CardHeader>
+                  <CardContent className="p-4 pt-0 flex gap-2 mt-auto">
+                    <Link href={`/counties/${county.slug}`} className="flex-1">
+                      <Button variant="outline" size="sm" className="w-full text-xs border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                        View Details
+                      </Button>
+                    </Link>
+                    <Button
+                      size="sm"
+                      className="flex-1 text-xs bg-[#E8B84A] hover:bg-[#d4a63d] text-[#1a3d52] font-semibold"
+                      onClick={() => setQuotePopupOpen(true)}
+                    >
+                      Get a Quote
+                    </Button>
+                  </CardContent>
+                </Card>
               );
             })}
           </div>

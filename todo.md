@@ -224,3 +224,8 @@
 - [x] Replace sign-overlay hero/carousel images with real clean industrial shot blasting photos (no people, no signs)
 - [x] Audit service-areas page for all empty/missing content sections (Greater Manchester, Essex, others)
 - [x] Add full content to all empty service-areas sections — added dedicated anchor sections for Greater Manchester, Merseyside, and Essex
+
+## Regional Spotlight & County Pages (3 tasks)
+- [x] Add regional spotlight sections for Bristol & Bath, Oxfordshire, and Surrey to service-areas page
+- [ ] Create county pages for Greater Manchester and Essex
+- [x] Add Request a Quote button to each county section on service-areas page
