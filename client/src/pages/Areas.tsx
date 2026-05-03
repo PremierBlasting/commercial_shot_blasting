@@ -119,16 +119,32 @@ const allRegions = [
     ]
   },
   {
-    region: "Yorkshire",
-    countyHref: "/counties/west-yorkshire",
+    region: "South Yorkshire",
+    countyHref: "/counties/south-yorkshire",
     locations: [
       { title: "Sheffield", href: "/service-areas/sheffield" },
-      { title: "Leeds", href: "/service-areas/leeds" },
       { title: "Barnsley", href: "/service-areas/barnsley" },
       { title: "Doncaster", href: "/service-areas/doncaster" },
       { title: "Rotherham", href: "/service-areas/rotherham" },
+    ]
+  },
+  {
+    region: "West Yorkshire",
+    countyHref: "/counties/west-yorkshire",
+    locations: [
+      { title: "Leeds", href: "/service-areas/leeds" },
       { title: "Halifax", href: "/service-areas/halifax" },
       { title: "Huddersfield", href: "/service-areas/huddersfield" },
+    ]
+  },
+  {
+    region: "North Yorkshire",
+    countyHref: "/counties/north-yorkshire",
+    locations: [
+      { title: "York", href: "/service-areas/york" },
+      { title: "Harrogate", href: "/service-areas/harrogate" },
+      { title: "Scarborough", href: "/service-areas/scarborough" },
+      { title: "Middlesbrough", href: "/service-areas/middlesbrough" },
     ]
   },
   {
@@ -544,7 +560,126 @@ export default function Areas() {
       </section>
 
       {/* Regional Spotlight Sections — anchor targets for external links */}
-      <section id="greater-manchester" className="py-16 bg-white scroll-mt-20">
+
+      {/* South Yorkshire */}
+      <section id="south-yorkshire" className="py-16 bg-[#f8f5f0] scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">Yorkshire</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in South Yorkshire
+              </h2>
+              <p className="text-gray-600 mb-4">
+                South Yorkshire is one of England's most industrially significant regions, with a proud heritage in steel manufacturing and engineering. Sheffield — the Steel City — remains a major centre for precision engineering, advanced manufacturing and structural steelwork. Commercial Shot Blasting provides professional surface preparation services across Sheffield, Rotherham, Doncaster and Barnsley.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our South Yorkshire teams work with steel fabricators, construction contractors, engineering workshops, chemical processing plants and logistics operators throughout the region. We offer mobile shot blasting, on-site services and workshop-based solutions to suit every project.
+              </p>
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="bg-[#2C5F7F]/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-bold text-[#2C5F7F]">380+</div>
+                  <div className="text-sm text-gray-600">Projects Completed</div>
+                </div>
+                <div className="bg-[#2C5F7F]/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-bold text-[#2C5F7F]">95+</div>
+                  <div className="text-sm text-gray-600">Satisfied Clients</div>
+                </div>
+              </div>
+              <Button
+                className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
+                onClick={() => setQuotePopupOpen(true)}
+              >
+                Get a Quote for South Yorkshire
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in South Yorkshire
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Sheffield", "Rotherham", "Doncaster", "Barnsley"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Steel fabrication & precision engineering", "Structural steelwork & construction", "Chemical processing & industrial plant", "Logistics & transport infrastructure", "Heritage & architectural metalwork"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* North Yorkshire */}
+      <section id="north-yorkshire" className="py-16 bg-white scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="lg:order-2">
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">Yorkshire</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in North Yorkshire
+              </h2>
+              <p className="text-gray-600 mb-4">
+                North Yorkshire is England's largest county, encompassing a diverse mix of agricultural, food processing, engineering and heritage industries. From York's historic infrastructure to the industrial estates of Middlesbrough and Harrogate's commercial sector, Commercial Shot Blasting provides professional surface preparation services across the entire county.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our North Yorkshire teams are experienced in agricultural machinery, food processing plant, structural steelwork, heritage ironwork and industrial equipment. We provide mobile blasting services to reach even the most rural locations across the county.
+              </p>
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="bg-[#2C5F7F]/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-bold text-[#2C5F7F]">160+</div>
+                  <div className="text-sm text-gray-600">Projects Completed</div>
+                </div>
+                <div className="bg-[#2C5F7F]/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl font-bold text-[#2C5F7F]">40+</div>
+                  <div className="text-sm text-gray-600">Satisfied Clients</div>
+                </div>
+              </div>
+              <Button
+                className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
+                onClick={() => setQuotePopupOpen(true)}
+              >
+                Get a Quote for North Yorkshire
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="lg:order-1 bg-[#f8f5f0] rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in North Yorkshire
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["York", "Harrogate", "Scarborough", "Middlesbrough", "Northallerton"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Agriculture & food processing", "Structural steelwork & construction", "Heritage & architectural ironwork", "Industrial plant & process equipment", "Engineering & manufacturing"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="greater-manchester" className="py-16 bg-[#f8f5f0] scroll-mt-20">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>

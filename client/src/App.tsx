@@ -172,6 +172,7 @@ const WarwickshireCounty = lazy(() => import("./pages/counties/WarwickshireCount
 const WestMidlandsCounty = lazy(() => import("./pages/counties/WestMidlandsCounty"));
 const WorcestershireCounty = lazy(() => import("./pages/counties/WorcestershireCounty"));
 const SouthYorkshireCounty = lazy(() => import("./pages/counties/SouthYorkshireCounty"));
+const NorthYorkshireCounty = lazy(() => import("./pages/counties/NorthYorkshireCounty"));
 const WestYorkshireCounty = lazy(() => import("./pages/counties/WestYorkshireCounty"));
 const CheshireCounty = lazy(() => import("./pages/counties/CheshireCounty"));
 const GloucestershireCounty = lazy(() => import("./pages/counties/GloucestershireCounty"));
@@ -259,6 +260,7 @@ function Router() {
           <Route path="/counties/west-midlands" component={() => <Suspense fallback={<CountyPageSkeleton />}><WestMidlandsCounty /></Suspense>} />
           <Route path="/counties/worcestershire" component={() => <Suspense fallback={<CountyPageSkeleton />}><WorcestershireCounty /></Suspense>} />
           <Route path="/counties/south-yorkshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><SouthYorkshireCounty /></Suspense>} />
+          <Route path="/counties/north-yorkshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><NorthYorkshireCounty /></Suspense>} />
           <Route path="/counties/west-yorkshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><WestYorkshireCounty /></Suspense>} />
           <Route path="/counties/cheshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><CheshireCounty /></Suspense>} />
           <Route path="/counties/gloucestershire" component={() => <Suspense fallback={<CountyPageSkeleton />}><GloucestershireCounty /></Suspense>} />

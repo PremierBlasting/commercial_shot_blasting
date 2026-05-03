@@ -227,5 +227,10 @@
 
 ## Regional Spotlight & County Pages (3 tasks)
 - [x] Add regional spotlight sections for Bristol & Bath, Oxfordshire, and Surrey to service-areas page
-- [ ] Create county pages for Greater Manchester and Essex
+- [x] Create county pages for Greater Manchester and Essex
 - [x] Add Request a Quote button to each county section on service-areas page
+## Yorkshire County Pages (2 tasks)
+- [x] Add North Yorkshire to countyData.ts with full data (York, Harrogate, Scarborough, Middlesbrough, Northallerton)
+- [x] Create NorthYorkshireCounty.tsx page component and register route in App.tsx
+- [x] Add South Yorkshire and North Yorkshire spotlight sections to service-areas page with anchor IDs
+- [x] Split Yorkshire allRegions entry into South Yorkshire, West Yorkshire, North Yorkshire with countyHref links

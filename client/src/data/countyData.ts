@@ -671,6 +671,42 @@ export const countyData: Record<string, CountyData> = {
     ]
   },
 
+  "north-yorkshire": {
+    name: "North Yorkshire",
+    slug: "north-yorkshire",
+    region: "Yorkshire",
+    description: "Professional shot blasting services throughout North Yorkshire. Serving York, Harrogate, Scarborough, Middlesbrough, and surrounding areas with expert surface preparation and industrial blasting.",
+    url: "https://commercialshotblasting.co.uk/counties/north-yorkshire",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wNJxNfMjngkYNOyk.webp",
+    latitude: 54.0534,
+    longitude: -1.5490,
+    majorTowns: ["York", "Harrogate", "Scarborough", "Middlesbrough", "Northallerton"],
+    industries: ["Agriculture", "Food Processing", "Engineering", "Heritage & Restoration", "Construction"],
+    townsAndVillages: ["Bedale", "Boroughbridge", "Catterick", "Easingwold", "Filey", "Guisborough", "Helmsley", "Knaresborough", "Malton", "Masham", "Pickering", "Redcar", "Richmond", "Ripon", "Selby", "Settle", "Skipton", "Stokesley", "Tadcaster", "Thirsk", "Whitby", "Yarm"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout North Yorkshire?",
+        answer: "Yes, we provide mobile shot blasting services across all of North Yorkshire. Our fully equipped mobile units can reach any location in the county, including York, Harrogate, Scarborough, Middlesbrough and surrounding areas."
+      },
+      {
+        question: "How quickly can you reach my location in North Yorkshire?",
+        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in North Yorkshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+      },
+      {
+        question: "What types of surfaces can you blast in commercial settings?",
+        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+      },
+      {
+        question: "Do I need to provide anything for the shot blasting work in North Yorkshire?",
+        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+      },
+      {
+        question: "How do I get a quote for shot blasting services?",
+        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in North Yorkshire to provide an accurate, no-obligation quotation."
+      }
+    ]
+  },
+
   // North West
   "cheshire": {
     name: "Cheshire",
