@@ -8933,4 +8933,61 @@ export const locationData: Record<string, LocationData> = {
       { question: "Do you offer free quotes in Walsall?", answer: "Yes, we provide free, no-obligation quotations for all projects in Walsall. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
     ]
   },
+  // North East England
+  "newcastle-upon-tyne": {
+    name: "Newcastle upon Tyne",
+    slug: "newcastle-upon-tyne",
+    county: "Tyne & Wear",
+    countySlug: "tyne-and-wear",
+    region: "North East England",
+    description: "Shot Blasting in Newcastle upon Tyne, Tyne & Wear. Professional surface preparation & rust removal for commercial and industrial clients. Expert mobile blasting. Call 07970 566409",
+    faqs: [
+      { question: "Do you provide shot blasting services in Newcastle upon Tyne?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Newcastle upon Tyne and the wider Tyne & Wear area. Our fully equipped units can reach any location across the city and surrounding industrial areas." },
+      { question: "How quickly can you reach Newcastle upon Tyne?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Newcastle within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
+      { question: "What surfaces can you blast in Newcastle upon Tyne?", answer: "We can blast virtually any surface including structural steel, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our equipment is suitable for both indoor and outdoor applications, including marine and riverside environments." },
+      { question: "Do you offer free quotes in Newcastle upon Tyne?", answer: "Yes, we provide free, no-obligation quotations for all projects in Newcastle upon Tyne. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
+    ]
+  },
+  "sunderland": {
+    name: "Sunderland",
+    slug: "sunderland",
+    county: "Tyne & Wear",
+    countySlug: "tyne-and-wear",
+    region: "North East England",
+    description: "Shot Blasting in Sunderland, Tyne & Wear. Professional surface preparation & rust removal for industrial and marine clients. Expert mobile blasting. Call 07970 566409",
+    faqs: [
+      { question: "Do you provide shot blasting services in Sunderland?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Sunderland and the surrounding Tyne & Wear area. Our fully equipped units can reach any location including industrial estates and riverside sites." },
+      { question: "How quickly can you reach Sunderland?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Sunderland within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
+      { question: "What surfaces can you blast in Sunderland?", answer: "We can blast virtually any surface including structural steel, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our equipment is suitable for both indoor and outdoor applications, including marine and port environments." },
+      { question: "Do you offer free quotes in Sunderland?", answer: "Yes, we provide free, no-obligation quotations for all projects in Sunderland. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
+    ]
+  },
+  "darlington": {
+    name: "Darlington",
+    slug: "darlington",
+    county: "County Durham",
+    countySlug: "durham",
+    region: "North East England",
+    description: "Shot Blasting in Darlington, County Durham. Professional surface preparation & rust removal for manufacturing and engineering clients. Expert mobile blasting. Call 07970 566409",
+    faqs: [
+      { question: "Do you provide shot blasting services in Darlington?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Darlington and the surrounding County Durham area. Our fully equipped units can reach any location across the town and surrounding industrial areas." },
+      { question: "How quickly can you reach Darlington?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Darlington within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
+      { question: "What surfaces can you blast in Darlington?", answer: "We can blast virtually any surface including structural steel, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our equipment is suitable for both indoor and outdoor applications across manufacturing and engineering facilities." },
+      { question: "Do you offer free quotes in Darlington?", answer: "Yes, we provide free, no-obligation quotations for all projects in Darlington. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
+    ]
+  },
+  "carlisle": {
+    name: "Carlisle",
+    slug: "carlisle",
+    county: "Cumbria",
+    countySlug: "cumbria",
+    region: "North East England",
+    description: "Shot Blasting in Carlisle, Cumbria. Professional surface preparation & rust removal for industrial and agricultural clients. Expert mobile blasting. Call 07970 566409",
+    faqs: [
+      { question: "Do you provide shot blasting services in Carlisle?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Carlisle and the surrounding Cumbria area. Our fully equipped units can reach any location across the city and surrounding rural and industrial areas." },
+      { question: "How quickly can you reach Carlisle?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Carlisle within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
+      { question: "What surfaces can you blast in Carlisle?", answer: "We can blast virtually any surface including structural steel, farm machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our equipment is suitable for both indoor and outdoor applications across industrial, agricultural, and commercial sites." },
+      { question: "Do you offer free quotes in Carlisle?", answer: "Yes, we provide free, no-obligation quotations for all projects in Carlisle. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
+    ]
+  },
 };

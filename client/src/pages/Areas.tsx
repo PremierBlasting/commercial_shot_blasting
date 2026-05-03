@@ -1487,6 +1487,226 @@ export default function Areas() {
         </div>
       </section>
 
+      {/* Tyne & Wear Section */}
+      <section id="tyne-and-wear" className="py-16 bg-gray-50 scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">North East England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Tyne &amp; Wear
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Tyne &amp; Wear's proud industrial heritage in shipbuilding, automotive, and engineering generates significant demand for professional surface preparation. We serve Newcastle upon Tyne, Sunderland, Gateshead, South Shields, and surrounding areas with shot blasting for structural steel, industrial plant, and marine infrastructure.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our Tyne &amp; Wear teams have extensive experience in marine and riverside environments, working alongside fabricators, contractors, and industrial facilities throughout the county.
+              </p>
+              <div className="flex gap-3 flex-wrap mb-6">
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">120+</div><div className="text-xs text-gray-500">Projects Completed</div></div>
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">35+</div><div className="text-xs text-gray-500">Clients Served</div></div>
+              </div>
+              <div className="flex gap-3 flex-wrap">
+                <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
+                  Get a Quote for Tyne &amp; Wear
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+                <Link href="/counties/tyne-and-wear">
+                  <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                    View Tyne &amp; Wear Page
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="bg-[#f8f5f0] rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Tyne &amp; Wear
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Newcastle upon Tyne", "Sunderland", "Gateshead", "South Shields", "Wallsend", "Jarrow", "Tynemouth", "Washington", "Hebburn", "Whitley Bay"].map(loc => (
+                  <span key={loc} className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium">{loc}</span>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Shipbuilding & marine infrastructure", "Automotive & engineering plant", "Commercial construction & steelwork", "Industrial fabrication & manufacturing", "Heritage & civic metalwork"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* County Durham Section */}
+      <section id="county-durham" className="py-16 bg-white scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">North East England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in County Durham
+              </h2>
+              <p className="text-gray-600 mb-4">
+                County Durham's manufacturing, engineering, and construction sectors provide a strong base for surface preparation work. We serve Durham City, Darlington, Hartlepool, Newton Aycliffe, and surrounding areas with shot blasting for industrial plant, structural steel, and commercial metalwork.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our County Durham teams are well-positioned to serve the region's diverse industrial base, from automotive supply chain facilities to commercial construction and civic infrastructure projects.
+              </p>
+              <div className="flex gap-3 flex-wrap mb-6">
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">90+</div><div className="text-xs text-gray-500">Projects Completed</div></div>
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">25+</div><div className="text-xs text-gray-500">Clients Served</div></div>
+              </div>
+              <div className="flex gap-3 flex-wrap">
+                <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
+                  Get a Quote for County Durham
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+                <Link href="/counties/durham">
+                  <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                    View County Durham Page
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="bg-[#f8f5f0] rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in County Durham
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Durham City", "Darlington", "Hartlepool", "Newton Aycliffe", "Peterlee", "Bishop Auckland", "Consett", "Spennymoor", "Seaham", "Stanley"].map(loc => (
+                  <span key={loc} className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium">{loc}</span>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Manufacturing & engineering plant", "Automotive supply chain facilities", "Commercial construction & steelwork", "Civic & public infrastructure", "Agricultural machinery & equipment"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Northumberland Section */}
+      <section id="northumberland" className="py-16 bg-gray-50 scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">North East England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Northumberland
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Northumberland's agriculture, energy, and construction sectors generate consistent demand for professional surface preparation. We serve Morpeth, Hexham, Alnwick, Blyth, Cramlington, and surrounding areas with shot blasting for farm machinery, structural steel, and industrial plant.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our Northumberland teams are experienced in working across rural and semi-rural locations, bringing our fully equipped mobile units directly to farms, construction sites, and industrial facilities throughout the county.
+              </p>
+              <div className="flex gap-3 flex-wrap mb-6">
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">70+</div><div className="text-xs text-gray-500">Projects Completed</div></div>
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">20+</div><div className="text-xs text-gray-500">Clients Served</div></div>
+              </div>
+              <div className="flex gap-3 flex-wrap">
+                <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
+                  Get a Quote for Northumberland
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+                <Link href="/counties/northumberland">
+                  <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                    View Northumberland Page
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="bg-[#f8f5f0] rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Northumberland
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Morpeth", "Hexham", "Alnwick", "Blyth", "Cramlington", "Ashington", "Berwick-upon-Tweed", "Prudhoe", "Ponteland", "Rothbury"].map(loc => (
+                  <span key={loc} className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium">{loc}</span>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Agriculture & farm machinery", "Energy & utilities infrastructure", "Commercial construction & steelwork", "Rural industrial plant & equipment", "Heritage & listed building metalwork"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cumbria Section */}
+      <section id="cumbria" className="py-16 bg-white scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">North East England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Cumbria
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Cumbria's nuclear, marine, and agricultural industries create significant demand for specialist surface preparation. We serve Carlisle, Barrow-in-Furness, Kendal, Workington, Whitehaven, and surrounding areas with shot blasting for industrial plant, marine structures, and heavy machinery.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our Cumbria teams are experienced in working across the county's diverse industrial landscape, from nuclear and energy facilities on the west coast to agricultural operations in the Eden Valley and Lake District fringes.
+              </p>
+              <div className="flex gap-3 flex-wrap mb-6">
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">85+</div><div className="text-xs text-gray-500">Projects Completed</div></div>
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">22+</div><div className="text-xs text-gray-500">Clients Served</div></div>
+              </div>
+              <div className="flex gap-3 flex-wrap">
+                <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
+                  Get a Quote for Cumbria
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+                <Link href="/counties/cumbria">
+                  <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                    View Cumbria Page
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="bg-[#f8f5f0] rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Cumbria
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Carlisle", "Barrow-in-Furness", "Kendal", "Workington", "Whitehaven", "Penrith", "Keswick", "Ulverston", "Maryport", "Cockermouth"].map(loc => (
+                  <span key={loc} className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium">{loc}</span>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Nuclear & energy sector infrastructure", "Marine & shipbuilding facilities", "Agriculture & farm machinery", "Commercial construction & steelwork", "Industrial plant & heavy equipment"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Counties Section */}
       <section className="py-16 bg-white">
         <div className="container">

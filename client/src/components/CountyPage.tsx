@@ -30,8 +30,50 @@ interface CountyPageProps {
   county: CountyData;
 }
 
+const galleryByCategory: Record<string, { src: string; alt: string; label: string }[]> = {
+  "All": [
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VlcajxKFizWfRmvv.webp", alt: "Shot blasting - structural steel preparation", label: "Structural Steel" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp", alt: "Industrial surface preparation - rust removal", label: "Industrial Plant" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YBedohTImNkgXOlG.webp", alt: "Commercial shot blasting - machinery cleaning", label: "Machinery" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wNJxNfMjngkYNOyk.webp", alt: "Shot blasting services - industrial plant", label: "Industrial Plant" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp", alt: "Surface preparation - steel beams", label: "Structural Steel" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp", alt: "Industrial blasting - corrosion removal", label: "Industrial Plant" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(5)_d258dff2.jpeg", alt: "Farm barn concrete panels mid-blast - agriculture", label: "Agriculture" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.42(1)_a8f17ecc.jpeg", alt: "Farm barn fully shot blasted - agriculture", label: "Agriculture" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp", alt: "Shot blasting work - commercial project", label: "Commercial" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp", alt: "Professional blasting - surface treatment", label: "Commercial" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(4)_5d798006.jpeg", alt: "Agricultural building after shot blasting", label: "Agriculture" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(6)_5c09aa7a.jpeg", alt: "Agricultural barn wall after shot blasting", label: "Agriculture" },
+  ],
+  "Structural Steel": [
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VlcajxKFizWfRmvv.webp", alt: "Shot blasting - structural steel preparation", label: "Structural Steel" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp", alt: "Surface preparation - steel beams", label: "Structural Steel" },
+  ],
+  "Industrial Plant": [
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp", alt: "Industrial surface preparation - rust removal", label: "Industrial Plant" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wNJxNfMjngkYNOyk.webp", alt: "Shot blasting services - industrial plant", label: "Industrial Plant" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp", alt: "Industrial blasting - corrosion removal", label: "Industrial Plant" },
+  ],
+  "Machinery": [
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YBedohTImNkgXOlG.webp", alt: "Commercial shot blasting - machinery cleaning", label: "Machinery" },
+  ],
+  "Agriculture": [
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(5)_d258dff2.jpeg", alt: "Farm barn concrete panels mid-blast", label: "Agriculture" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.42(1)_a8f17ecc.jpeg", alt: "Farm barn fully shot blasted", label: "Agriculture" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(4)_5d798006.jpeg", alt: "Agricultural building after shot blasting", label: "Agriculture" },
+    { src: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(6)_5c09aa7a.jpeg", alt: "Agricultural barn wall after shot blasting", label: "Agriculture" },
+  ],
+  "Commercial": [
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp", alt: "Shot blasting work - commercial project", label: "Commercial" },
+    { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp", alt: "Professional blasting - surface treatment", label: "Commercial" },
+  ],
+};
+
+const galleryFilterLabels = ["All", "Structural Steel", "Industrial Plant", "Machinery", "Agriculture", "Commercial"];
+
 export function CountyPage({ county }: CountyPageProps) {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+  const [galleryFilter, setGalleryFilter] = useState("All");
 
   useEffect(() => {
     document.title = `Shot Blasting ${county.name} | Commercial & Industrial Services`;
@@ -557,7 +599,7 @@ export function CountyPage({ county }: CountyPageProps) {
       {/* Recent Projects Gallery */}
       <section className="py-16 bg-white">
         <div className="container">
-          <div className="text-center mb-10">
+          <div className="text-center mb-8">
             <p className="text-[#2C5F7F] font-medium mb-2 uppercase tracking-wide text-sm">Our Work</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
               Recently Completed Projects in {county.name}
@@ -567,26 +609,42 @@ export function CountyPage({ county }: CountyPageProps) {
             </p>
           </div>
 
+          {/* Gallery Filter Tabs */}
+          <div className="flex flex-wrap gap-2 justify-center mb-8">
+            {galleryFilterLabels.map((label) => (
+              <button
+                key={label}
+                onClick={() => setGalleryFilter(label)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                  galleryFilter === label
+                    ? "bg-[#2C5F7F] text-white shadow-sm"
+                    : "bg-gray-100 text-gray-600 hover:bg-[#2C5F7F]/10 hover:text-[#2C5F7F]"
+                }`}
+              >
+                {label}
+                <span className={`ml-1.5 text-xs px-1.5 py-0.5 rounded-full ${
+                  galleryFilter === label ? "bg-white/20 text-white" : "bg-gray-200 text-gray-500"
+                }`}>
+                  {galleryByCategory[label]?.length ?? 0}
+                </span>
+              </button>
+            ))}
+          </div>
+
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-8">
-            {[
-              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VlcajxKFizWfRmvv.webp", alt: `Shot blasting project in ${county.name} - structural steel preparation` },
-              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp", alt: `Industrial surface preparation in ${county.name} - rust removal` },
-              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YBedohTImNkgXOlG.webp", alt: `Commercial shot blasting in ${county.name} - machinery cleaning` },
-              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wNJxNfMjngkYNOyk.webp", alt: `Shot blasting services in ${county.name} - industrial plant` },
-              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp", alt: `Surface preparation in ${county.name} - steel beams` },
-              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp", alt: `Industrial blasting in ${county.name} - corrosion removal` },
-              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp", alt: `Shot blasting work in ${county.name} - commercial project` },
-              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp", alt: `Professional blasting in ${county.name} - surface treatment` },
-            ].map((img, index) => (
-              <div key={index} className="relative aspect-square overflow-hidden rounded-lg group shadow-sm hover:shadow-md transition-shadow">
+            {(galleryByCategory[galleryFilter] ?? galleryByCategory["All"]).map((img, index) => (
+              <div key={`${galleryFilter}-${index}`} className="relative aspect-square overflow-hidden rounded-lg group shadow-sm hover:shadow-md transition-shadow">
                 <img
                   src={img.src}
-                  alt={img.alt}
+                  alt={`${img.alt} in ${county.name}`}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="px-2 py-1 bg-[#2C5F7F] text-white text-xs rounded-full font-medium">{img.label}</span>
+                </div>
               </div>
             ))}
           </div>

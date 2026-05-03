@@ -260,4 +260,13 @@
 - [x] Add all 4 new counties to Header.tsx desktop and mobile nav
 - [x] Add all 4 new counties to Areas.tsx county grid and spotlight sections
 - [x] Add SSR schema markup for all new county pages in metaTags.ts (auto-generated from countyData)
-- [ ] Ping IndexNow for all new county pages
+- [x] Ping IndexNow for all new county pages — 8 URLs submitted via Yandex IndexNow (202 Accepted)
+
+## North East Spotlights, Location Pages, Gallery Filter
+- [x] Add spotlight sections for Cumbria, County Durham, Tyne & Wear, Northumberland in Areas.tsx
+- [x] Create locationData entries for Newcastle, Sunderland, Darlington, Carlisle
+- [x] Create service-area pages for Newcastle, Sunderland, Darlington, Carlisle (via dynamic LocationRouter)
+- [x] Register new service-area routes in App.tsx (handled by existing /service-areas/:slug dynamic route)
+- [x] Add gallery industry filter feature to county pages (All, Structural Steel, Industrial Plant, Machinery, Agriculture, Commercial)
+- [ ] Ping IndexNow for new service-area pages and updated pages
+- [x] Add agriculture page photos and video to the Our Work section (3 items: 2 before/after + 1 video)

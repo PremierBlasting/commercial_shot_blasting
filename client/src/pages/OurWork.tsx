@@ -212,8 +212,70 @@ const galleryItems = [
     challenges: "Working with vintage cast iron radiators required extremely careful pressure control to remove stubborn paint layers without damaging the delicate casting details or weakening the metal structure. The intricate fin design demanded precise technique to ensure complete coverage.",
     results: "The radiators were restored to pristine bare metal with all original details preserved. The client was thrilled with the transformation, noting that the radiators looked better than when originally installed. The clean surface provided an ideal base for the specialist radiator paint system."
   },
-  // Marine Projects
   // Agriculture Projects
+  {
+    id: 20,
+    title: "Farm Barn Shot Blasting",
+    category: "Agriculture",
+    description: "Shot blasting of farm barn concrete panels and steel frame — before and after results",
+    detailedDescription: "This agricultural project involved shot blasting the concrete panels and steel frame of a large farm barn to remove years of weathering, algae, and surface contamination. Our mobile unit was deployed directly on-site, working systematically across the barn elevations using scissor lift access. The clean surface was prepared to specification ready for a protective coating system, extending the building's lifespan significantly.",
+    before: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(5)_d258dff2.jpeg",
+    after: "/manus-storage/WhatsAppImage2026-04-27at16.58.42(1)_a8f17ecc.jpeg",
+    location: "North West England",
+    completionDate: "April 2026",
+    duration: "4 days",
+    specifications: [
+      "Shot blasting of concrete panels and steel frame",
+      "Complete algae, rust, and contamination removal",
+      "Scissor lift access for full elevation coverage",
+      "Surface preparation for protective coating system",
+      "Mobile unit deployed directly on farm site"
+    ],
+    challenges: "Working on an active farm required careful scheduling around livestock movements and daily operations. The concrete panel surfaces had varied contamination levels across different elevations, requiring pressure adjustments throughout the project to achieve a consistent surface profile.",
+    results: "All barn elevations were blasted clean to bare substrate with a uniform surface profile. The client was delighted with the transformation — the barn looked like new and the surface was ready for coating. The project was completed on schedule with minimal disruption to farm operations."
+  },
+  {
+    id: 21,
+    title: "Agricultural Building Restoration",
+    category: "Agriculture",
+    description: "Concrete and steel agricultural building surfaces shot blasted clean with scissor lift access",
+    detailedDescription: "This project involved restoring a large agricultural building with a combination of concrete panel walls and corrugated steel cladding. Our team worked across multiple elevations using scissor lift access, removing decades of weathering, biological growth, and old coatings. The project demonstrates our capability to handle complex mixed-surface agricultural buildings efficiently.",
+    before: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(4)_5d798006.jpeg",
+    after: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(6)_5c09aa7a.jpeg",
+    location: "North West England",
+    completionDate: "April 2026",
+    duration: "3 days",
+    specifications: [
+      "Mixed concrete and corrugated steel surface preparation",
+      "Scissor lift access for high-level work",
+      "Biological growth and old coating removal",
+      "Uniform surface profile across all elevations",
+      "Minimal disruption to ongoing farm operations"
+    ],
+    challenges: "The mixed surface types — concrete panels alongside corrugated steel cladding — required different blasting parameters to achieve a consistent result without damaging the thinner steel sections. Careful pressure management was essential throughout.",
+    results: "Both the concrete and steel surfaces were prepared to a high standard with complete contamination removal. The building's appearance was dramatically improved and the surfaces were ready for protective coating application."
+  },
+  {
+    id: 22,
+    title: "Farm Barn Blasting — On-Site Video",
+    category: "Agriculture",
+    description: "Watch our team shot blasting a farm barn on-site — mobile unit in action",
+    detailedDescription: "This video captures our team in action shot blasting a large farm barn on-site. It shows our mobile blasting unit working across the barn's concrete panel elevations, demonstrating the speed and effectiveness of our process. The footage clearly shows the dramatic transformation as contaminated surfaces are stripped back to clean substrate in real time.",
+    video: "/manus-storage/WhatsAppVideo2026-04-27at09.27.29(1)_3886b1d3.mp4",
+    location: "North West England",
+    completionDate: "April 2026",
+    duration: "4 days",
+    specifications: [
+      "Mobile shot blasting unit deployed on farm site",
+      "Concrete panel surface preparation",
+      "Real-time footage of blasting process",
+      "Complete contamination and weathering removal",
+      "Surface prepared for protective coating system"
+    ],
+    challenges: "Filming while working required coordination between the blasting operative and the camera operator to capture the process clearly while maintaining safety protocols and dust containment.",
+    results: "The video clearly demonstrates the effectiveness of our shot blasting process on agricultural concrete surfaces, showing the clean substrate achieved and the speed of our mobile operation."
+  },
+  // Marine Projects
   // Infrastructure Projects
 ];
 
@@ -227,6 +289,7 @@ const categories = [
   { name: "Steel Sheeting", icon: "📄" },
   { name: "Radiators", icon: "🔥" },
   { name: "Automotive", icon: "🚗" },
+  { name: "Agriculture", icon: "🌾" },
 ];
 
 const testimonials = [
