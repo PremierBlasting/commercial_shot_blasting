@@ -116,13 +116,31 @@ const compactAreasLinks = [
     totalCount: 4
   },
   {
-    region: "Yorkshire",
-    countyHref: "/counties/west-yorkshire",
+    region: "South Yorkshire",
+    countyHref: "/counties/south-yorkshire",
     keyLocations: [
       { title: "Sheffield", href: "/service-areas/sheffield" },
-      { title: "Leeds", href: "/service-areas/leeds" },
+      { title: "Doncaster", href: "/service-areas/doncaster" },
     ],
-    totalCount: 7
+    totalCount: 4
+  },
+  {
+    region: "West Yorkshire",
+    countyHref: "/counties/west-yorkshire",
+    keyLocations: [
+      { title: "Leeds", href: "/service-areas/leeds" },
+      { title: "Bradford", href: "/service-areas/bradford" },
+    ],
+    totalCount: 5
+  },
+  {
+    region: "North Yorkshire",
+    countyHref: "/counties/north-yorkshire",
+    keyLocations: [
+      { title: "York", href: "/service-areas/york" },
+      { title: "Harrogate", href: "/service-areas/harrogate" },
+    ],
+    totalCount: 3
   },
   // North West - split into Greater Manchester, Merseyside, Cheshire, Lancashire
   {
@@ -182,7 +200,7 @@ const compactAreasLinks = [
   },
   {
     region: "Essex",
-    countyHref: "/service-areas#essex",
+    countyHref: "/counties/essex",
     keyLocations: [
       { title: "Colchester", href: "/service-areas/colchester" },
       { title: "Chelmsford", href: "/service-areas/chelmsford" },
@@ -404,15 +422,32 @@ const fullAreasLinks = [
     ]
   },
   {
-    region: "Yorkshire",
+    region: "South Yorkshire",
     locations: [
       { title: "Sheffield", href: "/service-areas/sheffield" },
-      { title: "Leeds", href: "/service-areas/leeds" },
       { title: "Barnsley", href: "/service-areas/barnsley" },
       { title: "Doncaster", href: "/service-areas/doncaster" },
       { title: "Rotherham", href: "/service-areas/rotherham" },
-      { title: "Halifax", href: "/service-areas/halifax" },
+    ]
+  },
+  {
+    region: "West Yorkshire",
+    locations: [
+      { title: "Leeds", href: "/service-areas/leeds" },
+      { title: "Bradford", href: "/service-areas/bradford" },
       { title: "Huddersfield", href: "/service-areas/huddersfield" },
+      { title: "Halifax", href: "/service-areas/halifax" },
+      { title: "Wakefield", href: "/service-areas/wakefield" },
+      { title: "Dewsbury", href: "/service-areas/dewsbury" },
+    ]
+  },
+  {
+    region: "North Yorkshire",
+    locations: [
+      { title: "York", href: "/service-areas/york" },
+      { title: "Harrogate", href: "/service-areas/harrogate" },
+      { title: "Scarborough", href: "/service-areas/scarborough" },
+      { title: "Northallerton", href: "/service-areas/northallerton" },
     ]
   },
   // North West - split into Greater Manchester, Merseyside, Cheshire

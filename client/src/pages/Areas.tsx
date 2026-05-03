@@ -1058,6 +1058,306 @@ export default function Areas() {
         </div>
       </section>
 
+      {/* Hertfordshire Section */}
+      <section id="hertfordshire" className="py-16 bg-white scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">East of England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Hertfordshire
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Hertfordshire's proximity to London makes it a hub for commercial construction, industrial fabrication, and infrastructure projects. We serve Watford, Stevenage, Hemel Hempstead, St Albans, and surrounding areas with professional shot blasting for structural steelwork, industrial plant, and commercial developments.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our Hertfordshire teams work with contractors, steel fabricators, and property developers across the county, delivering SA 2.5 and SA 3 surface preparation standards to specification.
+              </p>
+              <div className="flex gap-3 flex-wrap mb-6">
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">140+</div><div className="text-xs text-gray-500">Projects Completed</div></div>
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">35+</div><div className="text-xs text-gray-500">Clients Served</div></div>
+              </div>
+              <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
+                Get a Quote for Hertfordshire
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="bg-[#f8f5f0] rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Hertfordshire
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Watford", "Stevenage", "Hemel Hempstead", "St Albans", "Hatfield", "Welwyn Garden City", "Hertford", "Bishops Stortford"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Commercial construction & steelwork", "Industrial plant & machinery", "Infrastructure & civil engineering", "Property development & refurbishment", "Manufacturing & fabrication"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bedfordshire Section */}
+      <section id="bedfordshire" className="py-16 bg-[#f8f5f0] scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="lg:order-2">
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">East of England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Bedfordshire
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Bedfordshire's industrial base — spanning logistics, manufacturing, and construction — generates strong demand for surface preparation services. We cover Bedford, Luton, Dunstable, and surrounding areas, providing shot blasting for structural steel, industrial vessels, and commercial metalwork.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Whether you're a steel fabricator preparing components for coating, or a facilities manager maintaining industrial plant, our Bedfordshire teams deliver fast, reliable service to your site.
+              </p>
+              <div className="flex gap-3 flex-wrap mb-6">
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">110+</div><div className="text-xs text-gray-500">Projects Completed</div></div>
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">28+</div><div className="text-xs text-gray-500">Clients Served</div></div>
+              </div>
+              <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
+                Get a Quote for Bedfordshire
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="lg:order-1 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Bedfordshire
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Bedford", "Luton", "Dunstable", "Leighton Buzzard", "Biggleswade", "Sandy", "Ampthill"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Logistics & warehousing", "Manufacturing & fabrication", "Commercial construction", "Industrial plant & machinery", "Infrastructure & civil engineering"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Buckinghamshire Section */}
+      <section id="buckinghamshire" className="py-16 bg-white scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">South East England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Buckinghamshire
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Buckinghamshire combines a strong commercial sector with significant industrial activity, particularly around Milton Keynes, Aylesbury, and High Wycombe. We provide shot blasting services for structural steelwork, industrial plant, commercial construction, and heritage metalwork restoration throughout the county.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our teams are experienced in working on live commercial sites and fabrication workshops, delivering high-quality surface preparation that meets BS EN ISO 8501-1 standards.
+              </p>
+              <div className="flex gap-3 flex-wrap mb-6">
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">130+</div><div className="text-xs text-gray-500">Projects Completed</div></div>
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">32+</div><div className="text-xs text-gray-500">Clients Served</div></div>
+              </div>
+              <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
+                Get a Quote for Buckinghamshire
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="bg-[#f8f5f0] rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Buckinghamshire
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Milton Keynes", "Aylesbury", "High Wycombe", "Slough", "Marlow", "Buckingham", "Chesham", "Amersham"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Commercial construction & steelwork", "Industrial plant & machinery", "Heritage & listed building restoration", "Manufacturing & fabrication", "Property development"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Berkshire Section */}
+      <section id="berkshire" className="py-16 bg-[#f8f5f0] scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="lg:order-2">
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">South East England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Berkshire
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Berkshire's thriving commercial and industrial sectors — from Reading's tech and logistics hub to Slough's trading estate — create consistent demand for professional surface preparation. We serve Reading, Slough, Bracknell, Windsor, Newbury, and surrounding areas with shot blasting for structural steel, industrial plant, and commercial metalwork.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our Berkshire teams are fully equipped for on-site blasting at industrial facilities, construction sites, and fabrication workshops, with full containment and waste management as standard.
+              </p>
+              <div className="flex gap-3 flex-wrap mb-6">
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">120+</div><div className="text-xs text-gray-500">Projects Completed</div></div>
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">30+</div><div className="text-xs text-gray-500">Clients Served</div></div>
+              </div>
+              <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
+                Get a Quote for Berkshire
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="lg:order-1 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Berkshire
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Reading", "Slough", "Bracknell", "Windsor", "Newbury", "Maidenhead", "Wokingham", "Sandhurst"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Commercial construction & steelwork", "Logistics & warehousing", "Industrial plant & machinery", "Manufacturing & fabrication", "Property development & refurbishment"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hampshire Section */}
+      <section id="hampshire" className="py-16 bg-white scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">South England</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Hampshire
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Hampshire's marine, aerospace, and construction industries make it one of the South's most active regions for surface preparation work. We serve Southampton, Portsmouth, Basingstoke, Winchester, and surrounding areas with shot blasting for marine steelwork, industrial plant, structural steel, and commercial metalwork.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our Hampshire teams have extensive experience in marine and port environments, working alongside shipyards, offshore contractors, and industrial facilities throughout the county.
+              </p>
+              <div className="flex gap-3 flex-wrap mb-6">
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">180+</div><div className="text-xs text-gray-500">Projects Completed</div></div>
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">45+</div><div className="text-xs text-gray-500">Clients Served</div></div>
+              </div>
+              <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
+                Get a Quote for Hampshire
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="bg-[#f8f5f0] rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Hampshire
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Southampton", "Portsmouth", "Basingstoke", "Winchester", "Eastleigh", "Fareham", "Gosport", "Andover", "Aldershot"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Marine & shipbuilding", "Aerospace & defence", "Commercial construction & steelwork", "Industrial plant & machinery", "Infrastructure & civil engineering"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Shropshire Section */}
+      <section id="shropshire" className="py-16 bg-[#f8f5f0] scroll-mt-20">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="lg:order-2">
+              <div className="flex items-center gap-2 text-[#E8B84A] mb-2">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm font-medium uppercase tracking-wider">West Midlands</span>
+              </div>
+              <h2 className="text-3xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Shot Blasting in Shropshire
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Shropshire's agricultural, manufacturing, and construction sectors create steady demand for surface preparation services. We serve Shrewsbury, Telford, Oswestry, Bridgnorth, and surrounding areas with shot blasting for agricultural equipment, structural steel, industrial plant, and heritage metalwork.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Our Shropshire teams are experienced in rural and semi-rural environments, providing mobile shot blasting services to farms, fabrication workshops, and construction sites throughout the county.
+              </p>
+              <div className="flex gap-3 flex-wrap mb-6">
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">95+</div><div className="text-xs text-gray-500">Projects Completed</div></div>
+                <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">24+</div><div className="text-xs text-gray-500">Clients Served</div></div>
+              </div>
+              <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
+                Get a Quote for Shropshire
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
+            <div className="lg:order-1 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+              <h3 className="font-semibold text-[#1a3d52] mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-[#2C5F7F]" />
+                Locations We Serve in Shropshire
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Shrewsbury", "Telford", "Oswestry", "Bridgnorth", "Market Drayton", "Ludlow", "Newport"].map(loc => (
+                  <Link key={loc} href={`/service-areas/${loc.toLowerCase().replace(/ /g, '-')}`}>
+                    <span className="px-3 py-1 bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full text-sm font-medium hover:bg-[#2C5F7F]/20 cursor-pointer transition-colors">{loc}</span>
+                  </Link>
+                ))}
+              </div>
+              <h3 className="font-semibold text-[#1a3d52] mb-3">Industries We Serve</h3>
+              <ul className="space-y-2 text-gray-600">
+                {["Agricultural equipment & machinery", "Manufacturing & fabrication", "Commercial construction & steelwork", "Heritage & listed building restoration", "Industrial plant & machinery"].map(ind => (
+                  <li key={ind} className="flex items-center gap-2"><ArrowRight className="w-3 h-3 text-[#E8B84A]" />{ind}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Counties Section */}
       <section className="py-16 bg-white">
         <div className="container">

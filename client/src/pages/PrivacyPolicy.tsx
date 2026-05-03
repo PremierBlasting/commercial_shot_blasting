@@ -220,6 +220,66 @@ export default function PrivacyPolicy() {
               </p>
             </div>
 
+            {/* Lawful Basis for Processing */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#2C5F7F]/10 flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-[#2C5F7F]" />
+                </div>
+                <h2 className="text-2xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Lawful Basis for Processing
+                </h2>
+              </div>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Under UK GDPR, we must have a lawful basis for processing your personal data. We rely on the following bases:
+              </p>
+              <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                <li><strong>Contractual necessity</strong> – Processing is necessary to provide our services and respond to quote requests</li>
+                <li><strong>Legitimate interests</strong> – We process data to operate and improve our business, provided this does not override your rights</li>
+                <li><strong>Consent</strong> – Where you have given explicit consent, such as for marketing communications</li>
+                <li><strong>Legal obligation</strong> – Where processing is required to comply with UK law</li>
+              </ul>
+            </div>
+
+            {/* Data Controller */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#2C5F7F]/10 flex items-center justify-center">
+                  <Database className="w-5 h-5 text-[#2C5F7F]" />
+                </div>
+                <h2 className="text-2xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Data Controller
+                </h2>
+              </div>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Commercial Shot Blasting is the data controller responsible for your personal data. This means we determine the purposes and means of processing your personal information.
+              </p>
+              <div className="bg-gray-50 rounded-lg p-4 text-gray-700">
+                <p className="mb-1"><strong>Business Name:</strong> Commercial Shot Blasting</p>
+                <p className="mb-1"><strong>Email:</strong> info@commercialshotblasting.co.uk</p>
+                <p className="mb-1"><strong>Phone:</strong> 07970 566409</p>
+                <p><strong>Website:</strong> commercialshotblasting.co.uk</p>
+              </div>
+            </div>
+
+            {/* ICO & Complaints */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#2C5F7F]/10 flex items-center justify-center">
+                  <Lock className="w-5 h-5 text-[#2C5F7F]" />
+                </div>
+                <h2 className="text-2xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Right to Complain to the ICO
+                </h2>
+              </div>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                You have the right to make a complaint at any time to the Information Commissioner's Office (ICO), the UK supervisory authority for data protection issues. We would, however, appreciate the chance to deal with your concerns before you approach the ICO, so please contact us in the first instance.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                The ICO can be contacted at: <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className="text-[#2C5F7F] underline hover:text-[#1a3d52]">ico.org.uk</a> or by calling 0303 123 1113.
+              </p>
+            </div>
+
             {/* Third-Party Services */}
             <div>
               <h2 className="text-2xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
