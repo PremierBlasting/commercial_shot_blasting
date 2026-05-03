@@ -554,6 +554,55 @@ export function CountyPage({ county }: CountyPageProps) {
         </div>
       </section>
 
+      {/* Recent Projects Gallery */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <div className="text-center mb-10">
+            <p className="text-[#2C5F7F] font-medium mb-2 uppercase tracking-wide text-sm">Our Work</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1a3d52] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Recently Completed Projects in {county.name}
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              A selection of our recent shot blasting and surface preparation projects completed across {county.name} and the surrounding region.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-8">
+            {[
+              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VlcajxKFizWfRmvv.webp", alt: `Shot blasting project in ${county.name} - structural steel preparation` },
+              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp", alt: `Industrial surface preparation in ${county.name} - rust removal` },
+              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YBedohTImNkgXOlG.webp", alt: `Commercial shot blasting in ${county.name} - machinery cleaning` },
+              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wNJxNfMjngkYNOyk.webp", alt: `Shot blasting services in ${county.name} - industrial plant` },
+              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp", alt: `Surface preparation in ${county.name} - steel beams` },
+              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp", alt: `Industrial blasting in ${county.name} - corrosion removal` },
+              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp", alt: `Shot blasting work in ${county.name} - commercial project` },
+              { src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp", alt: `Professional blasting in ${county.name} - surface treatment` },
+            ].map((img, index) => (
+              <div key={index} className="relative aspect-square overflow-hidden rounded-lg group shadow-sm hover:shadow-md transition-shadow">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <p className="text-gray-500 text-sm mb-4">All projects completed by our professional team across {county.name} and surrounding areas</p>
+            <a href="/our-work">
+              <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                View Full Project Gallery
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white">
         <div className="container text-center">

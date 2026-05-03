@@ -142,6 +142,43 @@ const compactAreasLinks = [
     ],
     totalCount: 3
   },
+  // North East England
+  {
+    region: "Tyne & Wear",
+    countyHref: "/counties/tyne-and-wear",
+    keyLocations: [
+      { title: "Newcastle", href: "/service-areas/newcastle-upon-tyne" },
+      { title: "Sunderland", href: "/service-areas/sunderland" },
+    ],
+    totalCount: 6
+  },
+  {
+    region: "County Durham",
+    countyHref: "/counties/durham",
+    keyLocations: [
+      { title: "Durham City", href: "/service-areas/durham" },
+      { title: "Darlington", href: "/service-areas/darlington" },
+    ],
+    totalCount: 5
+  },
+  {
+    region: "Northumberland",
+    countyHref: "/counties/northumberland",
+    keyLocations: [
+      { title: "Morpeth", href: "/service-areas/morpeth" },
+      { title: "Hexham", href: "/service-areas/hexham" },
+    ],
+    totalCount: 4
+  },
+  {
+    region: "Cumbria",
+    countyHref: "/counties/cumbria",
+    keyLocations: [
+      { title: "Carlisle", href: "/service-areas/carlisle" },
+      { title: "Barrow-in-Furness", href: "/service-areas/barrow-in-furness" },
+    ],
+    totalCount: 5
+  },
   // North West - split into Greater Manchester, Merseyside, Cheshire, Lancashire
   {
     region: "Lancashire",
@@ -458,6 +495,47 @@ const fullAreasLinks = [
       { title: "Harrogate", href: "/service-areas/harrogate" },
       { title: "Scarborough", href: "/service-areas/scarborough" },
       { title: "Northallerton", href: "/service-areas/northallerton" },
+    ]
+  },
+  // North East England
+  {
+    region: "Tyne & Wear",
+    locations: [
+      { title: "Newcastle upon Tyne", href: "/service-areas/newcastle-upon-tyne" },
+      { title: "Sunderland", href: "/service-areas/sunderland" },
+      { title: "Gateshead", href: "/service-areas/gateshead" },
+      { title: "South Shields", href: "/service-areas/south-shields" },
+      { title: "Wallsend", href: "/service-areas/wallsend" },
+      { title: "Jarrow", href: "/service-areas/jarrow" },
+    ]
+  },
+  {
+    region: "County Durham",
+    locations: [
+      { title: "Durham City", href: "/service-areas/durham" },
+      { title: "Darlington", href: "/service-areas/darlington" },
+      { title: "Hartlepool", href: "/service-areas/hartlepool" },
+      { title: "Newton Aycliffe", href: "/service-areas/newton-aycliffe" },
+      { title: "Peterlee", href: "/service-areas/peterlee" },
+    ]
+  },
+  {
+    region: "Northumberland",
+    locations: [
+      { title: "Morpeth", href: "/service-areas/morpeth" },
+      { title: "Hexham", href: "/service-areas/hexham" },
+      { title: "Alnwick", href: "/service-areas/alnwick" },
+      { title: "Blyth", href: "/service-areas/blyth" },
+    ]
+  },
+  {
+    region: "Cumbria",
+    locations: [
+      { title: "Carlisle", href: "/service-areas/carlisle" },
+      { title: "Barrow-in-Furness", href: "/service-areas/barrow-in-furness" },
+      { title: "Kendal", href: "/service-areas/kendal" },
+      { title: "Workington", href: "/service-areas/workington" },
+      { title: "Whitehaven", href: "/service-areas/whitehaven" },
     ]
   },
   // North West - split into Greater Manchester, Merseyside, Cheshire, Lancashire

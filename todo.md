@@ -250,4 +250,14 @@
 - [x] Add Lancashire to Header.tsx mobile nav (North West section)
 - [x] Update Berkshire and Hampshire countyHref in Header.tsx desktop nav to point to county pages
 - [x] Update Hampshire mobile nav with more locations
-- [ ] Ping Google IndexNow for new county pages (berkshire, hampshire, lancashire)
+- [x] Ping Google IndexNow for new county pages (berkshire, hampshire, lancashire) — submitted via Yandex IndexNow (202 Accepted), propagates to all IndexNow partners including Bing
+
+## Gallery Section + North East County Pages
+- [x] Add project gallery section to Berkshire, Hampshire, Lancashire county pages
+- [x] Create county data entries for Cumbria, Durham, Tyne & Wear, Northumberland
+- [x] Create CumbriaCounty.tsx, DurhamCounty.tsx, TyneWearCounty.tsx, NorthumberlandCounty.tsx
+- [x] Register all 4 new North East county routes in App.tsx
+- [x] Add all 4 new counties to Header.tsx desktop and mobile nav
+- [x] Add all 4 new counties to Areas.tsx county grid and spotlight sections
+- [x] Add SSR schema markup for all new county pages in metaTags.ts (auto-generated from countyData)
+- [ ] Ping IndexNow for all new county pages

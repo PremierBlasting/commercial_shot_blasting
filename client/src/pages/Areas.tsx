@@ -343,6 +343,51 @@ const allRegions = [
       { title: "Leyland", href: "/service-areas/leyland" },
     ]
   },
+  // North East England
+  {
+    region: "Tyne & Wear",
+    countyHref: "/counties/tyne-and-wear",
+    locations: [
+      { title: "Newcastle upon Tyne", href: "/service-areas/newcastle-upon-tyne" },
+      { title: "Sunderland", href: "/service-areas/sunderland" },
+      { title: "Gateshead", href: "/service-areas/gateshead" },
+      { title: "South Shields", href: "/service-areas/south-shields" },
+      { title: "Wallsend", href: "/service-areas/wallsend" },
+      { title: "Jarrow", href: "/service-areas/jarrow" },
+    ]
+  },
+  {
+    region: "County Durham",
+    countyHref: "/counties/durham",
+    locations: [
+      { title: "Durham City", href: "/service-areas/durham" },
+      { title: "Darlington", href: "/service-areas/darlington" },
+      { title: "Hartlepool", href: "/service-areas/hartlepool" },
+      { title: "Newton Aycliffe", href: "/service-areas/newton-aycliffe" },
+      { title: "Peterlee", href: "/service-areas/peterlee" },
+    ]
+  },
+  {
+    region: "Northumberland",
+    countyHref: "/counties/northumberland",
+    locations: [
+      { title: "Morpeth", href: "/service-areas/morpeth" },
+      { title: "Hexham", href: "/service-areas/hexham" },
+      { title: "Alnwick", href: "/service-areas/alnwick" },
+      { title: "Blyth", href: "/service-areas/blyth" },
+    ]
+  },
+  {
+    region: "Cumbria",
+    countyHref: "/counties/cumbria",
+    locations: [
+      { title: "Carlisle", href: "/service-areas/carlisle" },
+      { title: "Barrow-in-Furness", href: "/service-areas/barrow-in-furness" },
+      { title: "Kendal", href: "/service-areas/kendal" },
+      { title: "Workington", href: "/service-areas/workington" },
+      { title: "Whitehaven", href: "/service-areas/whitehaven" },
+    ]
+  },
 ];
 
 // Calculate total locations
@@ -361,6 +406,7 @@ export default function Areas() {
     { id: "west-midlands", label: "West Midlands" },
     { id: "yorkshire", label: "Yorkshire" },
     { id: "north-west", label: "North West" },
+    { id: "north-east", label: "North East" },
     { id: "south-west", label: "South West" },
     { id: "wales", label: "Wales" },
   ];
@@ -398,6 +444,14 @@ export default function Areas() {
     "Surrey": "south-west",
     "Hampshire": "south-west",
     "Wales": "wales",
+    "Tyne & Wear": "north-east",
+    "County Durham": "north-east",
+    "Northumberland": "north-east",
+    "Cumbria": "north-east",
+    "South Yorkshire": "yorkshire",
+    "West Yorkshire": "yorkshire",
+    "North Yorkshire": "yorkshire",
+    "Lancashire": "north-west",
   };
 
   // Filter regions based on selected region filter and search query

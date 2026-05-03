@@ -186,6 +186,10 @@ const EssexCounty = lazy(() => import("./pages/counties/EssexCounty"));
 const BerkshireCounty = lazy(() => import("./pages/counties/BerkshireCounty"));
 const HampshireCounty = lazy(() => import("./pages/counties/HampshireCounty"));
 const LancashireCounty = lazy(() => import("./pages/counties/LancashireCounty"));
+const CumbriaCounty = lazy(() => import("./pages/counties/CumbriaCounty"));
+const DurhamCounty = lazy(() => import("./pages/counties/DurhamCounty"));
+const TyneAndWearCounty = lazy(() => import("./pages/counties/TyneAndWearCounty"));
+const NorthumberlandCounty = lazy(() => import("./pages/counties/NorthumberlandCounty"));
 
 // Dynamic location router for all 605 towns and villages
 const LocationRouter = lazy(() => import("./pages/LocationRouter"));
@@ -277,6 +281,10 @@ function Router() {
           <Route path="/counties/berkshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><BerkshireCounty /></Suspense>} />
           <Route path="/counties/hampshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><HampshireCounty /></Suspense>} />
           <Route path="/counties/lancashire" component={() => <Suspense fallback={<CountyPageSkeleton />}><LancashireCounty /></Suspense>} />
+          <Route path="/counties/cumbria" component={() => <Suspense fallback={<CountyPageSkeleton />}><CumbriaCounty /></Suspense>} />
+          <Route path="/counties/durham" component={() => <Suspense fallback={<CountyPageSkeleton />}><DurhamCounty /></Suspense>} />
+          <Route path="/counties/tyne-and-wear" component={() => <Suspense fallback={<CountyPageSkeleton />}><TyneAndWearCounty /></Suspense>} />
+          <Route path="/counties/northumberland" component={() => <Suspense fallback={<CountyPageSkeleton />}><NorthumberlandCounty /></Suspense>} />
         {/* Dynamic Location Pages (605 towns and villages) */}
         <Route path="/locations/:slug" component={LocationRouter} />
         <Route path="/service-areas/birmingham" component={BirminghamServiceArea} />

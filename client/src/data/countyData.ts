@@ -1139,4 +1139,145 @@ export const countyData: Record<string, CountyData> = {
       }
     ]
   },
+  // North East England
+  "cumbria": {
+    name: "Cumbria",
+    slug: "cumbria",
+    region: "North East England",
+    description: "Professional shot blasting services throughout Cumbria. Serving Carlisle, Barrow-in-Furness, Kendal, Workington, and surrounding areas with expert surface preparation, industrial blasting, and marine solutions.",
+    url: "https://commercialshotblasting.co.uk/counties/cumbria",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/lwQonrvaPTKazaIa.webp",
+    latitude: 54.5772,
+    longitude: -2.7975,
+    majorTowns: ["Carlisle", "Barrow-in-Furness", "Kendal", "Workington"],
+    industries: ["Nuclear & Energy", "Marine & Shipbuilding", "Agriculture", "Manufacturing"],
+    townsAndVillages: ["Alston", "Ambleside", "Appleby-in-Westmorland", "Barrow-in-Furness", "Brampton", "Carlisle", "Cleator Moor", "Cockermouth", "Egremont", "Grange-over-Sands", "Grasmere", "Kendal", "Keswick", "Kirkby Lonsdale", "Maryport", "Millom", "Penrith", "Ulverston", "Whitehaven", "Windermere", "Workington"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Cumbria?",
+        answer: "Yes, we provide mobile shot blasting services across all of Cumbria. Our fully equipped mobile units can reach any location in the county, including Carlisle, Barrow-in-Furness, Kendal, Workington, and surrounding areas."
+      },
+      {
+        question: "Do you work on nuclear and energy sector projects in Cumbria?",
+        answer: "Yes, we have experience working with energy sector clients in Cumbria, including surface preparation for industrial plant and infrastructure. We understand the specific compliance and safety requirements for these environments."
+      },
+      {
+        question: "Can you handle marine blasting projects in Cumbria?",
+        answer: "Yes, we have extensive experience in marine environments including shipyards and port facilities. We understand the specific requirements for marine surface preparation and corrosion protection in coastal Cumbrian locations."
+      },
+      {
+        question: "Do I need to provide anything for the shot blasting work in Cumbria?",
+        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply."
+      },
+      {
+        question: "How do I get a quote for shot blasting services in Cumbria?",
+        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Cumbria to provide an accurate, no-obligation quotation."
+      }
+    ]
+  },
+  "durham": {
+    name: "County Durham",
+    slug: "durham",
+    region: "North East England",
+    description: "Professional shot blasting services throughout County Durham. Serving Durham City, Darlington, Hartlepool, Newton Aycliffe, and surrounding areas with expert surface preparation and industrial blasting solutions.",
+    url: "https://commercialshotblasting.co.uk/counties/durham",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp",
+    latitude: 54.7753,
+    longitude: -1.5849,
+    majorTowns: ["Durham City", "Darlington", "Hartlepool", "Newton Aycliffe"],
+    industries: ["Manufacturing", "Engineering", "Construction", "Automotive"],
+    townsAndVillages: ["Barnard Castle", "Bishop Auckland", "Chester-le-Street", "Consett", "Crook", "Darlington", "Durham City", "Ferryhill", "Hartlepool", "Lanchester", "Middleton-in-Teesdale", "Newton Aycliffe", "Peterlee", "Seaham", "Shildon", "Spennymoor", "Stanley", "Stanhope", "Stockton-on-Tees", "Trimdon"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout County Durham?",
+        answer: "Yes, we provide mobile shot blasting services across all of County Durham. Our fully equipped mobile units can reach any location in the county, including Durham City, Darlington, Hartlepool, Newton Aycliffe, and surrounding areas."
+      },
+      {
+        question: "How quickly can you reach my location in County Durham?",
+        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in County Durham within 2-5 working days, depending on your location and our current schedule."
+      },
+      {
+        question: "What types of surfaces can you blast in County Durham?",
+        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications."
+      },
+      {
+        question: "Do I need to provide anything for the shot blasting work in County Durham?",
+        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply."
+      },
+      {
+        question: "How do I get a quote for shot blasting services in County Durham?",
+        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in County Durham to provide an accurate, no-obligation quotation."
+      }
+    ]
+  },
+  "tyne-and-wear": {
+    name: "Tyne & Wear",
+    slug: "tyne-and-wear",
+    region: "North East England",
+    description: "Professional shot blasting services throughout Tyne & Wear. Serving Newcastle, Sunderland, Gateshead, South Shields, and surrounding areas with expert surface preparation, industrial blasting, and structural steel solutions.",
+    url: "https://commercialshotblasting.co.uk/counties/tyne-and-wear",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
+    latitude: 54.9783,
+    longitude: -1.6178,
+    majorTowns: ["Newcastle upon Tyne", "Sunderland", "Gateshead", "South Shields"],
+    industries: ["Shipbuilding & Marine", "Automotive", "Construction", "Engineering"],
+    townsAndVillages: ["Blaydon", "Boldon", "Felling", "Gateshead", "Hebburn", "Houghton-le-Spring", "Jarrow", "Longbenton", "Newcastle upon Tyne", "North Shields", "Ryton", "South Shields", "Sunderland", "Tynemouth", "Wallsend", "Washington", "Whitley Bay", "Whickham"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Tyne & Wear?",
+        answer: "Yes, we provide mobile shot blasting services across all of Tyne & Wear. Our fully equipped mobile units can reach any location in the county, including Newcastle, Sunderland, Gateshead, South Shields, and surrounding areas."
+      },
+      {
+        question: "Do you work on shipbuilding and marine projects in Tyne & Wear?",
+        answer: "Yes, we have extensive experience in marine environments including shipyards and port facilities on the Tyne and Wear rivers. We understand the specific requirements for marine surface preparation and corrosion protection."
+      },
+      {
+        question: "What surface preparation standards do you work to in Tyne & Wear?",
+        answer: "We work to BS EN ISO 8501-1 standards, achieving SA 2.5 (near white metal) and SA 3 (white metal) finishes as required. All work is documented with before and after reports."
+      },
+      {
+        question: "Do I need to provide anything for the shot blasting work in Tyne & Wear?",
+        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply."
+      },
+      {
+        question: "How do I get a quote for shot blasting services in Tyne & Wear?",
+        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Tyne & Wear to provide an accurate, no-obligation quotation."
+      }
+    ]
+  },
+  "northumberland": {
+    name: "Northumberland",
+    slug: "northumberland",
+    region: "North East England",
+    description: "Professional shot blasting services throughout Northumberland. Serving Morpeth, Hexham, Alnwick, Blyth, and surrounding areas with expert surface preparation, agricultural blasting, and industrial solutions.",
+    url: "https://commercialshotblasting.co.uk/counties/northumberland",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wNJxNfMjngkYNOyk.webp",
+    latitude: 55.2083,
+    longitude: -2.0784,
+    majorTowns: ["Morpeth", "Hexham", "Alnwick", "Blyth"],
+    industries: ["Agriculture", "Construction", "Energy", "Manufacturing"],
+    townsAndVillages: ["Alnwick", "Amble", "Ashington", "Berwick-upon-Tweed", "Blyth", "Corbridge", "Cramlington", "Haltwhistle", "Hexham", "Morpeth", "Newbiggin-by-the-Sea", "Ponteland", "Prudhoe", "Rothbury", "Seahouses", "Wooler"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Northumberland?",
+        answer: "Yes, we provide mobile shot blasting services across all of Northumberland. Our fully equipped mobile units can reach any location in the county, including Morpeth, Hexham, Alnwick, Blyth, and surrounding areas."
+      },
+      {
+        question: "How quickly can you reach my location in Northumberland?",
+        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Northumberland within 2-5 working days, depending on your location and our current schedule."
+      },
+      {
+        question: "Do you handle agricultural machinery blasting in Northumberland?",
+        answer: "Yes, we regularly work with farmers and agricultural businesses throughout Northumberland, blasting and preparing farm machinery, trailers, and equipment for repainting and long-term protection against the rural environment."
+      },
+      {
+        question: "Do I need to provide anything for the shot blasting work in Northumberland?",
+        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply."
+      },
+      {
+        question: "How do I get a quote for shot blasting services in Northumberland?",
+        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Northumberland to provide an accurate, no-obligation quotation."
+      }
+    ]
+  },
 };
