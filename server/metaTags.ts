@@ -458,10 +458,12 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
     "author": { "@type": "Organization", "name": BUSINESS_NAME },
     "copyrightHolder": { "@type": "Organization", "name": BUSINESS_NAME },
     "copyrightYear": "2025",
+    "copyrightNotice": `\u00a9 2025 ${BUSINESS_NAME}. All rights reserved.`,
+    "acquireLicensePage": `${SITE_URL}/contact`,
     "width": "1200",
     "height": "630",
     "encodingFormat": "image/png",
-    "license": SITE_URL
+    "license": `${SITE_URL}/terms`
   });
 
   // 7. Place Schema with geographic details
@@ -2313,7 +2315,7 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:image" content="${county.ogImage || HERO_IMAGE}" />
     <meta name="twitter:image:alt" content="Shot blasting services in ${county.name} — rust removal and surface preparation by Commercial Shot Blasting" />
     ${schemas}
-    ${county.ogImage ? `<script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","contentUrl":"${county.ogImage}","url":"${county.ogImage}","name":"Shot Blasting Services in ${county.name}","description":"Professional shot blasting and surface preparation services across ${county.name}","width":1200,"height":630,"encodingFormat":"image/webp","representativeOfPage":true,"creditText":"${BUSINESS_NAME}","creator":{"@type":"Organization","name":"${BUSINESS_NAME}","url":"${SITE_URL}"}}</script>` : ''}
+    ${county.ogImage ? `<script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","contentUrl":"${county.ogImage}","url":"${county.ogImage}","name":"Shot Blasting Services in ${county.name}","description":"Professional shot blasting and surface preparation services across ${county.name}","width":1200,"height":630,"encodingFormat":"image/webp","representativeOfPage":true,"creditText":"${BUSINESS_NAME}","creator":{"@type":"Organization","name":"${BUSINESS_NAME}","url":"${SITE_URL}"},"copyrightNotice":"\u00a9 2025 ${BUSINESS_NAME}. All rights reserved.","acquireLicensePage":"${SITE_URL}/contact","license":"${SITE_URL}/terms"}</script>` : ''}
   `;
       modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
 

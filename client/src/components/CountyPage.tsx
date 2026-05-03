@@ -138,7 +138,10 @@ export function CountyPage({ county }: CountyPageProps) {
           '@type': 'Organization',
           'name': 'Commercial Shot Blasting',
           'url': 'https://commercialshotblasting.co.uk'
-        }
+        },
+        'copyrightNotice': '\u00a9 2025 Commercial Shot Blasting. All rights reserved.',
+        'acquireLicensePage': 'https://commercialshotblasting.co.uk/contact',
+        'license': 'https://commercialshotblasting.co.uk/terms'
       });
     }
 
