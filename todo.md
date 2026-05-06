@@ -295,3 +295,7 @@
 
 ## Case Studies Filter Tabs
 - [x] Add industry category filter tabs to Case Studies section on homepage (All, Industrial, Commercial, Automotive, Agriculture, Marine & Offshore — with project counts and results count)
+
+## Reviews Page: New Reviews + Schema
+- [x] Add 5 qualifying Premier Blasting reviews to reviews page (Kathleen Harris Powell, Richard Gray, christina henry, CoachingGTG trimmed, Sharon Sawyer trimmed)
+- [x] Add AggregateRating + Review schema markup to metaTags.ts for reviews page (LocalBusiness with 5.0 rating, 75 reviews, 5 individual Review entities)

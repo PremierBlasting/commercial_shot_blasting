@@ -2221,6 +2221,78 @@ export function injectMetaTags(html: string, url: string): string {
     }
   }
 
+  // ── Reviews page: /reviews ───────────────────────────────────────────────
+  if (url === '/reviews' || url === '/reviews/') {
+    const reviewsTitle = 'Customer Reviews | Commercial Shot Blasting';
+    const reviewsDesc = 'Read genuine customer reviews for Commercial Shot Blasting. Over 75 five-star reviews from satisfied customers across the UK — commercial, industrial, and residential projects.';
+    const reviewsUrl = `${SITE_URL}/reviews`;
+    let modifiedHtml = html;
+    modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${reviewsTitle}</title>`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${reviewsDesc}" />`);
+    modifiedHtml = modifiedHtml.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${reviewsUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${reviewsTitle}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${reviewsDesc}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${reviewsUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:title"[^>]*>/, `<meta name="twitter:title" content="${reviewsTitle}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:description"[^>]*>/, `<meta name="twitter:description" content="${reviewsDesc}" />`);
+    const breadcrumbSchema = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Customer Reviews","item":reviewsUrl}]});
+    const webPageSchema = JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":reviewsTitle,"description":reviewsDesc,"url":reviewsUrl});
+    const aggregateRatingSchema = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": BUSINESS_NAME,
+      "url": SITE_URL,
+      "telephone": "07970566409",
+      "address": {"@type": "PostalAddress", "addressCountry": "GB"},
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "75",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Kathleen Harris Powell"},
+          "datePublished": "2025-02-01",
+          "reviewBody": "Fantastic service. The team on site worked really hard and left it spotless. The communication from the company was also excellent. I would highly recommend this company.",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Richard Gray"},
+          "datePublished": "2025-01-01",
+          "reviewBody": "Andrew was excellent. The work was completed to the highest standard and the site was left immaculate afterwards. Very professional team — would not hesitate to recommend them for any commercial or industrial project.",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "christina henry"},
+          "datePublished": "2024-12-01",
+          "reviewBody": "Amazing service — Nick worked incredibly hard and left after a super clean up. Chris supported our listed application, supplied additional docs and went way beyond. Fantastic, considerate and professional company. Highly recommend.",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Jordan King"},
+          "datePublished": "2024-07-01",
+          "reviewBody": "Really happy with this team. Our factory cladding had original plastisol and multiple layers of paint. It turned out to be a much more difficult job than expected but Graham didn't let us down and put in extra hours to make sure we stayed in budget. The surfaces were left flawless.",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Sam Huxtable"},
+          "datePublished": "2024-07-01",
+          "reviewBody": "Graham was incredible, very prompt at replying and very knowledgeable. Phil and Justin were sent for the job — just wow. They are incredible at what they do with great attention to detail. After cleaning on the last day, you could hardly tell they had been there.",
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+        }
+      ]
+    });
+    modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n<script type="application/ld+json">${aggregateRatingSchema}</script>\n</head>`);
+    return modifiedHtml;
+  }
+
   // ── Counties index page: /counties ────────────────────────────────────────
   if (url === '/counties' || url === '/counties/') {
     const countiesTitle = 'Shot Blasting Services by County | Commercial Shot Blasting';
