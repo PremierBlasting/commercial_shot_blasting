@@ -305,3 +305,7 @@
 - [x] Add aggregate rating summary section at top of reviews page (5.0 stars, 70 reviews, star distribution bars, Leave a Review + View on Google buttons)
 - [x] Add Leave a Review button linking to Google Business Profile on reviews page
 - [x] Add rotating testimonial carousel to homepage showcasing top 5-star commercial reviews (7 reviews, auto-advances every 5s, dot indicators, prev/next arrows, dark navy background)
+
+## Nav Label & Spacing Fix
+- [x] Rename "Preparation & Cleanup" to "Prep & Cleanup" in desktop and mobile nav
+- [x] Reduce nav gap from gap-6 to gap-4 to tighten spacing between nav items

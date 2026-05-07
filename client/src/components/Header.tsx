@@ -839,7 +839,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-4">
           <Link href="/" className="hover:text-white/80 transition">Home</Link>
           
           {/* Services Dropdown */}
@@ -1043,7 +1043,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             className="hover:text-white/80 transition"
             onMouseEnter={() => prefetch('/preparation-cleanup')}
             onMouseLeave={cancelPrefetch}
-          >Preparation & Cleanup</Link>
+          >Prep & Cleanup</Link>
           <Link 
             href="/our-work" 
             className="hover:text-white/80 transition"
@@ -1268,7 +1268,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
               </Link>
             </div>
             
-            <Link href="/preparation-cleanup" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Preparation & Cleanup</Link>
+            <Link href="/preparation-cleanup" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Prep & Cleanup</Link>
             <Link href="/our-work" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Our Work</Link>
             <Link href="/reviews" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Reviews</Link>
             <Link href="/blog" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Blog</Link>
