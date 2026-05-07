@@ -2247,7 +2247,7 @@ export function injectMetaTags(html: string, url: string): string {
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
-        "reviewCount": "75",
+        "reviewCount": "70",
         "bestRating": "5",
         "worstRating": "1"
       },
