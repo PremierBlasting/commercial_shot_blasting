@@ -14,6 +14,7 @@ import ServiceSelector from "@/components/ServiceSelector";
 import HomeFAQ from "@/components/HomeFAQ";
 import { ResponsiveHeroBackground } from "@/components/ResponsiveHeroBackground";
 import { CaseStudies } from "@/components/CaseStudies";
+import { ReviewCarousel } from "@/components/ReviewCarousel";
 import { trpc } from "@/lib/trpc";
 
 const testimonials = [
@@ -481,6 +482,8 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Review Carousel Section */}
+      <ReviewCarousel />
       {/* Case Studies Section */}
       <CaseStudies />
 

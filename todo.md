@@ -300,3 +300,8 @@
 - [x] Add 5 qualifying Premier Blasting reviews to reviews page (Kathleen Harris Powell, Richard Gray, christina henry, CoachingGTG trimmed, Sharon Sawyer trimmed)
 - [x] Add AggregateRating + Review schema markup to metaTags.ts for reviews page (LocalBusiness with 5.0 rating, 75 reviews, 5 individual Review entities)
 - [x] Update AggregateRating reviewCount to 70 (genuine reviews only, excluding 5 Premier Blasting ones)
+
+## Reviews Page Enhancements + Homepage Carousel
+- [x] Add aggregate rating summary section at top of reviews page (5.0 stars, 70 reviews, star distribution bars, Leave a Review + View on Google buttons)
+- [x] Add Leave a Review button linking to Google Business Profile on reviews page
+- [x] Add rotating testimonial carousel to homepage showcasing top 5-star commercial reviews (7 reviews, auto-advances every 5s, dot indicators, prev/next arrows, dark navy background)

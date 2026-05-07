@@ -184,24 +184,55 @@ export default function Reviews() {
           <p className="text-white/80 max-w-2xl mx-auto text-lg mb-8">
             Over 70 five-star reviews from homeowners and commercial clients across the UK. Every review is genuine — posted directly to our Google Business Profile.
           </p>
-          {/* Aggregate rating */}
-          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
-            <div className="flex gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
-            <div className="text-left">
-              <div className="font-bold text-2xl">5.0</div>
-              <div className="text-white/70 text-sm">{ALL_REVIEWS.length}+ verified reviews</div>
-            </div>
-            <div className="ml-2 pl-4 border-l border-white/20">
-              <div className="flex items-center gap-2 text-sm text-white/80">
-                <ExternalLink className="w-4 h-4" />
-                <a href="https://g.co/kgs/premierblasting" target="_blank" rel="noopener noreferrer" className="hover:text-white underline">
-                  View on Google
-                </a>
+          {/* Aggregate rating summary */}
+          <div className="inline-flex flex-col md:flex-row items-center gap-6 bg-white/10 backdrop-blur-sm rounded-2xl px-8 py-6 border border-white/20 max-w-2xl mx-auto w-full">
+            {/* Score */}
+            <div className="text-center flex-shrink-0">
+              <div className="font-bold text-5xl leading-none">5.0</div>
+              <div className="flex gap-1 justify-center mt-2">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                ))}
               </div>
+              <div className="text-white/70 text-sm mt-1">{ALL_REVIEWS.length} verified reviews</div>
+            </div>
+            {/* Star distribution bars */}
+            <div className="flex-1 w-full space-y-1.5">
+              {[5, 4, 3, 2, 1].map(star => {
+                const count = star === 5 ? ALL_REVIEWS.length : 0;
+                const pct = star === 5 ? 100 : 0;
+                return (
+                  <div key={star} className="flex items-center gap-2 text-sm">
+                    <span className="text-white/70 w-3 text-right">{star}</span>
+                    <Star className="w-3 h-3 fill-yellow-400 text-yellow-400 flex-shrink-0" />
+                    <div className="flex-1 bg-white/20 rounded-full h-2">
+                      <div className="bg-yellow-400 h-2 rounded-full" style={{ width: `${pct}%` }} />
+                    </div>
+                    <span className="text-white/60 w-5 text-right text-xs">{count}</span>
+                  </div>
+                );
+              })}
+            </div>
+            {/* Actions */}
+            <div className="flex flex-col gap-3 items-center flex-shrink-0">
+              <a
+                href="https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsdiY1GsfSg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-yellow-400 text-[#1a3d52] font-semibold px-5 py-2.5 rounded-xl hover:bg-yellow-300 transition-colors text-sm whitespace-nowrap"
+              >
+                <Star className="w-4 h-4 fill-[#1a3d52] text-[#1a3d52]" />
+                Leave a Review
+              </a>
+              <a
+                href="https://g.co/kgs/commercialshotblasting"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors"
+              >
+                <ExternalLink className="w-4 h-4" />
+                View on Google
+              </a>
             </div>
           </div>
         </div>
