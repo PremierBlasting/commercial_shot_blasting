@@ -9,8 +9,8 @@ export interface ServiceGallery {
 export const serviceGalleries: ServiceGallery[] = [
   {
     serviceId: "structural-steel-frames",
-    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/RBLMBVLCcZMwaWsp.webp",
-    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/KVpGyFeKjjQTqIex.webp",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wJwsaHcuUbnccMGP.webp",
+    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YzKopXuBMqxwnNZz.webp",
     beforeLabel: "Before",
     afterLabel: "After"
   },
@@ -30,22 +30,22 @@ export const serviceGalleries: ServiceGallery[] = [
   },
   {
     serviceId: "bridge-steelwork",
-    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/NXaNqZUYSbFYsbmd.jpg",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/tTMVDWvgFQknRYda.jpg",
     afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ilOrbRRrXfwPVsjS.jpg",
     beforeLabel: "Before",
     afterLabel: "After"
   },
   {
     serviceId: "steel-containers",
-    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/MKlimfGrKBdDFGSL.jpg",
-    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/pTGOerHLoUiRRzNd.jpg",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wDGKnMNLjhjxyvgq.jpg",
+    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WFcCNTfDoapJZzQP.jpg",
     beforeLabel: "Before",
     afterLabel: "After"
   },
   {
     serviceId: "steel-containers",
-    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/PZzSBSCVBPrDDjoS.jpg",
-    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/NUbiCJJTDnmErBiS.jpg",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YDDNYeFnHOUPKrow.jpg",
+    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/LtptiQSbxiuiKbhI.jpg",
     beforeLabel: "Before",
     afterLabel: "After"
   },
@@ -65,14 +65,14 @@ export const serviceGalleries: ServiceGallery[] = [
   },
   {
     serviceId: "pipework",
-    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/NXaNqZUYSbFYsbmd.jpg",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/tTMVDWvgFQknRYda.jpg",
     afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ilOrbRRrXfwPVsjS.jpg",
     beforeLabel: "Before",
     afterLabel: "After"
   },
   {
     serviceId: "telecom-towers",
-    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/NXaNqZUYSbFYsbmd.jpg",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/tTMVDWvgFQknRYda.jpg",
     afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ilOrbRRrXfwPVsjS.jpg",
     beforeLabel: "Before",
     afterLabel: "After"

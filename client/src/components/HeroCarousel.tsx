@@ -9,14 +9,14 @@ interface HeroCarouselProps {
 
 // Hero carousel images - real job site photos (no people, no signs)
 const heroImages = [
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VlcajxKFizWfRmvv.webp', sizes: {} },
+  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UjSNpyqCeEUxElPP.webp', sizes: {} },
   { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp', sizes: {} },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YBedohTImNkgXOlG.webp', sizes: {} },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wNJxNfMjngkYNOyk.webp', sizes: {} },
+  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UhOtVLOfPobtqyhi.webp', sizes: {} },
+  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp', sizes: {} },
   { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp', sizes: {} },
   { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp', sizes: {} },
   { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp', sizes: {} },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp', sizes: {} },
+  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/okcUjGBJyNattGJb.webp', sizes: {} },
 ];
 
 // Animation delays for each image (in seconds)

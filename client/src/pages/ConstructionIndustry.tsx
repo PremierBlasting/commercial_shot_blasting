@@ -26,21 +26,21 @@ export default function ConstructionIndustry() {
     {
       title: "Bridge Steelwork",
       description: "Specialist surface preparation for bridge girders, crossmembers, and parapet rails. Meeting highway and railway infrastructure specifications.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ZgHdtBKCSdaGfLrq.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/cuwoxubhXPpGCUSf.webp",
       link: "/services/bridge-steelwork",
       benefits: ["Highway authority approved", "Traffic management coordination", "Heritage restoration"]
     },
     {
       title: "Fire Escapes & Stair Towers",
       description: "Complete refurbishment of fire safety infrastructure. Remove corrosion and ensure compliance with building regulations.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/qGqZmQitbFtmOpLE.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oySJrMBHyyuJOevk.webp",
       link: "/services/fire-escapes",
       benefits: ["Safety compliance", "Working at height expertise", "Minimal disruption"]
     },
     {
       title: "Internal Staircases & Balustrades",
       description: "Precision shot blasting for architectural metalwork. Perfect for heritage restoration and new commercial developments.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UBYyPntONgBwoizK.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TLjFQFhDhVdFaDwj.webp",
       link: "/services/staircases",
       benefits: ["Heritage approved", "Preserves fine details", "Powder coating ready"]
     }

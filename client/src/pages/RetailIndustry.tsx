@@ -18,21 +18,21 @@ export default function RetailIndustry() {
     {
       title: "Shopping Trolleys & Baskets",
       description: "Professional shot blasting and refurbishment of shopping trolleys, baskets, and carts. Remove rust, old paint, and damage to restore equipment to like-new condition at a fraction of replacement cost.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VoYYaZAUOdFKGHWw.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WmoactuoGfwMmVwl.webp",
       link: "/services/warehouse-racking",
       benefits: ["70% cost saving vs replacement", "Powder coating ready", "Brand colour matching"]
     },
     {
       title: "Shop Fittings & Display Units",
       description: "Comprehensive surface preparation for metal shop fittings, display stands, gondolas, and retail shelving systems. Extend equipment life and maintain professional store appearance.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VoYYaZAUOdFKGHWw.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WmoactuoGfwMmVwl.webp",
       link: "/services/warehouse-racking",
       benefits: ["Preserves structural integrity", "Custom finishes available", "Quick turnaround"]
     },
     {
       title: "Warehouse Racking & Storage",
       description: "Shot blasting for retail warehouse and stockroom racking systems. Remove corrosion and prepare surfaces for protective coatings to ensure safety compliance and longevity.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VoYYaZAUOdFKGHWw.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WmoactuoGfwMmVwl.webp",
       link: "/services/warehouse-racking",
       benefits: ["Safety certified", "SEMA compliance support", "Minimal disruption"]
     },

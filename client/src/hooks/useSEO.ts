@@ -86,7 +86,7 @@ export function getServiceSEO(serviceName: string, serviceDescription: string): 
     title: `${serviceName} Services UK | Commercial Shot Blasting`,
     description: `${serviceDescription.substring(0, 140)}... Get a free quote today.`,
     keywords: `${serviceName.toLowerCase()}, commercial ${serviceName.toLowerCase()}, industrial ${serviceName.toLowerCase()}, shot blasting, UK services`,
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nSiMtaICoFPZGPZV.png"
   };
 }
 
@@ -99,7 +99,7 @@ export function getLocationSEO(locationName: string, slug?: string, county?: str
     title: `Shot Blasting Services in ${locationName}${countyStr} | Commercial Shot Blasting`,
     description: `Professional shot blasting services in ${locationName}${countyStr} — mobile rust removal & surface preparation for commercial and industrial clients. Free quote. Call 07970 566409`,
     keywords: `shot blasting services ${locationName}, ${locationName} shot blasting, commercial shot blasting ${locationName}, industrial blasting ${locationName}, rust removal ${locationName}`,
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nSiMtaICoFPZGPZV.png",
     canonical: slug ? `${SITE_URL}/service-areas/${slug}` : undefined
   };
 }
@@ -112,7 +112,7 @@ export function getCountySEO(countyName: string, slug?: string): SEOConfig {
     title: `Shot Blasting ${countyName} | Commercial Services Across the County`,
     description: `Professional commercial shot blasting services across ${countyName}. Covering all major towns and cities with expert surface preparation. Free quotes available.`,
     keywords: `shot blasting ${countyName}, ${countyName} shot blasting services, commercial blasting ${countyName}, industrial shot blasting`,
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nSiMtaICoFPZGPZV.png",
     canonical: slug ? `${SITE_URL}/counties/${slug}` : undefined
   };
 }
@@ -125,7 +125,7 @@ export function getIndustrySEO(industryName: string, industryDescription: string
     title: `${industryName} Shot Blasting Services | Specialist Surface Preparation`,
     description: `${industryDescription.substring(0, 130)}... Expert commercial services.`,
     keywords: `${industryName.toLowerCase()} shot blasting, ${industryName.toLowerCase()} surface preparation, commercial blasting, industrial services`,
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nSiMtaICoFPZGPZV.png",
     canonical: slug ? `${SITE_URL}/industries/${slug}` : undefined
   };
 }
@@ -138,7 +138,7 @@ export function getBlogPostSEO(postTitle: string, excerpt: string, featuredImage
     title: `${postTitle} | Commercial Shot Blasting Blog`,
     description: excerpt.substring(0, 155) + (excerpt.length > 155 ? '...' : ''),
     keywords: 'shot blasting, surface preparation, industrial cleaning, commercial services, blasting techniques',
-    image: featuredImage || "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
+    image: featuredImage || "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nSiMtaICoFPZGPZV.png",
     canonical: slug ? `${SITE_URL}/blog/${slug}` : undefined
   };
 }
@@ -151,7 +151,7 @@ export function getStaticPageSEO(pageName: string, description: string, path?: s
     title: `${pageName} | Commercial Shot Blasting`,
     description,
     keywords: 'commercial shot blasting, industrial blasting, surface preparation, UK services',
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nSiMtaICoFPZGPZV.png",
     canonical: path ? `${SITE_URL}${path}` : undefined
   };
 }

@@ -33,7 +33,7 @@ export default function TransportLogisticsIndustry() {
     {
       title: "Warehouse Equipment",
       description: "Surface preparation for racking systems, pallet trucks, forklifts, and material handling equipment. Maintain safety and appearance in logistics facilities.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VoYYaZAUOdFKGHWw.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WmoactuoGfwMmVwl.webp",
       link: "/services/warehouse-racking",
       benefits: ["Safety compliance", "Equipment longevity", "Cost-effective"]
     },

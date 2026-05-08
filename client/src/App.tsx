@@ -27,8 +27,8 @@ function PageLoader() {
   );
 }
 
-// Eagerly loaded core pages (critical for initial load)
-import Home from "./pages/Home";
+// All pages lazy-loaded for optimal code splitting
+const Home = lazy(() => import("./pages/Home"));
 
 // Lazy-loaded pages for code splitting
 const OurWork = lazy(() => import("./pages/OurWork"));

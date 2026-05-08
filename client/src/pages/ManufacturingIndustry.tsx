@@ -18,28 +18,28 @@ export default function ManufacturingIndustry() {
     {
       title: "Warehouse Racking & Pallet Frames",
       description: "Professional shot blasting for warehouse racking systems and storage infrastructure. Extend the life of your material handling equipment with cost-effective refurbishment.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VoYYaZAUOdFKGHWw.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WmoactuoGfwMmVwl.webp",
       link: "/services/warehouse-racking",
       benefits: ["60% cost saving vs replacement", "Powder coating ready", "Minimal downtime"]
     },
     {
       title: "Crane Beams, Gantries & Runway Rails",
       description: "Specialist surface preparation for overhead crane systems and material handling infrastructure. Maintain dimensional tolerances while removing rust and coatings.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/NoLawCBATUUuRGif.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/myQwXLTkaogeCJto.webp",
       link: "/services/crane-beams",
       benefits: ["Preserves tolerances", "Load testing coordination", "Weekend scheduling"]
     },
     {
       title: "Process Pipework & Manifolds",
       description: "Precision cleaning for food-grade, pharmaceutical, and chemical process pipework. Meet stringent cleanliness levels for regulated industries.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sballOVJYnECAMGH.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eqezEvtOwgDSGsCT.webp",
       link: "/services/pipework",
       benefits: ["Food-grade quality", "Pharmaceutical compliant", "Full traceability"]
     },
     {
       title: "Fixed Ladders & Access Platforms",
       description: "Comprehensive surface preparation for industrial access systems. Ensure compliance with working at height regulations and extend equipment life.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QizAdqQCXcCfRGPx.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yXusfqsGJHZwuETv.webp",
       link: "/services/ladders",
       benefits: ["Safety compliant", "Galvanizing preparation", "Regulatory compliance"]
     }

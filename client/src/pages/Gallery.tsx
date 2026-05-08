@@ -18,7 +18,7 @@ const galleryItems = [
     category: "Industrial",
     description: "Complete rust and scale removal from structural steel beams in manufacturing facility",
     before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/PYuQcnZPdrtGvKpt.webp",
-    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/OADkTNFFbpZoKiGq.webp",
+    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WdSxtyeepQVbuhzt.webp",
   },
   {
     id: 2,
@@ -100,8 +100,8 @@ const galleryItems = [
     title: "Steel Storage Unit",
     category: "Marine",
     description: "Corrosion removal from steel storage containers",
-    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/haHZqelldOXkoMlM.webp",
-    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TfcMYUevsUjoZGhl.webp",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/myUKFvWpLHDeGJcG.webp",
+    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VbbFzxDkQJujUhvl.webp",
   },
   {
     id: 12,
@@ -117,8 +117,8 @@ const galleryItems = [
     title: "Commercial Container",
     category: "Agriculture",
     description: "Heavy equipment restoration and paint preparation",
-    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/MikAxsCYOamTGBLp.webp",
-    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WIGaGZbvcOFFWEbQ.webp",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/gCUDOPxWiLeuisMt.webp",
+    after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YzxbKVhnciQARpIb.webp",
   },
   {
     id: 13,
@@ -166,8 +166,8 @@ const testimonials = [
     text: "Really happy with this team. Our factory cladding had original plastisol and multiple layers of paint. It turned out to be a much more difficult job than expected but Graham didn't let us down and put in extra hours to make sure we stayed in budget. The surfaces were left flawless and we're looking forward to painting.",
     project: "Factory Cladding Blasting",
     images: [
-      "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/KAuizSEcHZqQHaHb.webp",
-      "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/OvoLFnIBeMigrczv.webp",
+      "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/hFzlTbJdSBeiAVgW.webp",
+      "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/tTeWEGasRhVPEMxU.webp",
     ],
     isNew: true,
   },

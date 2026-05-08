@@ -409,8 +409,8 @@ export default function BirminghamServiceArea() {
         duration="3 weeks"
         area="15,000 sq ft manufacturing floor"
         completionDate="November 2025"
-        beforeImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/LdXujushoXOAoBxT.webp"
-        afterImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ZWDhTergFbnHAcgR.webp"
+        beforeImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/EKSwtxZBFUTIIzUO.webp"
+        afterImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ZzMTuYgLGTANQcer.webp"
         challenge="Midlands Automotive Components Ltd faced significant operational challenges due to deteriorating floor conditions in their main production facility. Years of heavy machinery use, chemical exposure, and metal debris had left the concrete floor surface severely compromised with rust staining, coating failure, and uneven texture. The facility required complete surface restoration that would minimize production downtime while delivering a durable, long-lasting finish capable of withstanding the demanding automotive manufacturing environment."
         solution="Our team deployed a comprehensive shot blasting solution specifically designed for large-scale industrial applications. We utilized steel shot blasting technology with S330 grade steel shot media, which provided the aggressive surface profile required for this demanding application. The process involved multiple passes across the entire 15,000 square foot area, systematically removing all existing coatings, rust deposits, and surface contaminants. We implemented a phased approach to maximize efficiency while maintaining strict quality control."
         outcomes={[

@@ -33,14 +33,14 @@ export default function MarineIndustry() {
     {
       title: "Vessel Components",
       description: "Precision blasting for propellers, rudders, anchors, and deck equipment. Restore marine hardware to specification.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sballOVJYnECAMGH.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eqezEvtOwgDSGsCT.webp",
       link: "/services/pipework",
       benefits: ["Precision cleaning", "Component restoration", "Marine-grade finish"]
     },
     {
       title: "Port & Harbor Equipment",
       description: "Shot blasting for cranes, bollards, mooring equipment, and dock infrastructure exposed to harsh marine environments.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QizAdqQCXcCfRGPx.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yXusfqsGJHZwuETv.webp",
       link: "/services/ladders",
       benefits: ["Corrosion protection", "Extended service life", "Minimal downtime"]
     }

@@ -32,49 +32,49 @@ const services: Service[] = [
     id: "factory-cladding",
     title: "Factory & Warehouse Cladding",
     description: "Specialist cladding restoration removing plastisol and paint layers from factory and industrial building panels.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/fAgmlMEezcGnfvae.webp"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/GmdvvhZjrHfYtOVb.webp"
   },
   {
     id: "fire-escapes",
     title: "Fire Escapes & External Stair Towers",
     description: "Complete restoration of fire escape structures, ensuring safety compliance and longevity.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/qGqZmQitbFtmOpLE.webp"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oySJrMBHyyuJOevk.webp"
   },
   {
     id: "staircases",
     title: "Internal Staircases & Handrails",
     description: "Precision cleaning for architectural metalwork, preparing surfaces for premium finishes.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UBYyPntONgBwoizK.webp"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TLjFQFhDhVdFaDwj.webp"
   },
   {
     id: "bridge-steelwork",
     title: "Bridge Steelwork",
     description: "Specialized treatment for bridge components, meeting stringent infrastructure standards.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ZgHdtBKCSdaGfLrq.webp"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/cuwoxubhXPpGCUSf.webp"
   },
   {
     id: "ladders",
     title: "Fixed Ladders & Access Systems",
     description: "Thorough cleaning of access equipment, removing corrosion and preparing for protective coatings.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QizAdqQCXcCfRGPx.webp"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yXusfqsGJHZwuETv.webp"
   },
   {
     id: "warehouse-racking",
     title: "Warehouse Racking Systems",
     description: "Complete refurbishment of storage systems, extending service life and improving appearance.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VoYYaZAUOdFKGHWw.webp"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WmoactuoGfwMmVwl.webp"
   },
   {
     id: "pipework",
     title: "Process Pipework",
     description: "Surface profiling for optimal coating adhesion on industrial pipework and process equipment.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sballOVJYnECAMGH.webp"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eqezEvtOwgDSGsCT.webp"
   },
   {
     id: "telecom-towers",
     title: "Telecom Masts & Lattice Towers",
     description: "Specialized treatment for telecommunications infrastructure, ensuring long-term protection.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/jvQmFAKfxLElgSij.webp"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XLIXJyIInSTPQjlE.webp"
   },
   {
     id: "floor-preparation",
@@ -92,7 +92,7 @@ const services: Service[] = [
     id: "commercial-radiators",
     title: "Commercial Radiators",
     description: "Professional restoration for cast iron and steel radiators in commercial buildings and heritage properties.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/GErOtKOumxWHaKVY.webp"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nVyZGEbqdoYwEDMv.webp"
   },
   {
     id: "commercial-vehicles",
@@ -104,7 +104,7 @@ const services: Service[] = [
     id: "steel-doors",
     title: "Steel Doors & Roller Shutters",
     description: "Professional restoration for industrial doors, warehouse roller shutters, security doors, and commercial access systems.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/zECMRCXJWWoPsZmS.webp"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/EOszbYQwsYrTFvjN.webp"
   },
   {
     id: "steel-sheeting",
@@ -116,7 +116,7 @@ const services: Service[] = [
     id: "steel-gates",
     title: "Steel Gates & Railings",
     description: "Precision restoration for commercial and industrial entrance gates, perimeter railings, and decorative metalwork.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/rKYIkcbbMglpUOCS.webp"
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/dIVmiYILOzXbQFlg.webp"
   },
   {
     id: "plant-machinery",

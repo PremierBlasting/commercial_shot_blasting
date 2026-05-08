@@ -174,7 +174,7 @@ export default function SheffieldServiceArea() {
             </div>
             <div className="relative">
               <img loading="lazy"
-                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/lwQonrvaPTKazaIa.webp"
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/fDsaRxagauTcgoki.webp"
                 alt="Professional shot blasting results in Sheffield"
                 className="rounded-lg shadow-lg"
               />
@@ -342,7 +342,7 @@ export default function SheffieldServiceArea() {
           </div>
           <BeforeAfterSlider
             beforeImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/zZPJdDNrwllRPDRT.webp"
-            afterImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/lwQonrvaPTKazaIa.webp"
+            afterImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/fDsaRxagauTcgoki.webp"
             beforeLabel="Before"
             afterLabel="After"
           />

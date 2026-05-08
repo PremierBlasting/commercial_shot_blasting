@@ -33,7 +33,7 @@ export default function HeritageRestorationIndustry() {
     {
       title: "Historic Bridges & Structures",
       description: "Sympathetic surface preparation for heritage bridges, viaducts, and industrial monuments. Meet conservation requirements while ensuring structural longevity.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ZgHdtBKCSdaGfLrq.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/cuwoxubhXPpGCUSf.webp",
       link: "/services/bridge-steelwork",
       benefits: ["Conservation approved", "Structural integrity", "Heritage protection"]
     },

@@ -28,7 +28,7 @@ export const services: ServiceData[] = [
     shortTitle: "Steel Frames",
     tagline: "Comprehensive Shot Blasting for Structural Steelwork",
     description: "Our structural steel frame shot blasting service delivers exceptional surface preparation for all types of building frames, roof trusses, and load-bearing steel structures. We remove mill scale, rust, welding residue, and old coatings to create the perfect surface for protective treatments. Whether you're preparing new fabrications for galvanizing or refurbishing existing structural steelwork, our precision techniques ensure optimal coating adhesion and long-term corrosion protection.",
-    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
+    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nSiMtaICoFPZGPZV.png",
     benefits: [
       "Complete removal of mill scale and rust",
       "Prepares surfaces for galvanizing or protective coatings",
@@ -61,7 +61,7 @@ export const services: ServiceData[] = [
         challenge: "This commercial building project required comprehensive shot blasting of extensive structural steel roof trusses and load-bearing frames throughout the interior space. The steel frames had mill scale, welding residue, and surface contaminants that needed complete removal to achieve professional cleanliness for protective coating application. The project demanded precision work in an active construction environment with strict quality requirements for the subsequent coating system.",
         solution: "We mobilised our specialist structural steelwork team to the site with full containment and access equipment. Working systematically across the entire ceiling and structural framework, we used controlled shot blasting techniques to remove all mill scale, welding residue, rust, and surface contaminants from the complex truss systems and frame members. Our precision approach ensured complete coverage of all surfaces including connection points, welds, and hard-to-reach areas within the lattice truss structure. The project was completed in phases to coordinate with the construction schedule, maintaining the specified surface cleanliness throughout.",
         result: "The structural steel frames were transformed from mill-finished condition with surface contaminants to uniform, clean bare metal surfaces achieving professional cleanliness for protective coating. All truss members, frame sections, and connection points achieved consistent surface preparation across hundreds of linear metres of structural steelwork. The client received a perfectly prepared substrate that ensured optimal adhesion for the protective coating system, enabling the construction schedule to proceed without delay. The comprehensive surface preparation will provide decades of corrosion protection for this critical structural framework.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/AWwczkcrOYslSzSl.jpg"
+        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ALLMpYyafQuXmsrE.jpg"
       }
     ],
     faqs: [
@@ -83,7 +83,7 @@ export const services: ServiceData[] = [
     shortTitle: "Steel Containers",
     tagline: "Specialist Shot Blasting for Steel Containers & Storage Structures",
     description: "We are specialists in shot blasting services for steel containers and large storage structures. Our skilled team uses advanced blasting techniques to remove rust, old coatings, and surface contaminants from shipping containers, fuel storage tanks, and other steel units. We focus on restoring strength and preparing containers so they're ready for repainting, recoating, or long-term reuse.",
-    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/qVdGSYQwlEjNqJyE.png",
+    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nHsjfdNjoJYDWZxV.png",
     benefits: [
       "Removes rust, mill scale and failed coatings completely",
       "Delivers clean, profiled, coating-ready finish",
@@ -115,7 +115,7 @@ export const services: ServiceData[] = [
         challenge: "A large cylindrical fuel storage tank had severe corrosion and failed coatings. Complete surface preparation was required before recoating to prevent further deterioration.",
         solution: "We systematically shot blasted the entire tank surface, removing all rust, scale and failed coatings. The tank was prepared to professional cleanliness standard for optimal coating adhesion.",
         result: "The storage tank was successfully refurbished with a clean, profiled surface ready for protective coating. The tank's service life was extended by decades, avoiding costly replacement.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wcFjXuLNjZPRfNlG.jpg"
+        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/NufEGVSVxhqcfzPL.jpg"
       }
     ],
     faqs: [
@@ -136,7 +136,7 @@ export const services: ServiceData[] = [
     shortTitle: "Factory & Warehouse Cladding",
     tagline: "Professional Cladding Surface Restoration",
     description: "Specialist shot blasting for factory and industrial cladding panels. We remove original plastisol, multiple layers of paint, rust, and weathering from metal cladding to restore surfaces to bare metal condition. Our precision techniques preserve the integrity of cladding panels while creating flawless surfaces ready for new protective coatings, extending the life of your building envelope.",
-    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/EfAlIcQNicWsvHaA.png",
+    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yVumYDLwbpQLmIoD.png",
     benefits: [
       "Complete removal of plastisol and paint layers",
       "Preserves cladding panel integrity",
@@ -194,7 +194,7 @@ export const services: ServiceData[] = [
     shortTitle: "Fire Escapes",
     tagline: "Specialist Shot Blasting for Fire Safety Infrastructure",
     description: "Our fire escape and external stair tower shot blasting service provides comprehensive surface preparation for emergency egress systems. We remove rust, old paint, and corrosion from fire escape structures, preparing them for protective coatings or galvanizing. Whether you're maintaining existing fire safety infrastructure or preparing new installations, our precision techniques ensure optimal corrosion protection and compliance with safety standards.",
-    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/CwpnAmaEraMSszIF.png",
+    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/SeWATNKMkdYyhiJa.png",
     benefits: [
       "Removes rust and corrosion from safety-critical structures",
       "Prepares surfaces for protective coatings or galvanizing",
@@ -227,7 +227,7 @@ export const services: ServiceData[] = [
         challenge: "A 5-storey office building's external fire escape had severe corrosion, failing safety inspections. Complete refurbishment was required to meet fire safety regulations.",
         solution: "We systematically shot blasted all fire escape components, removing rust and old paint. The structure was then coated with a high-performance fire-resistant coating system.",
         result: "The fire escape passed all safety inspections and was approved for continued use, saving over 70% compared to replacement costs while ensuring professional service delivery.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/CwpnAmaEraMSszIF.png"
+        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/SeWATNKMkdYyhiJa.png"
       }
     ],
     faqs: [
@@ -252,7 +252,7 @@ export const services: ServiceData[] = [
     shortTitle: "Staircases & Balustrades",
     tagline: "Precision Shot Blasting for Architectural Metalwork",
     description: "Our internal steel staircase and balustrade shot blasting service provides meticulous surface preparation for architectural metalwork. We remove rust, old paint, powder coating, and welding residue from staircases, balustrades, handrails, and decorative metalwork. Whether you're restoring heritage features or preparing new fabrications for finishing, our precision techniques ensure flawless surface preparation for powder coating, painting, or galvanizing.",
-    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/jaElsgrlYUgbWwFe.png",
+    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/PQfVowXZcgLOUIdi.png",
     benefits: [
       "Removes rust, old coatings, and welding discoloration",
       "Prepares surfaces for powder coating or painting",
@@ -285,7 +285,7 @@ export const services: ServiceData[] = [
         challenge: "A Grade II listed building required restoration of its ornate Victorian steel staircase and balustrades. Multiple layers of paint needed removal while preserving fine decorative details.",
         solution: "We used fine-grade aluminum oxide media with carefully controlled pressure to remove all paint layers while preserving the intricate metalwork details. Components were then powder coated to match the original finish.",
         result: "The staircase was restored to its original Victorian splendor, meeting conservation requirements and receiving approval from heritage authorities.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/jaElsgrlYUgbWwFe.png"
+        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/PQfVowXZcgLOUIdi.png"
       }
     ],
     faqs: [
@@ -310,7 +310,7 @@ export const services: ServiceData[] = [
     shortTitle: "Bridge Steelwork",
     tagline: "Specialist Shot Blasting for Bridge Infrastructure",
     description: "Our bridge steelwork shot blasting service provides comprehensive surface preparation for all types of bridge components including girders, crossmembers, parapet rails, and support structures. We remove rust, old coatings, and corrosion from bridge steelwork, preparing surfaces for protective coating systems that ensure long-term durability and structural integrity. Whether you're maintaining existing bridge infrastructure or preparing new fabrications, our precision techniques meet the stringent standards required for highway and railway bridge applications.",
-    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/SIvqwXQxxXKmsmDK.png",
+    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/aSPBSnphMeAtqixs.png",
     benefits: [
       "Meets highway and railway bridge coating specifications",
       "Removes rust, old coatings, and corrosion",
@@ -343,7 +343,7 @@ export const services: ServiceData[] = [
         challenge: "A 50-year-old highway bridge required complete refurbishment of corroded steel girders and parapet rails. The bridge needed to remain open to traffic during works.",
         solution: "We coordinated night-time closures to systematically shot blast all bridge steelwork. Components were coated with a high-performance protective system meeting highway authority specifications.",
         result: "The bridge was successfully refurbished and approved for continued use, extending its service life by an estimated 25+ years while maintaining traffic flow during the project.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/SIvqwXQxxXKmsmDK.png"
+        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/aSPBSnphMeAtqixs.png"
       }
     ],
     faqs: [
@@ -368,7 +368,7 @@ export const services: ServiceData[] = [
     shortTitle: "Ladders & Platforms",
     tagline: "Specialist Shot Blasting for Access Infrastructure",
     description: "Our fixed ladder and step-over platform shot blasting service provides comprehensive surface preparation for industrial access systems. We remove rust, old paint, and corrosion from fixed ladders, caged ladder systems, step-over platforms, and access infrastructure, preparing them for protective coatings or galvanizing. Whether you're maintaining existing access systems or preparing new installations, our precision techniques ensure optimal corrosion protection and compliance with working at height regulations.",
-    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/fjQLkvBCsjdFzSjo.png",
+    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/JoSDDMptJnCSIGCd.png",
     benefits: [
       "Removes rust and corrosion from safety-critical access systems",
       "Prepares surfaces for protective coatings or galvanizing",
@@ -401,7 +401,7 @@ export const services: ServiceData[] = [
         challenge: "A chemical plant required refurbishment of 15 fixed ladder systems and step-over platforms. Corrosion had compromised safety, failing health and safety inspections.",
         solution: "We systematically removed, shot blasted, and hot-dip galvanized all access system components. New safety cages were fabricated and installed to meet current regulations.",
         result: "All access systems passed health and safety inspections and were approved for continued use, ensuring full compliance with working at height regulations and extending service life by 25+ years.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/fjQLkvBCsjdFzSjo.png"
+        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/JoSDDMptJnCSIGCd.png"
       }
     ],
     faqs: [
@@ -423,7 +423,7 @@ export const services: ServiceData[] = [
     shortTitle: "Warehouse Racking",
     tagline: "Professional Shot Blasting for Storage Infrastructure",
     description: "Our specialist warehouse racking shot blasting service provides comprehensive surface preparation for pallet racking systems, storage frames, and industrial shelving. We remove rust, old powder coating, paint, and contaminants from racking components, preparing them for refinishing or galvanizing. Whether you're refurbishing existing warehouse infrastructure or preparing new racking for protective coatings, our precision techniques ensure optimal surface preparation for long-lasting durability.",
-    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/iAwFyjcyrlabkDxc.png",
+    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/SNBtxexdCjwaWaCm.png",
     benefits: [
       "Complete removal of rust, old coatings, and corrosion",
       "Extends the service life of warehouse racking systems",
@@ -456,7 +456,7 @@ export const services: ServiceData[] = [
         challenge: "A 50,000 sq ft distribution center required complete refurbishment of corroded pallet racking systems. Rust and damaged powder coating compromised both safety and appearance.",
         solution: "We systematically removed, transported, and shot blasted over 200 racking components, removing all rust and old coatings. Components were then powder coated and reinstalled.",
         result: "The client saved over 60% compared to new racking replacement costs, with all components restored to like-new condition and certified safe for continued use.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/iAwFyjcyrlabkDxc.png"
+        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/SNBtxexdCjwaWaCm.png"
       }
     ],
     faqs: [
@@ -485,7 +485,7 @@ export const services: ServiceData[] = [
     shortTitle: "Process Pipework",
     tagline: "Precision Cleaning for Industrial Pipework Systems",
     description: "Our specialized pipework shot blasting service delivers exceptional surface preparation for industrial process pipework, spools, manifolds, and piping systems. We provide precision cleaning that meets the stringent cleanliness levels required by food processing, pharmaceutical, chemical, and other regulated industries. Our techniques remove mill scale, rust, weld discoloration, and contaminants while preserving the integrity of critical pipework components, preparing them for protective coatings, galvanizing, or direct use in hygienic applications.",
-    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ATVvoMYBDzGObsiY.png",
+    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oiPekUximBYJaYdg.png",
     benefits: [
       "Meets stringent cleanliness levels for regulated industries",
       "Removes mill scale, rust, and weld discoloration",
@@ -518,7 +518,7 @@ export const services: ServiceData[] = [
         challenge: "A food processing facility required shot blasting of 150 stainless steel pipe spools and manifolds to meet stringent hygiene standards before installation in a new production line.",
         solution: "We processed all components using fine-grade aluminum oxide media to achieve optimal cleanliness. Each component was thoroughly inspected to meet food-grade requirements.",
         result: "All pipework passed third-party hygiene audits and was successfully installed, meeting project deadlines and enabling the facility to achieve BRC certification.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ATVvoMYBDzGObsiY.png"
+        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oiPekUximBYJaYdg.png"
       }
     ],
     faqs: [
@@ -547,7 +547,7 @@ export const services: ServiceData[] = [
     shortTitle: "Telecom Towers",
     tagline: "Specialist Shot Blasting for Telecommunications Infrastructure",
     description: "Our specialist telecommunications tower shot blasting service provides comprehensive surface preparation for telecom masts, lattice towers, antenna supports, and associated infrastructure. We remove rust, old galvanizing, paint, and corrosion from tower components, preparing them for hot-dip galvanizing, protective coatings, or structural repairs. Whether you're refurbishing existing telecommunications infrastructure or preparing new tower sections for protective treatments, our precision techniques ensure optimal surface preparation for maximum corrosion protection and extended service life.",
-    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/oOsspJOQZxVfiogt.png",
+    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/pxHOyrIfKtbDUiJd.png",
     benefits: [
       "Prepares surfaces for hot-dip galvanizing",
       "Removes rust, old coatings, and corrosion",
@@ -580,7 +580,7 @@ export const services: ServiceData[] = [
         challenge: "A telecommunications company required refurbishment of 25 lattice towers across the region. Corrosion had compromised the existing galvanized coating, and structural assessments mandated complete re-galvanizing.",
         solution: "We systematically dismantled, transported, and shot blasted all tower components, removing rust and old galvanizing. Components were then hot-dip galvanized and reinstalled with upgraded mounting hardware.",
         result: "All 25 towers were successfully refurbished and certified for continued service, extending their operational life by an estimated 25+ years and ensuring compliance with structural safety standards.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/oOsspJOQZxVfiogt.png"
+        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/pxHOyrIfKtbDUiJd.png"
       }
     ],
     faqs: [
@@ -700,7 +700,7 @@ export const services: ServiceData[] = [
     title: "Commercial Radiators Shot Blasting",
     shortTitle: "Commercial Radiators",
     tagline: "Professional Restoration for Cast Iron & Steel Radiators",
-    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/HrFZJSIxmUhcqlMI.png",
+    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/LvQweigMYtevByUq.png",
     description: "Our commercial radiators shot blasting service provides comprehensive restoration for cast iron and steel radiators in commercial buildings, heritage properties, and industrial facilities. We remove decades of paint buildup, rust, and corrosion from traditional column radiators, revealing the original cast iron or steel surface ready for modern powder coating or specialist finishes. Whether you're refurbishing period radiators for heritage projects or restoring commercial heating systems, our precision techniques preserve the integrity of these valuable heating assets while achieving optimal surface preparation.",
     benefits: [
       "Complete removal of multiple paint layers without damage",
@@ -766,7 +766,7 @@ export const services: ServiceData[] = [
         challenge: "A heritage building refurbishment project required restoration of 45 original Victorian cast iron radiators. Decades of paint buildup obscured the decorative details, and many radiators had surface rust. The client required complete restoration while preserving the heritage value and manufacturer markings.",
         solution: "We systematically shot blasted all 45 radiators using controlled techniques to remove multiple paint layers without damaging the cast iron. Threaded connections were protected, and ornate details were carefully preserved. Each radiator was then powder coated in a period-appropriate finish.",
         result: "All radiators were successfully restored to their original appearance, preserving heritage features while providing modern corrosion protection. The restored radiators passed building conservation approval and were reinstalled as functional heating elements, extending their service life by an estimated 50+ years.",
-        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nzEawiEijOiuQOwh.jpg"
+        image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/phhZwdogYRWkuBVh.jpg"
       }
     ],
     faqs: [
@@ -1137,7 +1137,7 @@ export const services: ServiceData[] = [
     shortTitle: "Plant & Machinery",
     tagline: "On-Site Shot Blasting for Construction & Agricultural Equipment",
     description: "Our mobile plant and machinery shot blasting service brings professional surface preparation directly to your site. We specialize in restoring construction equipment, agricultural machinery, and industrial plant without the need for transportation. From excavators and bulldozers to tractors and harvesters, we remove rust, old paint, and corrosion to extend equipment lifespan, maintain resale value, and ensure your machinery meets safety and compliance standards.",
-    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/jwnFkBmCigxqawhJ.jpg",
+    heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XbGdoLIRzfQaKMpD.jpg",
     benefits: [
       "On-site service minimizes equipment downtime",
       "Extends machinery lifespan by 5-10 years",

@@ -26,7 +26,7 @@ export default function AerospaceIndustry() {
     {
       title: "Engine Components & Turbine Parts",
       description: "Specialist surface treatment for engine casings, turbine blades, and combustion chamber components. Controlled shot peening to enhance component durability and resistance to stress corrosion.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sballOVJYnECAMGH.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eqezEvtOwgDSGsCT.webp",
       link: "/services/pipework",
       benefits: ["Stress relief treatment", "Surface hardening", "Precision controlled"]
     },
@@ -40,7 +40,7 @@ export default function AerospaceIndustry() {
     {
       title: "Ground Support Equipment",
       description: "Comprehensive refurbishment of aerospace ground support equipment including maintenance platforms, tooling, and handling equipment. Extend service life while maintaining safety standards.",
-      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QizAdqQCXcCfRGPx.webp",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yXusfqsGJHZwuETv.webp",
       link: "/services/ladders",
       benefits: ["Cost-effective refurbishment", "Safety certified", "Quick turnaround"]
     }
