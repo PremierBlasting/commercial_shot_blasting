@@ -243,7 +243,7 @@ export default function Home() {
                   loop
                   muted
                   playsInline
-                  preload="auto"
+                  preload="none"
                 >
                   <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/CICKcOChLeIGkWWG.mp4" type="video/mp4" />
                   Your browser does not support the video tag.

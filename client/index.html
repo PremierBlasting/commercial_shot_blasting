@@ -38,6 +38,15 @@
     <link rel="dns-prefetch" href="https://js-eu1.hsforms.net" />
     <link rel="dns-prefetch" href="https://forms.hsforms.com" />
     <link rel="dns-prefetch" href="https://api.manus.im" />
+    <!-- Preload first hero image: makes LCP element discoverable by browser preload scanner before React loads -->
+    <link
+      rel="preload"
+      as="image"
+      href="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YScoptyBJOkODpiP.webp"
+      imagesrcset="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/IaTezxmvYekRWxDg.webp 640w, https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oVxyFBqOSqiFnIqt.webp 1024w, https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YScoptyBJOkODpiP.webp 1920w"
+      imagesizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1920px"
+      crossorigin
+    />
     <!-- Fonts are self-hosted via @fontsource — no external CDN needed -->
     <!-- Schema scripts deferred: JSON-LD is crawler-only, no need to block paint -->
     <script src="/schema-bootstrap.js" defer></script>
