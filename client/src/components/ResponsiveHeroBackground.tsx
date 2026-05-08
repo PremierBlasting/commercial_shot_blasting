@@ -1,29 +1,33 @@
 import { useEffect, useState, useCallback } from 'react';
 
-// Hero carousel images with their responsive variants
-// First image is the LCP element — rendered as <img fetchpriority="high">
-// Subsequent images use CSS background-image (off-screen/faded, not LCP-critical)
+// Hero carousel — 7 images (down from 14) to halve CSS animation work and background-image fetches.
+// Each animated image is visible for ~7s; full cycle = 42s.
+// Index 0 is the LCP element rendered as a real <img> tag.
+// Indices 1–6 are CSS background-image divs (not LCP-critical).
 const heroImages = [
+  // 0 — LCP image (img tag, fetchpriority=high)
   { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YScoptyBJOkODpiP.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/IaTezxmvYekRWxDg.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oVxyFBqOSqiFnIqt.webp' } },
+  // 1
   { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/pqOtoTHQuOwbPOLz.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XKlLlCHzZpTTWuny.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WlgUvDfPkrrXlejg.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/tfkLEZPoVbsKeTFt.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/shnTUJIvAuSqyYuk.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YScoptyBJOkODpiP.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/IaTezxmvYekRWxDg.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oVxyFBqOSqiFnIqt.webp' } },
+  // 2
   { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/NoeGzcOAyORWbgxz.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/gkavEmLZDzrMTWcP.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/kZndaBVWsUcdwHni.webp' } },
+  // 3
   { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TiCUsbsOYeeHdpkl.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/JVQrXgYBjpNYcZtI.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/cWyQGkVlWGsBAIyt.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TAaxJUYrnQuocQjH.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YIlcOYLZKMFfJPVN.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/SRCHoZWLPbipfJBV.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oVUgrJspUxHIJlzq.webp' } },
+  // 4
   { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/zIjthhhcbMiPBcQV.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/cLzlkrBcbIVUpdEp.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yfLRHDSKOlbmKTqX.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/MrbweNYAwvmHQYLn.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/fbHnyhFWcXYvtcCG.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/edUaNDiKBVUSMBjy.webp' } },
+  // 5
   { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/gHwrrbDLYGcXYYgA.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ePsTUvbFccLyDbOZ.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/HCLJEkcrYROUsrNa.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/zMWHVWZqVTPFXKRc.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/waVHDpCAkKYwIOCE.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/CPvNOsMChQlXUtRV.webp' } },
-  { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/bMjgkbPUdxQNzwFm.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/PHumNKUQaaOHvgeR.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TzdytIZGBYJOKqLw.webp', '1920w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/LuKWLMBEFEImWkum.webp' } },
+  // 6
   { base: 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/KHFNaLmMCxeAcDHU.webp', sizes: { '640w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/jtmxbELXXgjBXgEv.webp', '1024w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/gdkZsebrzNLTgsHS.webp', '1920w': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/creSgmtwmDqfKigK.webp' } },
 ];
 
-// Animation delays for images 1–13 (index 0 is static LCP image)
-const animationDelays = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65];
+// Each animated image has a 42s cycle (7 images × 6s visible each).
+// Delays stagger the images so only one is visible at a time.
+// Images 1–6 start at 6s, 12s, 18s, 24s, 30s, 36s respectively.
+const CYCLE_DURATION = 42; // seconds — total animation cycle
+const animationDelays = [6, 12, 18, 24, 30, 36]; // for indices 1–6
 
-// First hero image srcset — used for both the <img> tag and the preload hint
+// First hero image srcset — used for both the <img> tag and the <link rel="preload"> hint
 export const HERO_FIRST_IMAGE = heroImages[0];
 export const HERO_FIRST_SRCSET =
   `${heroImages[0].sizes['640w'] ?? heroImages[0].base} 640w, ` +
@@ -69,8 +73,7 @@ export function ResponsiveHeroBackground() {
 
   return (
     <div className="absolute inset-0">
-      {/* ── First image: real <img> tag so the browser preload scanner discovers it ── */}
-      {/* fetchpriority="high" + loading="eager" tells the browser this is the LCP element */}
+      {/* ── Index 0: real <img> tag — discoverable by browser preload scanner ── */}
       <img
         src={heroImages[0].base}
         srcSet={HERO_FIRST_SRCSET}
@@ -84,8 +87,7 @@ export function ResponsiveHeroBackground() {
         height={1080}
       />
 
-      {/* ── Images 1–13: CSS background-image (animated carousel, not LCP-critical) ── */}
-      {/* Only apply willChange to the currently-animating element, not all at once */}
+      {/* ── Indices 1–6: CSS background-image animated carousel ── */}
       {heroImages.slice(1).map((image, idx) => {
         const imageUrl = getResponsiveImageUrl(image, screenWidth);
         return (
@@ -94,7 +96,7 @@ export function ResponsiveHeroBackground() {
             className="absolute inset-0 bg-cover bg-center opacity-0"
             style={{
               backgroundImage: `url('${imageUrl}')`,
-              animation: `fadeInOut 70s ease-in-out infinite ${animationDelays[idx]}s`,
+              animation: `fadeInOut ${CYCLE_DURATION}s ease-in-out infinite ${animationDelays[idx]}s`,
             }}
           />
         );
