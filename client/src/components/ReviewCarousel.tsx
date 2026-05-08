@@ -102,7 +102,7 @@ export function ReviewCarousel() {
             </div>
             <span className="font-bold">5.0</span>
             <span className="text-white/60 text-sm">·</span>
-            <span className="text-white/80 text-sm">12 commercial reviews</span>
+            <span className="text-white/80 text-sm">14 commercial reviews</span>
             <a
               href="https://g.co/kgs/commercialshotblasting"
               target="_blank"

@@ -2224,7 +2224,7 @@ export function injectMetaTags(html: string, url: string): string {
   // ── Reviews page: /reviews ───────────────────────────────────────────────
   if (url === '/reviews' || url === '/reviews/') {
     const reviewsTitle = 'Customer Reviews | Commercial Shot Blasting';
-    const reviewsDesc = 'Read genuine commercial and industrial customer reviews for Commercial Shot Blasting. 12 five-star reviews from business clients across the UK — factory, warehouse, and industrial projects.';
+    const reviewsDesc = 'Read genuine commercial and industrial customer reviews for Commercial Shot Blasting. 14 five-star reviews from business clients across the UK — factory, warehouse, and industrial projects.';
     const reviewsUrl = `${SITE_URL}/reviews`;
     let modifiedHtml = html;
     modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${reviewsTitle}</title>`);
@@ -2247,7 +2247,7 @@ export function injectMetaTags(html: string, url: string): string {
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
-        "reviewCount": "12",
+        "reviewCount": "14",
         "bestRating": "5",
         "worstRating": "1"
       },

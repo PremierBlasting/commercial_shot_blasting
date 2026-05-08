@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { Star, Quote, ExternalLink } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -88,7 +88,7 @@ const ALL_REVIEWS = [
   { id: 44, name: "Heather Westgate", date: "9 months ago", text: "When you look for a business to do a project for you — you want professionalism, expertise, attention to detail and great customer service. Chris and the team were outstanding. The quality of their workmanship was exceptional.", stars: 5, photoKey: null },
   { id: 45, name: "Karen Owen", date: "9 months ago", text: "These guys were great to work with — more importantly the finished results are brilliant. It's totally transformed my house. I've had a feature brick wall, fireplace and beams all taken back to their original state. Absolutely brilliant.", stars: 5, photoKey: null },
   { id: 46, name: "Jordan King", date: "10 months ago", text: "Really happy with this team. Our factory cladding had original plastisol and multiple layers of paint. It turned out to be a much more difficult job than expected but Graham didn't let us down and put in extra hours to make sure we stayed in budget. The surfaces were left flawless.", stars: 5, photoKey: null, tag: "Commercial" },
-  { id: 47, name: "Sam Huxtable", date: "10 months ago", text: "Graham was incredible, very prompt at replying and very knowledgeable. Phil and Justin were sent for the job — just wow. They are incredible at what they do with great attention to detail. After cleaning on the last day, you could hardly tell they had been there.", stars: 5, photoKey: "8afe36bbf935ba4a1f21ea92d58c233005a0fe38" },
+  { id: 47, name: "Sam Huxtable", date: "10 months ago", text: "Graham was incredible, very prompt at replying and very knowledgeable. Phil and Justin were sent for the job — just wow. They are incredible at what they do with great attention to detail. After cleaning on the last day, you could hardly tell they had been there.", stars: 5, photoKey: "8afe36bbf935ba4a1f21ea92d58c233005a0fe38", tag: "Commercial" },
   { id: 48, name: "Rachael Watson", date: "10 months ago", text: "Lovely job completed by the guys yesterday. Quick and efficient. Revealed a fabulous finish to our beams. Thank you very much.", stars: 5, photoKey: null },
   { id: 49, name: "Paul Bramley", date: "11 months ago", text: "Very happy with the blasting of beams in our large kitchen back to the original oak. Not an easy job but the team worked solidly for 10 hours, cleaning up afterwards. Fairly priced and no hesitation in recommending.", stars: 5, photoKey: null },
   { id: 50, name: "Nicholas English", date: "11 months ago", text: "We have quite a large, early 19th century house. Because of damp, we removed the render ourselves, which left a mess of very stubborn primer. In just three days, Oscar and his crew, followed by Sam and Ben, managed to remove the lot. Outstanding.", stars: 5, photoKey: null },
@@ -100,7 +100,7 @@ const ALL_REVIEWS = [
   { id: 56, name: "john power", date: "a year ago", text: "I run a building company (ITC Building & Electrical Contractors Ltd) and was looking for a sandblasting company to complete work on my own property. After consulting with a few companies I decided to go with this team and am I glad I did — absolutely superb.", stars: 5, photoKey: null, tag: "Commercial" },
   { id: 57, name: "Robert Edwards", date: "a year ago", text: "I had the need to get a timber frame building sandblasted inside and so used this company. Well pleased with all aspects.", stars: 5, photoKey: null, tag: "Commercial" },
   { id: 58, name: "Anna Manning", date: "a year ago", text: "Aaron has done an amazing job of our beams! Really pleased with the service — Aaron went out of his way to make sure that dust was minimal and tidied up all the mess! He arrived bang on time.", stars: 5, photoKey: null },
-  { id: 59, name: "Lisa Chatham", date: "a year ago", text: "We used this service whilst renovating a Grade II listed property that has protected features. The staff were very helpful, professional and prompt. We're really pleased with the results — the beams have been cleaned with precision and look great.", stars: 5, photoKey: null },
+  { id: 59, name: "Lisa Chatham", date: "a year ago", text: "We used this service whilst renovating a Grade II listed property that has protected features. The staff were very helpful, professional and prompt. We're really pleased with the results — the beams have been cleaned with precision and look great.", stars: 5, photoKey: null, tag: "Commercial" },
   { id: 60, name: "Martin Bowler", date: "a year ago", text: "Team arrived on time and set up with plenty of time spent putting in place protective sheeting. The end result was extremely good and above expectations, particularly in tough-to-reach areas. The post-job clear up was great.", stars: 5, photoKey: null },
   { id: 61, name: "Nick Venables", date: "a year ago", text: "We had some ancient oak beams that had been painted in thick grey gloss in a house that we are currently renovating. We thought that they were beyond redemption but Chris's team did an amazing job in bringing them back to life.", stars: 5, photoKey: null },
   { id: 62, name: "Stephanie Waite", date: "a year ago", text: "Aaron did a great job today sandblasting one oak beam in my kitchen. He covered all surfaces and units and did a thoroughly good job of cleaning up afterwards. Would highly recommend.", stars: 5, photoKey: null },
@@ -121,7 +121,6 @@ const ALL_REVIEWS = [
 
 const COMMERCIAL_REVIEWS = ALL_REVIEWS.filter(r => (r as any).tag === "Commercial");
 const COMMERCIAL_COUNT = COMMERCIAL_REVIEWS.length;
-type FilterType = "All" | "Commercial" | "Residential";
 
 function StarRating({ count }: { count: number }) {
   return (
@@ -159,18 +158,11 @@ export default function Reviews() {
     canonical: "https://commercialshotblasting.co.uk/reviews",
   });
 
-  const [filter, setFilter] = useState<FilterType>("Commercial");
   const [showAll, setShowAll] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
-  const filtered = useMemo(() => {
-    if (filter === "All") return ALL_REVIEWS;
-    if (filter === "Commercial") return ALL_REVIEWS.filter(r => (r as any).tag === "Commercial");
-    return ALL_REVIEWS.filter(r => !(r as any).tag);
-  }, [filter]);
-
-  const displayed = showAll ? filtered : filtered.slice(0, 12);
+  const displayed = showAll ? COMMERCIAL_REVIEWS : COMMERCIAL_REVIEWS.slice(0, 12);
 
   return (
     <div className="min-h-screen bg-white">
@@ -184,7 +176,7 @@ export default function Reviews() {
             What Our Customers Say
           </h1>
           <p className="text-white/80 max-w-2xl mx-auto text-lg mb-8">
-            12 five-star commercial and industrial reviews from business clients across the UK. Every review is genuine — posted directly to our Google Business Profile.
+            14 five-star commercial and industrial reviews from business clients across the UK. Every review is genuine — posted directly to our Google Business Profile.
           </p>
           {/* Aggregate rating summary */}
           <div className="inline-flex flex-col md:flex-row items-center gap-6 bg-white/10 backdrop-blur-sm rounded-2xl px-8 py-6 border border-white/20 max-w-2xl mx-auto w-full">
@@ -240,23 +232,13 @@ export default function Reviews() {
         </div>
       </section>
 
-      {/* Filter bar */}
-      <section className="bg-gray-50 border-b sticky top-0 z-10">
-        <div className="container py-4 flex items-center gap-3 flex-wrap">
-          <span className="text-sm font-medium text-gray-600 mr-2">Filter:</span>
-          {(["All", "Commercial", "Residential"] as FilterType[]).map(f => (
-            <button
-              key={f}
-              onClick={() => { setFilter(f); setShowAll(false); }}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
-                filter === f
-                  ? "bg-[#2C5F7F] text-white shadow-sm"
-                  : "bg-white text-gray-600 border hover:border-[#2C5F7F] hover:text-[#2C5F7F]"
-              }`}
-            >
-              {f} {f === "All" ? `(${ALL_REVIEWS.length})` : f === "Commercial" ? `(${COMMERCIAL_COUNT})` : `(${ALL_REVIEWS.filter(r => !(r as any).tag).length})`}
-            </button>
-          ))}
+      {/* Commercial reviews label */}
+      <section className="bg-gray-50 border-b">
+        <div className="container py-4 flex items-center gap-3">
+          <span className="text-sm font-medium text-gray-600">Showing:</span>
+          <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-[#2C5F7F] text-white shadow-sm">
+            Commercial &amp; Industrial ({COMMERCIAL_COUNT})
+          </span>
         </div>
       </section>
 
@@ -287,7 +269,7 @@ export default function Reviews() {
             ))}
           </div>
 
-          {!showAll && filtered.length > 12 && (
+          {!showAll && COMMERCIAL_COUNT > 12 && (
             <div className="text-center mt-10">
               <Button
                 variant="outline"
@@ -295,7 +277,7 @@ export default function Reviews() {
                 onClick={() => setShowAll(true)}
                 className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white"
               >
-                Show all {filter === "Commercial" ? COMMERCIAL_COUNT : filtered.length} reviews
+                Show all {COMMERCIAL_COUNT} commercial reviews
               </Button>
             </div>
           )}
