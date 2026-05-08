@@ -159,7 +159,7 @@ export default function Reviews() {
     canonical: "https://commercialshotblasting.co.uk/reviews",
   });
 
-  const [filter, setFilter] = useState<FilterType>("All");
+  const [filter, setFilter] = useState<FilterType>("Commercial");
   const [showAll, setShowAll] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -295,7 +295,7 @@ export default function Reviews() {
                 onClick={() => setShowAll(true)}
                 className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white"
               >
-                Show all {filtered.length} reviews
+                Show all {filter === "Commercial" ? COMMERCIAL_COUNT : filtered.length} reviews
               </Button>
             </div>
           )}
