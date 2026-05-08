@@ -421,9 +421,9 @@ export default function Home() {
                       src={img} 
                       alt={`Review photo ${idx + 1}`} 
                       className="w-full h-64 md:h-80 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer shadow-md"
-                      onClick={() => openLightbox(displayTestimonials[0].images!, idx)}
                       loading="lazy"
                       decoding="async"
+                      onClick={() => openLightbox(displayTestimonials[0].images!, idx)}
                     />
                   ))}
                 </div>
@@ -461,8 +461,9 @@ export default function Home() {
                         src={img} 
                         alt={`Review photo ${idx + 1}`} 
                          className="w-full h-48 md:h-64 object-cover rounded hover:scale-105 transition-transform cursor-pointer"
-                        onClick={() => openLightbox(testimonial.images!, idx)}
                         loading="lazy"
+                        decoding="async"
+                        onClick={() => openLightbox(testimonial.images!, idx)}
                       />
                     ))}
                   </div>
@@ -695,8 +696,9 @@ export default function Home() {
             src={lightboxImage} 
             alt="Review photo" 
             className="max-w-full max-h-full object-contain"
-            onClick={(e) => e.stopPropagation()}
             loading="lazy"
+            decoding="async"
+            onClick={(e) => e.stopPropagation()}
           />
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
             {lightboxIndex + 1} / {lightboxImages.length}
