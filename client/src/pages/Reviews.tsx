@@ -119,6 +119,8 @@ const ALL_REVIEWS = [
   { id: 75, name: "Sharon Sawyer", date: "7 months ago", text: "Excellent professional service from start to finish. The team were punctual, courteous and incredibly skilled. The quality of the finish exceeded our expectations. Would definitely use again and recommend to others.", stars: 5, photoKey: null, tag: "Commercial" },
 ];
 
+const COMMERCIAL_REVIEWS = ALL_REVIEWS.filter(r => (r as any).tag === "Commercial");
+const COMMERCIAL_COUNT = COMMERCIAL_REVIEWS.length;
 type FilterType = "All" | "Commercial" | "Residential";
 
 function StarRating({ count }: { count: number }) {
@@ -182,7 +184,7 @@ export default function Reviews() {
             What Our Customers Say
           </h1>
           <p className="text-white/80 max-w-2xl mx-auto text-lg mb-8">
-            Over 70 five-star reviews from homeowners and commercial clients across the UK. Every review is genuine — posted directly to our Google Business Profile.
+            12 five-star commercial and industrial reviews from business clients across the UK. Every review is genuine — posted directly to our Google Business Profile.
           </p>
           {/* Aggregate rating summary */}
           <div className="inline-flex flex-col md:flex-row items-center gap-6 bg-white/10 backdrop-blur-sm rounded-2xl px-8 py-6 border border-white/20 max-w-2xl mx-auto w-full">
@@ -194,12 +196,12 @@ export default function Reviews() {
                   <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <div className="text-white/70 text-sm mt-1">{ALL_REVIEWS.length} verified reviews</div>
+              <div className="text-white/70 text-sm mt-1">{COMMERCIAL_COUNT} commercial reviews</div>
             </div>
             {/* Star distribution bars */}
             <div className="flex-1 w-full space-y-1.5">
               {[5, 4, 3, 2, 1].map(star => {
-                const count = star === 5 ? ALL_REVIEWS.length : 0;
+                const count = star === 5 ? COMMERCIAL_COUNT : 0;
                 const pct = star === 5 ? 100 : 0;
                 return (
                   <div key={star} className="flex items-center gap-2 text-sm">
@@ -252,7 +254,7 @@ export default function Reviews() {
                   : "bg-white text-gray-600 border hover:border-[#2C5F7F] hover:text-[#2C5F7F]"
               }`}
             >
-              {f} {f === "All" ? `(${ALL_REVIEWS.length})` : f === "Commercial" ? `(${ALL_REVIEWS.filter(r => (r as any).tag === "Commercial").length})` : `(${ALL_REVIEWS.filter(r => !(r as any).tag).length})`}
+              {f} {f === "All" ? `(${ALL_REVIEWS.length})` : f === "Commercial" ? `(${COMMERCIAL_COUNT})` : `(${ALL_REVIEWS.filter(r => !(r as any).tag).length})`}
             </button>
           ))}
         </div>

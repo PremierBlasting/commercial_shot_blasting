@@ -102,7 +102,7 @@ export function ReviewCarousel() {
             </div>
             <span className="font-bold">5.0</span>
             <span className="text-white/60 text-sm">·</span>
-            <span className="text-white/80 text-sm">75+ verified reviews</span>
+            <span className="text-white/80 text-sm">12 commercial reviews</span>
             <a
               href="https://g.co/kgs/commercialshotblasting"
               target="_blank"
@@ -179,7 +179,7 @@ export function ReviewCarousel() {
         <div className="text-center mt-10">
           <Link href="/reviews">
             <span className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm transition-colors cursor-pointer underline underline-offset-4">
-              Read all 75+ reviews <ExternalLink className="w-3.5 h-3.5" />
+              Read all commercial reviews <ExternalLink className="w-3.5 h-3.5" />
             </span>
           </Link>
         </div>
