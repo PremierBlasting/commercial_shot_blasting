@@ -66,7 +66,9 @@ export default function Blog() {
                         src={post.featuredImage}
                         alt={post.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
+                  width={800}
+                  height={600}
+                />
                       {post.category && (
                         <div className="absolute top-4 left-4 bg-[#2C5F7F] text-white px-4 py-2 rounded font-semibold shadow-lg">
                           {post.category}

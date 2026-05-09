@@ -239,7 +239,10 @@ export default function MiltonKeynesServiceArea() {
             </div>
             <div className="relative">
               {/* Placeholder image for local context */}
-              <img loading="lazy" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600" alt="Shot blasting in an industrial setting" className="rounded-lg shadow-xl" />
+              <img loading="lazy" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600" alt="Shot blasting in an industrial setting" className="rounded-lg shadow-xl"
+                  width={800}
+                  height={600}
+                />
               <div className="absolute -bottom-6 -left-6 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg">
                 <p className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>20+</p>
                 <p className="text-sm">Years Experience</p>
@@ -419,6 +422,8 @@ export default function MiltonKeynesServiceArea() {
                   src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/LXqZHnZoEOfqdiqX.webp"
                   alt="Clean warehouse after shot blasting"
                   className="w-full h-auto"
+                  width={800}
+                  height={600}
                 />
                 <div className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-lg shadow-lg">
                   <div className="text-3xl font-bold text-primary">4</div>

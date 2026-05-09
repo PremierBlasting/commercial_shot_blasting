@@ -158,7 +158,9 @@ export default function WalesBordersCounty() {
                 src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/jBJWpNzYtnzTGhCr.webp" 
                 alt="Shot blasting services in Wales & Borders"
                 className="rounded-lg shadow-xl"
-              />
+                  width={800}
+                  height={600}
+                />
             </div>
           </div>
         </div>

@@ -262,7 +262,10 @@ export default function StokeServiceArea() {
               </div>
             </div>
             <div className="relative">
-              <img loading="lazy" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600" alt="Professional shot blasting in Stoke" className="rounded-lg shadow-xl" />
+              <img loading="lazy" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600" alt="Professional shot blasting in Stoke" className="rounded-lg shadow-xl"
+                  width={800}
+                  height={600}
+                />
               <div className="absolute -bottom-6 -left-6 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg">
                 <p className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>{LOCATION_NAME}</p>
                 <p className="text-sm">Service Area Focus</p>
@@ -329,7 +332,10 @@ export default function StokeServiceArea() {
             ].map((service, i) => (
               <Card key={i} className="group overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="h-48 overflow-hidden">
-                  <img loading="lazy" src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  <img loading="lazy" src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  width={800}
+                  height={600}
+                />
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-2 text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>{service.title}</h3>
@@ -449,6 +455,8 @@ export default function StokeServiceArea() {
                   src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/LXqZHnZoEOfqdiqX.webp"
                   alt="Clean warehouse after shot blasting"
                   className="w-full h-auto"
+                  width={800}
+                  height={600}
                 />
                 <div className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-lg shadow-lg">
                   <div className="text-3xl font-bold text-primary">4</div>

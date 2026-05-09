@@ -204,7 +204,10 @@ export default function Home() {
               <Link key={i} href={service.link}>
                 <Card className="group overflow-hidden hover:shadow-lg transition-shadow h-full cursor-pointer">
                   <div className="h-48 overflow-hidden">
-                    <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
+                    <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async"
+                  width={800}
+                  height={600}
+                />
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2 text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>{service.title}</h3>
@@ -376,7 +379,9 @@ export default function Home() {
                 className="w-full h-[500px] object-cover rounded-lg shadow-xl"
                 loading="lazy"
                 decoding="async"
-              />
+                  width={800}
+                  height={600}
+                />
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg shadow-lg">
                 <p className="text-3xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>4</p>
                 <p className="text-sm text-gray-600">Stage Process</p>

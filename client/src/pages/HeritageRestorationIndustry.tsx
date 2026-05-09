@@ -151,7 +151,9 @@ export default function HeritageRestorationIndustry() {
                     src={service.image} 
                     alt={service.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
+                  width={800}
+                  height={600}
+                />
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>

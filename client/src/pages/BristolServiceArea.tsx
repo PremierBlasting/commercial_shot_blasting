@@ -178,7 +178,9 @@ export default function BristolServiceArea() {
                 src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp"
                 alt="Professional shot blasting results in Bristol"
                 className="rounded-lg shadow-lg"
-              />
+                  width={800}
+                  height={600}
+                />
               <div className="absolute bottom-0 right-0 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg max-w-xs">
                 <p className="font-semibold mb-2">Serving Bristol Since</p>
                 <p className="text-3xl font-bold">2015+</p>
@@ -425,6 +427,8 @@ export default function BristolServiceArea() {
                   src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/LXqZHnZoEOfqdiqX.webp"
                   alt="Clean warehouse after shot blasting"
                   className="w-full h-auto"
+                  width={800}
+                  height={600}
                 />
                 <div className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-lg shadow-lg">
                   <div className="text-3xl font-bold text-primary">4</div>

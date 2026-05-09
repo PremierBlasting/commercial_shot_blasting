@@ -367,7 +367,9 @@ export default function Gallery() {
                       className="w-full h-auto max-h-[70vh] object-contain bg-black"
                       loading="lazy"
                       decoding="async"
-                    />
+                  width={800}
+                  height={600}
+                />
                     <div className="absolute top-4 left-4">
                       <span className={`text-white text-sm px-3 py-1 rounded font-medium ${showAfter ? 'bg-green-500' : 'bg-red-500'}`}>
                         {showAfter ? 'AFTER' : 'BEFORE'}

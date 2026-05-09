@@ -233,7 +233,9 @@ export default function AerospaceIndustry() {
                     src={service.image} 
                     alt={service.title} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  width={800}
+                  height={600}
+                />
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>

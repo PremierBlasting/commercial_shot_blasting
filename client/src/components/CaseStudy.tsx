@@ -84,7 +84,9 @@ export function CaseStudy({
                     src={beforeImage}
                     alt="Before shot blasting"
                     className="w-full h-64 object-cover rounded-lg shadow-md"
-                  />
+                  width={800}
+                  height={256}
+                />
                 </div>
               )}
               {afterImage && (
@@ -94,7 +96,9 @@ export function CaseStudy({
                     src={afterImage}
                     alt="After shot blasting"
                     className="w-full h-64 object-cover rounded-lg shadow-md"
-                  />
+                  width={800}
+                  height={256}
+                />
                 </div>
               )}
             </div>

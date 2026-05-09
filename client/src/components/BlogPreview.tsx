@@ -95,7 +95,9 @@ export function BlogPreview() {
                       src={post.featuredImage}
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
+                  width={800}
+                  height={600}
+                />
                     {post.category && (
                       <div className="absolute top-4 left-4 bg-[#2C5F7F] text-white px-3 py-1 rounded text-sm font-semibold">
                         {post.category}

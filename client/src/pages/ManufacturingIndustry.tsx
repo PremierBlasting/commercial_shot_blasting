@@ -178,7 +178,9 @@ export default function ManufacturingIndustry() {
                     src={service.image} 
                     alt={service.title} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  width={800}
+                  height={600}
+                />
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -336,6 +338,8 @@ export default function ManufacturingIndustry() {
                   src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wdTHtgEgZecYXVNZ.webp"
                   alt="Warehouse Racking Refurbishment"
                   className="w-full h-full object-cover"
+                  width={800}
+                  height={600}
                 />
               </div>
               <div className="p-8 md:w-3/5">

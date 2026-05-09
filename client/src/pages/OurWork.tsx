@@ -534,13 +534,17 @@ export default function OurWork() {
                             alt={`${item.title} - Before`} 
                             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
                             loading="lazy"
-                          />
+                  width={800}
+                  height={600}
+                />
                           <img 
                             src={item.after} 
                             alt={`${item.title} - After`} 
                             className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                             loading="lazy"
-                          />
+                  width={800}
+                  height={600}
+                />
                           <div className="absolute top-3 left-3 flex gap-2">
                             <span className="bg-red-500 text-white text-xs px-2 py-1 rounded font-medium group-hover:opacity-0 transition-opacity">BEFORE</span>
                             <span className="bg-green-500 text-white text-xs px-2 py-1 rounded font-medium opacity-0 group-hover:opacity-100 transition-opacity">AFTER</span>
@@ -553,7 +557,9 @@ export default function OurWork() {
                             alt={`${item.title} - Completed`} 
                             className="absolute inset-0 w-full h-full object-cover"
                             loading="lazy"
-                          />
+                  width={800}
+                  height={600}
+                />
                           <div className="absolute top-3 left-3">
                             <span className="bg-green-500 text-white text-xs px-2 py-1 rounded font-medium">COMPLETED</span>
                           </div>

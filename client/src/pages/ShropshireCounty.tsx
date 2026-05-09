@@ -156,7 +156,9 @@ export default function ShropshireCounty() {
                 src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/jBJWpNzYtnzTGhCr.webp" 
                 alt="Shot blasting services in Shropshire"
                 className="rounded-lg shadow-xl"
-              />
+                  width={800}
+                  height={600}
+                />
             </div>
           </div>
         </div>

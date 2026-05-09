@@ -357,6 +357,8 @@ export default function LiverpoolServiceArea() {
                   src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/LXqZHnZoEOfqdiqX.webp"
                   alt="Clean warehouse after shot blasting"
                   className="w-full h-auto"
+                  width={800}
+                  height={600}
                 />
                 <div className="absolute bottom-4 right-4 bg-white px-4 py-2 rounded-lg shadow-lg">
                   <div className="text-3xl font-bold text-primary">4</div>

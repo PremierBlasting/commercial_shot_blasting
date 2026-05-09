@@ -628,7 +628,10 @@ function GalleryTab() {
           {filteredItems.map((item) => (
             <Card key={item.id} className={`overflow-hidden transition-opacity ${!item.isActive ? 'opacity-60' : ''}`}>
               <div className="relative h-40 bg-gray-100">
-                <img loading="lazy" src={item.beforeImage} alt={item.title} className="w-full h-full object-cover" />
+                <img loading="lazy" src={item.beforeImage} alt={item.title} className="w-full h-full object-cover"
+                  width={800}
+                  height={600}
+                />
                 <div className="absolute top-2 left-2 flex gap-1">
                   <span className="bg-[#2C5F7F] text-white text-xs px-2 py-1 rounded">{item.category}</span>
                   {!item.isActive && (
@@ -1164,7 +1167,10 @@ function BlogTab() {
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   {post.featuredImage && (
-                    <img loading="lazy" src={post.featuredImage} alt={post.title} className="w-32 h-24 object-cover rounded" />
+                    <img loading="lazy" src={post.featuredImage} alt={post.title} className="w-32 h-24 object-cover rounded"
+                  width={128}
+                  height={96}
+                />
                   )}
                   <div className="flex-1">
                     <div className="flex items-start justify-between">

@@ -88,7 +88,9 @@ export function BeforeAfterSlider({
           alt={afterLabel}
           className="absolute inset-0 w-full h-full object-cover"
           draggable={false}
-        />
+                  width={800}
+                  height={600}
+                />
         
         {/* Before Image (Clipped) */}
         <div
@@ -104,7 +106,9 @@ export function BeforeAfterSlider({
               maxWidth: 'none'
             }}
             draggable={false}
-          />
+                  width={800}
+                  height={600}
+                />
         </div>
 
         {/* Slider Line */}

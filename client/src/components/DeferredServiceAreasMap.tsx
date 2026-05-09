@@ -47,7 +47,9 @@ export function DeferredServiceAreasMap({ onAreaClick, onQuoteClick }: DeferredS
               style={{ filter: 'brightness(0) invert(1)' }}
               loading="lazy"
               decoding="async"
-            />
+                  width={800}
+                  height={600}
+                />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-20 h-20 bg-[#E8B84A]/20 rounded-full flex items-center justify-center">
                 <MapPin className="w-10 h-10 text-[#E8B84A]" />

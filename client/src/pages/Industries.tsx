@@ -110,8 +110,9 @@ export default function Industries() {
                     src={industry.image} 
                     alt={industry.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    
-                  />
+                  width={800}
+                  height={600}
+                />
                 </div>
                 <CardHeader>
                   <CardTitle className="text-2xl text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>

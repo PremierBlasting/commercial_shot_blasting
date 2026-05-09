@@ -171,7 +171,9 @@ export default function ReadingServiceArea() {
                 src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp"
                 alt="Professional shot blasting results in Reading"
                 className="rounded-lg shadow-lg"
-              />
+                  width={800}
+                  height={600}
+                />
               <div className="absolute bottom-0 right-0 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg max-w-xs">
                 <p className="font-semibold mb-2">Serving Berkshire</p>
                 <p className="text-3xl font-bold">Since 2015</p>
