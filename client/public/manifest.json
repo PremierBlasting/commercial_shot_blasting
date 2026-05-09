@@ -1,0 +1,19 @@
+{
+  "name": "Commercial Shot Blasting",
+  "short_name": "CSB",
+  "description": "Professional Commercial & Industrial Shot Blasting Services across the UK",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a3d52",
+  "theme_color": "#2C5F7F",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["business", "utilities"],
+  "lang": "en-GB"
+}
