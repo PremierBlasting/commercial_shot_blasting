@@ -666,7 +666,8 @@ export default function OurWork() {
                       key={idx} 
                       src={img} 
                       alt={`Review photo ${idx + 1}`} 
-                      className="w-full h-64 md:h-80 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer shadow-md"
+                      className="w-full h-64 md:h-80 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer shadow-md opacity-0 transition-opacity duration-500"
+                      onLoad={(e) => (e.currentTarget.style.opacity = '1')}
                       onClick={() => openLightbox(displayTestimonials[0].images!, idx)}
                     />
                   ))}
@@ -704,7 +705,8 @@ export default function OurWork() {
                         key={idx} 
                         src={img} 
                         alt={`Review photo ${idx + 1}`} 
-                         className="w-full h-48 md:h-64 object-cover rounded hover:scale-105 transition-transform cursor-pointer"
+                        className="w-full h-48 md:h-64 object-cover rounded hover:scale-105 transition-transform cursor-pointer opacity-0 transition-opacity duration-500"
+                        onLoad={(e) => (e.currentTarget.style.opacity = '1')}
                         onClick={() => openLightbox(testimonial.images!, idx)}
                       />
                     ))}

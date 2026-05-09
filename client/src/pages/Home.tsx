@@ -204,9 +204,10 @@ export default function Home() {
               <Link key={i} href={service.link}>
                 <Card className="group overflow-hidden hover:shadow-lg transition-shadow h-full cursor-pointer">
                   <div className="h-48 overflow-hidden">
-                    <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async"
+                    <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-0 transition-opacity duration-500" loading="lazy" decoding="async"
                   width={800}
                   height={600}
+                  onLoad={(e) => (e.currentTarget.style.opacity = '1')}
                 />
                   </div>
                   <CardContent className="p-6">
@@ -376,11 +377,12 @@ export default function Home() {
               <img 
                 src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/LXqZHnZoEOfqdiqX.webp" 
                 alt="Professional site preparation and cleanup" 
-                className="w-full h-[500px] object-cover rounded-lg shadow-xl"
+                className="w-full h-[500px] object-cover rounded-lg shadow-xl opacity-0 transition-opacity duration-500"
                 loading="lazy"
                 decoding="async"
-                  width={800}
-                  height={600}
+                width={800}
+                height={600}
+                onLoad={(e) => (e.currentTarget.style.opacity = '1')}
                 />
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg shadow-lg">
                 <p className="text-3xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>4</p>
@@ -426,9 +428,10 @@ export default function Home() {
                       key={idx} 
                       src={img} 
                       alt={`Review photo ${idx + 1}`} 
-                      className="w-full h-64 md:h-80 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer shadow-md"
+                      className="w-full h-64 md:h-80 object-cover rounded-lg hover:scale-105 transition-transform cursor-pointer shadow-md opacity-0 transition-opacity duration-500"
                       loading="lazy"
                       decoding="async"
+                      onLoad={(e) => (e.currentTarget.style.opacity = '1')}
                       onClick={() => openLightbox(displayTestimonials[0].images!, idx)}
                     />
                   ))}
@@ -466,9 +469,10 @@ export default function Home() {
                         key={idx} 
                         src={img} 
                         alt={`Review photo ${idx + 1}`} 
-                         className="w-full h-48 md:h-64 object-cover rounded hover:scale-105 transition-transform cursor-pointer"
+                        className="w-full h-48 md:h-64 object-cover rounded hover:scale-105 transition-transform cursor-pointer opacity-0 transition-opacity duration-500"
                         loading="lazy"
                         decoding="async"
+                        onLoad={(e) => (e.currentTarget.style.opacity = '1')}
                         onClick={() => openLightbox(testimonial.images!, idx)}
                       />
                     ))}
