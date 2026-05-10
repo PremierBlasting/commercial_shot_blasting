@@ -443,3 +443,8 @@
 - [x] Submit all 18 service page URLs to IndexNow — 18 URLs submitted to Yandex IndexNow (HTTP 202 Accepted)
 - [x] Add visible FAQ accordion to LocationPage.tsx — upgraded static FAQ cards to interactive accordion with ChevronDown/Up, aria-expanded, aria-controls, role=region, FAQPage/Question/Answer microdata
 - [x] Add Nearby Counties section to CountyPage.tsx — two-tier layout: Tier 1 shows up to 6 same-region counties as prominent icon cards with region colour border-top; Tier 2 shows all 24 other counties as compact cards
+
+## SEO Round — County Related Services & Nearby Towns
+
+- [x] Add Related Services section to CountyPage.tsx — upgraded from 12-pill compact grid to 6 descriptive service cards (structural steel, factory cladding, floor prep, fire escapes, plant machinery, bridge steelwork) with icon, county-specific description, and Learn More CTA
+- [x] Add Nearby Towns section to CountyPage.tsx — shows up to 8 towns from locationData filtered by countySlug; MapPin icon cards with hover effect; placed between Preparation Checklist and Nearby Counties sections

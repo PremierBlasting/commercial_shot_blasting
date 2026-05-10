@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { locationData } from "@/data/locationData";
-import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2, ChevronDown, ChevronUp } from "lucide-react";
+import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2, ChevronDown, ChevronUp, Wrench, Layers, Flame, Anchor, Factory, Settings } from "lucide-react";
 import { ShareButton } from "@/components/ShareButton";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -770,31 +770,64 @@ export function CountyPage({ county }: CountyPageProps) {
               We offer the full range of commercial and industrial shot blasting services across {county.name}.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-8">
             {[
-              { slug: "structural-steel-shot-blasting", label: "Structural Steel" },
-              { slug: "container-shot-blasting", label: "Container Blasting" },
-              { slug: "factory-cladding-shot-blasting", label: "Factory Cladding" },
-              { slug: "floor-shot-blasting", label: "Floor Preparation" },
-              { slug: "fire-escape-shot-blasting", label: "Fire Escapes" },
-              { slug: "pipework-shot-blasting", label: "Pipework & Steel" },
-              { slug: "agricultural-shot-blasting", label: "Agricultural" },
-              { slug: "telecom-tower-shot-blasting", label: "Telecom Towers" },
-              { slug: "machinery-shot-blasting", label: "Plant & Machinery" },
-              { slug: "racking-shot-blasting", label: "Warehouse Racking" },
-              { slug: "marine-shot-blasting", label: "Marine & Offshore" },
-              { slug: "heritage-shot-blasting", label: "Heritage & Restoration" },
-            ].map((svc) => (
+              {
+                slug: "structural-steel-frames",
+                label: "Structural Steel Frames",
+                desc: `Remove mill scale, rust, and old coatings from structural steelwork across ${county.name} to SA2.5 or SA3 standard, ready for galvanizing or protective coating.`,
+                Icon: Building2,
+              },
+              {
+                slug: "factory-cladding",
+                label: "Factory Cladding",
+                desc: `Restore corroded or painted factory cladding panels on-site across ${county.name}. Our mobile units blast and prepare cladding without dismantling.`,
+                Icon: Factory,
+              },
+              {
+                slug: "floor-preparation",
+                label: "Floor Preparation",
+                desc: `Industrial floor shot blasting in ${county.name} for epoxy, resin, or screed applications. Removes laitance and contaminants to create a mechanical key.`,
+                Icon: Layers,
+              },
+              {
+                slug: "fire-escapes",
+                label: "Fire Escapes & Staircases",
+                desc: `Mobile shot blasting of fire escapes, external staircases, and access structures across ${county.name} to halt corrosion and extend service life.`,
+                Icon: Flame,
+              },
+              {
+                slug: "plant-machinery",
+                label: "Plant & Machinery",
+                desc: `On-site shot blasting of plant, machinery, and fabricated components in ${county.name}. Ideal before repainting, powder coating, or refurbishment.`,
+                Icon: Settings,
+              },
+              {
+                slug: "bridge-steelwork",
+                label: "Bridge Steelwork",
+                desc: `Specialist bridge and infrastructure shot blasting across ${county.name}. We work to Network Rail and Highways England surface preparation standards.`,
+                Icon: Wrench,
+              },
+            ].map(({ slug, label, desc, Icon }) => (
               <a
-                key={svc.slug}
-                href={`/services/${svc.slug}`}
-                className="flex items-center justify-center text-center bg-white rounded-lg px-3 py-4 text-sm font-medium text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white transition-colors duration-200 shadow-sm hover:shadow-md"
+                key={slug}
+                href={`/services/${slug}`}
+                className="group bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md hover:border-[#2C5F7F]/30 transition-all duration-200 flex flex-col gap-3"
               >
-                {svc.label}
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-[#2C5F7F]/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-5 h-5 text-[#2C5F7F]" />
+                  </div>
+                  <h3 className="font-semibold text-[#2C2C2C] group-hover:text-[#2C5F7F] transition-colors text-sm leading-tight">{label}</h3>
+                </div>
+                <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#2C5F7F] mt-auto">
+                  Learn more <ArrowRight className="w-3 h-3" />
+                </span>
               </a>
             ))}
           </div>
-          <div className="text-center mt-6">
+          <div className="text-center">
             <a href="/services" className="inline-flex items-center gap-2 text-[#2C5F7F] hover:text-[#1a3d52] font-semibold text-sm">
               View All 18 Shot Blasting Services
               <ArrowRight className="w-4 h-4" />
@@ -898,6 +931,45 @@ export function CountyPage({ county }: CountyPageProps) {
           </div>
         </section>
       )}
+
+      {/* Nearby Towns */}
+      {(() => {
+        const nearbyTowns = Object.values(locationData)
+          .filter((loc) => loc.countySlug === county.slug)
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .slice(0, 8);
+        if (nearbyTowns.length === 0) return null;
+        return (
+          <section className="py-12 bg-white">
+            <div className="container">
+              <div className="text-center mb-6">
+                <p className="text-[#2C5F7F] font-medium mb-1 uppercase tracking-wide text-sm">Hyperlocal Coverage</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Towns We Serve in {county.name}
+                </h2>
+                <p className="text-gray-500 text-sm mt-2">Mobile shot blasting delivered directly to your site — no transport costs, no delays</p>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-3">
+                {nearbyTowns.map((loc) => (
+                  <Link key={loc.slug} href={`/areas/${loc.slug}`}>
+                    <div className="bg-gray-50 rounded-lg p-3 text-center hover:bg-[#2C5F7F] hover:text-white transition-all duration-200 cursor-pointer group border border-gray-100 hover:border-[#2C5F7F]">
+                      <MapPin className="w-4 h-4 mx-auto mb-1 text-[#2C5F7F] group-hover:text-white" />
+                      <p className="text-xs font-semibold text-[#2C2C2C] group-hover:text-white leading-tight">{loc.name}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+              <div className="text-center mt-6">
+                <Link href={`/counties/${county.slug}`}>
+                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F] hover:text-[#1a3d52] cursor-pointer">
+                    View all locations in {county.name} <ArrowRight className="w-4 h-4" />
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Nearby Counties */}
       <section className="py-12 bg-gray-50">
