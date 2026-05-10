@@ -407,3 +407,9 @@
 - [x] Add "Industries We Serve" section to CountyPage.tsx (already present at line 317 with county.industries data)
 - [x] Add "Industries We Serve" section to county SSR body HTML in metaTags.ts (already present)
 - [x] Add FAQPage JSON-LD to all individual industry pages in metaTags.ts — 4 industry-specific Q&As per page, all 8 industry slugs covered
+
+## SEO Round — Index Page Schemas & Industry Breadcrumbs
+
+- [x] Add FAQPage JSON-LD to /industries index page SSR meta tags in metaTags.ts
+- [x] Add HowTo JSON-LD to /services index page SSR meta tags in metaTags.ts
+- [x] Verify BreadcrumbList schema on all individual industry pages in metaTags.ts (confirmed present at line 2592)

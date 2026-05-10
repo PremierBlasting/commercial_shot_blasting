@@ -2205,6 +2205,14 @@ export function injectMetaTags(html: string, url: string): string {
       {"@type":"Question","name":"How quickly can you carry out shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"We aim to respond to all enquiries within 24 hours and can typically schedule a site visit within a few days. For urgent projects, call us directly on 07970 566409 to discuss availability."}}
     ]}
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"How to Get a Shot Blasting Services Quote","description":"Getting a quote for shot blasting services from Commercial Shot Blasting is straightforward. Follow these four steps to book your mobile shot blasting service anywhere in the UK.","totalTime":"P1D","supply":[{"@type":"HowToSupply","name":"Site access for survey"},{"@type":"HowToSupply","name":"Details of surfaces to be blasted"}],"step":[
+      {"@type":"HowToStep","position":1,"name":"Call or Submit an Online Quote Request","text":"Contact us by calling 07970 566409 or by completing the online quote form on our website. Describe the surfaces you need blasting, the location, and your preferred timescale. We respond to all enquiries within 24 hours.","url":"${SITE_URL}/contact"},
+      {"@type":"HowToStep","position":2,"name":"Receive a Free Site Survey","text":"We arrange a free, no-obligation site visit to assess the surfaces, confirm the blast standard required (SA2.5 or SA3), and provide an accurate written quote. There is no charge for the site survey.","url":"${SITE_URL}/free-site-survey"},
+      {"@type":"HowToStep","position":3,"name":"Mobile Unit Arrives On-Site","text":"Our fully equipped mobile shot blasting unit travels directly to your site on the agreed date. We bring all equipment, abrasive media, and containment — no need to transport your materials or hire additional equipment.","url":"${SITE_URL}/services"},
+      {"@type":"HowToStep","position":4,"name":"SA2.5/SA3 Finish Delivered and Site Cleared","text":"We complete the shot blasting to your specified standard — typically SA2.5 near white metal — and carry out a full site cleanup before leaving. Your surfaces are ready for protective coating immediately after our visit.","url":"${SITE_URL}/services"}
+    ]}
+    </script>
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
     return modifiedHtml;
@@ -2387,8 +2395,8 @@ export function injectMetaTags(html: string, url: string): string {
 
   // ── Industries index page: /industries ──────────────────────────────────────
   if (url === '/industries' || url === '/industries/') {
-    const industriesTitle = 'Industries We Serve | Shot Blasting Services | Commercial Shot Blasting';
-    const industriesDesc = 'Professional shot blasting services across diverse sectors. Construction, manufacturing, aerospace, marine, agriculture, retail, transport, and heritage restoration.';
+    const industriesTitle = 'Shot Blasting Services by Industry UK | Commercial Shot Blasting';
+    const industriesDesc = 'Professional shot blasting services for construction, manufacturing, aerospace, marine, agriculture, retail, transport, and heritage restoration across the UK. Mobile, SA2.5/SA3 standard. Free quotes.';
     const industriesUrl = `${SITE_URL}/industries`;
     let modifiedHtml = html;
     modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${industriesTitle}</title>`);
@@ -2401,7 +2409,14 @@ export function injectMetaTags(html: string, url: string): string {
     modifiedHtml = modifiedHtml.replace(/<meta name="twitter:description"[^>]*>/, `<meta name="twitter:description" content="${industriesDesc}" />`);
     const breadcrumbSchema = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Industries","item":industriesUrl}]});
     const webPageSchema = JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":industriesTitle,"description":industriesDesc,"url":industriesUrl});
-    modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n</head>`);
+    const industriesFAQSchema = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What industries do you provide shot blasting services for?","acceptedAnswer":{"@type":"Answer","text":"We provide shot blasting services for construction and structural steel, manufacturing and engineering, marine and offshore, agriculture and farming, aerospace, retail and commercial, transport and logistics, and heritage restoration. Our mobile units travel to your site anywhere in the UK."}},
+      {"@type":"Question","name":"Do you offer shot blasting services for the construction industry?","acceptedAnswer":{"@type":"Answer","text":"Yes — we specialise in shot blasting for structural steelwork including beams, columns, RSJs, fabricated frames, staircases, and fire escapes. We achieve SA2.5 and SA3 surface standards and travel directly to construction sites across the UK."}},
+      {"@type":"Question","name":"Can you carry out shot blasting for the marine and offshore industry?","acceptedAnswer":{"@type":"Answer","text":"Yes — we shot blast vessel hulls, offshore platforms, dock gates, pontoons, and marine pipework to SA2.5 and SA3 standards. Our mobile units travel to ports, dockyards, and offshore facilities across the UK."}},
+      {"@type":"Question","name":"What surface preparation standard do you achieve for industrial shot blasting?","acceptedAnswer":{"@type":"Answer","text":"We achieve SA2.5 (near white metal) and SA3 (white metal) surface cleanliness standards as defined by ISO 8501-1. These are the correct preparation levels for industrial protective coating systems across all sectors."}},
+      {"@type":"Question","name":"How do I get a quote for shot blasting services for my industry?","acceptedAnswer":{"@type":"Answer","text":"Call us on 07970 566409 or use our online quote form. We offer free site surveys and no-obligation quotes for all industries. We typically respond within 24 hours."}}
+    ]});
+    modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n<script type="application/ld+json">${industriesFAQSchema}</script>\n</head>`);
     return modifiedHtml;
   }
 
