@@ -538,13 +538,13 @@ export function CountyPage({ county }: CountyPageProps) {
             </p>
           </div>
 
-          {/* Trust bar */}
+          {/* Trust bar — county-specific proof points */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
             {[
-              { value: "18", label: "Shot Blasting Services" },
+              { value: "18", label: `Shot Blasting Services in ${county.name}` },
               { value: "SA2.5", label: "Guaranteed Blast Standard" },
-              { value: "UK-Wide", label: "Mobile Coverage" },
-              { value: "Free", label: "Site Surveys & Quotes" },
+              { value: county.industries.length > 0 ? `${county.industries.length}+` : "10+", label: `Key Sectors Served in ${county.name}` },
+              { value: "Free", label: `Site Surveys Across ${county.name}` },
             ].map((stat) => (
               <div key={stat.label} className="text-center bg-[#f0f6fb] rounded-xl py-5 px-3">
                 <div className="text-2xl font-black text-[#2C5F7F] mb-1">{stat.value}</div>
@@ -931,6 +931,71 @@ export function CountyPage({ county }: CountyPageProps) {
           </div>
         </section>
       )}
+
+      {/* Related Industries */}
+      {(() => {
+        // Map county industry labels to route slugs
+        const industryRouteMap: Record<string, { slug: string; label: string; desc: string }> = {
+          "Manufacturing": { slug: "manufacturing", label: "Manufacturing", desc: "Surface preparation for fabricated components, plant, and production equipment." },
+          "Construction": { slug: "construction", label: "Construction", desc: "Structural steel, cladding, and civil engineering surface preparation." },
+          "CommercialConstruction": { slug: "construction", label: "Construction", desc: "Structural steel, cladding, and civil engineering surface preparation." },
+          "Aerospace": { slug: "aerospace", label: "Aerospace & Defence", desc: "Precision blasting for aerospace components and defence structures." },
+          "Aerospace&Defence": { slug: "aerospace", label: "Aerospace & Defence", desc: "Precision blasting for aerospace components and defence structures." },
+          "Defense": { slug: "aerospace", label: "Aerospace & Defence", desc: "Precision blasting for aerospace components and defence structures." },
+          "Marine": { slug: "marine", label: "Marine & Offshore", desc: "Shipyard, port, and offshore structure blasting to marine standards." },
+          "Marine&Shipbuilding": { slug: "marine", label: "Marine & Offshore", desc: "Shipyard, port, and offshore structure blasting to marine standards." },
+          "Shipbuilding&Marine": { slug: "marine", label: "Marine & Offshore", desc: "Shipyard, port, and offshore structure blasting to marine standards." },
+          "Agriculture": { slug: "agriculture", label: "Agriculture", desc: "Farm machinery, grain stores, and agricultural equipment blasting." },
+          "Retail": { slug: "retail", label: "Retail & Commercial", desc: "Shop fronts, mezzanine floors, and commercial property surface prep." },
+          "Heritage&Restoration": { slug: "heritage-restoration", label: "Heritage & Restoration", desc: "Gentle blasting for listed buildings, ironwork, and heritage structures." },
+          "Logistics": { slug: "transport-logistics", label: "Transport & Logistics", desc: "Fleet vehicles, trailers, and logistics infrastructure blasting." },
+          "Automotive": { slug: "transport-logistics", label: "Transport & Logistics", desc: "Fleet vehicles, trailers, and logistics infrastructure blasting." },
+          "Energy": { slug: "construction", label: "Energy & Infrastructure", desc: "Pipework, towers, and energy infrastructure surface preparation." },
+          "Nuclear&Energy": { slug: "construction", label: "Energy & Infrastructure", desc: "Pipework, towers, and energy infrastructure surface preparation." },
+          "Steel": { slug: "manufacturing", label: "Steel & Fabrication", desc: "Mill scale removal and surface prep for steel fabricators and stockholders." },
+          "Ceramics": { slug: "manufacturing", label: "Ceramics & Potteries", desc: "Industrial kiln furniture, plant, and ceramics facility surface prep." },
+          "Engineering": { slug: "manufacturing", label: "Engineering", desc: "Precision surface preparation for engineering components and structures." },
+        };
+        const industryCards = county.industries
+          .map((ind) => industryRouteMap[ind.replace(/\s/g, "")])
+          .filter(Boolean)
+          .filter((v, i, arr) => arr.findIndex((x) => x.slug === v.slug) === i) // deduplicate by slug
+          .slice(0, 4);
+        if (industryCards.length === 0) return null;
+        return (
+          <section className="py-12 bg-[#f0f6fb]">
+            <div className="container">
+              <div className="text-center mb-6">
+                <p className="text-[#2C5F7F] font-medium mb-1 uppercase tracking-wide text-sm">By Sector</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Industries We Serve in {county.name}
+                </h2>
+                <p className="text-gray-500 text-sm mt-2">Shot blasting expertise across {county.name}'s key industrial sectors</p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                {industryCards.map(({ slug, label, desc }) => (
+                  <Link key={slug} href={`/industries/${slug}`}>
+                    <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md hover:border-[#2C5F7F]/30 transition-all duration-200 cursor-pointer group h-full flex flex-col gap-2">
+                      <h3 className="font-semibold text-[#2C2C2C] group-hover:text-[#2C5F7F] transition-colors text-sm">{label}</h3>
+                      <p className="text-xs text-gray-500 leading-relaxed flex-1">{desc}</p>
+                      <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#2C5F7F] mt-1">
+                        View industry <ArrowRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+              <div className="text-center mt-6">
+                <Link href="/industries">
+                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F] hover:text-[#1a3d52] cursor-pointer">
+                    View all industries <ArrowRight className="w-4 h-4" />
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Nearby Towns */}
       {(() => {

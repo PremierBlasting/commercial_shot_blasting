@@ -448,3 +448,9 @@
 
 - [x] Add Related Services section to CountyPage.tsx — upgraded from 12-pill compact grid to 6 descriptive service cards (structural steel, factory cladding, floor prep, fire escapes, plant machinery, bridge steelwork) with icon, county-specific description, and Learn More CTA
 - [x] Add Nearby Towns section to CountyPage.tsx — shows up to 8 towns from locationData filtered by countySlug; MapPin icon cards with hover effect; placed between Preparation Checklist and Nearby Counties sections
+
+## SEO Round — County Industries, Trust Bar & IndexNow
+
+- [x] Add Related Industries section to CountyPage.tsx — 4-card grid using county.industries mapped to 8 industry routes (manufacturing, construction, aerospace, marine, agriculture, retail, heritage-restoration, transport-logistics); deduplicates by slug; placed before Nearby Towns
+- [x] Add county-specific Why Choose Us trust bar to CountyPage.tsx — 4 stats now use county.name and county.industries.length for local proof points (e.g. "4+ Key Sectors Served in Staffordshire", "Free Site Surveys Across Yorkshire")
+- [x] Re-submit all 25 county page URLs to IndexNow — HTTP 202 Accepted
