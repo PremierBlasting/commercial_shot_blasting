@@ -899,49 +899,85 @@ export function CountyPage({ county }: CountyPageProps) {
         </section>
       )}
 
-      {/* Browse Other Counties */}
+      {/* Nearby Counties */}
       <section className="py-12 bg-gray-50">
         <div className="container">
-          <div className="text-center mb-8">
-            <p className="text-[#2C5F7F] font-medium mb-1 uppercase tracking-wide text-sm">Nearby Coverage</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Browse Other Counties
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-6">
-            {Object.values(countyData)
-              .filter((c) => c.slug !== county.slug)
-              .sort((a, b) => {
-                // Same region first, then alphabetical
-                if (a.region === county.region && b.region !== county.region) return -1;
-                if (b.region === county.region && a.region !== county.region) return 1;
-                return a.name.localeCompare(b.name);
-              })
-              .slice(0, 20)
-              .map((c) => {
-                const colour = regionColours[c.region] || "#2C5F7F";
-                return (
-                  <Link key={c.slug} href={`/counties/${c.slug}`}>
-                    <Card className="h-full hover:shadow-md transition-all duration-200 cursor-pointer group border-l-4" style={{ borderLeftColor: colour }}>
-                      <CardHeader className="p-3 pb-1">
-                        <CardTitle className="text-sm font-semibold group-hover:text-[#2C5F7F] transition-colors leading-tight">
-                          {c.name}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="p-3 pt-0">
-                        <p className="text-xs text-gray-500 truncate">{c.region}</p>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                );
-              })}
-          </div>
-          <div className="text-center">
-            <Link href="/counties">
-              <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
-                View All Counties <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
+          {/* Tier 1: Nearby (same-region) counties */}
+          {(() => {
+            const nearby = Object.values(countyData)
+              .filter((c) => c.slug !== county.slug && c.region === county.region)
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .slice(0, 6);
+            if (nearby.length === 0) return null;
+            return (
+              <div className="mb-10">
+                <div className="text-center mb-6">
+                  <p className="text-[#2C5F7F] font-medium mb-1 uppercase tracking-wide text-sm">Same Region</p>
+                  <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Nearby Counties in {county.region}
+                  </h2>
+                  <p className="text-gray-500 text-sm mt-2">We provide mobile shot blasting across the whole {county.region} region</p>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                  {nearby.map((c) => {
+                    const colour = regionColours[c.region] || "#2C5F7F";
+                    return (
+                      <Link key={c.slug} href={`/counties/${c.slug}`}>
+                        <div className="bg-white rounded-xl p-4 text-center shadow-sm border-t-4 hover:shadow-md transition-all duration-200 cursor-pointer group" style={{ borderTopColor: colour }}>
+                          <MapPin className="w-5 h-5 mx-auto mb-2" style={{ color: colour }} />
+                          <p className="font-semibold text-sm text-[#2C2C2C] group-hover:text-[#2C5F7F] transition-colors leading-tight">{c.name}</p>
+                          <p className="text-xs text-gray-400 mt-1 truncate">{c.region}</p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* Tier 2: All other counties */}
+          <div>
+            <div className="text-center mb-6">
+              <p className="text-[#2C5F7F] font-medium mb-1 uppercase tracking-wide text-sm">Full Coverage</p>
+              <h2 className="text-xl md:text-2xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                All Counties We Serve
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-6">
+              {Object.values(countyData)
+                .filter((c) => c.slug !== county.slug)
+                .sort((a, b) => {
+                  if (a.region === county.region && b.region !== county.region) return -1;
+                  if (b.region === county.region && a.region !== county.region) return 1;
+                  return a.name.localeCompare(b.name);
+                })
+                .slice(0, 24)
+                .map((c) => {
+                  const colour = regionColours[c.region] || "#2C5F7F";
+                  return (
+                    <Link key={c.slug} href={`/counties/${c.slug}`}>
+                      <Card className="h-full hover:shadow-md transition-all duration-200 cursor-pointer group border-l-4" style={{ borderLeftColor: colour }}>
+                        <CardHeader className="p-3 pb-1">
+                          <CardTitle className="text-sm font-semibold group-hover:text-[#2C5F7F] transition-colors leading-tight">
+                            {c.name}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-3 pt-0">
+                          <p className="text-xs text-gray-500 truncate">{c.region}</p>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  );
+                })}
+            </div>
+            <div className="text-center">
+              <Link href="/counties">
+                <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                  View All Counties <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

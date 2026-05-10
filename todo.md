@@ -437,3 +437,9 @@
 - [x] Add condensed 3-step preparation checklist to LocationPage.tsx — 3-card grid (Request Survey, Clear Work Area, Coordinate Coating) with numbered circles, location-specific CTA; placed before sticky mobile bar
 - [x] Add visible FAQ accordion to ServiceDetail.tsx — already present at line 1316 with full expand/collapse, ARIA attributes, and microdata markup using service.faqs data (confirmed in code review)
 - [x] Ping IndexNow for all 25 county page URLs — 25 URLs submitted to Yandex IndexNow (HTTP 202 Accepted)
+
+## SEO Round — Service IndexNow, Location FAQ Accordion, Nearby Counties
+
+- [x] Submit all 18 service page URLs to IndexNow — 18 URLs submitted to Yandex IndexNow (HTTP 202 Accepted)
+- [x] Add visible FAQ accordion to LocationPage.tsx — upgraded static FAQ cards to interactive accordion with ChevronDown/Up, aria-expanded, aria-controls, role=region, FAQPage/Question/Answer microdata
+- [x] Add Nearby Counties section to CountyPage.tsx — two-tier layout: Tier 1 shows up to 6 same-region counties as prominent icon cards with region colour border-top; Tier 2 shows all 24 other counties as compact cards

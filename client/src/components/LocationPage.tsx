@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2, Star, Factory, ClipboardList } from "lucide-react";
+import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2, Star, Factory, ClipboardList, ChevronDown, ChevronUp } from "lucide-react";
 import { useState, useMemo } from "react";
 import { getLocationSEO, useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
@@ -60,6 +60,7 @@ interface LocationPageProps {
 
 export function LocationPage({ location }: LocationPageProps) {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
   // Derive nearby towns from same-county locations (up to 12, excluding current)
   const nearbyTowns = useMemo(() => {
@@ -382,15 +383,33 @@ export function LocationPage({ location }: LocationPageProps) {
               </h2>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-3" itemScope itemType="https://schema.org/FAQPage">
               {generateLocationFAQs(location.name, location.county).map((faq, index) => (
-                <div key={index} className="bg-gray-50 rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-[#2C2C2C] mb-3">
-                    <span className="text-[#2C5F7F]">Q:</span> {faq.question}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    {faq.answer}
-                  </p>
+                <div key={index} className="bg-gray-50 rounded-lg overflow-hidden" itemScope itemType="https://schema.org/Question">
+                  <button
+                    type="button"
+                    aria-expanded={expandedFaq === index}
+                    aria-controls={`loc-faq-answer-${index}`}
+                    id={`loc-faq-btn-${index}`}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-100 transition"
+                    onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                  >
+                    <span className="font-semibold text-[#2C5F7F] pr-4" itemProp="name">{faq.question}</span>
+                    {expandedFaq === index ? (
+                      <ChevronUp className="w-5 h-5 text-[#2C5F7F] flex-shrink-0" aria-hidden="true" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-[#2C5F7F] flex-shrink-0" aria-hidden="true" />
+                    )}
+                  </button>
+                  <div
+                    id={`loc-faq-answer-${index}`}
+                    role="region"
+                    aria-labelledby={`loc-faq-btn-${index}`}
+                    className={`overflow-hidden transition-all duration-300 ${expandedFaq === index ? 'max-h-96' : 'max-h-0'}`}
+                    itemScope itemType="https://schema.org/Answer"
+                  >
+                    <p className="px-6 pb-4 text-gray-700 leading-relaxed" itemProp="text">{faq.answer}</p>
+                  </div>
                 </div>
               ))}
             </div>
