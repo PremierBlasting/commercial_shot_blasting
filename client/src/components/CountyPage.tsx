@@ -527,11 +527,29 @@ export function CountyPage({ county }: CountyPageProps) {
       {/* Why Choose Us */}
       <section className="py-16 bg-white">
         <div className="container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <p className="text-[#2C5F7F] font-medium mb-2">Why Choose Us</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Your Trusted Shot Blasting Partner
+              Why Choose Our Shot Blasting Services in {county.name}?
             </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We are the specialist choice for commercial and industrial shot blasting services across {county.name} — mobile, fully equipped, and delivering SA2.5/SA3 results on-site.
+            </p>
+          </div>
+
+          {/* Trust bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            {[
+              { value: "18", label: "Shot Blasting Services" },
+              { value: "SA2.5", label: "Guaranteed Blast Standard" },
+              { value: "UK-Wide", label: "Mobile Coverage" },
+              { value: "Free", label: "Site Surveys & Quotes" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center bg-[#f0f6fb] rounded-xl py-5 px-3">
+                <div className="text-2xl font-black text-[#2C5F7F] mb-1">{stat.value}</div>
+                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+              </div>
+            ))}
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -539,27 +557,27 @@ export function CountyPage({ county }: CountyPageProps) {
               <div className="w-16 h-16 bg-[#2C5F7F] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">Expert Team</h3>
+              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">SA2.5 &amp; SA3 Certified Results</h3>
               <p className="text-gray-600">
-                Highly trained professionals with years of experience in commercial and industrial shot blasting
+                All shot blasting services in {county.name} are completed to SA2.5 near white metal or SA3 white metal standard — the correct surface profile for long-lasting protective coatings.
               </p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-[#2C5F7F] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">Mobile Service</h3>
+              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">Mobile Shot Blasting Across {county.name}</h3>
               <p className="text-gray-600">
-                We come to your location across {county.name}, minimizing downtime and transportation costs
+                Our fully equipped mobile units travel directly to your site anywhere in {county.name}. No need to transport materials — we bring everything needed to complete the job on your premises.
               </p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-[#2C5F7F] rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">Quality Results</h3>
+              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">18 Shot Blasting Services Available</h3>
               <p className="text-gray-600">
-                Flawless surface preparation ready for coating, ensuring long-lasting protection and finish
+                From structural steelwork and factory cladding to containers, floor preparation, and plant &amp; machinery — we offer the full range of commercial shot blasting services in {county.name}.
               </p>
             </div>
           </div>

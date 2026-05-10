@@ -368,3 +368,10 @@
 - [x] Add FAQPage JSON-LD schema to county page SSR meta tags in metaTags.ts (already present — dynamically generated from county.faqs)
 - [x] Add 3-step "Shot Blasting Services [county] — What to Expect" process section to CountyPage.tsx
 - [x] Add 3-step process section to county page SSR body HTML in metaTags.ts
+
+## SEO Round — Service Pages & County Trust Section
+
+- [x] Add FAQPage JSON-LD schema to all individual service pages in metaTags.ts (already present — dynamically generated from svc.faqs)
+- [x] Add "Why Choose Us" trust section to CountyPage.tsx — upgraded with keyword-rich H2, trust bar metrics, and county-specific copy
+- [x] Add "Why Choose Us" trust section to county SSR body HTML in metaTags.ts
+- [x] Review individual service pages for 3-step process section — already present (Our Process section with numbered steps from service.process data)
