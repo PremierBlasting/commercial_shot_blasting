@@ -431,3 +431,9 @@
 - [x] Add FAQ accordion to all individual county pages (CountyPage.tsx) — expand/collapse with ChevronDown/Up, ARIA attributes, microdata markup (FAQPage/Question/Answer itemscope), uses county.faqs data
 - [x] Add condensed 3-step preparation checklist section to all county pages (CountyPage.tsx) — 3-card grid (Request Survey, Clear Work Area, Coordinate Coating) with numbered circles, county-specific CTA button
 - [x] Add county search/filter bar to service areas page (ServiceAreas.tsx) — live search by county name, region, or town; shows county card grid with region label; clear button; uses countyData
+
+## SEO Round — Location Prep Checklist, Service FAQ Accordion, County IndexNow
+
+- [x] Add condensed 3-step preparation checklist to LocationPage.tsx — 3-card grid (Request Survey, Clear Work Area, Coordinate Coating) with numbered circles, location-specific CTA; placed before sticky mobile bar
+- [x] Add visible FAQ accordion to ServiceDetail.tsx — already present at line 1316 with full expand/collapse, ARIA attributes, and microdata markup using service.faqs data (confirmed in code review)
+- [x] Ping IndexNow for all 25 county page URLs — 25 URLs submitted to Yandex IndexNow (HTTP 202 Accepted)

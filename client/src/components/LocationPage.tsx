@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2, Star, Factory } from "lucide-react";
+import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2, Star, Factory, ClipboardList } from "lucide-react";
 import { useState, useMemo } from "react";
 import { getLocationSEO, useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
@@ -585,6 +585,51 @@ export function LocationPage({ location }: LocationPageProps) {
                 Call 07970 566409
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Preparation Checklist */}
+      <section className="py-14 bg-gradient-to-br from-[#F5F1E8] to-[#EAE4D4]">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-8">
+            <p className="text-[#2C5F7F] font-medium mb-1 uppercase tracking-wide text-sm">Before We Arrive</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              How to Prepare for Shot Blasting in {location.name}
+            </h2>
+            <p className="text-gray-600 mt-2 text-sm">Three simple steps to ensure your project runs smoothly</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                step: 1,
+                title: "Request a Free Site Survey",
+                text: `Call 07970 566409 or use our online form to arrange a free, no-obligation site visit in ${location.name}. We will assess the surfaces, confirm the blast standard required (SA2.5 or SA3), and provide a written quote — typically within 24 hours of the visit.`
+              },
+              {
+                step: 2,
+                title: "Clear the Work Area & Arrange Access",
+                text: `Ensure the surfaces to be blasted are accessible with a clear 2–3 metre perimeter. Confirm access for our mobile unit and advise us of any height restrictions, locked gates, or site induction requirements. Remove vehicles, equipment, and materials from the blast zone.`
+              },
+              {
+                step: 3,
+                title: "Coordinate Coating After Blasting",
+                text: `Arrange for protective coating or primer to be applied as soon as possible after blasting — ideally within 4 hours for steel surfaces. Discuss timing with your coating contractor in advance so there is no delay between blasting and coating for the best long-term result.`
+              }
+            ].map((item) => (
+              <div key={item.step} className="bg-white rounded-xl p-6 shadow-sm border border-[#2C5F7F]/10">
+                <div className="w-10 h-10 rounded-full bg-[#2C5F7F] text-white flex items-center justify-center font-bold text-lg mb-4">
+                  {item.step}
+                </div>
+                <h3 className="font-semibold text-[#2C5F7F] text-base mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52] text-white" onClick={() => setQuotePopupOpen(true)}>
+              Request Free Site Survey in {location.name}
+            </Button>
           </div>
         </div>
       </section>
