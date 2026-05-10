@@ -331,3 +331,16 @@
 - [x] Update client-side document.title in Home.tsx to match SSR title
 - [x] Update getServiceSEO() to generate titles with "Shot Blasting Services UK" pattern
 - [x] Update getServiceSEO() description to include "shot blasting services" in first sentence
+
+## Location Page SEO Optimisation — "Shot Blasting Services [Area]"
+
+- [x] Improve LocationPage.tsx hero intro paragraph — keyword-first: "Professional shot blasting services in [area]" with service types listed
+- [x] Improve LocationPage.tsx About section H2 — changed to "Professional Shot Blasting Services in [area]"
+- [x] Improve LocationPage.tsx About body copy — added SA2.5/SA3 standards, specific service types, phone CTA
+- [x] Replace generic 6-item services checklist with linked service cards pointing to /services/[id]
+- [x] Improve Nearby Areas section heading — changed to "Shot Blasting Services Near [area]"
+- [x] Improve SSR body HTML intro — keyword-rich with service types, SA2.5/SA3 standards, county context
+- [x] Update SSR services list — replaced generic items with specific service types (structural steel, cladding, containers, floor prep, etc.)
+- [x] Replace per-location hardcoded FAQs in SSR body with keyword-rich generated FAQ set (8 questions, all using "shot blasting services [area]" pattern)
+- [x] Improve dynamic fallback meta description for non-predefined locations — added SA2.5/SA3 and cladding restoration
+- [x] Improve generateLocationFAQs() — 8 new questions all using "shot blasting services [area]" keyword pattern, added SA2.5/SA3 standard question

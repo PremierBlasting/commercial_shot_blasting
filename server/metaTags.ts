@@ -1980,12 +1980,14 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
   const countySlug = loc.countySlug;
 
   const services = [
-    "Rust Removal & Surface Preparation",
-    "Paint & Coating Stripping",
-    "Metal Surface Cleaning",
-    "Concrete Floor Preparation",
-    "Industrial Equipment Blasting",
-    "Vehicle & Machinery Restoration"
+    "Structural Steelwork Shot Blasting — beams, columns, trusses & fabrications",
+    "Factory & Warehouse Cladding — plastisol & paint removal from cladding panels",
+    "Container Shot Blasting — shipping containers & steel storage units",
+    "Industrial Floor Preparation — concrete & steel floor surface profiling",
+    "Rust Removal & Mill Scale — deep rust & scale removal to SA2.5/SA3 standard",
+    "Plant & Machinery — industrial equipment, vehicles & pipework",
+    "Fire Escapes & Staircases — structural metalwork restoration",
+    "Warehouse Racking & Mezzanines — industrial storage structure preparation"
   ];
 
   const whyUs = [
@@ -1997,7 +1999,18 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
     { title: "Free Quotes", text: `No-obligation quotations for all projects in ${name}. Call us today to discuss your requirements.` }
   ];
 
-  const faqHtml = faqs.map((faq, i) => `
+  // Use keyword-rich generated FAQs instead of the per-location generic ones
+  const generatedFaqs = [
+    { question: `What shot blasting services do you offer in ${name}?`, answer: `We offer a comprehensive range of shot blasting services in ${name}, including structural steelwork blasting, factory and warehouse cladding restoration, container shot blasting, industrial floor preparation, rust and mill scale removal, plant and machinery blasting, fire escape and staircase restoration, and warehouse racking preparation. All services are delivered by our mobile units directly to your site in ${county}. Call 07970 566409 for a free quote.` },
+    { question: `Do you provide mobile shot blasting services in ${name}?`, answer: `Yes — all our shot blasting services in ${name} are fully mobile. Our equipped units travel directly to your site, eliminating the need to transport your materials or equipment. We cover ${name} and the surrounding ${county} area, serving commercial, industrial, and agricultural clients. Call 07970 566409 to book.` },
+    { question: `How much do shot blasting services cost in ${name}?`, answer: `The cost of shot blasting services in ${name} depends on the size of the project, the surface type, and site accessibility. We provide free, no-obligation quotes for all projects in ${county}. Contact us on 07970 566409 or request a quote online to get an accurate price for your specific requirements.` },
+    { question: `What surfaces can be shot blasted in ${name}?`, answer: `Our shot blasting services in ${name} cover all types of metal surfaces — structural steel frames, factory cladding, warehouse racking, fire escapes, staircases, bridge steelwork, steel containers, pipework, plant and machinery, and more. We also carry out concrete floor preparation. Our mobile service can handle projects of any size across ${county}.` },
+    { question: `What standard do you blast to for shot blasting services in ${name}?`, answer: `We blast to SA2.5 (near white metal) and SA3 (white metal) standards as required by your coating specification. SA2.5 is the most commonly specified standard for protective coating systems and is the default for most commercial and industrial projects in ${county}. We can advise on the correct standard for your project.` },
+    { question: `How long does a shot blasting project take in ${name}?`, answer: `Project duration for shot blasting services in ${name} depends on the size and complexity of the work. Small items like gates or railings can be completed in a few hours, while larger industrial projects such as factory cladding or structural steelwork may take several days. We provide estimated timelines with every quote and work efficiently to minimise disruption to your operations in ${county}.` },
+    { question: `Is shot blasting better than other surface preparation methods in ${name}?`, answer: `Shot blasting is the most effective surface preparation method for metal surfaces in ${name}. It removes rust, mill scale, and old coatings more thoroughly than manual or chemical methods, creates the correct surface profile for new protective coatings, and is faster and more cost-effective for large-scale projects in ${county}. We can advise on the best method for your specific needs.` },
+    { question: `Do I need to prepare the site before your shot blasting services arrive in ${name}?`, answer: `Minimal site preparation is required before our shot blasting services arrive in ${name}. We recommend clearing the immediate work area of loose items and ensuring vehicle access for our mobile unit. Our team will protect surrounding areas with sheeting and handle all cleanup after completion. We will provide specific preparation instructions when booking your project in ${county}.` }
+  ];
+  const faqHtml = generatedFaqs.map((faq) => `
     <div class="ssr-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
       <h3 itemprop="name"><span class="ssr-q">Q:</span> ${escHtml(faq.question)}</h3>
       <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
@@ -2036,17 +2049,18 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
   </nav>
   <main itemscope itemtype="https://schema.org/WebPage">
     <header>
-      <h1>Shot Blasting Services in ${escHtml(name)}</h1>
-      <p>${escHtml(description)}</p>
-      <p>Expert mobile shot blasting services throughout ${escHtml(name)} and ${escHtml(county)}. Professional rust removal and surface preparation for commercial and industrial clients.</p>
-      <p>Call us: <a href="tel:${PHONE.replace(/\s/g, "")}">${PHONE}</a></p>
+      <h1>Shot Blasting Services in ${escHtml(name)}, ${escHtml(county)}</h1>
+      <p>Professional mobile shot blasting services in ${escHtml(name)}, ${escHtml(county)} — delivered directly to your site by our fully equipped mobile units. We provide shot blasting services for structural steelwork, factory and warehouse cladding, shipping containers, industrial floor preparation, fire escapes, staircases, warehouse racking, plant and machinery, and more.</p>
+      <p>Our shot blasting services in ${escHtml(name)} are carried out to SA2.5 (near white metal) and SA3 (white metal) standards, ensuring the correct surface profile for protective coating systems. We serve commercial, industrial, and agricultural clients across ${escHtml(county)} and the surrounding region.</p>
+      <p>Call us for a free, no-obligation quote: <a href="tel:${PHONE.replace(/\s/g, "")}">${PHONE}</a></p>
     </header>
     <section aria-label="Why Choose Us">
       <h2>Why Choose ${escHtml(BUSINESS_NAME)} in ${escHtml(name)}?</h2>
       ${whyHtml}
     </section>
     <section aria-label="Services">
-      <h2>Shot Blasting Services in ${escHtml(name)}</h2>
+      <h2>Shot Blasting Services Available in ${escHtml(name)}</h2>
+      <p>We offer the full range of commercial shot blasting services in ${escHtml(name)}, delivered on-site by our mobile units throughout ${escHtml(county)}:</p>
       <ul>${servicesHtml}</ul>
     </section>
     <section aria-label="Frequently Asked Questions" itemscope itemtype="https://schema.org/FAQPage">
@@ -2507,9 +2521,9 @@ export function injectMetaTags(html: string, url: string): string {
     const metaTags = `
     <title>Shot Blasting Services in ${locationName} | Commercial Shot Blasting</title>
     <link rel="canonical" href="${fullUrl}" />
-    <meta name="description" content="Professional shot blasting services in ${locationName} — mobile rust removal & surface preparation for commercial and industrial clients. Free quote. Call ${PHONE}" />
+    <meta name="description" content="Professional shot blasting services in ${locationName} — mobile rust removal, surface preparation, cladding restoration &amp; industrial cleaning. SA2.5/SA3 standard. Free quote. Call ${PHONE}" />
     <meta property="og:title" content="Shot Blasting Services in ${locationName} | Commercial Shot Blasting" />
-    <meta property="og:description" content="Professional shot blasting services in ${locationName} — mobile rust removal & surface preparation for commercial and industrial clients. Free quote. Call ${PHONE}" />
+    <meta property="og:description" content="Professional shot blasting services in ${locationName} — mobile rust removal, surface preparation, cladding restoration &amp; industrial cleaning. SA2.5/SA3 standard. Free quote. Call ${PHONE}" />
     <meta property="og:url" content="${fullUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${HERO_IMAGE}" />
@@ -2519,7 +2533,7 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Shot Blasting Services in ${locationName} | Commercial Shot Blasting" />
-    <meta name="twitter:description" content="Professional shot blasting services in ${locationName} — mobile rust removal & surface preparation for commercial clients. Free quote. Call ${PHONE}" />
+    <meta name="twitter:description" content="Professional shot blasting services in ${locationName} — mobile rust removal, surface preparation, cladding restoration &amp; industrial cleaning. Free quote. Call ${PHONE}" />
     <meta name="twitter:image" content="${HERO_IMAGE}" />
     <meta name="twitter:image:alt" content="Shot blasting services in ${locationName} — Commercial Shot Blasting" />
     <link rel="preload" as="image" href="${HERO_IMAGE}" />

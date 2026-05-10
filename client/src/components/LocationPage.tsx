@@ -117,7 +117,7 @@ export function LocationPage({ location }: LocationPageProps) {
               <span className="text-blue-200 text-sm">(127 reviews)</span>
             </div>
             <p className="text-xl text-blue-100 mb-8">
-              Expert mobile shot blasting services throughout {location.name} and {location.county}. Professional rust removal and surface preparation for commercial and industrial clients.
+              Professional shot blasting services in {location.name} — mobile rust removal, surface preparation, and industrial cleaning for commercial and industrial clients across {location.county}. Free quotes available.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 
@@ -149,23 +149,23 @@ export function LocationPage({ location }: LocationPageProps) {
             <div className="text-center mb-12">
               <p className="text-[#2C5F7F] font-medium mb-2">Local Experts</p>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Serving {location.name} with Professional Shot Blasting
+                Professional Shot Blasting Services in {location.name}
               </h2>
             </div>
 
             <div className="prose prose-lg max-w-none text-gray-700">
               <p>
-                We provide comprehensive mobile shot blasting services throughout {location.name} and the wider <a href={`/counties/${location.countySlug}`} className="text-[#2C5F7F] hover:underline font-medium">{location.county}</a> area. Our fully equipped mobile units bring professional surface preparation directly to your site, eliminating the need for costly transportation of materials or equipment.
+                We provide professional mobile shot blasting services throughout {location.name} and the wider <a href={`/counties/${location.countySlug}`} className="text-[#2C5F7F] hover:underline font-medium">{location.county}</a> area. Our fully equipped mobile units deliver expert surface preparation directly to your site — covering structural steelwork, factory cladding, shipping containers, floor preparation, fire escapes, warehouse racking, and more.
               </p>
               <p>
                 {location.industries && location.industries.length > 0 ? (
-                  <>Supporting {location.name}'s {location.industries.join(', ')} sectors, we deliver expert rust removal, paint stripping, and surface preparation services. Our team understands the unique requirements of local businesses and provides tailored solutions for every project.</>
+                  <>Our shot blasting services in {location.name} support the {location.industries.join(', ')} sectors, delivering rust removal, paint stripping, mill scale removal, and surface profiling to the SA2.5 standard required for protective coating systems. We understand the demands of local industry and tailor every project accordingly.</>
                 ) : (
-                  <>Our experienced team serves businesses and industrial facilities across {location.name}, providing expert rust removal, paint stripping, and surface preparation services. We understand the unique requirements of local projects and deliver tailored solutions for every application.</>
+                  <>Our shot blasting services in {location.name} cover the full range of commercial and industrial applications — from rust removal and paint stripping on structural steel to surface profiling for new protective coatings. We work to SA2.5 and SA3 standards and tailor every project to your specification.</>
                 )}
               </p>
               <p>
-                From small fabrications to large industrial equipment, our mobile shot blasting service in {location.name} ensures consistent, high-quality results. We work efficiently to minimize disruption to your operations while delivering the superior surface finish your project demands.
+                Whether you need a single component blasted or a full factory cladding programme, our mobile shot blasting service in {location.name} delivers consistent, high-quality results with minimal disruption to your operations. Call <a href="tel:07970566409" className="text-[#2C5F7F] hover:underline font-medium">07970 566409</a> for a free, no-obligation quote.
               </p>
             </div>
           </div>
@@ -255,30 +255,40 @@ export function LocationPage({ location }: LocationPageProps) {
           <div className="text-center mb-12">
             <p className="text-[#2C5F7F] font-medium mb-2">Our Services</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Shot Blasting Services in {location.name}
+              Shot Blasting Services Available in {location.name}
             </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer the full range of commercial shot blasting services in {location.name}, delivered on-site by our mobile units.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {[
-              "Rust Removal & Surface Preparation",
-              "Paint & Coating Stripping",
-              "Metal Surface Cleaning",
-              "Concrete Floor Preparation",
-              "Industrial Equipment Blasting",
-              "Vehicle & Machinery Restoration"
-            ].map((service, index) => (
-              <div key={index} className="flex items-start gap-3 bg-gray-50 rounded-lg p-4">
-                <CheckCircle className="w-6 h-6 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700 font-medium">{service}</span>
-              </div>
+              { id: "structural-steel", label: "Structural Steelwork Shot Blasting", desc: "Beams, columns, trusses & fabrications" },
+              { id: "factory-cladding", label: "Factory & Warehouse Cladding", desc: "Plastisol & paint removal from cladding panels" },
+              { id: "container-blasting", label: "Container Shot Blasting", desc: "Shipping containers & storage units" },
+              { id: "floor-preparation", label: "Industrial Floor Preparation", desc: "Concrete & steel floor surface profiling" },
+              { id: "rust-removal", label: "Rust Removal & Mill Scale", desc: "Deep rust & scale removal to SA2.5/SA3" },
+              { id: "plant-machinery", label: "Plant & Machinery", desc: "Industrial equipment, vehicles & pipework" },
+            ].map((svc) => (
+              <Link
+                key={svc.id}
+                href={`/services/${svc.id}`}
+                className="flex items-start gap-3 bg-gray-50 rounded-lg p-4 border border-gray-100 hover:border-[#2C5F7F] hover:bg-[#2C5F7F]/5 transition-colors group"
+              >
+                <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
+                <div>
+                  <span className="text-gray-800 font-semibold text-sm group-hover:text-[#2C5F7F] transition-colors">{svc.label}</span>
+                  <p className="text-xs text-gray-500 mt-0.5">{svc.desc}</p>
+                </div>
+              </Link>
             ))}
           </div>
 
           <div className="text-center mt-8">
             <Link href="/services">
               <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
-                View All Services
+                View All 18 Services
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
@@ -293,10 +303,10 @@ export function LocationPage({ location }: LocationPageProps) {
           <div className="container">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-                We Also Serve Areas Near {location.name}
+                Shot Blasting Services Near {location.name}
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Our mobile shot blasting service covers {location.name} and surrounding towns throughout {location.county}.
+                Our mobile shot blasting service covers {location.name} and all surrounding towns throughout {location.county}. Click any location below for local information.
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 max-w-4xl mx-auto">
