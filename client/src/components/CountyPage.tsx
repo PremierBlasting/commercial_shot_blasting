@@ -88,7 +88,7 @@ export function CountyPage({ county }: CountyPageProps) {
   const [galleryFilter, setGalleryFilter] = useState("All");
 
   useEffect(() => {
-    document.title = `Shot Blasting ${county.name} | Commercial & Industrial Services`;
+    document.title = `Shot Blasting Services ${county.name} | Commercial Shot Blasting UK`;
     
     // Set meta description
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -115,7 +115,7 @@ export function CountyPage({ county }: CountyPageProps) {
 
     // Set Open Graph meta tags
     const ogTitle = document.querySelector('meta[property="og:title"]');
-    const titleContent = `Shot Blasting ${county.name} | Commercial & Industrial Services`;
+    const titleContent = `Shot Blasting Services ${county.name} | Commercial Shot Blasting UK`;
     if (ogTitle) {
       ogTitle.setAttribute('content', titleContent);
     } else {
@@ -238,7 +238,7 @@ export function CountyPage({ county }: CountyPageProps) {
             Shot Blasting Services in {county.name}
           </h1>
           <p className="text-lg text-white/90 mb-8">
-            Commercial Shot Blasting provides professional surface preparation and rust removal services throughout {county.name}. Serving local businesses across {county.majorTowns.join(', ')} with precision blasting solutions for commercial and industrial applications.
+            Professional mobile shot blasting services across {county.name} — structural steelwork, factory cladding, containers, floor preparation, rust removal, and more. We serve commercial and industrial clients throughout {county.majorTowns.join(', ')} and the surrounding area, delivering results to SA2.5 and SA3 standards.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
@@ -320,10 +320,10 @@ export function CountyPage({ county }: CountyPageProps) {
           <div className="text-center mb-12">
             <p className="text-[#2C5F7F] font-medium mb-2">Industries We Serve</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              {county.name} Industrial Blasting Experts
+              Shot Blasting Services {county.name} — Industries We Serve
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We work with businesses across diverse industries throughout {county.name}, providing tailored shot blasting solutions for each sector's unique requirements.
+              Our shot blasting services in {county.name} are trusted across a wide range of sectors, from construction and manufacturing to agriculture and heritage restoration.
             </p>
           </div>
 
@@ -572,10 +572,10 @@ export function CountyPage({ county }: CountyPageProps) {
           <div className="text-center mb-12">
             <p className="text-[#2C5F7F] font-medium mb-2">Frequently Asked Questions</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Shot Blasting in {county.name}
+              Shot Blasting Services {county.name} — FAQs
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Common questions about our shot blasting services in {county.name}
+              Common questions about our shot blasting services across {county.name} and surrounding areas.
             </p>
           </div>
 
@@ -680,10 +680,10 @@ export function CountyPage({ county }: CountyPageProps) {
       <section className="py-16 bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white">
         <div className="container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Ready to Start Your Project?
+            Get a Quote for Shot Blasting Services in {county.name}
           </h2>
           <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-            Get a free, no-obligation quote for shot blasting services in {county.name}. Contact us today to discuss your requirements.
+            Free, no-obligation quotes for all shot blasting services across {county.name}. We typically respond within 24 hours and can schedule a free site survey at your convenience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>

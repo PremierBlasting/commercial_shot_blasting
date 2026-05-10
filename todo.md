@@ -346,3 +346,14 @@
 - [x] Improve generateLocationFAQs() — 8 new questions all using "shot blasting services [area]" keyword pattern, added SA2.5/SA3 standard question
 - [x] Replace CTA section H2 "Ready to Start Your Project in [area]?" with "Get a Quote for Shot Blasting Services in [area]" — keyword-rich heading immediately above the quote CTA buttons
 - [x] Update SSR body CTA section heading to match the new keyword-rich H2
+
+## SEO Round — Process Section, County Pages, Services Index
+
+- [x] Add 3-step "Shot Blasting Services [area] — What to Expect" process section to LocationPage.tsx
+- [x] Add same 3-step process section to SSR body HTML in metaTags.ts
+- [x] Apply "Shot Blasting Services [county]" keyword treatment to county page H1, H2, intro copy
+- [x] Update county page SSR body HTML with keyword-rich headings and intro
+- [x] Update county page meta titles/descriptions for "Shot Blasting Services [county]"
+- [x] Fully SEO-optimise /services index page H1, intro copy, and body for "Shot Blasting Services UK"
+- [x] Update /services SSR meta title and description for "Shot Blasting Services UK"
+- [x] Add keyword-rich FAQ section to /services index page

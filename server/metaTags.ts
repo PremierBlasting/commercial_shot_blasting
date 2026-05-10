@@ -2063,6 +2063,15 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
       <p>We offer the full range of commercial shot blasting services in ${escHtml(name)}, delivered on-site by our mobile units throughout ${escHtml(county)}:</p>
       <ul>${servicesHtml}</ul>
     </section>
+    <section aria-label="What to Expect">
+      <h2>Shot Blasting Services in ${escHtml(name)} — What to Expect</h2>
+      <p>Our shot blasting services in ${escHtml(name)} are designed to be hassle-free from first contact to project completion. Here is what happens when you book with us:</p>
+      <ol>
+        <li><strong>Step 1 — Free Site Survey in ${escHtml(name)}:</strong> We visit your site at no charge, assess the surfaces to be blasted, and provide a detailed no-obligation quote. We advise on the correct blast standard (SA2.5 or SA3) and any preparation required.</li>
+        <li><strong>Step 2 — Mobile Unit Arrives On-Site:</strong> Our fully equipped mobile shot blasting unit travels directly to your location in ${escHtml(name)}. No need to transport your materials — we bring everything needed to carry out the work safely and efficiently on your premises.</li>
+        <li><strong>Step 3 — SA2.5 Finish &amp; Full Cleanup:</strong> We complete the shot blasting to your specified standard — typically SA2.5 near white metal — and carry out a full site cleanup before leaving. Your surfaces are ready for protective coating immediately after our visit.</li>
+      </ol>
+    </section>
     <section aria-label="Frequently Asked Questions" itemscope itemtype="https://schema.org/FAQPage">
       <h2>FAQs About Shot Blasting in ${escHtml(name)}</h2>
       ${faqHtml}
@@ -2129,11 +2138,11 @@ export function injectMetaTags(html: string, url: string): string {
       .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
       .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
     const metaTags = `
-    <title>Shot Blasting Services | ${BUSINESS_NAME}</title>
+    <title>Shot Blasting Services UK | Commercial &amp; Industrial | ${BUSINESS_NAME}</title>
     <link rel="canonical" href="${servicesUrl}" />
-    <meta name="description" content="Browse all 18 professional shot blasting services by Commercial Shot Blasting — structural steel, containers, cladding, floor preparation, powder coating and more. UK-wide mobile service." />
-    <meta property="og:title" content="Shot Blasting Services | ${BUSINESS_NAME}" />
-    <meta property="og:description" content="Browse all 18 professional shot blasting services by Commercial Shot Blasting — structural steel, containers, cladding, floor preparation, powder coating and more. UK-wide mobile service." />
+    <meta name="description" content="Professional shot blasting services UK-wide — 18 specialist services including structural steel, factory cladding, containers, floor preparation, rust removal, plant &amp; machinery and more. Mobile service to your site. SA2.5/SA3 standard. Free quote." />
+    <meta property="og:title" content="Shot Blasting Services UK | Commercial &amp; Industrial | ${BUSINESS_NAME}" />
+    <meta property="og:description" content="Professional shot blasting services UK-wide — 18 specialist services including structural steel, factory cladding, containers, floor preparation, rust removal, plant &amp; machinery and more. Mobile service to your site. SA2.5/SA3 standard. Free quote." />
     <meta property="og:url" content="${servicesUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${LOGO}" />
@@ -2142,10 +2151,10 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Shot Blasting Services | ${BUSINESS_NAME}" />
-    <meta name="twitter:description" content="Browse all 18 professional shot blasting services by Commercial Shot Blasting — structural steel, containers, cladding, floor preparation, powder coating and more. UK-wide mobile service." />
+    <meta name="twitter:title" content="Shot Blasting Services UK | Commercial &amp; Industrial | ${BUSINESS_NAME}" />
+    <meta name="twitter:description" content="Professional shot blasting services UK-wide — 18 specialist services including structural steel, factory cladding, containers, floor preparation, rust removal, plant &amp; machinery and more. Mobile service. SA2.5/SA3 standard." />
     <meta name="twitter:image" content="${LOGO}" />
-    <meta name="twitter:image:alt" content="Browse all professional shot blasting services by Commercial Shot Blasting" />
+    <meta name="twitter:image:alt" content="Shot blasting services UK — 18 commercial and industrial services by Commercial Shot Blasting" />
     ${generateServicesIndexSchemas()}
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
@@ -2354,10 +2363,8 @@ export function injectMetaTags(html: string, url: string): string {
     const county: CountyData | undefined = countyData[countySlug];
     if (county) {
       const pageUrl = `${SITE_URL}/counties/${countySlug}`;
-      const pageTitle = `Shot Blasting Services in ${county.name} | ${BUSINESS_NAME}`;
-      const metaDesc = county.description
-        ? county.description.replace(/"/g, '&quot;').slice(0, 155) + '...'
-        : `Professional shot blasting services across ${county.name}. ${BUSINESS_NAME} — mobile units covering all major towns.`;
+      const pageTitle = `Shot Blasting Services ${county.name} | Commercial Shot Blasting UK`;
+      const metaDesc = `Professional mobile shot blasting services across ${county.name} — structural steelwork, factory cladding, containers, floor preparation, rust removal & more. SA2.5/SA3 standard. Free quote. Call ${PHONE}`;
 
       let modifiedHtml = html
         .replace(/<meta\s+name="description"[^>]*>/gi, '')
@@ -2414,7 +2421,7 @@ export function injectMetaTags(html: string, url: string): string {
         const locLinksHtml = countyLocations.map(loc =>
           `<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}/service-areas/${loc.slug}"><span itemprop="name">Shot Blasting Services in ${esc(loc.name)}</span></a></li>`
         ).join('');
-        const countyBodyHtml = `<div id="ssr-county-content" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;" itemscope itemtype="https://schema.org/WebPage"><nav aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><ol><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}/counties"><span itemprop="name">Counties</span></a><meta itemprop="position" content="2"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${pageUrl}"><span itemprop="name">${esc(county.name)}</span></a><meta itemprop="position" content="3"/></li></ol></nav><article><h1>Shot Blasting Services in ${esc(county.name)}</h1><p>${esc(county.description || `Professional mobile shot blasting services across ${county.name}. Our mobile units cover all major towns and cities.`)}</p><section><h2>Areas We Cover in ${esc(county.name)}</h2><ul itemscope itemtype="https://schema.org/ItemList">${locLinksHtml}</ul></section><section><h2>Get a Free Quote for Shot Blasting in ${esc(county.name)}</h2><p>Call <a href="tel:07970566409">07970 566409</a> or email <a href="mailto:info@commercialshotblasting.co.uk">info@commercialshotblasting.co.uk</a>.</p></section></article></div>`;
+        const countyBodyHtml = `<div id="ssr-county-content" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;" itemscope itemtype="https://schema.org/WebPage"><nav aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><ol><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}/counties"><span itemprop="name">Counties</span></a><meta itemprop="position" content="2"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${pageUrl}"><span itemprop="name">${esc(county.name)}</span></a><meta itemprop="position" content="3"/></li></ol></nav><article><h1>Shot Blasting Services ${esc(county.name)} | Commercial Shot Blasting UK</h1><p>Professional mobile shot blasting services across ${esc(county.name)} — structural steelwork, factory cladding, shipping containers, industrial floor preparation, rust and mill scale removal, plant and machinery blasting, fire escapes, and warehouse racking. Our mobile units travel directly to your site across ${esc(county.name)}, delivering results to SA2.5 and SA3 standards for commercial and industrial clients.</p><section><h2>Shot Blasting Services Available in ${esc(county.name)}</h2><ul><li>Structural Steelwork Shot Blasting — beams, columns, trusses and fabrications</li><li>Factory and Warehouse Cladding — plastisol and paint removal</li><li>Container Shot Blasting — shipping containers and steel storage units</li><li>Industrial Floor Preparation — concrete and steel floor surface profiling</li><li>Rust Removal and Mill Scale — deep rust and scale removal to SA2.5/SA3</li><li>Plant and Machinery — industrial equipment, vehicles and pipework</li><li>Fire Escapes and Staircases — structural metalwork restoration</li><li>Warehouse Racking and Mezzanines — industrial storage structure preparation</li></ul></section><section><h2>Shot Blasting Services ${esc(county.name)} — Areas We Cover</h2><ul itemscope itemtype="https://schema.org/ItemList">${locLinksHtml}</ul></section><section><h2>Get a Quote for Shot Blasting Services in ${esc(county.name)}</h2><p>Free, no-obligation quotes for all shot blasting services across ${esc(county.name)}. We typically respond within 24 hours. Call <a href="tel:07970566409">07970 566409</a> or email <a href="mailto:info@commercialshotblasting.co.uk">info@commercialshotblasting.co.uk</a>.</p></section></article></div>`;
         if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
           modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', countyBodyHtml);
         } else {

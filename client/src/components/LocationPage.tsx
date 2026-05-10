@@ -500,6 +500,44 @@ export function LocationPage({ location }: LocationPageProps) {
         </div>
       </section>
 
+      {/* What to Expect Process Section */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <p className="text-[#2C5F7F] font-medium mb-2">Simple & Straightforward</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Shot Blasting Services in {location.name} — What to Expect
+            </h2>
+            <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
+              Our shot blasting services in {location.name} are designed to be hassle-free from first contact to project completion.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="relative flex flex-col items-center text-center p-6 bg-[#f0f6fb] rounded-2xl">
+              <div className="w-14 h-14 rounded-full bg-[#2C5F7F] text-white flex items-center justify-center text-2xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>1</div>
+              <h3 className="text-lg font-bold text-[#2C2C2C] mb-2">Free Site Survey in {location.name}</h3>
+              <p className="text-gray-600 text-sm">
+                We visit your site in {location.name} at no charge, assess the surfaces to be blasted, and provide a detailed, no-obligation quote. We advise on the correct blast standard (SA2.5 or SA3) and any preparation needed.
+              </p>
+            </div>
+            <div className="relative flex flex-col items-center text-center p-6 bg-[#f0f6fb] rounded-2xl">
+              <div className="w-14 h-14 rounded-full bg-[#2C5F7F] text-white flex items-center justify-center text-2xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>2</div>
+              <h3 className="text-lg font-bold text-[#2C2C2C] mb-2">Mobile Unit Arrives On-Site</h3>
+              <p className="text-gray-600 text-sm">
+                Our fully equipped mobile shot blasting unit travels directly to your location in {location.name}. No need to transport your materials — we bring everything needed to carry out the work safely and efficiently on your premises.
+              </p>
+            </div>
+            <div className="relative flex flex-col items-center text-center p-6 bg-[#f0f6fb] rounded-2xl">
+              <div className="w-14 h-14 rounded-full bg-[#2C5F7F] text-white flex items-center justify-center text-2xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>3</div>
+              <h3 className="text-lg font-bold text-[#2C2C2C] mb-2">SA2.5 Finish &amp; Full Cleanup</h3>
+              <p className="text-gray-600 text-sm">
+                We complete the shot blasting to your specified standard — typically SA2.5 near white metal — and carry out a full site cleanup before leaving. Your surfaces are ready for protective coating immediately after our visit.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-br from-[#2C5F7F] to-[#1a3a4d] text-white">
         <div className="container">
