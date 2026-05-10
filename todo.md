@@ -471,3 +471,9 @@
 - [x] Add unique locally-targeted meta descriptions to highest-traffic service-area town pages (Birmingham, Sheffield, Manchester, Leeds, Liverpool, Coventry, Derby, Nottingham, Chester, Bristol, Cardiff, etc.)
 - [x] Add "Counties We Cover" section to all 8 industry pages (IndustryPage.tsx) linking to relevant county pages
 - [x] Add dynamic breadcrumb navigation component to all location pages (LocationPage.tsx) and industry pages (IndustryPage.tsx)
+
+## SEO Round — IndexNow, Remaining Town Meta Desc, County SSR Industries
+
+- [ ] Submit all 8 industry page URLs + 44 updated town URLs to IndexNow (Yandex)
+- [ ] Add unique locally-targeted meta descriptions to remaining ~36 town pages in locationMeta (metaTags.ts)
+- [ ] Add Related Industries section to county SSR body HTML in metaTags.ts (server-side HTML for crawlers)
