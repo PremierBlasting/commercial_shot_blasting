@@ -505,10 +505,10 @@ export function LocationPage({ location }: LocationPageProps) {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Ready to Start Your Project in {location.name}?
+              Get a Quote for Shot Blasting Services in {location.name}
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Get a free, no-obligation quote for your shot blasting project. Call us today or request a quote online.
+              Free, no-obligation quotes for all shot blasting services in {location.name} and across {location.county}. Call us today or request a quote online — we typically respond within 24 hours.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button 

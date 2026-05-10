@@ -344,3 +344,5 @@
 - [x] Replace per-location hardcoded FAQs in SSR body with keyword-rich generated FAQ set (8 questions, all using "shot blasting services [area]" pattern)
 - [x] Improve dynamic fallback meta description for non-predefined locations — added SA2.5/SA3 and cladding restoration
 - [x] Improve generateLocationFAQs() — 8 new questions all using "shot blasting services [area]" keyword pattern, added SA2.5/SA3 standard question
+- [x] Replace CTA section H2 "Ready to Start Your Project in [area]?" with "Get a Quote for Shot Blasting Services in [area]" — keyword-rich heading immediately above the quote CTA buttons
+- [x] Update SSR body CTA section heading to match the new keyword-rich H2

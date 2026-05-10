@@ -2068,8 +2068,8 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
       ${faqHtml}
     </section>
     <section aria-label="Contact">
-      <h2>Ready to Start Your Project in ${escHtml(name)}?</h2>
-      <p>Get a free, no-obligation quote for your shot blasting project. Call us today or request a quote online.</p>
+      <h2>Get a Quote for Shot Blasting Services in ${escHtml(name)}</h2>
+      <p>Free, no-obligation quotes for all shot blasting services in ${escHtml(name)} and across ${escHtml(county)}. Call us today or request a quote online — we typically respond within 24 hours.</p>
       <p>Phone: <a href="tel:${PHONE.replace(/\s/g, "")}">${PHONE}</a></p>
       <p>Email: <a href="mailto:info@commercialshotblasting.co.uk">info@commercialshotblasting.co.uk</a></p>
     </section>
