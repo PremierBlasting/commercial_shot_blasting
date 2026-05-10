@@ -2025,6 +2025,19 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
       <p>${escHtml(w.text)}</p>
     </div>`).join("");
 
+  // Nearby towns from same county (up to 12, excluding current)
+  const nearbyTowns = Object.values(locationData)
+    .filter((l: any) => l.countySlug === countySlug && l.slug !== locationSlug)
+    .slice(0, 12);
+  const nearbyHtml = nearbyTowns.length > 0
+    ? `<section aria-label="Nearby Areas">
+      <h2>Shot Blasting Services Near ${escHtml(name)}</h2>
+      <p>Our mobile shot blasting services cover ${escHtml(name)} and all surrounding towns throughout ${escHtml(county)}.</p>
+      <ul>${nearbyTowns.map((t: any) => `<li><a href="${SITE_URL}/service-areas/${t.slug}">Shot Blasting Services in ${escHtml(t.name)}</a></li>`).join("")}</ul>
+      <p><a href="${SITE_URL}/counties/${countySlug}">View all shot blasting services in ${escHtml(county)}</a></p>
+    </section>`
+    : "";
+
   return `
 <div id="ssr-content" aria-hidden="false" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
   <nav aria-label="Breadcrumb">
@@ -2091,6 +2104,7 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
       <h2>FAQs About Shot Blasting in ${escHtml(name)}</h2>
       ${faqHtml}
     </section>
+    ${nearbyHtml}
     <section aria-label="Contact">
       <h2>Get a Quote for Shot Blasting Services in ${escHtml(name)}</h2>
       <p>Free, no-obligation quotes for all shot blasting services in ${escHtml(name)} and across ${escHtml(county)}. Call us today or request a quote online — we typically respond within 24 hours.</p>

@@ -61,11 +61,11 @@ interface LocationPageProps {
 export function LocationPage({ location }: LocationPageProps) {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
-  // Derive nearby towns from same-county locations (up to 8, excluding current)
+  // Derive nearby towns from same-county locations (up to 12, excluding current)
   const nearbyTowns = useMemo(() => {
     return Object.values(locationData)
       .filter(l => l.countySlug === location.countySlug && l.slug !== location.slug)
-      .slice(0, 8);
+      .slice(0, 12);
   }, [location.countySlug, location.slug]);
 
   // Set SEO metadata with optimized location-specific descriptions
@@ -312,36 +312,36 @@ export function LocationPage({ location }: LocationPageProps) {
       </section>
 
       {/* Nearby Areas Section */}
-      {/* Item 6: Nearby towns as internal anchor links (derived from same county) */}
+      {/* Item 6: Nearby towns as internal card links (derived from same county, up to 12) */}
       {nearbyTowns.length > 0 && (
-        <section className="py-12 bg-gray-50">
+        <section className="py-14 bg-[#f0f6fb]">
           <div className="container">
             <div className="text-center mb-8">
+              <p className="text-[#2C5F7F] font-medium mb-2 uppercase tracking-wide text-sm">Local Coverage</p>
               <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Shot Blasting Services Near {location.name}
               </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Our mobile shot blasting service covers {location.name} and all surrounding towns throughout {location.county}. Click any location below for local information.
+              <p className="text-gray-600 max-w-2xl mx-auto text-sm">
+                We provide mobile shot blasting services across {location.name} and all surrounding towns throughout {location.county}. Select a nearby area for local service information.
               </p>
             </div>
-            <div className="bg-white rounded-xl p-6 max-w-4xl mx-auto">
-              <div className="flex flex-wrap gap-2 justify-center">
-                {nearbyTowns.map((town) => (
-                  <Link
-                    key={town.slug}
-                    href={`/service-areas/${town.slug}`}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 rounded-full text-sm text-[#2C5F7F] font-medium border border-gray-200 hover:bg-[#2C5F7F] hover:text-white hover:border-[#2C5F7F] transition-colors"
-                  >
-                    <MapPin className="w-3 h-3" />
-                    {town.name}
-                  </Link>
-                ))}
-              </div>
-              <div className="text-center mt-4">
-                <Link href={`/counties/${location.countySlug}`} className="text-sm text-[#2C5F7F] font-medium hover:underline">
-                  View all {location.county} service areas →
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+              {nearbyTowns.map((town) => (
+                <Link
+                  key={town.slug}
+                  href={`/service-areas/${town.slug}`}
+                  className="flex items-center justify-center text-center bg-white rounded-lg px-3 py-4 text-sm font-medium text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white transition-colors duration-200 shadow-sm hover:shadow-md gap-1.5"
+                >
+                  <MapPin className="w-3 h-3 flex-shrink-0" />
+                  <span>Shot Blasting {town.name}</span>
                 </Link>
-              </div>
+              ))}
+            </div>
+            <div className="text-center mt-6">
+              <Link href={`/counties/${location.countySlug}`} className="inline-flex items-center gap-2 text-[#2C5F7F] hover:text-[#1a3d52] font-semibold text-sm">
+                View all shot blasting services in {location.county}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </section>

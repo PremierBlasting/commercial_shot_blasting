@@ -387,3 +387,10 @@
 
 - [x] Add 12-service Related Services linking grid to LocationPage.tsx
 - [x] Add Related Services linking section to location SSR body HTML in metaTags.ts
+
+## SEO Round — County 12-Tile Grid & Location Near-Me Block
+
+- [x] Upgrade county page Related Services section to 12-tile grid in CountyPage.tsx (already in place from previous session)
+- [x] Upgrade county page Related Services section in county SSR body HTML (already in place from previous session)
+- [x] Add "Shot Blasting Services Near [area]" related locations block to LocationPage.tsx — upgraded from pill links to card tiles, 8→12 towns, keyword-rich anchor text
+- [x] Add related locations block to location SSR body HTML in metaTags.ts — dynamic 12-town list with keyword-rich anchor text
