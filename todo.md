@@ -474,6 +474,12 @@
 
 ## SEO Round — IndexNow, Remaining Town Meta Desc, County SSR Industries
 
-- [ ] Submit all 8 industry page URLs + 44 updated town URLs to IndexNow (Yandex)
-- [ ] Add unique locally-targeted meta descriptions to remaining ~36 town pages in locationMeta (metaTags.ts)
-- [ ] Add Related Industries section to county SSR body HTML in metaTags.ts (server-side HTML for crawlers)
+- [x] Submit all 8 industry page URLs + 44 updated town URLs to IndexNow (Yandex)
+- [x] Add unique locally-targeted meta descriptions to remaining ~36 town pages in locationMeta (metaTags.ts) — expanded to 89 entries
+- [x] Add Related Industries section to county SSR body HTML in metaTags.ts (server-side HTML for crawlers)
+
+## SEO Round — IndexNow (45 new towns), Batch Meta Desc, JSON-LD ItemList
+
+- [x] Submit 45 newly added town URLs to IndexNow (Barnsley, Bradford, Doncaster, Wakefield, Huddersfield, York, Harrogate, Salford, Stockport, Bolton, Rochdale, Oldham, Walsall, West Bromwich, Solihull, Sutton Coldfield, Dudley, Loughborough, Mansfield, Tamworth, Burton-on-Trent, Stafford, Telford, Luton, Stevenage, Watford, Southend-on-Sea, Bath, Exeter, Yeovil, Swansea, Newport, Merthyr Tydfil, Warrington, Runcorn, Widnes, Rotherham, Shrewsbury, Hereford, Gloucester, Worcester, Northampton, Lincoln, Cambridge, Norwich)
+- [x] Batch-generate unique meta descriptions for all remaining ~550 smaller towns using LLM and add to locationMeta in metaTags.ts — 650 total entries now (569 new added)
+- [x] Add JSON-LD ItemList schema to all 8 industry pages listing the counties served by each industry
