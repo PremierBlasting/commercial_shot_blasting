@@ -2156,6 +2156,15 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:image" content="${LOGO}" />
     <meta name="twitter:image:alt" content="Shot blasting services UK — 18 commercial and industrial services by Commercial Shot Blasting" />
     ${generateServicesIndexSchemas()}
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What shot blasting services do you offer?","acceptedAnswer":{"@type":"Answer","text":"We offer 18 specialist shot blasting services including structural steel frames, factory and warehouse cladding, steel containers, floor preparation, fire escapes, staircases, bridge steelwork, warehouse racking, process pipework, telecom masts, commercial radiators, commercial vehicles, steel doors, steel sheeting, steel gates, plant and machinery, and combined shot blasting and powder coating."}},
+      {"@type":"Question","name":"Do you offer shot blasting services across the whole of the UK?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our mobile shot blasting services cover England and Wales. We travel directly to your site, so there is no need to transport your materials. We regularly work across the Midlands, North West, Yorkshire, South East, South West, and Wales."}},
+      {"@type":"Question","name":"What blast standard do your shot blasting services achieve?","acceptedAnswer":{"@type":"Answer","text":"All our shot blasting services are carried out to SA2.5 near white metal or SA3 white metal as specified. These are internationally recognised standards (ISO 8501-1) that define the cleanliness of the blasted surface and are required by most protective coating manufacturers."}},
+      {"@type":"Question","name":"How much do shot blasting services cost?","acceptedAnswer":{"@type":"Answer","text":"The cost of shot blasting services depends on the surface area, material type, blast standard required, and site location. We provide free, no-obligation quotes for all projects. Call 07970 566409 or use our online quote form to get a price."}},
+      {"@type":"Question","name":"How quickly can you carry out shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"We aim to respond to all enquiries within 24 hours and can typically schedule a site visit within a few days. For urgent projects, call us directly on 07970 566409 to discuss availability."}}
+    ]}
+    </script>
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
     return modifiedHtml;

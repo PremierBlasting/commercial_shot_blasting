@@ -357,3 +357,8 @@
 - [x] Fully SEO-optimise /services index page H1, intro copy, and body for "Shot Blasting Services UK"
 - [x] Update /services SSR meta title and description for "Shot Blasting Services UK"
 - [x] Add keyword-rich FAQ section to /services index page
+
+## SEO Round — FAQPage Schema & SSR Process Section
+
+- [x] Add FAQPage JSON-LD schema to /services SSR meta tags in metaTags.ts
+- [x] Add 3-step process section to SSR body HTML of all location pages in metaTags.ts (already present from previous session)
