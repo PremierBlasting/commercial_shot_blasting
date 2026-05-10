@@ -2061,8 +2061,22 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
     </section>
     <section aria-label="Services">
       <h2>Shot Blasting Services Available in ${escHtml(name)}</h2>
-      <p>We offer the full range of commercial shot blasting services in ${escHtml(name)}, delivered on-site by our mobile units throughout ${escHtml(county)}:</p>
-      <ul>${servicesHtml}</ul>
+      <p>We offer the full range of commercial and industrial shot blasting services in ${escHtml(name)}, delivered on-site by our mobile units throughout ${escHtml(county)}:</p>
+      <ul>
+        <li><a href="${SITE_URL}/services/structural-steel-shot-blasting">Structural Steel Shot Blasting in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/container-shot-blasting">Container Shot Blasting in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/factory-cladding-shot-blasting">Factory Cladding Shot Blasting in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/floor-shot-blasting">Industrial Floor Preparation in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/fire-escape-shot-blasting">Fire Escape Shot Blasting in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/pipework-shot-blasting">Pipework &amp; Steelwork Blasting in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/agricultural-shot-blasting">Agricultural Equipment Blasting in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/telecom-tower-shot-blasting">Telecom Tower Shot Blasting in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/machinery-shot-blasting">Plant &amp; Machinery Blasting in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/racking-shot-blasting">Warehouse Racking Blasting in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/marine-shot-blasting">Marine &amp; Offshore Blasting in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/heritage-shot-blasting">Heritage &amp; Restoration Blasting in ${escHtml(name)}</a></li>
+      </ul>
+      <p><a href="${SITE_URL}/services">View all 18 shot blasting services</a></p>
     </section>
     <section aria-label="What to Expect">
       <h2>Shot Blasting Services in ${escHtml(name)} — What to Expect</h2>

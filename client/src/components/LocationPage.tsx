@@ -441,43 +441,46 @@ export function LocationPage({ location }: LocationPageProps) {
       </section>
 
       {/* Related Services Section */}
-      <section className="py-14 bg-white">
+      <section className="py-14 bg-[#f0f6fb]">
         <div className="container">
           <div className="text-center mb-8">
-            <p className="text-[#2C5F7F] font-medium mb-2">What We Offer</p>
+            <p className="text-[#2C5F7F] font-medium mb-2">Our Services</p>
             <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Our Shot Blasting Services in {location.name}
+              Shot Blasting Services Available in {location.name}
             </h2>
+            <p className="text-gray-600 max-w-xl mx-auto mt-2 text-sm">
+              We offer the full range of commercial and industrial shot blasting services across {location.name} and {location.county}.
+            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            {services.slice(0, 8).map((s) => (
-              <Link
-                key={s.id}
-                href={`/services/${s.id}`}
-                className="group flex gap-3 bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-shadow border border-gray-100"
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            {[
+              { slug: "structural-steel-shot-blasting", label: "Structural Steel" },
+              { slug: "container-shot-blasting", label: "Container Blasting" },
+              { slug: "factory-cladding-shot-blasting", label: "Factory Cladding" },
+              { slug: "floor-shot-blasting", label: "Floor Preparation" },
+              { slug: "fire-escape-shot-blasting", label: "Fire Escapes" },
+              { slug: "pipework-shot-blasting", label: "Pipework & Steel" },
+              { slug: "agricultural-shot-blasting", label: "Agricultural" },
+              { slug: "telecom-tower-shot-blasting", label: "Telecom Towers" },
+              { slug: "machinery-shot-blasting", label: "Plant & Machinery" },
+              { slug: "racking-shot-blasting", label: "Warehouse Racking" },
+              { slug: "marine-shot-blasting", label: "Marine & Offshore" },
+              { slug: "heritage-shot-blasting", label: "Heritage & Restoration" },
+            ].map((svc) => (
+              <a
+                key={svc.slug}
+                href={`/services/${svc.slug}`}
+                className="flex items-center justify-center text-center bg-white rounded-lg px-3 py-4 text-sm font-medium text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white transition-colors duration-200 shadow-sm hover:shadow-md"
               >
-                <div className="w-16 flex-shrink-0 overflow-hidden">
-                  <img
-                    src={s.heroImage}
-                    alt={s.title}
-                    width="64"
-                    height="64"
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="flex flex-col justify-center py-3 pr-3 min-w-0">
-                  <span className="font-semibold text-[#2C5F7F] text-sm leading-tight group-hover:underline">{s.shortTitle}</span>
-                  <span className="text-xs text-gray-500 mt-0.5 line-clamp-2">{s.tagline.split(' ').slice(0, 5).join(' ')}…</span>
-                </div>
-              </Link>
+                {svc.label}
+              </a>
             ))}
           </div>
           <div className="text-center mt-6">
-            <Link href="/services" className="inline-flex items-center gap-2 text-sm text-[#2C5F7F] font-medium hover:underline">
+            <a href="/services" className="inline-flex items-center gap-2 text-[#2C5F7F] hover:text-[#1a3d52] font-semibold text-sm">
+              View All 18 Shot Blasting Services
               <ArrowRight className="w-4 h-4" />
-              View all 18 services
-            </Link>
+            </a>
           </div>
         </div>
       </section>

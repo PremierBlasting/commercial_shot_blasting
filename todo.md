@@ -382,3 +382,8 @@
 - [x] Add Related Services block to county SSR body HTML in metaTags.ts
 - [x] Add Why Choose Us trust bar to LocationPage.tsx — upgraded H2, 4-item trust bar, keyword-rich card copy
 - [x] Add Why Choose Us trust bar to location SSR body HTML in metaTags.ts
+
+## SEO Round — Location Page Related Services Grid
+
+- [x] Add 12-service Related Services linking grid to LocationPage.tsx
+- [x] Add Related Services linking section to location SSR body HTML in metaTags.ts
