@@ -362,3 +362,9 @@
 
 - [x] Add FAQPage JSON-LD schema to /services SSR meta tags in metaTags.ts
 - [x] Add 3-step process section to SSR body HTML of all location pages in metaTags.ts (already present from previous session)
+
+## SEO Round — County Page FAQPage Schema & Process Section
+
+- [x] Add FAQPage JSON-LD schema to county page SSR meta tags in metaTags.ts (already present — dynamically generated from county.faqs)
+- [x] Add 3-step "Shot Blasting Services [county] — What to Expect" process section to CountyPage.tsx
+- [x] Add 3-step process section to county page SSR body HTML in metaTags.ts

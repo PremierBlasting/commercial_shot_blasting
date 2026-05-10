@@ -608,6 +608,46 @@ export function CountyPage({ county }: CountyPageProps) {
         </div>
       </section>
 
+      {/* What to Expect Process Section */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <div className="text-center mb-10">
+            <p className="text-[#2C5F7F] font-medium mb-2">How It Works</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Shot Blasting Services {county.name} — What to Expect
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto mt-3">
+              Our shot blasting services in {county.name} are designed to be hassle-free from first contact to project completion.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                step: "01",
+                title: `Free Site Survey in ${county.name}`,
+                body: `We visit your site in ${county.name} at no charge, assess the surfaces to be blasted, and provide a detailed no-obligation quote. We advise on the correct blast standard (SA2.5 or SA3) and any preparation required.`,
+              },
+              {
+                step: "02",
+                title: "Mobile Unit Arrives On-Site",
+                body: `Our fully equipped mobile shot blasting unit travels directly to your location in ${county.name}. No need to transport your materials — we bring everything needed to carry out the work safely and efficiently on your premises.`,
+              },
+              {
+                step: "03",
+                title: "SA2.5 Finish & Full Cleanup",
+                body: `We complete the shot blasting to your specified standard — typically SA2.5 near white metal — and carry out a full site cleanup before leaving. Your surfaces are ready for protective coating immediately after our visit.`,
+              },
+            ].map((item) => (
+              <div key={item.step} className="relative bg-[#f0f6fb] rounded-2xl p-6">
+                <span className="absolute -top-4 left-6 text-5xl font-black text-[#2C5F7F]/10 select-none">{item.step}</span>
+                <h3 className="font-bold text-[#2C2C2C] text-lg mb-3 mt-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Recent Projects Gallery */}
       <section className="py-16 bg-white">
         <div className="container">
