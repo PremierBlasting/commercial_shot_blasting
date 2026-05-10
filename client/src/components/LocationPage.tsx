@@ -175,14 +175,29 @@ export function LocationPage({ location }: LocationPageProps) {
       {/* Why Choose Us Section */}
       <section className="py-16 bg-gray-50">
         <div className="container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-10">
             <p className="text-[#2C5F7F] font-medium mb-2">Your Local Choice</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Why Choose Us in {location.name}
+              Why Choose Our Shot Blasting Services in {location.name}?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Professional shot blasting services delivered with expertise and reliability
+              We are the specialist choice for commercial and industrial shot blasting services in {location.name} — mobile, SA2.5/SA3 certified, and free to quote.
             </p>
+          </div>
+
+          {/* Trust bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            {[
+              { value: "18", label: "Shot Blasting Services" },
+              { value: "SA2.5", label: "Guaranteed Blast Standard" },
+              { value: "UK-Wide", label: "Mobile Coverage" },
+              { value: "Free", label: "Site Surveys & Quotes" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center bg-white rounded-xl py-5 px-3 shadow-sm">
+                <div className="text-2xl font-black text-[#2C5F7F] mb-1">{stat.value}</div>
+                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+              </div>
+            ))}
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -190,9 +205,9 @@ export function LocationPage({ location }: LocationPageProps) {
               <div className="w-12 h-12 bg-[#2C5F7F]/10 rounded-lg flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-[#2C5F7F]" />
               </div>
-              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">Mobile Service</h3>
+              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">Mobile Shot Blasting in {location.name}</h3>
               <p className="text-gray-600">
-                We bring our fully equipped mobile units directly to your location in {location.name}, saving you time and transportation costs.
+                Our fully equipped mobile units travel directly to your site in {location.name}. No need to transport materials — we bring everything needed to complete the job on your premises.
               </p>
             </div>
 
@@ -200,9 +215,9 @@ export function LocationPage({ location }: LocationPageProps) {
               <div className="w-12 h-12 bg-[#2C5F7F]/10 rounded-lg flex items-center justify-center mb-4">
                 <Award className="w-6 h-6 text-[#2C5F7F]" />
               </div>
-              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">Expert Team</h3>
+              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">SA2.5 &amp; SA3 Certified Results</h3>
               <p className="text-gray-600">
-                Our experienced operators deliver consistent, high-quality results on every project across {location.county}.
+                All shot blasting services in {location.name} are completed to SA2.5 near white metal or SA3 white metal standard — the correct surface profile for long-lasting protective coatings.
               </p>
             </div>
 
@@ -210,9 +225,9 @@ export function LocationPage({ location }: LocationPageProps) {
               <div className="w-12 h-12 bg-[#2C5F7F]/10 rounded-lg flex items-center justify-center mb-4">
                 <Building2 className="w-6 h-6 text-[#2C5F7F]" />
               </div>
-              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">Commercial Focus</h3>
+              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">18 Shot Blasting Services Available</h3>
               <p className="text-gray-600">
-                Specializing in commercial and industrial applications, we understand the demands of business operations in {location.name}.
+                From structural steelwork and factory cladding to containers, floor preparation, and plant &amp; machinery — we offer the full range of commercial shot blasting services in {location.name}.
               </p>
             </div>
 
@@ -220,9 +235,9 @@ export function LocationPage({ location }: LocationPageProps) {
               <div className="w-12 h-12 bg-[#2C5F7F]/10 rounded-lg flex items-center justify-center mb-4">
                 <CheckCircle className="w-6 h-6 text-[#2C5F7F]" />
               </div>
-              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">Fast Response</h3>
+              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">24-Hour Response in {location.name}</h3>
               <p className="text-gray-600">
-                Quick response times and flexible scheduling to meet your project deadlines in {location.name} and surrounding areas.
+                We typically respond to quote requests within 24 hours and can schedule a free site survey at your convenience anywhere in {location.name}.
               </p>
             </div>
 

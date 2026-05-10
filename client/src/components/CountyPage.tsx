@@ -757,6 +757,51 @@ export function CountyPage({ county }: CountyPageProps) {
         </div>
       </section>
 
+      {/* Related Services */}
+      <section className="py-14 bg-[#f0f6fb]">
+        <div className="container">
+          <div className="text-center mb-8">
+            <p className="text-[#2C5F7F] font-medium mb-2">Our Services</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Shot Blasting Services Available in {county.name}
+            </h2>
+            <p className="text-gray-600 max-w-xl mx-auto mt-2 text-sm">
+              We offer the full range of commercial and industrial shot blasting services across {county.name}.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            {[
+              { slug: "structural-steel-shot-blasting", label: "Structural Steel" },
+              { slug: "container-shot-blasting", label: "Container Blasting" },
+              { slug: "factory-cladding-shot-blasting", label: "Factory Cladding" },
+              { slug: "floor-shot-blasting", label: "Floor Preparation" },
+              { slug: "fire-escape-shot-blasting", label: "Fire Escapes" },
+              { slug: "pipework-shot-blasting", label: "Pipework & Steel" },
+              { slug: "agricultural-shot-blasting", label: "Agricultural" },
+              { slug: "telecom-tower-shot-blasting", label: "Telecom Towers" },
+              { slug: "machinery-shot-blasting", label: "Plant & Machinery" },
+              { slug: "racking-shot-blasting", label: "Warehouse Racking" },
+              { slug: "marine-shot-blasting", label: "Marine & Offshore" },
+              { slug: "heritage-shot-blasting", label: "Heritage & Restoration" },
+            ].map((svc) => (
+              <a
+                key={svc.slug}
+                href={`/services/${svc.slug}`}
+                className="flex items-center justify-center text-center bg-white rounded-lg px-3 py-4 text-sm font-medium text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white transition-colors duration-200 shadow-sm hover:shadow-md"
+              >
+                {svc.label}
+              </a>
+            ))}
+          </div>
+          <div className="text-center mt-6">
+            <a href="/services" className="inline-flex items-center gap-2 text-[#2C5F7F] hover:text-[#1a3d52] font-semibold text-sm">
+              View All 18 Shot Blasting Services
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Browse Other Counties */}
       <section className="py-12 bg-gray-50">
         <div className="container">

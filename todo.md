@@ -375,3 +375,10 @@
 - [x] Add "Why Choose Us" trust section to CountyPage.tsx — upgraded with keyword-rich H2, trust bar metrics, and county-specific copy
 - [x] Add "Why Choose Us" trust section to county SSR body HTML in metaTags.ts
 - [x] Review individual service pages for 3-step process section — already present (Our Process section with numbered steps from service.process data)
+
+## SEO Round — Related Services Block & Location Trust Bar
+
+- [x] Add Related Services internal linking block to CountyPage.tsx
+- [x] Add Related Services block to county SSR body HTML in metaTags.ts
+- [x] Add Why Choose Us trust bar to LocationPage.tsx — upgraded H2, 4-item trust bar, keyword-rich card copy
+- [x] Add Why Choose Us trust bar to location SSR body HTML in metaTags.ts
