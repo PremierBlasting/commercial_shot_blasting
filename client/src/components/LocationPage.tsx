@@ -15,6 +15,7 @@ import { ServiceRadiusMap } from "@/components/ServiceRadiusMap";
 import { trackPhoneCall } from "@/lib/analytics";
 import { FAQSchema, generateLocationFAQs } from "@/components/FAQSchema";
 import { LocationData, locationData } from '@shared/locationData';
+import { countyData } from '@/data/countyData';
 import { services } from '@/data/services';
 import { trpc } from "@/lib/trpc";
 export type { LocationData };
@@ -504,38 +505,85 @@ export function LocationPage({ location }: LocationPageProps) {
         </div>
       </section>
 
-      {/* Item 9: Industries We Serve section */}
-      <section className="py-14 bg-gray-50">
-        <div className="container">
-          <div className="text-center mb-8">
-            <p className="text-[#2C5F7F] font-medium mb-2">Sectors We Cover</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Industries We Serve in {location.name}
-            </h2>
-            <p className="text-gray-600 mt-2 max-w-xl mx-auto text-sm">
-              Our shot blasting services are trusted across a wide range of sectors throughout {location.county}.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
-            {INDUSTRIES.map((ind) => (
-              <Link
-                key={ind.slug}
-                href={`/industries/${ind.slug}`}
-                className="group flex flex-col items-center gap-2 bg-white rounded-lg p-4 border border-gray-100 hover:border-[#2C5F7F] hover:shadow-sm transition-all text-center"
-              >
-                <Factory className="w-5 h-5 text-[#2C5F7F] group-hover:scale-110 transition-transform" />
-                <span className="text-xs font-semibold text-[#2C2C2C] leading-tight">{ind.name}</span>
-              </Link>
-            ))}
-          </div>
-          <div className="text-center mt-6">
-            <Link href="/industries" className="inline-flex items-center gap-2 text-sm text-[#2C5F7F] font-medium hover:underline">
-              <ArrowRight className="w-4 h-4" />
-              View all industries
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Related Industries — county-specific 3-card section */}
+      {(() => {
+        const industryRouteMap: Record<string, { slug: string; label: string; desc: string }> = {
+          "Manufacturing": { slug: "manufacturing", label: "Manufacturing", desc: "Surface preparation for fabricated components, plant, and production equipment." },
+          "Construction": { slug: "construction", label: "Construction", desc: "Structural steel, cladding, and civil engineering surface preparation." },
+          "CommercialConstruction": { slug: "construction", label: "Construction", desc: "Structural steel, cladding, and civil engineering surface preparation." },
+          "Aerospace": { slug: "aerospace", label: "Aerospace & Defence", desc: "Precision blasting for aerospace components and defence structures." },
+          "Aerospace&Defence": { slug: "aerospace", label: "Aerospace & Defence", desc: "Precision blasting for aerospace components and defence structures." },
+          "Defense": { slug: "aerospace", label: "Aerospace & Defence", desc: "Precision blasting for aerospace components and defence structures." },
+          "Marine": { slug: "marine", label: "Marine & Offshore", desc: "Shipyard, port, and offshore structure blasting to marine standards." },
+          "Marine&Shipbuilding": { slug: "marine", label: "Marine & Offshore", desc: "Shipyard, port, and offshore structure blasting to marine standards." },
+          "Shipbuilding&Marine": { slug: "marine", label: "Marine & Offshore", desc: "Shipyard, port, and offshore structure blasting to marine standards." },
+          "Agriculture": { slug: "agriculture", label: "Agriculture", desc: "Farm machinery, grain stores, and agricultural equipment blasting." },
+          "Retail": { slug: "retail", label: "Retail & Commercial", desc: "Shop fronts, mezzanine floors, and commercial property surface prep." },
+          "Heritage&Restoration": { slug: "heritage-restoration", label: "Heritage & Restoration", desc: "Gentle blasting for listed buildings, ironwork, and heritage structures." },
+          "Logistics": { slug: "transport-logistics", label: "Transport & Logistics", desc: "Fleet vehicles, trailers, and logistics infrastructure blasting." },
+          "Automotive": { slug: "transport-logistics", label: "Transport & Logistics", desc: "Fleet vehicles, trailers, and logistics infrastructure blasting." },
+          "Energy": { slug: "construction", label: "Energy & Infrastructure", desc: "Pipework, towers, and energy infrastructure surface preparation." },
+          "Nuclear&Energy": { slug: "construction", label: "Energy & Infrastructure", desc: "Pipework, towers, and energy infrastructure surface preparation." },
+          "Steel": { slug: "manufacturing", label: "Steel & Fabrication", desc: "Mill scale removal and surface prep for steel fabricators and stockholders." },
+          "Ceramics": { slug: "manufacturing", label: "Ceramics & Potteries", desc: "Industrial kiln furniture, plant, and ceramics facility surface prep." },
+          "Engineering": { slug: "manufacturing", label: "Engineering", desc: "Precision surface preparation for engineering components and structures." },
+          "Technology": { slug: "manufacturing", label: "Technology & Engineering", desc: "Surface preparation for high-tech manufacturing facilities and equipment." },
+          "Pharmaceuticals": { slug: "manufacturing", label: "Pharmaceuticals", desc: "Clean surface preparation for pharmaceutical plant and equipment." },
+          "Nuclear": { slug: "construction", label: "Nuclear & Energy", desc: "Specialist surface preparation for nuclear and energy infrastructure." },
+          "Ceramics&Potteries": { slug: "manufacturing", label: "Ceramics & Potteries", desc: "Industrial kiln furniture, plant, and ceramics facility surface prep." },
+          "Shipbuilding": { slug: "marine", label: "Marine & Offshore", desc: "Shipyard, port, and offshore structure blasting to marine standards." },
+          "Heritage": { slug: "heritage-restoration", label: "Heritage & Restoration", desc: "Gentle blasting for listed buildings, ironwork, and heritage structures." },
+        };
+        const county = countyData[location.countySlug];
+        const countyIndustries = county?.industries ?? [];
+        const industryCards = countyIndustries
+          .map((ind) => industryRouteMap[ind.replace(/\s/g, "")])
+          .filter(Boolean)
+          .filter((v, i, arr) => arr.findIndex((x) => x.slug === v.slug) === i)
+          .slice(0, 3);
+        // Fallback to generic top-3 if county has no matching industries
+        const fallbackCards = [
+          { slug: "manufacturing", label: "Manufacturing", desc: "Surface preparation for fabricated components, plant, and production equipment." },
+          { slug: "construction", label: "Construction", desc: "Structural steel, cladding, and civil engineering surface preparation." },
+          { slug: "transport-logistics", label: "Transport & Logistics", desc: "Fleet vehicles, trailers, and logistics infrastructure blasting." },
+        ];
+        const cards = industryCards.length >= 2 ? industryCards : fallbackCards;
+        return (
+          <section className="py-12 bg-gray-50">
+            <div className="container">
+              <div className="text-center mb-6">
+                <p className="text-[#2C5F7F] font-medium mb-1 uppercase tracking-wide text-sm">Sectors We Cover</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Industries We Serve in {location.name}
+                </h2>
+                <p className="text-gray-500 text-sm mt-2">
+                  Shot blasting expertise across {location.county}'s key industrial sectors
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                {cards.map(({ slug, label, desc }) => (
+                  <Link key={slug} href={`/industries/${slug}`}>
+                    <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md hover:border-[#2C5F7F]/30 transition-all duration-200 cursor-pointer group h-full flex flex-col gap-2">
+                      <Factory className="w-5 h-5 text-[#2C5F7F] mb-1" />
+                      <h3 className="font-semibold text-[#2C2C2C] group-hover:text-[#2C5F7F] transition-colors text-sm">{label}</h3>
+                      <p className="text-xs text-gray-500 leading-relaxed flex-1">{desc}</p>
+                      <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#2C5F7F] mt-1">
+                        View industry <ArrowRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+              <div className="text-center mt-5">
+                <Link href="/industries" className="inline-flex items-center gap-2 text-sm text-[#2C5F7F] font-medium hover:underline">
+                  <ArrowRight className="w-4 h-4" />
+                  View all industries we serve
+                </Link>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* What to Expect Process Section */}
       <section className="py-16 bg-white">

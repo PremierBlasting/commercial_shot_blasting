@@ -457,11 +457,11 @@
 
 ## SEO Round — Location Industries & County Meta Descriptions
 
-- [ ] Add compact 3-card Related Industries section to LocationPage.tsx (using parent county's industries field)
-- [ ] Add unique locally-targeted meta descriptions to all 25 counties in countyData.ts and wire into SSR meta tags
+- [x] Add compact 3-card Related Industries section to LocationPage.tsx (using parent county's industries field)
+- [x] Add unique locally-targeted meta descriptions to all 25 counties in countyData.ts and wire into SSR meta tags
 
 ## Bug Fixes — Service Area 404s & Missing Maps
 
-- [ ] Fix Durham 404 — add Durham city to locationData.ts with coordinates, county, FAQs
-- [ ] Fix missing maps on 72 ServiceArea pages — add coordinates to LocationMap.tsx + add LocationMap component to all 72 pages
-- [ ] Note: Birmingham JS chunk error is a stale deployment cache issue — will be resolved by next publish
+- [x] Fix Durham 404 — add Durham city to locationData.ts with coordinates, county, FAQs
+- [x] Fix missing maps on 72 ServiceArea pages — add coordinates to LocationMap.tsx + add LocationMap component to all 72 pages
+- [x] Note: Birmingham JS chunk error is a stale deployment cache issue — will be resolved by next publish

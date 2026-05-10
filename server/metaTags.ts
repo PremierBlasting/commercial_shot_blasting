@@ -2465,7 +2465,7 @@ export function injectMetaTags(html: string, url: string): string {
     if (county) {
       const pageUrl = `${SITE_URL}/counties/${countySlug}`;
       const pageTitle = `Shot Blasting Services ${county.name} | Commercial Shot Blasting UK`;
-      const metaDesc = `Professional mobile shot blasting services across ${county.name} — structural steelwork, factory cladding, containers, floor preparation, rust removal & more. SA2.5/SA3 standard. Free quote. Call ${PHONE}`;
+      const metaDesc = county.metaDescription || `Professional mobile shot blasting services across ${county.name} — structural steelwork, factory cladding, containers, floor preparation, rust removal & more. SA2.5/SA3 standard. Free quote. Call ${PHONE}`;
 
       let modifiedHtml = html
         .replace(/<meta\s+name="description"[^>]*>/gi, '')
