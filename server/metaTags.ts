@@ -2483,6 +2483,58 @@ export function injectMetaTags(html: string, url: string): string {
   }
 
   // ── Industry pages: /industries/:slug ──────────────────────────────────────
+  // Industry-specific FAQ sets for FAQPage JSON-LD rich snippets
+  const industryFAQs: Record<string, Array<{ q: string; a: string }>> = {
+    'aerospace': [
+      { q: 'What shot blasting services do you offer for the aerospace industry?', a: 'We provide precision shot blasting services for aerospace components including structural frames, engine housings, landing gear, and ground support equipment. All work is carried out to the required surface cleanliness standard.' },
+      { q: 'Do you meet aerospace surface preparation standards?', a: 'Yes — we achieve SA2.5 and SA3 surface cleanliness standards and can provide documentation and certification as required for aerospace applications.' },
+      { q: 'Can you carry out shot blasting on-site at aerospace facilities?', a: 'Yes — our mobile shot blasting units travel directly to your facility anywhere in the UK, eliminating the need to transport components off-site.' },
+      { q: 'How do I get a quote for aerospace shot blasting services?', a: 'Call us on 07970 566409 or use our online quote form. We offer free site surveys and no-obligation quotes for all aerospace shot blasting projects.' },
+    ],
+    'agriculture': [
+      { q: 'What agricultural equipment can you shot blast?', a: 'We shot blast tractors, combine harvesters, ploughs, trailers, grain dryers, irrigation equipment, and all types of farm machinery and implements.' },
+      { q: 'Do you offer mobile shot blasting for agricultural equipment?', a: 'Yes — our mobile units travel directly to your farm or agricultural site anywhere in the UK, so you do not need to transport heavy machinery.' },
+      { q: 'What surface standard do you achieve for agricultural shot blasting?', a: 'We typically achieve SA2.5 near white metal, which provides the correct surface profile for protective coatings that extend the life of agricultural equipment.' },
+      { q: 'How much does agricultural shot blasting cost?', a: 'Pricing depends on the size and condition of the equipment. We offer free, no-obligation quotes — call 07970 566409 or request a quote online.' },
+    ],
+    'construction': [
+      { q: 'What construction steelwork can you shot blast?', a: 'We shot blast structural steel beams, columns, RSJs, fabricated frames, staircases, fire escapes, mezzanine floors, and all types of structural metalwork for the construction industry.' },
+      { q: 'Do you carry out shot blasting on construction sites?', a: 'Yes — our mobile shot blasting units travel directly to construction sites across the UK, completing work on-site without the need to transport steelwork.' },
+      { q: 'What surface preparation standard do you achieve for structural steel?', a: 'We achieve SA2.5 (near white metal) and SA3 (white metal) standards, which are the correct preparation levels for structural steel before protective coating application.' },
+      { q: 'How do I get a quote for construction shot blasting services?', a: 'Call 07970 566409 or use our online quote form. We offer free site surveys and typically respond to quote requests within 24 hours.' },
+    ],
+    'heritage-restoration': [
+      { q: 'Can you shot blast historic or listed metalwork?', a: 'Yes — we have extensive experience with heritage and restoration projects, including listed buildings, historic bridges, ornamental ironwork, and period architectural metalwork. We use appropriate blast media and pressures to preserve detail.' },
+      { q: 'What blast media do you use for heritage restoration?', a: 'We select blast media appropriate to the substrate and level of detail required — including fine glass bead and low-pressure techniques for delicate heritage metalwork.' },
+      { q: 'Do you work with conservation architects and heritage contractors?', a: 'Yes — we regularly work alongside conservation architects, heritage contractors, and local authorities on restoration projects across the UK.' },
+      { q: 'How do I get a quote for heritage shot blasting?', a: 'Call 07970 566409 or use our online quote form. We offer free site surveys and no-obligation quotes for all heritage and restoration projects.' },
+    ],
+    'manufacturing': [
+      { q: 'What manufacturing equipment can you shot blast?', a: 'We shot blast production machinery, CNC equipment, press tools, conveyor systems, warehouse racking, mezzanine floors, and all types of manufacturing plant and equipment.' },
+      { q: 'Can you carry out shot blasting inside our manufacturing facility?', a: 'Yes — our mobile units can operate within factory and warehouse environments, subject to site access and safety requirements. We carry out full containment and cleanup.' },
+      { q: 'What surface preparation standard do you achieve for manufacturing equipment?', a: 'We achieve SA2.5 near white metal as standard, providing the correct surface profile for industrial protective coatings on manufacturing equipment.' },
+      { q: 'How do I get a quote for manufacturing shot blasting services?', a: 'Call 07970 566409 or use our online quote form. We offer free site surveys and typically respond within 24 hours.' },
+    ],
+    'marine': [
+      { q: 'What marine structures can you shot blast?', a: 'We shot blast vessel hulls, offshore platforms, marine pipework, dock gates, pontoons, jetty structures, and all types of marine and offshore metalwork.' },
+      { q: 'Do you achieve the correct surface standard for marine coatings?', a: 'Yes — we achieve SA2.5 and SA3 surface cleanliness standards, which are required for marine-grade protective coating systems in salt water environments.' },
+      { q: 'Can you carry out shot blasting at ports and dockyards?', a: 'Yes — our mobile units travel to ports, dockyards, and offshore facilities across the UK. We carry out full containment to prevent blast media entering waterways.' },
+      { q: 'How do I get a quote for marine shot blasting services?', a: 'Call 07970 566409 or use our online quote form. We offer free site surveys and no-obligation quotes for all marine and offshore shot blasting projects.' },
+    ],
+    'retail': [
+      { q: 'What retail and commercial metalwork can you shot blast?', a: 'We shot blast shopfronts, commercial signage frames, retail fixtures, security shutters, balustrades, and all types of commercial metalwork for the retail and hospitality sectors.' },
+      { q: 'Can you carry out shot blasting at retail premises?', a: 'Yes — our mobile units can operate at retail and commercial premises, typically out of hours to minimise disruption to trading.' },
+      { q: 'What surface standard do you achieve for commercial metalwork?', a: 'We achieve SA2.5 near white metal, providing the correct surface profile for decorative and protective coatings on commercial metalwork.' },
+      { q: 'How do I get a quote for retail shot blasting services?', a: 'Call 07970 566409 or use our online quote form. We offer free site surveys and no-obligation quotes for all commercial shot blasting projects.' },
+    ],
+    'transport-logistics': [
+      { q: 'What transport and logistics equipment can you shot blast?', a: 'We shot blast trailers, flatbeds, curtainsiders, shipping containers, tankers, chassis frames, and all types of road transport and logistics equipment.' },
+      { q: 'Do you offer mobile shot blasting for transport fleets?', a: 'Yes — our mobile units travel to your depot or yard anywhere in the UK, so you do not need to transport vehicles to a fixed facility.' },
+      { q: 'What surface standard do you achieve for transport equipment?', a: 'We achieve SA2.5 near white metal as standard, which provides the correct surface profile for heavy-duty protective coatings on transport equipment.' },
+      { q: 'How do I get a quote for transport shot blasting services?', a: 'Call 07970 566409 or use our online quote form. We offer free site surveys and typically respond to quote requests within 24 hours.' },
+    ],
+  };
+
   const industryMeta: Record<string, { name: string; description: string }> = {
     'aerospace': { name: 'Aerospace', description: 'Specialist shot blasting for aerospace components. Precision surface preparation meeting aviation industry standards.' },
     'agriculture': { name: 'Agriculture', description: 'Professional shot blasting for agricultural machinery and equipment. Restore tractors, harvesters, and farm implements.' },
@@ -2510,6 +2562,13 @@ export function injectMetaTags(html: string, url: string): string {
         .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
         .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
 
+      const faqs = industryFAQs[industrySlug] || [];
+      const faqSchemaItems = faqs.map(f => `{"@type":"Question","name":"${f.q.replace(/"/g, '&quot;')}","acceptedAnswer":{"@type":"Answer","text":"${f.a.replace(/"/g, '&quot;')}"}}`).join(',');
+      const faqSchema = faqs.length > 0 ? `
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[${faqSchemaItems}]}
+    </script>` : '';
+
       const schemas = `
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Service","name":"Shot Blasting for the ${industry.name} Industry","description":"${industry.description}","provider":{"@type":"LocalBusiness","name":"${BUSINESS_NAME}","telephone":"${PHONE}","url":"${SITE_URL}"},"areaServed":{"@type":"Country","name":"United Kingdom"}}
@@ -2519,7 +2578,7 @@ export function injectMetaTags(html: string, url: string): string {
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"WebPage","name":"${pageTitle}","url":"${pageUrl}","description":"${metaDesc}"}
-    </script>`;
+    </script>${faqSchema}`;
 
       const metaTags = `
     <title>${pageTitle}</title>

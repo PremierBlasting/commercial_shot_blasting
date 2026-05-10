@@ -401,3 +401,9 @@
 - [x] Add "Industries We Serve" section to location SSR body HTML in metaTags.ts
 - [x] Add "Nearby Areas" town card grid to CountyPage.tsx (already present — full towns list + 12-tile card grid + map)
 - [x] Add "Nearby Areas" town card grid to county SSR body HTML in metaTags.ts (already present via locLinksHtml in Areas We Cover section)
+
+## SEO Round — County Industries & Industry FAQPage Schema
+
+- [x] Add "Industries We Serve" section to CountyPage.tsx (already present at line 317 with county.industries data)
+- [x] Add "Industries We Serve" section to county SSR body HTML in metaTags.ts (already present)
+- [x] Add FAQPage JSON-LD to all individual industry pages in metaTags.ts — 4 industry-specific Q&As per page, all 8 industry slugs covered
