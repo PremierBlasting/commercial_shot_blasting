@@ -8,6 +8,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
+import { CountiesWeCover } from "@/components/CountiesWeCover";
 
 export default function MarineIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -87,14 +88,15 @@ export default function MarineIndustry() {
     <div className="min-h-screen bg-white">
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       
-      <Breadcrumb 
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Industries", href: "/industries" },
-          { label: "Marine", href: "/industries/marine", isCurrentPage: true }
-        ]}
-        className="container mt-4"
-      />
+      <section className="py-4 bg-gray-50 border-b border-gray-200">
+        <div className="container">
+          <Breadcrumb bare items={[
+            { label: "Home", href: "/" },
+            { label: "Industries", href: "/industries" },
+            { label: "Marine", href: "/industries/marine", isCurrentPage: true }
+          ]} />
+        </div>
+      </section>
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#1e4159] to-[#0d2838] text-white py-20">
@@ -338,6 +340,9 @@ export default function MarineIndustry() {
           </div>
         </div>
       </section>
+
+      {/* Counties We Cover */}
+      <CountiesWeCover industry="Marine" />
 
       {/* CTA Section */}
       <section className="py-16 bg-[#1e4159] text-white">

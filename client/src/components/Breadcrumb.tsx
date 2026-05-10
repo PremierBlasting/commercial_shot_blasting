@@ -10,6 +10,8 @@ export interface BreadcrumbItem {
 interface BreadcrumbProps {
   items: BreadcrumbItem[];
   className?: string;
+  /** When true, removes the card border/background — use when the breadcrumb is inside a styled section wrapper */
+  bare?: boolean;
 }
 
 /**
@@ -24,7 +26,7 @@ interface BreadcrumbProps {
  *   { label: "Birmingham", href: "/service-areas/birmingham", isCurrentPage: true }
  * ]} />
  */
-export function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
+export function Breadcrumb({ items, className = "", bare = false }: BreadcrumbProps) {
   // Generate JSON-LD schema markup
   const schemaMarkup = {
     "@context": "https://schema.org",
@@ -47,7 +49,7 @@ export function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
       {/* Breadcrumb Navigation */}
       <nav 
         aria-label="Breadcrumb"
-        className={`py-3 px-4 bg-white/50 rounded-lg border border-gray-200 ${className}`}
+        className={bare ? className : `py-3 px-4 bg-white/50 rounded-lg border border-gray-200 ${className}`}
       >
         <ol className="flex flex-wrap items-center gap-2">
           {items.map((item, index) => (

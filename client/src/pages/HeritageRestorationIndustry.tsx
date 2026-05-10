@@ -8,6 +8,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
+import { CountiesWeCover } from "@/components/CountiesWeCover";
 
 export default function HeritageRestorationIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -87,14 +88,15 @@ export default function HeritageRestorationIndustry() {
     <div className="min-h-screen bg-white">
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       
-      <Breadcrumb 
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Industries", href: "/industries" },
-          { label: "Heritage & Restoration", href: "/industries/heritage-restoration", isCurrentPage: true }
-        ]}
-        className="container mt-4"
-      />
+      <section className="py-4 bg-gray-50 border-b border-gray-200">
+        <div className="container">
+          <Breadcrumb bare items={[
+            { label: "Home", href: "/" },
+            { label: "Industries", href: "/industries" },
+            { label: "Heritage & Restoration", href: "/industries/heritage-restoration", isCurrentPage: true }
+          ]} />
+        </div>
+      </section>
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#6b4423] to-[#4a2f18] text-white py-20">
@@ -255,6 +257,9 @@ export default function HeritageRestorationIndustry() {
           </div>
         </div>
       </section>
+
+      {/* Counties We Cover */}
+      <CountiesWeCover industry="Heritage" heading="Counties We Cover for Heritage Restoration Shot Blasting" />
 
       {/* CTA Section */}
       <section className="py-16 bg-[#6b4423] text-white">

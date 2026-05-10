@@ -8,6 +8,7 @@ import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
 import { trackPhoneCall } from "@/lib/analytics";
+import { CountiesWeCover } from "@/components/CountiesWeCover";
 
 export default function AerospaceIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -140,14 +141,15 @@ export default function AerospaceIndustry() {
     <div className="min-h-screen bg-white">
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       
-      <Breadcrumb 
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Industries", href: "/industries" },
-          { label: "Aerospace", href: "/industries/aerospace", isCurrentPage: true }
-        ]}
-        className="container mt-4"
-      />
+      <section className="py-4 bg-gray-50 border-b border-gray-200">
+        <div className="container">
+          <Breadcrumb bare items={[
+            { label: "Home", href: "/" },
+            { label: "Industries", href: "/industries" },
+            { label: "Aerospace", href: "/industries/aerospace", isCurrentPage: true }
+          ]} />
+        </div>
+      </section>
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1e4159] text-white py-20">
@@ -378,6 +380,9 @@ export default function AerospaceIndustry() {
           </Card>
         </div>
       </section>
+
+      {/* Counties We Cover */}
+      <CountiesWeCover industry="Aerospace" />
 
       {/* CTA Section */}
       <section className="py-20 bg-[#F5F1E8]">

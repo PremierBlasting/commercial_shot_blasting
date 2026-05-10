@@ -465,3 +465,9 @@
 - [x] Fix Durham 404 — add Durham city to locationData.ts with coordinates, county, FAQs
 - [x] Fix missing maps on 72 ServiceArea pages — add coordinates to LocationMap.tsx + add LocationMap component to all 72 pages
 - [x] Note: Birmingham JS chunk error is a stale deployment cache issue — will be resolved by next publish
+
+## SEO Round — Town Meta Descriptions, Industry Counties, Breadcrumbs
+
+- [x] Add unique locally-targeted meta descriptions to highest-traffic service-area town pages (Birmingham, Sheffield, Manchester, Leeds, Liverpool, Coventry, Derby, Nottingham, Chester, Bristol, Cardiff, etc.)
+- [x] Add "Counties We Cover" section to all 8 industry pages (IndustryPage.tsx) linking to relevant county pages
+- [x] Add dynamic breadcrumb navigation component to all location pages (LocationPage.tsx) and industry pages (IndustryPage.tsx)

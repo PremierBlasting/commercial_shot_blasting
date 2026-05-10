@@ -94,8 +94,13 @@ export function LocationPage({ location }: LocationPageProps) {
       <FAQSchema faqs={generateLocationFAQs(location.name, location.county)} locationName={location.name} />
       
       <Header />
-      
-      <Breadcrumb items={breadcrumbItems} />
+
+      {/* Breadcrumb Navigation */}
+      <section className="py-4 bg-gray-50 border-b border-gray-200">
+        <div className="container">
+          <Breadcrumb items={breadcrumbItems} bare />
+        </div>
+      </section>
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3a4d] text-white py-20">
