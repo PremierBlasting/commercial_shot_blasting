@@ -425,3 +425,9 @@
 - [x] Add FAQPage JSON-LD to all individual county pages in metaTags.ts — rewrote all 25 counties' FAQs in countyData.ts with locally-targeted, industry-specific questions (county industries, major towns, local context)
 - [x] Add visible Preparation Checklist UI section to all service pages — added after Process section in ServiceDetail.tsx; uses shared servicePreparationSteps.ts data (9 service-specific step sets + default fallback); includes numbered steps + dual CTA buttons
 - [x] Add interactive FAQ accordion section to the /service-areas page — 5 Q&As with expand/collapse (ChevronDown/Up), ARIA attributes, microdata markup (FAQPage/Question/Answer), placed before footer in ServiceAreas.tsx
+
+## SEO Round — County FAQ Accordion, Prep Checklist, Service-Areas County Search
+
+- [x] Add FAQ accordion to all individual county pages (CountyPage.tsx) — expand/collapse with ChevronDown/Up, ARIA attributes, microdata markup (FAQPage/Question/Answer itemscope), uses county.faqs data
+- [x] Add condensed 3-step preparation checklist section to all county pages (CountyPage.tsx) — 3-card grid (Request Survey, Clear Work Area, Coordinate Coating) with numbered circles, county-specific CTA button
+- [x] Add county search/filter bar to service areas page (ServiceAreas.tsx) — live search by county name, region, or town; shows county card grid with region label; clear button; uses countyData

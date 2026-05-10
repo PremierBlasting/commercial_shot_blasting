@@ -20,8 +20,10 @@ import {
   Shield,
   Award,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  Search
 } from "lucide-react";
+import { countyData } from "@/data/countyData";
 
 const serviceRegions = [
   {
@@ -413,6 +415,16 @@ export default function ServiceAreas() {
 
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [countySearch, setCountySearch] = useState("");
+
+  const allCounties = Object.values(countyData).sort((a, b) => a.name.localeCompare(b.name));
+  const filteredCounties = countySearch.trim()
+    ? allCounties.filter(c =>
+        c.name.toLowerCase().includes(countySearch.toLowerCase()) ||
+        c.region.toLowerCase().includes(countySearch.toLowerCase()) ||
+        c.townsAndVillages.some(t => t.toLowerCase().includes(countySearch.toLowerCase()))
+      )
+    : allCounties;
 
   const serviceAreaFaqs = [
     {
@@ -818,6 +830,49 @@ export default function ServiceAreas() {
             <p className="text-gray-600 max-w-2xl mx-auto">
               Professional shot blasting services across England and Wales. From major cities to rural counties, we bring expertise to your location.
             </p>
+          </div>
+
+          {/* County Search Bar */}
+          <div className="mb-10">
+            <div className="relative max-w-lg mx-auto">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" aria-hidden="true" />
+              <input
+                type="search"
+                placeholder="Search by county, region, or town..."
+                value={countySearch}
+                onChange={e => setCountySearch(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 bg-white shadow-sm text-sm focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/40 focus:border-[#2C5F7F] transition"
+                aria-label="Search counties and service areas"
+              />
+              {countySearch && (
+                <button
+                  type="button"
+                  aria-label="Clear search"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-lg leading-none"
+                  onClick={() => setCountySearch("")}
+                >
+                  &times;
+                </button>
+              )}
+            </div>
+            {countySearch && (
+              <div className="mt-4">
+                {filteredCounties.length === 0 ? (
+                  <p className="text-center text-gray-500 text-sm py-6">No counties found matching &ldquo;{countySearch}&rdquo;. Try a different search term.</p>
+                ) : (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                    {filteredCounties.map(c => (
+                      <Link key={c.slug} href={`/counties/${c.slug}`}>
+                        <div className="bg-white rounded-lg px-4 py-3 text-sm font-medium text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white transition-colors duration-200 shadow-sm hover:shadow-md border border-gray-100 text-center cursor-pointer">
+                          <div className="font-semibold">{c.name}</div>
+                          <div className="text-xs opacity-70 mt-0.5">{c.region}</div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           {/* England Section */}
