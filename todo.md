@@ -419,3 +419,9 @@
 - [x] Add FAQPage JSON-LD to /service-areas index page SSR meta tags in metaTags.ts (5 local mobile shot blasting Q&As targeting near-me searches)
 - [x] Add HowTo JSON-LD to all 18 individual service pages in metaTags.ts (preparation steps per service — servicePreparationSteps data object with 9 service-specific entries + default fallback)
 - [x] Add visual breadcrumb navigation UI component to all 8 industry pages — confirmed present in all 8 *Industry.tsx files with correct 3-level breadcrumb (Home → Industries → [Industry Name])
+
+## SEO Round — County FAQPage, Service Prep Checklist UI, Service-Areas FAQ Accordion
+
+- [x] Add FAQPage JSON-LD to all individual county pages in metaTags.ts — rewrote all 25 counties' FAQs in countyData.ts with locally-targeted, industry-specific questions (county industries, major towns, local context)
+- [x] Add visible Preparation Checklist UI section to all service pages — added after Process section in ServiceDetail.tsx; uses shared servicePreparationSteps.ts data (9 service-specific step sets + default fallback); includes numbered steps + dual CTA buttons
+- [x] Add interactive FAQ accordion section to the /service-areas page — 5 Q&As with expand/collapse (ChevronDown/Up), ARIA attributes, microdata markup (FAQPage/Question/Answer), placed before footer in ServiceAreas.tsx

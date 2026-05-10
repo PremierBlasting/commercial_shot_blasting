@@ -12,6 +12,7 @@ import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
+import { getPreparationSteps } from "@shared/servicePreparationSteps";
 
 import { Footer } from "@/components/Footer";
 export default function ServiceDetail() {
@@ -1114,6 +1115,54 @@ export default function ServiceDetail() {
                   ))}
                 </div>
               </div>
+
+              {/* Preparation Checklist */}
+              {(() => {
+                const prepSteps = getPreparationSteps(service.id);
+                return (
+                  <div className="bg-gradient-to-br from-[#F5F1E8] to-[#EAE4D4] rounded-xl p-8 border border-[#2C5F7F]/10">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-10 h-10 rounded-full bg-[#2C5F7F] flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <h2 className="text-2xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                          How to Prepare for {service.shortTitle}
+                        </h2>
+                        <p className="text-gray-600 text-sm mt-0.5">Follow these steps to ensure your project runs smoothly</p>
+                      </div>
+                    </div>
+                    <ol className="space-y-4">
+                      {prepSteps.map((step, index) => (
+                        <li key={index} className="flex gap-4 bg-white rounded-lg p-5 shadow-sm border border-[#2C5F7F]/5">
+                          <div className="w-8 h-8 rounded-full bg-[#2C5F7F] text-white flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">
+                            {index + 1}
+                          </div>
+                          <div>
+                            <h3 className="font-semibold text-[#2C5F7F] text-base mb-1">{step.title}</h3>
+                            <p className="text-gray-600 text-sm leading-relaxed">{step.text}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ol>
+                    <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                      <button
+                        onClick={openQuotePopup}
+                        className="flex-1 bg-[#2C5F7F] hover:bg-[#234a63] text-white font-semibold py-3 px-6 rounded-lg transition-colors text-sm"
+                      >
+                        Request Free Site Survey
+                      </button>
+                      <a
+                        href="tel:07970566409"
+                        className="flex-1 flex items-center justify-center gap-2 border-2 border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white font-semibold py-3 px-6 rounded-lg transition-colors text-sm"
+                      >
+                        <Phone className="w-4 h-4" />
+                        Call 07970 566409
+                      </a>
+                    </div>
+                  </div>
+                );
+              })()}
 
               {/* Second Before & After Gallery */}
               {getServiceGalleries(service.id).length > 1 && !['fire-escapes', 'staircases', 'bridge-steelwork', 'ladders', 'warehouse-racking', 'pipework', 'telecom-towers'].includes(service.id) && (

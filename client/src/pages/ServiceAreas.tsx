@@ -18,7 +18,9 @@ import {
   ArrowRight,
   Clock,
   Shield,
-  Award
+  Award,
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
 
 const serviceRegions = [
@@ -410,6 +412,30 @@ export default function ServiceAreas() {
   });
 
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+
+  const serviceAreaFaqs = [
+    {
+      question: "Do you offer mobile shot blasting near me across the UK?",
+      answer: "Yes — we operate a fully mobile shot blasting service and travel to sites across England and Wales. Our mobile unit brings the equipment directly to your location, so there is no need to transport your steelwork or structures to a fixed facility. We regularly cover the Midlands, North West, Yorkshire, East Midlands, East Anglia, South West, and Welsh Borders. Call 07970 566409 to confirm coverage for your specific location."
+    },
+    {
+      question: "What areas do you cover for shot blasting services?",
+      answer: "Our primary coverage area spans the Midlands, Staffordshire, Nottinghamshire, Leicestershire, Lincolnshire, Derbyshire, Northamptonshire, Cambridgeshire, Norfolk, Suffolk, Cheshire, Lancashire, Yorkshire, South Yorkshire, Herefordshire, Shropshire, Worcestershire, Gloucestershire, Oxfordshire, and Wales. We also travel further afield for larger contracts — contact us to discuss your project location."
+    },
+    {
+      question: "How far will you travel for a shot blasting job?",
+      answer: "We regularly travel up to 150 miles from our West Midlands base for commercial shot blasting projects. For larger contracts or ongoing work, we can travel further. Travel costs are included in our quotation, so there are no hidden charges. Call 07970 566409 or use our online form to get a quote for your location."
+    },
+    {
+      question: "Can you carry out shot blasting on-site without me transporting my equipment?",
+      answer: "Yes — our mobile shot blasting service is designed for on-site work. We bring our equipment, media, and containment systems directly to your premises. This is ideal for large structures, fixed steelwork, factory floors, cladding, fire escapes, and any items that cannot easily be moved. We handle all setup, blasting, and site clearance."
+    },
+    {
+      question: "How quickly can you attend site for a shot blasting quote?",
+      answer: "We aim to arrange a free site survey within 3-5 working days of your enquiry, depending on location and current workload. For urgent projects, call us directly on 07970 566409 and we will do our best to accommodate your timeline. Written quotes are typically provided within 24 hours of the site visit."
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-[#f8f5f0]">
@@ -937,6 +963,50 @@ export default function ServiceAreas() {
                 </a>
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-white">
+        <div className="container max-w-3xl">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-[#1a3d52] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-600">Common questions about our mobile shot blasting coverage across the UK</p>
+          </div>
+          <div className="space-y-3" itemScope itemType="https://schema.org/FAQPage">
+            {serviceAreaFaqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-[#f8f5f0] rounded-lg shadow-sm overflow-hidden border border-gray-100"
+                itemScope itemType="https://schema.org/Question"
+              >
+                <button
+                  type="button"
+                  aria-expanded={expandedFaq === index}
+                  aria-controls={`sa-faq-answer-${index}`}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-[#EAE4D4] transition"
+                  onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                >
+                  <span className="font-semibold text-[#2C5F7F] pr-4" itemProp="name">{faq.question}</span>
+                  {expandedFaq === index ? (
+                    <ChevronUp className="w-5 h-5 text-[#2C5F7F] flex-shrink-0" aria-hidden="true" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-[#2C5F7F] flex-shrink-0" aria-hidden="true" />
+                  )}
+                </button>
+                <div
+                  id={`sa-faq-answer-${index}`}
+                  role="region"
+                  className={`overflow-hidden transition-all duration-300 ${expandedFaq === index ? 'max-h-96' : 'max-h-0'}`}
+                  itemScope itemType="https://schema.org/Answer"
+                >
+                  <p className="px-6 pb-5 text-gray-600 leading-relaxed" itemProp="text">{faq.answer}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

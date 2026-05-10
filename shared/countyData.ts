@@ -1,4 +1,4 @@
-// County data for all 27 service area counties
+
 export interface CountyData {
   name: string;
   slug: string;
@@ -27,28 +27,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -0.4547,
     majorTowns: ["Luton", "Bedford", "Dunstable", "Leighton Buzzard"],
     industries: ["Manufacturing", "Logistics", "Construction", "Automotive"],
-    townsAndVillages: ["Ampthill", "Arlesey", "Aspley Guise", "Barton-le-Clay", "Biggleswade", "Blunham", "Bromham", "Caddington", "Carlton", "Clophill", "Cranfield", "Eaton Bray", "Flitwick", "Harlington", "Henlow", "Houghton Regis", "Kempston", "Lidlington", "Marston Moretaine", "Maulden", "Potton", "Sandy", "Shefford", "Silsoe", "Southill", "Stotfold", "Toddington", "Woburn", "Wootton"]
-,
+    townsAndVillages: ["Ampthill", "Arlesey", "Aspley Guise", "Barton-le-Clay", "Biggleswade", "Blunham", "Bromham", "Caddington", "Carlton", "Clophill", "Cranfield", "Eaton Bray", "Flitwick", "Harlington", "Henlow", "Houghton Regis", "Kempston", "Lidlington", "Marston Moretaine", "Maulden", "Potton", "Sandy", "Shefford", "Silsoe", "Southill", "Stotfold", "Toddington", "Woburn", "Wootton"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Bedfordshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Bedfordshire. Our fully equipped mobile units can reach any location in the county, including Luton, Bedford, Dunstable and surrounding areas."
+        question: "Do you offer mobile shot blasting services in Luton and Bedford?",
+        answer: "Yes — our mobile shot blasting units travel directly to sites across Bedfordshire, including Luton, Bedford, Dunstable, and Leighton Buzzard. We bring all equipment to your premises so there is no need to transport materials."
       },
       {
-        question: "How quickly can you reach my location in Bedfordshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Bedfordshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast logistics and warehouse structures in Bedfordshire?",
+        answer: "Yes. Bedfordshire has a large logistics and distribution sector and we regularly shot blast warehouse racking, mezzanine floors, steel cladding, and structural steelwork for distribution centres and industrial units across the county."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "What surface standard do you achieve for shot blasting in Bedfordshire?",
+        answer: "We achieve SA2.5 near white metal as standard across all Bedfordshire projects. Where a higher specification is required — such as SA3 white metal for aggressive coating systems — we can accommodate this. Surface profiles are confirmed before coating."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Bedfordshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Do you shot blast automotive components and manufacturing equipment in Bedfordshire?",
+        answer: "Yes — we work with automotive and manufacturing businesses across Bedfordshire, shot blasting plant, machinery, fabricated components, and production equipment. We can work on-site at your facility to minimise downtime."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Bedfordshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Bedfordshire?",
+        answer: "Call us on 07970 566409 or submit a quote request on our website. We offer free site surveys across Bedfordshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -63,28 +62,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: 0.1218,
     majorTowns: ["Cambridge", "Peterborough", "Ely", "Huntingdon"],
     industries: ["Technology", "Manufacturing", "Agriculture", "Construction"],
-    townsAndVillages: ["Bar Hill", "Burwell", "Chatteris", "Cottenham", "Doddington", "Fulbourn", "Gamlingay", "Girton", "Godmanchester", "Histon", "Impington", "Linton", "Little Paxton", "Littleport", "March", "Melbourn", "Orwell", "Ramsey", "Sawston", "Sawtry", "Soham", "St Ives", "St Neots", "Swavesey", "Waterbeach", "Whittlesey", "Willingham", "Wisbech", "Yaxley"]
-,
+    townsAndVillages: ["Bar Hill", "Burwell", "Chatteris", "Cottenham", "Doddington", "Fulbourn", "Gamlingay", "Girton", "Godmanchester", "Histon", "Impington", "Linton", "Little Paxton", "Littleport", "March", "Melbourn", "Orwell", "Ramsey", "Sawston", "Sawtry", "Soham", "St Ives", "St Neots", "Swavesey", "Waterbeach", "Whittlesey", "Willingham", "Wisbech", "Yaxley"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Cambridgeshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Cambridgeshire. Our fully equipped mobile units can reach any location in the county, including Cambridge, Peterborough, Ely and surrounding areas."
+        question: "Do you provide shot blasting services in Cambridge and Peterborough?",
+        answer: "Yes — we cover all of Cambridgeshire with our mobile shot blasting units, including Cambridge, Peterborough, Ely, Huntingdon, and St Neots. We travel to your site so no transportation of materials is required."
       },
       {
-        question: "How quickly can you reach my location in Cambridgeshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Cambridgeshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast agricultural equipment in Cambridgeshire?",
+        answer: "Yes. Cambridgeshire has a significant agricultural sector and we regularly shot blast farm machinery, grain handling equipment, trailers, and irrigation structures across the county. We work on-site at farms and agricultural premises."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you carry out shot blasting for construction projects in Cambridgeshire?",
+        answer: "Yes — we provide shot blasting for structural steelwork, fabricated frames, and construction components across Cambridgeshire. We work with contractors and steel fabricators to prepare surfaces to SA2.5 or SA3 standard prior to protective coating."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Cambridgeshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "What is the minimum order size for shot blasting in Cambridgeshire?",
+        answer: "We do not impose a minimum order size. Whether you need a single item blasted or a large batch of structural steelwork, we can accommodate the project. Contact us to discuss your specific requirements and we will provide a tailored quote."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Cambridgeshire to provide an accurate, no-obligation quotation."
+        question: "How do I arrange a site visit for shot blasting in Cambridgeshire?",
+        answer: "Call 07970 566409 or use our online quote form. We offer free site surveys across Cambridgeshire and can usually arrange a visit within 2–5 working days of your enquiry."
       }
     ]
   },
@@ -99,28 +97,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -0.2376,
     majorTowns: ["St Albans", "Watford", "Stevenage", "Hemel Hempstead"],
     industries: ["Manufacturing", "Logistics", "Retail", "Construction"],
-    townsAndVillages: ["Abbots Langley", "Baldock", "Berkhamsted", "Bishops Stortford", "Borehamwood", "Bovingdon", "Broxbourne", "Buntingford", "Bushey", "Cheshunt", "Chorleywood", "Harpenden", "Hatfield", "Hertford", "Hitchin", "Hoddesdon", "Kings Langley", "Knebworth", "Letchworth", "Potters Bar", "Radlett", "Rickmansworth", "Royston", "Sawbridgeworth", "Tring", "Ware", "Welwyn", "Welwyn Garden City"]
-,
+    townsAndVillages: ["Abbots Langley", "Baldock", "Berkhamsted", "Bishops Stortford", "Borehamwood", "Bovingdon", "Broxbourne", "Buntingford", "Bushey", "Cheshunt", "Chorleywood", "Harpenden", "Hatfield", "Hertford", "Hitchin", "Hoddesdon", "Kings Langley", "Knebworth", "Letchworth", "Potters Bar", "Radlett", "Rickmansworth", "Royston", "Sawbridgeworth", "Tring", "Ware", "Welwyn", "Welwyn Garden City"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Hertfordshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Hertfordshire. Our fully equipped mobile units can reach any location in the county, including St Albans, Watford, Stevenage and surrounding areas."
+        question: "Do you cover St Albans, Watford, and Stevenage for shot blasting?",
+        answer: "Yes — our mobile shot blasting units serve all of Hertfordshire including St Albans, Watford, Stevenage, Hemel Hempstead, Hatfield, and Welwyn Garden City. We come to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in Hertfordshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Hertfordshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast retail and commercial property steelwork in Hertfordshire?",
+        answer: "Yes. We work with retail developers, commercial property owners, and construction contractors across Hertfordshire, shot blasting structural steelwork, cladding, and fabricated components for commercial buildings."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you offer shot blasting for logistics and distribution centres in Hertfordshire?",
+        answer: "Yes — Hertfordshire has a large logistics sector and we regularly shot blast warehouse racking, mezzanine floors, loading bay steelwork, and structural frames for distribution centres and logistics parks across the county."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Hertfordshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "How quickly can you respond to shot blasting enquiries in Hertfordshire?",
+        answer: "We typically respond to all enquiries within 24 hours and can usually schedule a free site survey in Hertfordshire within 2–5 working days. For urgent projects we can often accommodate faster turnaround."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Hertfordshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a quote for shot blasting in Hertfordshire?",
+        answer: "Call us on 07970 566409 or request a free quote through our website. We offer no-obligation site surveys and will provide a detailed written quotation for your Hertfordshire project."
       }
     ]
   },
@@ -135,28 +132,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: 1.2974,
     majorTowns: ["Norwich", "King's Lynn", "Great Yarmouth", "Thetford"],
     industries: ["Agriculture", "Marine", "Manufacturing", "Energy"],
-    townsAndVillages: ["Acle", "Attleborough", "Aylsham", "Brundall", "Caister-on-Sea", "Costessey", "Cromer", "Dereham", "Diss", "Downham Market", "Fakenham", "Gorleston", "Harleston", "Hethersett", "Holt", "Hunstanton", "Long Stratton", "Loddon", "North Walsham", "Reepham", "Sheringham", "Sprowston", "Stalham", "Swaffham", "Taverham", "Thetford", "Watton", "Wells-next-the-Sea", "Wymondham"]
-,
+    townsAndVillages: ["Acle", "Attleborough", "Aylsham", "Brundall", "Caister-on-Sea", "Costessey", "Cromer", "Dereham", "Diss", "Downham Market", "Fakenham", "Gorleston", "Harleston", "Hethersett", "Holt", "Hunstanton", "Long Stratton", "Loddon", "North Walsham", "Reepham", "Sheringham", "Sprowston", "Stalham", "Swaffham", "Taverham", "Thetford", "Watton", "Wells-next-the-Sea", "Wymondham"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Norfolk?",
-        answer: "Yes, we provide mobile shot blasting services across all of Norfolk. Our fully equipped mobile units can reach any location in the county, including Norwich, King's Lynn, Great Yarmouth and surrounding areas."
+        question: "Do you provide shot blasting services in Norwich and Great Yarmouth?",
+        answer: "Yes — we cover all of Norfolk with our mobile shot blasting units, including Norwich, King's Lynn, Great Yarmouth, and Thetford. Our mobile service means we come to your site anywhere in the county."
       },
       {
-        question: "How quickly can you reach my location in Norfolk?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Norfolk within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast marine and offshore equipment in Norfolk?",
+        answer: "Yes. Norfolk has a significant marine and offshore energy sector, particularly around Great Yarmouth. We provide specialist shot blasting for marine structures, offshore equipment, vessels, and port infrastructure to the required surface standard."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast agricultural machinery in Norfolk?",
+        answer: "Yes — Norfolk's large agricultural sector is one of our core markets. We shot blast tractors, combine harvesters, grain handling equipment, trailers, and farm buildings across the county, working on-site at farms and agricultural premises."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Norfolk?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "What blast standards do you work to for energy sector projects in Norfolk?",
+        answer: "We work to SA2.5 near white metal and SA3 white metal standards as required. For energy sector and offshore projects in Norfolk, we can provide documentation confirming the surface cleanliness and profile achieved."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Norfolk to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Norfolk?",
+        answer: "Call 07970 566409 or submit a quote request on our website. We offer free site surveys across Norfolk and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -171,28 +167,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: 0.9708,
     majorTowns: ["Ipswich", "Bury St Edmunds", "Lowestoft", "Felixstowe"],
     industries: ["Agriculture", "Marine", "Logistics", "Manufacturing"],
-    townsAndVillages: ["Aldeburgh", "Beccles", "Brandon", "Bungay", "Clare", "Debenham", "Eye", "Framlingham", "Hadleigh", "Halesworth", "Haverhill", "Kesgrave", "Leiston", "Mildenhall", "Needham Market", "Newmarket", "Saxmundham", "Southwold", "Stowmarket", "Sudbury", "Wickham Market", "Woodbridge"]
-,
+    townsAndVillages: ["Aldeburgh", "Beccles", "Brandon", "Bungay", "Clare", "Debenham", "Eye", "Framlingham", "Hadleigh", "Halesworth", "Haverhill", "Kesgrave", "Leiston", "Mildenhall", "Needham Market", "Newmarket", "Saxmundham", "Southwold", "Stowmarket", "Sudbury", "Wickham Market", "Woodbridge"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Suffolk?",
-        answer: "Yes, we provide mobile shot blasting services across all of Suffolk. Our fully equipped mobile units can reach any location in the county, including Ipswich, Bury St Edmunds, Lowestoft and surrounding areas."
+        question: "Do you provide shot blasting services in Ipswich, Felixstowe, and Lowestoft?",
+        answer: "Yes — we cover all of Suffolk with our mobile shot blasting units, including Ipswich, Bury St Edmunds, Lowestoft, and Felixstowe. We bring all equipment to your site so no transportation of materials is required."
       },
       {
-        question: "How quickly can you reach my location in Suffolk?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Suffolk within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast port and logistics infrastructure in Suffolk?",
+        answer: "Yes. Suffolk's ports at Felixstowe and Ipswich generate significant demand for shot blasting of port infrastructure, container handling equipment, and logistics structures. We provide on-site shot blasting for port and logistics operators across the county."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you offer shot blasting for agricultural equipment in Suffolk?",
+        answer: "Yes — Suffolk's farming sector is a key market for us. We shot blast farm machinery, grain storage equipment, trailers, and agricultural buildings across the county, working on-site to avoid the need to transport heavy equipment."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Suffolk?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast marine vessels and structures in Lowestoft?",
+        answer: "Yes. We provide shot blasting for marine vessels, offshore structures, and port equipment in Lowestoft and across the Suffolk coast. We work to SA2.5 and SA3 standards and can provide documentation on request."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Suffolk to provide an accurate, no-obligation quotation."
+        question: "How do I get a quote for shot blasting in Suffolk?",
+        answer: "Call 07970 566409 or use our online quote form. We offer free site surveys across Suffolk and respond to enquiries within 24 hours."
       }
     ]
   },
@@ -209,28 +204,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -1.4907,
     majorTowns: ["Derby", "Chesterfield", "Ilkeston", "Buxton"],
     industries: ["Manufacturing", "Aerospace", "Construction", "Engineering"],
-    townsAndVillages: ["Alfreton", "Ashbourne", "Bakewell", "Belper", "Bolsover", "Chapel-en-le-Frith", "Clay Cross", "Glossop", "Hathersage", "Heanor", "Ilkeston", "Long Eaton", "Matlock", "New Mills", "Ripley", "Shirebrook", "Staveley", "Swadlincote", "Whaley Bridge", "Wirksworth"]
-,
+    townsAndVillages: ["Alfreton", "Ashbourne", "Bakewell", "Belper", "Bolsover", "Chapel-en-le-Frith", "Clay Cross", "Glossop", "Hathersage", "Heanor", "Ilkeston", "Long Eaton", "Matlock", "New Mills", "Ripley", "Shirebrook", "Staveley", "Swadlincote", "Whaley Bridge", "Wirksworth"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Derbyshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Derbyshire. Our fully equipped mobile units can reach any location in the county, including Derby, Chesterfield, Ilkeston and surrounding areas."
+        question: "Do you provide shot blasting services in Derby and Chesterfield?",
+        answer: "Yes — our mobile shot blasting units cover all of Derbyshire, including Derby, Chesterfield, Ilkeston, and Buxton. We travel to your site with all equipment, eliminating the need to transport materials."
       },
       {
-        question: "How quickly can you reach my location in Derbyshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Derbyshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast aerospace components and precision engineering parts in Derbyshire?",
+        answer: "Yes. Derbyshire has a strong aerospace and precision engineering sector. We provide controlled shot blasting for aerospace components, engineering fabrications, and precision parts, working to the surface standards required for your application."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast manufacturing plant and machinery in Derbyshire?",
+        answer: "Yes — we regularly shot blast industrial plant, production machinery, fabricated frames, and structural steelwork for manufacturing businesses across Derbyshire. We work on-site to minimise production downtime."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Derbyshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "What surface cleanliness standard do you achieve in Derbyshire?",
+        answer: "We achieve SA2.5 near white metal as standard, with SA3 white metal available where required. All work is carried out to BS EN ISO 8501-1 standards and we can provide documentation confirming the surface profile achieved."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Derbyshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Derbyshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Derbyshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -245,28 +239,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -1.1398,
     majorTowns: ["Leicester", "Loughborough", "Hinckley", "Market Harborough"],
     industries: ["Manufacturing", "Logistics", "Textiles", "Engineering"],
-    townsAndVillages: ["Anstey", "Ashby-de-la-Zouch", "Barrow upon Soar", "Blaby", "Braunstone", "Burbage", "Castle Donington", "Countesthorpe", "Earl Shilton", "Enderby", "Groby", "Ibstock", "Kegworth", "Kibworth", "Lutterworth", "Market Bosworth", "Market Harborough", "Measham", "Melton Mowbray", "Mountsorrel", "Narborough", "Oadby", "Quorn", "Shepshed", "Sileby", "Syston", "Wigston"]
-,
+    townsAndVillages: ["Anstey", "Ashby-de-la-Zouch", "Barrow upon Soar", "Blaby", "Braunstone", "Burbage", "Castle Donington", "Countesthorpe", "Earl Shilton", "Enderby", "Groby", "Ibstock", "Kegworth", "Kibworth", "Lutterworth", "Market Bosworth", "Market Harborough", "Measham", "Melton Mowbray", "Mountsorrel", "Narborough", "Oadby", "Quorn", "Shepshed", "Sileby", "Syston", "Wigston"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Leicestershire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Leicestershire. Our fully equipped mobile units can reach any location in the county, including Leicester, Loughborough, Hinckley and surrounding areas."
+        question: "Do you provide shot blasting services in Leicester and Loughborough?",
+        answer: "Yes — our mobile shot blasting units cover all of Leicestershire, including Leicester, Loughborough, Hinckley, and Market Harborough. We come to your site so there is no need to transport materials."
       },
       {
-        question: "How quickly can you reach my location in Leicestershire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Leicestershire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast logistics and distribution centre structures in Leicestershire?",
+        answer: "Yes. Leicestershire is a major logistics hub and we regularly shot blast warehouse racking, mezzanine floors, loading bay steelwork, and structural frames for distribution centres and logistics parks across the county."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast engineering fabrications and manufacturing equipment in Leicestershire?",
+        answer: "Yes — we work with engineering businesses and manufacturers across Leicestershire, shot blasting fabricated steelwork, plant, machinery, and production equipment. We can work on-site at your facility to minimise downtime."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Leicestershire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "How long does shot blasting take for a typical project in Leicestershire?",
+        answer: "Timescales depend on the size and complexity of the project. A single item such as a machine base can often be completed in a day, while larger structural projects may take 2–5 days. We provide a detailed programme as part of our quotation."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Leicestershire to provide an accurate, no-obligation quotation."
+        question: "How do I get a quote for shot blasting in Leicestershire?",
+        answer: "Call 07970 566409 or submit a quote request on our website. We offer free site surveys across Leicestershire and respond to enquiries within 24 hours."
       }
     ]
   },
@@ -281,28 +274,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -0.5405,
     majorTowns: ["Lincoln", "Grantham", "Boston", "Spalding"],
     industries: ["Agriculture", "Food Processing", "Manufacturing", "Engineering"],
-    townsAndVillages: ["Alford", "Bourne", "Brigg", "Caistor", "Cleethorpes", "Crowland", "Gainsborough", "Grimsby", "Holbeach", "Horncastle", "Immingham", "Louth", "Mablethorpe", "Market Deeping", "Market Rasen", "Skegness", "Sleaford", "Spalding", "Stamford", "Sutton Bridge", "Wainfleet", "Woodhall Spa"]
-,
+    townsAndVillages: ["Alford", "Bourne", "Brigg", "Caistor", "Cleethorpes", "Crowland", "Gainsborough", "Grimsby", "Holbeach", "Horncastle", "Immingham", "Louth", "Mablethorpe", "Market Deeping", "Market Rasen", "Skegness", "Sleaford", "Spalding", "Stamford", "Sutton Bridge", "Wainfleet", "Woodhall Spa"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Lincolnshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Lincolnshire. Our fully equipped mobile units can reach any location in the county, including Lincoln, Grantham, Boston and surrounding areas."
+        question: "Do you provide shot blasting services in Lincoln, Grimsby, and Boston?",
+        answer: "Yes — our mobile shot blasting units cover all of Lincolnshire, including Lincoln, Grantham, Boston, Spalding, Grimsby, and Immingham. We travel to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in Lincolnshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Lincolnshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast agricultural machinery and grain handling equipment in Lincolnshire?",
+        answer: "Yes. Lincolnshire is one of England's most productive agricultural counties and we regularly shot blast farm machinery, grain dryers, storage silos, trailers, and agricultural buildings across the county. We work on-site at farms."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast food processing and manufacturing plant in Lincolnshire?",
+        answer: "Yes — Lincolnshire's food processing sector is a key market for us. We shot blast production equipment, structural steelwork, and factory cladding for food processing facilities across the county, working to the required surface standards."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Lincolnshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast port and marine structures at Grimsby and Immingham?",
+        answer: "Yes. We provide shot blasting for port infrastructure, marine structures, and offshore equipment at Grimsby and Immingham. We work to SA2.5 and SA3 standards and can provide documentation on request."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Lincolnshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Lincolnshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Lincolnshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -313,32 +305,31 @@ export const countyData: Record<string, CountyData> = {
     description: "Professional shot blasting services in Northamptonshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/counties/northamptonshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VlcajxKFizWfRmvv.webp",
-    latitude: 52.2733,
-    longitude: -0.8750,
-    majorTowns: ["Northampton", "Kettering", "Wellingborough", "Corby"],
-    industries: ["Manufacturing", "Logistics", "Footwear", "Engineering"],
-    townsAndVillages: ["Brackley", "Brixworth", "Burton Latimer", "Daventry", "Desborough", "Duston", "Earls Barton", "Higham Ferrers", "Irthlingborough", "Long Buckby", "Oundle", "Raunds", "Rothwell", "Rushden", "Thrapston", "Towcester", "Walgrave", "Wellingborough", "Wollaston"]
-,
+    latitude: 52.2405,
+    longitude: -0.9027,
+    majorTowns: ["Northampton", "Corby", "Kettering", "Wellingborough"],
+    industries: ["Manufacturing", "Logistics", "Automotive", "Construction"],
+    townsAndVillages: ["Brackley", "Burton Latimer", "Daventry", "Desborough", "Higham Ferrers", "Irthlingborough", "Long Buckby", "Oundle", "Raunds", "Rothwell", "Rushden", "Thrapston", "Towcester"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Northamptonshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Northamptonshire. Our fully equipped mobile units can reach any location in the county, including Northampton, Kettering, Wellingborough and surrounding areas."
+        question: "Do you provide shot blasting services in Northampton, Corby, and Kettering?",
+        answer: "Yes — our mobile shot blasting units cover all of Northamptonshire, including Northampton, Corby, Kettering, and Wellingborough. We come to your site so no transportation of materials is required."
       },
       {
-        question: "How quickly can you reach my location in Northamptonshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Northamptonshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast steel structures and fabrications in Corby?",
+        answer: "Yes. Corby has a strong steel and manufacturing heritage and we regularly shot blast structural steelwork, fabricated frames, and industrial structures across the Corby area and wider Northamptonshire."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you offer shot blasting for logistics and distribution centres in Northamptonshire?",
+        answer: "Yes — Northamptonshire is a major logistics hub and we shot blast warehouse racking, mezzanine floors, structural steelwork, and cladding for distribution centres and logistics parks across the county."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Northamptonshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast automotive components and manufacturing plant in Northamptonshire?",
+        answer: "Yes. We work with automotive and manufacturing businesses across Northamptonshire, shot blasting plant, machinery, fabricated components, and production equipment on-site at your facility."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Northamptonshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a quote for shot blasting in Northamptonshire?",
+        answer: "Call 07970 566409 or submit a quote request on our website. We offer free site surveys across Northamptonshire and respond to enquiries within 24 hours."
       }
     ]
   },
@@ -349,32 +340,31 @@ export const countyData: Record<string, CountyData> = {
     description: "Professional shot blasting services in Nottinghamshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/counties/nottinghamshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
-    latitude: 53.1001,
-    longitude: -1.0000,
-    majorTowns: ["Nottingham", "Mansfield", "Worksop", "Newark"],
-    industries: ["Manufacturing", "Pharmaceuticals", "Textiles", "Engineering"],
-    townsAndVillages: ["Arnold", "Beeston", "Bingham", "Bulwell", "Carlton", "Eastwood", "Hucknall", "Kimberley", "Long Eaton", "Newark-on-Trent", "Ollerton", "Retford", "Ruddington", "Southwell", "Stapleford", "Sutton-in-Ashfield", "West Bridgford", "Wollaton", "Worksop"]
-,
+    latitude: 53.0027,
+    longitude: -1.1581,
+    majorTowns: ["Nottingham", "Mansfield", "Newark-on-Trent", "Worksop"],
+    industries: ["Manufacturing", "Engineering", "Construction", "Logistics"],
+    townsAndVillages: ["Arnold", "Beeston", "Bingham", "Blidworth", "Carlton", "Eastwood", "Hucknall", "Kirkby-in-Ashfield", "Langold", "Long Eaton", "Netherfield", "Ollerton", "Radcliffe on Trent", "Retford", "Ruddington", "Selston", "Southwell", "Stapleford", "Sutton-in-Ashfield", "West Bridgford"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Nottinghamshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Nottinghamshire. Our fully equipped mobile units can reach any location in the county, including Nottingham, Mansfield, Worksop and surrounding areas."
+        question: "Do you provide shot blasting services in Nottingham and Mansfield?",
+        answer: "Yes — our mobile shot blasting units cover all of Nottinghamshire, including Nottingham, Mansfield, Newark-on-Trent, and Worksop. We travel to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in Nottinghamshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Nottinghamshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast structural steelwork and construction frames in Nottinghamshire?",
+        answer: "Yes. We work with construction contractors and steel fabricators across Nottinghamshire, shot blasting structural frames, beams, columns, and fabricated steelwork to SA2.5 or SA3 standard prior to protective coating."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast manufacturing plant and engineering fabrications in Nottinghamshire?",
+        answer: "Yes — we regularly shot blast industrial plant, production machinery, and engineering fabrications for manufacturers across Nottinghamshire. We work on-site at your facility to minimise production disruption."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Nottinghamshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast fire escapes and external steelwork in Nottinghamshire?",
+        answer: "Yes. We provide specialist shot blasting for fire escapes, external stair towers, and structural metalwork across Nottinghamshire. We coordinate access and work safely at height to deliver a thorough surface preparation."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Nottinghamshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Nottinghamshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Nottinghamshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -390,29 +380,28 @@ export const countyData: Record<string, CountyData> = {
     latitude: 52.0565,
     longitude: -2.7160,
     majorTowns: ["Hereford", "Leominster", "Ross-on-Wye", "Ledbury"],
-    industries: ["Agriculture", "Food Processing", "Manufacturing", "Tourism"],
-    townsAndVillages: ["Bromyard", "Kington", "Ledbury", "Leominster", "Ross-on-Wye", "Weobley", "Wigmore"]
-,
+    industries: ["Agriculture", "Food Processing", "Manufacturing", "Construction"],
+    townsAndVillages: ["Bromyard", "Colwall", "Ewyas Harold", "Hay-on-Wye", "Kington", "Ledbury", "Leominster", "Peterchurch", "Ross-on-Wye", "Weobley"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Herefordshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Herefordshire. Our fully equipped mobile units can reach any location in the county, including Hereford, Leominster, Ross-on-Wye and surrounding areas."
+        question: "Do you provide shot blasting services in Hereford and across Herefordshire?",
+        answer: "Yes — our mobile shot blasting units cover all of Herefordshire, including Hereford, Leominster, Ross-on-Wye, and Ledbury. We come to your site with all equipment so no transportation of materials is required."
       },
       {
-        question: "How quickly can you reach my location in Herefordshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Herefordshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast agricultural machinery and farm equipment in Herefordshire?",
+        answer: "Yes. Herefordshire's farming and food production sector is one of our core markets. We shot blast tractors, farm machinery, cider press equipment, trailers, and agricultural buildings across the county, working on-site at farms."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast food processing plant and equipment in Herefordshire?",
+        answer: "Yes — we work with food processing businesses across Herefordshire, shot blasting production equipment, structural steelwork, and factory cladding. We work to the required surface standards for your coating system."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Herefordshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast heritage and restoration projects in Herefordshire?",
+        answer: "Yes. We provide specialist shot blasting for heritage structures, listed buildings, and restoration projects across Herefordshire. We use appropriate blast media and pressure to clean surfaces without causing damage."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Herefordshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Herefordshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Herefordshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -427,28 +416,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -2.7447,
     majorTowns: ["Shrewsbury", "Telford", "Oswestry", "Bridgnorth"],
     industries: ["Manufacturing", "Engineering", "Agriculture", "Construction"],
-    townsAndVillages: ["Albrighton", "Bishops Castle", "Bridgnorth", "Broseley", "Church Stretton", "Cleobury Mortimer", "Craven Arms", "Dawley", "Ellesmere", "Ludlow", "Madeley", "Market Drayton", "Much Wenlock", "Newport", "Oakengates", "Oswestry", "Wellington", "Wem", "Whitchurch"]
-,
+    townsAndVillages: ["Albrighton", "Bishops Castle", "Bridgnorth", "Broseley", "Church Stretton", "Cleobury Mortimer", "Craven Arms", "Dawley", "Ellesmere", "Ludlow", "Madeley", "Market Drayton", "Much Wenlock", "Newport", "Oakengates", "Oswestry", "Wellington", "Wem", "Whitchurch"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Shropshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Shropshire. Our fully equipped mobile units can reach any location in the county, including Shrewsbury, Telford, Oswestry and surrounding areas."
+        question: "Do you provide shot blasting services in Shrewsbury, Telford, and Oswestry?",
+        answer: "Yes — our mobile shot blasting units cover all of Shropshire, including Shrewsbury, Telford, Oswestry, and Bridgnorth. We travel to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in Shropshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Shropshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast manufacturing and engineering fabrications in Shropshire?",
+        answer: "Yes. Shropshire has a strong manufacturing and engineering sector, particularly around Telford. We shot blast fabricated steelwork, plant, machinery, and production equipment for manufacturers across the county."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you offer shot blasting for agricultural equipment in Shropshire?",
+        answer: "Yes — we regularly shot blast farm machinery, trailers, agricultural buildings, and equipment for farming businesses across Shropshire. We work on-site at farms and agricultural premises."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Shropshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast structural steelwork for construction projects in Shropshire?",
+        answer: "Yes. We work with construction contractors and steel fabricators across Shropshire, shot blasting structural frames, beams, and fabricated components to SA2.5 or SA3 standard prior to protective coating."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Shropshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Shropshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Shropshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -463,28 +451,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -2.0347,
     majorTowns: ["Stoke-on-Trent", "Stafford", "Tamworth", "Newcastle-under-Lyme"],
     industries: ["Ceramics", "Manufacturing", "Engineering", "Automotive"],
-    townsAndVillages: ["Abbots Bromley", "Biddulph", "Brewood", "Burntwood", "Cheadle", "Eccleshall", "Fazeley", "Hednesford", "Kidsgrove", "Kinver", "Leek", "Penkridge", "Rugeley", "Stone", "Tutbury", "Uttoxeter", "Wombourne"]
-,
+    townsAndVillages: ["Abbots Bromley", "Biddulph", "Brewood", "Burntwood", "Cheadle", "Eccleshall", "Fazeley", "Hednesford", "Kidsgrove", "Kinver", "Leek", "Penkridge", "Rugeley", "Stone", "Tutbury", "Uttoxeter", "Wombourne"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Staffordshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Staffordshire. Our fully equipped mobile units can reach any location in the county, including Stoke-on-Trent, Stafford, Tamworth and surrounding areas."
+        question: "Do you provide shot blasting services in Stoke-on-Trent, Stafford, and Tamworth?",
+        answer: "Yes — our mobile shot blasting units cover all of Staffordshire, including Stoke-on-Trent, Stafford, Tamworth, and Newcastle-under-Lyme. We come to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in Staffordshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Staffordshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast ceramics and manufacturing plant in Stoke-on-Trent?",
+        answer: "Yes. Stoke-on-Trent's ceramics and manufacturing sector generates demand for shot blasting of kiln equipment, production plant, structural steelwork, and factory cladding. We work on-site at your facility."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast automotive components and engineering fabrications in Staffordshire?",
+        answer: "Yes — Staffordshire has a strong automotive and engineering sector. We shot blast fabricated components, jigs, fixtures, production machinery, and structural steelwork for automotive and engineering businesses across the county."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Staffordshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast factory cladding and industrial buildings in Staffordshire?",
+        answer: "Yes. We provide specialist shot blasting for factory cladding, warehouse exteriors, and industrial building steelwork across Staffordshire. We remove old coatings, rust, and mill scale to prepare surfaces for recoating."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Staffordshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Staffordshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Staffordshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -499,28 +486,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -1.5849,
     majorTowns: ["Leamington Spa", "Rugby", "Warwick", "Nuneaton"],
     industries: ["Automotive", "Manufacturing", "Engineering", "Aerospace"],
-    townsAndVillages: ["Alcester", "Atherstone", "Bedworth", "Bulkington", "Coleshill", "Henley-in-Arden", "Kenilworth", "Polesworth", "Shipston-on-Stour", "Southam", "Studley", "Wellesbourne", "Whitnash"]
-,
+    townsAndVillages: ["Alcester", "Atherstone", "Bedworth", "Bulkington", "Coleshill", "Henley-in-Arden", "Kenilworth", "Polesworth", "Shipston-on-Stour", "Southam", "Studley", "Wellesbourne", "Whitnash"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Warwickshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Warwickshire. Our fully equipped mobile units can reach any location in the county, including Leamington Spa, Rugby, Warwick and surrounding areas."
+        question: "Do you provide shot blasting services in Leamington Spa, Rugby, and Nuneaton?",
+        answer: "Yes — our mobile shot blasting units cover all of Warwickshire, including Leamington Spa, Rugby, Warwick, and Nuneaton. We travel to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in Warwickshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Warwickshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast automotive components and aerospace fabrications in Warwickshire?",
+        answer: "Yes. Warwickshire has a strong automotive and aerospace engineering sector. We shot blast fabricated components, jigs, tooling, production machinery, and structural steelwork for automotive and aerospace businesses across the county."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast structural steelwork for construction projects in Warwickshire?",
+        answer: "Yes — we work with construction contractors and steel fabricators across Warwickshire, shot blasting structural frames, beams, and fabricated components to SA2.5 or SA3 standard prior to protective coating."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Warwickshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast manufacturing plant and industrial equipment in Warwickshire?",
+        answer: "Yes. We regularly shot blast industrial plant, production machinery, and engineering fabrications for manufacturers across Warwickshire. We work on-site at your facility to minimise production downtime."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Warwickshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Warwickshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Warwickshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -535,28 +521,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -1.8904,
     majorTowns: ["Birmingham", "Wolverhampton", "Coventry", "Solihull"],
     industries: ["Automotive", "Manufacturing", "Aerospace", "Engineering"],
-    townsAndVillages: ["Aldridge", "Bilston", "Bloxwich", "Brierley Hill", "Brownhills", "Coseley", "Darlaston", "Dorridge", "Erdington", "Halesowen", "Kingswinford", "Knowle", "Meriden", "Oldbury", "Rowley Regis", "Sedgley", "Smethwick", "Stourbridge", "Tipton", "Wednesbury", "West Bromwich", "Willenhall"]
-,
+    townsAndVillages: ["Aldridge", "Bilston", "Bloxwich", "Brierley Hill", "Brownhills", "Coseley", "Darlaston", "Dorridge", "Erdington", "Halesowen", "Kingswinford", "Knowle", "Meriden", "Oldbury", "Rowley Regis", "Sedgley", "Smethwick", "Stourbridge", "Tipton", "Wednesbury", "West Bromwich", "Willenhall"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout West Midlands?",
-        answer: "Yes, we provide mobile shot blasting services across all of West Midlands. Our fully equipped mobile units can reach any location in the county, including Birmingham, Wolverhampton, Coventry and surrounding areas."
+        question: "Do you provide shot blasting services in Birmingham, Wolverhampton, and Coventry?",
+        answer: "Yes — our mobile shot blasting units cover all of the West Midlands, including Birmingham, Wolverhampton, Coventry, Solihull, and the Black Country. We come to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in West Midlands?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in West Midlands within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast automotive components and production tooling in the West Midlands?",
+        answer: "Yes. The West Midlands is the heart of the UK automotive industry. We shot blast fabricated components, jigs, fixtures, production tooling, and structural steelwork for automotive manufacturers and suppliers across the region."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast aerospace fabrications and engineering structures in the West Midlands?",
+        answer: "Yes — the West Midlands has a significant aerospace engineering sector. We provide controlled shot blasting for aerospace fabrications, structural components, and precision engineering parts, working to the surface standards required."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in West Midlands?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast factory cladding and industrial buildings in the West Midlands?",
+        answer: "Yes. We provide specialist shot blasting for factory cladding, warehouse exteriors, and industrial building steelwork across the West Midlands. We remove old coatings, rust, and mill scale to prepare surfaces for recoating."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in West Midlands to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in the West Midlands?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across the West Midlands and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -571,28 +556,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -2.2200,
     majorTowns: ["Worcester", "Kidderminster", "Redditch", "Bromsgrove"],
     industries: ["Manufacturing", "Agriculture", "Engineering", "Food Processing"],
-    townsAndVillages: ["Alvechurch", "Bewdley", "Broadway", "Bromsgrove", "Droitwich Spa", "Evesham", "Great Malvern", "Hagley", "Malvern", "Pershore", "Stourport-on-Severn", "Tenbury Wells", "Upton-upon-Severn"]
-,
+    townsAndVillages: ["Alvechurch", "Bewdley", "Broadway", "Bromsgrove", "Droitwich Spa", "Evesham", "Great Malvern", "Hagley", "Malvern", "Pershore", "Stourport-on-Severn", "Tenbury Wells", "Upton-upon-Severn"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Worcestershire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Worcestershire. Our fully equipped mobile units can reach any location in the county, including Worcester, Kidderminster, Redditch and surrounding areas."
+        question: "Do you provide shot blasting services in Worcester, Kidderminster, and Redditch?",
+        answer: "Yes — our mobile shot blasting units cover all of Worcestershire, including Worcester, Kidderminster, Redditch, and Bromsgrove. We travel to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in Worcestershire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Worcestershire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast manufacturing and engineering plant in Worcestershire?",
+        answer: "Yes. Worcestershire has a strong manufacturing and engineering sector, particularly around Redditch and Kidderminster. We shot blast plant, machinery, fabricated steelwork, and production equipment for manufacturers across the county."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast agricultural equipment and food processing plant in Worcestershire?",
+        answer: "Yes — Worcestershire's agriculture and food processing sector is a key market for us. We shot blast farm machinery, food processing equipment, structural steelwork, and factory cladding across the county."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Worcestershire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast heritage and restoration structures in Worcestershire?",
+        answer: "Yes. We provide specialist shot blasting for heritage structures, listed buildings, and restoration projects across Worcestershire. We use appropriate blast media and pressure to clean surfaces without causing damage."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Worcestershire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Worcestershire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Worcestershire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -609,28 +593,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -1.4142,
     majorTowns: ["Sheffield", "Rotherham", "Doncaster", "Barnsley"],
     industries: ["Steel", "Manufacturing", "Engineering", "Logistics"],
-    townsAndVillages: ["Anston", "Askern", "Aughton", "Bawtry", "Bentley", "Bolsover", "Chapeltown", "Conisbrough", "Dinnington", "Dodworth", "Edlington", "Goldthorpe", "Hoyland", "Maltby", "Mexborough", "Penistone", "Rawmarsh", "Rossington", "Stocksbridge", "Swinton", "Thorne", "Tickhill", "Wath-upon-Dearne", "Wombwell"]
-,
+    townsAndVillages: ["Anston", "Askern", "Aughton", "Bawtry", "Bentley", "Bolsover", "Chapeltown", "Conisbrough", "Dinnington", "Dodworth", "Edlington", "Goldthorpe", "Hoyland", "Maltby", "Mexborough", "Penistone", "Rawmarsh", "Rossington", "Stocksbridge", "Swinton", "Thorne", "Tickhill", "Wath-upon-Dearne", "Wombwell"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout South Yorkshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of South Yorkshire. Our fully equipped mobile units can reach any location in the county, including Sheffield, Rotherham, Doncaster and surrounding areas."
+        question: "Do you provide shot blasting services in Sheffield, Rotherham, and Doncaster?",
+        answer: "Yes — our mobile shot blasting units cover all of South Yorkshire, including Sheffield, Rotherham, Doncaster, and Barnsley. We come to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in South Yorkshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in South Yorkshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast steel fabrications and structural steelwork in Sheffield?",
+        answer: "Yes. Sheffield and South Yorkshire have a strong steel and fabrication heritage. We regularly shot blast structural steelwork, fabricated frames, beams, and steel components for fabricators and construction contractors across the region."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast manufacturing plant and engineering equipment in South Yorkshire?",
+        answer: "Yes — we work with manufacturers and engineering businesses across South Yorkshire, shot blasting industrial plant, production machinery, and fabricated steelwork on-site at your facility to minimise downtime."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in South Yorkshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast logistics and warehouse structures in Doncaster?",
+        answer: "Yes. Doncaster is a major logistics hub and we shot blast warehouse racking, mezzanine floors, structural steelwork, and cladding for distribution centres and logistics parks across the Doncaster area."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in South Yorkshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in South Yorkshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across South Yorkshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -645,28 +628,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -1.5437,
     majorTowns: ["Leeds", "Bradford", "Wakefield", "Huddersfield"],
     industries: ["Manufacturing", "Textiles", "Engineering", "Finance"],
-    townsAndVillages: ["Baildon", "Batley", "Bingley", "Brighouse", "Castleford", "Cleckheaton", "Dewsbury", "Elland", "Garforth", "Guiseley", "Halifax", "Hebden Bridge", "Heckmondwike", "Holmfirth", "Horsforth", "Ilkley", "Keighley", "Knottingley", "Mirfield", "Morley", "Normanton", "Ossett", "Otley", "Pontefract", "Pudsey", "Shipley", "Sowerby Bridge", "Todmorden", "Wetherby", "Yeadon"]
-,
+    townsAndVillages: ["Baildon", "Batley", "Bingley", "Brighouse", "Castleford", "Cleckheaton", "Dewsbury", "Elland", "Garforth", "Guiseley", "Halifax", "Hebden Bridge", "Heckmondwike", "Holmfirth", "Horsforth", "Ilkley", "Keighley", "Knottingley", "Mirfield", "Morley", "Normanton", "Ossett", "Otley", "Pontefract", "Pudsey", "Shipley", "Sowerby Bridge", "Todmorden", "Wetherby", "Yeadon"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout West Yorkshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of West Yorkshire. Our fully equipped mobile units can reach any location in the county, including Leeds, Bradford, Wakefield and surrounding areas."
+        question: "Do you provide shot blasting services in Leeds, Bradford, and Huddersfield?",
+        answer: "Yes — our mobile shot blasting units cover all of West Yorkshire, including Leeds, Bradford, Wakefield, and Huddersfield. We travel to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in West Yorkshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in West Yorkshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast manufacturing and engineering fabrications in West Yorkshire?",
+        answer: "Yes. West Yorkshire has a strong manufacturing and engineering base. We shot blast fabricated steelwork, plant, machinery, and production equipment for manufacturers across the county, working on-site at your facility."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast structural steelwork for construction projects in West Yorkshire?",
+        answer: "Yes — we work with construction contractors and steel fabricators across West Yorkshire, shot blasting structural frames, beams, and fabricated components to SA2.5 or SA3 standard prior to protective coating."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in West Yorkshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast heritage and textile mill buildings in West Yorkshire?",
+        answer: "Yes. West Yorkshire has a rich industrial heritage and we provide specialist shot blasting for heritage structures, mill buildings, and restoration projects across the county. We use appropriate blast media and pressure to clean surfaces without causing damage."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in West Yorkshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in West Yorkshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across West Yorkshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -683,28 +665,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -2.5310,
     majorTowns: ["Chester", "Crewe", "Warrington", "Macclesfield"],
     industries: ["Manufacturing", "Chemicals", "Logistics", "Engineering"],
-    townsAndVillages: ["Alsager", "Bollington", "Congleton", "Ellesmere Port", "Frodsham", "Holmes Chapel", "Knutsford", "Middlewich", "Nantwich", "Neston", "Northwich", "Poynton", "Runcorn", "Sandbach", "Tarporley", "Widnes", "Wilmslow", "Winsford"]
-,
+    townsAndVillages: ["Alsager", "Bollington", "Congleton", "Ellesmere Port", "Frodsham", "Holmes Chapel", "Knutsford", "Middlewich", "Nantwich", "Neston", "Northwich", "Poynton", "Runcorn", "Sandbach", "Tarporley", "Widnes", "Wilmslow", "Winsford"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Cheshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Cheshire. Our fully equipped mobile units can reach any location in the county, including Chester, Crewe, Warrington and surrounding areas."
+        question: "Do you provide shot blasting services in Chester, Crewe, and Warrington?",
+        answer: "Yes — our mobile shot blasting units cover all of Cheshire, including Chester, Crewe, Warrington, and Macclesfield. We come to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in Cheshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Cheshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast chemical plant and process equipment in Cheshire?",
+        answer: "Yes. Cheshire has a significant chemicals and process industries sector, particularly around Runcorn, Widnes, and Northwich. We shot blast process vessels, pipework, structural steelwork, and plant for chemical and process businesses."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast manufacturing and engineering fabrications in Cheshire?",
+        answer: "Yes — we work with manufacturers and engineering businesses across Cheshire, shot blasting plant, machinery, fabricated steelwork, and production equipment on-site at your facility."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Cheshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast logistics and warehouse structures in Warrington?",
+        answer: "Yes. Warrington is a major logistics hub and we shot blast warehouse racking, mezzanine floors, structural steelwork, and cladding for distribution centres and logistics parks across the Warrington area and wider Cheshire."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Cheshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Cheshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Cheshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -721,28 +702,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -2.2381,
     majorTowns: ["Gloucester", "Cheltenham", "Stroud", "Cirencester"],
     industries: ["Aerospace", "Manufacturing", "Agriculture", "Engineering"],
-    townsAndVillages: ["Bishops Cleeve", "Bourton-on-the-Water", "Chipping Campden", "Cinderford", "Coleford", "Dursley", "Fairford", "Lechlade", "Lydney", "Mitcheldean", "Moreton-in-Marsh", "Nailsworth", "Newent", "Painswick", "Stow-on-the-Wold", "Stonehouse", "Tetbury", "Tewkesbury", "Winchcombe"]
-,
+    townsAndVillages: ["Bishops Cleeve", "Bourton-on-the-Water", "Chipping Campden", "Cinderford", "Coleford", "Dursley", "Fairford", "Lechlade", "Lydney", "Mitcheldean", "Moreton-in-Marsh", "Nailsworth", "Newent", "Painswick", "Stow-on-the-Wold", "Stonehouse", "Tetbury", "Tewkesbury", "Winchcombe"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Gloucestershire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Gloucestershire. Our fully equipped mobile units can reach any location in the county, including Gloucester, Cheltenham, Stroud and surrounding areas."
+        question: "Do you provide shot blasting services in Gloucester, Cheltenham, and Stroud?",
+        answer: "Yes — our mobile shot blasting units cover all of Gloucestershire, including Gloucester, Cheltenham, Stroud, and Cirencester. We travel to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in Gloucestershire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Gloucestershire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast aerospace components and engineering fabrications in Gloucestershire?",
+        answer: "Yes. Gloucestershire has a strong aerospace engineering sector, particularly around Cheltenham and the Cotswold area. We provide controlled shot blasting for aerospace fabrications, structural components, and engineering parts, working to the surface standards required."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast agricultural equipment and farm buildings in Gloucestershire?",
+        answer: "Yes — Gloucestershire's farming sector is a key market for us. We shot blast farm machinery, agricultural buildings, and equipment across the county, working on-site at farms and agricultural premises."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Gloucestershire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast heritage and Cotswold stone structures in Gloucestershire?",
+        answer: "Yes. We provide specialist shot blasting for heritage structures and restoration projects across Gloucestershire. We use appropriate blast media and pressure to clean surfaces without causing damage to historic materials."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Gloucestershire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Gloucestershire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Gloucestershire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -757,28 +737,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -4.0591,
     majorTowns: ["Barnstaple", "Ilfracombe", "Bideford", "South Molton"],
     industries: ["Tourism", "Agriculture", "Marine", "Manufacturing"],
-    townsAndVillages: ["Appledore", "Barnstaple", "Bideford", "Braunton", "Combe Martin", "Croyde", "Great Torrington", "Ilfracombe", "Instow", "Lynton", "Lynmouth", "South Molton", "Westward Ho!", "Woolacombe"]
-,
+    townsAndVillages: ["Appledore", "Barnstaple", "Bideford", "Braunton", "Combe Martin", "Croyde", "Great Torrington", "Ilfracombe", "Instow", "Lynton", "Lynmouth", "South Molton", "Westward Ho!", "Woolacombe"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout North Devon?",
-        answer: "Yes, we provide mobile shot blasting services across all of North Devon. Our fully equipped mobile units can reach any location in the county, including Barnstaple, Ilfracombe, Bideford and surrounding areas."
+        question: "Do you provide shot blasting services in Barnstaple, Bideford, and Ilfracombe?",
+        answer: "Yes — our mobile shot blasting units cover all of North Devon, including Barnstaple, Ilfracombe, Bideford, and South Molton. We come to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in North Devon?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in North Devon within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast marine vessels and coastal structures in North Devon?",
+        answer: "Yes. North Devon's coastline and marine sector generate demand for shot blasting of vessels, pontoons, slipways, and coastal structures. We provide on-site shot blasting for marine operators across North Devon, working to SA2.5 and SA3 standards."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast agricultural machinery and farm equipment in North Devon?",
+        answer: "Yes — North Devon's farming sector is a key market for us. We shot blast tractors, farm machinery, trailers, and agricultural buildings across the county, working on-site at farms and agricultural premises."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in North Devon?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast tourism and hospitality infrastructure in North Devon?",
+        answer: "Yes. We provide shot blasting for structural steelwork, fire escapes, external metalwork, and heritage structures associated with tourism and hospitality properties across North Devon."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in North Devon to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in North Devon?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across North Devon and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -793,28 +772,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -2.9270,
     majorTowns: ["Taunton", "Weston-super-Mare", "Yeovil", "Bridgwater"],
     industries: ["Agriculture", "Manufacturing", "Tourism", "Food Processing"],
-    townsAndVillages: ["Axbridge", "Bridgwater", "Bruton", "Burnham-on-Sea", "Castle Cary", "Chard", "Cheddar", "Clevedon", "Crewkerne", "Frome", "Glastonbury", "Highbridge", "Ilminster", "Keynsham", "Langport", "Martock", "Midsomer Norton", "Minehead", "Nailsea", "Portishead", "Shepton Mallet", "South Petherton", "Street", "Wells", "Wincanton"]
-,
+    townsAndVillages: ["Axbridge", "Bridgwater", "Bruton", "Burnham-on-Sea", "Castle Cary", "Chard", "Cheddar", "Clevedon", "Crewkerne", "Frome", "Glastonbury", "Highbridge", "Ilminster", "Keynsham", "Langport", "Martock", "Midsomer Norton", "Minehead", "Nailsea", "Portishead", "Shepton Mallet", "South Petherton", "Street", "Wells", "Wincanton"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Somerset?",
-        answer: "Yes, we provide mobile shot blasting services across all of Somerset. Our fully equipped mobile units can reach any location in the county, including Taunton, Weston-super-Mare, Yeovil and surrounding areas."
+        question: "Do you provide shot blasting services in Taunton, Yeovil, and Bridgwater?",
+        answer: "Yes — our mobile shot blasting units cover all of Somerset, including Taunton, Weston-super-Mare, Yeovil, and Bridgwater. We travel to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in Somerset?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Somerset within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast agricultural machinery and cider industry equipment in Somerset?",
+        answer: "Yes. Somerset's farming and cider production sector is a key market for us. We shot blast tractors, farm machinery, cider press equipment, storage tanks, and agricultural buildings across the county."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast manufacturing and food processing plant in Somerset?",
+        answer: "Yes — we work with food processing and manufacturing businesses across Somerset, shot blasting production equipment, structural steelwork, and factory cladding. We work to the required surface standards for your coating system."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Somerset?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast heritage and tourism structures in Somerset?",
+        answer: "Yes. We provide specialist shot blasting for heritage structures, listed buildings, and restoration projects across Somerset. We use appropriate blast media and pressure to clean surfaces without causing damage."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Somerset to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Somerset?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Somerset and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -829,28 +807,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -1.9927,
     majorTowns: ["Swindon", "Salisbury", "Chippenham", "Trowbridge"],
     industries: ["Manufacturing", "Defense", "Agriculture", "Engineering"],
-    townsAndVillages: ["Amesbury", "Bradford-on-Avon", "Calne", "Corsham", "Cricklade", "Devizes", "Downton", "Highworth", "Ludgershall", "Malmesbury", "Marlborough", "Melksham", "Mere", "Pewsey", "Royal Wootton Bassett", "Tidworth", "Tisbury", "Warminster", "Westbury", "Wilton"]
-,
+    townsAndVillages: ["Amesbury", "Bradford-on-Avon", "Calne", "Corsham", "Cricklade", "Devizes", "Downton", "Highworth", "Ludgershall", "Malmesbury", "Marlborough", "Melksham", "Mere", "Pewsey", "Royal Wootton Bassett", "Tidworth", "Tisbury", "Warminster", "Westbury", "Wilton"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Wiltshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Wiltshire. Our fully equipped mobile units can reach any location in the county, including Swindon, Salisbury, Chippenham and surrounding areas."
+        question: "Do you provide shot blasting services in Swindon, Salisbury, and Chippenham?",
+        answer: "Yes — our mobile shot blasting units cover all of Wiltshire, including Swindon, Salisbury, Chippenham, and Trowbridge. We come to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in Wiltshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Wiltshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast defence and aerospace components in Wiltshire?",
+        answer: "Yes. Wiltshire has a significant defence and aerospace sector, particularly around Salisbury Plain and Corsham. We provide controlled shot blasting for defence fabrications, aerospace components, and engineering structures, working to the surface standards required."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast manufacturing and engineering plant in Swindon?",
+        answer: "Yes — Swindon has a strong manufacturing base and we regularly shot blast industrial plant, production machinery, fabricated steelwork, and factory cladding for manufacturers across the Swindon area and wider Wiltshire."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Wiltshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast agricultural equipment and farm buildings in Wiltshire?",
+        answer: "Yes. We shot blast farm machinery, agricultural buildings, and equipment for farming businesses across Wiltshire, working on-site at farms and agricultural premises."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Wiltshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Wiltshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Wiltshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -867,28 +844,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -0.8084,
     majorTowns: ["Milton Keynes", "Aylesbury", "High Wycombe", "Buckingham"],
     industries: ["Manufacturing", "Logistics", "Technology", "Construction"],
-    townsAndVillages: ["Amersham", "Beaconsfield", "Bourne End", "Buckingham", "Chalfont St Giles", "Chalfont St Peter", "Chesham", "Gerrards Cross", "Great Missenden", "Haddenham", "Marlow", "Newport Pagnell", "Olney", "Princes Risborough", "Stony Stratford", "Wendover", "Winslow", "Wolverton"]
-,
+    townsAndVillages: ["Amersham", "Beaconsfield", "Bourne End", "Buckingham", "Chalfont St Giles", "Chalfont St Peter", "Chesham", "Gerrards Cross", "Great Missenden", "Haddenham", "Marlow", "Newport Pagnell", "Olney", "Princes Risborough", "Stony Stratford", "Wendover", "Winslow", "Wolverton"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout Buckinghamshire?",
-        answer: "Yes, we provide mobile shot blasting services across all of Buckinghamshire. Our fully equipped mobile units can reach any location in the county, including Milton Keynes, Aylesbury, High Wycombe and surrounding areas."
+        question: "Do you provide shot blasting services in Milton Keynes, Aylesbury, and High Wycombe?",
+        answer: "Yes — our mobile shot blasting units cover all of Buckinghamshire, including Milton Keynes, Aylesbury, High Wycombe, and Buckingham. We travel to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in Buckinghamshire?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Buckinghamshire within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast logistics and distribution centre structures in Milton Keynes?",
+        answer: "Yes. Milton Keynes is a major logistics hub and we shot blast warehouse racking, mezzanine floors, structural steelwork, and cladding for distribution centres and logistics parks across the Milton Keynes area and wider Buckinghamshire."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast manufacturing and construction steelwork in Buckinghamshire?",
+        answer: "Yes — we work with manufacturers and construction contractors across Buckinghamshire, shot blasting structural frames, fabricated steelwork, plant, and machinery to SA2.5 or SA3 standard prior to protective coating."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in Buckinghamshire?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast technology and commercial property steelwork in Buckinghamshire?",
+        answer: "Yes. We provide shot blasting for structural steelwork, cladding, and fabricated components for commercial and technology sector buildings across Buckinghamshire."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in Buckinghamshire to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in Buckinghamshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Buckinghamshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -903,28 +879,27 @@ export const countyData: Record<string, CountyData> = {
     longitude: -3.1791,
     majorTowns: ["Cardiff", "Newport", "Wrexham", "Merthyr Tydfil"],
     industries: ["Manufacturing", "Steel", "Engineering", "Logistics"],
-    townsAndVillages: ["Aberdare", "Abergavenny", "Bargoed", "Barry", "Blackwood", "Bridgend", "Caerphilly", "Caldicot", "Chepstow", "Cwmbran", "Ebbw Vale", "Maesteg", "Merthyr Tydfil", "Monmouth", "Mountain Ash", "Neath", "Penarth", "Pontyclun", "Pontypool", "Pontypridd", "Port Talbot", "Porth", "Risca", "Tredegar", "Usk"]
-,
+    townsAndVillages: ["Aberdare", "Abergavenny", "Bargoed", "Barry", "Blackwood", "Bridgend", "Caerphilly", "Caldicot", "Chepstow", "Cwmbran", "Ebbw Vale", "Maesteg", "Merthyr Tydfil", "Monmouth", "Mountain Ash", "Neath", "Penarth", "Pontyclun", "Pontypool", "Pontypridd", "Port Talbot", "Porth", "Risca", "Tredegar", "Usk"],
     faqs: [
       {
-        question: "Do you provide shot blasting services throughout East Wales?",
-        answer: "Yes, we provide mobile shot blasting services across all of East Wales. Our fully equipped mobile units can reach any location in the county, including Cardiff, Newport, Wrexham and surrounding areas."
+        question: "Do you provide shot blasting services in Cardiff, Newport, and Wrexham?",
+        answer: "Yes — our mobile shot blasting units cover all of East Wales, including Cardiff, Newport, Wrexham, and Merthyr Tydfil. We come to your site with all equipment needed."
       },
       {
-        question: "How quickly can you reach my location in East Wales?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in East Wales within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        question: "Can you shot blast steel fabrications and structural steelwork in East Wales?",
+        answer: "Yes. East Wales has a strong steel and manufacturing heritage, particularly around Port Talbot, Ebbw Vale, and Merthyr Tydfil. We regularly shot blast structural steelwork, fabricated frames, and steel components for fabricators and construction contractors across the region."
       },
       {
-        question: "What types of surfaces can you blast in commercial settings?",
-        answer: "We can blast virtually any surface including steel beams, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our mobile equipment is suitable for both indoor and outdoor applications across industrial, commercial, and agricultural settings."
+        question: "Do you shot blast manufacturing plant and engineering equipment in East Wales?",
+        answer: "Yes — we work with manufacturers and engineering businesses across East Wales, shot blasting industrial plant, production machinery, and fabricated steelwork on-site at your facility to minimise downtime."
       },
       {
-        question: "Do I need to provide anything for the shot blasting work in East Wales?",
-        answer: "We bring all necessary equipment including our mobile blasting unit, abrasive media, and containment systems. You'll need to provide access to the site and, for some indoor jobs, a power supply. We'll discuss specific requirements during the initial consultation."
+        question: "Can you shot blast port and logistics infrastructure in Newport and Cardiff?",
+        answer: "Yes. We provide shot blasting for port infrastructure, marine structures, and logistics equipment at Newport and Cardiff. We work to SA2.5 and SA3 standards and can provide documentation on request."
       },
       {
-        question: "How do I get a quote for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a free quote through our website. We'll discuss your project requirements and can arrange a site visit in East Wales to provide an accurate, no-obligation quotation."
+        question: "How do I get a free quote for shot blasting in East Wales?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across East Wales and typically respond to enquiries within 24 hours."
       }
     ]
   },
