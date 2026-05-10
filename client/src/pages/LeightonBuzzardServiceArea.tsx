@@ -11,6 +11,7 @@ import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { Footer } from "@/components/Footer";
 import { locationData } from "@/data/locationData";
+import { LocationMap } from "@/components/LocationMap";
 
 export default function LeightonBuzzardServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -295,7 +296,18 @@ export default function LeightonBuzzardServiceArea() {
               </a>
             </Button>
           </div>
+        
+      {/* Service Area Map */}
+      <section className="py-12 bg-gray-50">
+        <div className="container">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-[#2C2C2C] mb-2">Our Service Area Coverage</h2>
+            <p className="text-gray-600">We provide professional shot blasting services throughout LeightonBuzzard and the surrounding region. The map shows our primary service area.</p>
+          </div>
+          <LocationMap locationName="LeightonBuzzard" />
         </div>
+      </section>
+    </div>
       </section>
 
       <Footer />

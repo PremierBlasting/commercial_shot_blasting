@@ -8962,6 +8962,23 @@ export const locationData: Record<string, LocationData> = {
       { question: "Do you offer free quotes in Sunderland?", answer: "Yes, we provide free, no-obligation quotations for all projects in Sunderland. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
     ]
   },
+  "durham": {
+    name: "Durham",
+    slug: "durham",
+    county: "County Durham",
+    countySlug: "durham",
+    region: "North East England",
+    description: "Shot Blasting in Durham City, County Durham. Professional mobile surface preparation & rust removal for construction, heritage, and industrial clients. Expert commercial blasting. Call 07970 566409",
+    industries: ["construction", "heritage-restoration", "manufacturing"],
+    nearbyAreas: ["darlington", "hartlepool", "middlesbrough", "sunderland", "gateshead"],
+    faqs: [
+      { question: "Do you provide shot blasting services in Durham City?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Durham City and the surrounding County Durham area. Our fully equipped units travel directly to your site, whether in the city centre, on industrial estates, or at rural locations across the county." },
+      { question: "How quickly can you reach Durham?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Durham within 2-5 working days. For urgent projects, we can often accommodate faster response times across County Durham." },
+      { question: "What surfaces can you blast in Durham?", answer: "We can blast virtually any surface including structural steelwork, heritage ironwork, machinery, vehicles, concrete floors, brick walls, and metal fabrications. Our equipment is suitable for both indoor and outdoor applications across Durham." },
+      { question: "Do you offer free quotes in Durham?", answer: "Yes, we provide free, no-obligation quotations for all projects in Durham City and County Durham. Call us on 07970 566409 or request a quote through our website to discuss your requirements." },
+      { question: "Can you blast heritage structures in Durham?", answer: "Yes, we have experience working on heritage and listed structures in Durham, including ironwork, stone cleaning, and structural steel on historic buildings. We use appropriate media and pressures to protect sensitive surfaces while achieving the required cleanliness standard." },
+    ]
+  },
   "darlington": {
     name: "Darlington",
     slug: "darlington",
