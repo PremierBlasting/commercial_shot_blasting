@@ -83,6 +83,13 @@
         -moz-osx-font-smoothing: grayscale;
       }
     </style>
+    <!-- noscript: when JS is disabled, override opacity:0 on lazy images so they display immediately -->
+    <noscript>
+      <style>
+        img[loading="lazy"] { opacity: 1 !important; }
+        img.opacity-0 { opacity: 1 !important; }
+      </style>
+    </noscript>
     <!-- Schema scripts deferred: JSON-LD is crawler-only, no need to block paint -->
     <script src="/schema-bootstrap.js" defer></script>
     <script src="/schema-service.js" defer></script>
