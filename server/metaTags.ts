@@ -2100,6 +2100,17 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
         <li><strong>Step 3 — SA2.5 Finish &amp; Full Cleanup:</strong> We complete the shot blasting to your specified standard — typically SA2.5 near white metal — and carry out a full site cleanup before leaving. Your surfaces are ready for protective coating immediately after our visit.</li>
       </ol>
     </section>
+    <section aria-label="Industries We Serve">
+      <h2>Industries We Serve with Shot Blasting Services in ${escHtml(name)}</h2>
+      <p>Our mobile shot blasting services in ${escHtml(name)} support a wide range of commercial and industrial sectors across ${escHtml(county)}:</p>
+      <ul>
+        <li><a href="${SITE_URL}/industries/construction">Construction &amp; Structural Steel — Shot Blasting Services in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/industries/manufacturing">Manufacturing &amp; Engineering — Shot Blasting Services in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/industries/marine">Marine &amp; Offshore — Shot Blasting Services in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/industries/agriculture">Agriculture &amp; Farming — Shot Blasting Services in ${escHtml(name)}</a></li>
+      </ul>
+      <p><a href="${SITE_URL}/industries">View all industries we serve with shot blasting services</a></p>
+    </section>
     <section aria-label="Frequently Asked Questions" itemscope itemtype="https://schema.org/FAQPage">
       <h2>FAQs About Shot Blasting in ${escHtml(name)}</h2>
       ${faqHtml}

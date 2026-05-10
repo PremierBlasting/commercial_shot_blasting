@@ -394,3 +394,10 @@
 - [x] Upgrade county page Related Services section in county SSR body HTML (already in place from previous session)
 - [x] Add "Shot Blasting Services Near [area]" related locations block to LocationPage.tsx — upgraded from pill links to card tiles, 8→12 towns, keyword-rich anchor text
 - [x] Add related locations block to location SSR body HTML in metaTags.ts — dynamic 12-town list with keyword-rich anchor text
+
+## SEO Round — Industries We Serve & County Nearby Areas
+
+- [x] Add "Industries We Serve" 4-tile section to LocationPage.tsx (already present at line 488)
+- [x] Add "Industries We Serve" section to location SSR body HTML in metaTags.ts
+- [x] Add "Nearby Areas" town card grid to CountyPage.tsx (already present — full towns list + 12-tile card grid + map)
+- [x] Add "Nearby Areas" town card grid to county SSR body HTML in metaTags.ts (already present via locLinksHtml in Areas We Cover section)
