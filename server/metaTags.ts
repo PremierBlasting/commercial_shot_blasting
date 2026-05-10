@@ -1473,6 +1473,72 @@ function generateServiceBodyHTML(serviceId: string): string {
 /**
  * Generate comprehensive JSON-LD schemas for service pages
  */
+const servicePreparationSteps: Record<string, Array<{ title: string; text: string }>> = {
+  'default': [
+    { title: 'Request a Free Site Survey', text: 'Contact us to arrange a free, no-obligation site visit. Our team will assess the surfaces, confirm the blast standard required, and provide a written quote. Call 07970 566409 or use our online form.' },
+    { title: 'Clear the Work Area', text: 'Ensure the surfaces to be blasted are accessible. Remove vehicles, equipment, or materials stored directly adjacent to the work area. A clear 2-3 metre perimeter around the blast zone is ideal.' },
+    { title: 'Arrange Site Access', text: 'Confirm access for our mobile unit — typically a van or small lorry. Advise us of any height restrictions, locked gates, or site induction requirements so we can plan accordingly.' },
+    { title: 'Notify Relevant Personnel', text: 'Inform your site supervisor, facilities manager, or health and safety officer that shot blasting work is scheduled. Ensure any affected staff are briefed on the work area and any temporary access restrictions.' },
+    { title: 'Coordinate Coating Application', text: 'Arrange for protective coating or primer to be applied as soon as possible after blasting — ideally within 4 hours for steel surfaces. Discuss timing with your coating contractor in advance so there is no delay between blasting and coating.' }
+  ],
+  'structural-steel-frames': [
+    { title: 'Request a Free Site Survey', text: 'Contact us to arrange a free site visit. We will assess the steel frame components, confirm the blast standard (SA2.5 or SA3), and provide a detailed written quote.' },
+    { title: 'Identify All Frame Components', text: 'Prepare a list or drawing of all structural steel components to be blasted — beams, columns, trusses, purlins, and fabricated sections. This helps us plan media usage, timing, and access requirements accurately.' },
+    { title: 'Clear Access Around Steelwork', text: 'Ensure a clear working zone around all frame sections. Remove stored materials, equipment, and vehicles from the blast area. A minimum 3-metre clearance around each component is recommended.' },
+    { title: 'Protect Adjacent Surfaces', text: 'Identify any surfaces adjacent to the steelwork that should not be blasted — concrete, brickwork, glazing, or existing coatings. Flag these for our team so we can apply appropriate masking before work begins.' },
+    { title: 'Coordinate Coating or Galvanizing', text: 'Arrange for primer, paint, or galvanizing to be applied immediately after blasting. Steel surfaces begin to oxidise within hours of blasting — coordinate with your coating contractor to ensure no delay.' }
+  ],
+  'steel-containers': [
+    { title: 'Request a Free Site Survey', text: 'Contact us to arrange a free site visit. We will inspect the container, assess the extent of corrosion and coating failure, and provide a written quote for the work.' },
+    { title: 'Position the Container for Access', text: 'Ensure the container is positioned so our team can access all external surfaces — ideally with at least 2 metres clearance on all sides. For internal blasting, confirm the container doors can be fully opened and secured.' },
+    { title: 'Remove Contents and Clean Out', text: 'Empty the container completely before our arrival. Remove any loose debris, standing water, or contamination from the interior. A clean, empty container allows us to work safely and efficiently.' },
+    { title: 'Identify Areas Requiring Special Attention', text: 'Mark or photograph any areas of heavy corrosion, previous repairs, or weld seams that require particular attention. Share this information with our team at the start of the job.' },
+    { title: 'Arrange Coating Application', text: 'Coordinate with a coating contractor to apply protective paint or primer immediately after blasting. Steel surfaces will begin to flash rust within hours — prompt coating is essential for a durable result.' }
+  ],
+  'factory-cladding': [
+    { title: 'Request a Free Site Survey', text: 'Contact us to arrange a free site visit. We will assess the cladding condition, identify coating types (plastisol, paint, or bare metal), and provide a written quote.' },
+    { title: 'Arrange Safe Access to Cladding', text: 'Confirm access arrangements for working at height — scaffolding, MEWP (cherry picker), or access platform. Advise us of any existing access equipment on site or whether we need to arrange our own.' },
+    { title: 'Clear the Building Perimeter', text: 'Remove vehicles, equipment, and materials from the building perimeter below the work area. Blast media and debris will fall during work — a clear zone of at least 5 metres from the base of the building is recommended.' },
+    { title: 'Notify Building Occupants', text: 'Inform all building occupants and staff that shot blasting work is taking place on the exterior. Advise them to keep windows and doors closed during blasting to prevent ingress of dust.' },
+    { title: 'Coordinate Recoating', text: 'Arrange for new cladding coating or primer to be applied promptly after blasting. Exposed bare metal cladding will begin to oxidise quickly — coordinate with your coating contractor to minimise the gap between blasting and recoating.' }
+  ],
+  'fire-escapes': [
+    { title: 'Request a Free Site Survey', text: 'Contact us to arrange a free site visit. We will assess the fire escape structure, check for any structural concerns, and provide a written quote for the blasting work.' },
+    { title: 'Confirm Alternative Egress Routes', text: 'Before work begins, confirm that alternative fire escape routes are available for building occupants. The fire escape being blasted must be taken out of service during the work — ensure your fire safety plan is updated accordingly.' },
+    { title: 'Clear the Work Area Below', text: 'Remove vehicles, equipment, and materials from the area directly below and around the fire escape. Blast media and debris will fall during work — a clear zone of at least 3 metres is recommended.' },
+    { title: 'Notify Building Management and Occupants', text: 'Inform your building manager, fire safety officer, and all occupants that the fire escape will be temporarily out of service. Provide clear signage directing people to alternative exits.' },
+    { title: 'Arrange Coating or Galvanizing', text: 'Coordinate with a coating contractor or galvanizer to apply protective treatment immediately after blasting. Fire escapes are exposed to weather — prompt coating is essential to prevent rapid re-rusting.' }
+  ],
+  'floor-preparation': [
+    { title: 'Request a Free Site Survey', text: 'Contact us to arrange a free site visit. We will assess the floor condition, existing coatings or contamination, and confirm the surface profile required for your specified coating system.' },
+    { title: 'Clear the Floor Area Completely', text: 'Remove all racking, equipment, vehicles, and materials from the area to be blasted. The floor must be completely clear before our team arrives. Partial clearance will result in incomplete blasting and may affect coating adhesion.' },
+    { title: 'Clean the Floor Surface', text: 'Sweep and remove loose debris, standing water, and surface contamination before our arrival. Heavy grease or oil contamination may require degreasing treatment prior to blasting — advise us of any contaminated areas during the site survey.' },
+    { title: 'Protect Drainage Points and Sensitive Areas', text: 'Identify drainage channels, floor joints, and any areas that should not be blasted. Our team will mask these before work begins, but flagging them in advance helps us plan the job accurately.' },
+    { title: 'Arrange Coating Application', text: 'Coordinate with your resin or epoxy coating contractor to apply the floor coating promptly after blasting. The surface profile created by shot blasting is optimal for coating adhesion — delay increases the risk of contamination and reduced adhesion.' }
+  ],
+  'warehouse-racking': [
+    { title: 'Request a Free Site Survey', text: 'Contact us to arrange a free site visit. We will assess the racking components, confirm the extent of rust or coating failure, and provide a written quote.' },
+    { title: 'Disassemble Racking Components', text: 'For optimal blasting results, racking uprights, beams, and frames should be disassembled before our arrival. Confirm with our team whether in-situ blasting or component blasting is the right approach for your racking system.' },
+    { title: 'Remove All Stored Goods', text: 'Ensure all pallets, goods, and materials are removed from the racking before work begins. The racking must be completely empty and, where possible, disassembled for access.' },
+    { title: 'Identify Components Requiring Replacement', text: 'Before blasting, inspect racking components for damage, bending, or cracking that may make them unsuitable for reuse. Blasting will not repair structural damage — identify and replace damaged components before recoating.' },
+    { title: 'Arrange Powder Coating or Painting', text: 'Coordinate with a powder coating or painting contractor to apply new coating promptly after blasting. Bare steel racking components will begin to oxidise quickly — prompt coating is essential.' }
+  ],
+  'plant-machinery': [
+    { title: 'Request a Free Site Survey', text: 'Contact us to arrange a free site visit. We will assess the machinery, identify sensitive components, and provide a written quote for the blasting work.' },
+    { title: 'Isolate and De-energise the Equipment', text: 'Before our team arrives, ensure all machinery to be blasted is fully isolated from electrical, hydraulic, and pneumatic supplies. Follow your site lockout/tagout procedure. Our team will not blast energised equipment.' },
+    { title: 'Protect Sensitive Components', text: 'Identify bearings, seals, electrical connections, gauges, and other sensitive components that must not be blasted. Our team will mask these before work begins, but a list or marked-up drawing prepared in advance speeds up the process.' },
+    { title: 'Clear the Work Area', text: 'Ensure a clear working zone around the machinery. Remove adjacent equipment, materials, and vehicles from the blast area. A minimum 3-metre clearance is recommended.' },
+    { title: 'Arrange Coating Application', text: 'Coordinate with a painting or coating contractor to apply protective treatment promptly after blasting. Bare steel machinery surfaces will begin to oxidise within hours — prompt coating is essential for a durable result.' }
+  ],
+  'commercial-vehicles': [
+    { title: 'Request a Free Site Survey', text: 'Contact us to arrange a free site visit. We will assess the vehicle or machinery, confirm the extent of rust and corrosion, and provide a written quote.' },
+    { title: 'Remove Glass, Rubber Seals, and Trim', text: 'Where possible, remove or protect glass panels, rubber seals, plastic trim, and any non-metal components before our arrival. These items can be damaged by shot blasting and should be removed or masked before work begins.' },
+    { title: 'Drain Fluids and Disconnect Electrics', text: 'Drain fuel, oil, and coolant from the vehicle before blasting. Disconnect the battery and protect all electrical connectors, sensors, and wiring looms. Advise our team of any components that cannot be removed.' },
+    { title: 'Confirm Access and Working Space', text: 'Ensure the vehicle is positioned in a location with sufficient space for our team to work around all sides — typically a minimum of 2 metres clearance. Confirm access for our mobile unit.' },
+    { title: 'Arrange Primer and Painting', text: 'Coordinate with a vehicle painter or coating contractor to apply primer and topcoat promptly after blasting. Bare metal vehicle bodywork will begin to oxidise within hours — prompt priming is essential.' }
+  ]
+};
+
 function generateServiceSchemas(serviceId: string): string {
   const svc = serviceMeta[serviceId];
   if (!svc) return "";
@@ -1634,6 +1700,31 @@ function generateServiceSchemas(serviceId: string): string {
     "contentUrl": `${SITE_URL}/videos/shot-blasting-demo.mp4`,
     "embedUrl": `${SITE_URL}/videos/shot-blasting-demo`,
     "publisher": { "@type": "Organization", "name": BUSINESS_NAME, "logo": { "@type": "ImageObject", "url": LOGO } }
+  });
+
+  // 8. HowTo Schema — customer preparation steps (distinct from process HowTo)
+  const prepSteps = servicePreparationSteps[serviceId] || servicePreparationSteps['default'];
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": `How to Prepare for ${svc.title}`,
+    "description": `What you need to do before our team arrives to carry out ${svc.title.toLowerCase()} at your site. Following these preparation steps ensures the job runs smoothly and on schedule.`,
+    "image": svc.heroImage,
+    "totalTime": "PT2H",
+    "supply": [
+      { "@type": "HowToSupply", "name": "Site access and clear working area" },
+      { "@type": "HowToSupply", "name": "Contact details for site supervisor" }
+    ],
+    "tool": [
+      { "@type": "HowToTool", "name": "Completed quote request or site survey" }
+    ],
+    "step": prepSteps.map((s: { title: string; text: string }, i: number) => ({
+      "@type": "HowToStep",
+      "position": i + 1,
+      "name": s.title,
+      "text": s.text,
+      "url": `${SITE_URL}/services/${serviceId}`
+    }))
   });
 
   return schemas.map(s => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n    ');
@@ -2246,6 +2337,15 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:image" content="${LOGO}" />
     <meta name="twitter:image:alt" content="Commercial Shot Blasting service areas across the UK Midlands, North West, Yorkshire and more" />
     ${generateServiceAreasIndexSchemas()}
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"Do you offer mobile shot blasting services near me?","acceptedAnswer":{"@type":"Answer","text":"Yes — our shot blasting services are fully mobile. We travel directly to your site anywhere in England and Wales. We cover the Midlands, North West, Yorkshire, South East, South West, East Anglia, Wales, and the North East. There is no need to transport your materials — we bring all equipment to you."}},
+      {"@type":"Question","name":"Which areas do you cover for shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"We provide shot blasting services across the whole of England and Wales, including Birmingham, Manchester, Leeds, Sheffield, Bristol, Cardiff, Liverpool, Nottingham, Leicester, Derby, Coventry, and hundreds of towns and cities. Browse our service areas page to find your nearest location."}},
+      {"@type":"Question","name":"How far do you travel for shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"We travel throughout England and Wales for shot blasting services. Our mobile units are based in the Midlands and regularly cover a radius of 150+ miles, reaching locations from Cornwall to Northumberland and from East Anglia to West Wales. Call 07970 566409 to confirm coverage for your specific location."}},
+      {"@type":"Question","name":"Can you carry out shot blasting services on-site at my premises?","acceptedAnswer":{"@type":"Answer","text":"Yes — all our shot blasting services are carried out on-site at your premises. Our mobile units are fully self-contained with all equipment, abrasive media, and containment. We do not require you to transport materials to a workshop."}},
+      {"@type":"Question","name":"How do I find out if you cover my area for shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"Browse our service areas page to find your town or county, or call us directly on 07970 566409. We cover 600+ towns and cities across England and Wales and can usually confirm coverage within minutes."}}
+    ]}
+    </script>
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, areaMetaTags);
     return modifiedHtml;

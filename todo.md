@@ -413,3 +413,9 @@
 - [x] Add FAQPage JSON-LD to /industries index page SSR meta tags in metaTags.ts
 - [x] Add HowTo JSON-LD to /services index page SSR meta tags in metaTags.ts
 - [x] Verify BreadcrumbList schema on all individual industry pages in metaTags.ts (confirmed present at line 2592)
+
+## SEO Round — Service-Areas FAQPage, Service HowTo, Industry Breadcrumb UI
+
+- [x] Add FAQPage JSON-LD to /service-areas index page SSR meta tags in metaTags.ts (5 local mobile shot blasting Q&As targeting near-me searches)
+- [x] Add HowTo JSON-LD to all 18 individual service pages in metaTags.ts (preparation steps per service — servicePreparationSteps data object with 9 service-specific entries + default fallback)
+- [x] Add visual breadcrumb navigation UI component to all 8 industry pages — confirmed present in all 8 *Industry.tsx files with correct 3-level breadcrumb (Home → Industries → [Industry Name])
