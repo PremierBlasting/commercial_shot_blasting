@@ -7,6 +7,7 @@ import { QuotePopup } from "@/components/QuotePopup";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 interface Service {
   id: string;
@@ -170,10 +171,10 @@ export default function Services() {
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920')] bg-cover bg-center opacity-20"></div>
         <div className="container relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Comprehensive Shot Blasting Solutions
+            Professional Shot Blasting Services Across the UK
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Professional surface preparation services for all types of steel and metalwork. From structural frames to specialized equipment, we deliver precision cleaning that meets the highest industry standards.
+            Mobile shot blasting services for commercial and industrial clients throughout England and Wales. We cover structural steel, factory cladding, floor preparation, pipework, machinery, and more — all delivered to your site.
           </p>
           <Button 
             size="lg" 
@@ -189,8 +190,9 @@ export default function Services() {
       <section className="py-16 bg-gray-50">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <Card key={service.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            {services.map((service, idx) => (
+              <ScrollReveal key={service.id} delay={Math.min(idx % 3, 2) * 80}>
+              <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full">
                 <div className="h-64 overflow-hidden">
                   <img loading="lazy"
                     src={service.image} 
@@ -216,6 +218,7 @@ export default function Services() {
                   </Link>
                 </CardContent>
               </Card>
+              </ScrollReveal>
             ))}
           </div>
         </div>

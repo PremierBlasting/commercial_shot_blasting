@@ -12,6 +12,7 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 
 import { Footer } from "@/components/Footer";
 import { ProjectDetailModal } from "@/components/ProjectDetailModal";
+import { ScrollReveal } from "@/components/ScrollReveal";
 const galleryItems = [
   // Industrial Projects
   {
@@ -502,10 +503,10 @@ export default function OurWork() {
       <section className="py-16 bg-[#F5F1E8] flex-1">
         <div className="container">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredItems.map((item) => (
+            {filteredItems.map((item, idx) => (
+              <ScrollReveal key={item.id} delay={Math.min(idx % 3, 2) * 80}>
                   <Card
-                    key={item.id} 
-                    className="group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-300"
+                    className="group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-300 h-full"
                     onClick={() => { 
                       setSelectedProject(item);
                       setProjectModalOpen(true);
@@ -575,6 +576,7 @@ export default function OurWork() {
                       <p className="text-[#2C5F7F] text-sm font-medium mt-2">Click To See The Transformation →</p>
                     </div>
                   </Card>
+              </ScrollReveal>
             ))}
           </div>
         </div>

@@ -434,11 +434,10 @@ export default function ServiceAreas() {
               <span className="text-sm font-medium uppercase tracking-wider">Regional Coverage</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Shot Blasting Across England
+              Shot Blasting Services Near You — UK-Wide Coverage
             </h1>
             <p className="text-xl text-white/80 mb-4">
-              Professional shot blasting services from the West Midlands to the South West, 
-              East Anglia to the North West. Wherever you are, we can help.
+              Mobile shot blasting services delivered to your site across England and Wales. From Birmingham and Manchester to Bristol, Cardiff, and beyond — our teams are ready to mobilise.
             </p>
             <p className="text-lg text-white/60 mb-8">
               <strong className="text-[#d4a853]">25+ locations</strong> served across <strong className="text-[#d4a853]">7 regions</strong> with 

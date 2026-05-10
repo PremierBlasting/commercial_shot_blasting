@@ -309,3 +309,25 @@
 ## Nav Label & Spacing Fix
 - [x] Rename "Preparation & Cleanup" to "Prep & Cleanup" in desktop and mobile nav
 - [x] Reduce nav gap from gap-6 to gap-4 to tighten spacing between nav items
+- [x] Add ScrollReveal (Intersection Observer) component for scroll-triggered fade-in + slide-up animations
+- [x] Apply ScrollReveal to OurWork.tsx gallery card grid (staggered 0/80/160ms per row)
+- [x] Apply ScrollReveal to Gallery.tsx before/after card grid (staggered per row)
+- [x] Apply ScrollReveal to Home.tsx services card grid (staggered per row)
+- [x] Apply ScrollReveal to Services.tsx services card grid (staggered per row)
+- [x] Apply ScrollReveal to Industries.tsx industry card grid (staggered per row)
+- [x] Update homepage H1 to lead with "Shot Blasting Services" keyword
+- [x] Update homepage intro paragraph to include "mobile shot blasting services", "England and Wales"
+- [x] Update Services Grid section heading to "Comprehensive Shot Blasting Services" + add intro paragraph
+- [x] Update About section copy to include "shot blasting services" and "mobile shot blasting units"
+- [x] Update Services.tsx H1 to "Professional Shot Blasting Services Across the UK"
+- [x] Update Services.tsx intro paragraph to include local/mobile keyword signals
+- [x] Update ServiceAreas.tsx H1 to "Shot Blasting Services Near You — UK-Wide Coverage"
+- [x] Update ServiceAreas.tsx intro paragraph to include city names (Birmingham, Manchester, Bristol, Cardiff)
+- [x] Update Industries.tsx H1 to "Shot Blasting Services by Industry"
+- [x] Update Industries.tsx intro paragraph to include "shot blasting services" keyword
+- [x] Update SSR homepage meta title to "Shot Blasting Services UK | Commercial & Industrial | Commercial Shot Blasting"
+- [x] Update SSR homepage meta description to include "mobile shot blasting services", "structural steel", "factory cladding", "floor prep"
+- [x] Update Twitter meta tags on homepage to match new title/description
+- [x] Update client-side document.title in Home.tsx to match SSR title
+- [x] Update getServiceSEO() to generate titles with "Shot Blasting Services UK" pattern
+- [x] Update getServiceSEO() description to include "shot blasting services" in first sentence

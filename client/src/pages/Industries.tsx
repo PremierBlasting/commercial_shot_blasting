@@ -7,6 +7,7 @@ import { QuotePopup } from "@/components/QuotePopup";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 interface Industry {
   id: string;
@@ -84,10 +85,10 @@ export default function Industries() {
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920')] bg-cover bg-center opacity-20"></div>
         <div className="container relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Industries We Serve
+            Shot Blasting Services by Industry
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Professional shot blasting services across diverse sectors. From construction and manufacturing to aerospace and heritage restoration, we deliver specialist surface preparation solutions tailored to your industry's unique requirements.
+            We provide specialist shot blasting services tailored to the demands of each sector — from construction and manufacturing to aerospace, marine, agriculture, and heritage restoration.
           </p>
           <Button 
             size="lg" 
@@ -103,8 +104,9 @@ export default function Industries() {
       <section className="py-16 bg-gray-50">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {industries.map((industry) => (
-              <Card key={industry.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            {industries.map((industry, idx) => (
+              <ScrollReveal key={industry.id} delay={Math.min(idx % 3, 2) * 80}>
+              <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full">
                 <div className="h-64 overflow-hidden">
                   <img loading="lazy"
                     src={industry.image} 
@@ -130,6 +132,7 @@ export default function Industries() {
                   </Link>
                 </CardContent>
               </Card>
+              </ScrollReveal>
             ))}
           </div>
         </div>

@@ -83,9 +83,9 @@ export function useSEO({ title, description, keywords, image, canonical }: SEOCo
  */
 export function getServiceSEO(serviceName: string, serviceDescription: string): SEOConfig {
   return {
-    title: `${serviceName} Services UK | Commercial Shot Blasting`,
-    description: `${serviceDescription.substring(0, 140)}... Get a free quote today.`,
-    keywords: `${serviceName.toLowerCase()}, commercial ${serviceName.toLowerCase()}, industrial ${serviceName.toLowerCase()}, shot blasting, UK services`,
+    title: `${serviceName} Shot Blasting Services UK | Commercial Shot Blasting`,
+    description: `Professional ${serviceName.toLowerCase()} shot blasting services across the UK. ${serviceDescription.substring(0, 100)}... Free quote. Call 07970 566409.`,
+    keywords: `${serviceName.toLowerCase()} shot blasting, ${serviceName.toLowerCase()} shot blasting services, commercial ${serviceName.toLowerCase()}, industrial ${serviceName.toLowerCase()}, shot blasting UK`,
     image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nSiMtaICoFPZGPZV.png"
   };
 }

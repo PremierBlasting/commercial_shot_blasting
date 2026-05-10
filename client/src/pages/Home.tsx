@@ -16,6 +16,7 @@ import { ResponsiveHeroBackground } from "@/components/ResponsiveHeroBackground"
 import { CaseStudies } from "@/components/CaseStudies";
 import { ReviewCarousel } from "@/components/ReviewCarousel";
 import { trpc } from "@/lib/trpc";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const testimonials = [
   {
@@ -41,7 +42,7 @@ export default function Home() {
 
   // Set SEO title and meta description
   useEffect(() => {
-    document.title = "Commercial Shot Blasting Services UK | Industrial Surface Preparation";
+    document.title = "Shot Blasting Services UK | Commercial & Industrial | Commercial Shot Blasting";
     
     // Update or create meta description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -50,7 +51,7 @@ export default function Home() {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', 'Professional commercial and industrial shot blasting services across the UK. Expert surface preparation for steel, concrete, and metal. Free quotes available.');
+    metaDescription.setAttribute('content', 'UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Free quote. Call 07970 566409.');
 
     // Update or create meta keywords
     let metaKeywords = document.querySelector('meta[name="keywords"]');
@@ -130,10 +131,10 @@ export default function Home() {
         <div className="container relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Professional Commercial & Industrial Shot Blasting Services
+              Shot Blasting Services for Commercial & Industrial Projects Across the UK
             </h1>
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-              Specialist precision shot blasting company in the UK, removing rust, scale, and coatings from all types of commercial and industrial surfaces. Transform your surfaces with our expert team.
+              UK-wide mobile shot blasting services for commercial and industrial clients. We remove rust, mill scale, paint, and coatings from structural steel, factory cladding, machinery, and more — delivered to your site, anywhere in England and Wales.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>
@@ -177,8 +178,11 @@ export default function Home() {
           <div className="text-center mb-12">
             <p className="text-[#2C5F7F] font-medium mb-2">Our Expert Services</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Comprehensive Shot Blasting Solutions
+              Comprehensive Shot Blasting Services
             </h2>
+            <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+              From structural steel and factory cladding to floor preparation and powder coating — our mobile shot blasting services cover every commercial and industrial application.
+            </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -201,7 +205,8 @@ export default function Home() {
               { title: "Steel Gates & Railings", desc: "Precision restoration for commercial and industrial entrance gates, perimeter railings, and decorative metalwork.", img: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/dIVmiYILOzXbQFlg.webp", link: "/services/steel-gates" },
               { title: "Plant & Machinery", desc: "On-site shot blasting for construction equipment, agricultural machinery, and industrial plant without transportation.", img: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/symRlOinndpZEzlR.webp", link: "/services/plant-machinery" },
             ].map((service, i) => (
-              <Link key={i} href={service.link}>
+              <ScrollReveal key={i} delay={Math.min(i % 3, 2) * 80}>
+              <Link href={service.link}>
                 <Card className="group overflow-hidden hover:shadow-lg transition-shadow h-full cursor-pointer">
                   <div className="h-48 overflow-hidden">
                     <img src={service.img} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-0 transition-opacity duration-500" loading="lazy" decoding="async"
@@ -219,6 +224,7 @@ export default function Home() {
                   </CardContent>
                 </Card>
               </Link>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -301,10 +307,10 @@ export default function Home() {
                 A Business You Can Trust
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                We are a trusted family-run business with the mission to provide superior shot blasting solutions for industrial and commercial environments across the UK. Our advanced shot blasting technology delivers exceptional results at competitive prices.
+                We are a trusted family-run business providing professional shot blasting services for industrial and commercial clients across the UK. Our mobile shot blasting units come directly to your site, delivering exceptional surface preparation at competitive prices.
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                As part of our commitment, we employ an expert team dedicated to providing unparalleled services while maintaining high safety standards that protect your property.
+                Whether you need rust removal, paint stripping, or surface profiling for new coatings, our expert team maintains the highest safety standards on every project — protecting your property and your schedule.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[

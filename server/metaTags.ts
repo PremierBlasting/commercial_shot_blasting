@@ -2082,11 +2082,11 @@ export function injectMetaTags(html: string, url: string): string {
       .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
       .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
     const homeMetaTags = `
-    <title>${BUSINESS_NAME} | Professional Shot Blasting Services UK</title>
+    <title>Shot Blasting Services UK | Commercial & Industrial | ${BUSINESS_NAME}</title>
     <link rel="canonical" href="${SITE_URL}/" />
-    <meta name="description" content="Professional mobile shot blasting services for commercial and industrial applications across the UK. Specialists in rust removal, surface preparation, and industrial cleaning. Call 07970 566409." />
-    <meta property="og:title" content="${BUSINESS_NAME} | Professional Shot Blasting Services UK" />
-    <meta property="og:description" content="Professional mobile shot blasting services for commercial and industrial applications across the UK. Specialists in rust removal, surface preparation, and industrial cleaning." />
+    <meta name="description" content="UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Free quote. Call 07970 566409." />
+    <meta property="og:title" content="Shot Blasting Services UK | Commercial & Industrial | ${BUSINESS_NAME}" />
+    <meta property="og:description" content="UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Free quote." />
     <meta property="og:url" content="${SITE_URL}/" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${LOGO}" />
@@ -2095,8 +2095,8 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${BUSINESS_NAME} | Professional Shot Blasting Services UK" />
-    <meta name="twitter:description" content="Professional mobile shot blasting services for commercial and industrial applications across the UK. Specialists in rust removal, surface preparation, and industrial cleaning." />
+    <meta name="twitter:title" content="Shot Blasting Services UK | Commercial & Industrial | ${BUSINESS_NAME}" />
+    <meta name="twitter:description" content="UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Free quote." />
     <meta name="twitter:image" content="${LOGO}" />
     <meta name="twitter:image:alt" content="Commercial Shot Blasting — professional mobile shot blasting services across the UK" />
     ${generateHomepageSchemas()}

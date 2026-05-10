@@ -9,6 +9,7 @@ import { useState, useMemo } from "react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const galleryItems = [
   // Industrial Projects
@@ -320,8 +321,9 @@ export default function Gallery() {
       <section className="py-16 bg-[#F5F1E8] flex-1">
         <div className="container">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredItems.map((item) => (
-              <Dialog key={item.id}>
+            {filteredItems.map((item, idx) => (
+              <ScrollReveal key={item.id} delay={Math.min(idx % 3, 2) * 80}>
+              <Dialog>
                 <DialogTrigger asChild>
                   <Card 
                     className="group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-300"
@@ -389,6 +391,7 @@ export default function Gallery() {
                   </div>
                 </DialogContent>
               </Dialog>
+              </ScrollReveal>
             ))}
           </div>
         </div>
