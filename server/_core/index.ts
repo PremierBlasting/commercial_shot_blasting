@@ -9,6 +9,7 @@ import { registerScheduledRoutes } from "../scheduledRoutes";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
+import { registerSitemapRoute } from "../sitemap";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -60,6 +61,15 @@ async function startServer() {
       createContext,
     })
   );
+  // Sitemap
+  registerSitemapRoute(app);
+
+  // IndexNow key file — must be served before static middleware / SPA fallback
+  app.get("/commercialshotblasting.txt", (_req, res) => {
+    res.set("Content-Type", "text/plain");
+    res.send("commercialshotblasting");
+  });
+
   // development mode uses Vite, production mode uses static files
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);

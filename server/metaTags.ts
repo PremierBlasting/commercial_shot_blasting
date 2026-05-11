@@ -5081,7 +5081,7 @@ function generateHomepageSchemas(): string {
         "url": item.url
       }))
     },
-    // 3. Organization
+    // 3. Organization with hasOfferCatalog
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
@@ -5100,7 +5100,31 @@ function generateHomepageSchemas(): string {
       "openingHoursSpecification": [
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" },
         { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:00" }
-      ]
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Shot Blasting Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Structural Steel Shot Blasting", "url": `${SITE_URL}/services/structural-steel-shot-blasting`, "description": "Shot blasting for steel frames, trusses, columns, and load-bearing structures to SA2.5/SA3 standard." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Container Shot Blasting", "url": `${SITE_URL}/services/container-shot-blasting`, "description": "Specialist blasting for shipping containers and steel storage units." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Factory Cladding Shot Blasting", "url": `${SITE_URL}/services/factory-cladding-shot-blasting`, "description": "Plastisol and paint removal from factory and warehouse cladding panels." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Floor Shot Blasting", "url": `${SITE_URL}/services/floor-shot-blasting`, "description": "Industrial floor shot blasting and concrete surface profiling." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fire Escape Shot Blasting", "url": `${SITE_URL}/services/fire-escape-shot-blasting`, "description": "Shot blasting for fire escapes, staircases, and structural metalwork." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pipework Shot Blasting", "url": `${SITE_URL}/services/pipework-shot-blasting`, "description": "Internal and external pipework blasting for industrial and process pipelines." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agricultural Shot Blasting", "url": `${SITE_URL}/services/agricultural-shot-blasting`, "description": "Shot blasting for farm machinery, grain silos, and agricultural structures." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Telecom Tower Shot Blasting", "url": `${SITE_URL}/services/telecom-tower-shot-blasting`, "description": "Specialist blasting for telecom masts, towers, and antenna structures." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Machinery Shot Blasting", "url": `${SITE_URL}/services/machinery-shot-blasting`, "description": "Industrial plant and machinery shot blasting for maintenance and recoating." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Racking Shot Blasting", "url": `${SITE_URL}/services/racking-shot-blasting`, "description": "Warehouse racking, mezzanine floors, and storage structure blasting." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marine Shot Blasting", "url": `${SITE_URL}/services/marine-shot-blasting`, "description": "Marine vessel, hull, and offshore structure shot blasting services." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Heritage Shot Blasting", "url": `${SITE_URL}/services/heritage-shot-blasting`, "description": "Sensitive shot blasting for listed buildings, heritage structures, and restoration projects." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Rust Removal", "url": `${SITE_URL}/services/rust-removal`, "description": "Deep rust removal from structural steel and metalwork to bare metal standard." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mill Scale Removal", "url": `${SITE_URL}/services/mill-scale-removal`, "description": "Mill scale removal from new fabrications prior to protective coating application." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paint Stripping", "url": `${SITE_URL}/services/paint-stripping`, "description": "Complete paint and coating removal from steel, concrete, and masonry surfaces." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Coating Removal", "url": `${SITE_URL}/services/coating-removal`, "description": "Removal of epoxy, bitumen, galvanising, and other industrial coatings." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Surface Preparation", "url": `${SITE_URL}/services/surface-preparation`, "description": "Full surface preparation services to SA1, SA2, SA2.5, and SA3 blast standards." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile Shot Blasting", "url": `${SITE_URL}/services/mobile-shot-blasting`, "description": "On-site mobile shot blasting — we come to your location anywhere in England and Wales." } }
+        ]
+      }
     },
     // 4. WebPage (homepage)
     {

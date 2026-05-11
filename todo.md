@@ -488,3 +488,9 @@
 
 - [x] Submit 569 newly covered town URLs to IndexNow — 200 submitted OK; remaining 377 blocked by key verification (key file added to client/public/, will work after next publish)
 - [x] Update areaServed on all 8 industry Service schemas with county-level AdministrativeArea entries (replace generic "United Kingdom")
+
+## SEO Round — Publish + IndexNow, Sitemap, hasOfferCatalog
+
+- [x] Publish site and re-run IndexNow for remaining 377 town URLs — key file now hardcoded in Express route (always served correctly)
+- [x] Implement dynamic sitemap.xml server endpoint covering all 650 towns, 30 counties, 8 industries, 18 services (721 total URLs)
+- [x] Add LocalBusiness hasOfferCatalog schema to homepage SSR in metaTags.ts linking all 18 services
