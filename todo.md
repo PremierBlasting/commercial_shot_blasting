@@ -500,3 +500,8 @@
 - [x] Add robots.txt Express route with Sitemap directive pointing to sitemap.xml
 - [x] Add visual Service Catalog section to homepage mirroring hasOfferCatalog schema (18 services)
 - [x] Add BreadcrumbList schema markup to all service-area town pages SSR in metaTags.ts — upgraded to 4-level (Home → Service Areas → County → Town)
+
+## SEO Round — FAQ Schema + Review Schema
+
+- [x] Add FAQ schema to homepage SSR in metaTags.ts with 8 common shot blasting questions
+- [x] Add Review and AggregateRating schema to Reviews page SSR in metaTags.ts — 75 reviews, reviewCount: 75, ratingValue: 5.0
