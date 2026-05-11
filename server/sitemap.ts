@@ -101,51 +101,16 @@ const COUNTY_SLUGS = [
 ];
 
 // ── Town slugs (650 service-area pages) ───────────────────────────────────────
-// Loaded from locationData.ts at startup — extracted via regex to avoid importing TS at runtime
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-
-// __dirname shim for ESM / tsx environments
-const _dirname = (() => {
-  try {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    return path.dirname(fileURLToPath(import.meta.url));
-  } catch {
-    // CommonJS fallback
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    return __dirname;
-  }
-})();
+// Imported directly from shared locationData — works in both dev (tsx) and prod (compiled)
+import { locationData } from "@shared/locationData";
 
 function loadTownSlugs(): string[] {
   try {
-    // We read the source file directly (it's always present in both dev and prod)
-    const candidates = [
-      path.resolve(process.cwd(), "client/src/data/locationData.ts"),
-      path.resolve(_dirname, "../../client/src/data/locationData.ts"),
-      path.resolve(_dirname, "../../../client/src/data/locationData.ts"),
-      path.resolve(_dirname, "../../../../client/src/data/locationData.ts"),
-    ];
-    for (const candidate of candidates) {
-      if (fs.existsSync(candidate)) {
-        const content = fs.readFileSync(candidate, "utf-8");
-        const slugs: string[] = [];
-        let m: RegExpExecArray | null;
-        const re = /slug:\s*['"]([ a-z0-9-]+)['"]/g;
-        while ((m = re.exec(content)) !== null) {
-          slugs.push(m[1]);
-        }
-        // Deduplicate while preserving order
-        const seen = new Set<string>();
-        return slugs.filter(s => { if (seen.has(s)) return false; seen.add(s); return true; });
-      }
-    }
+    return Object.keys(locationData);
   } catch (e) {
     console.error("[Sitemap] Failed to load town slugs:", e);
+    return [];
   }
-  return [];
 }
 
 function escapeXml(str: string): string {

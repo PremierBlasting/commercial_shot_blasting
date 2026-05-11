@@ -64,6 +64,21 @@ async function startServer() {
   // Sitemap
   registerSitemapRoute(app);
 
+  // robots.txt — served before static middleware / SPA fallback
+  app.get("/robots.txt", (_req, res) => {
+    res.set("Content-Type", "text/plain");
+    res.send(
+      "User-agent: *\n" +
+      "Allow: /\n" +
+      "\n" +
+      "# Disallow admin/API paths\n" +
+      "Disallow: /api/\n" +
+      "Disallow: /manus-storage/\n" +
+      "\n" +
+      "Sitemap: https://commercialshotblasting.co.uk/sitemap.xml\n"
+    );
+  });
+
   // IndexNow key file — must be served before static middleware / SPA fallback
   app.get("/commercialshotblasting.txt", (_req, res) => {
     res.set("Content-Type", "text/plain");

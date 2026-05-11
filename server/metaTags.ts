@@ -3329,7 +3329,7 @@ function capitalize(slug: string): string {
 /**
  * Generate comprehensive JSON-LD schemas for service area pages
  */
-function generateLocationSchemas(locationSlug: string, locationName: string, url: string): string {
+function generateLocationSchemas(locationSlug: string, locationName: string, url: string, countyName?: string, countySlug?: string): string {
   const coords = locCoords[locationSlug];
   const lat = coords ? coords[0] : null;
   const lng = coords ? coords[1] : null;
@@ -3727,16 +3727,29 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
     "image": HERO_IMAGE
   });
 
-  // 11. BreadcrumbList Schema
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
-      { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": `${SITE_URL}/service-areas` },
-      { "@type": "ListItem", "position": 3, "name": locationName, "item": url }
-    ]
-  });
+  // 11. BreadcrumbList Schema (4-level when county is known)
+  if (countyName && countySlug) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": `${SITE_URL}/service-areas` },
+        { "@type": "ListItem", "position": 3, "name": countyName, "item": `${SITE_URL}/counties/${countySlug}` },
+        { "@type": "ListItem", "position": 4, "name": locationName, "item": url }
+      ]
+    });
+  } else {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+        { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": `${SITE_URL}/service-areas` },
+        { "@type": "ListItem", "position": 3, "name": locationName, "item": url }
+      ]
+    });
+  }
 
   // 12. WebSite Schema with SearchAction (SiteLinksSearchBox)
   schemas.push({
@@ -5967,6 +5980,9 @@ export function injectMetaTags(html: string, url: string): string {
     // Generate meta for any location dynamically
     const locationName = capitalize(locationSlug);
     const fullUrl = `${SITE_URL}/service-areas/${locationSlug}`;
+    const locDataEntry = locationData[locationSlug];
+    const dynCountyName = locDataEntry?.county || undefined;
+    const dynCountySlug = locDataEntry?.countySlug || undefined;
     
     // Remove ALL existing meta tags (description, OG, Twitter) to ensure clean slate
     let modifiedHtml = html
@@ -5998,7 +6014,7 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:image" content="${HERO_IMAGE}" />
     <meta name="twitter:image:alt" content="Shot blasting services in ${locationName} — Commercial Shot Blasting" />
     <link rel="preload" as="image" href="${HERO_IMAGE}" />
-    ${generateLocationSchemas(locationSlug, locationName, fullUrl)}
+    ${generateLocationSchemas(locationSlug, locationName, fullUrl, dynCountyName, dynCountySlug)}
   `;
     
     // Replace the title tag with all meta tags and JSON-LD
@@ -6022,6 +6038,9 @@ export function injectMetaTags(html: string, url: string): string {
   
   // Location found in predefined list - use its meta data
   const locationName = capitalize(locationSlug);
+  const metaLocEntry = locationData[locationSlug];
+  const metaCountyName = metaLocEntry?.county || undefined;
+  const metaCountySlug = metaLocEntry?.countySlug || undefined;
   
   // Remove ALL existing meta tags (description, OG, Twitter) to ensure clean slate
   let modifiedHtml = html
@@ -6053,7 +6072,7 @@ export function injectMetaTags(html: string, url: string): string {
     <meta name="twitter:image" content="${HERO_IMAGE}" />
     <meta name="twitter:image:alt" content="Shot blasting services in ${locationName} — Commercial Shot Blasting" />
     <link rel="preload" as="image" href="${HERO_IMAGE}" />
-    ${generateLocationSchemas(locationSlug, locationName, meta.url)}
+    ${generateLocationSchemas(locationSlug, locationName, meta.url, metaCountyName, metaCountySlug)}
   `;
   
   // Replace the title tag with all meta tags and JSON-LD

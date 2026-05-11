@@ -494,3 +494,9 @@
 - [x] Publish site and re-run IndexNow for remaining 377 town URLs — key file now hardcoded in Express route (always served correctly)
 - [x] Implement dynamic sitemap.xml server endpoint covering all 650 towns, 30 counties, 8 industries, 18 services (721 total URLs)
 - [x] Add LocalBusiness hasOfferCatalog schema to homepage SSR in metaTags.ts linking all 18 services
+
+## SEO Round — robots.txt, Service Catalog UI, BreadcrumbList on town pages
+
+- [x] Add robots.txt Express route with Sitemap directive pointing to sitemap.xml
+- [x] Add visual Service Catalog section to homepage mirroring hasOfferCatalog schema (18 services)
+- [x] Add BreadcrumbList schema markup to all service-area town pages SSR in metaTags.ts — upgraded to 4-level (Home → Service Areas → County → Town)

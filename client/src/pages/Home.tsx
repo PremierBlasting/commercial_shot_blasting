@@ -549,6 +549,82 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Service Catalog Section */}
+      <section id="service-catalog" className="py-20 bg-white">
+        <div className="container">
+          <div className="text-center mb-12">
+            <p className="text-[#2C5F7F] font-medium mb-2">Full Service Catalog</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              18 Shot Blasting Services
+            </h2>
+            <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+              Every service delivered on-site by our mobile units — no transportation required. SA2.5 and SA3 standard as standard.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                category: "Structural & Architectural",
+                color: "bg-[#2C5F7F]",
+                services: [
+                  { name: "Structural Steel Shot Blasting", link: "/services/structural-steel-shot-blasting" },
+                  { name: "Fire Escape Shot Blasting", link: "/services/fire-escape-shot-blasting" },
+                  { name: "Racking & Mezzanine Blasting", link: "/services/racking-shot-blasting" },
+                  { name: "Steel Gates & Railings", link: "/services/steel-gates" },
+                  { name: "Steel Doors & Roller Shutters", link: "/services/steel-doors" },
+                  { name: "Bridge Steelwork", link: "/services/bridge-steelwork" },
+                ]
+              },
+              {
+                category: "Industrial & Specialist",
+                color: "bg-[#1a3d52]",
+                services: [
+                  { name: "Container Shot Blasting", link: "/services/container-shot-blasting" },
+                  { name: "Floor Shot Blasting", link: "/services/floor-shot-blasting" },
+                  { name: "Pipework Shot Blasting", link: "/services/pipework-shot-blasting" },
+                  { name: "Telecom Tower Shot Blasting", link: "/services/telecom-tower-shot-blasting" },
+                  { name: "Machinery Shot Blasting", link: "/services/machinery-shot-blasting" },
+                  { name: "Marine Shot Blasting", link: "/services/marine-shot-blasting" },
+                ]
+              },
+              {
+                category: "Surface Preparation",
+                color: "bg-[#4A7C59]",
+                services: [
+                  { name: "Rust Removal", link: "/services/rust-removal" },
+                  { name: "Mill Scale Removal", link: "/services/mill-scale-removal" },
+                  { name: "Paint Stripping", link: "/services/paint-stripping" },
+                  { name: "Coating Removal", link: "/services/coating-removal" },
+                  { name: "Factory Cladding Blasting", link: "/services/factory-cladding-shot-blasting" },
+                  { name: "Agricultural Shot Blasting", link: "/services/agricultural-shot-blasting" },
+                ]
+              }
+            ].map((group, gi) => (
+              <div key={gi} className="rounded-xl overflow-hidden shadow-md">
+                <div className={`${group.color} text-white px-6 py-4`}>
+                  <h3 className="text-lg font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>{group.category}</h3>
+                </div>
+                <ul className="bg-gray-50 divide-y divide-gray-100">
+                  {group.services.map((svc, si) => (
+                    <li key={si}>
+                      <Link href={svc.link} className="flex items-center justify-between px-6 py-3 hover:bg-white hover:text-[#2C5F7F] transition-colors group">
+                        <span className="text-gray-700 group-hover:text-[#2C5F7F] text-sm font-medium">{svc.name}</span>
+                        <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#2C5F7F] flex-shrink-0" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link href="/services" className="inline-flex items-center gap-2 bg-[#2C5F7F] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#1a3d52] transition-colors">
+              View All Services <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-white">
         <div className="container">
