@@ -5886,9 +5886,14 @@ export function injectMetaTags(html: string, url: string): string {
     </script>`;
       })() : '';
 
+      // Build areaServed: use county-level AdministrativeArea if available, else fall back to Country
+      const areaServedJson = countiesForIndustry.length > 0
+        ? `[${countiesForIndustry.map(c => `{"@type":"AdministrativeArea","name":"${c.name}","url":"${SITE_URL}/counties/${c.slug}"}`).join(',')}]`
+        : `{"@type":"Country","name":"United Kingdom"}`;
+
       const schemas = `
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Service","name":"Shot Blasting for the ${industry.name} Industry","description":"${industry.description}","provider":{"@type":"LocalBusiness","name":"${BUSINESS_NAME}","telephone":"${PHONE}","url":"${SITE_URL}"},"areaServed":{"@type":"Country","name":"United Kingdom"}}
+    {"@context":"https://schema.org","@type":"Service","name":"Shot Blasting for the ${industry.name} Industry","description":"${industry.description}","provider":{"@type":"LocalBusiness","name":"${BUSINESS_NAME}","telephone":"${PHONE}","url":"${SITE_URL}"},"areaServed":${areaServedJson}}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"${SITE_URL}"},{"@type":"ListItem","position":2,"name":"Industries","item":"${SITE_URL}/industries"},{"@type":"ListItem","position":3,"name":"${industry.name}","item":"${pageUrl}"}]}
