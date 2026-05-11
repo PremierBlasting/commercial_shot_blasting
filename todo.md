@@ -504,4 +504,6 @@
 ## SEO Round — FAQ Schema + Review Schema
 
 - [x] Add FAQ schema to homepage SSR in metaTags.ts with 8 common shot blasting questions
-- [x] Add Review and AggregateRating schema to Reviews page SSR in metaTags.ts — 75 reviews, reviewCount: 75, ratingValue: 5.0
+- [x] Add Review and AggregateRating schema to Reviews page SSR in metaTags.ts — 12 reviews (first 12 shown on page load), reviewCount: 12, ratingValue: 5.0
+- [x] Create indexnow_all_urls.py — full-site IndexNow submission script (713 URLs: 12 static + 18 services + 25 counties + 8 industries + 650 towns)
+- [x] Note: WebSite SearchAction schema already present on homepage (added in previous session)
