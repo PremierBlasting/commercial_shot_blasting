@@ -507,3 +507,11 @@
 - [x] Add Review and AggregateRating schema to Reviews page SSR in metaTags.ts — 12 reviews (first 12 shown on page load), reviewCount: 12, ratingValue: 5.0
 - [x] Create indexnow_all_urls.py — full-site IndexNow submission script (713 URLs: 12 static + 18 services + 25 counties + 8 industries + 650 towns)
 - [x] Note: WebSite SearchAction schema already present on homepage (added in previous session)
+
+## Reviews Page UX Improvements
+
+- [x] Add prominent visual 5.0 rating summary section (standalone section below hero with large score, star bars, review count)
+- [x] Add date-based sort toggle (Newest first / Oldest first) with ArrowUpDown icon
+- [x] Add prominent "Leave a Review on Google" button below the reviews grid (yellow CTA)
+- [x] Show all 75 reviews (not just Commercial-tagged ones) — initial load shows 12, "Show all" reveals all 75
+- [x] Update hero description to reflect 75 reviews

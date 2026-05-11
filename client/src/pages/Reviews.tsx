@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Star, Quote, ExternalLink } from "lucide-react";
+import { useState, useMemo } from "react";
+import { Star, Quote, ExternalLink, ArrowUpDown, MessageSquarePlus } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
@@ -40,6 +40,18 @@ const JOB_PHOTOS = [
   { src: "/manus-storage/img_20210703_97d9a2fe.jpg", alt: "Shot blasting project July 2021" },
   { src: "/manus-storage/img_20220309_40468f18.jpg", alt: "Shot blasting project March 2022" },
 ];
+
+// Date weight for sorting (lower = more recent)
+function dateWeight(date: string): number {
+  if (date.includes("day")) return parseInt(date) || 1;
+  if (date === "a week ago") return 7;
+  if (date.includes("week")) return (parseInt(date) || 2) * 7;
+  if (date === "a month ago") return 30;
+  if (date.includes("month")) return (parseInt(date) || 2) * 30;
+  if (date === "a year ago") return 365;
+  if (date.includes("year")) return (parseInt(date) || 2) * 365;
+  return 999;
+}
 
 const ALL_REVIEWS = [
   { id: 1, name: "Adam Nortman", date: "6 days ago", text: "An amazing service. They sandblasted my wood stairs, spindles and handrails in an old house. We wanted to return back to bare wood. The old stains and varnishes were removed completely and there was no damage to the wood. I was so surprised by the results.", stars: 5, photoKey: null },
@@ -119,8 +131,12 @@ const ALL_REVIEWS = [
   { id: 75, name: "Sharon Sawyer", date: "7 months ago", text: "Excellent professional service from start to finish. The team were punctual, courteous and incredibly skilled. The quality of the finish exceeded our expectations. Would definitely use again and recommend to others.", stars: 5, photoKey: null, tag: "Commercial" },
 ];
 
-const COMMERCIAL_REVIEWS = ALL_REVIEWS.filter(r => (r as any).tag === "Commercial");
-const COMMERCIAL_COUNT = COMMERCIAL_REVIEWS.length;
+const TOTAL_COUNT = ALL_REVIEWS.length;
+const INITIAL_DISPLAY = 12;
+
+// Google Business Profile review link
+const GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsdiY1GsfSg";
+const GOOGLE_PROFILE_URL = "https://g.co/kgs/commercialshotblasting";
 
 function StarRating({ count }: { count: number }) {
   return (
@@ -154,15 +170,24 @@ function ReviewerAvatar({ name, photoKey }: { name: string; photoKey: string | n
 export default function Reviews() {
   useSEO({
     title: "Customer Reviews | Commercial Shot Blasting",
-    description: "Read genuine customer reviews for Commercial Shot Blasting. Over 70 five-star reviews from satisfied customers across the UK. Beam restoration, commercial projects, and more.",
+    description: "Read genuine customer reviews for Commercial Shot Blasting. Over 75 five-star reviews from satisfied customers across the UK. Beam restoration, commercial projects, and more.",
     canonical: "https://commercialshotblasting.co.uk/reviews",
   });
 
   const [showAll, setShowAll] = useState(false);
+  const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
-  const displayed = showAll ? COMMERCIAL_REVIEWS : COMMERCIAL_REVIEWS.slice(0, 12);
+  const sortedReviews = useMemo(() => {
+    const sorted = [...ALL_REVIEWS].sort((a, b) => {
+      const diff = dateWeight(a.date) - dateWeight(b.date);
+      return sortOrder === "newest" ? diff : -diff;
+    });
+    return sorted;
+  }, [sortOrder]);
+
+  const displayed = showAll ? sortedReviews : sortedReviews.slice(0, INITIAL_DISPLAY);
 
   return (
     <div className="min-h-screen bg-white">
@@ -176,55 +201,72 @@ export default function Reviews() {
             What Our Customers Say
           </h1>
           <p className="text-white/80 max-w-2xl mx-auto text-lg mb-8">
-            14 five-star commercial and industrial reviews from business clients across the UK. Every review is genuine — posted directly to our Google Business Profile.
+            {TOTAL_COUNT} five-star reviews from satisfied customers across the UK. Every review is genuine — posted directly to our Google Business Profile.
           </p>
-          {/* Aggregate rating summary */}
-          <div className="inline-flex flex-col md:flex-row items-center gap-6 bg-white/10 backdrop-blur-sm rounded-2xl px-8 py-6 border border-white/20 max-w-2xl mx-auto w-full">
-            {/* Score */}
+        </div>
+      </section>
+
+      {/* Prominent Rating Summary */}
+      <section className="bg-white border-b shadow-sm">
+        <div className="container py-8">
+          <div className="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
+            {/* Big score */}
             <div className="text-center flex-shrink-0">
-              <div className="font-bold text-5xl leading-none">5.0</div>
+              <div className="text-7xl font-black text-[#1a3d52] leading-none">5.0</div>
               <div className="flex gap-1 justify-center mt-2">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <div className="text-white/70 text-sm mt-1">{COMMERCIAL_COUNT} commercial reviews</div>
+              <div className="text-gray-500 text-sm mt-1">out of 5</div>
             </div>
+
+            {/* Divider */}
+            <div className="hidden md:block w-px h-24 bg-gray-200" />
+
             {/* Star distribution bars */}
-            <div className="flex-1 w-full space-y-1.5">
+            <div className="flex-1 w-full max-w-xs space-y-2">
               {[5, 4, 3, 2, 1].map(star => {
-                const count = star === 5 ? COMMERCIAL_COUNT : 0;
+                const count = star === 5 ? TOTAL_COUNT : 0;
                 const pct = star === 5 ? 100 : 0;
                 return (
                   <div key={star} className="flex items-center gap-2 text-sm">
-                    <span className="text-white/70 w-3 text-right">{star}</span>
-                    <Star className="w-3 h-3 fill-yellow-400 text-yellow-400 flex-shrink-0" />
-                    <div className="flex-1 bg-white/20 rounded-full h-2">
-                      <div className="bg-yellow-400 h-2 rounded-full" style={{ width: `${pct}%` }} />
+                    <span className="text-gray-600 w-3 text-right font-medium">{star}</span>
+                    <Star className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400 flex-shrink-0" />
+                    <div className="flex-1 bg-gray-100 rounded-full h-2.5">
+                      <div className="bg-yellow-400 h-2.5 rounded-full transition-all" style={{ width: `${pct}%` }} />
                     </div>
-                    <span className="text-white/60 w-5 text-right text-xs">{count}</span>
+                    <span className="text-gray-400 w-6 text-right text-xs">{count}</span>
                   </div>
                 );
               })}
             </div>
-            {/* Actions */}
-            <div className="flex flex-col gap-3 items-center flex-shrink-0">
+
+            {/* Divider */}
+            <div className="hidden md:block w-px h-24 bg-gray-200" />
+
+            {/* Review count + CTA */}
+            <div className="flex flex-col items-center gap-4 flex-shrink-0 text-center">
+              <div>
+                <div className="text-3xl font-bold text-[#1a3d52]">{TOTAL_COUNT}</div>
+                <div className="text-gray-500 text-sm">Google Reviews</div>
+              </div>
               <a
-                href="https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsdiY1GsfSg"
+                href={GOOGLE_REVIEW_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-yellow-400 text-[#1a3d52] font-semibold px-5 py-2.5 rounded-xl hover:bg-yellow-300 transition-colors text-sm whitespace-nowrap"
+                className="inline-flex items-center gap-2 bg-[#2C5F7F] text-white font-semibold px-5 py-3 rounded-xl hover:bg-[#1a3d52] transition-colors text-sm shadow-md"
               >
-                <Star className="w-4 h-4 fill-[#1a3d52] text-[#1a3d52]" />
+                <MessageSquarePlus className="w-4 h-4" />
                 Leave a Review
               </a>
               <a
-                href="https://g.co/kgs/commercialshotblasting"
+                href={GOOGLE_PROFILE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors"
+                className="inline-flex items-center gap-1.5 text-gray-400 hover:text-[#2C5F7F] text-xs transition-colors"
               >
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink className="w-3.5 h-3.5" />
                 View on Google
               </a>
             </div>
@@ -232,13 +274,19 @@ export default function Reviews() {
         </div>
       </section>
 
-      {/* Commercial reviews label */}
+      {/* Sort + count bar */}
       <section className="bg-gray-50 border-b">
-        <div className="container py-4 flex items-center gap-3">
-          <span className="text-sm font-medium text-gray-600">Showing:</span>
-          <span className="px-4 py-1.5 rounded-full text-sm font-medium bg-[#2C5F7F] text-white shadow-sm">
-            Commercial &amp; Industrial ({COMMERCIAL_COUNT})
+        <div className="container py-3 flex items-center justify-between gap-3 flex-wrap">
+          <span className="text-sm text-gray-600">
+            Showing <span className="font-semibold text-[#1a3d52]">{displayed.length}</span> of <span className="font-semibold text-[#1a3d52]">{TOTAL_COUNT}</span> reviews
           </span>
+          <button
+            onClick={() => setSortOrder(s => s === "newest" ? "oldest" : "newest")}
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#2C5F7F] hover:text-[#1a3d52] transition-colors border border-[#2C5F7F]/30 rounded-lg px-3 py-1.5 hover:bg-[#2C5F7F]/5"
+          >
+            <ArrowUpDown className="w-3.5 h-3.5" />
+            {sortOrder === "newest" ? "Newest first" : "Oldest first"}
+          </button>
         </div>
       </section>
 
@@ -250,7 +298,7 @@ export default function Reviews() {
               <Card key={review.id} className="p-6 hover:shadow-lg transition-all duration-300 flex flex-col relative group">
                 <Quote className="absolute top-4 right-4 w-8 h-8 text-[#2C5F7F]/10 group-hover:text-[#2C5F7F]/20 transition-colors" />
                 <div className="flex items-start gap-3 mb-4">
-                  <ReviewerAvatar name={review.name} photoKey={review.photoKey} />
+                  <ReviewerAvatar name={review.name} photoKey={(review as any).photoKey} />
                   <div className="min-w-0">
                     <p className="font-semibold text-[#2C2C2C] truncate">{review.name}</p>
                     <p className="text-xs text-gray-400">{review.date}</p>
@@ -269,7 +317,7 @@ export default function Reviews() {
             ))}
           </div>
 
-          {!showAll && COMMERCIAL_COUNT > 12 && (
+          {!showAll && TOTAL_COUNT > INITIAL_DISPLAY && (
             <div className="text-center mt-10">
               <Button
                 variant="outline"
@@ -277,10 +325,24 @@ export default function Reviews() {
                 onClick={() => setShowAll(true)}
                 className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white"
               >
-                Show all {COMMERCIAL_COUNT} commercial reviews
+                Show all {TOTAL_COUNT} reviews
               </Button>
             </div>
           )}
+
+          {/* Leave a Review CTA below grid */}
+          <div className="mt-12 text-center">
+            <p className="text-gray-500 text-sm mb-4">Happy with our service? We'd love to hear from you.</p>
+            <a
+              href={GOOGLE_REVIEW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-yellow-400 text-[#1a3d52] font-bold px-7 py-3.5 rounded-xl hover:bg-yellow-300 transition-colors text-base shadow-md"
+            >
+              <Star className="w-5 h-5 fill-[#1a3d52] text-[#1a3d52]" />
+              Leave a Review on Google
+            </a>
+          </div>
         </div>
       </section>
 
