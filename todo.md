@@ -519,3 +519,5 @@
 ## Search Console Schema Fixes
 
 - [x] Fix "Missing field 'name'" in Review snippets — added name field ("Review by {author}") to all 12 Review entries in aggregateRatingSchema (metaTags.ts)
+- [x] Fix "Missing field 'itemReviewed'" on service-areas pages — added name field to all 3 Review entries in generateLocationSchemas (Jordan King, Sarah Mitchell, David Thompson)
+- [x] Fix broken review name fields on /reviews page — all 12 reviews now have correct "Review by {author}" name matching their own author
