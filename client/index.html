@@ -55,11 +55,10 @@
       crossorigin
     />
     <!-- Fonts are self-hosted via @fontsource — no external CDN needed -->
-    <!-- Critical CSS: CSS variables + body + above-the-fold hero/nav styles.
-         Applied before the Vite CSS bundle downloads to prevent flash of unstyled content
-         and ensure the LCP hero element is styled on first paint. -->
+    <!-- Critical CSS: ONLY CSS variables + body background. No resets — Tailwind handles those.
+         This ensures the correct background colour and font-family are applied from first paint,
+         before the Vite CSS bundle downloads, eliminating flash of white/unstyled content. -->
     <style>
-      /* ===== CSS Custom Properties ===== */
       :root {
         --primary: oklch(0.40 0.1 200);
         --primary-foreground: oklch(0.98 0 0);
@@ -76,92 +75,12 @@
         --border: oklch(0.88 0.02 85);
         --ring: oklch(0.45 0.1 200);
       }
-
-      /* ===== Base reset (critical subset) ===== */
-      *, *::before, *::after { box-sizing: border-box; }
-      html { line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
-
       body {
-        margin: 0;
         background-color: oklch(0.96 0.01 85);
         color: oklch(0.20 0.02 60);
         font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        min-height: 100vh;
-      }
-
-      /* ===== Prevent layout shift while JS loads ===== */
-      #root { min-height: 100vh; }
-
-      /* ===== SSR content: hero section visible before React hydrates ===== */
-      /* Ensure SSR-injected hero content is visible immediately */
-      [data-ssr] { display: block; }
-
-      /* ===== Hero section above-the-fold critical styles ===== */
-      /* Nav bar: white background, correct height */
-      header, nav {
-        background-color: #fff;
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        width: 100%;
-      }
-
-      /* Hero section: dark overlay on background image */
-      .hero-section {
-        position: relative;
-        min-height: 600px;
-        background-color: #1a3d52;
-        color: #fff;
-        display: flex;
-        align-items: center;
-      }
-
-      /* Hero heading: prevent invisible text before font loads */
-      h1, h2, h3 {
-        font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-        font-weight: 700;
-        line-height: 1.2;
-        color: inherit;
-        margin: 0;
-      }
-
-      /* Buttons: prevent invisible CTAs */
-      button, a[role="button"] {
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0.375rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition: background-color 0.15s, opacity 0.15s;
-      }
-
-      /* Primary CTA button */
-      .btn-primary {
-        background-color: #E8B84A;
-        color: #1a3d52;
-        padding: 0.75rem 1.5rem;
-        border: none;
-      }
-
-      /* Images: prevent layout shift */
-      img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      /* Lazy images: fade in on load */
-      img[loading="lazy"] {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-      img[loading="lazy"].loaded,
-      img[loading="lazy"][data-loaded] {
-        opacity: 1;
       }
     </style>
     <!-- noscript: when JS is disabled, override opacity:0 on lazy images so they display immediately -->

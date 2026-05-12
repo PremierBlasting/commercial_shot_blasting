@@ -166,28 +166,15 @@ function vitePluginPreloadMainCss(): Plugin {
       );
       if (!cssFile) return;
 
-      // Make the CSS non-blocking: replace the blocking <link rel="stylesheet"> with
-      // the media=print trick (loads async, then switches to all on load).
-      // A <noscript> fallback ensures CSS loads for non-JS environments.
-      // This removes the CSS from the critical render path, improving FCP/LCP.
+      // Inject preload link into each HTML file
       for (const key of Object.keys(bundle)) {
         const chunk = bundle[key];
         if (chunk.type === 'asset' && key.endsWith('.html')) {
-          let html = chunk.source as string;
-          const cssHref = `/${cssFile}`;
-
-          // Replace blocking stylesheet link with async load pattern
-          html = html.replace(
-            new RegExp(`<link rel="stylesheet" crossorigin href="${cssHref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}">`, 'g'),
-            `<link rel="preload" href="${cssHref}" as="style" onload="this.onload=null;this.rel='stylesheet'" /><noscript><link rel="stylesheet" href="${cssHref}" /></noscript>`
-          );
-
-          // Also inject a preload hint at the top of <head> for early discovery
-          if (!html.includes(`rel="preload" href="${cssHref}"`)) {
-            html = html.replace('<head>', `<head>\n  <link rel="preload" href="${cssHref}" as="style" onload="this.onload=null;this.rel='stylesheet'" /><noscript><link rel="stylesheet" href="${cssHref}" /></noscript>`);
+          const html = chunk.source as string;
+          const preloadTag = `<link rel="preload" href="/${cssFile}" as="style" />`;
+          if (!html.includes(preloadTag)) {
+            chunk.source = html.replace('</head>', `  ${preloadTag}\n  </head>`);
           }
-
-          chunk.source = html;
         }
       }
     },
