@@ -2,21 +2,23 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Star, Quote, X } from "lucide-react";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, lazy, Suspense } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
-import { HubSpotForm } from "@/components/HubSpotForm";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StaticServiceAreasMap } from "@/components/StaticServiceAreasMap";
-import { BlogPreview } from "@/components/BlogPreview";
-import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
-import ServiceSelector from "@/components/ServiceSelector";
-import HomeFAQ from "@/components/HomeFAQ";
 import { ResponsiveHeroBackground } from "@/components/ResponsiveHeroBackground";
-import { CaseStudies } from "@/components/CaseStudies";
-import { ReviewCarousel } from "@/components/ReviewCarousel";
 import { trpc } from "@/lib/trpc";
 import { ScrollReveal } from "@/components/ScrollReveal";
+
+// Below-the-fold components: lazy-loaded to reduce initial JS bundle and improve LCP
+const HubSpotForm = lazy(() => import("@/components/HubSpotForm").then(m => ({ default: m.HubSpotForm })));
+const BlogPreview = lazy(() => import("@/components/BlogPreview").then(m => ({ default: m.BlogPreview })));
+const BeforeAfterSlider = lazy(() => import("@/components/BeforeAfterSlider").then(m => ({ default: m.BeforeAfterSlider })));
+const ServiceSelector = lazy(() => import("@/components/ServiceSelector"));
+const HomeFAQ = lazy(() => import("@/components/HomeFAQ"));
+const CaseStudies = lazy(() => import("@/components/CaseStudies").then(m => ({ default: m.CaseStudies })));
+const ReviewCarousel = lazy(() => import("@/components/ReviewCarousel").then(m => ({ default: m.ReviewCarousel })));
 
 const testimonials = [
   {
@@ -168,7 +170,7 @@ export default function Home() {
               Answer a few quick questions and we'll recommend the best shot blasting services for your specific project requirements.
             </p>
           </div>
-          <ServiceSelector />
+          <Suspense fallback={<div className="h-32" />}><ServiceSelector /></Suspense>
         </div>
       </section>
 
@@ -327,13 +329,15 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <BeforeAfterSlider
-                beforeImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VEiAvFTFwMSPdMnF.webp"
-                afterImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TicEtXjfKsaOJYbR.webp"
-                beforeLabel="Before"
-                afterLabel="After"
-                className="shadow-xl"
-              />
+              <Suspense fallback={<div className="aspect-video bg-gray-100 rounded-lg" />}>
+                <BeforeAfterSlider
+                  beforeImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VEiAvFTFwMSPdMnF.webp"
+                  afterImage="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TicEtXjfKsaOJYbR.webp"
+                  beforeLabel="Before"
+                  afterLabel="After"
+                  className="shadow-xl"
+                />
+              </Suspense>
               <div className="absolute -bottom-6 -left-6 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg z-20">
                 <p className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>20+</p>
                 <p className="text-sm">Years Experience</p>
@@ -500,9 +504,9 @@ export default function Home() {
       </section>
 
       {/* Review Carousel Section */}
-      <ReviewCarousel />
+      <Suspense fallback={<div className="py-16" />}><ReviewCarousel /></Suspense>
       {/* Case Studies Section */}
-      <CaseStudies />
+      <Suspense fallback={<div className="py-16" />}><CaseStudies /></Suspense>
 
       {/* CTA Section */}
       <section className="py-16 bg-[#2C5F7F] text-white">
@@ -719,7 +723,7 @@ export default function Home() {
               </div>
             </div>
             <Card className="p-6">
-              <HubSpotForm />
+              <Suspense fallback={<div className="h-64 flex items-center justify-center text-gray-400">Loading form…</div>}><HubSpotForm /></Suspense>
             </Card>
           </div>
         </div>
@@ -752,7 +756,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <HomeFAQ />
+      <Suspense fallback={<div className="py-16" />}><HomeFAQ /></Suspense>
 
       {/* Footer */}
       <Footer />
@@ -799,7 +803,7 @@ export default function Home() {
       )}
 
       {/* Blog Preview Section */}
-      <BlogPreview />
+      <Suspense fallback={<div className="py-16" />}><BlogPreview /></Suspense>
     </div>
   );
 }

@@ -521,3 +521,9 @@
 - [x] Fix "Missing field 'name'" in Review snippets — added name field ("Review by {author}") to all 12 Review entries in aggregateRatingSchema (metaTags.ts)
 - [x] Fix "Missing field 'itemReviewed'" on service-areas pages — added name field to all 3 Review entries in generateLocationSchemas (Jordan King, Sarah Mitchell, David Thompson)
 - [x] Fix broken review name fields on /reviews page — all 12 reviews now have correct "Review by {author}" name matching their own author
+
+## Mobile LCP Phase 2
+
+- [x] fetchpriority="high" on hero image — already implemented in ResponsiveHeroBackground.tsx
+- [x] Lazy-load below-the-fold Home.tsx components (BeforeAfterSlider, CaseStudies, ReviewCarousel, BlogPreview, HomeFAQ, HubSpotForm, ServiceSelector) — Home bundle: 176KB → 101KB (42% reduction)
+- [ ] Extract and inline critical Tailwind CSS (deferred — too risky, previous attempt broke nav/images)
