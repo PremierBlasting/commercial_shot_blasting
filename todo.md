@@ -515,3 +515,7 @@
 - [x] Add prominent "Leave a Review on Google" button below the reviews grid (yellow CTA)
 - [x] Show all 75 reviews (not just Commercial-tagged ones) — initial load shows 12, "Show all" reveals all 75
 - [x] Update hero description to reflect 75 reviews
+
+## Search Console Schema Fixes
+
+- [x] Fix "Missing field 'name'" in Review snippets — added name field ("Review by {author}") to all 12 Review entries in aggregateRatingSchema (metaTags.ts)
