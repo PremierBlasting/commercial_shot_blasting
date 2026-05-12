@@ -527,3 +527,4 @@
 - [x] fetchpriority="high" on hero image — already implemented in ResponsiveHeroBackground.tsx
 - [x] Lazy-load below-the-fold Home.tsx components (BeforeAfterSlider, CaseStudies, ReviewCarousel, BlogPreview, HomeFAQ, HubSpotForm, ServiceSelector) — Home bundle: 176KB → 101KB (42% reduction)
 - [ ] Extract and inline critical Tailwind CSS (deferred — too risky, previous attempt broke nav/images)
+- [x] Lazy-load Header mega-menu data (serviceLinks, compactAreasLinks, fullAreasLinks) via dynamic import — Header bundle: 63.92KB → 45.62KB gzip (8.54KB → 5.41KB); headerData.js (18.78KB) loads as separate chunk on first hover/interaction via requestIdleCallback after page idle
