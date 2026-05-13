@@ -544,3 +544,10 @@
 - [x] Add "View full site map" link to /counties hub page
 - [x] Add "View full site map" link to /service-areas index page
 - [x] Add live search/filter bar to SitemapPage.tsx (searches towns, counties, services, industries in real-time)
+
+## Crawl Budget & Indexing — Round 3
+
+- [x] Add "Browse by county" internal link on each town/service-area page (LocationPage.tsx)
+- [x] Add HTML sitemap link to Areas mega-menu footer in Header.tsx
+- [x] Add HTML sitemap link to mobile drawer in Header.tsx
+- [x] Highlight matching text in sitemap search results (SitemapPage.tsx)

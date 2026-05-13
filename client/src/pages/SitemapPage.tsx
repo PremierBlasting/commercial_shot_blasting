@@ -6,6 +6,23 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Search, X } from "lucide-react";
 
+// ── Highlight helper ───────────────────────────────────────────────────────────
+// Wraps matched substring in a <mark> with a yellow highlight style.
+function Highlight({ text, query }: { text: string; query: string }) {
+  if (!query) return <>{text}</>;
+  const idx = text.toLowerCase().indexOf(query.toLowerCase());
+  if (idx === -1) return <>{text}</>;
+  return (
+    <>
+      {text.slice(0, idx)}
+      <mark className="bg-yellow-200 text-yellow-900 rounded-sm px-0.5">
+        {text.slice(idx, idx + query.length)}
+      </mark>
+      {text.slice(idx + query.length)}
+    </>
+  );
+}
+
 // ── Static data ────────────────────────────────────────────────────────────────
 const REGION_ORDER = [
   "East Midlands",
@@ -218,7 +235,7 @@ export default function SitemapPage() {
                   <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm">
                     {filteredMainPages.map(({ href, label }) => (
                       <li key={href}>
-                        <Link href={href} className="text-[#2C5F7F] hover:underline">{label}</Link>
+                        <Link href={href} className="text-[#2C5F7F] hover:underline"><Highlight text={label} query={q} /></Link>
                       </li>
                     ))}
                   </ul>
@@ -233,7 +250,7 @@ export default function SitemapPage() {
                   <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm">
                     {filteredServices.map(({ slug, name }) => (
                       <li key={slug}>
-                        <Link href={`/services/${slug}`} className="text-[#2C5F7F] hover:underline">{name}</Link>
+                        <Link href={`/services/${slug}`} className="text-[#2C5F7F] hover:underline"><Highlight text={name} query={q} /></Link>
                       </li>
                     ))}
                   </ul>
@@ -248,7 +265,7 @@ export default function SitemapPage() {
                   <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm">
                     {filteredIndustries.map(({ slug, name }) => (
                       <li key={slug}>
-                        <Link href={`/industries/${slug}`} className="text-[#2C5F7F] hover:underline">{name}</Link>
+                        <Link href={`/industries/${slug}`} className="text-[#2C5F7F] hover:underline"><Highlight text={name} query={q} /></Link>
                       </li>
                     ))}
                   </ul>
@@ -263,7 +280,7 @@ export default function SitemapPage() {
                   <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-sm">
                     {filteredCounties.map((c) => (
                       <li key={c.slug}>
-                        <Link href={`/counties/${c.slug}`} className="text-[#2C5F7F] hover:underline">{c.name}</Link>
+                        <Link href={`/counties/${c.slug}`} className="text-[#2C5F7F] hover:underline"><Highlight text={c.name} query={q} /></Link>
                       </li>
                     ))}
                   </ul>
@@ -279,8 +296,8 @@ export default function SitemapPage() {
                     {filteredTowns.map((town) => (
                       <li key={town.slug}>
                         <Link href={`/service-areas/${town.slug}`} className="text-[#2C5F7F] hover:underline text-xs">
-                          {town.name}
-                          <span className="text-gray-400 ml-1 text-xs">{town.county}</span>
+                          <Highlight text={town.name} query={q} />
+                          <span className="text-gray-400 ml-1 text-xs"><Highlight text={town.county} query={q} /></span>
                         </Link>
                       </li>
                     ))}

@@ -476,6 +476,13 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                     >
                       Browse by County
                     </Link>
+                    <Link
+                      href="/sitemap"
+                      className="flex items-center justify-center gap-2 px-4 py-2.5 border border-gray-200 text-gray-500 rounded-lg hover:bg-gray-50 hover:text-[#2C5F7F] transition-colors text-sm"
+                      onClick={() => setAreasOpen(false)}
+                    >
+                      Full Site Map
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -662,6 +669,13 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                   onClick={closeMobileMenu}
                 >
                   Browse by County →
+                </Link>
+                <Link
+                  href="/sitemap"
+                  className="block py-2 px-3 text-center border border-white/20 text-white/70 hover:bg-white/10 hover:text-white rounded-lg transition text-sm"
+                  onClick={closeMobileMenu}
+                >
+                  Full Site Map →
                 </Link>
               </div>
             </div>

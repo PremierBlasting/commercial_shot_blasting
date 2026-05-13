@@ -706,6 +706,22 @@ export function LocationPage({ location }: LocationPageProps) {
         </div>
       </section>
 
+      {/* Browse by County — internal link to county hub for crawl equity */}
+      <section className="py-5 bg-gray-50 border-t border-gray-200">
+        <div className="container text-center">
+          <p className="text-sm text-gray-500">
+            Explore all towns and villages we serve in{" "}
+            <Link href={`/counties/${location.countySlug}`} className="text-[#2C5F7F] hover:underline font-medium">
+              {location.county}
+            </Link>
+            {" — or — "}
+            <Link href="/counties" className="text-[#2C5F7F] hover:underline font-medium">
+              browse all counties
+            </Link>
+          </p>
+        </div>
+      </section>
+
       {/* Item 10: Sticky mobile Get a Quote bar */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#2C5F7F] shadow-[0_-2px_12px_rgba(0,0,0,0.15)]">
         <div className="flex items-stretch">
