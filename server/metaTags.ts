@@ -5991,6 +5991,37 @@ export function injectMetaTags(html: string, url: string): string {
     }
   }
 
+  // ── HTML Sitemap page: /sitemap ─────────────────────────────────────────────
+  if (url === '/sitemap' || url === '/sitemap/') {
+    const sitemapTitle = `Site Map — Commercial Shot Blasting`;
+    const sitemapDesc = `Complete directory of all service areas, counties, services and industries covered by Commercial Shot Blasting across the UK. Find shot blasting services near you.`;
+    const sitemapUrl = `${SITE_URL}/sitemap`;
+    let modifiedHtml = html
+      .replace(/<meta\s+name="description"[^>]*>/gi, '')
+      .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+    const sitemapMetaTags = `
+    <title>${sitemapTitle}</title>
+    <link rel="canonical" href="${sitemapUrl}" />
+    <meta name="description" content="${sitemapDesc}" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="${sitemapTitle}" />
+    <meta property="og:description" content="${sitemapDesc}" />
+    <meta property="og:url" content="${sitemapUrl}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="${LOGO}" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="${sitemapTitle}" />
+    <meta name="twitter:description" content="${sitemapDesc}" />
+  `;
+    modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, sitemapMetaTags);
+    return modifiedHtml;
+  }
+
   // Check if this is a service area pagee
   const serviceAreaMatch = url.match(/\/service-areas\/([a-z-]+)/);
   

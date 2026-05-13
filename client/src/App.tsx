@@ -194,6 +194,9 @@ const NorthumberlandCounty = lazy(() => import("./pages/counties/NorthumberlandC
 // Dynamic location router for all 605 towns and villages
 const LocationRouter = lazy(() => import("./pages/LocationRouter"));
 
+// HTML Sitemap — lazy-loaded because it imports the large locationData file
+const SitemapPage = lazy(() => import("./pages/SitemapPage"));
+
 // Lazy-loaded industry pages
 const ConstructionIndustry = lazy(() => import("./pages/ConstructionIndustry"));
 const ManufacturingIndustry = lazy(() => import("./pages/ManufacturingIndustry"));
@@ -391,7 +394,8 @@ function Router() {
         <Route path="/service-areas/weston-super-mare" component={WestonSuperMareServiceArea} />
         {/* Dynamic catch-all for all remaining service-area location pages */}
         <Route path="/service-areas/:slug" component={() => <Suspense fallback={<div className="min-h-screen bg-background" />}><LocationRouter /></Suspense>} />
-        <Route path={"/404"} component={NotFound} />
+         <Route path="/sitemap" component={() => <Suspense fallback={<PageLoader />}><SitemapPage /></Suspense>} />
+        <Route path={"404"} component={NotFound} />
         {/* Final fallback route */}
         <Route component={NotFound} />
       </Switch>

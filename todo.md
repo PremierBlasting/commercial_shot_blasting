@@ -528,3 +528,12 @@
 - [x] Lazy-load below-the-fold Home.tsx components (BeforeAfterSlider, CaseStudies, ReviewCarousel, BlogPreview, HomeFAQ, HubSpotForm, ServiceSelector) — Home bundle: 176KB → 101KB (42% reduction)
 - [ ] Extract and inline critical Tailwind CSS (deferred — too risky, previous attempt broke nav/images)
 - [x] Lazy-load Header mega-menu data (serviceLinks, compactAreasLinks, fullAreasLinks) via dynamic import — Header bundle: 63.92KB → 45.62KB gzip (8.54KB → 5.41KB); headerData.js (18.78KB) loads as separate chunk on first hover/interaction via requestIdleCallback after page idle
+
+## Crawl Budget & Indexing Improvements
+
+- [x] Create HTML sitemap page at /sitemap listing all 650 town pages, 35 county pages, 18 services, 8 industries grouped by region
+- [x] Add county hub links to Footer (all 35 counties) to pass crawl equity from every page
+- [x] Fix Footer copyright year (currently 2024, should be 2026)
+- [x] Add /sitemap route to App.tsx (lazy-loaded via React.lazy)
+- [x] Add SSR meta tags for /sitemap page in metaTags.ts
+- [x] Add Site Map link to Footer Company section

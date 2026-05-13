@@ -2,6 +2,58 @@ import { Link } from "wouter";
 import { Phone, Mail } from "lucide-react";
 import { trackPhoneCall, trackEvent } from "@/lib/analytics";
 
+// All 35 county hubs — grouped for display
+const COUNTY_LINKS = [
+  // East Midlands
+  { slug: "derbyshire", name: "Derbyshire" },
+  { slug: "leicestershire", name: "Leicestershire" },
+  { slug: "lincolnshire", name: "Lincolnshire" },
+  { slug: "northamptonshire", name: "Northamptonshire" },
+  { slug: "nottinghamshire", name: "Nottinghamshire" },
+  // East of England
+  { slug: "bedfordshire", name: "Bedfordshire" },
+  { slug: "cambridgeshire", name: "Cambridgeshire" },
+  { slug: "essex", name: "Essex" },
+  { slug: "hertfordshire", name: "Hertfordshire" },
+  { slug: "norfolk", name: "Norfolk" },
+  { slug: "suffolk", name: "Suffolk" },
+  // West Midlands
+  { slug: "herefordshire", name: "Herefordshire" },
+  { slug: "shropshire", name: "Shropshire" },
+  { slug: "staffordshire", name: "Staffordshire" },
+  { slug: "warwickshire", name: "Warwickshire" },
+  { slug: "west-midlands", name: "West Midlands" },
+  { slug: "worcestershire", name: "Worcestershire" },
+  // Yorkshire
+  { slug: "north-yorkshire", name: "North Yorkshire" },
+  { slug: "south-yorkshire", name: "South Yorkshire" },
+  { slug: "west-yorkshire", name: "West Yorkshire" },
+  // North West
+  { slug: "cheshire", name: "Cheshire" },
+  { slug: "cumbria", name: "Cumbria" },
+  { slug: "greater-manchester", name: "Greater Manchester" },
+  { slug: "lancashire", name: "Lancashire" },
+  // North East
+  { slug: "durham", name: "County Durham" },
+  { slug: "northumberland", name: "Northumberland" },
+  { slug: "tyne-and-wear", name: "Tyne & Wear" },
+  // South West
+  { slug: "gloucestershire", name: "Gloucestershire" },
+  { slug: "north-devon", name: "North Devon" },
+  { slug: "somerset", name: "Somerset" },
+  { slug: "wiltshire", name: "Wiltshire" },
+  // South England
+  { slug: "berkshire", name: "Berkshire" },
+  { slug: "buckinghamshire", name: "Buckinghamshire" },
+  { slug: "hampshire", name: "Hampshire" },
+  // Wales Borders
+  { slug: "east-wales", name: "East Wales" },
+];
+
+// Split counties into two columns for display
+const COUNTY_COL1 = COUNTY_LINKS.slice(0, 18);
+const COUNTY_COL2 = COUNTY_LINKS.slice(18);
+
 export function Footer() {
   return (
     <footer className="bg-[#1a3d52] text-white py-12">
@@ -88,24 +140,7 @@ export function Footer() {
               <li><Link href="/reviews" className="hover:text-white">Customer Reviews</Link></li>
               <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
               <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
-            </ul>
-          </div>
-
-          {/* Service Areas */}
-          <div>
-            <h4 className="font-semibold mb-4">Service Areas</h4>
-            <ul className="space-y-2 text-white/70 text-sm">
-              <li><Link href="/service-areas" className="hover:text-white">All Service Areas</Link></li>
-              <li><Link href="/service-areas/birmingham" className="hover:text-white">Birmingham</Link></li>
-              <li><Link href="/service-areas/nottingham" className="hover:text-white">Nottingham</Link></li>
-              <li><Link href="/service-areas/leicester" className="hover:text-white">Leicester</Link></li>
-              <li><Link href="/service-areas/derby" className="hover:text-white">Derby</Link></li>
-              <li><Link href="/service-areas/coventry" className="hover:text-white">Coventry</Link></li>
-              <li><Link href="/service-areas/wolverhampton" className="hover:text-white">Wolverhampton</Link></li>
-              <li><Link href="/service-areas/manchester" className="hover:text-white">Manchester</Link></li>
-              <li><Link href="/service-areas/liverpool" className="hover:text-white">Liverpool</Link></li>
-              <li><Link href="/service-areas/sheffield" className="hover:text-white">Sheffield</Link></li>
-              <li><Link href="/service-areas/leeds" className="hover:text-white">Leeds</Link></li>
+              <li><Link href="/sitemap" className="hover:text-white">Site Map</Link></li>
             </ul>
             <h4 className="font-semibold mb-4 mt-6">Legal</h4>
             <ul className="space-y-2 text-white/70 text-sm">
@@ -113,10 +148,31 @@ export function Footer() {
               <li><Link href="/terms" className="hover:text-white">Terms & Conditions</Link></li>
             </ul>
           </div>
+
+          {/* Service Areas — all 35 county hubs */}
+          <div>
+            <h4 className="font-semibold mb-4">Service Areas</h4>
+            <ul className="space-y-1 text-white/70 text-sm mb-3">
+              <li><Link href="/service-areas" className="hover:text-white">All Service Areas</Link></li>
+              <li><Link href="/counties" className="hover:text-white">Browse by County</Link></li>
+            </ul>
+            <h4 className="font-semibold mb-2 text-xs uppercase tracking-wide text-white/50">Counties</h4>
+            <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+              {COUNTY_LINKS.map(({ slug, name }) => (
+                <Link
+                  key={slug}
+                  href={`/counties/${slug}`}
+                  className="text-white/60 hover:text-white text-xs leading-tight"
+                >
+                  {name}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
         <div className="border-t border-white/10 pt-8">
           <p className="text-center text-white/70 text-sm">
-            © 2024 Commercial Shot Blasting. All rights reserved. | Serving the UK
+            © 2026 Commercial Shot Blasting. All rights reserved. | Serving the UK
           </p>
         </div>
       </div>
