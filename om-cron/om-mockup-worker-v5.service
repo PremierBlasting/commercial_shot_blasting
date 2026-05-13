@@ -1,0 +1,19 @@
+[Unit]
+Description=Optimised Marketing — Cloud Mockup Worker v5 (Manus-first: Gemini 2.5 Pro leads | 9-pass | 65K tokens | Claude Opus PM+Critique | GPT-4o QA | Human Sign-off)
+After=network.target screenshot-service.service
+Wants=screenshot-service.service
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/om-cron
+ExecStart=/usr/bin/node /home/ubuntu/om-cron/job-mockup-worker-v5.js
+Restart=always
+RestartSec=15
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=om-mockup-worker-v5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
