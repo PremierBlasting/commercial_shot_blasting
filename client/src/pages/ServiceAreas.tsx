@@ -1066,6 +1066,18 @@ export default function ServiceAreas() {
         </div>
       </section>
 
+      {/* Site Map Link */}
+      <section className="py-5 bg-gray-50 border-t border-gray-200">
+        <div className="container text-center">
+          <p className="text-sm text-gray-500">
+            Looking for a complete directory of all 650 towns and service areas?{" "}
+            <Link href="/sitemap" className="text-[#2C5F7F] hover:underline font-medium">
+              View the full site map
+            </Link>
+          </p>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-[#1a3d52] text-white py-12">
         <div className="container">

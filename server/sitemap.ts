@@ -25,6 +25,7 @@ const STATIC_PAGES = [
   { loc: "/reviews", changefreq: "monthly", priority: "0.6" },
   { loc: "/prep-and-cleanup", changefreq: "monthly", priority: "0.6" },
   { loc: "/our-work", changefreq: "monthly", priority: "0.6" },
+  { loc: "/sitemap", changefreq: "monthly", priority: "0.5" },
 ];
 
 // ── Service pages ─────────────────────────────────────────────────────────────

@@ -537,3 +537,10 @@
 - [x] Add /sitemap route to App.tsx (lazy-loaded via React.lazy)
 - [x] Add SSR meta tags for /sitemap page in metaTags.ts
 - [x] Add Site Map link to Footer Company section
+
+## Crawl Budget & Indexing — Round 2
+
+- [x] Add /sitemap URL to the XML sitemap endpoint (sitemap.ts)
+- [x] Add "View full site map" link to /counties hub page
+- [x] Add "View full site map" link to /service-areas index page
+- [x] Add live search/filter bar to SitemapPage.tsx (searches towns, counties, services, industries in real-time)

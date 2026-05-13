@@ -230,6 +230,18 @@ export default function Counties() {
         </div>
       </section>
 
+      {/* Site Map Link */}
+      <section className="py-5 bg-white border-t border-gray-100">
+        <div className="container text-center">
+          <p className="text-sm text-gray-500">
+            Looking for a complete list of all towns and service areas?{" "}
+            <Link href="/sitemap" className="text-[#2C5F7F] hover:underline font-medium">
+              View the full site map
+            </Link>
+          </p>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 bg-[#2C5F7F] text-white">
         <div className="container text-center">
