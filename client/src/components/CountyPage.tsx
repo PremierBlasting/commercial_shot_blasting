@@ -206,6 +206,36 @@ export function CountyPage({ county }: CountyPageProps) {
     };
   }, [county]);
 
+  // BreadcrumbList JSON-LD
+  useEffect(() => {
+    const breadcrumbId = 'county-breadcrumb-schema';
+    let el = document.getElementById(breadcrumbId);
+    if (!el) {
+      el = document.createElement('script');
+      el.id = breadcrumbId;
+      (el as HTMLScriptElement).type = 'application/ld+json';
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://commercialshotblasting.co.uk/' },
+        { '@type': 'ListItem', position: 2, name: 'Counties', item: 'https://commercialshotblasting.co.uk/counties' },
+        { '@type': 'ListItem', position: 3, name: county.name, item: `https://commercialshotblasting.co.uk/counties/${county.slug}` },
+      ],
+    });
+    return () => {
+      const s = document.getElementById(breadcrumbId);
+      if (s) s.remove();
+    };
+  }, [county]);
+
+  // Derive up to 8 towns for this county from locationData
+  const relatedTowns = Object.values(locationData)
+    .filter((loc) => loc.countySlug === county.slug)
+    .slice(0, 8);
+
   return (
     <div className="min-h-screen bg-white">
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
@@ -1118,6 +1148,43 @@ export function CountyPage({ county }: CountyPageProps) {
           </div>
         </div>
       </section>
+
+      {/* Related Towns */}
+      {relatedTowns.length > 0 && (
+        <section className="py-12 bg-white border-t border-gray-100">
+          <div className="container">
+            <div className="text-center mb-8">
+              <p className="text-[#2C5F7F] font-medium mb-1 uppercase tracking-wide text-sm">Service Locations</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Towns We Serve in {county.name}
+              </h2>
+              <p className="text-gray-500 mt-2 text-sm max-w-xl mx-auto">
+                Mobile shot blasting available across {county.name} — click any town for local pricing and availability.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-6">
+              {relatedTowns.map((town) => (
+                <Link key={town.slug} href={`/service-areas/${town.slug}`}>
+                  <div className="group flex items-center gap-3 p-4 rounded-xl border border-gray-100 hover:border-[#2C5F7F] hover:shadow-md transition-all duration-200 bg-white cursor-pointer">
+                    <MapPin className="w-4 h-4 text-[#2C5F7F] shrink-0" />
+                    <div className="min-w-0">
+                      <p className="font-semibold text-sm text-[#2C2C2C] group-hover:text-[#2C5F7F] transition-colors truncate">{town.name}</p>
+                      <p className="text-xs text-gray-400 truncate">{town.county}</p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div className="text-center">
+              <Link href="/service-areas">
+                <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                  View All Service Areas in {county.name} <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Share Section */}
       <section className="py-10 bg-gray-50 border-t border-gray-200">

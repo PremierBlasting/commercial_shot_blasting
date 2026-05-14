@@ -551,3 +551,8 @@
 - [x] Add HTML sitemap link to Areas mega-menu footer in Header.tsx
 - [x] Add HTML sitemap link to mobile drawer in Header.tsx
 - [x] Highlight matching text in sitemap search results (SitemapPage.tsx)
+
+## Crawl Budget & Indexing — Round 4
+
+- [x] Add "Related Towns" card grid to county hub pages (County.tsx) — up to 8 towns per county
+- [x] Add BreadcrumbList JSON-LD structured data to county hub pages (County.tsx)
