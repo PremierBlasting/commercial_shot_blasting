@@ -1,5 +1,5 @@
-import { useState, useMemo } from "react";
-import { Link } from "wouter";
+import { useState, useMemo, useEffect } from "react";
+import { Link, useSearch } from "wouter";
 import { countyData } from "@/data/countyData";
 import { locationData } from "@/data/locationData";
 import { Header } from "@/components/Header";
@@ -86,7 +86,17 @@ const MAIN_PAGES = [
 
 // ── Component ──────────────────────────────────────────────────────────────────
 export default function SitemapPage() {
-  const [query, setQuery] = useState("");
+  const searchString = useSearch(); // e.g. "?q=yorkshire"
+  const initialQ = useMemo(() => {
+    const params = new URLSearchParams(searchString);
+    return params.get("q") ?? "";
+  }, [searchString]);
+  const [query, setQuery] = useState(initialQ);
+
+  // Sync state when URL ?q= changes (e.g. browser back/forward or SiteLinksSearchBox)
+  useEffect(() => {
+    setQuery(initialQ);
+  }, [initialQ]);
 
   // Pre-compute grouped data (stable references — no render-phase instability)
   const countiesByRegion = useMemo(() => {

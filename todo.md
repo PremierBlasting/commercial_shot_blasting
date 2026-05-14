@@ -564,3 +564,9 @@
 - [x] Add Related Counties section to town pages (LocationPage.tsx)
 - [x] Add ItemList JSON-LD schema to county hub pages listing all towns
 - [x] Add SiteLinksSearchBox JSON-LD schema (WebSite + SearchAction) to home page
+
+## Crawl Budget & UX — Round 6
+
+- [x] Add ?q= URL query-string pre-population to SitemapPage.tsx
+- [x] Add skeleton loading state to town search results in CountyPage.tsx (250ms debounce + animated skeleton grid)
+- [x] Add Back to Top button to CountyPage.tsx (appears after 400px scroll, smooth scroll to top)

@@ -269,9 +269,31 @@ export function CountyPage({ county }: CountyPageProps) {
     };
   }, [county]);
 
-  const [townSearch, setTownSearch] = useState("");  
-  const filteredTowns = townSearch.trim().length >= 1
-    ? allCountyTowns.filter((t) => t.name.toLowerCase().includes(townSearch.toLowerCase()))
+  const [townSearch, setTownSearch] = useState("");
+  const [townSearchLoading, setTownSearchLoading] = useState(false);
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  // Show Back to Top button after scrolling 400px
+  useEffect(() => {
+    const onScroll = () => setShowBackToTop(window.scrollY > 400);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Debounce town search to show skeleton while user types
+  useEffect(() => {
+    if (townSearch === debouncedSearch) return;
+    setTownSearchLoading(true);
+    const t = setTimeout(() => {
+      setDebouncedSearch(townSearch);
+      setTownSearchLoading(false);
+    }, 250);
+    return () => clearTimeout(t);
+  }, [townSearch, debouncedSearch]);
+
+  const filteredTowns = debouncedSearch.trim().length >= 1
+    ? allCountyTowns.filter((t) => t.name.toLowerCase().includes(debouncedSearch.toLowerCase()))
     : allCountyTowns;
 
   return (
@@ -1219,8 +1241,18 @@ export function CountyPage({ county }: CountyPageProps) {
                 </button>
               )}
             </div>
-            {filteredTowns.length === 0 ? (
-              <p className="text-center text-gray-400 text-sm py-6">No towns match "{townSearch}"</p>
+            {townSearchLoading ? (
+              /* Skeleton state while debounce timer runs */
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-6 animate-pulse">
+                {Array.from({ length: 20 }).map((_, i) => (
+                  <div key={i} className="flex items-center gap-2 p-3 rounded-lg border border-gray-100 bg-gray-50">
+                    <div className="w-3.5 h-3.5 rounded-full bg-gray-200 shrink-0" />
+                    <div className="h-3 rounded bg-gray-200" style={{ width: `${50 + (i % 5) * 10}%` }} />
+                  </div>
+                ))}
+              </div>
+            ) : filteredTowns.length === 0 ? (
+              <p className="text-center text-gray-400 text-sm py-6">No towns match "{debouncedSearch}"</p>
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-6">
                 {filteredTowns.map((town) => (
@@ -1262,6 +1294,17 @@ export function CountyPage({ county }: CountyPageProps) {
       </section>
 
       <Footer />
+
+      {/* Back to Top button */}
+      {showBackToTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Back to top"
+          className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-11 h-11 rounded-full bg-[#2C5F7F] text-white shadow-lg hover:bg-[#1a3a4d] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F] focus:ring-offset-2"
+        >
+          <ChevronUp className="w-5 h-5" />
+        </button>
+      )}
     </div>
   );
 }
