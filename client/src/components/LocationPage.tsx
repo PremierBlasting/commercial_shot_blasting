@@ -706,6 +706,36 @@ export function LocationPage({ location }: LocationPageProps) {
         </div>
       </section>
 
+      {/* Related Counties */}
+      {(() => {
+        const nearbyCounties = Object.values(countyData)
+          .filter((c) => c.slug !== location.countySlug && c.region === countyData[location.countySlug]?.region)
+          .slice(0, 6);
+        if (nearbyCounties.length === 0) return null;
+        return (
+          <section className="py-10 bg-gray-50 border-t border-gray-100">
+            <div className="container">
+              <div className="text-center mb-5">
+                <p className="text-[#2C5F7F] font-medium mb-1 uppercase tracking-wide text-xs">Nearby Coverage</p>
+                <h2 className="text-xl md:text-2xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Related Counties We Cover
+                </h2>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+                {nearbyCounties.map((c) => (
+                  <Link key={c.slug} href={`/counties/${c.slug}`}>
+                    <div className="group flex flex-col items-center gap-1 p-3 rounded-lg border border-gray-100 hover:border-[#2C5F7F] hover:shadow-md transition-all duration-200 bg-white cursor-pointer text-center">
+                      <MapPin className="w-4 h-4 text-[#2C5F7F]" />
+                      <p className="font-semibold text-xs text-[#2C2C2C] group-hover:text-[#2C5F7F] transition-colors leading-tight">{c.name}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
+
       {/* Browse by County — internal link to county hub for crawl equity */}
       <section className="py-5 bg-gray-50 border-t border-gray-200">
         <div className="container text-center">

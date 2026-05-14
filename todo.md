@@ -556,3 +556,11 @@
 
 - [x] Add "Related Towns" card grid to county hub pages (County.tsx) — up to 8 towns per county
 - [x] Add BreadcrumbList JSON-LD structured data to county hub pages (County.tsx)
+
+## Crawl Budget & Indexing — Round 5
+
+- [x] Expand Related Towns to show ALL towns alphabetically (not just 8) in CountyPage.tsx
+- [x] Add search/filter bar to Related Towns section in CountyPage.tsx
+- [x] Add Related Counties section to town pages (LocationPage.tsx)
+- [x] Add ItemList JSON-LD schema to county hub pages listing all towns
+- [x] Add SiteLinksSearchBox JSON-LD schema (WebSite + SearchAction) to home page

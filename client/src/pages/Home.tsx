@@ -72,6 +72,36 @@ export default function Home() {
       document.head.appendChild(canonical);
     }
     canonical.href = 'https://commercialshotblasting.co.uk';
+
+    // WebSite + SiteLinksSearchBox JSON-LD
+    const websiteSchemaId = 'home-website-schema';
+    let websiteEl = document.getElementById(websiteSchemaId);
+    if (!websiteEl) {
+      websiteEl = document.createElement('script');
+      websiteEl.id = websiteSchemaId;
+      (websiteEl as HTMLScriptElement).type = 'application/ld+json';
+      document.head.appendChild(websiteEl);
+    }
+    websiteEl.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      'name': 'Commercial Shot Blasting',
+      'url': 'https://commercialshotblasting.co.uk',
+      'description': 'UK-wide mobile shot blasting services for commercial and industrial clients.',
+      'potentialAction': {
+        '@type': 'SearchAction',
+        'target': {
+          '@type': 'EntryPoint',
+          'urlTemplate': 'https://commercialshotblasting.co.uk/sitemap?q={search_term_string}',
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    });
+
+    return () => {
+      const s = document.getElementById(websiteSchemaId);
+      if (s) s.remove();
+    };
   }, []);
 
   const openQuotePopup = () => setQuotePopupOpen(true);

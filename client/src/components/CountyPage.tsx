@@ -231,10 +231,48 @@ export function CountyPage({ county }: CountyPageProps) {
     };
   }, [county]);
 
-  // Derive up to 8 towns for this county from locationData
-  const relatedTowns = Object.values(locationData)
+  // All towns for this county sorted alphabetically
+  const allCountyTowns = Object.values(locationData)
     .filter((loc) => loc.countySlug === county.slug)
-    .slice(0, 8);
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  // ItemList JSON-LD — lists all towns for this county
+  useEffect(() => {
+    const itemListId = 'county-itemlist-schema';
+    let el = document.getElementById(itemListId);
+    if (!el) {
+      el = document.createElement('script');
+      el.id = itemListId;
+      (el as HTMLScriptElement).type = 'application/ld+json';
+      document.head.appendChild(el);
+    }
+    const towns = Object.values(locationData)
+      .filter((loc) => loc.countySlug === county.slug)
+      .sort((a, b) => a.name.localeCompare(b.name));
+    el.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      'name': `Shot Blasting Service Areas in ${county.name}`,
+      'description': `All towns and villages in ${county.name} covered by Commercial Shot Blasting mobile services`,
+      'url': `https://commercialshotblasting.co.uk/counties/${county.slug}`,
+      'numberOfItems': towns.length,
+      'itemListElement': towns.map((t, i) => ({
+        '@type': 'ListItem',
+        'position': i + 1,
+        'name': `Shot Blasting in ${t.name}`,
+        'url': `https://commercialshotblasting.co.uk/service-areas/${t.slug}`,
+      })),
+    });
+    return () => {
+      const s = document.getElementById(itemListId);
+      if (s) s.remove();
+    };
+  }, [county]);
+
+  const [townSearch, setTownSearch] = useState("");  
+  const filteredTowns = townSearch.trim().length >= 1
+    ? allCountyTowns.filter((t) => t.name.toLowerCase().includes(townSearch.toLowerCase()))
+    : allCountyTowns;
 
   return (
     <div className="min-h-screen bg-white">
@@ -1150,35 +1188,55 @@ export function CountyPage({ county }: CountyPageProps) {
       </section>
 
       {/* Related Towns */}
-      {relatedTowns.length > 0 && (
+      {allCountyTowns.length > 0 && (
         <section className="py-12 bg-white border-t border-gray-100">
           <div className="container">
-            <div className="text-center mb-8">
+            <div className="text-center mb-6">
               <p className="text-[#2C5F7F] font-medium mb-1 uppercase tracking-wide text-sm">Service Locations</p>
               <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Towns We Serve in {county.name}
               </h2>
               <p className="text-gray-500 mt-2 text-sm max-w-xl mx-auto">
-                Mobile shot blasting available across {county.name} — click any town for local pricing and availability.
+                {allCountyTowns.length} towns covered — click any town for local pricing and availability.
               </p>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-6">
-              {relatedTowns.map((town) => (
-                <Link key={town.slug} href={`/service-areas/${town.slug}`}>
-                  <div className="group flex items-center gap-3 p-4 rounded-xl border border-gray-100 hover:border-[#2C5F7F] hover:shadow-md transition-all duration-200 bg-white cursor-pointer">
-                    <MapPin className="w-4 h-4 text-[#2C5F7F] shrink-0" />
-                    <div className="min-w-0">
-                      <p className="font-semibold text-sm text-[#2C2C2C] group-hover:text-[#2C5F7F] transition-colors truncate">{town.name}</p>
-                      <p className="text-xs text-gray-400 truncate">{town.county}</p>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+            {/* Search bar */}
+            <div className="max-w-sm mx-auto mb-6 relative">
+              <input
+                type="text"
+                value={townSearch}
+                onChange={(e) => setTownSearch(e.target.value)}
+                placeholder={`Search towns in ${county.name}…`}
+                className="w-full border border-gray-200 rounded-lg px-4 py-2 pr-9 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C5F7F] focus:border-transparent"
+              />
+              {townSearch && (
+                <button
+                  onClick={() => setTownSearch("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-lg leading-none"
+                  aria-label="Clear search"
+                >
+                  ×
+                </button>
+              )}
             </div>
+            {filteredTowns.length === 0 ? (
+              <p className="text-center text-gray-400 text-sm py-6">No towns match "{townSearch}"</p>
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-6">
+                {filteredTowns.map((town) => (
+                  <Link key={town.slug} href={`/service-areas/${town.slug}`}>
+                    <div className="group flex items-center gap-2 p-3 rounded-lg border border-gray-100 hover:border-[#2C5F7F] hover:shadow-md transition-all duration-200 bg-white cursor-pointer">
+                      <MapPin className="w-3.5 h-3.5 text-[#2C5F7F] shrink-0" />
+                      <p className="font-medium text-sm text-[#2C2C2C] group-hover:text-[#2C5F7F] transition-colors truncate">{town.name}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
             <div className="text-center">
               <Link href="/service-areas">
                 <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
-                  View All Service Areas in {county.name} <ArrowRight className="ml-2 w-4 h-4" />
+                  View All UK Service Areas <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
             </div>
