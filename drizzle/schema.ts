@@ -202,3 +202,232 @@ export const callTrackingEvents = mysqlTable("call_tracking_events", {
 
 export type CallTrackingEvent = typeof callTrackingEvents.$inferSelect;
 export type InsertCallTrackingEvent = typeof callTrackingEvents.$inferInsert;
+
+/**
+ * CarerHub: Newsletter editions (replaces the Caregiver Chronicles email)
+ */
+export const newsletterEditions = mysqlTable("newsletter_editions", {
+  id: int("id").autoincrement().primaryKey(),
+  month: varchar("month", { length: 50 }).notNull(), // e.g., "May 2026"
+  slug: varchar("slug", { length: 100 }).notNull().unique(), // e.g., "may-2026"
+  editorNote: text("editorNote"), // Intro message from editor
+  isPublished: boolean("isPublished").default(false).notNull(),
+  publishedAt: timestamp("publishedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type NewsletterEdition = typeof newsletterEditions.$inferSelect;
+export type InsertNewsletterEdition = typeof newsletterEditions.$inferInsert;
+
+/**
+ * CarerHub: The 100 Club — clients who have reached 100 years old
+ */
+export const centenarians = mysqlTable("centenarians", {
+  id: int("id").autoincrement().primaryKey(),
+  clientName: varchar("clientName", { length: 255 }).notNull(), // e.g., "Olga W."
+  location: varchar("location", { length: 255 }), // e.g., "Keyworth"
+  joinedAt: timestamp("joinedAt").defaultNow().notNull(),
+  photoUrl: text("photoUrl"),
+  note: text("note"),
+  isActive: boolean("isActive").default(true).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Centenarian = typeof centenarians.$inferSelect;
+export type InsertCentenarian = typeof centenarians.$inferInsert;
+
+/**
+ * CarerHub: Family Feedback — letters/messages from client families
+ */
+export const familyFeedback = mysqlTable("family_feedback", {
+  id: int("id").autoincrement().primaryKey(),
+  senderName: varchar("senderName", { length: 255 }).notNull(), // e.g., "Sue and Roger P."
+  clientName: varchar("clientName", { length: 255 }), // e.g., "Jean Young"
+  message: text("message").notNull(),
+  month: varchar("month", { length: 50 }), // e.g., "May 2026"
+  isActive: boolean("isActive").default(true).notNull(),
+  sortOrder: int("sortOrder").default(0).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type FamilyFeedback = typeof familyFeedback.$inferSelect;
+export type InsertFamilyFeedback = typeof familyFeedback.$inferInsert;
+
+/**
+ * CarerHub: Team Members — caregivers and office staff
+ */
+export const teamMembers = mysqlTable("team_members", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  role: varchar("role", { length: 255 }), // e.g., "Senior Caregiver", "Registered Manager"
+  bio: text("bio"),
+  photoUrl: text("photoUrl"),
+  email: varchar("email", { length: 320 }),
+  location: varchar("location", { length: 255 }), // e.g., "Edwalton"
+  memberType: mysqlEnum("memberType", ["caregiver", "office"]).default("caregiver").notNull(),
+  status: mysqlEnum("status", ["active", "left"]).default("active").notNull(),
+  joinedMonth: varchar("joinedMonth", { length: 50 }), // e.g., "May 2026"
+  leftMonth: varchar("leftMonth", { length: 50 }),
+  isActive: boolean("isActive").default(true).notNull(),
+  sortOrder: int("sortOrder").default(0).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type TeamMember = typeof teamMembers.$inferSelect;
+export type InsertTeamMember = typeof teamMembers.$inferInsert;
+
+/**
+ * CarerHub: SUPER CRUMS — caregivers recognised for stepping up in emergencies
+ */
+export const crumAwards = mysqlTable("crum_awards", {
+  id: int("id").autoincrement().primaryKey(),
+  caregiverName: varchar("caregiverName", { length: 255 }).notNull(),
+  month: varchar("month", { length: 50 }).notNull(), // e.g., "March 2026"
+  isTopCrum: boolean("isTopCrum").default(false).notNull(), // top CRUM gets £10 gift voucher
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type CrumAward = typeof crumAwards.$inferSelect;
+export type InsertCrumAward = typeof crumAwards.$inferInsert;
+
+/**
+ * CarerHub: 100% Attendance Club — monthly perfect attendance recognition
+ */
+export const attendanceClub = mysqlTable("attendance_club", {
+  id: int("id").autoincrement().primaryKey(),
+  caregiverName: varchar("caregiverName", { length: 255 }).notNull(),
+  month: varchar("month", { length: 50 }).notNull(), // e.g., "April 2026"
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type AttendanceClub = typeof attendanceClub.$inferSelect;
+export type InsertAttendanceClub = typeof attendanceClub.$inferInsert;
+
+/**
+ * CarerHub: Workiversaries — staff work anniversaries
+ */
+export const workiversaries = mysqlTable("workiversaries", {
+  id: int("id").autoincrement().primaryKey(),
+  caregiverName: varchar("caregiverName", { length: 255 }).notNull(),
+  years: int("years").notNull(),
+  anniversaryDate: varchar("anniversaryDate", { length: 100 }), // e.g., "3rd May"
+  month: varchar("month", { length: 50 }).notNull(), // e.g., "April 2026"
+  note: text("note"),
+  photoUrl: text("photoUrl"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Workiversary = typeof workiversaries.$inferSelect;
+export type InsertWorkiversary = typeof workiversaries.$inferInsert;
+
+/**
+ * CarerHub: Birthdays — monthly birthday shout-outs for clients and carers
+ */
+export const birthdayShoutouts = mysqlTable("birthday_shoutouts", {
+  id: int("id").autoincrement().primaryKey(),
+  personName: varchar("personName", { length: 255 }).notNull(),
+  personType: mysqlEnum("personType", ["client", "caregiver"]).notNull(),
+  age: int("age"),
+  birthdayDate: varchar("birthdayDate", { length: 100 }), // e.g., "9th May"
+  month: varchar("month", { length: 50 }).notNull(), // e.g., "May 2026"
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type BirthdayShoutout = typeof birthdayShoutouts.$inferSelect;
+export type InsertBirthdayShoutout = typeof birthdayShoutouts.$inferInsert;
+
+/**
+ * CarerHub: Magic Moments — photo stories of outings and special moments
+ */
+export const magicMoments = mysqlTable("magic_moments", {
+  id: int("id").autoincrement().primaryKey(),
+  title: varchar("title", { length: 255 }).notNull(),
+  description: text("description"),
+  images: text("images"), // JSON array of image URLs
+  month: varchar("month", { length: 50 }), // e.g., "May 2026"
+  participants: varchar("participants", { length: 500 }), // e.g., "Emily, Janice and Aubrey"
+  isActive: boolean("isActive").default(true).notNull(),
+  sortOrder: int("sortOrder").default(0).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type MagicMoment = typeof magicMoments.$inferSelect;
+export type InsertMagicMoment = typeof magicMoments.$inferInsert;
+
+/**
+ * CarerHub: On-Call Rota — weekend on-call schedule
+ */
+export const onCallRota = mysqlTable("on_call_rota", {
+  id: int("id").autoincrement().primaryKey(),
+  dateRange: varchar("dateRange", { length: 100 }).notNull(), // e.g., "1st - 4th May"
+  phoneHolder: varchar("phoneHolder", { length: 255 }).notNull(), // e.g., "Emilie / Emma"
+  month: varchar("month", { length: 50 }).notNull(), // e.g., "May 2026"
+  sortOrder: int("sortOrder").default(0).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type OnCallRota = typeof onCallRota.$inferSelect;
+export type InsertOnCallRota = typeof onCallRota.$inferInsert;
+
+/**
+ * CarerHub: Payroll Calendar — pay period and pay date reference
+ */
+export const payrollCalendar = mysqlTable("payroll_calendar", {
+  id: int("id").autoincrement().primaryKey(),
+  paidFrom: varchar("paidFrom", { length: 50 }).notNull(), // e.g., "18/04/2026"
+  paidTo: varchar("paidTo", { length: 50 }).notNull(), // e.g., "17/05/2026"
+  payDate: varchar("payDate", { length: 50 }).notNull(), // e.g., "26/05/2026"
+  year: int("year").notNull(),
+  sortOrder: int("sortOrder").default(0).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type PayrollCalendar = typeof payrollCalendar.$inferSelect;
+export type InsertPayrollCalendar = typeof payrollCalendar.$inferInsert;
+
+/**
+ * CarerHub: Quick Links — useful resources for caregivers
+ */
+export const quickLinks = mysqlTable("quick_links", {
+  id: int("id").autoincrement().primaryKey(),
+  title: varchar("title", { length: 255 }).notNull(),
+  url: text("url").notNull(),
+  description: text("description"),
+  category: varchar("category", { length: 100 }), // e.g., "Benefits", "App", "Training"
+  isActive: boolean("isActive").default(true).notNull(),
+  sortOrder: int("sortOrder").default(0).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type QuickLink = typeof quickLinks.$inferSelect;
+export type InsertQuickLink = typeof quickLinks.$inferInsert;
+
+/**
+ * CarerHub: Client List — current clients and their locations
+ */
+export const clients = mysqlTable("clients", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(), // e.g., "Angela C."
+  location: varchar("location", { length: 255 }), // e.g., "Edwalton"
+  status: mysqlEnum("status", ["active", "inactive", "hospital", "passed"]).default("active").notNull(),
+  note: text("note"),
+  isActive: boolean("isActive").default(true).notNull(),
+  sortOrder: int("sortOrder").default(0).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Client = typeof clients.$inferSelect;
+export type InsertClient = typeof clients.$inferInsert;

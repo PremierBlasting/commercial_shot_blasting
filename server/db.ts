@@ -20,6 +20,21 @@ import {
   PageContentSection
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
+import {
+  newsletterEditions, InsertNewsletterEdition, NewsletterEdition,
+  centenarians, InsertCentenarian, Centenarian,
+  familyFeedback, InsertFamilyFeedback, FamilyFeedback,
+  teamMembers, InsertTeamMember, TeamMember,
+  crumAwards, InsertCrumAward, CrumAward,
+  attendanceClub, InsertAttendanceClub, AttendanceClub,
+  workiversaries, InsertWorkiversary, Workiversary,
+  birthdayShoutouts, InsertBirthdayShoutout, BirthdayShoutout,
+  magicMoments, InsertMagicMoment, MagicMoment,
+  onCallRota, InsertOnCallRota, OnCallRota,
+  payrollCalendar, InsertPayrollCalendar, PayrollCalendar,
+  quickLinks, InsertQuickLink, QuickLink,
+  clients, InsertClient, Client,
+} from "../drizzle/schema";
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
@@ -395,4 +410,333 @@ export async function upsertPageContentSection(
       ...section
     });
   }
+}
+
+// ==================== CarerHub: Newsletter Editions ====================
+
+export async function getPublishedNewsletterEditions(): Promise<NewsletterEdition[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(newsletterEditions).where(eq(newsletterEditions.isPublished, true)).orderBy(desc(newsletterEditions.publishedAt));
+}
+export async function getAllNewsletterEditions(): Promise<NewsletterEdition[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(newsletterEditions).orderBy(desc(newsletterEditions.createdAt));
+}
+export async function getNewsletterEditionBySlug(slug: string): Promise<NewsletterEdition | undefined> {
+  const db = await getDb();
+  if (!db) return undefined;
+  const result = await db.select().from(newsletterEditions).where(eq(newsletterEditions.slug, slug)).limit(1);
+  return result[0];
+}
+export async function createNewsletterEdition(edition: InsertNewsletterEdition): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(newsletterEditions).values(edition);
+}
+export async function updateNewsletterEdition(id: number, edition: Partial<InsertNewsletterEdition>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(newsletterEditions).set(edition).where(eq(newsletterEditions.id, id));
+}
+export async function deleteNewsletterEdition(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(newsletterEditions).where(eq(newsletterEditions.id, id));
+}
+
+// ==================== CarerHub: Centenarians (100 Club) ====================
+export async function getActiveCentenarians(): Promise<Centenarian[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(centenarians).where(eq(centenarians.isActive, true)).orderBy(asc(centenarians.joinedAt));
+}
+export async function getAllCentenarians(): Promise<Centenarian[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(centenarians).orderBy(desc(centenarians.createdAt));
+}
+export async function createCentenarian(item: InsertCentenarian): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(centenarians).values(item);
+}
+export async function updateCentenarian(id: number, item: Partial<InsertCentenarian>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(centenarians).set(item).where(eq(centenarians.id, id));
+}
+export async function deleteCentenarian(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(centenarians).where(eq(centenarians.id, id));
+}
+
+// ==================== CarerHub: Family Feedback ====================
+export async function getActiveFamilyFeedback(): Promise<FamilyFeedback[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(familyFeedback).where(eq(familyFeedback.isActive, true)).orderBy(asc(familyFeedback.sortOrder), desc(familyFeedback.createdAt));
+}
+export async function getAllFamilyFeedback(): Promise<FamilyFeedback[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(familyFeedback).orderBy(desc(familyFeedback.createdAt));
+}
+export async function createFamilyFeedback(item: InsertFamilyFeedback): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(familyFeedback).values(item);
+}
+export async function updateFamilyFeedback(id: number, item: Partial<InsertFamilyFeedback>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(familyFeedback).set(item).where(eq(familyFeedback.id, id));
+}
+export async function deleteFamilyFeedback(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(familyFeedback).where(eq(familyFeedback.id, id));
+}
+
+// ==================== CarerHub: Team Members ====================
+export async function getActiveTeamMembers(): Promise<TeamMember[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(teamMembers).where(and(eq(teamMembers.isActive, true), eq(teamMembers.status, 'active'))).orderBy(asc(teamMembers.sortOrder), asc(teamMembers.name));
+}
+export async function getAllTeamMembers(): Promise<TeamMember[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(teamMembers).orderBy(asc(teamMembers.sortOrder), asc(teamMembers.name));
+}
+export async function createTeamMember(item: InsertTeamMember): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(teamMembers).values(item);
+}
+export async function updateTeamMember(id: number, item: Partial<InsertTeamMember>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(teamMembers).set(item).where(eq(teamMembers.id, id));
+}
+export async function deleteTeamMember(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(teamMembers).where(eq(teamMembers.id, id));
+}
+
+// ==================== CarerHub: CRUM Awards ====================
+export async function getCrumAwards(month?: string): Promise<CrumAward[]> {
+  const db = await getDb();
+  if (!db) return [];
+  if (month) return db.select().from(crumAwards).where(eq(crumAwards.month, month)).orderBy(desc(crumAwards.isTopCrum));
+  return db.select().from(crumAwards).orderBy(desc(crumAwards.createdAt));
+}
+export async function createCrumAward(item: InsertCrumAward): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(crumAwards).values(item);
+}
+export async function updateCrumAward(id: number, item: Partial<InsertCrumAward>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(crumAwards).set(item).where(eq(crumAwards.id, id));
+}
+export async function deleteCrumAward(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(crumAwards).where(eq(crumAwards.id, id));
+}
+
+// ==================== CarerHub: Attendance Club ====================
+export async function getAttendanceClub(month?: string): Promise<AttendanceClub[]> {
+  const db = await getDb();
+  if (!db) return [];
+  if (month) return db.select().from(attendanceClub).where(eq(attendanceClub.month, month)).orderBy(asc(attendanceClub.caregiverName));
+  return db.select().from(attendanceClub).orderBy(desc(attendanceClub.createdAt));
+}
+export async function createAttendanceEntry(item: InsertAttendanceClub): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(attendanceClub).values(item);
+}
+export async function deleteAttendanceEntry(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(attendanceClub).where(eq(attendanceClub.id, id));
+}
+
+// ==================== CarerHub: Workiversaries ====================
+export async function getWorkiversaries(month?: string): Promise<Workiversary[]> {
+  const db = await getDb();
+  if (!db) return [];
+  if (month) return db.select().from(workiversaries).where(eq(workiversaries.month, month));
+  return db.select().from(workiversaries).orderBy(desc(workiversaries.createdAt));
+}
+export async function createWorkiversary(item: InsertWorkiversary): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(workiversaries).values(item);
+}
+export async function updateWorkiversary(id: number, item: Partial<InsertWorkiversary>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(workiversaries).set(item).where(eq(workiversaries.id, id));
+}
+export async function deleteWorkiversary(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(workiversaries).where(eq(workiversaries.id, id));
+}
+
+// ==================== CarerHub: Birthday Shoutouts ====================
+export async function getBirthdayShoutouts(month?: string): Promise<BirthdayShoutout[]> {
+  const db = await getDb();
+  if (!db) return [];
+  if (month) return db.select().from(birthdayShoutouts).where(eq(birthdayShoutouts.month, month));
+  return db.select().from(birthdayShoutouts).orderBy(desc(birthdayShoutouts.createdAt));
+}
+export async function createBirthdayShoutout(item: InsertBirthdayShoutout): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(birthdayShoutouts).values(item);
+}
+export async function updateBirthdayShoutout(id: number, item: Partial<InsertBirthdayShoutout>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(birthdayShoutouts).set(item).where(eq(birthdayShoutouts.id, id));
+}
+export async function deleteBirthdayShoutout(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(birthdayShoutouts).where(eq(birthdayShoutouts.id, id));
+}
+
+// ==================== CarerHub: Magic Moments ====================
+export async function getActiveMagicMoments(): Promise<MagicMoment[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(magicMoments).where(eq(magicMoments.isActive, true)).orderBy(asc(magicMoments.sortOrder), desc(magicMoments.createdAt));
+}
+export async function getAllMagicMoments(): Promise<MagicMoment[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(magicMoments).orderBy(desc(magicMoments.createdAt));
+}
+export async function createMagicMoment(item: InsertMagicMoment): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(magicMoments).values(item);
+}
+export async function updateMagicMoment(id: number, item: Partial<InsertMagicMoment>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(magicMoments).set(item).where(eq(magicMoments.id, id));
+}
+export async function deleteMagicMoment(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(magicMoments).where(eq(magicMoments.id, id));
+}
+
+// ==================== CarerHub: On-Call Rota ====================
+export async function getOnCallRota(month?: string): Promise<OnCallRota[]> {
+  const db = await getDb();
+  if (!db) return [];
+  if (month) return db.select().from(onCallRota).where(eq(onCallRota.month, month)).orderBy(asc(onCallRota.sortOrder));
+  return db.select().from(onCallRota).orderBy(desc(onCallRota.createdAt));
+}
+export async function createOnCallEntry(item: InsertOnCallRota): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(onCallRota).values(item);
+}
+export async function updateOnCallEntry(id: number, item: Partial<InsertOnCallRota>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(onCallRota).set(item).where(eq(onCallRota.id, id));
+}
+export async function deleteOnCallEntry(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(onCallRota).where(eq(onCallRota.id, id));
+}
+
+// ==================== CarerHub: Payroll Calendar ====================
+export async function getPayrollCalendar(year?: number): Promise<PayrollCalendar[]> {
+  const db = await getDb();
+  if (!db) return [];
+  if (year) return db.select().from(payrollCalendar).where(eq(payrollCalendar.year, year)).orderBy(asc(payrollCalendar.sortOrder));
+  return db.select().from(payrollCalendar).orderBy(desc(payrollCalendar.year), asc(payrollCalendar.sortOrder));
+}
+export async function createPayrollEntry(item: InsertPayrollCalendar): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(payrollCalendar).values(item);
+}
+export async function updatePayrollEntry(id: number, item: Partial<InsertPayrollCalendar>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(payrollCalendar).set(item).where(eq(payrollCalendar.id, id));
+}
+export async function deletePayrollEntry(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(payrollCalendar).where(eq(payrollCalendar.id, id));
+}
+
+// ==================== CarerHub: Quick Links ====================
+export async function getActiveQuickLinks(): Promise<QuickLink[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(quickLinks).where(eq(quickLinks.isActive, true)).orderBy(asc(quickLinks.sortOrder));
+}
+export async function getAllQuickLinks(): Promise<QuickLink[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(quickLinks).orderBy(asc(quickLinks.sortOrder));
+}
+export async function createQuickLink(item: InsertQuickLink): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(quickLinks).values(item);
+}
+export async function updateQuickLink(id: number, item: Partial<InsertQuickLink>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(quickLinks).set(item).where(eq(quickLinks.id, id));
+}
+export async function deleteQuickLink(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(quickLinks).where(eq(quickLinks.id, id));
+}
+
+// ==================== CarerHub: Clients ====================
+export async function getActiveClients(): Promise<Client[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(clients).where(eq(clients.isActive, true)).orderBy(asc(clients.sortOrder), asc(clients.name));
+}
+export async function getAllClients(): Promise<Client[]> {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(clients).orderBy(asc(clients.name));
+}
+export async function createClient(item: InsertClient): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(clients).values(item);
+}
+export async function updateClient(id: number, item: Partial<InsertClient>): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(clients).set(item).where(eq(clients.id, id));
+}
+export async function deleteClient(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(clients).where(eq(clients.id, id));
 }

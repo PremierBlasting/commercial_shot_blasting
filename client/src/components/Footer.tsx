@@ -84,6 +84,7 @@ export function Footer() {
             <ul className="space-y-2 text-white/70 text-sm">
               <li><Link href="/" className="hover:text-white">Home</Link></li>
               <li><Link href="/about" className="hover:text-white">About</Link></li>
+              <li><Link href="/carer-hub" className="hover:text-white font-medium">CarerHub</Link></li>
               <li><Link href="/our-work" className="hover:text-white">Our Work</Link></li>
               <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
               <li><Link href="/contact" className="hover:text-white">Contact</Link></li>

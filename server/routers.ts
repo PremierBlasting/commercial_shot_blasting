@@ -32,6 +32,20 @@ import {
   updatePageContentSection,
   deletePageContentSection,
   upsertPageContentSection,
+  getPublishedNewsletterEditions, getAllNewsletterEditions, getNewsletterEditionBySlug,
+  createNewsletterEdition, updateNewsletterEdition, deleteNewsletterEdition,
+  getActiveCentenarians, getAllCentenarians, createCentenarian, updateCentenarian, deleteCentenarian,
+  getActiveFamilyFeedback, getAllFamilyFeedback, createFamilyFeedback, updateFamilyFeedback, deleteFamilyFeedback,
+  getActiveTeamMembers, getAllTeamMembers, createTeamMember, updateTeamMember, deleteTeamMember,
+  getCrumAwards, createCrumAward, updateCrumAward, deleteCrumAward,
+  getAttendanceClub, createAttendanceEntry, deleteAttendanceEntry,
+  getWorkiversaries, createWorkiversary, updateWorkiversary, deleteWorkiversary,
+  getBirthdayShoutouts, createBirthdayShoutout, updateBirthdayShoutout, deleteBirthdayShoutout,
+  getActiveMagicMoments, getAllMagicMoments, createMagicMoment, updateMagicMoment, deleteMagicMoment,
+  getOnCallRota, createOnCallEntry, updateOnCallEntry, deleteOnCallEntry,
+  getPayrollCalendar, createPayrollEntry, updatePayrollEntry, deletePayrollEntry,
+  getActiveQuickLinks, getAllQuickLinks, createQuickLink, updateQuickLink, deleteQuickLink,
+  getActiveClients, getAllClients, createClient, updateClient, deleteClient,
 } from "./db";
 import { storagePut } from "./storage";
 import { nanoid } from "nanoid";
@@ -717,6 +731,285 @@ export const appRouter = router({
 
         return { success: true, message: "Home page content initialized successfully" };
       }),
+  }),
+
+  // CarerHub Newsletter Sections
+  carerHub: router({
+    // Newsletter Editions
+    newsletter: router({
+      list: publicProcedure.query(async () => getPublishedNewsletterEditions()),
+      listAll: adminProcedure.query(async () => getAllNewsletterEditions()),
+      getBySlug: publicProcedure.input(z.object({ slug: z.string() })).query(async ({ input }) => getNewsletterEditionBySlug(input.slug)),
+      create: adminProcedure.input(z.object({
+        month: z.string().min(1),
+        slug: z.string().min(1),
+        editorNote: z.string().optional(),
+        isPublished: z.boolean().optional(),
+      })).mutation(async ({ input }) => { await createNewsletterEdition(input); return { success: true }; }),
+      update: adminProcedure.input(z.object({
+        id: z.number(),
+        month: z.string().optional(),
+        slug: z.string().optional(),
+        editorNote: z.string().optional(),
+        isPublished: z.boolean().optional(),
+      })).mutation(async ({ input }) => { const { id, ...data } = input; await updateNewsletterEdition(id, data); return { success: true }; }),
+      delete: adminProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { await deleteNewsletterEdition(input.id); return { success: true }; }),
+    }),
+    // 100 Club
+    centenarians: router({
+      list: publicProcedure.query(async () => getActiveCentenarians()),
+      listAll: adminProcedure.query(async () => getAllCentenarians()),
+      create: adminProcedure.input(z.object({
+        clientName: z.string().min(1),
+        location: z.string().optional(),
+        photoUrl: z.string().optional(),
+        note: z.string().optional(),
+        isActive: z.boolean().optional(),
+      })).mutation(async ({ input }) => { await createCentenarian(input); return { success: true }; }),
+      update: adminProcedure.input(z.object({
+        id: z.number(),
+        clientName: z.string().optional(),
+        location: z.string().optional(),
+        photoUrl: z.string().optional(),
+        note: z.string().optional(),
+        isActive: z.boolean().optional(),
+      })).mutation(async ({ input }) => { const { id, ...data } = input; await updateCentenarian(id, data); return { success: true }; }),
+      delete: adminProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { await deleteCentenarian(input.id); return { success: true }; }),
+    }),
+    // Family Feedback
+    familyFeedback: router({
+      list: publicProcedure.query(async () => getActiveFamilyFeedback()),
+      listAll: adminProcedure.query(async () => getAllFamilyFeedback()),
+      create: adminProcedure.input(z.object({
+        senderName: z.string().min(1),
+        clientName: z.string().optional(),
+        message: z.string().min(1),
+        month: z.string().optional(),
+        isActive: z.boolean().optional(),
+        sortOrder: z.number().optional(),
+      })).mutation(async ({ input }) => { await createFamilyFeedback(input); return { success: true }; }),
+      update: adminProcedure.input(z.object({
+        id: z.number(),
+        senderName: z.string().optional(),
+        clientName: z.string().optional(),
+        message: z.string().optional(),
+        month: z.string().optional(),
+        isActive: z.boolean().optional(),
+        sortOrder: z.number().optional(),
+      })).mutation(async ({ input }) => { const { id, ...data } = input; await updateFamilyFeedback(id, data); return { success: true }; }),
+      delete: adminProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { await deleteFamilyFeedback(input.id); return { success: true }; }),
+    }),
+    // Team Members
+    team: router({
+      list: publicProcedure.query(async () => getActiveTeamMembers()),
+      listAll: adminProcedure.query(async () => getAllTeamMembers()),
+      create: adminProcedure.input(z.object({
+        name: z.string().min(1),
+        role: z.string().optional(),
+        bio: z.string().optional(),
+        photoUrl: z.string().optional(),
+        email: z.string().optional(),
+        location: z.string().optional(),
+        memberType: z.enum(['caregiver', 'office']).optional(),
+        status: z.enum(['active', 'left']).optional(),
+        joinedMonth: z.string().optional(),
+        leftMonth: z.string().optional(),
+        isActive: z.boolean().optional(),
+        sortOrder: z.number().optional(),
+      })).mutation(async ({ input }) => { await createTeamMember(input); return { success: true }; }),
+      update: adminProcedure.input(z.object({
+        id: z.number(),
+        name: z.string().optional(),
+        role: z.string().optional(),
+        bio: z.string().optional(),
+        photoUrl: z.string().optional(),
+        email: z.string().optional(),
+        location: z.string().optional(),
+        memberType: z.enum(['caregiver', 'office']).optional(),
+        status: z.enum(['active', 'left']).optional(),
+        joinedMonth: z.string().optional(),
+        leftMonth: z.string().optional(),
+        isActive: z.boolean().optional(),
+        sortOrder: z.number().optional(),
+      })).mutation(async ({ input }) => { const { id, ...data } = input; await updateTeamMember(id, data); return { success: true }; }),
+      delete: adminProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { await deleteTeamMember(input.id); return { success: true }; }),
+    }),
+    // CRUM Awards
+    crumAwards: router({
+      list: publicProcedure.input(z.object({ month: z.string().optional() })).query(async ({ input }) => getCrumAwards(input.month)),
+      create: adminProcedure.input(z.object({
+        caregiverName: z.string().min(1),
+        month: z.string().min(1),
+        isTopCrum: z.boolean().optional(),
+      })).mutation(async ({ input }) => { await createCrumAward(input); return { success: true }; }),
+      update: adminProcedure.input(z.object({
+        id: z.number(),
+        caregiverName: z.string().optional(),
+        month: z.string().optional(),
+        isTopCrum: z.boolean().optional(),
+      })).mutation(async ({ input }) => { const { id, ...data } = input; await updateCrumAward(id, data); return { success: true }; }),
+      delete: adminProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { await deleteCrumAward(input.id); return { success: true }; }),
+    }),
+    // Attendance Club
+    attendanceClub: router({
+      list: publicProcedure.input(z.object({ month: z.string().optional() })).query(async ({ input }) => getAttendanceClub(input.month)),
+      create: adminProcedure.input(z.object({
+        caregiverName: z.string().min(1),
+        month: z.string().min(1),
+      })).mutation(async ({ input }) => { await createAttendanceEntry(input); return { success: true }; }),
+      delete: adminProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { await deleteAttendanceEntry(input.id); return { success: true }; }),
+    }),
+    // Workiversaries
+    workiversaries: router({
+      list: publicProcedure.input(z.object({ month: z.string().optional() })).query(async ({ input }) => getWorkiversaries(input.month)),
+      create: adminProcedure.input(z.object({
+        caregiverName: z.string().min(1),
+        years: z.number().min(1),
+        anniversaryDate: z.string().optional(),
+        month: z.string().min(1),
+        note: z.string().optional(),
+        photoUrl: z.string().optional(),
+      })).mutation(async ({ input }) => { await createWorkiversary(input); return { success: true }; }),
+      update: adminProcedure.input(z.object({
+        id: z.number(),
+        caregiverName: z.string().optional(),
+        years: z.number().optional(),
+        anniversaryDate: z.string().optional(),
+        month: z.string().optional(),
+        note: z.string().optional(),
+        photoUrl: z.string().optional(),
+      })).mutation(async ({ input }) => { const { id, ...data } = input; await updateWorkiversary(id, data); return { success: true }; }),
+      delete: adminProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { await deleteWorkiversary(input.id); return { success: true }; }),
+    }),
+    // Birthday Shoutouts
+    birthdays: router({
+      list: publicProcedure.input(z.object({ month: z.string().optional() })).query(async ({ input }) => getBirthdayShoutouts(input.month)),
+      create: adminProcedure.input(z.object({
+        personName: z.string().min(1),
+        personType: z.enum(['client', 'caregiver']),
+        age: z.number().optional(),
+        birthdayDate: z.string().optional(),
+        month: z.string().min(1),
+      })).mutation(async ({ input }) => { await createBirthdayShoutout(input); return { success: true }; }),
+      update: adminProcedure.input(z.object({
+        id: z.number(),
+        personName: z.string().optional(),
+        personType: z.enum(['client', 'caregiver']).optional(),
+        age: z.number().optional(),
+        birthdayDate: z.string().optional(),
+        month: z.string().optional(),
+      })).mutation(async ({ input }) => { const { id, ...data } = input; await updateBirthdayShoutout(id, data); return { success: true }; }),
+      delete: adminProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { await deleteBirthdayShoutout(input.id); return { success: true }; }),
+    }),
+    // Magic Moments
+    magicMoments: router({
+      list: publicProcedure.query(async () => getActiveMagicMoments()),
+      listAll: adminProcedure.query(async () => getAllMagicMoments()),
+      create: adminProcedure.input(z.object({
+        title: z.string().min(1),
+        description: z.string().optional(),
+        images: z.string().optional(),
+        month: z.string().optional(),
+        participants: z.string().optional(),
+        isActive: z.boolean().optional(),
+        sortOrder: z.number().optional(),
+      })).mutation(async ({ input }) => { await createMagicMoment(input); return { success: true }; }),
+      update: adminProcedure.input(z.object({
+        id: z.number(),
+        title: z.string().optional(),
+        description: z.string().optional(),
+        images: z.string().optional(),
+        month: z.string().optional(),
+        participants: z.string().optional(),
+        isActive: z.boolean().optional(),
+        sortOrder: z.number().optional(),
+      })).mutation(async ({ input }) => { const { id, ...data } = input; await updateMagicMoment(id, data); return { success: true }; }),
+      delete: adminProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { await deleteMagicMoment(input.id); return { success: true }; }),
+    }),
+    // On-Call Rota
+    onCallRota: router({
+      list: publicProcedure.input(z.object({ month: z.string().optional() })).query(async ({ input }) => getOnCallRota(input.month)),
+      create: adminProcedure.input(z.object({
+        dateRange: z.string().min(1),
+        phoneHolder: z.string().min(1),
+        month: z.string().min(1),
+        sortOrder: z.number().optional(),
+      })).mutation(async ({ input }) => { await createOnCallEntry(input); return { success: true }; }),
+      update: adminProcedure.input(z.object({
+        id: z.number(),
+        dateRange: z.string().optional(),
+        phoneHolder: z.string().optional(),
+        month: z.string().optional(),
+        sortOrder: z.number().optional(),
+      })).mutation(async ({ input }) => { const { id, ...data } = input; await updateOnCallEntry(id, data); return { success: true }; }),
+      delete: adminProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { await deleteOnCallEntry(input.id); return { success: true }; }),
+    }),
+    // Payroll Calendar
+    payroll: router({
+      list: publicProcedure.input(z.object({ year: z.number().optional() })).query(async ({ input }) => getPayrollCalendar(input.year)),
+      create: adminProcedure.input(z.object({
+        paidFrom: z.string().min(1),
+        paidTo: z.string().min(1),
+        payDate: z.string().min(1),
+        year: z.number().min(2020),
+        sortOrder: z.number().optional(),
+      })).mutation(async ({ input }) => { await createPayrollEntry(input); return { success: true }; }),
+      update: adminProcedure.input(z.object({
+        id: z.number(),
+        paidFrom: z.string().optional(),
+        paidTo: z.string().optional(),
+        payDate: z.string().optional(),
+        year: z.number().optional(),
+        sortOrder: z.number().optional(),
+      })).mutation(async ({ input }) => { const { id, ...data } = input; await updatePayrollEntry(id, data); return { success: true }; }),
+      delete: adminProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { await deletePayrollEntry(input.id); return { success: true }; }),
+    }),
+    // Quick Links
+    quickLinks: router({
+      list: publicProcedure.query(async () => getActiveQuickLinks()),
+      listAll: adminProcedure.query(async () => getAllQuickLinks()),
+      create: adminProcedure.input(z.object({
+        title: z.string().min(1),
+        url: z.string().min(1),
+        description: z.string().optional(),
+        category: z.string().optional(),
+        isActive: z.boolean().optional(),
+        sortOrder: z.number().optional(),
+      })).mutation(async ({ input }) => { await createQuickLink(input); return { success: true }; }),
+      update: adminProcedure.input(z.object({
+        id: z.number(),
+        title: z.string().optional(),
+        url: z.string().optional(),
+        description: z.string().optional(),
+        category: z.string().optional(),
+        isActive: z.boolean().optional(),
+        sortOrder: z.number().optional(),
+      })).mutation(async ({ input }) => { const { id, ...data } = input; await updateQuickLink(id, data); return { success: true }; }),
+      delete: adminProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { await deleteQuickLink(input.id); return { success: true }; }),
+    }),
+    // Clients
+    clients: router({
+      list: publicProcedure.query(async () => getActiveClients()),
+      listAll: adminProcedure.query(async () => getAllClients()),
+      create: adminProcedure.input(z.object({
+        name: z.string().min(1),
+        location: z.string().optional(),
+        status: z.enum(['active', 'inactive', 'hospital', 'passed']).optional(),
+        note: z.string().optional(),
+        isActive: z.boolean().optional(),
+        sortOrder: z.number().optional(),
+      })).mutation(async ({ input }) => { await createClient(input); return { success: true }; }),
+      update: adminProcedure.input(z.object({
+        id: z.number(),
+        name: z.string().optional(),
+        location: z.string().optional(),
+        status: z.enum(['active', 'inactive', 'hospital', 'passed']).optional(),
+        note: z.string().optional(),
+        isActive: z.boolean().optional(),
+        sortOrder: z.number().optional(),
+      })).mutation(async ({ input }) => { const { id, ...data } = input; await updateClient(id, data); return { success: true }; }),
+      delete: adminProcedure.input(z.object({ id: z.number() })).mutation(async ({ input }) => { await deleteClient(input.id); return { success: true }; }),
+    }),
   }),
 });
 
