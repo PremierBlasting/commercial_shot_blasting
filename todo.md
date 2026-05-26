@@ -595,3 +595,8 @@
 - [x] Related Service (Intumescent Painting) banner added to Staircases service page
 - [x] IntumescentQuoteForm.tsx component created — fire rating selector, steel type, project size, contact fields, trpc.contact.submit integration
 - [x] IntumescentQuoteForm injected into ServiceDetail.tsx for intumescent-painting service page
+
+## Intumescent Painting — Industry Cross-links (Round 9)
+
+- [x] Add Intumescent Painting service card to Construction industry page (ConstructionIndustry.tsx)
+- [x] Add Intumescent Painting service card to Manufacturing industry page (ManufacturingIndustry.tsx)

@@ -43,6 +43,13 @@ export default function ManufacturingIndustry() {
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yXusfqsGJHZwuETv.webp",
       link: "/services/ladders",
       benefits: ["Safety compliant", "Galvanizing preparation", "Regulatory compliance"]
+    },
+    {
+      title: "Intumescent Painting",
+      description: "Fire protection coating for structural steel and plant equipment. Applied after shot blasting to the required Sa 2.5 profile, achieving R30 to R120 fire resistance ratings. Ideal for factories, warehouses, and industrial facilities requiring passive fire protection.",
+      image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WmoactuoGfwMmVwl.webp",
+      link: "/services/intumescent-painting",
+      benefits: ["R30\u2013R120 fire ratings", "Passive fire protection", "Combined blast & coat"]
     }
   ];
 
