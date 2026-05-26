@@ -4,7 +4,7 @@ import { countyData } from "@/data/countyData";
 import { locationData } from "@/data/locationData";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Search, X } from "lucide-react";
+import { Search, X, ChevronUp } from "lucide-react";
 
 // ── Highlight helper ───────────────────────────────────────────────────────────
 // Wraps matched substring in a <mark> with a yellow highlight style.
@@ -57,6 +57,7 @@ const SERVICE_SLUGS: { slug: string; name: string }[] = [
   { slug: "coating-removal", name: "Coating Removal" },
   { slug: "surface-preparation", name: "Surface Preparation" },
   { slug: "mobile-shot-blasting", name: "Mobile Shot Blasting" },
+  { slug: "intumescent-painting", name: "Intumescent Painting" },
 ];
 
 const INDUSTRY_SLUGS: { slug: string; name: string }[] = [
@@ -86,6 +87,14 @@ const MAIN_PAGES = [
 
 // ── Component ──────────────────────────────────────────────────────────────────
 export default function SitemapPage() {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowBackToTop(window.scrollY > 400);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   const searchString = useSearch(); // e.g. "?q=yorkshire"
   const initialQ = useMemo(() => {
     const params = new URLSearchParams(searchString);
@@ -405,6 +414,17 @@ export default function SitemapPage() {
         </div>
       </main>
       <Footer />
+
+      {/* Back to Top button */}
+      {showBackToTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Back to top"
+          className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-11 h-11 rounded-full bg-[#2C5F7F] text-white shadow-lg hover:bg-[#1a3a4d] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F] focus:ring-offset-2"
+        >
+          <ChevronUp className="w-5 h-5" />
+        </button>
+      )}
     </div>
   );
 }

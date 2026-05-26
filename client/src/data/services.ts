@@ -1206,6 +1206,86 @@ export const services: ServiceData[] = [
       }
     ]
   },
+  {
+    id: "intumescent-painting",
+    title: "Intumescent Painting",
+    shortTitle: "Intumescent Painting",
+    tagline: "Fire-Resistant Coatings Applied to Perfectly Prepared Steel",
+    description: "Commercial Shot Blasting now offers a complete intumescent painting service for structural steel, fire escapes, and industrial metalwork. We prepare the steel to the correct cleanliness grade using shot blasting, then apply certified intumescent coatings that expand under heat to protect the structure and maintain fire resistance ratings. From R30 to R120, we deliver compliant, inspected, and documented fire protection for new builds, refurbishments, and structural upgrades across England and Wales.",
+    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    benefits: [
+      "Full in-house service: shot blasting and intumescent painting under one contract",
+      "Certified coatings compliant with BS EN 13381 and ASFP guidelines",
+      "Fire resistance ratings from R30 to R120 achieved and documented",
+      "Mobile service — we come to your site anywhere in England and Wales",
+      "Correct surface preparation ensures maximum coating adhesion and longevity",
+      "Detailed inspection records and coating thickness reports provided",
+      "Works on structural steel frames, fire escapes, staircases, and mezzanines",
+      "Coordination with principal contractors and fire engineers available"
+    ],
+    process: [
+      { step: 1, title: "Site Survey & Specification", description: "We visit your site to assess the steel, confirm the required fire resistance rating (e.g. R30, R60, R90, R120), and agree the coating system. We review structural drawings where available and confirm the DFT (dry film thickness) required to achieve the specification." },
+      { step: 2, title: "Surface Preparation by Shot Blasting", description: "All steel is shot blasted to Sa 2.5 (near-white metal) or Sa 3 (white metal) as required by the coating manufacturer's data sheet. This removes mill scale, rust, and old coatings and creates the correct surface profile for maximum adhesion." },
+      { step: 3, title: "Primer Application", description: "An approved zinc-rich or epoxy primer is applied immediately after blasting to prevent flash rusting and provide the correct base for the intumescent topcoat. Primer DFT is measured and recorded." },
+      { step: 4, title: "Intumescent Coating Application", description: "The intumescent basecoat is applied in controlled passes to achieve the specified DFT. We use approved products from leading manufacturers. Wet film thickness is checked during application; dry film thickness is measured and logged after curing." },
+      { step: 5, title: "Sealer / Topcoat", description: "A protective sealer or decorative topcoat is applied over the intumescent layer to provide weather resistance, UV protection, and the required finish colour. This also protects the intumescent layer from mechanical damage during construction." },
+      { step: 6, title: "Inspection & Documentation", description: "We carry out a final DFT survey across all coated members, photograph the completed work, and provide a full coating report including product data sheets, batch numbers, and thickness readings — ready for the building control file or fire engineer sign-off." }
+    ],
+    applications: [
+      "Structural steel frames (columns, beams, trusses)",
+      "Mezzanine floors and steel platforms",
+      "Fire escapes and external stair towers",
+      "Internal staircases, balustrades, and handrails",
+      "Steel portal frames in warehouses and factories",
+      "Roof purlins and secondary steelwork",
+      "New build commercial and industrial projects",
+      "Refurbishment of existing structures requiring upgraded fire ratings"
+    ],
+    caseStudies: [
+      {
+        title: "Warehouse Extension — R60 Structural Steel Protection",
+        client: "Midlands Logistics Operator",
+        challenge: "A 3,000 m² warehouse extension required all primary structural steel to achieve a 60-minute fire resistance rating. The principal contractor needed a single subcontractor to handle both surface preparation and intumescent painting.",
+        solution: "We mobilised to site and shot blasted all columns and beams to Sa 2.5 before applying a zinc epoxy primer, a certified intumescent basecoat at the DFT required for R60, and a grey polyurethane sealer. All work was carried out in a controlled sequence to avoid delays to follow-on trades.",
+        result: "All structural members achieved the R60 fire resistance rating. A full DFT survey and coating report was submitted to the building control officer. The project completed on programme and the client has since appointed us on two further warehouse projects.",
+        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+      },
+      {
+        title: "Fire Escape Refurbishment — R30 Rating Restored",
+        client: "Commercial Property Management Company",
+        challenge: "An external fire escape on a 1970s office block had corroded through its original intumescent coating. The building's fire risk assessment required the escape to be restored to a minimum R30 rating before the building could be reoccupied.",
+        solution: "We removed all existing coatings and corrosion by shot blasting to Sa 2.5, applied an epoxy primer, and then applied a water-based intumescent coating at the specified DFT for R30. A topcoat in the client's specified RAL colour completed the restoration.",
+        result: "The fire escape was restored to full compliance. The building control officer accepted the coating report and the property was reoccupied within the client's deadline. Total project duration was four days including surface preparation.",
+        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+      }
+    ],
+    faqs: [
+      {
+        question: "What is intumescent paint and how does it work?",
+        answer: "Intumescent paint is a passive fire protection coating that remains inert under normal conditions but expands dramatically when exposed to heat (typically above 200°C). The expansion creates a thick, insulating char layer around the steel, slowing the rate at which the steel heats up and maintaining structural integrity for the specified fire resistance period — typically 30, 60, 90, or 120 minutes."
+      },
+      {
+        question: "Why does the steel need to be shot blasted before intumescent painting?",
+        answer: "Intumescent coatings rely on strong adhesion to perform correctly. Mill scale, rust, grease, and old coatings all compromise adhesion and can cause the intumescent layer to delaminate under heat — potentially invalidating the fire resistance rating. Shot blasting to Sa 2.5 or Sa 3 removes all contaminants and creates a surface profile that maximises mechanical adhesion."
+      },
+      {
+        question: "What fire resistance ratings can you achieve?",
+        answer: "We can achieve fire resistance ratings from R30 to R120 depending on the steel section factor, the coating system specified, and the required DFT. We work to the coating manufacturer's published data sheets and can provide documentation to support ratings of R30, R60, R90, and R120 for both protected and unprotected steel sections."
+      },
+      {
+        question: "Do you provide a coating thickness report?",
+        answer: "Yes. We measure dry film thickness (DFT) on every coated member using a calibrated gauge and record the readings in a coating report. The report includes product data sheets, batch numbers, application dates, ambient conditions, and thickness readings — providing the documentation required by building control and fire engineers."
+      },
+      {
+        question: "Can you work on existing structures as well as new builds?",
+        answer: "Yes. We regularly work on refurbishment projects where existing steel needs to be stripped back and recoated to restore or upgrade its fire resistance rating. This is common on older commercial buildings undergoing change of use, extension, or where a fire risk assessment has identified inadequate protection."
+      },
+      {
+        question: "Do you offer this service nationwide?",
+        answer: "Yes. Like all our services, intumescent painting is delivered on a mobile basis across England and Wales. We bring all equipment to your site and can work around your construction programme. Contact us to discuss your project and we will provide a site visit and quotation."
+      }
+    ]
+  }
 ];
 
 export function getServiceById(id: string): ServiceData | undefined {

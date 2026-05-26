@@ -1252,7 +1252,17 @@ export function CountyPage({ county }: CountyPageProps) {
                 ))}
               </div>
             ) : filteredTowns.length === 0 ? (
-              <p className="text-center text-gray-400 text-sm py-6">No towns match "{debouncedSearch}"</p>
+              <div className="flex flex-col items-center justify-center py-10 text-center">
+                <MapPin className="w-8 h-8 text-gray-300 mb-3" />
+                <p className="text-gray-500 font-medium mb-1">No towns found for &ldquo;{debouncedSearch}&rdquo;</p>
+                <p className="text-gray-400 text-sm mb-4">Try a different spelling, or browse all towns below.</p>
+                <button
+                  onClick={() => setTownSearch("")}
+                  className="text-sm font-medium text-[#2C5F7F] hover:underline focus:outline-none"
+                >
+                  Clear search and show all towns
+                </button>
+              </div>
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-6">
                 {filteredTowns.map((town) => (

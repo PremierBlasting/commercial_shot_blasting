@@ -570,3 +570,19 @@
 - [x] Add ?q= URL query-string pre-population to SitemapPage.tsx
 - [x] Add skeleton loading state to town search results in CountyPage.tsx (250ms debounce + animated skeleton grid)
 - [x] Add Back to Top button to CountyPage.tsx (appears after 400px scroll, smooth scroll to top)
+
+## UX Improvements — Round 7
+
+- [x] Add Back to Top button to SitemapPage.tsx
+- [x] Add town count badge to county cards on /counties hub page (Counties.tsx)
+- [x] Improve "No results found" empty state in CountyPage.tsx town search
+
+## New Service — Intumescent Painting
+
+- [x] Add intumescent-painting to services.ts data (full content: 6-step process, 2 case studies, 6 FAQs, 8 applications)
+- [x] Service page served automatically via existing /services/:id route (ServiceDetail.tsx)
+- [x] Add SSR meta tags and serviceMeta entry to metaTags.ts
+- [x] Add generateServiceBodyHTML entry to metaTags.ts for crawler SSR
+- [x] Add to navigation menu (headerData.ts serviceLinks)
+- [x] Add to XML sitemap (sitemap.ts SERVICE_SLUGS)
+- [x] Add to HTML sitemap page (SitemapPage.tsx SERVICE_SLUGS)

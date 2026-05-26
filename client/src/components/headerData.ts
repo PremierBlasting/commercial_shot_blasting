@@ -20,6 +20,7 @@ export const serviceLinks = [
   { title: "Steel Sheeting", href: "/services/steel-sheeting", description: "Professional surface preparation for steel sheets and panels" },
   { title: "Steel Gates & Railings", href: "/services/steel-gates", description: "Precision restoration for commercial & industrial gates" },
   { title: "Plant & Machinery", href: "/services/plant-machinery", description: "On-site shot blasting for construction & agricultural equipment" },
+  { title: "Intumescent Painting", href: "/services/intumescent-painting", description: "Fire-resistant coatings applied to perfectly prepared steel — R30 to R120" },
 ];
 
 export const compactAreasLinks = [

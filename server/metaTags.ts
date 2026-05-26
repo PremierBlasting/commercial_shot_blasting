@@ -4251,6 +4251,40 @@ const serviceMeta: Record<string, ServiceMeta> = {
       { question: "Can you blast machinery on-site without dismantling it?", answer: "Yes, we provide mobile shot blasting services and can work on machinery in situ. We implement comprehensive containment and protection to ensure sensitive components are not affected." },
       { question: "What types of plant and machinery can you blast?", answer: "We can blast virtually any type of industrial plant and machinery including processing equipment, pumps, compressors, conveyors, gearboxes, and construction plant." }
     ]
+  },
+  "intumescent-painting": {
+    id: "intumescent-painting",
+    title: "Intumescent Painting — Fire-Resistant Coatings for Structural Steel",
+    description: "Complete intumescent painting service for structural steel, fire escapes, and industrial metalwork. We shot blast to Sa 2.5, apply certified intumescent coatings, and provide full DFT documentation for fire resistance ratings from R30 to R120.",
+    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    benefits: [
+      "Full in-house service: shot blasting and intumescent painting under one contract",
+      "Certified coatings compliant with BS EN 13381 and ASFP guidelines",
+      "Fire resistance ratings from R30 to R120 achieved and documented",
+      "Mobile service across England and Wales",
+      "Detailed DFT inspection records and coating thickness reports provided"
+    ],
+    process: [
+      { step: 1, title: "Site Survey & Specification", description: "We assess the steel, confirm the required fire resistance rating, and agree the coating system and DFT specification." },
+      { step: 2, title: "Surface Preparation by Shot Blasting", description: "All steel is shot blasted to Sa 2.5 or Sa 3 to remove mill scale, rust, and old coatings and create the correct surface profile." },
+      { step: 3, title: "Primer Application", description: "An approved zinc-rich or epoxy primer is applied immediately after blasting to prevent flash rusting." },
+      { step: 4, title: "Intumescent Coating Application", description: "The intumescent basecoat is applied in controlled passes to achieve the specified DFT for the required fire resistance rating." },
+      { step: 5, title: "Sealer / Topcoat", description: "A protective sealer or decorative topcoat is applied over the intumescent layer for weather resistance and the required finish colour." },
+      { step: 6, title: "Inspection & Documentation", description: "A full DFT survey is carried out and a coating report issued, ready for building control or fire engineer sign-off." }
+    ],
+    applications: [
+      "Structural steel frames (columns, beams, trusses)",
+      "Mezzanine floors and steel platforms",
+      "Fire escapes and external stair towers",
+      "Internal staircases, balustrades, and handrails",
+      "Steel portal frames in warehouses and factories",
+      "New build and refurbishment projects"
+    ],
+    faqs: [
+      { question: "What is intumescent paint?", answer: "Intumescent paint expands under heat to create an insulating char layer around steel, maintaining structural integrity for the specified fire resistance period — typically R30, R60, R90, or R120." },
+      { question: "Why does steel need shot blasting before intumescent painting?", answer: "Intumescent coatings require strong adhesion to perform correctly. Shot blasting to Sa 2.5 removes all contaminants and creates the surface profile needed for maximum mechanical adhesion." },
+      { question: "Do you provide a coating thickness report?", answer: "Yes. We measure dry film thickness on every coated member and provide a full coating report with product data sheets, batch numbers, and thickness readings for building control." }
+    ]
   }
 };
 
@@ -4575,6 +4609,26 @@ function generateServiceBodyHTML(serviceId: string): string {
         { q: "What types of plant and machinery can you shot blast?", a: "We can shot blast virtually any construction or agricultural equipment including excavators, bulldozers, loaders, cranes, tractors, harvesters, compressors, generators, and more. Our mobile setup adapts to equipment of a" },
         { q: "How do you protect sensitive components during blasting?", a: "Before blasting begins, our experienced team carefully masks and protects all sensitive components including hydraulic systems, electrical components, bearings, seals, and glass. We use specialized protective materials a" },
         { q: "Will shot blasting damage my equipment?", a: "No, when performed by experienced professionals using appropriate blast media and pressure settings, shot blasting is completely safe for machinery. We select media types and blast parameters specifically for each equipm" },
+      ],
+    },
+    "intumescent-painting": {
+      title: "Intumescent Painting — Fire-Resistant Coatings for Structural Steel",
+      tagline: "Fire-Resistant Coatings Applied to Perfectly Prepared Steel",
+      description: "Commercial Shot Blasting offers a complete intumescent painting service for structural steel, fire escapes, and industrial metalwork. We shot blast to Sa 2.5, apply certified intumescent coatings, and provide full DFT documentation for fire resistance ratings from R30 to R120.",
+      steps: [
+        { title: "Site Survey & Specification", description: "We assess the steel, confirm the required fire resistance rating (R30, R60, R90, R120), and agree the coating system and DFT specification." },
+        { title: "Surface Preparation by Shot Blasting", description: "All steel is shot blasted to Sa 2.5 or Sa 3 to remove mill scale, rust, and old coatings and create the correct surface profile for maximum adhesion." },
+        { title: "Primer Application", description: "An approved zinc-rich or epoxy primer is applied immediately after blasting to prevent flash rusting and provide the correct base for the intumescent topcoat." },
+        { title: "Intumescent Coating Application", description: "The intumescent basecoat is applied in controlled passes to achieve the specified DFT for the required fire resistance rating. DFT is measured and logged." },
+        { title: "Sealer / Topcoat", description: "A protective sealer or decorative topcoat is applied over the intumescent layer for weather resistance and the required finish colour." },
+        { title: "Inspection & Documentation", description: "A full DFT survey is carried out and a coating report issued, ready for building control or fire engineer sign-off." },
+      ],
+      applications: ["Structural steel frames", "Mezzanine floors and steel platforms", "Fire escapes and stair towers", "Internal staircases and handrails", "Steel portal frames", "New build and refurbishment projects"],
+      faqs: [
+        { q: "What is intumescent paint and how does it work?", a: "Intumescent paint expands under heat to create an insulating char layer around steel, maintaining structural integrity for the specified fire resistance period — typically R30, R60, R90, or R120." },
+        { q: "Why does steel need shot blasting before intumescent painting?", a: "Intumescent coatings require strong adhesion to perform correctly. Shot blasting to Sa 2.5 removes all contaminants and creates the surface profile needed for maximum mechanical adhesion." },
+        { q: "What fire resistance ratings can you achieve?", a: "We can achieve fire resistance ratings from R30 to R120 depending on the steel section factor, the coating system specified, and the required DFT." },
+        { q: "Do you provide a coating thickness report?", a: "Yes. We measure dry film thickness on every coated member and provide a full coating report with product data sheets, batch numbers, and thickness readings for building control." },
       ],
     },
   };

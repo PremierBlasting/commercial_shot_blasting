@@ -8,7 +8,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, ArrowRight } from "lucide-react";
 import { countyData } from "@/data/countyData";
+import { locationData } from "@/data/locationData";
 import { useSEO } from "@/hooks/useSEO";
+
 
 // Region order and colour palette
 const regionOrder = [
@@ -34,6 +36,15 @@ const regionColours: Record<string, string> = {
 
 const allCounties = Object.values(countyData).sort((a, b) =>
   a.name.localeCompare(b.name)
+);
+
+// Pre-compute town count per county slug (outside component for stable reference)
+const townCountByCounty: Record<string, number> = Object.values(locationData).reduce<Record<string, number>>(
+  (acc, loc) => {
+    acc[loc.countySlug] = (acc[loc.countySlug] ?? 0) + 1;
+    return acc;
+  },
+  {}
 );
 
 const countiesByRegion = regionOrder.slice(1).reduce<Record<string, typeof allCounties>>(
@@ -215,9 +226,17 @@ export default function Counties() {
                               {county.majorTowns.slice(0, 3).join(", ")}
                               {county.majorTowns.length > 3 ? " & more" : ""}
                             </p>
-                            <span className="text-xs font-medium text-[#2C5F7F]">
-                              View services →
-                            </span>
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs font-medium text-[#2C5F7F]">
+                                View services →
+                              </span>
+                              {(townCountByCounty[county.slug] ?? 0) > 0 && (
+                                <span className="inline-flex items-center gap-1 text-xs font-semibold bg-[#2C5F7F]/10 text-[#2C5F7F] rounded-full px-2 py-0.5">
+                                  <MapPin className="w-3 h-3" />
+                                  {townCountByCounty[county.slug]} towns
+                                </span>
+                              )}
+                            </div>
                           </CardContent>
                         </Card>
                       </Link>

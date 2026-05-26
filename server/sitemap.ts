@@ -48,6 +48,7 @@ const SERVICE_SLUGS = [
   "coating-removal",
   "surface-preparation",
   "mobile-shot-blasting",
+  "intumescent-painting",
 ];
 
 // ── Industry pages ────────────────────────────────────────────────────────────
