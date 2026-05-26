@@ -586,3 +586,12 @@
 - [x] Add to navigation menu (headerData.ts serviceLinks)
 - [x] Add to XML sitemap (sitemap.ts SERVICE_SLUGS)
 - [x] Add to HTML sitemap page (SitemapPage.tsx SERVICE_SLUGS)
+
+## Intumescent Painting — Content & Lead Gen (Round 8)
+
+- [x] Blog post "Why Shot Blasting is Essential Before Intumescent Painting" inserted into database (slug: why-shot-blasting-essential-before-intumescent-painting)
+- [x] Related Service (Intumescent Painting) banner added to Structural Steel Frames service page
+- [x] Related Service (Intumescent Painting) banner added to Fire Escapes service page
+- [x] Related Service (Intumescent Painting) banner added to Staircases service page
+- [x] IntumescentQuoteForm.tsx component created — fire rating selector, steel type, project size, contact fields, trpc.contact.submit integration
+- [x] IntumescentQuoteForm injected into ServiceDetail.tsx for intumescent-painting service page

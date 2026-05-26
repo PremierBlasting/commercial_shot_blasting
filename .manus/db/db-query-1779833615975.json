@@ -1,0 +1,39 @@
+{
+  "query": "SELECT slug, title, category, LEFT(content, 200) as content_preview FROM blog_posts ORDER BY publishedAt DESC LIMIT 5;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT slug, title, category, LEFT(content, 200) as content_preview FROM blog_posts ORDER BY publishedAt DESC LIMIT 5;",
+  "rows": [
+    {
+      "slug": "shot-blasting-birmingham-west-midlands-2026",
+      "title": "Shot Blasting Services in Birmingham: West Midlands Industrial Surface Preparation",
+      "category": "Service Areas",
+      "content_preview": "<h2>Why Birmingham Businesses Choose Professional Shot Blasting</h2>"
+    },
+    {
+      "slug": "shot-blasting-powder-coating-partnership",
+      "title": "Shot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes",
+      "category": "Surface Finishing",
+      "content_preview": "# Shot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes"
+    },
+    {
+      "slug": "shot-blasting-structural-steel-guide",
+      "title": "The Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection",
+      "category": "Technical Guides",
+      "content_preview": "# The Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection"
+    },
+    {
+      "slug": "factory-warehouse-cladding-restoration",
+      "title": "Restoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment",
+      "category": "Restoration Projects",
+      "content_preview": "# Restoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment"
+    }
+  ],
+  "messages": [
+    "<p>Birmingham and the wider West Midlands have long been the heartland of British manufacturing and engineering. From the steel fab",
+    "The combination of shot blasting and powder coating represents one of the most effective finishing systems availa",
+    "Structural steel forms the backbone of modern construction, from towering office blocks to sprawling indust",
+    "Factory and warehouse cladding systems face relentless exposure to the elements, industrial poll"
+  ],
+  "stdout": "slug\ttitle\tcategory\tcontent_preview\nshot-blasting-birmingham-west-midlands-2026\tShot Blasting Services in Birmingham: West Midlands Industrial Surface Preparation\tService Areas\t<h2>Why Birmingham Businesses Choose Professional Shot Blasting</h2>\n<p>Birmingham and the wider West Midlands have long been the heartland of British manufacturing and engineering. From the steel fab\nshot-blasting-powder-coating-partnership\tShot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes\tSurface Finishing\t# Shot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes\nThe combination of shot blasting and powder coating represents one of the most effective finishing systems availa\nshot-blasting-structural-steel-guide\tThe Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection\tTechnical Guides\t# The Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection\nStructural steel forms the backbone of modern construction, from towering office blocks to sprawling indust\nfactory-warehouse-cladding-restoration\tRestoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment\tRestoration Projects\t# Restoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment\nFactory and warehouse cladding systems face relentless exposure to the elements, industrial poll\n",
+  "stderr": "",
+  "execution_time_ms": 667
+}

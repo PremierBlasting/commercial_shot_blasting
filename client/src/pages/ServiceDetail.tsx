@@ -15,6 +15,7 @@ import { BackToTop } from "@/components/BackToTop";
 import { getPreparationSteps } from "@shared/servicePreparationSteps";
 
 import { Footer } from "@/components/Footer";
+import { IntumescentQuoteForm } from "@/components/IntumescentQuoteForm";
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -426,6 +427,11 @@ export default function ServiceDetail() {
                 </div>
               )}
 
+              {/* Intumescent Painting — Tailored Quick Quote Form */}
+              {service.id === 'intumescent-painting' && (
+                <IntumescentQuoteForm onOpenQuotePopup={openQuotePopup} />
+              )}
+
               {/* Structural Steel Frames Custom Gallery with Before/During/After */}
               {service.id === 'structural-steel-frames' && (
                 <div>
@@ -479,6 +485,18 @@ export default function ServiceDetail() {
                       <p className="text-lg font-semibold text-gray-800 mb-2">Project Complete</p>
                       <p className="text-gray-700">Hundreds of linear metres of structural steelwork transformed to uniform, clean bare metal surfaces achieving professional cleanliness. All connection points, welds, and complex truss geometry achieved consistent surface preparation for optimal coating adhesion.</p>
                     </div>
+                  </div>
+
+                  {/* Related Service: Intumescent Painting */}
+                  <div className="mt-8 p-5 rounded-xl border border-[#2C5F7F]/20 bg-[#2C5F7F]/5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <div className="flex-1">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-[#2C5F7F]/70 mb-1">Related Service</p>
+                      <p className="text-lg font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>Intumescent Painting</p>
+                      <p className="text-sm text-gray-600 mt-1">We offer a complete in-house service — shot blast to Sa 2.5, then apply certified intumescent coatings for fire resistance ratings from R30 to R120, with full DFT documentation.</p>
+                    </div>
+                    <Link href="/services/intumescent-painting" className="flex-shrink-0 inline-flex items-center gap-2 bg-[#2C5F7F] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#1e4a63] transition-colors">
+                      Learn More <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </div>
               )}
@@ -582,6 +600,18 @@ export default function ServiceDetail() {
                         Every project is completed to the highest safety standards, ensuring fire escape structures are prepared for protective coatings that will provide decades of corrosion protection and maintain fire safety requirements.
                       </p>
                     </div>
+                  </div>
+
+                  {/* Related Service: Intumescent Painting */}
+                  <div className="mt-8 p-5 rounded-xl border border-[#2C5F7F]/20 bg-[#2C5F7F]/5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <div className="flex-1">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-[#2C5F7F]/70 mb-1">Related Service</p>
+                      <p className="text-lg font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>Intumescent Painting</p>
+                      <p className="text-sm text-gray-600 mt-1">Fire escapes often require intumescent coatings to meet building regulations. We offer a complete in-house service — shot blast to Sa 2.5, then apply certified intumescent coatings for R30–R120 fire resistance, with full DFT documentation.</p>
+                    </div>
+                    <Link href="/services/intumescent-painting" className="flex-shrink-0 inline-flex items-center gap-2 bg-[#2C5F7F] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#1e4a63] transition-colors">
+                      Learn More <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
                 </div>
               )}
@@ -1197,6 +1227,20 @@ export default function ServiceDetail() {
                   ))}
                 </div>
               </div>
+
+              {/* Related Service: Intumescent Painting — shown on staircases page */}
+              {service.id === 'staircases' && (
+                <div className="p-5 rounded-xl border border-[#2C5F7F]/20 bg-[#2C5F7F]/5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <div className="flex-1">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-[#2C5F7F]/70 mb-1">Related Service</p>
+                    <p className="text-lg font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>Intumescent Painting</p>
+                    <p className="text-sm text-gray-600 mt-1">Internal staircases in commercial buildings often require intumescent fire protection. We provide a complete in-house service — shot blast to Sa 2.5, then apply certified intumescent coatings for R30–R120 fire resistance ratings with full DFT documentation for building control.</p>
+                  </div>
+                  <Link href="/services/intumescent-painting" className="flex-shrink-0 inline-flex items-center gap-2 bg-[#2C5F7F] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#1e4a63] transition-colors">
+                    Learn More <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              )}
 
               {/* Case Studies */}
               {!['fire-escapes', 'staircases', 'bridge-steelwork', 'ladders', 'warehouse-racking', 'pipework', 'telecom-towers'].includes(service.id) && (
