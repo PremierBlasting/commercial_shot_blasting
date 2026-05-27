@@ -111,7 +111,7 @@ export function LocationPage({ location }: LocationPageProps) {
           <div className="max-w-3xl">
             <p className="text-blue-200 font-medium mb-4">Professional Surface Preparation</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Shot Blasting Services in {location.name}
+              Shot Blasting in {location.name}
             </h1>
             {/* Item 7: Visible AggregateRating badge */}
             <div className="flex items-center gap-2 mb-4" aria-label="Customer rating: 4.9 out of 5 based on 127 reviews">
@@ -124,7 +124,7 @@ export function LocationPage({ location }: LocationPageProps) {
               <span className="text-blue-200 text-sm">(127 reviews)</span>
             </div>
             <p className="text-xl text-blue-100 mb-8">
-              Professional shot blasting services in {location.name} — mobile rust removal, surface preparation, and industrial cleaning for commercial and industrial clients across {location.county}. Free quotes available.
+              Mobile shot blasting in {location.name}, {location.county} — rust removal, surface preparation, and industrial cleaning to SA2.5/SA3 standard. 9 mobile units. Same-week availability. Free quotes.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 
@@ -286,12 +286,12 @@ export function LocationPage({ location }: LocationPageProps) {
 
           <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {[
-              { id: "structural-steel", label: "Structural Steelwork Shot Blasting", desc: "Beams, columns, trusses & fabrications" },
-              { id: "factory-cladding", label: "Factory & Warehouse Cladding", desc: "Plastisol & paint removal from cladding panels" },
-              { id: "container-blasting", label: "Container Shot Blasting", desc: "Shipping containers & storage units" },
-              { id: "floor-preparation", label: "Industrial Floor Preparation", desc: "Concrete & steel floor surface profiling" },
-              { id: "rust-removal", label: "Rust Removal & Mill Scale", desc: "Deep rust & scale removal to SA2.5/SA3" },
-              { id: "plant-machinery", label: "Plant & Machinery", desc: "Industrial equipment, vehicles & pipework" },
+              { id: "structural-steel-shot-blasting", label: `Structural Steel Shot Blasting in ${location.name}`, desc: "Beams, columns, trusses & fabrications" },
+              { id: "factory-cladding-shot-blasting", label: `Factory Cladding Shot Blasting in ${location.name}`, desc: "Plastisol & paint removal from cladding panels" },
+              { id: "container-shot-blasting", label: `Container Shot Blasting in ${location.name}`, desc: "Shipping containers & storage units" },
+              { id: "floor-shot-blasting", label: `Industrial Floor Preparation in ${location.name}`, desc: "Concrete & steel floor surface profiling" },
+              { id: "rust-removal-shot-blasting", label: `Rust Removal in ${location.name}`, desc: "Deep rust & scale removal to SA2.5/SA3" },
+              { id: "machinery-shot-blasting", label: `Plant & Machinery Shot Blasting in ${location.name}`, desc: "Industrial equipment, vehicles & pipework" },
             ].map((svc) => (
               <Link
                 key={svc.id}
@@ -479,23 +479,23 @@ export function LocationPage({ location }: LocationPageProps) {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
             {[
-              { slug: "structural-steel-shot-blasting", label: "Structural Steel" },
-              { slug: "container-shot-blasting", label: "Container Blasting" },
-              { slug: "factory-cladding-shot-blasting", label: "Factory Cladding" },
-              { slug: "floor-shot-blasting", label: "Floor Preparation" },
-              { slug: "fire-escape-shot-blasting", label: "Fire Escapes" },
-              { slug: "pipework-shot-blasting", label: "Pipework & Steel" },
-              { slug: "agricultural-shot-blasting", label: "Agricultural" },
-              { slug: "telecom-tower-shot-blasting", label: "Telecom Towers" },
-              { slug: "machinery-shot-blasting", label: "Plant & Machinery" },
-              { slug: "racking-shot-blasting", label: "Warehouse Racking" },
-              { slug: "marine-shot-blasting", label: "Marine & Offshore" },
-              { slug: "heritage-shot-blasting", label: "Heritage & Restoration" },
+              { slug: "structural-steel-shot-blasting", label: `Structural Steel Shot Blasting ${location.name}` },
+              { slug: "container-shot-blasting", label: `Container Blasting ${location.name}` },
+              { slug: "factory-cladding-shot-blasting", label: `Factory Cladding ${location.name}` },
+              { slug: "floor-shot-blasting", label: `Floor Preparation ${location.name}` },
+              { slug: "fire-escape-shot-blasting", label: `Fire Escapes ${location.name}` },
+              { slug: "pipework-shot-blasting", label: `Pipework Blasting ${location.name}` },
+              { slug: "agricultural-shot-blasting", label: `Agricultural Blasting ${location.name}` },
+              { slug: "telecom-tower-shot-blasting", label: `Telecom Towers ${location.name}` },
+              { slug: "machinery-shot-blasting", label: `Plant & Machinery ${location.name}` },
+              { slug: "racking-shot-blasting", label: `Warehouse Racking ${location.name}` },
+              { slug: "marine-shot-blasting", label: `Marine Blasting ${location.name}` },
+              { slug: "intumescent-painting", label: `Intumescent Painting ${location.name}` },
             ].map((svc) => (
               <a
                 key={svc.slug}
                 href={`/services/${svc.slug}`}
-                className="flex items-center justify-center text-center bg-white rounded-lg px-3 py-4 text-sm font-medium text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white transition-colors duration-200 shadow-sm hover:shadow-md"
+                className="flex items-center justify-center text-center bg-white rounded-lg px-3 py-4 text-xs font-medium text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white transition-colors duration-200 shadow-sm hover:shadow-md leading-tight"
               >
                 {svc.label}
               </a>

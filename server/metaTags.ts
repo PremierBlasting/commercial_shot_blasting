@@ -5289,7 +5289,8 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
     "Rust Removal & Mill Scale — deep rust & scale removal to SA2.5/SA3 standard",
     "Plant & Machinery — industrial equipment, vehicles & pipework",
     "Fire Escapes & Staircases — structural metalwork restoration",
-    "Warehouse Racking & Mezzanines — industrial storage structure preparation"
+    "Warehouse Racking & Mezzanines — industrial storage structure preparation",
+    "Intumescent Painting — fire-resistant coatings R30–R120 for structural steel"
   ];
 
   const whyUs = [
@@ -5310,7 +5311,11 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
     { question: `What standard do you blast to for shot blasting services in ${name}?`, answer: `We blast to SA2.5 (near white metal) and SA3 (white metal) standards as required by your coating specification. SA2.5 is the most commonly specified standard for protective coating systems and is the default for most commercial and industrial projects in ${county}. We can advise on the correct standard for your project.` },
     { question: `How long does a shot blasting project take in ${name}?`, answer: `Project duration for shot blasting services in ${name} depends on the size and complexity of the work. Small items like gates or railings can be completed in a few hours, while larger industrial projects such as factory cladding or structural steelwork may take several days. We provide estimated timelines with every quote and work efficiently to minimise disruption to your operations in ${county}.` },
     { question: `Is shot blasting better than other surface preparation methods in ${name}?`, answer: `Shot blasting is the most effective surface preparation method for metal surfaces in ${name}. It removes rust, mill scale, and old coatings more thoroughly than manual or chemical methods, creates the correct surface profile for new protective coatings, and is faster and more cost-effective for large-scale projects in ${county}. We can advise on the best method for your specific needs.` },
-    { question: `Do I need to prepare the site before your shot blasting services arrive in ${name}?`, answer: `Minimal site preparation is required before our shot blasting services arrive in ${name}. We recommend clearing the immediate work area of loose items and ensuring vehicle access for our mobile unit. Our team will protect surrounding areas with sheeting and handle all cleanup after completion. We will provide specific preparation instructions when booking your project in ${county}.` }
+    { question: `Do I need to prepare the site before your shot blasting services arrive in ${name}?`, answer: `Minimal site preparation is required before our shot blasting services arrive in ${name}. We recommend clearing the immediate work area of loose items and ensuring vehicle access for our mobile unit. Our team will protect surrounding areas with sheeting and handle all cleanup after completion. We will provide specific preparation instructions when booking your project in ${county}.` },
+    { question: `Do you offer same-week shot blasting in ${name}?`, answer: `Yes — we operate 9 mobile shot blasting units across the UK, which means we can often offer same-week availability for projects in ${name}, ${county}. For urgent requirements, call 07970 566409 directly and we will do our best to accommodate your schedule.` },
+    { question: `Can you blast structural steel for construction projects in ${name}?`, answer: `Yes — structural steel shot blasting is one of our core services in ${name}. We blast beams, columns, trusses, and fabricated steelwork to SA2.5 or SA3 standard, ready for primer and protective coating. Our mobile units can work on-site at fabrication yards and construction sites across ${county}.` },
+    { question: `Do you provide intumescent painting after shot blasting in ${name}?`, answer: `Yes — we now offer intumescent painting in ${name} as a combined blast-and-coat solution. Intumescent paint provides fire protection for structural steel to R30, R60, R90, or R120 ratings. Contact us on 07970 566409 for a combined quote.` },
+    { question: `What areas near ${name} do you cover for shot blasting?`, answer: `Our shot blasting services cover ${name} and all surrounding towns and villages throughout ${county}. We operate a fleet of 9 mobile units and regularly serve clients within a 50-mile radius of ${name}. Call 07970 566409 to confirm availability for your specific location.` }
   ];
   const faqHtml = generatedFaqs.map((faq) => `
     <div class="ssr-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -6107,12 +6112,14 @@ export function injectMetaTags(html: string, url: string): string {
     modifiedHtml = modifiedHtml.replace(/<link\s+rel="canonical"[^>]*>/gi, '');
 
     // Build meta tags and JSON-LD
+    const countyStr = dynCountyName ? `, ${dynCountyName}` : '';
     const metaTags = `
-    <title>Shot Blasting Services in ${locationName} | Commercial Shot Blasting</title>
+    <title>Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep</title>
     <link rel="canonical" href="${fullUrl}" />
-    <meta name="description" content="Professional shot blasting services in ${locationName} — mobile rust removal, surface preparation, cladding restoration &amp; industrial cleaning. SA2.5/SA3 standard. Free quote. Call ${PHONE}" />
-    <meta property="og:title" content="Shot Blasting Services in ${locationName} | Commercial Shot Blasting" />
-    <meta property="og:description" content="Professional shot blasting services in ${locationName} — mobile rust removal, surface preparation, cladding restoration &amp; industrial cleaning. SA2.5/SA3 standard. Free quote. Call ${PHONE}" />
+    <meta name="description" content="Shot blasting in ${locationName}${countyStr} — 9 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors &amp; more. Free quote: ${PHONE}" />
+    <meta name="keywords" content="shot blasting ${locationName}, ${locationName} shot blasting, mobile shot blasting ${locationName}, rust removal ${locationName}, surface preparation ${locationName}${dynCountyName ? `, shot blasting ${dynCountyName}` : ''}" />
+    <meta property="og:title" content="Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep" />
+    <meta property="og:description" content="Shot blasting in ${locationName}${countyStr} — 9 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors &amp; more. Free quote: ${PHONE}" />
     <meta property="og:url" content="${fullUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${HERO_IMAGE}" />
@@ -6121,10 +6128,10 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Shot Blasting Services in ${locationName} | Commercial Shot Blasting" />
-    <meta name="twitter:description" content="Professional shot blasting services in ${locationName} — mobile rust removal, surface preparation, cladding restoration &amp; industrial cleaning. Free quote. Call ${PHONE}" />
+    <meta name="twitter:title" content="Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep" />
+    <meta name="twitter:description" content="Shot blasting in ${locationName}${countyStr} — 9 mobile units, SA2.5/SA3 standard, same-week availability. Free quote: ${PHONE}" />
     <meta name="twitter:image" content="${HERO_IMAGE}" />
-    <meta name="twitter:image:alt" content="Shot blasting services in ${locationName} — Commercial Shot Blasting" />
+    <meta name="twitter:image:alt" content="Shot blasting in ${locationName}${countyStr} — Commercial Shot Blasting" />
     <link rel="preload" as="image" href="${HERO_IMAGE}" />
     ${generateLocationSchemas(locationSlug, locationName, fullUrl, dynCountyName, dynCountySlug)}
   `;

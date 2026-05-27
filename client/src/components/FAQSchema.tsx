@@ -86,6 +86,22 @@ export function generateLocationFAQs(locationName: string, county?: string): FAQ
     {
       question: `Do I need to prepare the site before your shot blasting services arrive in ${locationName}?`,
       answer: `Minimal site preparation is required before our shot blasting services arrive in ${locationName}. We recommend clearing the immediate work area of loose items and ensuring vehicle access for our mobile unit. Our team will protect surrounding areas with sheeting and handle all cleanup after completion. We will provide specific preparation instructions when booking your project${countyText}.`
+    },
+    {
+      question: `Do you offer same-week shot blasting in ${locationName}?`,
+      answer: `Yes — we operate 9 mobile shot blasting units across the UK, which means we can often offer same-week availability for projects in ${locationName}${countyText}. For urgent requirements, call 07970 566409 directly and we will do our best to accommodate your schedule. Planned projects can be booked in advance to suit your programme.`
+    },
+    {
+      question: `Can you blast structural steel for construction projects in ${locationName}?`,
+      answer: `Yes — structural steel shot blasting is one of our core services in ${locationName}. We blast beams, columns, trusses, and fabricated steelwork to SA2.5 or SA3 standard, ready for primer and protective coating. Our mobile units can work on-site at fabrication yards, construction sites, or at your premises across ${areaText}. We work with steel fabricators, main contractors, and developers throughout ${county || locationName}.`
+    },
+    {
+      question: `Do you provide intumescent painting after shot blasting in ${locationName}?`,
+      answer: `Yes — we now offer intumescent painting services in ${locationName} as a combined blast-and-coat solution. Intumescent paint provides fire protection for structural steel to R30, R60, R90, or R120 ratings. Having the same contractor carry out both the shot blasting and intumescent coating ensures the correct surface profile and eliminates the risk of contamination between trades. Contact us on 07970 566409 for a combined quote.`
+    },
+    {
+      question: `What areas near ${locationName} do you cover for shot blasting?`,
+      answer: `Our shot blasting services cover ${locationName} and all surrounding towns and villages throughout ${areaText}. We operate a fleet of 9 mobile units and regularly serve clients within a 50-mile radius of ${locationName}. If you are unsure whether we cover your specific location, call 07970 566409 and we will confirm availability and provide a free quote.`
     }
   ];
 }

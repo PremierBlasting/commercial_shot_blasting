@@ -600,3 +600,17 @@
 
 - [x] Add Intumescent Painting service card to Construction industry page (ConstructionIndustry.tsx)
 - [x] Add Intumescent Painting service card to Manufacturing industry page (ManufacturingIndustry.tsx)
+
+## Local SEO — "Shot Blasting [Area]" Rankings (Round 10)
+
+- [x] Fix H1 to "Shot Blasting in {Town}" (remove "Services") for exact-match keyword
+- [x] Add H2 section headings with service+location keywords (e.g. "Structural Steel Shot Blasting in {Town}")
+- [x] Add "Services in {Town}" anchor-text links in services section
+- [x] Tighten title tag: "Shot Blasting {Town}, {County} | Mobile Rust Removal & Surface Prep" (SSR + client-side)
+- [x] Add county to meta description + USPs (9 mobile units, same-week availability) — SSR + useSEO.ts
+- [x] Add meta keywords tag with town + county variants to all dynamic local pages
+- [x] Add 5 new local-intent FAQs to FAQSchema.tsx generateLocationFAQs (same-week, structural steel, intumescent, area coverage, industry)
+- [x] Add matching 5 FAQs to SSR generatedFaqs array in generateServiceAreaBodyHTML (metaTags.ts)
+- [x] Add intumescent-painting to SSR services list in generateServiceAreaBodyHTML
+- [x] Add county to LocationPage.tsx hero intro paragraph
+- [x] LocalBusiness schema already has priceRange, openingHours, areaServed — confirmed no changes needed
