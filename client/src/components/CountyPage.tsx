@@ -848,69 +848,52 @@ export function CountyPage({ county }: CountyPageProps) {
         </div>
       </section>
 
-      {/* Related Services */}
-      <section className="py-14 bg-[#f0f6fb]">
+      {/* Services Available in County — full 19-service grid with localized anchor text */}
+      <section className="py-14 bg-[#f0f6fb]" id="services">
         <div className="container">
           <div className="text-center mb-8">
             <p className="text-[#2C5F7F] font-medium mb-2">Our Services</p>
             <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Shot Blasting Services Available in {county.name}
+              Services Available in {county.name}
             </h2>
             <p className="text-gray-600 max-w-xl mx-auto mt-2 text-sm">
-              We offer the full range of commercial and industrial shot blasting services across {county.name}.
+              We offer the full range of commercial and industrial shot blasting services across {county.name} — mobile, on-site, and delivered to SA2.5/SA3 standard.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
             {[
-              {
-                slug: "structural-steel-frames",
-                label: "Structural Steel Frames",
-                desc: `Remove mill scale, rust, and old coatings from structural steelwork across ${county.name} to SA2.5 or SA3 standard, ready for galvanizing or protective coating.`,
-                Icon: Building2,
-              },
-              {
-                slug: "factory-cladding",
-                label: "Factory Cladding",
-                desc: `Restore corroded or painted factory cladding panels on-site across ${county.name}. Our mobile units blast and prepare cladding without dismantling.`,
-                Icon: Factory,
-              },
-              {
-                slug: "floor-preparation",
-                label: "Floor Preparation",
-                desc: `Industrial floor shot blasting in ${county.name} for epoxy, resin, or screed applications. Removes laitance and contaminants to create a mechanical key.`,
-                Icon: Layers,
-              },
-              {
-                slug: "fire-escapes",
-                label: "Fire Escapes & Staircases",
-                desc: `Mobile shot blasting of fire escapes, external staircases, and access structures across ${county.name} to halt corrosion and extend service life.`,
-                Icon: Flame,
-              },
-              {
-                slug: "plant-machinery",
-                label: "Plant & Machinery",
-                desc: `On-site shot blasting of plant, machinery, and fabricated components in ${county.name}. Ideal before repainting, powder coating, or refurbishment.`,
-                Icon: Settings,
-              },
-              {
-                slug: "bridge-steelwork",
-                label: "Bridge Steelwork",
-                desc: `Specialist bridge and infrastructure shot blasting across ${county.name}. We work to Network Rail and Highways England surface preparation standards.`,
-                Icon: Wrench,
-              },
+              { slug: "structural-steel-shot-blasting", label: `Structural Steel Shot Blasting in ${county.name}`, desc: `Remove mill scale, rust, and old coatings from structural steelwork across ${county.name} to SA2.5 or SA3 standard.`, Icon: Building2 },
+              { slug: "factory-cladding-shot-blasting", label: `Factory Cladding Shot Blasting in ${county.name}`, desc: `Restore corroded or painted factory cladding panels on-site across ${county.name} without dismantling.`, Icon: Factory },
+              { slug: "floor-shot-blasting", label: `Floor Shot Blasting in ${county.name}`, desc: `Industrial floor preparation in ${county.name} for epoxy, resin, or screed. Removes laitance and creates a mechanical key.`, Icon: Layers },
+              { slug: "fire-escape-shot-blasting", label: `Fire Escape Shot Blasting in ${county.name}`, desc: `Mobile shot blasting of fire escapes and external staircases across ${county.name} to halt corrosion.`, Icon: Flame },
+              { slug: "machinery-shot-blasting", label: `Plant & Machinery Blasting in ${county.name}`, desc: `On-site shot blasting of plant and machinery in ${county.name} before repainting, powder coating, or refurbishment.`, Icon: Settings },
+              { slug: "bridge-steelwork-shot-blasting", label: `Bridge Steelwork Blasting in ${county.name}`, desc: `Specialist bridge and infrastructure shot blasting across ${county.name} to Network Rail and Highways England standards.`, Icon: Wrench },
+              { slug: "container-shot-blasting", label: `Container Shot Blasting in ${county.name}`, desc: `Shipping container and steel storage unit shot blasting across ${county.name} to SA2.5 standard.`, Icon: Building2 },
+              { slug: "pipework-shot-blasting", label: `Pipework Shot Blasting in ${county.name}`, desc: `Process pipework and manifold blasting in ${county.name} for food-grade, pharmaceutical, and industrial applications.`, Icon: Wrench },
+              { slug: "agricultural-shot-blasting", label: `Agricultural Shot Blasting in ${county.name}`, desc: `Farm machinery, grain stores, and agricultural equipment shot blasting across ${county.name}.`, Icon: Settings },
+              { slug: "marine-shot-blasting", label: `Marine Shot Blasting in ${county.name}`, desc: `Marine and offshore structure shot blasting in ${county.name} to SSPC and NACE standards.`, Icon: Anchor },
+              { slug: "racking-shot-blasting", label: `Warehouse Racking Blasting in ${county.name}`, desc: `Warehouse racking and pallet frame shot blasting across ${county.name} — cost-effective alternative to replacement.`, Icon: Layers },
+              { slug: "telecom-tower-shot-blasting", label: `Telecom Tower Blasting in ${county.name}`, desc: `Telecom mast and tower shot blasting in ${county.name} to extend service life and prepare for protective coating.`, Icon: Zap },
+              { slug: "heritage-shot-blasting", label: `Heritage Shot Blasting in ${county.name}`, desc: `Gentle shot blasting for listed buildings, ironwork, and heritage structures across ${county.name}.`, Icon: Award },
+              { slug: "structural-steel-frames", label: `Steel Frame Preparation in ${county.name}`, desc: `New-build structural steel frame preparation in ${county.name} — mill scale removal ready for galvanizing or coating.`, Icon: Building2 },
+              { slug: "fire-escapes", label: `Fire Escape Restoration in ${county.name}`, desc: `Comprehensive fire escape and staircase restoration across ${county.name} — blast, prime, and coat in one visit.`, Icon: Flame },
+              { slug: "staircases", label: `Staircase Shot Blasting in ${county.name}`, desc: `Internal and external staircase shot blasting in ${county.name} for heritage, commercial, and industrial projects.`, Icon: Layers },
+              { slug: "plant-machinery", label: `Plant Refurbishment in ${county.name}`, desc: `Full plant and machinery refurbishment blasting in ${county.name} — on-site, no transport costs.`, Icon: Settings },
+              { slug: "floor-preparation", label: `Industrial Floor Preparation in ${county.name}`, desc: `Concrete and steel floor shot blasting in ${county.name} for industrial coatings and surface profiling.`, Icon: Layers },
+              { slug: "intumescent-painting", label: `Intumescent Painting Prep in ${county.name}`, desc: `Shot blast preparation for intumescent fire protection coatings in ${county.name} — SA2.5 standard for R30–R120 ratings.`, Icon: Flame },
             ].map(({ slug, label, desc, Icon }) => (
               <a
                 key={slug}
                 href={`/services/${slug}`}
-                className="group bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md hover:border-[#2C5F7F]/30 transition-all duration-200 flex flex-col gap-3"
+                className="group bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:shadow-md hover:border-[#2C5F7F]/30 transition-all duration-200 flex flex-col gap-2"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-[#2C5F7F]/10 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-5 h-5 text-[#2C5F7F]" />
+                  <div className="w-9 h-9 rounded-lg bg-[#2C5F7F]/10 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-4 h-4 text-[#2C5F7F]" />
                   </div>
                   <h3 className="font-semibold text-[#2C2C2C] group-hover:text-[#2C5F7F] transition-colors text-sm leading-tight">{label}</h3>
                 </div>
-                <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
+                <p className="text-xs text-gray-500 leading-relaxed flex-1">{desc}</p>
                 <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#2C5F7F] mt-auto">
                   Learn more <ArrowRight className="w-3 h-3" />
                 </span>
@@ -919,7 +902,7 @@ export function CountyPage({ county }: CountyPageProps) {
           </div>
           <div className="text-center">
             <a href="/services" className="inline-flex items-center gap-2 text-[#2C5F7F] hover:text-[#1a3d52] font-semibold text-sm">
-              View All 18 Shot Blasting Services
+              View All Shot Blasting Services
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>

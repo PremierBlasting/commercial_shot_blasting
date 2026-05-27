@@ -742,6 +742,43 @@ export function LocationPage({ location }: LocationPageProps) {
         );
       })()}
 
+      {/* Popular services near {Town} — 4 featured service cards with localized anchor text */}
+      <section className="py-10 bg-[#f0f6fb] border-t border-gray-100">
+        <div className="container">
+          <div className="text-center mb-6">
+            <p className="text-[#2C5F7F] font-medium mb-1 uppercase tracking-wide text-xs">Popular Services</p>
+            <h2 className="text-xl md:text-2xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Popular Shot Blasting Services near {location.name}
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[
+              { slug: "structural-steel-shot-blasting", label: `Structural Steel Shot Blasting in ${location.name}`, short: "Structural Steel" },
+              { slug: "factory-cladding-shot-blasting", label: `Factory Cladding Shot Blasting in ${location.name}`, short: "Factory Cladding" },
+              { slug: "floor-shot-blasting", label: `Floor Shot Blasting in ${location.name}`, short: "Floor Preparation" },
+              { slug: "intumescent-painting", label: `Intumescent Painting Prep in ${location.name}`, short: "Intumescent Painting" },
+            ].map(({ slug, label, short }) => (
+              <a
+                key={slug}
+                href={`/services/${slug}`}
+                title={label}
+                className="group bg-white rounded-lg px-4 py-4 text-center shadow-sm border border-gray-100 hover:border-[#2C5F7F] hover:shadow-md transition-all duration-200 flex flex-col items-center gap-2"
+              >
+                <span className="text-xs font-semibold text-[#2C2C2C] group-hover:text-[#2C5F7F] transition-colors leading-tight">{short} in {location.name}</span>
+                <span className="inline-flex items-center gap-1 text-xs text-[#2C5F7F] font-medium mt-auto">
+                  View service <ArrowRight className="w-3 h-3" />
+                </span>
+              </a>
+            ))}
+          </div>
+          <div className="text-center mt-5">
+            <a href="/services" className="inline-flex items-center gap-2 text-sm text-[#2C5F7F] font-medium hover:underline">
+              View all 19 shot blasting services <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Browse by County — internal link to county hub for crawl equity */}
       <section className="py-5 bg-gray-50 border-t border-gray-200">
         <div className="container text-center">

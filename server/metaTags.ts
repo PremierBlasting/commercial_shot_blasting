@@ -5397,8 +5397,18 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
         <li><a href="${SITE_URL}/services/racking-shot-blasting">Warehouse Racking Blasting in ${escHtml(name)}</a></li>
         <li><a href="${SITE_URL}/services/marine-shot-blasting">Marine &amp; Offshore Blasting in ${escHtml(name)}</a></li>
         <li><a href="${SITE_URL}/services/heritage-shot-blasting">Heritage &amp; Restoration Blasting in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/intumescent-painting">Intumescent Painting Preparation in ${escHtml(name)}</a></li>
       </ul>
-      <p><a href="${SITE_URL}/services">View all 18 shot blasting services</a></p>
+      <p><a href="${SITE_URL}/services">View all 19 shot blasting services</a></p>
+    </section>
+    <section aria-label="Popular Services Near">
+      <h2>Popular Shot Blasting Services near ${escHtml(name)}</h2>
+      <ul>
+        <li><a href="${SITE_URL}/services/structural-steel-shot-blasting">Structural Steel Shot Blasting in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/factory-cladding-shot-blasting">Factory Cladding Shot Blasting in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/floor-shot-blasting">Floor Shot Blasting in ${escHtml(name)}</a></li>
+        <li><a href="${SITE_URL}/services/intumescent-painting">Intumescent Painting Preparation in ${escHtml(name)}</a></li>
+      </ul>
     </section>
     <section aria-label="What to Expect">
       <h2>Shot Blasting Services in ${escHtml(name)} — What to Expect</h2>

@@ -628,3 +628,11 @@
 - [x] Add hyperlinks to Premier Blasting Ltd (https://premierblasting.co.uk) in About.tsx (both mentions)
 - [x] Inject county context paragraph into county hub SSR body HTML (countyBodyHtml template in metaTags.ts)
 - [x] Run IndexNow script to notify Bing/Yandex of all updated pages
+
+## Round 13 — Internal Linking & Interactive Map
+
+- [x] Expand county hub "Related Services" section to all 19 services with localized anchor text (CountyPage.tsx)
+- [x] Add county hub services section to SSR county body HTML (metaTags.ts countyBodyHtml)
+- [x] Add "Popular services near {Town}" strip to LocationPage.tsx with 4 featured service cards + localized anchor text
+- [x] Add "Popular services near {Town}" to SSR town body HTML (generateServiceAreaBodyHTML in metaTags.ts)
+- [x] Enhance CountyMap.tsx: increase to 6 major + 12 village markers, add clickable service area links in info windows, add marker count display
