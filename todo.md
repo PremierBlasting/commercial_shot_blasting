@@ -622,3 +622,9 @@
 - [x] Wire county context paragraph into LocationPage.tsx About section (styled left-border blockquote)
 - [x] Wire county context paragraph into SSR body HTML (generateServiceAreaBodyHTML in metaTags.ts)
 - [x] Update About Us page to state Commercial Shot Blasting is the commercial/industrial arm of Premier Blasting Ltd
+
+## Round 12 — Premier Blasting Links & County Hub SSR Context
+
+- [x] Add hyperlinks to Premier Blasting Ltd (https://premierblasting.co.uk) in About.tsx (both mentions)
+- [x] Inject county context paragraph into county hub SSR body HTML (countyBodyHtml template in metaTags.ts)
+- [x] Run IndexNow script to notify Bing/Yandex of all updated pages

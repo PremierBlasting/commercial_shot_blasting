@@ -34,7 +34,7 @@ export default function About() {
             </h1>
             <p className="text-lg text-blue-100 leading-relaxed mb-4">
               Commercial Shot Blasting is the commercial and industrial shot blasting arm of{" "}
-              <strong className="text-white">Premier Blasting Ltd</strong> — a trusted family-run business delivering superior surface preparation solutions across the UK.
+              <a href="https://premierblasting.co.uk" target="_blank" rel="noopener noreferrer" className="font-bold text-white underline decoration-white/50 hover:decoration-white transition-colors">Premier Blasting Ltd</a> — a trusted family-run business delivering superior surface preparation solutions across the UK.
             </p>
             <p className="text-base text-blue-200 leading-relaxed">
               Operating under the Premier Blasting Ltd umbrella, we specialise exclusively in large-scale commercial and industrial projects, bringing the same family values, quality standards, and expert team to every job.
@@ -54,7 +54,7 @@ export default function About() {
               </h2>
               <p className="text-gray-600 mb-4 leading-relaxed">
                 Commercial Shot Blasting is the commercial and industrial shot blasting arm of{" "}
-                <strong className="text-[#2C5F7F]">Premier Blasting Ltd</strong>. Operating under the Premier Blasting Ltd umbrella, we focus exclusively on large-scale commercial, industrial, and agricultural projects across England and Wales.
+                <a href="https://premierblasting.co.uk" target="_blank" rel="noopener noreferrer" className="font-bold text-[#2C5F7F] underline decoration-[#2C5F7F]/40 hover:decoration-[#2C5F7F] transition-colors">Premier Blasting Ltd</a>. Operating under the Premier Blasting Ltd umbrella, we focus exclusively on large-scale commercial, industrial, and agricultural projects across England and Wales.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Our advanced shot blasting technology delivers exceptional results at competitive prices, with 9 fully equipped mobile units ready to attend your site anywhere in the UK.
