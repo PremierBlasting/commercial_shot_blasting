@@ -614,3 +614,11 @@
 - [x] Add intumescent-painting to SSR services list in generateServiceAreaBodyHTML
 - [x] Add county to LocationPage.tsx hero intro paragraph
 - [x] LocalBusiness schema already has priceRange, openingHours, areaServed — confirmed no changes needed
+
+## Local SEO — County Context Paragraphs & About Us (Round 11)
+
+- [x] Write unique local context paragraph for all 35 counties (shared/countyContext.ts)
+- [x] Move countyContext.ts to shared/ so both client and server can import it
+- [x] Wire county context paragraph into LocationPage.tsx About section (styled left-border blockquote)
+- [x] Wire county context paragraph into SSR body HTML (generateServiceAreaBodyHTML in metaTags.ts)
+- [x] Update About Us page to state Commercial Shot Blasting is the commercial/industrial arm of Premier Blasting Ltd

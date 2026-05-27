@@ -32,8 +32,12 @@ export default function About() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
               A Business You Can Trust
             </h1>
-            <p className="text-lg text-blue-100 leading-relaxed">
-              We are a trusted family-run business with the mission to provide superior shot blasting solutions for industrial and commercial environments across the UK.
+            <p className="text-lg text-blue-100 leading-relaxed mb-4">
+              Commercial Shot Blasting is the commercial and industrial shot blasting arm of{" "}
+              <strong className="text-white">Premier Blasting Ltd</strong> — a trusted family-run business delivering superior surface preparation solutions across the UK.
+            </p>
+            <p className="text-base text-blue-200 leading-relaxed">
+              Operating under the Premier Blasting Ltd umbrella, we specialise exclusively in large-scale commercial and industrial projects, bringing the same family values, quality standards, and expert team to every job.
             </p>
           </div>
         </div>
@@ -48,11 +52,15 @@ export default function About() {
               <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Professional Surface Preparation Experts
               </h2>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Commercial Shot Blasting is the commercial and industrial shot blasting arm of{" "}
+                <strong className="text-[#2C5F7F]">Premier Blasting Ltd</strong>. Operating under the Premier Blasting Ltd umbrella, we focus exclusively on large-scale commercial, industrial, and agricultural projects across England and Wales.
+              </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                We are a trusted family-run business with the mission to provide superior shot blasting solutions for industrial and commercial environments across the UK. Our advanced shot blasting technology delivers exceptional results at competitive prices.
+                Our advanced shot blasting technology delivers exceptional results at competitive prices, with 9 fully equipped mobile units ready to attend your site anywhere in the UK.
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                As part of our commitment, we employ an expert team dedicated to providing unparalleled services while maintaining high safety standards that protect your property.
+                As part of our commitment, we employ an expert team dedicated to providing unparalleled services while maintaining high safety standards that protect your property and workforce.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[

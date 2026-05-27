@@ -16,6 +16,7 @@ import { trackPhoneCall } from "@/lib/analytics";
 import { FAQSchema, generateLocationFAQs } from "@/components/FAQSchema";
 import { LocationData, locationData } from '@shared/locationData';
 import { countyData } from '@/data/countyData';
+import { countyContext } from '@shared/countyContext';
 import { services } from '@/data/services';
 import { trpc } from "@/lib/trpc";
 export type { LocationData };
@@ -174,6 +175,11 @@ export function LocationPage({ location }: LocationPageProps) {
               <p>
                 Whether you need a single component blasted or a full factory cladding programme, our mobile shot blasting service in {location.name} delivers consistent, high-quality results with minimal disruption to your operations. Call <a href="tel:07970566409" className="text-[#2C5F7F] hover:underline font-medium">07970 566409</a> for a free, no-obligation quote.
               </p>
+              {countyContext[location.countySlug] && (
+                <p className="mt-4 text-gray-600 border-l-4 border-[#2C5F7F] pl-4 italic">
+                  {countyContext[location.countySlug]}
+                </p>
+              )}
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@
 import { locationData } from "@shared/locationData";
 import { countyData, CountyData } from "@shared/countyData";
 import { servicePreparationSteps } from "@shared/servicePreparationSteps";
+import { countyContext } from "@shared/countyContext";
 
 interface LocationMeta {
   title: string;
@@ -5373,6 +5374,7 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
       <p>Professional mobile shot blasting services in ${escHtml(name)}, ${escHtml(county)} — delivered directly to your site by our fully equipped mobile units. We provide shot blasting services for structural steelwork, factory and warehouse cladding, shipping containers, industrial floor preparation, fire escapes, staircases, warehouse racking, plant and machinery, and more.</p>
       <p>Our shot blasting services in ${escHtml(name)} are carried out to SA2.5 (near white metal) and SA3 (white metal) standards, ensuring the correct surface profile for protective coating systems. We serve commercial, industrial, and agricultural clients across ${escHtml(county)} and the surrounding region.</p>
       <p>Call us for a free, no-obligation quote: <a href="tel:${PHONE.replace(/\s/g, "")}">${PHONE}</a></p>
+      ${countyContext[countySlug] ? `<p><em>${escHtml(countyContext[countySlug])}</em></p>` : ""}
     </header>
     <section aria-label="Why Choose Us">
       <h2>Why Choose Our Shot Blasting Services in ${escHtml(name)}?</h2>
