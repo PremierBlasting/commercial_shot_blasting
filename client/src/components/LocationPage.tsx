@@ -18,6 +18,7 @@ import { LocationData, locationData } from '@shared/locationData';
 import { countyData } from '@/data/countyData';
 import { countyContext } from '@shared/countyContext';
 import { services } from '@/data/services';
+import { getProjectsForCounty } from '@/data/recentProjects';
 import { trpc } from "@/lib/trpc";
 export type { LocationData };
 
@@ -736,6 +737,66 @@ export function LocationPage({ location }: LocationPageProps) {
                     </div>
                   </Link>
                 ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
+
+      {/* Recently completed projects near {Town} — 3 geographically relevant case studies */}
+      {(() => {
+        const projects = getProjectsForCounty(location.countySlug || '', 3);
+        if (!projects.length) return null;
+        return (
+          <section className="py-12 bg-white border-t border-gray-100">
+            <div className="container">
+              <div className="text-center mb-8">
+                <p className="text-[#2C5F7F] font-medium mb-1 uppercase tracking-wide text-xs">Case Studies</p>
+                <h2 className="text-xl md:text-2xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Recently Completed Projects near {location.name}
+                </h2>
+                <p className="text-gray-500 text-sm mt-2 max-w-xl mx-auto">
+                  A selection of shot blasting projects completed by our team in {location.county} and surrounding areas.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                {projects.map(project => (
+                  <a
+                    key={project.id}
+                    href={`/services/${project.serviceSlug}`}
+                    title={`${project.title} — ${project.serviceLabel} near ${location.name}`}
+                    className="group bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md hover:border-[#2C5F7F] transition-all duration-200 flex flex-col"
+                  >
+                    <div className="relative overflow-hidden h-44">
+                      <img
+                        src={project.afterImage}
+                        alt={`${project.title} — shot blasting result`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      <span className="absolute top-2 left-2 bg-[#2C5F7F] text-white text-xs font-semibold px-2 py-1 rounded">
+                        {project.serviceLabel}
+                      </span>
+                    </div>
+                    <div className="p-4 flex flex-col flex-1">
+                      <h3 className="font-semibold text-[#2C2C2C] text-sm leading-snug mb-1 group-hover:text-[#2C5F7F] transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-500 text-xs leading-relaxed flex-1">{project.description}</p>
+                      <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
+                        <span className="text-xs text-gray-400">{project.date}</span>
+                        <span className="inline-flex items-center gap-1 text-xs text-[#2C5F7F] font-medium">
+                          View service <ArrowRight className="w-3 h-3" />
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+              <div className="text-center mt-6">
+                <a href="/our-work" className="inline-flex items-center gap-2 text-sm text-[#2C5F7F] font-medium hover:underline">
+                  View all completed projects <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
             </div>
           </section>

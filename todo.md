@@ -636,3 +636,11 @@
 - [x] Add "Popular services near {Town}" strip to LocationPage.tsx with 4 featured service cards + localized anchor text
 - [x] Add "Popular services near {Town}" to SSR town body HTML (generateServiceAreaBodyHTML in metaTags.ts)
 - [x] Enhance CountyMap.tsx: increase to 6 major + 12 village markers, add clickable service area links in info windows, add marker count display
+
+## Round 14 — Schema Markup & Projects Section
+
+- [x] Add Service schema with areaServed (all 37 counties as AdministrativeArea entities) to all 19 service pages in metaTags.ts
+- [x] Verified BreadcrumbList JSON-LD already present on county hub pages (Home → Counties → {County})
+- [x] Verified BreadcrumbList JSON-LD already present on town pages (4-level: Home → Service Areas → {County} → {Town})
+- [x] Add "Recently completed projects near {Town}" section to LocationPage.tsx (3 project cards, county-matched, with after images)
+- [x] Add recently completed projects to SSR town body HTML in metaTags.ts (SSR_PROJECTS array + getSSRProjectsForCounty helper)
