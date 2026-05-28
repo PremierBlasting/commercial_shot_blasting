@@ -840,6 +840,45 @@ export function LocationPage({ location }: LocationPageProps) {
         </div>
       </section>
 
+      {/* Get a Quote CTA — service+location keyword anchored conversion section */}
+      <section className="py-12 bg-[#1a3a52] text-white">
+        <div className="container">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div className="flex-1">
+              <p className="text-[#7ec8e3] font-medium mb-1 uppercase tracking-wide text-xs">Free Quote — No Obligation</p>
+              <h2 className="text-xl md:text-2xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Get a Quote for Shot Blasting in {location.name}
+              </h2>
+              <p className="text-blue-100 text-sm leading-relaxed max-w-lg">
+                We provide mobile shot blasting services across {location.county}. Whether you need{" "}
+                <a href="/services/structural-steel-shot-blasting" className="underline hover:text-white">structural steel shot blasting in {location.name}</a>,{" "}
+                <a href="/services/factory-cladding-shot-blasting" className="underline hover:text-white">factory cladding preparation</a>,{" "}
+                <a href="/services/floor-shot-blasting" className="underline hover:text-white">industrial floor blasting</a>, or{" "}
+                <a href="/services/rust-removal" className="underline hover:text-white">rust removal</a>,
+                we come directly to your site — no transport costs, no delays.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 md:flex-col md:min-w-[200px]">
+              <button
+                type="button"
+                onClick={() => setQuotePopupOpen(true)}
+                className="inline-flex items-center justify-center gap-2 bg-[#E8A020] hover:bg-[#d4911a] text-white font-bold px-6 py-3 rounded-lg transition-colors text-sm shadow-md"
+              >
+                <ArrowRight className="w-4 h-4" />
+                Get a Free Quote
+              </button>
+              <a
+                href="tel:07970566409"
+                className="inline-flex items-center justify-center gap-2 bg-transparent border border-white/40 hover:bg-white/10 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-sm"
+              >
+                <Phone className="w-4 h-4" />
+                07970 566409
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Browse by County — internal link to county hub for crawl equity */}
       <section className="py-5 bg-gray-50 border-t border-gray-200">
         <div className="container text-center">

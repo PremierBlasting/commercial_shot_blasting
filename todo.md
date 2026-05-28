@@ -644,3 +644,10 @@
 - [x] Verified BreadcrumbList JSON-LD already present on town pages (4-level: Home → Service Areas → {County} → {Town})
 - [x] Add "Recently completed projects near {Town}" section to LocationPage.tsx (3 project cards, county-matched, with after images)
 - [x] Add recently completed projects to SSR town body HTML in metaTags.ts (SSR_PROJECTS array + getSSRProjectsForCounty helper)
+
+## Round 15 — CTA Section, County Schema & GSC Script
+
+- [x] Add "Get a Quote for {Service} in {Town}" CTA section to LocationPage.tsx with 4 service keyword links + phone/WhatsApp CTAs
+- [x] Add CTA section to SSR town body HTML in generateServiceAreaBodyHTML (metaTags.ts)
+- [x] Add hasMap (Google Maps search URL) and geo GeoCoordinates + areaServed sameAs Wikipedia to county hub LocalBusiness schema in metaTags.ts
+- [x] Generate gsc_submit_counties.py script to submit 35 county hub URLs to Google Search Console via URL Inspection API

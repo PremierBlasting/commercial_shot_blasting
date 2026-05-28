@@ -5505,9 +5505,10 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
       ${faqHtml}
     </section>
     ${nearbyHtml}
-    <section aria-label="Contact">
-      <h2>Get a Quote for Shot Blasting Services in ${escHtml(name)}</h2>
-      <p>Free, no-obligation quotes for all shot blasting services in ${escHtml(name)} and across ${escHtml(county)}. Call us today or request a quote online — we typically respond within 24 hours.</p>
+    <section aria-label="Get a Quote">
+      <h2>Get a Quote for Shot Blasting in ${escHtml(name)}</h2>
+      <p>We provide mobile shot blasting services across ${escHtml(county)}. Whether you need <a href="${SITE_URL}/services/structural-steel-shot-blasting">structural steel shot blasting in ${escHtml(name)}</a>, <a href="${SITE_URL}/services/factory-cladding-shot-blasting">factory cladding preparation in ${escHtml(name)}</a>, <a href="${SITE_URL}/services/floor-shot-blasting">industrial floor blasting in ${escHtml(name)}</a>, or <a href="${SITE_URL}/services/rust-removal">rust removal in ${escHtml(name)}</a>, we come directly to your site — no transport costs, no delays.</p>
+      <p>Free, no-obligation quotes for all shot blasting services in ${escHtml(name)} and across ${escHtml(county)}. Call or email us today.</p>
       <p>Phone: <a href="tel:${PHONE.replace(/\s/g, "")}">${PHONE}</a></p>
       <p>Email: <a href="mailto:info@commercialshotblasting.co.uk">info@commercialshotblasting.co.uk</a></p>
     </section>
@@ -5818,7 +5819,7 @@ export function injectMetaTags(html: string, url: string): string {
 
       const schemas = `
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"LocalBusiness","name":"${BUSINESS_NAME}","url":"${SITE_URL}","telephone":"${PHONE}","email":"${EMAIL}","logo":"${LOGO}","areaServed":{"@type":"AdministrativeArea","name":"${county.name}"}${county.latitude ? `,"geo":{"@type":"GeoCoordinates","latitude":${county.latitude},"longitude":${county.longitude}}` : ''}}
+    {"@context":"https://schema.org","@type":"LocalBusiness","name":"${BUSINESS_NAME}","url":"${SITE_URL}","telephone":"${PHONE}","email":"${EMAIL}","logo":"${LOGO}","areaServed":{"@type":"AdministrativeArea","name":"${county.name}","sameAs":"https://en.wikipedia.org/wiki/${encodeURIComponent(county.name)}"}${county.latitude ? `,"geo":{"@type":"GeoCoordinates","latitude":${county.latitude},"longitude":${county.longitude}},"hasMap":"https://www.google.com/maps/search/shot+blasting+${encodeURIComponent(county.name)}+UK/@${county.latitude},${county.longitude},10z"` : ''}}
     </script>
     ${faqSchemaItems ? `<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[${faqSchemaItems}]}</script>` : ''}
     <script type="application/ld+json">
