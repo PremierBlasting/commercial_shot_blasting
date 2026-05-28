@@ -66,6 +66,7 @@ export function LocationPage({ location }: LocationPageProps) {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [formName, setFormName] = useState('');
   const [formPhone, setFormPhone] = useState('');
+  const [formEmail, setFormEmail] = useState('');
   const [formMessage, setFormMessage] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState('');
@@ -75,6 +76,7 @@ export function LocationPage({ location }: LocationPageProps) {
       setFormSubmitted(true);
       setFormName('');
       setFormPhone('');
+      setFormEmail('');
       setFormMessage('');
     },
     onError: (err) => {
@@ -91,7 +93,7 @@ export function LocationPage({ location }: LocationPageProps) {
     }
     contactMutation.mutate({
       name: formName.trim(),
-      email: `${formPhone.replace(/\s/g, '')}@sms.placeholder`,
+      email: formEmail.trim() || `${formPhone.replace(/\s/g, '')}@sms.placeholder`,
       phone: formPhone.trim(),
       message: formMessage.trim() || `Quote request from ${location.name} town page`,
     });
@@ -954,6 +956,17 @@ export function LocationPage({ location }: LocationPageProps) {
                     />
                   </div>
                   <div>
+                    <label className="block text-xs text-blue-200 mb-1" htmlFor="inline-email">Email address (optional)</label>
+                    <input
+                      id="inline-email"
+                      type="email"
+                      placeholder="e.g. john@company.co.uk"
+                      value={formEmail}
+                      onChange={e => setFormEmail(e.target.value)}
+                      className="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white placeholder-white/40 text-sm focus:outline-none focus:border-[#7ec8e3] transition-colors"
+                    />
+                  </div>
+                  <div>
                     <label className="block text-xs text-blue-200 mb-1" htmlFor="inline-message">What do you need blasting? (optional)</label>
                     <textarea
                       id="inline-message"
@@ -978,7 +991,12 @@ export function LocationPage({ location }: LocationPageProps) {
                       <><ArrowRight className="w-4 h-4" /> Get My Free Quote</>
                     )}
                   </button>
-                  <p className="text-blue-200 text-xs text-center">No spam. We’ll only use your details to respond to your enquiry.</p>
+                  <p className="text-blue-200 text-xs text-center">No spam. We'll only use your details to respond to your enquiry.</p>
+                  <p className="text-blue-200/60 text-xs text-center">
+                    Serving {location.name} and all of{" "}
+                    <a href={`/counties/${location.countySlug}`} className="underline hover:text-white">{location.county}</a>
+                    {" — and within 100 miles of our base."}
+                  </p>
                 </form>
               )}
             </div>
