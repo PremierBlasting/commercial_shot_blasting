@@ -651,3 +651,10 @@
 - [x] Add CTA section to SSR town body HTML in generateServiceAreaBodyHTML (metaTags.ts)
 - [x] Add hasMap (Google Maps search URL) and geo GeoCoordinates + areaServed sameAs Wikipedia to county hub LocalBusiness schema in metaTags.ts
 - [x] Generate gsc_submit_counties.py script to submit 35 county hub URLs to Google Search Console via URL Inspection API
+
+## Round 16 — Nearby Towns Section & Inline Contact Form
+
+- [x] Add "Nearby towns" section to LocationPage.tsx (up to 12 same-county towns in a responsive grid with "Shot Blasting in {Town}" anchor text)
+- [x] Verified SSR town body HTML already has "Nearby Areas" section with up to 12 town links (already present from earlier round)
+- [x] Replace popup CTA in the Get a Quote section on town pages with an embedded inline contact form (name, phone, message, submit) with left/right layout
+- [x] Wire inline form to trpc.contact.submit mutation with success/error states and loading indicator

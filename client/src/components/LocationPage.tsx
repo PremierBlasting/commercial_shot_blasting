@@ -64,6 +64,38 @@ interface LocationPageProps {
 export function LocationPage({ location }: LocationPageProps) {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [formName, setFormName] = useState('');
+  const [formPhone, setFormPhone] = useState('');
+  const [formMessage, setFormMessage] = useState('');
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formError, setFormError] = useState('');
+
+  const contactMutation = trpc.contact.submit.useMutation({
+    onSuccess: () => {
+      setFormSubmitted(true);
+      setFormName('');
+      setFormPhone('');
+      setFormMessage('');
+    },
+    onError: (err) => {
+      setFormError(err.message || 'Something went wrong. Please call us directly.');
+    },
+  });
+
+  const handleInlineFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormError('');
+    if (!formName.trim() || !formPhone.trim()) {
+      setFormError('Please enter your name and phone number.');
+      return;
+    }
+    contactMutation.mutate({
+      name: formName.trim(),
+      email: `${formPhone.replace(/\s/g, '')}@sms.placeholder`,
+      phone: formPhone.trim(),
+      message: formMessage.trim() || `Quote request from ${location.name} town page`,
+    });
+  };
 
   // Derive nearby towns from same-county locations (up to 12, excluding current)
   const nearbyTowns = useMemo(() => {
@@ -840,16 +872,17 @@ export function LocationPage({ location }: LocationPageProps) {
         </div>
       </section>
 
-      {/* Get a Quote CTA — service+location keyword anchored conversion section */}
-      <section className="py-12 bg-[#1a3a52] text-white">
+      {/* Get a Quote — embedded inline contact form */}
+      <section className="py-14 bg-[#1a3a52] text-white">
         <div className="container">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div className="flex-1">
+          <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
+            {/* Left: copy + service links */}
+            <div className="flex-1 md:max-w-md">
               <p className="text-[#7ec8e3] font-medium mb-1 uppercase tracking-wide text-xs">Free Quote — No Obligation</p>
-              <h2 className="text-xl md:text-2xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <h2 className="text-2xl md:text-3xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Get a Quote for Shot Blasting in {location.name}
               </h2>
-              <p className="text-blue-100 text-sm leading-relaxed max-w-lg">
+              <p className="text-blue-100 text-sm leading-relaxed mb-5">
                 We provide mobile shot blasting services across {location.county}. Whether you need{" "}
                 <a href="/services/structural-steel-shot-blasting" className="underline hover:text-white">structural steel shot blasting in {location.name}</a>,{" "}
                 <a href="/services/factory-cladding-shot-blasting" className="underline hover:text-white">factory cladding preparation</a>,{" "}
@@ -857,27 +890,136 @@ export function LocationPage({ location }: LocationPageProps) {
                 <a href="/services/rust-removal" className="underline hover:text-white">rust removal</a>,
                 we come directly to your site — no transport costs, no delays.
               </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3 md:flex-col md:min-w-[200px]">
-              <button
-                type="button"
-                onClick={() => setQuotePopupOpen(true)}
-                className="inline-flex items-center justify-center gap-2 bg-[#E8A020] hover:bg-[#d4911a] text-white font-bold px-6 py-3 rounded-lg transition-colors text-sm shadow-md"
-              >
-                <ArrowRight className="w-4 h-4" />
-                Get a Free Quote
-              </button>
+              <div className="flex flex-col gap-2 text-sm">
+                <div className="flex items-center gap-2 text-blue-200">
+                  <CheckCircle className="w-4 h-4 text-[#7ec8e3] shrink-0" />
+                  Free site survey in {location.name}
+                </div>
+                <div className="flex items-center gap-2 text-blue-200">
+                  <CheckCircle className="w-4 h-4 text-[#7ec8e3] shrink-0" />
+                  SA2.5 / SA3 blast standard
+                </div>
+                <div className="flex items-center gap-2 text-blue-200">
+                  <CheckCircle className="w-4 h-4 text-[#7ec8e3] shrink-0" />
+                  Response within 24 hours
+                </div>
+                <div className="flex items-center gap-2 text-blue-200">
+                  <CheckCircle className="w-4 h-4 text-[#7ec8e3] shrink-0" />
+                  No transport costs — we come to you
+                </div>
+              </div>
               <a
                 href="tel:07970566409"
-                className="inline-flex items-center justify-center gap-2 bg-transparent border border-white/40 hover:bg-white/10 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-sm"
+                className="inline-flex items-center gap-2 mt-6 text-white font-semibold text-sm hover:text-[#7ec8e3] transition-colors"
+                onClick={() => trackPhoneCall('07970566409', 'Location Page Inline CTA')}
               >
                 <Phone className="w-4 h-4" />
-                07970 566409
+                Or call us: 07970 566409
               </a>
+            </div>
+
+            {/* Right: inline form */}
+            <div className="flex-1 w-full md:max-w-sm">
+              {formSubmitted ? (
+                <div className="bg-white/10 rounded-xl p-6 text-center">
+                  <CheckCircle className="w-10 h-10 text-[#7ec8e3] mx-auto mb-3" />
+                  <h3 className="font-bold text-lg mb-1">Quote request sent!</h3>
+                  <p className="text-blue-100 text-sm">We’ll be in touch within 24 hours. For urgent jobs, call us directly on 07970 566409.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleInlineFormSubmit} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 flex flex-col gap-4">
+                  <h3 className="font-semibold text-base mb-1">Request a free quote</h3>
+                  <div>
+                    <label className="block text-xs text-blue-200 mb-1" htmlFor="inline-name">Your name *</label>
+                    <input
+                      id="inline-name"
+                      type="text"
+                      required
+                      placeholder="e.g. John Smith"
+                      value={formName}
+                      onChange={e => setFormName(e.target.value)}
+                      className="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white placeholder-white/40 text-sm focus:outline-none focus:border-[#7ec8e3] transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-blue-200 mb-1" htmlFor="inline-phone">Phone number *</label>
+                    <input
+                      id="inline-phone"
+                      type="tel"
+                      required
+                      placeholder="e.g. 07700 900000"
+                      value={formPhone}
+                      onChange={e => setFormPhone(e.target.value)}
+                      className="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white placeholder-white/40 text-sm focus:outline-none focus:border-[#7ec8e3] transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-blue-200 mb-1" htmlFor="inline-message">What do you need blasting? (optional)</label>
+                    <textarea
+                      id="inline-message"
+                      rows={3}
+                      placeholder={`e.g. Structural steel shot blasting in ${location.name} — 200m² of beams`}
+                      value={formMessage}
+                      onChange={e => setFormMessage(e.target.value)}
+                      className="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white placeholder-white/40 text-sm focus:outline-none focus:border-[#7ec8e3] transition-colors resize-none"
+                    />
+                  </div>
+                  {formError && (
+                    <p className="text-red-300 text-xs">{formError}</p>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={contactMutation.isPending}
+                    className="w-full bg-[#E8A020] hover:bg-[#d4911a] disabled:opacity-60 text-white font-bold py-3 rounded-lg transition-colors text-sm flex items-center justify-center gap-2"
+                  >
+                    {contactMutation.isPending ? (
+                      <span>Sending…</span>
+                    ) : (
+                      <><ArrowRight className="w-4 h-4" /> Get My Free Quote</>
+                    )}
+                  </button>
+                  <p className="text-blue-200 text-xs text-center">No spam. We’ll only use your details to respond to your enquiry.</p>
+                </form>
+              )}
             </div>
           </div>
         </div>
       </section>
+
+      {/* Nearby towns — dense internal link mesh between same-county town pages */}
+      {nearbyTowns.length > 0 && (
+        <section className="py-10 bg-white border-t border-gray-100">
+          <div className="container">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
+              <div>
+                <p className="text-[#2C5F7F] font-medium mb-0.5 uppercase tracking-wide text-xs">Also Serving</p>
+                <h2 className="text-lg font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Nearby Towns in {location.county}
+                </h2>
+              </div>
+              <Link
+                href={`/counties/${location.countySlug}`}
+                className="text-sm text-[#2C5F7F] font-medium hover:underline shrink-0"
+              >
+                View all {location.county} areas →
+              </Link>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
+              {nearbyTowns.map(town => (
+                <Link
+                  key={town.slug}
+                  href={`/service-areas/${town.slug}`}
+                  title={`Shot Blasting in ${town.name}, ${location.county}`}
+                  className="group flex items-center gap-1.5 px-3 py-2 rounded-lg border border-gray-100 bg-gray-50 hover:border-[#2C5F7F] hover:bg-[#f0f6fb] transition-all duration-150 text-xs font-medium text-[#2C2C2C] hover:text-[#2C5F7F]"
+                >
+                  <MapPin className="w-3 h-3 text-[#2C5F7F] shrink-0" />
+                  <span className="truncate">Shot Blasting in {town.name}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Browse by County — internal link to county hub for crawl equity */}
       <section className="py-5 bg-gray-50 border-t border-gray-200">
