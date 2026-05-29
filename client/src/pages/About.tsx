@@ -28,6 +28,10 @@ export default function About() {
       <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3a4d] text-white py-20">
         <div className="container">
           <div className="max-w-3xl">
+            <p className="inline-flex items-center gap-2 text-white/70 text-sm font-medium tracking-wide mb-3">
+              <span className="w-4 h-px bg-white/40"></span>
+              The Commercial &amp; Industrial Arm of Premier Blasting
+            </p>
             <p className="text-blue-200 font-medium mb-2">About Commercial Shot Blasting</p>
             <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
               A Business You Can Trust
@@ -123,6 +127,41 @@ export default function About() {
                 <p className="text-gray-600 leading-relaxed">{value.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Premier Blasting Connection Section */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="container">
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
+            <div className="flex-shrink-0 flex flex-col items-center">
+              <div className="w-20 h-20 rounded-full bg-[#2C5F7F]/10 flex items-center justify-center mb-3">
+                <span className="text-3xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>PB</span>
+              </div>
+              <a
+                href="https://premierblasting.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#2C5F7F] text-sm font-medium underline underline-offset-2 hover:text-[#1a3d52] transition-colors"
+              >
+                premierblasting.co.uk
+              </a>
+            </div>
+            <div>
+              <p className="text-[#2C5F7F] font-medium mb-1 text-sm">Our Parent Company</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Part of the Premier Blasting Family
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-3">
+                Commercial Shot Blasting is the dedicated commercial and industrial arm of{" "}
+                <a href="https://premierblasting.co.uk" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#2C5F7F] underline decoration-[#2C5F7F]/40 hover:decoration-[#2C5F7F] transition-colors">Premier Blasting Ltd</a>
+                {" "}— a family-run business with over 20 years of experience in surface preparation across the UK.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                While Premier Blasting serves domestic and smaller-scale clients, Commercial Shot Blasting was established to focus exclusively on large-scale commercial, industrial, and agricultural contracts — bringing the same trusted team, equipment, and quality standards to every project, regardless of size or complexity.
+              </p>
+            </div>
           </div>
         </div>
       </section>

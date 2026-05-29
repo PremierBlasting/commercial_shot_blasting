@@ -164,15 +164,7 @@ export default function Home() {
           <div className="max-w-3xl">
             <p className="inline-flex items-center gap-2 text-white/70 text-sm font-medium tracking-wide mb-4">
               <span className="w-4 h-px bg-white/40"></span>
-              The Commercial &amp; Industrial Arm of{" "}
-              <a
-                href="https://premierblasting.co.uk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/90 hover:text-white underline underline-offset-2 decoration-white/30 hover:decoration-white transition-colors"
-              >
-                Premier Blasting
-              </a>
+              The Commercial &amp; Industrial Arm of Premier Blasting
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
               Shot Blasting Services for Commercial & Industrial Projects Across the UK

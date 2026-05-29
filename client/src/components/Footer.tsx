@@ -170,7 +170,18 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-white/10 pt-8">
+        <div className="border-t border-white/10 pt-8 flex flex-col items-center gap-4">
+          <a
+            href="https://premierblasting.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full px-5 py-2 transition-colors group"
+          >
+            <span className="w-7 h-7 rounded-full bg-[#2C5F7F] flex items-center justify-center text-xs font-bold text-white flex-shrink-0">PB</span>
+            <span className="text-white/60 text-xs group-hover:text-white/90 transition-colors">
+              Part of the <span className="text-white/80 font-medium">Premier Blasting</span> Group
+            </span>
+          </a>
           <p className="text-center text-white/70 text-sm">
             © 2026 Commercial Shot Blasting. All rights reserved. | Serving the UK
           </p>
