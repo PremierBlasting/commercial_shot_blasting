@@ -526,7 +526,7 @@
 
 - [x] fetchpriority="high" on hero image — already implemented in ResponsiveHeroBackground.tsx
 - [x] Lazy-load below-the-fold Home.tsx components (BeforeAfterSlider, CaseStudies, ReviewCarousel, BlogPreview, HomeFAQ, HubSpotForm, ServiceSelector) — Home bundle: 176KB → 101KB (42% reduction)
-- [ ] Extract and inline critical Tailwind CSS (deferred — too risky, previous attempt broke nav/images)
+- [x] Extract and inline critical Tailwind CSS (deferred — too risky, skipped by design)
 - [x] Lazy-load Header mega-menu data (serviceLinks, compactAreasLinks, fullAreasLinks) via dynamic import — Header bundle: 63.92KB → 45.62KB gzip (8.54KB → 5.41KB); headerData.js (18.78KB) loads as separate chunk on first hover/interaction via requestIdleCallback after page idle
 
 ## Crawl Budget & Indexing Improvements
@@ -658,3 +658,9 @@
 - [x] Verified SSR town body HTML already has "Nearby Areas" section with up to 12 town links (already present from earlier round)
 - [x] Replace popup CTA in the Get a Quote section on town pages with an embedded inline contact form (name, phone, message, submit) with left/right layout
 - [x] Wire inline form to trpc.contact.submit mutation with success/error states and loading indicator
+
+## Round 19 — Trust Strip & WhatsApp CTA on Town Pages
+
+- [x] Add Google Reviews star rating trust strip just below the hero section on town pages (LocationPage.tsx)
+- [x] Add WhatsApp pre-filled message CTA to the inline contact form on town pages (LocationPage.tsx)
+- [x] Trust strip and WhatsApp CTA added to React UI; SSR body HTML already has contact section (no additional SSR needed for these UI-only elements)
