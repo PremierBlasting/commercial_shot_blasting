@@ -4666,6 +4666,47 @@ function generateServiceBodyHTML(serviceId: string): string {
   <section class="ssr-process"><h2>Our Process</h2>${stepsHtml}</section>
   <section class="ssr-applications"><h2>Applications</h2><ul>${appsHtml}</ul></section>
   <section class="ssr-faqs" itemscope itemtype="https://schema.org/FAQPage"><h2>Frequently Asked Questions</h2>${faqsHtml}</section>
+  <section class="ssr-coverage">
+    <h2>${escHtml(d.title)} Coverage Across England &amp; Wales</h2>
+    <p>Our mobile units cover all major counties in England and Wales. Click any county to see the towns and areas we serve.</p>
+    <ul>
+      <li><a href="${SITE_URL}/counties/bedfordshire">${escHtml(d.title)} in Bedfordshire</a></li>
+      <li><a href="${SITE_URL}/counties/berkshire">${escHtml(d.title)} in Berkshire</a></li>
+      <li><a href="${SITE_URL}/counties/buckinghamshire">${escHtml(d.title)} in Buckinghamshire</a></li>
+      <li><a href="${SITE_URL}/counties/cambridgeshire">${escHtml(d.title)} in Cambridgeshire</a></li>
+      <li><a href="${SITE_URL}/counties/cheshire">${escHtml(d.title)} in Cheshire</a></li>
+      <li><a href="${SITE_URL}/counties/cumbria">${escHtml(d.title)} in Cumbria</a></li>
+      <li><a href="${SITE_URL}/counties/derbyshire">${escHtml(d.title)} in Derbyshire</a></li>
+      <li><a href="${SITE_URL}/counties/durham">${escHtml(d.title)} in County Durham</a></li>
+      <li><a href="${SITE_URL}/counties/east-wales">${escHtml(d.title)} in East Wales</a></li>
+      <li><a href="${SITE_URL}/counties/essex">${escHtml(d.title)} in Essex</a></li>
+      <li><a href="${SITE_URL}/counties/gloucestershire">${escHtml(d.title)} in Gloucestershire</a></li>
+      <li><a href="${SITE_URL}/counties/greater-manchester">${escHtml(d.title)} in Greater Manchester</a></li>
+      <li><a href="${SITE_URL}/counties/hampshire">${escHtml(d.title)} in Hampshire</a></li>
+      <li><a href="${SITE_URL}/counties/herefordshire">${escHtml(d.title)} in Herefordshire</a></li>
+      <li><a href="${SITE_URL}/counties/hertfordshire">${escHtml(d.title)} in Hertfordshire</a></li>
+      <li><a href="${SITE_URL}/counties/lancashire">${escHtml(d.title)} in Lancashire</a></li>
+      <li><a href="${SITE_URL}/counties/leicestershire">${escHtml(d.title)} in Leicestershire</a></li>
+      <li><a href="${SITE_URL}/counties/lincolnshire">${escHtml(d.title)} in Lincolnshire</a></li>
+      <li><a href="${SITE_URL}/counties/norfolk">${escHtml(d.title)} in Norfolk</a></li>
+      <li><a href="${SITE_URL}/counties/north-devon">${escHtml(d.title)} in North Devon</a></li>
+      <li><a href="${SITE_URL}/counties/north-yorkshire">${escHtml(d.title)} in North Yorkshire</a></li>
+      <li><a href="${SITE_URL}/counties/northamptonshire">${escHtml(d.title)} in Northamptonshire</a></li>
+      <li><a href="${SITE_URL}/counties/northumberland">${escHtml(d.title)} in Northumberland</a></li>
+      <li><a href="${SITE_URL}/counties/nottinghamshire">${escHtml(d.title)} in Nottinghamshire</a></li>
+      <li><a href="${SITE_URL}/counties/shropshire">${escHtml(d.title)} in Shropshire</a></li>
+      <li><a href="${SITE_URL}/counties/somerset">${escHtml(d.title)} in Somerset</a></li>
+      <li><a href="${SITE_URL}/counties/south-yorkshire">${escHtml(d.title)} in South Yorkshire</a></li>
+      <li><a href="${SITE_URL}/counties/staffordshire">${escHtml(d.title)} in Staffordshire</a></li>
+      <li><a href="${SITE_URL}/counties/suffolk">${escHtml(d.title)} in Suffolk</a></li>
+      <li><a href="${SITE_URL}/counties/tyne-and-wear">${escHtml(d.title)} in Tyne &amp; Wear</a></li>
+      <li><a href="${SITE_URL}/counties/warwickshire">${escHtml(d.title)} in Warwickshire</a></li>
+      <li><a href="${SITE_URL}/counties/west-midlands">${escHtml(d.title)} in West Midlands</a></li>
+      <li><a href="${SITE_URL}/counties/west-yorkshire">${escHtml(d.title)} in West Yorkshire</a></li>
+      <li><a href="${SITE_URL}/counties/wiltshire">${escHtml(d.title)} in Wiltshire</a></li>
+      <li><a href="${SITE_URL}/counties/worcestershire">${escHtml(d.title)} in Worcestershire</a></li>
+    </ul>
+  </section>
   <section class="ssr-contact">
     <h2>Get a Free Quote for ${escHtml(d.title)}</h2>
     <p>Contact Commercial Shot Blasting for professional ${escHtml(d.title.toLowerCase())} services across the UK.</p>

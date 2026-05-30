@@ -1316,45 +1316,70 @@ export default function ServiceDetail() {
                 </div>
               </div>
 
-              {/* Item 8: Service Coverage section */}
+              {/* Item 8: Service Coverage section — county hub links */}
               <div>
-                <h2 className="text-3xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Service Coverage
+                <h2 className="text-3xl font-bold text-[#2C5F7F] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  {service.title} Coverage Across England &amp; Wales
                 </h2>
-                <p className="text-gray-600 mb-4">We provide {service.title.toLowerCase()} services across the UK. Here are some of our key service areas:</p>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                <p className="text-gray-600 mb-5">Our mobile units cover all major counties in England and Wales. Click any county below to see the towns and areas we serve, or <Link href="/contact" className="text-[#2C5F7F] underline">contact us</Link> for a free site quote.</p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 mb-4">
                   {[
-                    { name: 'Birmingham', slug: 'birmingham' },
-                    { name: 'Manchester', slug: 'manchester' },
-                    { name: 'Leeds', slug: 'leeds' },
-                    { name: 'Sheffield', slug: 'sheffield' },
-                    { name: 'Nottingham', slug: 'nottingham' },
-                    { name: 'Leicester', slug: 'leicester' },
-                    { name: 'Derby', slug: 'derby' },
-                    { name: 'Coventry', slug: 'coventry' },
-                    { name: 'Liverpool', slug: 'liverpool' },
-                    { name: 'Bristol', slug: 'bristol' },
-                    { name: 'Cardiff', slug: 'cardiff' },
-                    { name: 'Stoke-on-Trent', slug: 'stoke-on-trent' },
-                    { name: 'Wolverhampton', slug: 'wolverhampton' },
-                    { name: 'Bradford', slug: 'bradford' },
-                    { name: 'Northampton', slug: 'northampton' },
-                    { name: 'Peterborough', slug: 'peterborough' },
-                  ].map(loc => (
+                    { name: 'Bedfordshire', slug: 'bedfordshire' },
+                    { name: 'Berkshire', slug: 'berkshire' },
+                    { name: 'Buckinghamshire', slug: 'buckinghamshire' },
+                    { name: 'Cambridgeshire', slug: 'cambridgeshire' },
+                    { name: 'Cheshire', slug: 'cheshire' },
+                    { name: 'Cumbria', slug: 'cumbria' },
+                    { name: 'Derbyshire', slug: 'derbyshire' },
+                    { name: 'County Durham', slug: 'durham' },
+                    { name: 'East Wales', slug: 'east-wales' },
+                    { name: 'Essex', slug: 'essex' },
+                    { name: 'Gloucestershire', slug: 'gloucestershire' },
+                    { name: 'Greater Manchester', slug: 'greater-manchester' },
+                    { name: 'Hampshire', slug: 'hampshire' },
+                    { name: 'Herefordshire', slug: 'herefordshire' },
+                    { name: 'Hertfordshire', slug: 'hertfordshire' },
+                    { name: 'Lancashire', slug: 'lancashire' },
+                    { name: 'Leicestershire', slug: 'leicestershire' },
+                    { name: 'Lincolnshire', slug: 'lincolnshire' },
+                    { name: 'Norfolk', slug: 'norfolk' },
+                    { name: 'North Devon', slug: 'north-devon' },
+                    { name: 'North Yorkshire', slug: 'north-yorkshire' },
+                    { name: 'Northamptonshire', slug: 'northamptonshire' },
+                    { name: 'Northumberland', slug: 'northumberland' },
+                    { name: 'Nottinghamshire', slug: 'nottinghamshire' },
+                    { name: 'Shropshire', slug: 'shropshire' },
+                    { name: 'Somerset', slug: 'somerset' },
+                    { name: 'South Yorkshire', slug: 'south-yorkshire' },
+                    { name: 'Staffordshire', slug: 'staffordshire' },
+                    { name: 'Suffolk', slug: 'suffolk' },
+                    { name: 'Tyne & Wear', slug: 'tyne-and-wear' },
+                    { name: 'Warwickshire', slug: 'warwickshire' },
+                    { name: 'West Midlands', slug: 'west-midlands' },
+                    { name: 'West Yorkshire', slug: 'west-yorkshire' },
+                    { name: 'Wiltshire', slug: 'wiltshire' },
+                    { name: 'Worcestershire', slug: 'worcestershire' },
+                  ].map(county => (
                     <Link
-                      key={loc.slug}
-                      href={`/service-areas/${loc.slug}`}
-                      className="flex items-center gap-1.5 text-sm text-[#2C5F7F] hover:underline bg-white px-3 py-2 rounded-lg shadow-sm border border-gray-100"
+                      key={county.slug}
+                      href={`/counties/${county.slug}`}
+                      className="flex items-center gap-1.5 text-sm text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white bg-white px-3 py-2 rounded-lg shadow-sm border border-gray-100 transition-colors group"
                     >
-                      <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
-                      {loc.name}
+                      <MapPin className="w-3.5 h-3.5 flex-shrink-0 group-hover:text-white" />
+                      {county.name}
                     </Link>
                   ))}
                 </div>
-                <Link href="/service-areas" className="mt-3 inline-flex items-center gap-2 text-sm text-[#2C5F7F] font-medium hover:underline">
-                  <ArrowRight className="w-4 h-4" />
-                  View all service areas
-                </Link>
+                <div className="flex flex-wrap gap-3 mt-2">
+                  <Link href="/service-areas" className="inline-flex items-center gap-2 text-sm text-[#2C5F7F] font-medium hover:underline">
+                    <ArrowRight className="w-4 h-4" />
+                    Browse all 650+ service areas
+                  </Link>
+                  <Link href="/counties" className="inline-flex items-center gap-2 text-sm text-[#2C5F7F] font-medium hover:underline">
+                    <ArrowRight className="w-4 h-4" />
+                    View coverage by county
+                  </Link>
+                </div>
               </div>
 
               {/* FAQs */}

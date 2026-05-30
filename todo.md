@@ -664,3 +664,8 @@
 - [x] Add Google Reviews star rating trust strip just below the hero section on town pages (LocationPage.tsx)
 - [x] Add WhatsApp pre-filled message CTA to the inline contact form on town pages (LocationPage.tsx)
 - [x] Trust strip and WhatsApp CTA added to React UI; SSR body HTML already has contact section (no additional SSR needed for these UI-only elements)
+
+## Round 20 — Service → County Cross-Linking
+
+- [x] Replace hardcoded 16-town list in ServiceDetail.tsx "Service Coverage" section with all 35 counties linking to county hub pages (/counties/{slug})
+- [x] Add county coverage section to SSR service page body HTML in generateServiceBodyHTML (metaTags.ts) — 35 county links with "{Service} in {County}" anchor text
