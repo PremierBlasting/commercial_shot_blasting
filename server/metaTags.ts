@@ -4,6 +4,7 @@ import { locationData } from "@shared/locationData";
 import { countyData, CountyData } from "@shared/countyData";
 import { servicePreparationSteps } from "@shared/servicePreparationSteps";
 import { countyContext } from "@shared/countyContext";
+import { countyOgImageUrl, townOgImageUrl } from "./ogImage";
 
 interface LocationMeta {
   title: string;
@@ -5878,18 +5879,19 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:description" content="${metaDesc}" />
     <meta property="og:url" content="${pageUrl}" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="${county.ogImage || HERO_IMAGE}" />
+    <meta property="og:image" content="${countyOgImageUrl(county.name)}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Shot Blasting in ${county.name} — Commercial Shot Blasting" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${pageTitle}" />
     <meta name="twitter:description" content="${metaDesc}" />
-    <meta name="twitter:image" content="${county.ogImage || HERO_IMAGE}" />
-    <meta name="twitter:image:alt" content="Shot blasting services in ${county.name} — rust removal and surface preparation by Commercial Shot Blasting" />
+    <meta name="twitter:image" content="${countyOgImageUrl(county.name)}" />
+    <meta name="twitter:image:alt" content="Shot Blasting in ${county.name} — Commercial Shot Blasting" />
     ${schemas}
-    ${county.ogImage ? `<script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","contentUrl":"${county.ogImage}","url":"${county.ogImage}","name":"Shot Blasting Services in ${county.name}","description":"Professional shot blasting and surface preparation services across ${county.name}","width":1200,"height":630,"encodingFormat":"image/webp","representativeOfPage":true,"creditText":"${BUSINESS_NAME}","creator":{"@type":"Organization","name":"${BUSINESS_NAME}","url":"${SITE_URL}"},"copyrightNotice":"\u00a9 2025 ${BUSINESS_NAME}. All rights reserved.","acquireLicensePage":"${SITE_URL}/contact","license":"${SITE_URL}/terms"}</script>` : ''}
   `;
       modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
 
@@ -6246,17 +6248,18 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:description" content="Shot blasting in ${locationName}${countyStr} — 9 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors &amp; more. Free quote: ${PHONE}" />
     <meta property="og:url" content="${fullUrl}" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="${HERO_IMAGE}" />
+    <meta property="og:image" content="${townOgImageUrl(locationName, dynCountyName || '')}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Shot Blasting in ${locationName}${countyStr} — Commercial Shot Blasting" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep" />
     <meta name="twitter:description" content="Shot blasting in ${locationName}${countyStr} — 9 mobile units, SA2.5/SA3 standard, same-week availability. Free quote: ${PHONE}" />
-    <meta name="twitter:image" content="${HERO_IMAGE}" />
-    <meta name="twitter:image:alt" content="Shot blasting in ${locationName}${countyStr} — Commercial Shot Blasting" />
-    <link rel="preload" as="image" href="${HERO_IMAGE}" />
+    <meta name="twitter:image" content="${townOgImageUrl(locationName, dynCountyName || '')}" />
+    <meta name="twitter:image:alt" content="Shot Blasting in ${locationName}${countyStr} — Commercial Shot Blasting" />
     ${generateLocationSchemas(locationSlug, locationName, fullUrl, dynCountyName, dynCountySlug)}
   `;
     
@@ -6304,17 +6307,18 @@ export function injectMetaTags(html: string, url: string): string {
     <meta property="og:description" content="${meta.description}" />
     <meta property="og:url" content="${meta.url}" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="${HERO_IMAGE}" />
+    <meta property="og:image" content="${townOgImageUrl(locationName, metaCountyName || '')}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Shot Blasting in ${locationName}${metaCountyName ? ', ' + metaCountyName : ''} — Commercial Shot Blasting" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${meta.title}" />
     <meta name="twitter:description" content="${meta.description}" />
-    <meta name="twitter:image" content="${HERO_IMAGE}" />
-    <meta name="twitter:image:alt" content="Shot blasting services in ${locationName} — Commercial Shot Blasting" />
-    <link rel="preload" as="image" href="${HERO_IMAGE}" />
+    <meta name="twitter:image" content="${townOgImageUrl(locationName, metaCountyName || '')}" />
+    <meta name="twitter:image:alt" content="Shot Blasting in ${locationName}${metaCountyName ? ', ' + metaCountyName : ''} — Commercial Shot Blasting" />
     ${generateLocationSchemas(locationSlug, locationName, meta.url, metaCountyName, metaCountySlug)}
   `;
   

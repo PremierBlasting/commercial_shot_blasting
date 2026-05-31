@@ -10,6 +10,7 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { registerSitemapRoute } from "../sitemap";
+import { registerOgImageRoute } from "../ogImage";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -63,6 +64,8 @@ async function startServer() {
   );
   // Sitemap
   registerSitemapRoute(app);
+  // Dynamic OG images for county and town pages
+  registerOgImageRoute(app);
 
   // robots.txt — served before static middleware / SPA fallback
   app.get("/robots.txt", (_req, res) => {

@@ -669,3 +669,13 @@
 
 - [x] Replace hardcoded 16-town list in ServiceDetail.tsx "Service Coverage" section with all 35 counties linking to county hub pages (/counties/{slug})
 - [x] Add county coverage section to SSR service page body HTML in generateServiceBodyHTML (metaTags.ts) — 35 county links with "{Service} in {County}" anchor text
+## Round 21 — Canonical Audit & Dynamic OG Images
+- [x] Canonical tag audit: all county and town pages confirmed clean (no trailing slash issues)
+- [x] Build server-side OG image generation endpoint /api/og-image using sharp + SVG-to-PNG
+- [x] Branded 1200×630 PNG cards: dark navy background, orange accent stripe, "SHOT BLASTING IN" label, bold location name, county sub-label (for towns), footer with URL + phone
+- [x] In-memory cache for generated images (deterministic from text, no S3 needed)
+- [x] Update county hub pages in metaTags.ts to use countyOgImageUrl() — dynamic branded image per county
+- [x] Update all town/service-area pages in metaTags.ts to use townOgImageUrl() — dynamic branded image per town with county sub-label
+- [x] Added og:image:type (image/png) and og:image:alt to all county and town OG meta tags
+- [x] Removed old ImageObject JSON-LD schema referencing static county ogImage fields (replaced by dynamic endpoint)
+- [x] TypeScript: 0 errors
