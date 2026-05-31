@@ -11,7 +11,8 @@ import { CookieConsent } from "./components/CookieConsent";
 import { FloatingCallButton } from "./components/FloatingCallButton";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
-import { WhatsAppWidget } from "@/components/WhatsAppWidget";
+import { WhatsAppWidget } from "./components/WhatsAppWidget";
+import { StickyMobileCTA } from "./components/StickyMobileCTA";
 import { CountyPageSkeleton } from "@/components/CountyPageSkeleton";
 import { IndustryPageSkeleton } from "@/components/IndustryPageSkeleton";
 
@@ -423,6 +424,7 @@ function App() {
           <ScrollToTop />
           <GoogleAnalytics />
           <WhatsAppWidget />
+          <StickyMobileCTA />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

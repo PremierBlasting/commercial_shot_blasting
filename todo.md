@@ -679,3 +679,14 @@
 - [x] Added og:image:type (image/png) and og:image:alt to all county and town OG meta tags
 - [x] Removed old ImageObject JSON-LD schema referencing static county ogImage fields (replaced by dynamic endpoint)
 - [x] TypeScript: 0 errors
+## Round 22 — sameAs JSON-LD, Sticky Mobile CTA Bar, Custom 404 Page
+- [x] Add sameAs ["https://premierblasting.co.uk", Facebook, LinkedIn] to homepage LocalBusiness JSON-LD (metaTags.ts generateHomepageSchemas)
+- [x] Add parentOrganization: {Premier Blasting Ltd, premierblasting.co.uk} to homepage LocalBusiness JSON-LD
+- [x] Add sameAs + parentOrganization to location-page Organization schema (metaTags.ts generateLocationSchemas)
+- [x] Update client-side jsonld-inject.js to replace empty sameAs:[] with premierblasting.co.uk + social links + parentOrganization
+- [x] Build StickyMobileCTA component: fixed bottom bar on mobile (md:hidden) with Call / WhatsApp / Get Quote buttons
+- [x] Wire StickyMobileCTA into App.tsx global layout
+- [x] Hide FloatingCallButton (replaced by sticky bar on mobile)
+- [x] Add body padding-bottom on mobile to prevent sticky bar overlapping page content
+- [x] Rebuild NotFound.tsx as branded 404 page: dark navy theme, 404 badge, 3 CTAs (homepage/call/WhatsApp), popular services grid, full 35-county coverage grid, footer nav links
+- [x] TypeScript: 0 errors

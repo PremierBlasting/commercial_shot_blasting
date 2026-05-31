@@ -12,7 +12,7 @@ export function FloatingCallButton() {
   };
 
   return (
-    <div className="fixed right-6 z-50 md:hidden" style={{ top: 'calc(50% + 44px)' }}>
+    <div className="fixed right-6 z-50 hidden" style={{ top: 'calc(50% + 44px)' }}>
       <a
         href="tel:07970566409"
         className="flex items-center justify-center w-14 h-14 bg-[#2C5F7F] text-white rounded-full shadow-lg transition-all duration-300 hover:bg-[#234a63] hover:scale-110 hover:shadow-xl active:scale-95"

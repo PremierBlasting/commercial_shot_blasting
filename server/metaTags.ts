@@ -3540,7 +3540,16 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
         "availableLanguage": "English"
       }
     ],
-    "sameAs": [],
+    "sameAs": [
+      "https://premierblasting.co.uk",
+      "https://www.facebook.com/commercialshotblasting",
+      "https://www.linkedin.com/company/commercial-shot-blasting"
+    ],
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Premier Blasting Ltd",
+      "url": "https://premierblasting.co.uk"
+    },
     "additionalType": [
       "https://schema.org/ProfessionalService",
       "https://schema.org/HomeAndConstructionBusiness"
@@ -5247,7 +5256,16 @@ function generateHomepageSchemas(): string {
       "description": "Professional mobile shot blasting services for commercial and industrial applications across the UK. Specialists in rust removal, surface preparation, and industrial cleaning.",
       "priceRange": "££",
       "areaServed": { "@type": "Country", "name": "United Kingdom" },
-      "sameAs": [],
+      "sameAs": [
+        "https://premierblasting.co.uk",
+        "https://www.facebook.com/commercialshotblasting",
+        "https://www.linkedin.com/company/commercial-shot-blasting"
+      ],
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Premier Blasting Ltd",
+        "url": "https://premierblasting.co.uk"
+      },
       "hasMap": `${SITE_URL}/contact`,
       "openingHoursSpecification": [
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" },
