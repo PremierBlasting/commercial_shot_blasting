@@ -929,4 +929,374 @@ export const countyData: Record<string, CountyData> = {
       }
     ]
   },
+
+  "north-yorkshire": {
+    name: "North Yorkshire",
+    slug: "north-yorkshire",
+    region: "Yorkshire",
+    description: "Professional shot blasting services throughout North Yorkshire. Serving York, Harrogate, Scarborough, and surrounding areas with expert surface preparation and industrial blasting.",
+    metaDescription: "Mobile shot blasting in North Yorkshire — agricultural machinery, food processing plant & heritage restoration. SA2.5/SA3 standard. Covering York, Harrogate & Scarborough. Free site survey.",
+    url: "https://commercialshotblasting.co.uk/counties/north-yorkshire",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
+    latitude: 54.0534,
+    longitude: -1.5490,
+    majorTowns: ["York", "Harrogate", "Scarborough", "Middlesbrough", "Northallerton"],
+    industries: ["Agriculture", "Food Processing", "Engineering", "Heritage & Restoration", "Construction"],
+    townsAndVillages: ["Bedale", "Boroughbridge", "Catterick", "Easingwold", "Filey", "Guisborough", "Helmsley", "Knaresborough", "Malton", "Masham", "Pickering", "Redcar", "Richmond", "Ripon", "Selby", "Settle", "Skipton", "Stokesley", "Tadcaster", "Thirsk", "Whitby", "Yarm"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services in York, Harrogate, and Scarborough?",
+        answer: "Yes — our mobile shot blasting teams cover all of North Yorkshire, including York, Harrogate, Scarborough, Middlesbrough, and Northallerton. We travel to your site with all equipment."
+      },
+      {
+        question: "Can you shot blast agricultural machinery and farm equipment in North Yorkshire?",
+        answer: "Yes. North Yorkshire has a large agricultural sector and we regularly shot blast farm machinery, trailers, grain silos, and steel outbuildings for farmers and rural businesses across the county, preparing surfaces for long-lasting protective coatings."
+      },
+      {
+        question: "Do you carry out heritage and restoration shot blasting in North Yorkshire?",
+        answer: "Yes — we have experience with sensitive heritage blasting on listed structures, Victorian ironwork, and historic buildings across North Yorkshire. We use appropriate media and pressures to clean without damaging original fabric."
+      },
+      {
+        question: "What surface preparation standard do you achieve for structural steelwork in North Yorkshire?",
+        answer: "We achieve SA2.5 (near white metal) and SA3 (white metal) to ISO 8501-1 as required. These standards are specified by most structural engineers and coating manufacturers for long-term corrosion protection."
+      },
+      {
+        question: "How do I get a free quote for shot blasting in North Yorkshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across North Yorkshire and typically respond within 24 hours."
+      }
+    ]
+  },
+
+  "greater-manchester": {
+    name: "Greater Manchester",
+    slug: "greater-manchester",
+    region: "North West",
+    description: "Professional shot blasting services in Greater Manchester. Rust removal, surface prep & industrial blasting across Manchester, Bolton, Oldham, Rochdale, Salford and Stockport.",
+    metaDescription: "Mobile shot blasting in Greater Manchester — engineering plant, chemical processing structures & construction steelwork. SA2.5/SA3 standard. Serving Manchester, Bolton & Stockport. Free quote.",
+    url: "https://commercialshotblasting.co.uk/counties/greater-manchester",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp",
+    latitude: 53.4808,
+    longitude: -2.2426,
+    majorTowns: ["Manchester", "Bolton", "Oldham", "Rochdale", "Salford", "Stockport"],
+    industries: ["Engineering", "Manufacturing", "Construction", "Chemical Processing"],
+    townsAndVillages: ["Altrincham", "Ashton-under-Lyne", "Bury", "Cheadle", "Droylsden", "Eccles", "Failsworth", "Farnworth", "Gatley", "Gorton", "Heywood", "Hyde", "Irlam", "Leigh", "Levenshulme", "Littleborough", "Middleton", "Milnrow", "Mossley", "Partington", "Pendlebury", "Radcliffe", "Ramsbottom", "Sale", "Stretford", "Swinton", "Urmston", "Walkden", "Whitefield", "Wigan", "Wythenshawe"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services across Greater Manchester?",
+        answer: "Yes — our mobile shot blasting units cover all of Greater Manchester, including Manchester city centre, Bolton, Oldham, Rochdale, Salford, and Stockport. We come to your site with all equipment."
+      },
+      {
+        question: "Can you shot blast engineering plant and manufacturing structures in Greater Manchester?",
+        answer: "Yes. Greater Manchester has a strong engineering and manufacturing base and we regularly shot blast industrial plant, fabricated steelwork, factory cladding, and production machinery for businesses across the conurbation."
+      },
+      {
+        question: "Do you work on chemical processing and industrial plant in Greater Manchester?",
+        answer: "Yes — we have experience working with chemical processing and industrial clients in Greater Manchester, providing surface preparation for plant, pipework, and structural steelwork to SA2.5 and SA3 standards."
+      },
+      {
+        question: "How quickly can you reach my site in Greater Manchester?",
+        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Greater Manchester within 2-5 working days. For urgent projects, we can often accommodate faster turnaround."
+      },
+      {
+        question: "How do I get a free quote for shot blasting in Greater Manchester?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Greater Manchester and typically respond within 24 hours."
+      }
+    ]
+  },
+
+  "essex": {
+    name: "Essex",
+    slug: "essex",
+    region: "East of England",
+    description: "Professional shot blasting services in Essex. Rust removal, surface prep & industrial blasting across Colchester, Chelmsford, Basildon and Southend-on-Sea.",
+    metaDescription: "Mobile shot blasting in Essex — logistics & distribution structures, agricultural plant & manufacturing steelwork. SA2.5/SA3 standard. Serving Colchester, Chelmsford & Basildon. Free quote.",
+    url: "https://commercialshotblasting.co.uk/counties/essex",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/okcUjGBJyNattGJb.webp",
+    latitude: 51.7343,
+    longitude: 0.4691,
+    majorTowns: ["Colchester", "Chelmsford", "Basildon", "Southend-on-Sea"],
+    industries: ["Manufacturing", "Construction", "Agriculture", "Logistics"],
+    townsAndVillages: ["Billericay", "Braintree", "Brentwood", "Burnham-on-Crouch", "Canvey Island", "Clacton-on-Sea", "Dunmow", "Epping", "Grays", "Halstead", "Harlow", "Harwich", "Ingatestone", "Laindon", "Loughton", "Maldon", "Mersea Island", "Rayleigh", "Rochford", "Saffron Walden", "Stanford-le-Hope", "Stansted Mountfitchet", "Tilbury", "Wickford", "Witham"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services across Essex?",
+        answer: "Yes — our mobile shot blasting units cover all of Essex, including Colchester, Chelmsford, Basildon, and Southend-on-Sea. We come to your site with all equipment needed."
+      },
+      {
+        question: "Can you shot blast logistics and distribution structures in Essex?",
+        answer: "Yes. Essex has a large logistics and distribution sector and we regularly shot blast warehouse steelwork, racking systems, loading dock structures, and distribution centre frameworks for businesses across the county."
+      },
+      {
+        question: "Do you work on agricultural machinery and farm equipment in Essex?",
+        answer: "Yes — we provide shot blasting for agricultural machinery, trailers, and farm buildings across Essex, preparing surfaces for protective coatings that extend equipment life in demanding outdoor environments."
+      },
+      {
+        question: "What surface preparation standard do you achieve in Essex?",
+        answer: "We achieve SA2.5 (near white metal) and SA3 (white metal) to ISO 8501-1. These standards are required by most structural engineers and coating manufacturers for long-term corrosion protection."
+      },
+      {
+        question: "How do I get a free quote for shot blasting in Essex?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Essex and typically respond within 24 hours."
+      }
+    ]
+  },
+
+  "berkshire": {
+    name: "Berkshire",
+    slug: "berkshire",
+    region: "South East England",
+    description: "Professional shot blasting services throughout Berkshire. Serving Reading, Slough, Bracknell, Windsor, Newbury, and surrounding areas with expert surface preparation and industrial blasting solutions.",
+    metaDescription: "Mobile shot blasting in Berkshire — commercial construction steelwork, logistics plant & manufacturing structures. SA2.5/SA3 standard. Serving Reading, Slough & Bracknell. Free site survey.",
+    url: "https://commercialshotblasting.co.uk/counties/berkshire",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp",
+    latitude: 51.4543,
+    longitude: -1.0,
+    majorTowns: ["Reading", "Slough", "Bracknell", "Windsor"],
+    industries: ["Commercial Construction", "Logistics", "Manufacturing", "Industrial Plant"],
+    townsAndVillages: ["Ascot", "Bracknell", "Caversham", "Crowthorne", "Eton", "Hungerford", "Maidenhead", "Newbury", "Reading", "Sandhurst", "Slough", "Thatcham", "Twyford", "Windsor", "Wokingham"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services across Berkshire?",
+        answer: "Yes — our mobile shot blasting units cover all of Berkshire, including Reading, Slough, Bracknell, and Windsor. We come to your site with all equipment needed."
+      },
+      {
+        question: "Can you shot blast commercial construction steelwork in Berkshire?",
+        answer: "Yes. Berkshire has significant commercial construction and logistics activity and we regularly shot blast structural steelwork, fabricated frames, and industrial plant for contractors and businesses across the county."
+      },
+      {
+        question: "Do you work on logistics and distribution centre structures in Berkshire?",
+        answer: "Yes — we provide shot blasting for warehouse steelwork, racking systems, and distribution centre frameworks across Berkshire, particularly in the Slough, Reading, and Bracknell areas."
+      },
+      {
+        question: "What surface preparation standard do you achieve in Berkshire?",
+        answer: "We achieve SA2.5 (near white metal) and SA3 (white metal) to ISO 8501-1. These standards are required by most structural engineers and coating manufacturers for long-term corrosion protection."
+      },
+      {
+        question: "How do I get a free quote for shot blasting in Berkshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Berkshire and typically respond within 24 hours."
+      }
+    ]
+  },
+
+  "hampshire": {
+    name: "Hampshire",
+    slug: "hampshire",
+    region: "South England",
+    description: "Professional shot blasting services throughout Hampshire. Serving Southampton, Portsmouth, Basingstoke, Winchester, and surrounding areas with expert surface preparation, marine blasting, and industrial solutions.",
+    metaDescription: "Mobile shot blasting in Hampshire — marine & shipyard structures, aerospace & defence plant, commercial construction. SA2.5/SA3 standard. Serving Southampton, Portsmouth & Basingstoke. Free quote.",
+    url: "https://commercialshotblasting.co.uk/counties/hampshire",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/okcUjGBJyNattGJb.webp",
+    latitude: 51.0577,
+    longitude: -1.3081,
+    majorTowns: ["Southampton", "Portsmouth", "Basingstoke", "Winchester"],
+    industries: ["Marine & Shipbuilding", "Aerospace & Defence", "Commercial Construction", "Industrial Plant"],
+    townsAndVillages: ["Aldershot", "Alresford", "Alton", "Andover", "Basingstoke", "Eastleigh", "Fareham", "Fleet", "Gosport", "Havant", "Hook", "Lymington", "New Milton", "Portsmouth", "Ringwood", "Romsey", "Southampton", "Tadley", "Waterlooville", "Winchester"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services across Hampshire?",
+        answer: "Yes — our mobile shot blasting units cover all of Hampshire, including Southampton, Portsmouth, Basingstoke, and Winchester. We come to your site with all equipment needed."
+      },
+      {
+        question: "Can you shot blast marine and shipyard structures in Hampshire?",
+        answer: "Yes. We have extensive experience in marine environments including shipyards, port facilities, and offshore structures in the Southampton and Portsmouth areas. We work to SA2.5 and SA3 standards for marine surface preparation."
+      },
+      {
+        question: "Do you work on aerospace and defence plant in Hampshire?",
+        answer: "Yes — Hampshire has a significant aerospace and defence sector and we provide shot blasting for industrial plant, structural steelwork, and fabricated components for businesses in this sector across the county."
+      },
+      {
+        question: "What surface preparation standard do you achieve in Hampshire?",
+        answer: "We achieve SA2.5 (near white metal) and SA3 (white metal) to ISO 8501-1. All work is documented with before and after reports and can be provided to coating applicators and project managers."
+      },
+      {
+        question: "How do I get a free quote for shot blasting in Hampshire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Hampshire and typically respond within 24 hours."
+      }
+    ]
+  },
+
+  "lancashire": {
+    name: "Lancashire",
+    slug: "lancashire",
+    region: "North West England",
+    description: "Professional shot blasting services throughout Lancashire. Serving Preston, Blackburn, Burnley, Lancaster, and surrounding areas with expert surface preparation and industrial blasting solutions.",
+    metaDescription: "Mobile shot blasting in Lancashire — manufacturing & textile engineering plant, energy sector structures & construction steelwork. SA2.5/SA3 standard. Serving Preston, Blackburn & Burnley. Free quote.",
+    url: "https://commercialshotblasting.co.uk/counties/lancashire",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp",
+    latitude: 53.7632,
+    longitude: -2.7044,
+    majorTowns: ["Preston", "Blackburn", "Burnley", "Lancaster"],
+    industries: ["Manufacturing", "Textiles & Engineering", "Energy", "Construction"],
+    townsAndVillages: ["Accrington", "Barnoldswick", "Blackpool", "Chorley", "Clitheroe", "Colne", "Darwen", "Fleetwood", "Garstang", "Great Harwood", "Haslingden", "Kirkham", "Lancaster", "Leyland", "Longridge", "Lytham St Annes", "Morecambe", "Nelson", "Ormskirk", "Oswaldtwistle", "Padiham", "Poulton-le-Fylde", "Preston", "Rawtenstall", "Skelmersdale", "Thornton-Cleveleys"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services across Lancashire?",
+        answer: "Yes — our mobile shot blasting units cover all of Lancashire, including Preston, Blackburn, Burnley, and Lancaster. We come to your site with all equipment needed."
+      },
+      {
+        question: "Can you shot blast manufacturing and engineering plant in Lancashire?",
+        answer: "Yes. Lancashire has a strong manufacturing and engineering heritage and we regularly shot blast industrial plant, fabricated steelwork, factory cladding, and production machinery for businesses across the county."
+      },
+      {
+        question: "Do you work on energy sector structures in Lancashire?",
+        answer: "Yes — Lancashire has significant energy sector activity and we provide shot blasting for industrial plant, structural steelwork, and fabricated components for energy businesses across the county."
+      },
+      {
+        question: "How quickly can you reach my site in Lancashire?",
+        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Lancashire within 2-5 working days. For urgent projects, we can often accommodate faster turnaround."
+      },
+      {
+        question: "How do I get a free quote for shot blasting in Lancashire?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Lancashire and typically respond within 24 hours."
+      }
+    ]
+  },
+
+  "cumbria": {
+    name: "Cumbria",
+    slug: "cumbria",
+    region: "North East England",
+    description: "Professional shot blasting services throughout Cumbria. Serving Carlisle, Barrow-in-Furness, Kendal, Workington, and surrounding areas with expert surface preparation, industrial blasting, and marine solutions.",
+    metaDescription: "Mobile shot blasting in Cumbria — nuclear & energy sector plant, marine & shipbuilding structures, agricultural equipment. SA2.5/SA3 standard. Serving Carlisle, Barrow & Kendal. Free quote.",
+    url: "https://commercialshotblasting.co.uk/counties/cumbria",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/fDsaRxagauTcgoki.webp",
+    latitude: 54.5772,
+    longitude: -2.7975,
+    majorTowns: ["Carlisle", "Barrow-in-Furness", "Kendal", "Workington"],
+    industries: ["Nuclear & Energy", "Marine & Shipbuilding", "Agriculture", "Manufacturing"],
+    townsAndVillages: ["Alston", "Ambleside", "Appleby-in-Westmorland", "Barrow-in-Furness", "Brampton", "Carlisle", "Cleator Moor", "Cockermouth", "Egremont", "Grange-over-Sands", "Grasmere", "Kendal", "Keswick", "Kirkby Lonsdale", "Maryport", "Millom", "Penrith", "Ulverston", "Whitehaven", "Windermere", "Workington"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services across Cumbria?",
+        answer: "Yes — our mobile shot blasting units cover all of Cumbria, including Carlisle, Barrow-in-Furness, Kendal, and Workington. We come to your site with all equipment needed."
+      },
+      {
+        question: "Can you work on nuclear and energy sector plant in Cumbria?",
+        answer: "Yes. We have experience working with energy sector clients in Cumbria, including surface preparation for industrial plant and infrastructure. We understand the specific compliance and safety requirements for these environments."
+      },
+      {
+        question: "Do you carry out marine and shipbuilding blasting in Cumbria?",
+        answer: "Yes — we have extensive experience in marine environments including shipyards and port facilities in Barrow-in-Furness and the Cumbrian coast. We work to SA2.5 and SA3 standards for marine surface preparation."
+      },
+      {
+        question: "Can you shot blast agricultural machinery and farm equipment in Cumbria?",
+        answer: "Yes. Cumbria has a large agricultural sector and we regularly shot blast farm machinery, trailers, and equipment for farmers and rural businesses across the county."
+      },
+      {
+        question: "How do I get a free quote for shot blasting in Cumbria?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Cumbria and typically respond within 24 hours."
+      }
+    ]
+  },
+
+  "durham": {
+    name: "County Durham",
+    slug: "durham",
+    region: "North East England",
+    description: "Professional shot blasting services throughout County Durham. Serving Durham City, Darlington, Hartlepool, Newton Aycliffe, and surrounding areas with expert surface preparation and industrial blasting solutions.",
+    metaDescription: "Mobile shot blasting in County Durham — manufacturing plant, automotive components & construction steelwork. SA2.5/SA3 standard. Serving Durham City, Darlington & Hartlepool. Free quote.",
+    url: "https://commercialshotblasting.co.uk/counties/durham",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp",
+    latitude: 54.7753,
+    longitude: -1.5849,
+    majorTowns: ["Durham City", "Darlington", "Hartlepool", "Newton Aycliffe"],
+    industries: ["Manufacturing", "Engineering", "Construction", "Automotive"],
+    townsAndVillages: ["Barnard Castle", "Bishop Auckland", "Chester-le-Street", "Consett", "Crook", "Darlington", "Durham City", "Ferryhill", "Hartlepool", "Lanchester", "Middleton-in-Teesdale", "Newton Aycliffe", "Peterlee", "Seaham", "Shildon", "Spennymoor", "Stanley", "Stanhope", "Stockton-on-Tees", "Trimdon"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services across County Durham?",
+        answer: "Yes — our mobile shot blasting units cover all of County Durham, including Durham City, Darlington, Hartlepool, and Newton Aycliffe. We come to your site with all equipment needed."
+      },
+      {
+        question: "Can you shot blast manufacturing and engineering plant in County Durham?",
+        answer: "Yes. County Durham has a strong manufacturing and engineering base and we regularly shot blast industrial plant, fabricated steelwork, factory cladding, and production machinery for businesses across the county."
+      },
+      {
+        question: "Do you work on automotive components and structures in County Durham?",
+        answer: "Yes — County Durham has significant automotive sector activity and we provide shot blasting for automotive plant, structural steelwork, and fabricated components for businesses in this sector."
+      },
+      {
+        question: "What surface preparation standard do you achieve in County Durham?",
+        answer: "We achieve SA2.5 (near white metal) and SA3 (white metal) to ISO 8501-1. All work is documented with before and after reports and can be provided to coating applicators and project managers."
+      },
+      {
+        question: "How do I get a free quote for shot blasting in County Durham?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across County Durham and typically respond within 24 hours."
+      }
+    ]
+  },
+
+  "tyne-and-wear": {
+    name: "Tyne & Wear",
+    slug: "tyne-and-wear",
+    region: "North East England",
+    description: "Professional shot blasting services throughout Tyne & Wear. Serving Newcastle, Sunderland, Gateshead, South Shields, and surrounding areas with expert surface preparation, industrial blasting, and structural steel solutions.",
+    metaDescription: "Mobile shot blasting in Tyne & Wear — shipbuilding & marine structures, automotive plant & construction steelwork. SA2.5/SA3 standard. Serving Newcastle, Sunderland & Gateshead. Free quote.",
+    url: "https://commercialshotblasting.co.uk/counties/tyne-and-wear",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
+    latitude: 54.9783,
+    longitude: -1.6178,
+    majorTowns: ["Newcastle upon Tyne", "Sunderland", "Gateshead", "South Shields"],
+    industries: ["Shipbuilding & Marine", "Automotive", "Construction", "Engineering"],
+    townsAndVillages: ["Blaydon", "Boldon", "Felling", "Gateshead", "Hebburn", "Houghton-le-Spring", "Jarrow", "Longbenton", "Newcastle upon Tyne", "North Shields", "Ryton", "South Shields", "Sunderland", "Tynemouth", "Wallsend", "Washington", "Whitley Bay", "Whickham"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services across Tyne & Wear?",
+        answer: "Yes — our mobile shot blasting units cover all of Tyne & Wear, including Newcastle upon Tyne, Sunderland, Gateshead, and South Shields. We come to your site with all equipment needed."
+      },
+      {
+        question: "Can you shot blast shipbuilding and marine structures in Tyne & Wear?",
+        answer: "Yes. We have extensive experience in marine environments including shipyards and port facilities on the Tyne and Wear rivers. We work to SA2.5 and SA3 standards for marine surface preparation and corrosion protection."
+      },
+      {
+        question: "Do you work on automotive plant and structures in Tyne & Wear?",
+        answer: "Yes — Tyne & Wear has significant automotive sector activity and we provide shot blasting for automotive plant, structural steelwork, and fabricated components for businesses in this sector across the region."
+      },
+      {
+        question: "What surface preparation standard do you achieve in Tyne & Wear?",
+        answer: "We achieve SA2.5 (near white metal) and SA3 (white metal) to ISO 8501-1. All work is documented with before and after reports and can be provided to coating applicators and project managers."
+      },
+      {
+        question: "How do I get a free quote for shot blasting in Tyne & Wear?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Tyne & Wear and typically respond within 24 hours."
+      }
+    ]
+  },
+
+  "northumberland": {
+    name: "Northumberland",
+    slug: "northumberland",
+    region: "North East England",
+    description: "Professional shot blasting services throughout Northumberland. Serving Morpeth, Hexham, Alnwick, Blyth, and surrounding areas with expert surface preparation, agricultural blasting, and industrial solutions.",
+    metaDescription: "Mobile shot blasting in Northumberland — agricultural machinery, energy sector plant & construction steelwork. SA2.5/SA3 standard. Serving Morpeth, Hexham & Alnwick. Free site survey.",
+    url: "https://commercialshotblasting.co.uk/counties/northumberland",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
+    latitude: 55.2083,
+    longitude: -2.0784,
+    majorTowns: ["Morpeth", "Hexham", "Alnwick", "Blyth"],
+    industries: ["Agriculture", "Construction", "Energy", "Manufacturing"],
+    townsAndVillages: ["Alnwick", "Amble", "Ashington", "Berwick-upon-Tweed", "Blyth", "Corbridge", "Cramlington", "Haltwhistle", "Hexham", "Morpeth", "Newbiggin-by-the-Sea", "Ponteland", "Prudhoe", "Rothbury", "Seahouses", "Wooler"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services across Northumberland?",
+        answer: "Yes — our mobile shot blasting units cover all of Northumberland, including Morpeth, Hexham, Alnwick, and Blyth. We come to your site with all equipment needed."
+      },
+      {
+        question: "Can you shot blast agricultural machinery and farm equipment in Northumberland?",
+        answer: "Yes. Northumberland has a large agricultural sector and we regularly shot blast farm machinery, trailers, grain silos, and steel outbuildings for farmers and rural businesses across the county, preparing surfaces for long-lasting protective coatings."
+      },
+      {
+        question: "Do you work on energy sector plant and structures in Northumberland?",
+        answer: "Yes — Northumberland has significant energy sector activity and we provide shot blasting for industrial plant, structural steelwork, and fabricated components for energy businesses across the county."
+      },
+      {
+        question: "What surface preparation standard do you achieve in Northumberland?",
+        answer: "We achieve SA2.5 (near white metal) and SA3 (white metal) to ISO 8501-1. All work is documented with before and after reports and can be provided to coating applicators and project managers."
+      },
+      {
+        question: "How do I get a free quote for shot blasting in Northumberland?",
+        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Northumberland and typically respond within 24 hours."
+      }
+    ]
+  },
 };

@@ -690,3 +690,9 @@
 - [x] Add body padding-bottom on mobile to prevent sticky bar overlapping page content
 - [x] Rebuild NotFound.tsx as branded 404 page: dark navy theme, 404 badge, 3 CTAs (homepage/call/WhatsApp), popular services grid, full 35-county coverage grid, footer nav links
 - [x] TypeScript: 0 errors
+
+## Round 23 — FAQ Schema (All 35 Counties) + Breadcrumb Audit
+- [x] Add 10 missing counties to shared/countyData.ts with county-specific FAQPage questions (north-yorkshire, greater-manchester, essex, berkshire, hampshire, lancashire, cumbria, durham, tyne-and-wear, northumberland)
+- [x] Verified all 35 county hub pages now return FAQPage JSON-LD in SSR output (5 county-specific questions each)
+- [x] Confirmed visible breadcrumb trail (Home → Service Areas → County → Town) already present on all dynamic town pages (LocationPage.tsx) and county hub pages (CountyPage.tsx) — no additional work needed
+- [x] TypeScript: 0 errors
