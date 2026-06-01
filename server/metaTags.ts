@@ -3329,6 +3329,17 @@ function capitalize(slug: string): string {
 }
 
 /**
+ * Generate hreflang link tags for a given canonical URL.
+ * Adds en-gb (primary) and en (fallback) alternate links.
+ * Should be injected immediately after the canonical link tag.
+ */
+function hreflangTags(canonicalUrl: string): string {
+  return `
+    <link rel="alternate" hreflang="en-gb" href="${canonicalUrl}" />
+    <link rel="alternate" hreflang="en" href="${canonicalUrl}" />`;
+}
+
+/**
  * Generate comprehensive JSON-LD schemas for service area pages
  */
 function generateLocationSchemas(locationSlug: string, locationName: string, url: string, countyName?: string, countySlug?: string): string {
@@ -5597,6 +5608,8 @@ export function injectMetaTags(html: string, url: string): string {
     const homeMetaTags = `
     <title>Shot Blasting Services UK | Commercial & Industrial | ${BUSINESS_NAME}</title>
     <link rel="canonical" href="${SITE_URL}/" />
+    <link rel="alternate" hreflang="en-gb" href="${SITE_URL}/" />
+    <link rel="alternate" hreflang="en" href="${SITE_URL}/" />
     <meta name="description" content="UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Free quote. Call 07970 566409." />
     <meta property="og:title" content="Shot Blasting Services UK | Commercial & Industrial | ${BUSINESS_NAME}" />
     <meta property="og:description" content="UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Free quote." />
@@ -5630,6 +5643,8 @@ export function injectMetaTags(html: string, url: string): string {
     const metaTags = `
     <title>Shot Blasting Services UK | Commercial &amp; Industrial | ${BUSINESS_NAME}</title>
     <link rel="canonical" href="${servicesUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${servicesUrl}" />
+    <link rel="alternate" hreflang="en" href="${servicesUrl}" />
     <meta name="description" content="Professional shot blasting services UK-wide — 18 specialist services including structural steel, factory cladding, containers, floor preparation, rust removal, plant &amp; machinery and more. Mobile service to your site. SA2.5/SA3 standard. Free quote." />
     <meta property="og:title" content="Shot Blasting Services UK | Commercial &amp; Industrial | ${BUSINESS_NAME}" />
     <meta property="og:description" content="Professional shot blasting services UK-wide — 18 specialist services including structural steel, factory cladding, containers, floor preparation, rust removal, plant &amp; machinery and more. Mobile service to your site. SA2.5/SA3 standard. Free quote." />
@@ -5680,6 +5695,8 @@ export function injectMetaTags(html: string, url: string): string {
     const areaMetaTags = `
     <title>Shot Blasting Service Areas | ${BUSINESS_NAME}</title>
     <link rel="canonical" href="${serviceAreasUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${serviceAreasUrl}" />
+    <link rel="alternate" hreflang="en" href="${serviceAreasUrl}" />
     <meta name="description" content="Commercial Shot Blasting provides professional mobile shot blasting services across the UK. Browse our service areas covering the Midlands, North West, Yorkshire, South West, Wales, and more." />
     <meta property="og:title" content="Shot Blasting Service Areas | ${BUSINESS_NAME}" />
     <meta property="og:description" content="Commercial Shot Blasting provides professional mobile shot blasting services across the UK. Browse our service areas covering the Midlands, North West, Yorkshire, South West, Wales, and more." />
@@ -5728,6 +5745,8 @@ export function injectMetaTags(html: string, url: string): string {
     <title>${svc.title} | ${BUSINESS_NAME}</title>
     <link rel="preload" as="image" href="${svc.heroImage}" />
     <link rel="canonical" href="${pageUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${pageUrl}" />
+    <link rel="alternate" hreflang="en" href="${pageUrl}" />
     <meta name="description" content="${svc.description.replace(/"/g, '&quot;')}" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta property="og:title" content="${svc.title} | ${BUSINESS_NAME}" />
@@ -5768,7 +5787,9 @@ export function injectMetaTags(html: string, url: string): string {
     let modifiedHtml = html;
     modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${reviewsTitle}</title>`);
     modifiedHtml = modifiedHtml.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${reviewsDesc}" />`);
-    modifiedHtml = modifiedHtml.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${reviewsUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${reviewsUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${reviewsUrl}" />
+    <link rel="alternate" hreflang="en" href="${reviewsUrl}" />`);
     modifiedHtml = modifiedHtml.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${reviewsTitle}" />`);
     modifiedHtml = modifiedHtml.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${reviewsDesc}" />`);
     modifiedHtml = modifiedHtml.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${reviewsUrl}" />`);
@@ -5817,7 +5838,9 @@ export function injectMetaTags(html: string, url: string): string {
     let modifiedHtml = html;
     modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${countiesTitle}</title>`);
     modifiedHtml = modifiedHtml.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${countiesDesc}" />`);
-    modifiedHtml = modifiedHtml.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${countiesUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${countiesUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${countiesUrl}" />
+    <link rel="alternate" hreflang="en" href="${countiesUrl}" />`);
     modifiedHtml = modifiedHtml.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${countiesTitle}" />`);
     modifiedHtml = modifiedHtml.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${countiesDesc}" />`);
     modifiedHtml = modifiedHtml.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${countiesUrl}" />`);
@@ -5837,7 +5860,9 @@ export function injectMetaTags(html: string, url: string): string {
     let modifiedHtml = html;
     modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${industriesTitle}</title>`);
     modifiedHtml = modifiedHtml.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${industriesDesc}" />`);
-    modifiedHtml = modifiedHtml.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${industriesUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${industriesUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${industriesUrl}" />
+    <link rel="alternate" hreflang="en" href="${industriesUrl}" />`);
     modifiedHtml = modifiedHtml.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${industriesTitle}" />`);
     modifiedHtml = modifiedHtml.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${industriesDesc}" />`);
     modifiedHtml = modifiedHtml.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${industriesUrl}" />`);
@@ -5892,6 +5917,8 @@ export function injectMetaTags(html: string, url: string): string {
       const metaTags = `
     <title>${pageTitle}</title>
     <link rel="canonical" href="${pageUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${pageUrl}" />
+    <link rel="alternate" hreflang="en" href="${pageUrl}" />
     <meta name="description" content="${metaDesc}" />
     <meta property="og:title" content="${pageTitle}" />
     <meta property="og:description" content="${metaDesc}" />
@@ -6172,6 +6199,8 @@ export function injectMetaTags(html: string, url: string): string {
       const metaTags = `
     <title>${pageTitle}</title>
     <link rel="canonical" href="${pageUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${pageUrl}" />
+    <link rel="alternate" hreflang="en" href="${pageUrl}" />
     <meta name="description" content="${metaDesc}" />
     <meta property="og:title" content="${pageTitle}" />
     <meta property="og:description" content="${metaDesc}" />
@@ -6208,6 +6237,8 @@ export function injectMetaTags(html: string, url: string): string {
     const sitemapMetaTags = `
     <title>${sitemapTitle}</title>
     <link rel="canonical" href="${sitemapUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${sitemapUrl}" />
+    <link rel="alternate" hreflang="en" href="${sitemapUrl}" />
     <meta name="description" content="${sitemapDesc}" />
     <meta name="robots" content="index, follow" />
     <meta property="og:title" content="${sitemapTitle}" />
@@ -6225,7 +6256,51 @@ export function injectMetaTags(html: string, url: string): string {
     return modifiedHtml;
   }
 
-  // Check if this is a service area pagee
+  // Check if this is a service area page
+  // Handle both /service-areas/{slug} and /service-areas/{county}/{town} patterns
+  const serviceAreaTwoSegMatch = url.match(/\/service-areas\/([a-z-]+)\/([a-z-]+)/);
+  if (serviceAreaTwoSegMatch) {
+    // Two-segment URL: /service-areas/{county}/{town}
+    // Treat the town slug as the location and county slug as the county context
+    const countySlug = serviceAreaTwoSegMatch[1];
+    const townSlug = serviceAreaTwoSegMatch[2];
+    const locationName = capitalize(townSlug);
+    const countyName = capitalize(countySlug);
+    const fullUrl = `${SITE_URL}/service-areas/${countySlug}/${townSlug}`;
+    const countyStr = `, ${countyName}`;
+    
+    let modifiedHtml = html
+      .replace(/<meta\s+name="description"[^>]*>/gi, '')
+      .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '');
+    modifiedHtml = modifiedHtml.replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+    
+    const metaTags = `
+    <title>Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep</title>
+    <link rel="canonical" href="${fullUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${fullUrl}" />
+    <link rel="alternate" hreflang="en" href="${fullUrl}" />
+    <meta name="description" content="Shot blasting in ${locationName}${countyStr} — 9 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors &amp; more. Free quote: ${PHONE}" />
+    <meta property="og:title" content="Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep" />
+    <meta property="og:description" content="Shot blasting in ${locationName}${countyStr} — 9 mobile units, SA2.5/SA3 standard, same-week availability. Free quote: ${PHONE}" />
+    <meta property="og:url" content="${fullUrl}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="${townOgImageUrl(locationName, countyName)}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep" />
+    <meta name="twitter:description" content="Shot blasting in ${locationName}${countyStr} — 9 mobile units, SA2.5/SA3 standard. Free quote: ${PHONE}" />
+    <meta name="twitter:image" content="${townOgImageUrl(locationName, countyName)}" />`;
+    
+    modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
+    return modifiedHtml;
+  }
+
   const serviceAreaMatch = url.match(/\/service-areas\/([a-z-]+)/);
   
   if (!serviceAreaMatch) {
@@ -6260,6 +6335,8 @@ export function injectMetaTags(html: string, url: string): string {
     const metaTags = `
     <title>Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep</title>
     <link rel="canonical" href="${fullUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${fullUrl}" />
+    <link rel="alternate" hreflang="en" href="${fullUrl}" />
     <meta name="description" content="Shot blasting in ${locationName}${countyStr} — 9 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors &amp; more. Free quote: ${PHONE}" />
     <meta name="keywords" content="shot blasting ${locationName}, ${locationName} shot blasting, mobile shot blasting ${locationName}, rust removal ${locationName}, surface preparation ${locationName}${dynCountyName ? `, shot blasting ${dynCountyName}` : ''}" />
     <meta property="og:title" content="Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep" />
@@ -6320,6 +6397,8 @@ export function injectMetaTags(html: string, url: string): string {
   const metaTags = `
     <title>${meta.title}</title>
     <link rel="canonical" href="${meta.url}" />
+    <link rel="alternate" hreflang="en-gb" href="${meta.url}" />
+    <link rel="alternate" hreflang="en" href="${meta.url}" />
     <meta name="description" content="${meta.description}" />
     <meta property="og:title" content="${meta.title}" />
     <meta property="og:description" content="${meta.description}" />

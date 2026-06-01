@@ -730,3 +730,13 @@
 - [x] Added contextual internal links to post 90001 (intumescent painting): /counties/west-midlands, /counties/yorkshire, /counties/staffordshire, /service-areas
 - [x] All 5 blog posts updated via scripts/add-blog-internal-links.mjs (all 11 patches applied successfully)
 - [x] TypeScript: 0 errors
+
+## Round 28 — 3 New Blog Posts + Hreflang en-GB
+
+- [x] Wrote 3 new high-intent blog posts: shot blasting cost guide (100001), shot blasting vs sandblasting (100002), structural steel certification/SA standards (100003)
+- [x] Inserted all 3 posts into database via scripts/insert-new-blog-posts.mjs
+- [x] Added hreflangTags() helper function to metaTags.ts
+- [x] Injected hreflang en-gb + en alternate link tags after canonical link on all 13 SSR route handlers (homepage, services, service-areas index, predefined locations, dynamic towns, county pages, reviews, counties index, industries index, blog posts, sitemap, dynamic service-areas, predefined meta)
+- [x] Fixed /service-areas/{county}/{town} two-segment URL routing — new handler extracts town-level canonical and hreflang URLs correctly
+- [x] Verified: hreflang en-gb/en correct on county page (Staffordshire), town page (Cannock), homepage
+- [x] TypeScript: 0 errors
