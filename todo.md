@@ -740,3 +740,12 @@
 - [x] Fixed /service-areas/{county}/{town} two-segment URL routing — new handler extracts town-level canonical and hreflang URLs correctly
 - [x] Verified: hreflang en-gb/en correct on county page (Staffordshire), town page (Cannock), homepage
 - [x] TypeScript: 0 errors
+
+## Round 29 — Blog Post Internal Links + VideoObject JSON-LD
+
+- [x] Added contextual internal links to blog post 100002 (vs sandblasting): structural steel shot blasting service, West Midlands, Yorkshire, Lancashire, factory cladding, machinery, service areas
+- [x] Added contextual internal links to blog post 100003 (structural steel standards): Staffordshire, Yorkshire, Greater Manchester county links; floor shot blasting service; service areas and counties index
+- [x] Added contextual internal links to blog post 100001 (cost guide): floor shot blasting, machinery shot blasting service links; Yorkshire, Lancashire, Staffordshire, West Midlands county links
+- [x] Added VideoObject JSON-LD schema to homepage SSR schemas array (schema #6) with real contentUrl (CDN mp4), thumbnailUrl (CDN webp poster), uploadDate, duration PT3M45S, publisher, author, about, keywords, regionsAllowed
+- [x] Verified: VideoObject appears in homepage SSR HTML output
+- [x] TypeScript: 0 errors

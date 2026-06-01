@@ -5327,7 +5327,29 @@ function generateHomepageSchemas(): string {
         { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL }
       ]
     },
-    // 6. FAQPage (homepage) — 8 common questions
+    // 6. VideoObject (homepage hero video)
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Commercial Shot Blasting Services — UK Industrial Surface Preparation",
+      "description": "See Commercial Shot Blasting's mobile shot blasting team in action. This video shows the complete process: site setup, containment, abrasive blasting to SA2.5 standard, surface inspection, and cleanup — delivered directly to client sites across England and Wales.",
+      "thumbnailUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/iWbuUjSLLiAZNRee.webp",
+      "contentUrl": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/CICKcOChLeIGkWWG.mp4",
+      "embedUrl": `${SITE_URL}/#hero-video`,
+      "uploadDate": "2024-03-15",
+      "duration": "PT3M45S",
+      "inLanguage": "en-GB",
+      "publisher": {
+        "@type": "Organization",
+        "name": BUSINESS_NAME,
+        "logo": { "@type": "ImageObject", "url": LOGO, "width": 512, "height": 512 }
+      },
+      "author": { "@type": "Organization", "name": BUSINESS_NAME, "url": SITE_URL },
+      "about": { "@type": "Service", "name": "Shot Blasting", "provider": { "@type": "LocalBusiness", "name": BUSINESS_NAME } },
+      "keywords": "shot blasting, surface preparation, rust removal, SA2.5, mobile shot blasting, UK",
+      "regionsAllowed": "GB"
+    },
+    // 7. FAQPage (homepage) — 8 common questions
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
