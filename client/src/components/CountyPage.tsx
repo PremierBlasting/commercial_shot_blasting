@@ -14,6 +14,7 @@ import { trackPhoneCall } from "@/lib/analytics";
 import { Footer } from "@/components/Footer";
 import { countyData, CountyData } from "@/data/countyData";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { serviceLinks } from "@/components/headerData";
 
 const regionColours: Record<string, string> = {
   "West Midlands": "#2C5F7F",
@@ -688,16 +689,42 @@ export function CountyPage({ county }: CountyPageProps) {
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-3" itemScope itemType="https://schema.org/FAQPage">
             {county.faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-bold text-[#2C2C2C] mb-3 flex items-start gap-3">
-                  <span className="text-[#E8B84A] text-xl flex-shrink-0">Q:</span>
-                  <span>{faq.question}</span>
-                </h3>
-                <p className="text-gray-600 ml-8">
-                  {faq.answer}
-                </p>
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden"
+                itemScope
+                itemProp="mainEntity"
+                itemType="https://schema.org/Question"
+              >
+                <button
+                  onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left hover:bg-gray-50 transition-colors"
+                  aria-expanded={expandedFaq === index}
+                >
+                  <h3 className="text-base font-semibold text-[#2C2C2C] flex items-center gap-3" itemProp="name">
+                    <span className="text-[#E8B84A] font-bold text-sm flex-shrink-0 w-6 h-6 rounded-full bg-[#E8B84A]/10 flex items-center justify-center">Q</span>
+                    {faq.question}
+                  </h3>
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#2C5F7F]/10 flex items-center justify-center">
+                    {expandedFaq === index
+                      ? <ChevronUp className="w-4 h-4 text-[#2C5F7F]" />
+                      : <ChevronDown className="w-4 h-4 text-[#2C5F7F]" />}
+                  </span>
+                </button>
+                {expandedFaq === index && (
+                  <div
+                    className="px-6 pb-5 pt-1 border-t border-gray-100"
+                    itemScope
+                    itemProp="acceptedAnswer"
+                    itemType="https://schema.org/Answer"
+                  >
+                    <p className="text-gray-600 leading-relaxed ml-9" itemProp="text">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -713,6 +740,50 @@ export function CountyPage({ county }: CountyPageProps) {
                 Get a Free Quote
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Available in County */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <div className="text-center mb-10">
+            <p className="text-[#2C5F7F] font-medium mb-2">Our Services</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Shot Blasting Services Available in {county.name}
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We offer the full range of commercial and industrial shot blasting services throughout {county.name}. Click any service to learn more.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {serviceLinks.map((service, index) => (
+              <Link
+                key={index}
+                href={service.href}
+                className="group flex items-start gap-4 bg-gray-50 rounded-xl p-4 border border-gray-100 hover:border-[#2C5F7F] hover:bg-[#2C5F7F]/5 transition-all"
+              >
+                <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#2C5F7F]/10 flex items-center justify-center mt-0.5">
+                  <ArrowRight className="w-4 h-4 text-[#2C5F7F] group-hover:translate-x-0.5 transition-transform" />
+                </span>
+                <div className="min-w-0">
+                  <p className="font-semibold text-[#2C2C2C] group-hover:text-[#2C5F7F] transition-colors text-sm leading-snug mb-1">
+                    {service.title} in {county.name}
+                  </p>
+                  <p className="text-xs text-gray-500 leading-relaxed">{service.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link href="/services">
+              <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                View All 19 Services
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

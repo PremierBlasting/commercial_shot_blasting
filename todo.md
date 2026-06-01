@@ -696,3 +696,9 @@
 - [x] Verified all 35 county hub pages now return FAQPage JSON-LD in SSR output (5 county-specific questions each)
 - [x] Confirmed visible breadcrumb trail (Home → Service Areas → County → Town) already present on all dynamic town pages (LocationPage.tsx) and county hub pages (CountyPage.tsx) — no additional work needed
 - [x] TypeScript: 0 errors
+
+## Round 24 — FAQ Accordion UI + Services Grid on County Hub Pages
+- [x] Convert county FAQ section from always-expanded cards to collapsible accordion (uses existing expandedFaq state, ChevronDown/Up icons, aria-expanded, FAQPage + Question + Answer microdata)
+- [x] Add "Services Available in {County}" grid section to CountyPage.tsx — 19 service cards sourced from headerData.ts serviceLinks, each linking to /services/{slug} with "{Service} in {County}" anchor text
+- [x] Update SSR county body HTML in metaTags.ts to use correct service slugs matching live service pages (19 services including intumescent-painting)
+- [x] TypeScript: 0 errors
