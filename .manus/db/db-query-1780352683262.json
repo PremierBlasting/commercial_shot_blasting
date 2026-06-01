@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE blog_posts SET content = REPLACE(\n  content,\n  'For [construction](/industries/construction) projects where structural steel will face decades of exposure to the elements',\n  'For [construction](/industries/construction) projects — from [West Midlands](/counties/west-midlands) steel fabricators to [Staffordshire](/counties/staffordshire) industrial developers — where structural steel will face decades of exposure to the elements'\n) WHERE id = 2;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute UPDATE blog_posts SET content = REPLACE(\n  content,\n  'For [construction](/industries/construction) projects where structural steel will face decades of exposure to the elements',\n  'For [construction](/industries/construction) projects — from [West Midlands](/counties/west-midlands) steel fabricators to [Staffordshire](/counties/staffordshire) industrial developers — where structural steel will face decades of exposure to the elements'\n) WHERE id = 2;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 576
+}

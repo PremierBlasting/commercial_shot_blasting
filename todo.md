@@ -718,3 +718,15 @@
 - [x] Added update-sitemap-dates.mjs to build pipeline in package.json (runs before vite build)
 - [x] Dynamic /sitemap.xml endpoint already uses new Date().toISOString() — confirmed already correct
 - [x] TypeScript: 0 errors
+
+## Round 27 — areaServed JSON-LD Audit + Blog Internal Links
+
+- [x] Confirmed areaServed with all 35 counties already present in SSR generateServiceSchemas (no changes needed)
+- [x] Confirmed service pages rely solely on SSR JSON-LD (no client-side schema injection needed)
+- [x] Added contextual internal links to post 2 (structural steel guide): /counties/west-midlands, /counties/staffordshire, /counties/yorkshire, /service-areas
+- [x] Added contextual internal links to post 3 (powder coating): /counties/west-midlands, /counties/lancashire, /counties/yorkshire, /counties/lincolnshire
+- [x] Added contextual internal links to post 4 (cladding restoration): /counties/lancashire, /counties/yorkshire, /counties/west-midlands, /service-areas
+- [x] Added contextual internal links to post 60001 (Birmingham): /counties/west-midlands, /counties/warwickshire, /counties/staffordshire, /service-areas
+- [x] Added contextual internal links to post 90001 (intumescent painting): /counties/west-midlands, /counties/yorkshire, /counties/staffordshire, /service-areas
+- [x] All 5 blog posts updated via scripts/add-blog-internal-links.mjs (all 11 patches applied successfully)
+- [x] TypeScript: 0 errors

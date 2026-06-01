@@ -1,0 +1,45 @@
+{
+  "query": "SELECT id, slug, LOCATE('West Midlands', content) as wm_pos, LOCATE('Yorkshire', content) as yk_pos, LOCATE('service-areas', content) as sa_pos FROM blog_posts ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, slug, LOCATE('West Midlands', content) as wm_pos, LOCATE('Yorkshire', content) as yk_pos, LOCATE('service-areas', content) as sa_pos FROM blog_posts ORDER BY id;",
+  "rows": [
+    {
+      "id": "2",
+      "slug": "shot-blasting-structural-steel-guide",
+      "wm_pos": "3218",
+      "yk_pos": "10773",
+      "sa_pos": "10650"
+    },
+    {
+      "id": "3",
+      "slug": "shot-blasting-powder-coating-partnership",
+      "wm_pos": "8706",
+      "yk_pos": "9880",
+      "sa_pos": "0"
+    },
+    {
+      "id": "4",
+      "slug": "factory-warehouse-cladding-restoration",
+      "wm_pos": "9722",
+      "yk_pos": "9680",
+      "sa_pos": "15684"
+    },
+    {
+      "id": "60001",
+      "slug": "shot-blasting-birmingham-west-midlands-2026",
+      "wm_pos": "98",
+      "yk_pos": "0",
+      "sa_pos": "5269"
+    },
+    {
+      "id": "90001",
+      "slug": "why-shot-blasting-essential-before-intumescent-painting",
+      "wm_pos": "796",
+      "yk_pos": "838",
+      "sa_pos": "7632"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tslug\twm_pos\tyk_pos\tsa_pos\n2\tshot-blasting-structural-steel-guide\t3218\t10773\t10650\n3\tshot-blasting-powder-coating-partnership\t8706\t9880\t0\n4\tfactory-warehouse-cladding-restoration\t9722\t9680\t15684\n60001\tshot-blasting-birmingham-west-midlands-2026\t98\t0\t5269\n90001\twhy-shot-blasting-essential-before-intumescent-painting\t796\t838\t7632\n",
+  "stderr": "",
+  "execution_time_ms": 563
+}

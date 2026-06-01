@@ -1,0 +1,46 @@
+{
+  "query": "SELECT id, slug, title, LEFT(content, 200) as content_preview FROM blog_posts WHERE isPublished = 1 ORDER BY publishedAt DESC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, slug, title, LEFT(content, 200) as content_preview FROM blog_posts WHERE isPublished = 1 ORDER BY publishedAt DESC;",
+  "rows": [
+    {
+      "id": "90001",
+      "slug": "why-shot-blasting-essential-before-intumescent-painting",
+      "title": "Why Shot Blasting is Essential Before Intumescent Painting",
+      "content_preview": "# Why Shot Blasting is Essential Before Intumescent Painting"
+    },
+    {
+      "id": "60001",
+      "slug": "shot-blasting-birmingham-west-midlands-2026",
+      "title": "Shot Blasting Services in Birmingham: West Midlands Industrial Surface Preparation",
+      "content_preview": "<h2>Why Birmingham Businesses Choose Professional Shot Blasting</h2>"
+    },
+    {
+      "id": "2",
+      "slug": "shot-blasting-structural-steel-guide",
+      "title": "The Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection",
+      "content_preview": "# The Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection"
+    },
+    {
+      "id": "3",
+      "slug": "shot-blasting-powder-coating-partnership",
+      "title": "Shot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes",
+      "content_preview": "# Shot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes"
+    },
+    {
+      "id": "4",
+      "slug": "factory-warehouse-cladding-restoration",
+      "title": "Restoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment",
+      "content_preview": "# Restoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment"
+    }
+  ],
+  "messages": [
+    "Intumescent paint is one of the most effective passive fire protection systems available for structural steel. When exposed to heat, the c",
+    "<p>Birmingham and the wider West Midlands have long been the heartland of British manufacturing and engineering. From the steel fab",
+    "Structural steel forms the backbone of modern construction, from towering office blocks to sprawling indust",
+    "The combination of shot blasting and powder coating represents one of the most effective finishing systems availa",
+    "Factory and warehouse cladding systems face relentless exposure to the elements, industrial poll"
+  ],
+  "stdout": "id\tslug\ttitle\tcontent_preview\n90001\twhy-shot-blasting-essential-before-intumescent-painting\tWhy Shot Blasting is Essential Before Intumescent Painting\t# Why Shot Blasting is Essential Before Intumescent Painting\n\nIntumescent paint is one of the most effective passive fire protection systems available for structural steel. When exposed to heat, the c\n60001\tshot-blasting-birmingham-west-midlands-2026\tShot Blasting Services in Birmingham: West Midlands Industrial Surface Preparation\t<h2>Why Birmingham Businesses Choose Professional Shot Blasting</h2>\n<p>Birmingham and the wider West Midlands have long been the heartland of British manufacturing and engineering. From the steel fab\n2\tshot-blasting-structural-steel-guide\tThe Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection\t# The Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection\nStructural steel forms the backbone of modern construction, from towering office blocks to sprawling indust\n3\tshot-blasting-powder-coating-partnership\tShot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes\t# Shot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes\nThe combination of shot blasting and powder coating represents one of the most effective finishing systems availa\n4\tfactory-warehouse-cladding-restoration\tRestoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment\t# Restoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment\nFactory and warehouse cladding systems face relentless exposure to the elements, industrial poll\n",
+  "stderr": "",
+  "execution_time_ms": 649
+}
