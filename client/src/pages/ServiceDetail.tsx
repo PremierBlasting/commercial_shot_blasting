@@ -1316,12 +1316,16 @@ export default function ServiceDetail() {
                 </div>
               </div>
 
-              {/* Item 8: Service Coverage section — county hub links */}
-              <div>
+              {/* Item 8: Where We Offer This Service — county grid with service-specific anchor text */}
+              <div id="service-coverage">
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  {service.title} Coverage Across England &amp; Wales
+                  Where We Offer {service.title}
                 </h2>
-                <p className="text-gray-600 mb-5">Our mobile units cover all major counties in England and Wales. Click any county below to see the towns and areas we serve, or <Link href="/contact" className="text-[#2C5F7F] underline">contact us</Link> for a free site quote.</p>
+                <p className="text-gray-600 mb-5">
+                  Our mobile units deliver <strong>{service.title.toLowerCase()}</strong> services across 35 counties in England and Wales.
+                  Select a county below to see all the towns and areas we cover, or{' '}
+                  <Link href="/contact" className="text-[#2C5F7F] underline">contact us</Link> for a free site survey.
+                </p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 mb-4">
                   {[
                     { name: 'Bedfordshire', slug: 'bedfordshire' },
@@ -1363,6 +1367,7 @@ export default function ServiceDetail() {
                     <Link
                       key={county.slug}
                       href={`/counties/${county.slug}`}
+                      title={`${service.title} in ${county.name}`}
                       className="flex items-center gap-1.5 text-sm text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white bg-white px-3 py-2 rounded-lg shadow-sm border border-gray-100 transition-colors group"
                     >
                       <MapPin className="w-3.5 h-3.5 flex-shrink-0 group-hover:text-white" />

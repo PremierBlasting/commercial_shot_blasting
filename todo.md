@@ -709,3 +709,12 @@
 - [x] Added 5 real review objects (Adam Nortman, Sharon Sawyer, Tim D, Michelle Ruddiman, Neil Primrose) to client-side LocalBusinessSchema component for richer rich-result eligibility
 - [x] Added premierblasting.co.uk to sameAs array in LocalBusinessSchema component
 - [x] TypeScript: 0 errors
+
+## Round 26 — Service Page County Grid + Sitemap Dynamic Timestamps
+- [x] Upgrade "Where We Offer {Service}" section in ServiceDetail.tsx: service-specific h2 heading, descriptive paragraph with service name in bold, title attribute on each county link for "{Service} in {County}" anchor text, id="service-coverage" for direct linking
+- [x] Update SSR service page body HTML in metaTags.ts: heading changed to "Where We Offer {Service}", descriptive paragraph updated to match client-side text
+- [x] Updated all 9 static sitemap XML files to today's date (2026-06-01): sitemap.xml, sitemap-main.xml, sitemap-services.xml, sitemap-counties.xml, sitemap-industries.xml, sitemap-locations-1.xml, sitemap-locations-2.xml, sitemap-service-areas.xml, sitemap-images.xml
+- [x] Created scripts/update-sitemap-dates.mjs — auto-updates all static sitemap lastmod dates to build date
+- [x] Added update-sitemap-dates.mjs to build pipeline in package.json (runs before vite build)
+- [x] Dynamic /sitemap.xml endpoint already uses new Date().toISOString() — confirmed already correct
+- [x] TypeScript: 0 errors

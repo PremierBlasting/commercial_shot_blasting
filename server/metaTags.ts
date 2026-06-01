@@ -4676,9 +4676,9 @@ function generateServiceBodyHTML(serviceId: string): string {
   <section class="ssr-process"><h2>Our Process</h2>${stepsHtml}</section>
   <section class="ssr-applications"><h2>Applications</h2><ul>${appsHtml}</ul></section>
   <section class="ssr-faqs" itemscope itemtype="https://schema.org/FAQPage"><h2>Frequently Asked Questions</h2>${faqsHtml}</section>
-  <section class="ssr-coverage">
-    <h2>${escHtml(d.title)} Coverage Across England &amp; Wales</h2>
-    <p>Our mobile units cover all major counties in England and Wales. Click any county to see the towns and areas we serve.</p>
+  <section class="ssr-coverage" id="service-coverage">
+    <h2>Where We Offer ${escHtml(d.title)}</h2>
+    <p>Our mobile units deliver ${escHtml(d.title.toLowerCase())} services across 35 counties in England and Wales. Select a county to see all the towns and areas we cover.</p>
     <ul>
       <li><a href="${SITE_URL}/counties/bedfordshire">${escHtml(d.title)} in Bedfordshire</a></li>
       <li><a href="${SITE_URL}/counties/berkshire">${escHtml(d.title)} in Berkshire</a></li>
