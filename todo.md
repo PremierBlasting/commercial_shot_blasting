@@ -702,3 +702,10 @@
 - [x] Add "Services Available in {County}" grid section to CountyPage.tsx — 19 service cards sourced from headerData.ts serviceLinks, each linking to /services/{slug} with "{Service} in {County}" anchor text
 - [x] Update SSR county body HTML in metaTags.ts to use correct service slugs matching live service pages (19 services including intumescent-painting)
 - [x] TypeScript: 0 errors
+
+## Round 25 — AggregateRating JSON-LD Audit & Enhancement
+- [x] Audited AggregateRating schema on town pages — confirmed already present in generateLocationSchemas (4.9/127) and LocalBusinessSchema component
+- [x] Verified SSR output: Cannock page has 19 JSON-LD blocks including LocalBusiness+AggregateRating (4.9/127), FAQPage (8 questions), 3 Review objects, 4 Product schemas with AggregateRating
+- [x] Added 5 real review objects (Adam Nortman, Sharon Sawyer, Tim D, Michelle Ruddiman, Neil Primrose) to client-side LocalBusinessSchema component for richer rich-result eligibility
+- [x] Added premierblasting.co.uk to sameAs array in LocalBusinessSchema component
+- [x] TypeScript: 0 errors
