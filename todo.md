@@ -749,3 +749,11 @@
 - [x] Added VideoObject JSON-LD schema to homepage SSR schemas array (schema #6) with real contentUrl (CDN mp4), thumbnailUrl (CDN webp poster), uploadDate, duration PT3M45S, publisher, author, about, keywords, regionsAllowed
 - [x] Verified: VideoObject appears in homepage SSR HTML output
 - [x] TypeScript: 0 errors
+## Round 30 — 3 New Blog Posts + Reviews Page AggregateRating Fix
+- [x] Wrote blog post 200001: Shot Blasting for Shipping Containers (complete guide, ISO standards, costs, process)
+- [x] Wrote blog post 200002: Shot Blasting vs Wire Brushing (comparison guide, Sa 2.5 vs St 3, surface profile, cost argument)
+- [x] Wrote blog post 200003: How to Specify Surface Preparation for Structural Steel (ISO 8501-1, profile requirements, specification checklist)
+- [x] Fixed insert script column names (table uses featuredImage, isPublished, metaDescription — no read_time column)
+- [x] Inserted all 3 new posts into database via scripts/insert-round30-blog-posts.mjs (IDs 200001, 200002, 200003)
+- [x] Updated Reviews page AggregateRating JSON-LD: corrected ratingValue to 4.9 and reviewCount to 127 (was 5.0/12)
+- [x] TypeScript: 0 errors

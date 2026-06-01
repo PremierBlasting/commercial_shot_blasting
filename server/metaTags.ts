@@ -5828,8 +5828,8 @@ export function injectMetaTags(html: string, url: string): string {
       "address": {"@type": "PostalAddress", "addressCountry": "GB"},
       "aggregateRating": {
         "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "12",
+        "ratingValue": "4.9",
+        "reviewCount": "127",
         "bestRating": "5",
         "worstRating": "1"
       },
