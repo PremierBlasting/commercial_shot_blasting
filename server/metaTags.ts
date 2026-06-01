@@ -1,5 +1,6 @@
 // Server-side meta tag and JSON-LD injection for SEO
 // This ensures OG tags and structured data are in the initial HTML for crawlers
+import { getBlogPostBySlug } from "./db";
 import { locationData } from "@shared/locationData";
 import { countyData, CountyData } from "@shared/countyData";
 import { servicePreparationSteps } from "@shared/servicePreparationSteps";
@@ -5618,7 +5619,7 @@ function escHtml(str: string): string {
     .replace(/'/g, "&#39;");
 }
 
-export function injectMetaTags(html: string, url: string): string {
+export async function injectMetaTags(html: string, url: string): Promise<string> {
   // Check if this is the homepage
   if (url === '/' || url === '') {
     let modifiedHtml = html
@@ -5746,6 +5747,127 @@ export function injectMetaTags(html: string, url: string): string {
     </script>
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, areaMetaTags);
+    return modifiedHtml;
+  }
+
+  // ── Blog index page: /blog ─────────────────────────────────────────────────
+  if (url === '/blog' || url === '/blog/') {
+    const blogUrl = `${SITE_URL}/blog`;
+    let modifiedHtml = html
+      .replace(/<meta\s+name="description"[^>]*>/gi, '')
+      .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+    const blogMetaTags = `
+    <title>Shot Blasting Blog | Expert Guides &amp; Industry Insights | ${BUSINESS_NAME}</title>
+    <link rel="canonical" href="${blogUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${blogUrl}" />
+    <link rel="alternate" hreflang="en" href="${blogUrl}" />
+    <meta name="description" content="Expert articles and guides on shot blasting, surface preparation, rust removal, and industrial coating from Commercial Shot Blasting. SA2.5/SA3 standards, equipment, techniques and case studies." />
+    <meta property="og:title" content="Shot Blasting Blog | Expert Guides &amp; Industry Insights | ${BUSINESS_NAME}" />
+    <meta property="og:description" content="Expert articles and guides on shot blasting, surface preparation, rust removal, and industrial coating from Commercial Shot Blasting." />
+    <meta property="og:url" content="${blogUrl}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="${LOGO}" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shot Blasting Blog | Expert Guides &amp; Industry Insights | ${BUSINESS_NAME}" />
+    <meta name="twitter:description" content="Expert articles and guides on shot blasting, surface preparation, rust removal, and industrial coating from Commercial Shot Blasting." />
+    <meta name="twitter:image" content="${LOGO}" />
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Blog","name":"Commercial Shot Blasting Blog","description":"Expert articles, guides, and insights about shot blasting, surface preparation, and industrial coating techniques.","url":"${blogUrl}","publisher":{"@type":"Organization","name":"${BUSINESS_NAME}","url":"${SITE_URL}","logo":{"@type":"ImageObject","url":"${LOGO}"}}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"${SITE_URL}"},{"@type":"ListItem","position":2,"name":"Blog","item":"${blogUrl}"}]}
+    </script>
+  `;
+    modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, blogMetaTags);
+    return modifiedHtml;
+  }
+
+  // ── Individual blog post: /blog/:slug ────────────────────────────────────────
+  const blogPostMatch = url.match(/^\/blog\/([a-z0-9-]+)/);
+  if (blogPostMatch) {
+    const postSlug = blogPostMatch[1];
+    const postUrl = `${SITE_URL}/blog/${postSlug}`;
+    // Fetch post from DB for rich Article JSON-LD
+    const post = await getBlogPostBySlug(postSlug);
+    const postTitle = post?.title || `Shot Blasting Blog | ${BUSINESS_NAME}`;
+    const postDesc = post?.metaDescription || post?.excerpt || 'Expert insights on shot blasting and surface preparation from Commercial Shot Blasting.';
+    const postImage = post?.featuredImage || LOGO;
+    const postAuthor = post?.author || BUSINESS_NAME;
+    const postDatePublished = post?.publishedAt ? new Date(post.publishedAt).toISOString() : new Date().toISOString();
+    const postDateModified = post?.updatedAt ? new Date(post.updatedAt).toISOString() : postDatePublished;
+    const postTags: string[] = post?.tags ? (typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags) : [];
+    const postWordCount = post ? post.content.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length : 0;
+    const postCategory = post?.category || 'Shot Blasting';
+
+    let modifiedHtml = html
+      .replace(/<meta\s+name="description"[^>]*>/gi, '')
+      .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+
+    const articleSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      'headline': postTitle,
+      'description': postDesc,
+      'author': { '@type': 'Organization', 'name': BUSINESS_NAME, 'url': SITE_URL },
+      'publisher': { '@type': 'Organization', 'name': BUSINESS_NAME, 'url': SITE_URL, 'logo': { '@type': 'ImageObject', 'url': LOGO } },
+      'datePublished': postDatePublished,
+      'dateModified': postDateModified,
+      'mainEntityOfPage': { '@type': 'WebPage', '@id': postUrl },
+      'url': postUrl,
+      'image': { '@type': 'ImageObject', 'url': postImage },
+      'wordCount': postWordCount,
+      'keywords': postTags.join(', '),
+      'articleSection': postCategory,
+      'inLanguage': 'en-GB',
+      'isPartOf': { '@type': 'Blog', 'name': 'Commercial Shot Blasting Blog', 'url': `${SITE_URL}/blog` },
+    };
+
+    const breadcrumbSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': SITE_URL },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Blog', 'item': `${SITE_URL}/blog` },
+        { '@type': 'ListItem', 'position': 3, 'name': postTitle, 'item': postUrl },
+      ],
+    };
+
+    const blogPostMetaTags = `
+    <title>${postTitle} | ${BUSINESS_NAME} Blog</title>
+    <link rel="canonical" href="${postUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${postUrl}" />
+    <link rel="alternate" hreflang="en" href="${postUrl}" />
+    <meta name="description" content="${postDesc.replace(/"/g, '&quot;')}" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:title" content="${postTitle}" />
+    <meta property="og:description" content="${postDesc.replace(/"/g, '&quot;')}" />
+    <meta property="og:url" content="${postUrl}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="${postImage}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
+    <meta property="article:published_time" content="${postDatePublished}" />
+    <meta property="article:modified_time" content="${postDateModified}" />
+    <meta property="article:author" content="${postAuthor}" />
+    <meta property="article:section" content="${postCategory}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${postTitle}" />
+    <meta name="twitter:description" content="${postDesc.replace(/"/g, '&quot;')}" />
+    <meta name="twitter:image" content="${postImage}" />
+    <script type="application/ld+json">${JSON.stringify(articleSchema)}</script>
+    <script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>
+  `;
+    modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, blogPostMetaTags);
     return modifiedHtml;
   }
 

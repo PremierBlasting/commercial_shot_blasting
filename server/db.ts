@@ -1,4 +1,4 @@
-import { eq, desc, asc, and } from "drizzle-orm";
+import { eq, desc, asc, and, ne } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { 
   InsertUser, 
@@ -457,4 +457,54 @@ export async function getStaleServiceAreaSlugs(limit: number = 20): Promise<stri
     .limit(limit);
 
   return rows.map((r) => r.slug);
+}
+
+export async function getRelatedBlogPosts(currentSlug: string, category: string | null, limit = 3): Promise<BlogPost[]> {
+  const db = await getDb();
+  if (!db) return [];
+
+  // Try to get posts from the same category first, excluding current post
+  if (category) {
+    const sameCat = await db
+      .select()
+      .from(blogPosts)
+      .where(
+        and(
+          eq(blogPosts.isPublished, true),
+          eq(blogPosts.category, category),
+          ne(blogPosts.slug, currentSlug)
+        )
+      )
+      .orderBy(desc(blogPosts.publishedAt))
+      .limit(limit);
+    if (sameCat.length >= limit) return sameCat;
+
+    // Top up with other published posts if not enough in same category
+    const others = await db
+      .select()
+      .from(blogPosts)
+      .where(
+        and(
+          eq(blogPosts.isPublished, true),
+          ne(blogPosts.slug, currentSlug),
+          ne(blogPosts.category, category)
+        )
+      )
+      .orderBy(desc(blogPosts.publishedAt))
+      .limit(limit - sameCat.length);
+    return [...sameCat, ...others];
+  }
+
+  // No category — just return latest published posts excluding current
+  return db
+    .select()
+    .from(blogPosts)
+    .where(
+      and(
+        eq(blogPosts.isPublished, true),
+        ne(blogPosts.slug, currentSlug)
+      )
+    )
+    .orderBy(desc(blogPosts.publishedAt))
+    .limit(limit);
 }

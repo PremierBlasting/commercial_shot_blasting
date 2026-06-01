@@ -757,3 +757,17 @@
 - [x] Inserted all 3 new posts into database via scripts/insert-round30-blog-posts.mjs (IDs 200001, 200002, 200003)
 - [x] Updated Reviews page AggregateRating JSON-LD: corrected ratingValue to 4.9 and reviewCount to 127 (was 5.0/12)
 - [x] TypeScript: 0 errors
+## Round 31 — Article JSON-LD SSR, Related Posts, BreadcrumbList Verification
+- [x] Converted injectMetaTags to async to support DB lookups for blog post routes
+- [x] Updated vite.ts to await injectMetaTags in both dev and production catch-all handlers
+- [x] Added /blog index SSR handler: Blog + BreadcrumbList JSON-LD, canonical, OG, Twitter meta tags
+- [x] Added /blog/:slug SSR handler: full Article JSON-LD (headline, datePublished, dateModified, wordCount, keywords, articleSection, image, publisher) fetched from DB; og:type=article; article:published_time/modified_time/author/section meta tags; BreadcrumbList JSON-LD
+- [x] Added getRelatedBlogPosts function to db.ts (same-category first, top-up with others, excludes current post)
+- [x] Added ne import to db.ts drizzle-orm imports
+- [x] Added blog.getRelated tRPC procedure to routers.ts
+- [x] Added Related Posts section to BlogPost.tsx (3 cards with image, category badge, title, excerpt, date, read time)
+- [x] Added ArticleJsonLd client-side component to BlogPost.tsx for JS-rendered Article schema (redundant with SSR but ensures schema is present for JS-only crawlers)
+- [x] Verified BreadcrumbList JSON-LD already present on all 19 service pages (2 instances each via generateServiceSchemas — schema #4 standalone + breadcrumb in WebPage schema)
+- [x] Verified: Article JSON-LD appears in SSR output for /blog/:slug with real DB data (headline, datePublished, wordCount, keywords)
+- [x] Verified: Blog + BreadcrumbList JSON-LD appear in SSR output for /blog index
+- [x] TypeScript: 0 errors

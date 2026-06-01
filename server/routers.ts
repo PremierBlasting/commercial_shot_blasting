@@ -22,6 +22,7 @@ import {
   getPublishedBlogPosts,
   getAllBlogPosts,
   getBlogPostBySlug,
+  getRelatedBlogPosts,
   createBlogPost,
   updateBlogPost,
   deleteBlogPost,
@@ -367,6 +368,13 @@ export const appRouter = router({
         return { success: true };
       }),
     
+    // Public: Get related blog posts
+    getRelated: publicProcedure
+      .input(z.object({ slug: z.string(), category: z.string().nullable().optional() }))
+      .query(async ({ input }) => {
+        return await getRelatedBlogPosts(input.slug, input.category ?? null);
+      }),
+
     // Admin: Delete blog post
     delete: adminProcedure
       .input(z.object({ id: z.number() }))

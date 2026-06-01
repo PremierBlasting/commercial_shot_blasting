@@ -1,0 +1,65 @@
+{
+  "query": "SELECT id, slug, title FROM blog_posts ORDER BY id LIMIT 15;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, slug, title FROM blog_posts ORDER BY id LIMIT 15;",
+  "rows": [
+    {
+      "id": "2",
+      "slug": "shot-blasting-structural-steel-guide",
+      "title": "The Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection"
+    },
+    {
+      "id": "3",
+      "slug": "shot-blasting-powder-coating-partnership",
+      "title": "Shot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes"
+    },
+    {
+      "id": "4",
+      "slug": "factory-warehouse-cladding-restoration",
+      "title": "Restoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment"
+    },
+    {
+      "id": "60001",
+      "slug": "shot-blasting-birmingham-west-midlands-2026",
+      "title": "Shot Blasting Services in Birmingham: West Midlands Industrial Surface Preparation"
+    },
+    {
+      "id": "90001",
+      "slug": "why-shot-blasting-essential-before-intumescent-painting",
+      "title": "Why Shot Blasting is Essential Before Intumescent Painting"
+    },
+    {
+      "id": "100001",
+      "slug": "how-much-does-shot-blasting-cost-uk",
+      "title": "How Much Does Shot Blasting Cost in the UK? (2025 Price Guide)"
+    },
+    {
+      "id": "100002",
+      "slug": "shot-blasting-vs-sandblasting-difference",
+      "title": "Shot Blasting vs Sandblasting: What's the Difference?"
+    },
+    {
+      "id": "100003",
+      "slug": "shot-blasting-structural-steel-standards-certification",
+      "title": "Shot Blasting for Structural Steel: Standards, Certification, and Compliance"
+    },
+    {
+      "id": "200001",
+      "slug": "shot-blasting-for-shipping-containers",
+      "title": "Shot Blasting for Shipping Containers: The Complete Guide"
+    },
+    {
+      "id": "200002",
+      "slug": "shot-blasting-vs-wire-brushing",
+      "title": "Shot Blasting vs Wire Brushing: Which Is Right for Your Project?"
+    },
+    {
+      "id": "200003",
+      "slug": "how-to-specify-surface-preparation-for-structural-steel",
+      "title": "How to Specify Surface Preparation for Structural Steel"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tslug\ttitle\n2\tshot-blasting-structural-steel-guide\tThe Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection\n3\tshot-blasting-powder-coating-partnership\tShot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes\n4\tfactory-warehouse-cladding-restoration\tRestoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment\n60001\tshot-blasting-birmingham-west-midlands-2026\tShot Blasting Services in Birmingham: West Midlands Industrial Surface Preparation\n90001\twhy-shot-blasting-essential-before-intumescent-painting\tWhy Shot Blasting is Essential Before Intumescent Painting\n100001\thow-much-does-shot-blasting-cost-uk\tHow Much Does Shot Blasting Cost in the UK? (2025 Price Guide)\n100002\tshot-blasting-vs-sandblasting-difference\tShot Blasting vs Sandblasting: What's the Difference?\n100003\tshot-blasting-structural-steel-standards-certification\tShot Blasting for Structural Steel: Standards, Certification, and Compliance\n200001\tshot-blasting-for-shipping-containers\tShot Blasting for Shipping Containers: The Complete Guide\n200002\tshot-blasting-vs-wire-brushing\tShot Blasting vs Wire Brushing: Which Is Right for Your Project?\n200003\thow-to-specify-surface-preparation-for-structural-steel\tHow to Specify Surface Preparation for Structural Steel\n",
+  "stderr": "",
+  "execution_time_ms": 616
+}

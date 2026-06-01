@@ -7,9 +7,63 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { useSEO } from "@/hooks/useSEO";
 import { trpc } from "@/lib/trpc";
 
+const SITE_URL = "https://commercialshotblasting.co.uk";
+
 function estimateReadTime(content: string): number {
   const words = content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.round(words / 200));
+}
+
+function ArticleJsonLd({ post, slug }: { post: { title: string; excerpt: string; author: string; category?: string | null; tags?: string | null; publishedAt: Date | string; updatedAt: Date | string; content: string; featuredImage: string }; slug: string }) {
+  const tags: string[] = post.tags ? (typeof post.tags === "string" ? JSON.parse(post.tags) : post.tags) : [];
+  const wordCount = post.content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.excerpt,
+    "author": {
+      "@type": "Organization",
+      "name": "Commercial Shot Blasting",
+      "url": SITE_URL,
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Commercial Shot Blasting",
+      "url": SITE_URL,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE_URL}/logo.png`,
+      },
+    },
+    "datePublished": new Date(post.publishedAt).toISOString(),
+    "dateModified": new Date(post.updatedAt).toISOString(),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${slug}`,
+    },
+    "url": `${SITE_URL}/blog/${slug}`,
+    "image": {
+      "@type": "ImageObject",
+      "url": post.featuredImage,
+    },
+    "wordCount": wordCount,
+    "keywords": tags.join(", "),
+    "articleSection": post.category || "Shot Blasting",
+    "inLanguage": "en-GB",
+    "isPartOf": {
+      "@type": "Blog",
+      "name": "Commercial Shot Blasting Blog",
+      "url": `${SITE_URL}/blog`,
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
 }
 
 export default function BlogPost() {
@@ -17,12 +71,16 @@ export default function BlogPost() {
   const slug = params?.slug || "";
 
   const { data: post, isLoading } = trpc.blog.getBySlug.useQuery({ slug });
+  const { data: related } = trpc.blog.getRelated.useQuery(
+    { slug, category: post?.category ?? null },
+    { enabled: !!post }
+  );
 
   useSEO({
     title: post?.title ? `${post.title} | Commercial Shot Blasting Blog` : "Blog Post | Commercial Shot Blasting",
     description: post?.excerpt || "Expert insights on shot blasting and surface preparation from Commercial Shot Blasting.",
     keywords: (post?.tags ? (typeof post.tags === "string" ? JSON.parse(post.tags) : post.tags).join(", ") : undefined) || "shot blasting, surface preparation, industrial cleaning",
-    canonical: slug ? `https://commercialshotblasting.co.uk/blog/${slug}` : undefined,
+    canonical: slug ? `${SITE_URL}/blog/${slug}` : undefined,
   });
 
   const handleShare = async () => {
@@ -82,6 +140,9 @@ export default function BlogPost() {
   return (
     <div className="min-h-screen flex flex-col bg-[#F8F6F1]">
       <Header />
+
+      {/* Article JSON-LD injected into <head> via portal-style script tag */}
+      <ArticleJsonLd post={post} slug={slug} />
 
       <Breadcrumb
         items={[
@@ -187,6 +248,58 @@ export default function BlogPost() {
           </div>
         </div>
       </article>
+
+      {/* ── Related Posts ── */}
+      {related && related.length > 0 && (
+        <section className="bg-white py-14 md:py-18 border-t border-gray-200">
+          <div className="container">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-8" style={{ fontFamily: "'Playfair Display', serif" }}>
+                You May Also Like
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {related.map((relPost) => {
+                  const relDate = new Date(relPost.publishedAt || relPost.createdAt).toLocaleDateString("en-GB", {
+                    day: "numeric", month: "short", year: "numeric",
+                  });
+                  const relReadTime = estimateReadTime(relPost.content);
+                  return (
+                    <Link key={relPost.id} href={`/blog/${relPost.slug}`}>
+                      <article className="group bg-[#F8F6F1] rounded-xl overflow-hidden border border-gray-200 hover:border-[#2C5F7F] hover:shadow-lg transition-all duration-200 cursor-pointer h-full flex flex-col">
+                        <div className="relative h-44 overflow-hidden">
+                          <img
+                            src={relPost.featuredImage}
+                            alt={relPost.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                          {relPost.category && (
+                            <span className="absolute top-3 left-3 bg-[#2C5F7F] text-white text-xs font-bold uppercase tracking-widest px-2 py-0.5 rounded">
+                              {relPost.category}
+                            </span>
+                          )}
+                        </div>
+                        <div className="p-5 flex flex-col flex-grow">
+                          <h3 className="font-bold text-[#2C2C2C] text-base leading-snug mb-2 group-hover:text-[#2C5F7F] transition-colors line-clamp-3">
+                            {relPost.title}
+                          </h3>
+                          <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-2 flex-grow">
+                            {relPost.excerpt}
+                          </p>
+                          <div className="flex items-center gap-3 text-xs text-gray-500 mt-auto">
+                            <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{relDate}</span>
+                            <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{relReadTime} min</span>
+                          </div>
+                        </div>
+                      </article>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <Footer />
     </div>

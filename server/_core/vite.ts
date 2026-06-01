@@ -50,7 +50,7 @@ export async function setupVite(app: Express, server: Server) {
         `src="/src/main.tsx?v=${nanoid()}"`
       );
       // Inject meta tags for SEO (service area pages)
-      template = injectMetaTags(template, url);
+      template = await injectMetaTags(template, url);
       const page = await vite.transformIndexHtml(url, template);
       res.status(200).set({ "Content-Type": "text/html" }).end(page);
     } catch (e) {
@@ -123,11 +123,11 @@ export function serveStatic(app: Express) {
   // injects all JSON-LD schemas server-side into the index.html template
 
   // Serve index.html for all routes (SPA fallback) with server-side meta/schema injection
-  app.use("*", (req, res) => {
+  app.use("*", async (req, res) => {
     const indexPath = path.resolve(distPath, "index.html");
     let html = fs.readFileSync(indexPath, "utf-8");
     // Inject meta tags for SEO (service area pages)
-    html = injectMetaTags(html, req.originalUrl);
+    html = await injectMetaTags(html, req.originalUrl);
     res.status(200).set({ "Content-Type": "text/html" }).send(html);
   });
 }
