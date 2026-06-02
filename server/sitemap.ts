@@ -10,6 +10,7 @@
  */
 
 import type { Express } from "express";
+import { getPublishedBlogPosts } from "./db";
 
 const SITE_URL = "https://commercialshotblasting.co.uk";
 
@@ -124,7 +125,7 @@ function escapeXml(str: string): string {
     .replace(/'/g, "&apos;");
 }
 
-function buildSitemap(): string {
+async function buildSitemap(): Promise<string> {
   const townSlugs = loadTownSlugs();
   const today = new Date().toISOString().split("T")[0];
 
@@ -165,14 +166,36 @@ function buildSitemap(): string {
     );
   }
 
+  // Blog post pages — use real updatedAt for lastmod
+  try {
+    const posts = await getPublishedBlogPosts();
+    for (const post of posts) {
+      const lastmod = post.updatedAt
+        ? new Date(post.updatedAt).toISOString().split("T")[0]
+        : post.createdAt
+          ? new Date(post.createdAt).toISOString().split("T")[0]
+          : today;
+      urls.push(
+        `  <url>\n    <loc>${escapeXml(`${SITE_URL}/blog/${post.slug}`)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`
+      );
+    }
+  } catch (err) {
+    console.error("[Sitemap] Failed to load blog posts:", err);
+  }
+
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>`;
 }
 
 export function registerSitemapRoute(app: Express): void {
-  app.get("/sitemap.xml", (_req, res) => {
-    const xml = buildSitemap();
-    res.set("Content-Type", "application/xml; charset=utf-8");
-    res.set("Cache-Control", "public, max-age=3600"); // cache 1 hour
-    res.send(xml);
+  app.get("/sitemap.xml", async (_req, res) => {
+    try {
+      const xml = await buildSitemap();
+      res.set("Content-Type", "application/xml; charset=utf-8");
+      res.set("Cache-Control", "public, max-age=3600"); // cache 1 hour
+      res.send(xml);
+    } catch (err) {
+      console.error("[Sitemap] Generation error:", err);
+      res.status(500).send("Sitemap generation failed");
+    }
   });
 }

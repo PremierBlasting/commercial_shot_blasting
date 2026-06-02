@@ -788,3 +788,11 @@
 - [x] Wire OG image URLs into SSR meta tags (og:image, twitter:image, Article JSON-LD image)
 - [x] Add tRPC endpoint to regenerate OG image on post update
 - [x] TypeScript: 0 errors
+
+## Round 34 — Blog Sitemap, Reading Time, Latest Posts Widget
+- [x] Add blog post entries to sitemap.xml with real lastmod from updatedAt and changefreq: weekly
+- [x] Make buildSitemap() async to query DB for blog posts
+- [x] Reading time display (X min read) already implemented in BlogPost.tsx — confirmed present
+- [x] Move BlogPreview component to correct position in Home.tsx (before FAQ, before Footer)
+- [x] Verify BlogPreview uses trpc.blog.list and shows 3 most recent posts with OG images
+- [x] TypeScript: 0 errors

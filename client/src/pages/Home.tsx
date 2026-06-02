@@ -789,6 +789,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Latest Blog Posts */}
+      <Suspense fallback={<div className="py-16" />}><BlogPreview /></Suspense>
+
       {/* FAQ Section */}
       <Suspense fallback={<div className="py-16" />}><HomeFAQ /></Suspense>
 
@@ -836,8 +839,6 @@ export default function Home() {
         </div>
       )}
 
-      {/* Blog Preview Section */}
-      <Suspense fallback={<div className="py-16" />}><BlogPreview /></Suspense>
     </div>
   );
 }
