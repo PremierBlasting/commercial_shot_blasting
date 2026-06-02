@@ -175,6 +175,7 @@ export const blogPosts = mysqlTable("blog_posts", {
   author: varchar("author", { length: 255 }).default("Commercial Shot Blasting").notNull(),
   category: varchar("category", { length: 100 }),
   tags: text("tags"), // JSON array of tags
+  faq: text("faq"), // JSON array of {question, answer} objects
   metaDescription: text("metaDescription"),
   isPublished: boolean("isPublished").default(true).notNull(),
   publishedAt: timestamp("publishedAt").defaultNow().notNull(),

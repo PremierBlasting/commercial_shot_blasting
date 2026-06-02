@@ -359,12 +359,14 @@ export const appRouter = router({
         author: z.string().optional(),
         category: z.string().optional(),
         tags: z.string().optional(),
+        faq: z.string().optional(), // JSON array of {question, answer} objects
         metaDescription: z.string().optional(),
         isPublished: z.boolean().optional(),
       }))
       .mutation(async ({ input }) => {
         const { id, ...data } = input;
-        await updateBlogPost(id, data);
+        // Explicitly set updatedAt so dateModified in Article JSON-LD reflects the edit
+        await updateBlogPost(id, { ...data, updatedAt: new Date() });
         return { success: true };
       }),
     

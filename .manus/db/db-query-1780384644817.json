@@ -1,0 +1,31 @@
+{
+  "query": "SELECT id, slug, title, category, tags FROM blog_posts WHERE id IN (200001, 200002, 200003);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, slug, title, category, tags FROM blog_posts WHERE id IN (200001, 200002, 200003);",
+  "rows": [
+    {
+      "id": "200001",
+      "slug": "shot-blasting-for-shipping-containers",
+      "title": "Shot Blasting for Shipping Containers: The Complete Guide",
+      "category": "Services",
+      "tags": "[\"container shot blasting\",\"shipping containers\",\"rust removal\",\"SA2.5\",\"surface preparation\"]"
+    },
+    {
+      "id": "200002",
+      "slug": "shot-blasting-vs-wire-brushing",
+      "title": "Shot Blasting vs Wire Brushing: Which Is Right for Your Project?",
+      "category": "Guides",
+      "tags": "[\"shot blasting vs wire brushing\",\"surface preparation\",\"ISO 8501-1\",\"Sa 2.5\",\"St 3\"]"
+    },
+    {
+      "id": "200003",
+      "slug": "how-to-specify-surface-preparation-for-structural-steel",
+      "title": "How to Specify Surface Preparation for Structural Steel",
+      "category": "Technical Guides",
+      "tags": "[\"surface preparation specification\",\"ISO 8501-1\",\"Sa 2.5\",\"structural steel\",\"blast cleaning standard\"]"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tslug\ttitle\tcategory\ttags\n200001\tshot-blasting-for-shipping-containers\tShot Blasting for Shipping Containers: The Complete Guide\tServices\t[\"container shot blasting\",\"shipping containers\",\"rust removal\",\"SA2.5\",\"surface preparation\"]\n200002\tshot-blasting-vs-wire-brushing\tShot Blasting vs Wire Brushing: Which Is Right for Your Project?\tGuides\t[\"shot blasting vs wire brushing\",\"surface preparation\",\"ISO 8501-1\",\"Sa 2.5\",\"St 3\"]\n200003\thow-to-specify-surface-preparation-for-structural-steel\tHow to Specify Surface Preparation for Structural Steel\tTechnical Guides\t[\"surface preparation specification\",\"ISO 8501-1\",\"Sa 2.5\",\"structural steel\",\"blast cleaning standard\"]\n",
+  "stderr": "",
+  "execution_time_ms": 574
+}

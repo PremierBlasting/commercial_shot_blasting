@@ -5803,6 +5803,9 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     const postTags: string[] = post?.tags ? (typeof post.tags === 'string' ? JSON.parse(post.tags) : post.tags) : [];
     const postWordCount = post ? post.content.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length : 0;
     const postCategory = post?.category || 'Shot Blasting';
+    // Parse FAQ data for FAQPage JSON-LD
+    type FaqItem = { question: string; answer: string };
+    const postFaqs: FaqItem[] = post?.faq ? (typeof post.faq === 'string' ? JSON.parse(post.faq) : post.faq) : [];
 
     let modifiedHtml = html
       .replace(/<meta\s+name="description"[^>]*>/gi, '')
@@ -5866,6 +5869,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <meta name="twitter:image" content="${postImage}" />
     <script type="application/ld+json">${JSON.stringify(articleSchema)}</script>
     <script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>
+    ${postFaqs.length > 0 ? `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': postFaqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) })}</script>` : ''}
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, blogPostMetaTags);
     return modifiedHtml;

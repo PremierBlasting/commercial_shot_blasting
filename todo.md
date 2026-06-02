@@ -771,3 +771,11 @@
 - [x] Verified: Article JSON-LD appears in SSR output for /blog/:slug with real DB data (headline, datePublished, wordCount, keywords)
 - [x] Verified: Blog + BreadcrumbList JSON-LD appear in SSR output for /blog index
 - [x] TypeScript: 0 errors
+
+## Round 32 — Internal Links (200001-200003), FAQPage JSON-LD, dateModified Mutation
+- [x] Add contextual internal links to blog post 200001 (shipping containers)
+- [x] Add contextual internal links to blog post 200002 (shot blasting vs wire brushing)
+- [x] Add contextual internal links to blog post 200003 (structural steel specification)
+- [x] Add FAQPage JSON-LD to all blog posts in SSR handler (metaTags.ts /blog/:slug)
+- [x] Create blog.updatePost tRPC mutation to update updatedAt/dateModified
+- [x] TypeScript: 0 errors
