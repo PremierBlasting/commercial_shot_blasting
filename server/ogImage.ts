@@ -293,3 +293,167 @@ export function countyOgImageUrl(countyName: string): string {
 export function townOgImageUrl(townName: string, countyName: string): string {
   return `${PROD_ORIGIN}/api/og-image?type=town&name=${encodeURIComponent(townName)}&county=${encodeURIComponent(countyName)}`;
 }
+
+// ── Blog post OG image generator ─────────────────────────────────────────────
+
+const BLOG_OG_BADGE_COLOURS: Record<string, { bg: string; fg: string }> = {
+  "surface preparation": { bg: "#f59e0b", fg: "#0f172a" },
+  "shot blasting":       { bg: "#38bdf8", fg: "#0f172a" },
+  "technical guide":     { bg: "#6ee7b7", fg: "#0f172a" },
+  "industry guide":      { bg: "#c4b5fd", fg: "#0f172a" },
+  "case study":          { bg: "#fdba74", fg: "#0f172a" },
+  "services":            { bg: "#f59e0b", fg: "#0f172a" },
+};
+
+function getBlogBadgeColours(category: string): { bg: string; fg: string } {
+  const lower = (category || "").toLowerCase();
+  for (const [key, colours] of Object.entries(BLOG_OG_BADGE_COLOURS)) {
+    if (lower.includes(key)) return colours;
+  }
+  return { bg: "#f59e0b", fg: "#0f172a" };
+}
+
+function escapeXmlBlog(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+/**
+ * Splits a long title into up to 3 lines, each ≤ maxChars characters.
+ */
+function splitBlogTitle(title: string, maxChars = 32): string[] {
+  const words = title.split(" ");
+  const lines: string[] = [];
+  let current = "";
+  for (const word of words) {
+    const test = current ? `${current} ${word}` : word;
+    if (test.length <= maxChars) {
+      current = test;
+    } else {
+      if (current) lines.push(current);
+      current = word;
+    }
+  }
+  if (current) lines.push(current);
+  return lines.slice(0, 3);
+}
+
+function buildBlogSvg(title: string, category: string): string {
+  const W = 1200;
+  const H = 630;
+  const { bg: badgeBg, fg: badgeFg } = getBlogBadgeColours(category);
+  const catLabel = escapeXmlBlog(category || "Shot Blasting");
+  const escapedTitle = escapeXmlBlog(title);
+
+  // Font size based on title length
+  const fontSize = title.length <= 40 ? 68 : title.length <= 65 ? 56 : 44;
+  const maxChars = title.length <= 40 ? 28 : title.length <= 65 ? 32 : 38;
+  const lines = splitBlogTitle(title, maxChars);
+  const lineH = fontSize + 16;
+  const totalTitleH = lines.length * lineH;
+
+  // Vertical positioning
+  const badgeY = 44;
+  const badgeH = 40;
+  const availTop = badgeY + badgeH + 24;
+  const availBottom = H - 90 - 24;
+  const titleStartY = availTop + Math.floor((availBottom - availTop - totalTitleH) / 2);
+
+  // Badge width (approximate: ~14px per char + 32px padding)
+  const badgeW = catLabel.length * 13 + 32;
+
+  const titleLines = lines.map((line, i) => {
+    const y = titleStartY + i * lineH + fontSize;
+    return `
+  <!-- Title shadow line ${i + 1} -->
+  <text x="42" y="${y + 2}" font-family="'Arial Black', 'Arial Bold', Arial, sans-serif"
+    font-size="${fontSize}" font-weight="900" fill="rgba(0,0,0,0.4)">${escapeXmlBlog(line)}</text>
+  <!-- Title line ${i + 1} -->
+  <text x="40" y="${y}" font-family="'Arial Black', 'Arial Bold', Arial, sans-serif"
+    font-size="${fontSize}" font-weight="900" fill="#ffffff">${escapeXmlBlog(line)}</text>`;
+  }).join("");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="${W}" height="${H}" fill="url(#bgGrad)"/>
+
+  <!-- Diagonal stripes -->
+  <g opacity="0.06" stroke="#1a2540" stroke-width="1">
+    ${Array.from({ length: 40 }, (_, i) => {
+      const x = -H + i * 55;
+      return `<line x1="${x}" y1="0" x2="${x + H}" y2="${H}"/>`;
+    }).join("")}
+  </g>
+
+  <!-- Top amber accent bar -->
+  <rect x="0" y="0" width="${W}" height="6" fill="#f59e0b"/>
+
+  <!-- Left amber accent bar -->
+  <rect x="0" y="6" width="6" height="${H - 6}" fill="#f59e0b"/>
+
+  <!-- Bottom panel -->
+  <rect x="0" y="${H - 90}" width="${W}" height="90" fill="#1e293b"/>
+  <rect x="0" y="${H - 91}" width="${W}" height="2" fill="#334155"/>
+
+  <!-- Brand in bottom panel -->
+  <text x="40" y="${H - 52}" font-family="'Arial Black', 'Arial Bold', Arial, sans-serif"
+    font-size="22" font-weight="900" fill="#f59e0b">CSB</text>
+  <text x="82" y="${H - 52}" font-family="Arial, sans-serif"
+    font-size="22" font-weight="700" fill="#ffffff"> Commercial Shot Blasting</text>
+  <text x="40" y="${H - 27}" font-family="Arial, sans-serif"
+    font-size="16" fill="#94a3b8">commercialshotblasting.co.uk</text>
+
+  <!-- Dot grid (top-right) -->
+  <g fill="#3d3010">
+    ${Array.from({ length: 6 }, (_, row) =>
+      Array.from({ length: 6 }, (_, col) => {
+        const cx = W - 60 - col * 20;
+        const cy = 60 + row * 20;
+        return `<circle cx="${cx}" cy="${cy}" r="2"/>`;
+      }).join("")
+    ).join("")}
+  </g>
+
+  <!-- Category badge background -->
+  <rect x="40" y="${badgeY}" width="${badgeW}" height="${badgeH}" rx="6" fill="${badgeBg}"/>
+
+  <!-- Category badge text -->
+  <text x="56" y="${badgeY + 27}" font-family="'Arial Black', 'Arial Bold', Arial, sans-serif"
+    font-size="20" font-weight="900" fill="${badgeFg}">${catLabel}</text>
+
+  ${titleLines}
+</svg>`;
+}
+
+/**
+ * Generates a 1200×630 branded OG image for a blog post and uploads it to S3.
+ * Returns the public CDN URL.
+ */
+export async function generateAndUploadBlogOgImage(
+  title: string,
+  category: string,
+  slug: string
+): Promise<string> {
+  const { storagePut } = await import("./storage");
+
+  const svg = buildBlogSvg(title, category);
+  const buffer = await sharp(Buffer.from(svg))
+    .png({ compressionLevel: 6, quality: 90 })
+    .toBuffer();
+
+  const key = `blog-og-images/${slug}.png`;
+  const { url } = await storagePut(key, buffer, "image/png");
+  return url;
+}

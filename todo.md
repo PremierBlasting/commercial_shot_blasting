@@ -779,3 +779,12 @@
 - [x] Add FAQPage JSON-LD to all blog posts in SSR handler (metaTags.ts /blog/:slug)
 - [x] Create blog.updatePost tRPC mutation to update updatedAt/dateModified
 - [x] TypeScript: 0 errors
+
+## Round 33 — Dynamic OG Image Generation for Blog Posts
+- [x] Install canvas/sharp dependencies for server-side image generation
+- [x] Create OG image generator script (1200x630px, branded background, title + category badge)
+- [x] Generate and upload OG images for all 11 blog posts to S3
+- [x] Update blog_posts.featuredImage with S3 OG image URLs
+- [x] Wire OG image URLs into SSR meta tags (og:image, twitter:image, Article JSON-LD image)
+- [x] Add tRPC endpoint to regenerate OG image on post update
+- [x] TypeScript: 0 errors

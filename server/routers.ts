@@ -36,6 +36,7 @@ import {
   getServiceAreaContent,
 } from "./db";
 import { storagePut } from "./storage";
+import { generateAndUploadBlogOgImage } from "./ogImage";
 import { nanoid } from "nanoid";
 
 // Admin check middleware
@@ -367,6 +368,23 @@ export const appRouter = router({
         const { id, ...data } = input;
         // Explicitly set updatedAt so dateModified in Article JSON-LD reflects the edit
         await updateBlogPost(id, { ...data, updatedAt: new Date() });
+        // Regenerate OG image if title or category changed
+        if (data.title || data.category) {
+          try {
+            const allPosts = await getAllBlogPosts();
+            const currentPost = allPosts.find((p: { id: number }) => p.id === id);
+            if (currentPost) {
+              const newTitle = data.title ?? currentPost.title;
+              const newCategory = data.category ?? currentPost.category ?? "Shot Blasting";
+              const newSlug = data.slug ?? currentPost.slug;
+              const ogUrl = await generateAndUploadBlogOgImage(newTitle, newCategory, newSlug);
+              await updateBlogPost(id, { featuredImage: ogUrl });
+            }
+          } catch (err) {
+            // OG image regeneration is non-critical — log but don't fail the mutation
+            console.error("[blog.update] OG image regeneration failed:", err);
+          }
+        }
         return { success: true };
       }),
     
