@@ -5350,6 +5350,55 @@ function generateHomepageSchemas(): string {
       "keywords": "shot blasting, surface preparation, rust removal, SA2.5, mobile shot blasting, UK",
       "regionsAllowed": "GB"
     },
+    // 8. Service schema — top-level shot blasting service entity
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${SITE_URL}/#service-shot-blasting`,
+      "name": "Shot Blasting Services",
+      "alternateName": ["Abrasive Blasting", "Grit Blasting", "Surface Preparation"],
+      "description": "Professional mobile shot blasting services for commercial and industrial applications across England and Wales. We remove rust, mill scale, paint, and coatings from structural steel, factory cladding, shipping containers, machinery, and more — delivered directly to your site.",
+      "serviceType": "Shot Blasting",
+      "category": "Industrial Surface Preparation",
+      "url": `${SITE_URL}/services`,
+      "provider": {
+        "@type": "LocalBusiness",
+        "@id": `${SITE_URL}/#organization`,
+        "name": BUSINESS_NAME,
+        "telephone": PHONE,
+        "url": SITE_URL
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "England" },
+        { "@type": "Country", "name": "Wales" },
+        { "@type": "AdministrativeArea", "name": "West Midlands" },
+        { "@type": "AdministrativeArea", "name": "Yorkshire" },
+        { "@type": "AdministrativeArea", "name": "Greater Manchester" },
+        { "@type": "AdministrativeArea", "name": "Lancashire" },
+        { "@type": "AdministrativeArea", "name": "Staffordshire" },
+        { "@type": "AdministrativeArea", "name": "Shropshire" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Shot Blasting Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Structural Steel Shot Blasting", "url": `${SITE_URL}/services/structural-steel-shot-blasting` } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Container Shot Blasting", "url": `${SITE_URL}/services/container-shot-blasting` } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Factory Cladding Shot Blasting", "url": `${SITE_URL}/services/factory-cladding-shot-blasting` } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Floor Shot Blasting", "url": `${SITE_URL}/services/floor-shot-blasting` } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Rust Removal", "url": `${SITE_URL}/services/rust-removal` } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mill Scale Removal", "url": `${SITE_URL}/services/mill-scale-removal` } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paint Stripping", "url": `${SITE_URL}/services/paint-stripping` } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile Shot Blasting", "url": `${SITE_URL}/services/mobile-shot-blasting` } }
+        ]
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "GBP",
+        "availability": "https://schema.org/InStock",
+        "itemOffered": { "@type": "Service", "name": "Shot Blasting", "provider": { "@type": "LocalBusiness", "name": BUSINESS_NAME } }
+      }
+    },
     // 7. FAQPage (homepage) — 8 common questions
     {
       "@context": "https://schema.org",

@@ -796,3 +796,10 @@
 - [x] Move BlogPreview component to correct position in Home.tsx (before FAQ, before Footer)
 - [x] Verify BlogPreview uses trpc.blog.list and shows 3 most recent posts with OG images
 - [x] TypeScript: 0 errors
+
+## Round 35 — Category Filter Pills + Service JSON-LD
+- [x] Add category filter pills to Blog index page (All + unique categories with post counts)
+- [x] Add reading time display to Blog index page cards (X min read with Clock icon)
+- [x] Add standalone Service JSON-LD schema (#8) to homepage SSR handler in metaTags.ts
+- [x] Homepage now has 8 JSON-LD blocks: WebSite, ItemList, LocalBusiness, WebPage, BreadcrumbList, VideoObject, Service, FAQPage
+- [x] TypeScript: 0 errors
