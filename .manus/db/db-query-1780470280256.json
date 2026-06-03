@@ -1,0 +1,65 @@
+{
+  "query": "SELECT id, title, author FROM blog_posts ORDER BY id LIMIT 15;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title, author FROM blog_posts ORDER BY id LIMIT 15;",
+  "rows": [
+    {
+      "id": "2",
+      "title": "The Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection",
+      "author": "Commercial Shot Blasting"
+    },
+    {
+      "id": "3",
+      "title": "Shot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes",
+      "author": "Commercial Shot Blasting"
+    },
+    {
+      "id": "4",
+      "title": "Restoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment",
+      "author": "Commercial Shot Blasting"
+    },
+    {
+      "id": "60001",
+      "title": "Shot Blasting Services in Birmingham: West Midlands Industrial Surface Preparation",
+      "author": "Commercial Shot Blasting"
+    },
+    {
+      "id": "90001",
+      "title": "Why Shot Blasting is Essential Before Intumescent Painting",
+      "author": "Commercial Shot Blasting"
+    },
+    {
+      "id": "100001",
+      "title": "How Much Does Shot Blasting Cost in the UK? (2025 Price Guide)",
+      "author": "Commercial Shot Blasting"
+    },
+    {
+      "id": "100002",
+      "title": "Shot Blasting vs Sandblasting: What's the Difference?",
+      "author": "Commercial Shot Blasting"
+    },
+    {
+      "id": "100003",
+      "title": "Shot Blasting for Structural Steel: Standards, Certification, and Compliance",
+      "author": "Commercial Shot Blasting"
+    },
+    {
+      "id": "200001",
+      "title": "Shot Blasting for Shipping Containers: The Complete Guide",
+      "author": "Commercial Shot Blasting"
+    },
+    {
+      "id": "200002",
+      "title": "Shot Blasting vs Wire Brushing: Which Is Right for Your Project?",
+      "author": "Commercial Shot Blasting"
+    },
+    {
+      "id": "200003",
+      "title": "How to Specify Surface Preparation for Structural Steel",
+      "author": "Commercial Shot Blasting"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tauthor\n2\tThe Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection\tCommercial Shot Blasting\n3\tShot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes\tCommercial Shot Blasting\n4\tRestoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment\tCommercial Shot Blasting\n60001\tShot Blasting Services in Birmingham: West Midlands Industrial Surface Preparation\tCommercial Shot Blasting\n90001\tWhy Shot Blasting is Essential Before Intumescent Painting\tCommercial Shot Blasting\n100001\tHow Much Does Shot Blasting Cost in the UK? (2025 Price Guide)\tCommercial Shot Blasting\n100002\tShot Blasting vs Sandblasting: What's the Difference?\tCommercial Shot Blasting\n100003\tShot Blasting for Structural Steel: Standards, Certification, and Compliance\tCommercial Shot Blasting\n200001\tShot Blasting for Shipping Containers: The Complete Guide\tCommercial Shot Blasting\n200002\tShot Blasting vs Wire Brushing: Which Is Right for Your Project?\tCommercial Shot Blasting\n200003\tHow to Specify Surface Preparation for Structural Steel\tCommercial Shot Blasting\n",
+  "stderr": "",
+  "execution_time_ms": 663
+}

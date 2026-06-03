@@ -5868,7 +5868,9 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       '@type': 'Article',
       'headline': postTitle,
       'description': postDesc,
-      'author': { '@type': 'Organization', 'name': BUSINESS_NAME, 'url': SITE_URL },
+      'author': postAuthor === BUSINESS_NAME
+        ? { '@type': 'Organization', 'name': BUSINESS_NAME, 'url': SITE_URL }
+        : { '@type': 'Person', 'name': postAuthor, 'worksFor': { '@type': 'Organization', 'name': BUSINESS_NAME, 'url': SITE_URL } },
       'publisher': { '@type': 'Organization', 'name': BUSINESS_NAME, 'url': SITE_URL, 'logo': { '@type': 'ImageObject', 'url': LOGO } },
       'datePublished': postDatePublished,
       'dateModified': postDateModified,

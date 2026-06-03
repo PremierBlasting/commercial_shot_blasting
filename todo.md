@@ -803,3 +803,11 @@
 - [x] Add standalone Service JSON-LD schema (#8) to homepage SSR handler in metaTags.ts
 - [x] Homepage now has 8 JSON-LD blocks: WebSite, ItemList, LocalBusiness, WebPage, BreadcrumbList, VideoObject, Service, FAQPage
 - [x] TypeScript: 0 errors
+
+## Round 36 — Author Field for Blog Posts
+- [x] Add author column to blog_posts table (VARCHAR 255, default "Commercial Shot Blasting") — already present from prior round
+- [x] Update Drizzle schema to include author field — already present (line 175)
+- [x] Populate author for all 11 existing blog posts — all set to "Commercial Shot Blasting"
+- [x] Update Article JSON-LD in metaTags.ts — author now uses postAuthor variable (Organization or Person based on value)
+- [x] Display author name on BlogPost.tsx page UI — already present with User icon (line 177)
+- [x] TypeScript: 0 errors
