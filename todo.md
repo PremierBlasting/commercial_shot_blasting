@@ -811,3 +811,14 @@
 - [x] Update Article JSON-LD in metaTags.ts — author now uses postAuthor variable (Organization or Person based on value)
 - [x] Display author name on BlogPost.tsx page UI — already present with User icon (line 177)
 - [x] TypeScript: 0 errors
+
+## Round 37 — Title Tag Reorder + "Near Me" on All Local Pages
+
+- [x] Reorder title tags on all 650 town page entries: "[Area] Shot Blasting Services | Commercial Shot Blasting"
+- [x] Reorder county page dynamic title: "${county.name} Shot Blasting Services | Commercial Shot Blasting UK"
+- [x] Add "shot blasting near me" phrase to 81 town page meta descriptions
+- [x] Update county page meta description template to include "near me"
+- [x] Verified SSR output: Birmingham title = "Birmingham Shot Blasting Services | ..."
+- [x] Verified SSR output: meta description includes "shot blasting near me"
+- [x] Verified SSR output: West Midlands title = "West Midlands Shot Blasting Services | ..."
+- [x] TypeScript: 0 errors
