@@ -822,3 +822,14 @@
 - [x] Verified SSR output: meta description includes "shot blasting near me"
 - [x] Verified SSR output: West Midlands title = "West Midlands Shot Blasting Services | ..."
 - [x] TypeScript: 0 errors
+
+## Round 38 — Near Me in SSR Body + Service Page Blog Links
+
+- [x] Add "near me" to town area page SSR body H1: "[Area] Shot Blasting Services Near Me | [County]"
+- [x] Add "near me" to town area page SSR first paragraph
+- [x] County body H1 confirmed: "[County] Shot Blasting Services | Commercial Shot Blasting UK"
+- [x] Add "near me" to county page SSR first paragraph
+- [x] Add Related Guides section to generateServiceBodyHTML with SERVICE_BLOG_MAP for all 19 services
+- [x] Verified: structural-steel-frames shows Related Guides links in SSR output
+- [x] Verified: Birmingham H1 = "Birmingham Shot Blasting Services Near Me | West Midlands"
+- [x] TypeScript: 0 errors
