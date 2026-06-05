@@ -2,7 +2,6 @@ import { useState, useMemo } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { OptimizedImage, getWebPUrl, getThumbnailUrl } from "@/components/OptimizedImage";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Phone, Mail, MapPin, ArrowLeft, ArrowRight, Star, Quote, X } from "lucide-react";
@@ -13,6 +12,7 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { Footer } from "@/components/Footer";
 import { ProjectDetailModal, type ProjectDetailItem } from "@/components/ProjectDetailModal";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { BeforeAfterCard } from "@/components/BeforeAfterCard";
 const galleryItems = [
   // Industrial Projects
   {
@@ -538,77 +538,19 @@ export default function OurWork() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredItems.map((item, idx) => (
               <ScrollReveal key={item.id} delay={Math.min(idx % 3, 2) * 80}>
-                  <Card
-                    className="group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-300 h-full"
-                    onClick={() => { 
-                      setSelectedProject(item);
-                      setProjectModalOpen(true);
-                    }}
-                  >
-                    <div className="relative h-64 overflow-hidden">
-                      {(item as any).video ? (
-                        <>
-                          <video 
-                            src={(item as any).video} 
-                            className="absolute inset-0 w-full h-full object-cover"
-                            muted
-                            loop
-                            playsInline
-                            onMouseEnter={(e) => e.currentTarget.play()}
-                            onMouseLeave={(e) => { e.currentTarget.pause(); e.currentTarget.currentTime = 0; }}
-                          />
-                          <div className="absolute top-3 left-3">
-                            <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded font-medium">VIDEO</span>
-                          </div>
-                        </>
-                      ) : item.before ? (
-                        <>
-                          <img 
-                            src={item.before} 
-                            alt={`${item.title} - Before`} 
-                            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
-                            loading="lazy"
-                  width={800}
-                  height={600}
+                <BeforeAfterCard
+                  beforeSrc={item.before || item.after || ''}
+                  afterSrc={item.after || item.before || ''}
+                  title={item.title}
+                  category={item.category}
+                  description={item.description}
+                  imageHeight="h-64"
+                  videoSrc={(item as any).video}
+                  onClick={() => {
+                    setSelectedProject(item);
+                    setProjectModalOpen(true);
+                  }}
                 />
-                          <img 
-                            src={item.after} 
-                            alt={`${item.title} - After`} 
-                            className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                            loading="lazy"
-                  width={800}
-                  height={600}
-                />
-                          <div className="absolute top-3 left-3 flex gap-2">
-                            <span className="bg-red-500 text-white text-xs px-2 py-1 rounded font-medium group-hover:opacity-0 transition-opacity">BEFORE</span>
-                            <span className="bg-green-500 text-white text-xs px-2 py-1 rounded font-medium opacity-0 group-hover:opacity-100 transition-opacity">AFTER</span>
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          <img 
-                            src={item.after} 
-                            alt={`${item.title} - Completed`} 
-                            className="absolute inset-0 w-full h-full object-cover"
-                            loading="lazy"
-                  width={800}
-                  height={600}
-                />
-                          <div className="absolute top-3 left-3">
-                            <span className="bg-green-500 text-white text-xs px-2 py-1 rounded font-medium">COMPLETED</span>
-                          </div>
-                        </>
-                      )}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                        <span className="text-white/80 text-xs uppercase tracking-wider">{item.category}</span>
-                        <h3 className="text-white font-semibold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>{item.title}</h3>
-                      </div>
-                    </div>
-                    <div className="p-4 bg-white">
-                      <p className="text-gray-600 text-sm">{item.description}</p>
-                      <p className="text-[#2C5F7F] text-sm font-medium mt-2">Click To See The Transformation →</p>
-                    </div>
-                  </Card>
               </ScrollReveal>
             ))}
           </div>

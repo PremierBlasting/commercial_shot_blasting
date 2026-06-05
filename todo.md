@@ -860,3 +860,14 @@
 - [x] Upload 7 staircase project images to S3 CDN
 - [x] Insert External Staircase Restoration project into gallery_items DB (category: Staircases)
 - [x] TypeScript: 0 errors
+
+## Round 41 — Gallery Card Redesign & Modal Navigation
+
+- [x] Add Next/Previous navigation arrows to ProjectDetailModal (Home, Gallery, OurWork pages)
+- [x] Wire Prev/Next modal navigation in Home.tsx using filteredProjects index
+- [x] Build reusable BeforeAfterCard component with side-by-side split and draggable slider divider
+- [x] Replace hover-toggle cards in OurWork.tsx with BeforeAfterCard (fixes before/after order bug)
+- [x] Replace hover-toggle cards in Gallery.tsx with BeforeAfterCard
+- [x] Replace hover-toggle cards in Home.tsx Recent Projects with BeforeAfterCard
+- [x] Wire ProjectDetailModal to Gallery.tsx with Prev/Next navigation
+- [x] TypeScript: 0 errors confirmed

@@ -1,7 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { OptimizedImage, getWebPUrl, getThumbnailUrl } from "@/components/OptimizedImage";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Phone, Mail, MapPin, ArrowLeft, ArrowRight, Star, Quote, X } from "lucide-react";
@@ -10,6 +8,8 @@ import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { BeforeAfterCard } from "@/components/BeforeAfterCard";
+import { ProjectDetailModal, type ProjectDetailItem } from "@/components/ProjectDetailModal";
 
 const galleryItems = [
   // Industrial Projects
@@ -178,7 +178,7 @@ const testimonials = [
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null);
-  const [showAfter, setShowAfter] = useState(false);
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(-1);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxImages, setLightboxImages] = useState<string[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
@@ -324,79 +324,52 @@ export default function Gallery() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredItems.map((item, idx) => (
               <ScrollReveal key={item.id} delay={Math.min(idx % 3, 2) * 80}>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Card 
-                    className="group cursor-pointer overflow-hidden hover:shadow-xl transition-all duration-300"
-                    onClick={() => { setSelectedItem(item); setShowAfter(false); }}
-                  >
-                    <div className="relative h-64 overflow-hidden">
-                      <OptimizedImage 
-                        src={item.before} 
-                        alt={`${item.title} - Before`} 
-                        className="absolute inset-0 w-full h-full transition-opacity duration-500 group-hover:opacity-0"
-                        webpSrc={getWebPUrl(item.before)}
-                        thumbnailSrc={getThumbnailUrl(item.before)}
-                        loading="lazy"
-                      />
-                      <OptimizedImage 
-                        src={item.after} 
-                        alt={`${item.title} - After`} 
-                        className="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                        webpSrc={getWebPUrl(item.after)}
-                        thumbnailSrc={getThumbnailUrl(item.after)}
-                        loading="lazy"
-                      />
-                      <div className="absolute top-3 left-3 flex gap-2">
-                        <span className="bg-red-500 text-white text-xs px-2 py-1 rounded font-medium group-hover:opacity-0 transition-opacity">BEFORE</span>
-                        <span className="bg-green-500 text-white text-xs px-2 py-1 rounded font-medium opacity-0 group-hover:opacity-100 transition-opacity">AFTER</span>
-                      </div>
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                        <span className="text-white/80 text-xs uppercase tracking-wider">{item.category}</span>
-                        <h3 className="text-white font-semibold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>{item.title}</h3>
-                      </div>
-                    </div>
-                    <div className="p-4 bg-white">
-                      <p className="text-gray-600 text-sm">{item.description}</p>
-                      <p className="text-[#2C5F7F] text-sm font-medium mt-2">Hover to see transformation →</p>
-                    </div>
-                  </Card>
-                </DialogTrigger>
-                <DialogContent className="max-w-4xl p-0 overflow-hidden">
-                  <div className="relative">
-                    <img 
-                      src={showAfter ? item.after : item.before} 
-                      alt={item.title} 
-                      className="w-full h-auto max-h-[70vh] object-contain bg-black"
-                      loading="lazy"
-                      decoding="async"
-                  width={800}
-                  height={600}
+                <BeforeAfterCard
+                  beforeSrc={item.before || ''}
+                  afterSrc={item.after || ''}
+                  title={item.title}
+                  category={item.category}
+                  description={item.description}
+                  imageHeight="h-64"
+                  onClick={() => {
+                    setSelectedItem(item);
+                    setSelectedProjectIndex(filteredItems.findIndex(p => p.id === item.id));
+                  }}
                 />
-                    <div className="absolute top-4 left-4">
-                      <span className={`text-white text-sm px-3 py-1 rounded font-medium ${showAfter ? 'bg-green-500' : 'bg-red-500'}`}>
-                        {showAfter ? 'AFTER' : 'BEFORE'}
-                      </span>
-                    </div>
-                    <button 
-                      onClick={() => setShowAfter(!showAfter)}
-                      className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white text-[#2C5F7F] px-6 py-2 rounded-full font-medium shadow-lg hover:bg-[#2C5F7F] hover:text-white transition flex items-center gap-2"
-                    >
-                      {showAfter ? <><ArrowLeft className="w-4 h-4" /> View Before</> : <>View After <ArrowRight className="w-4 h-4" /></>}
-                    </button>
-                  </div>
-                  <div className="p-6 bg-white">
-                    <span className="text-[#2C5F7F] text-sm font-medium">{item.category}</span>
-                    <h3 className="text-2xl font-bold text-[#2C2C2C] mt-1" style={{ fontFamily: "'Playfair Display', serif" }}>{item.title}</h3>
-                    <p className="text-gray-600 mt-2">{item.description}</p>
-                  </div>
-                </DialogContent>
-              </Dialog>
               </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Project Detail Modal */}
+      <ProjectDetailModal
+        project={selectedItem ? {
+          id: selectedItem.id,
+          title: selectedItem.title,
+          category: selectedItem.category,
+          description: selectedItem.description || '',
+          beforeImage: selectedItem.before,
+          afterImage: selectedItem.after,
+        } as ProjectDetailItem : null}
+        onClose={() => setSelectedItem(null)}
+        hasPrev={selectedProjectIndex > 0}
+        hasNext={selectedProjectIndex < filteredItems.length - 1}
+        onPrev={() => {
+          const newIdx = selectedProjectIndex - 1;
+          if (newIdx >= 0) {
+            setSelectedItem(filteredItems[newIdx]);
+            setSelectedProjectIndex(newIdx);
+          }
+        }}
+        onNext={() => {
+          const newIdx = selectedProjectIndex + 1;
+          if (newIdx < filteredItems.length) {
+            setSelectedItem(filteredItems[newIdx]);
+            setSelectedProjectIndex(newIdx);
+          }
+        }}
+      />
 
       {/* Lightbox Modal */}
       {lightboxImage && (

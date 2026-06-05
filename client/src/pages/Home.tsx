@@ -11,6 +11,7 @@ import { ResponsiveHeroBackground } from "@/components/ResponsiveHeroBackground"
 import { trpc } from "@/lib/trpc";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { ProjectDetailModal, type ProjectDetailItem } from "@/components/ProjectDetailModal";
+import { BeforeAfterCard } from "@/components/BeforeAfterCard";
 
 // Below-the-fold components: lazy-loaded to reduce initial JS bundle and improve LCP
 const HubSpotForm = lazy(() => import("@/components/HubSpotForm").then(m => ({ default: m.HubSpotForm })));
@@ -657,64 +658,22 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-              {featuredProjects.map((item, idx) => {
-                return (
-                  <ScrollReveal key={item.id}>
-                    <button
-                      type="button"
-                      className="block h-full w-full text-left"
-                      onClick={() => {
-                        setSelectedProject({ id: item.id, title: item.title, category: item.category, description: item.description, beforeImage: item.beforeImage, afterImage: item.afterImage, serviceHref: item.serviceHref });
-                        setSelectedProjectIndex(idx);
-                      }}
-                    >
-                      <div className="group relative overflow-hidden rounded-xl shadow-md cursor-pointer bg-white h-full
-                        hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-out">
-                        <div className="relative h-56 overflow-hidden">
-                          {/* Scale image slightly on hover for depth */}
-                          <img
-                            src={item.before}
-                            alt={`${item.title} - Before`}
-                            className="absolute inset-0 w-full h-full object-cover
-                              transition-all duration-500 ease-out
-                              group-hover:opacity-0 group-hover:scale-105"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          <img
-                            src={item.after}
-                            alt={`${item.title} - After`}
-                            className="absolute inset-0 w-full h-full object-cover scale-105
-                              opacity-0 transition-all duration-500 ease-out
-                              group-hover:opacity-100 group-hover:scale-100"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                          {/* Before / After badges */}
-                          <div className="absolute top-3 left-3 flex gap-2">
-                            <span className="bg-red-500 text-white text-xs px-2 py-1 rounded font-medium
-                              transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-1">BEFORE</span>
-                            <span className="bg-green-500 text-white text-xs px-2 py-1 rounded font-medium
-                              opacity-0 translate-y-1 transition-all duration-300
-                              group-hover:opacity-100 group-hover:translate-y-0">AFTER</span>
-                          </div>
-                          {/* Gradient overlay with title */}
-                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4
-                            translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
-                            <span className="text-white/70 text-xs uppercase tracking-wider">{item.category}</span>
-                            <h3 className="text-white font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>{item.title}</h3>
-                          </div>
-                        </div>
-                        <div className="p-4 flex items-start justify-between gap-2">
-                          <p className="text-gray-600 text-sm line-clamp-2 flex-1">{item.description}</p>
-                          <span className="text-[#2C5F7F] text-xs font-semibold whitespace-nowrap mt-0.5
-                            group-hover:translate-x-0.5 transition-transform duration-200">View service →</span>
-                        </div>
-                      </div>
-                    </button>
-                  </ScrollReveal>
-                );
-              })}
+              {featuredProjects.map((item) => (
+                <ScrollReveal key={item.id}>
+                  <BeforeAfterCard
+                    beforeSrc={item.before || ''}
+                    afterSrc={item.after || ''}
+                    title={item.title}
+                    category={item.category}
+                    description={item.description}
+                    imageHeight="h-56"
+                    onClick={() => {
+                      setSelectedProject({ id: item.id, title: item.title, category: item.category, description: item.description, beforeImage: item.beforeImage, afterImage: item.afterImage, serviceHref: item.serviceHref });
+                      setSelectedProjectIndex(filteredProjects.findIndex(p => p.id === item.id));
+                    }}
+                  />
+                </ScrollReveal>
+              ))}
             </div>
 
             {/* Load More + View All */}
@@ -1013,6 +972,24 @@ export default function Home() {
       <ProjectDetailModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
+        hasPrev={selectedProjectIndex > 0}
+        hasNext={selectedProjectIndex < filteredProjects.length - 1}
+        onPrev={() => {
+          const newIdx = selectedProjectIndex - 1;
+          if (newIdx >= 0) {
+            const p = filteredProjects[newIdx];
+            setSelectedProject({ id: p.id, title: p.title, category: p.category, description: p.description, beforeImage: p.beforeImage, afterImage: p.afterImage, serviceHref: p.serviceHref });
+            setSelectedProjectIndex(newIdx);
+          }
+        }}
+        onNext={() => {
+          const newIdx = selectedProjectIndex + 1;
+          if (newIdx < filteredProjects.length) {
+            const p = filteredProjects[newIdx];
+            setSelectedProject({ id: p.id, title: p.title, category: p.category, description: p.description, beforeImage: p.beforeImage, afterImage: p.afterImage, serviceHref: p.serviceHref });
+            setSelectedProjectIndex(newIdx);
+          }
+        }}
       />
 
       {/* Lightbox Modal */}
