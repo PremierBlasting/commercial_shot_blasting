@@ -58,6 +58,10 @@ export default function Home() {
   const [lightboxImages, setLightboxImages] = useState<string[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [projectCategory, setProjectCategory] = useState("All");
+<<<<<<< Updated upstream
+=======
+  const [visibleCount, setVisibleCount] = useState(6);
+>>>>>>> Stashed changes
 
   // Set SEO title and meta description
   useEffect(() => {
@@ -129,6 +133,25 @@ export default function Home() {
   // Fetch gallery items for the homepage preview
   const { data: dbGalleryItems } = trpc.gallery.list.useQuery();
 
+<<<<<<< Updated upstream
+=======
+  // Category-to-service mapping (Industrial → /services for generic overview)
+  const CATEGORY_SERVICE_MAP: Record<string, string> = {
+    "Industrial": "/services",
+    "Gates": "/services/steel-gates",
+    "Automotive": "/services/commercial-vehicles",
+    "Marine": "/services/plant-machinery",
+    "Agricultural": "/services/plant-machinery",
+    "Commercial": "/services/factory-cladding",
+    "Containers": "/services/steel-containers",
+    "Floors": "/services/floor-preparation",
+    "Radiators": "/services/commercial-radiators",
+    "Roller Shutters": "/services/steel-doors",
+    "Cladding": "/services/factory-cladding",
+    "Tanks": "/services/steel-containers",
+  };
+
+>>>>>>> Stashed changes
   // All non-duplicate projects (excluding those already shown in Case Studies)
   const allUniqueProjects = useMemo(() => {
     if (dbGalleryItems && dbGalleryItems.length > 0) {
@@ -160,6 +183,7 @@ export default function Home() {
     return [];
   }, [dbGalleryItems]);
 
+<<<<<<< Updated upstream
   // Unique categories for the filter pills
   const projectCategories = useMemo(() => {
     const cats = Array.from(new Set(allUniqueProjects.map(p => p.category)));
@@ -174,6 +198,23 @@ export default function Home() {
     return filtered.slice(0, 6);
   }, [allUniqueProjects, projectCategory]);
 
+=======
+  // Unique categories for filter pills
+  const projectCategories = useMemo(() => {
+    const cats = Array.from(new Set(allUniqueProjects.map(p => p.category)));
+    return ["All", ...cats.sort()];
+  }, [allUniqueProjects]);
+
+  // Filtered list (all matching category)
+  const filteredProjects = useMemo(() => {
+    if (projectCategory === "All") return allUniqueProjects;
+    return allUniqueProjects.filter(p => p.category === projectCategory);
+  }, [allUniqueProjects, projectCategory]);
+
+  // Visible slice for Load More
+  const featuredProjects = useMemo(() => filteredProjects.slice(0, visibleCount), [filteredProjects, visibleCount]);
+
+>>>>>>> Stashed changes
   // Use database data if available, otherwise use static fallback
   const displayTestimonials = useMemo(() => {
     if (dbTestimonials && dbTestimonials.length > 0) {
@@ -617,7 +658,11 @@ export default function Home() {
                 Recent Shot Blasting Projects
               </h2>
               <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+<<<<<<< Updated upstream
                 Hover over any card to reveal the after shot. Click to explore the matching service.
+=======
+                Hover any card to reveal the after shot. Click to explore the matching service.
+>>>>>>> Stashed changes
               </p>
             </div>
 
@@ -631,7 +676,11 @@ export default function Home() {
                 return (
                   <button
                     key={cat}
+<<<<<<< Updated upstream
                     onClick={() => setProjectCategory(cat)}
+=======
+                    onClick={() => { setProjectCategory(cat); setVisibleCount(6); }}
+>>>>>>> Stashed changes
                     className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border ${
                       isActive
                         ? "bg-[#2C5F7F] text-white border-[#2C5F7F] shadow-md"
@@ -646,6 +695,7 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
               {featuredProjects.map((item) => {
+<<<<<<< Updated upstream
                 const serviceHref = CATEGORY_SERVICE_MAP[item.category] || "/gallery";
                 return (
                   <ScrollReveal key={item.id}>
@@ -656,12 +706,29 @@ export default function Home() {
                             src={item.before}
                             alt={`${item.title} - Before`}
                             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+=======
+                const serviceHref = CATEGORY_SERVICE_MAP[item.category] || "/services";
+                return (
+                  <ScrollReveal key={item.id}>
+                    <Link href={serviceHref} className="block h-full">
+                      <div className="group relative overflow-hidden rounded-xl shadow-md cursor-pointer bg-white h-full
+                        hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-out">
+                        <div className="relative h-56 overflow-hidden">
+                          {/* Scale image slightly on hover for depth */}
+                          <img
+                            src={item.before}
+                            alt={`${item.title} - Before`}
+                            className="absolute inset-0 w-full h-full object-cover
+                              transition-all duration-500 ease-out
+                              group-hover:opacity-0 group-hover:scale-105"
+>>>>>>> Stashed changes
                             loading="lazy"
                             decoding="async"
                           />
                           <img
                             src={item.after}
                             alt={`${item.title} - After`}
+<<<<<<< Updated upstream
                             className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                             loading="lazy"
                             decoding="async"
@@ -672,12 +739,37 @@ export default function Home() {
                           </div>
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                             <span className="text-white/80 text-xs uppercase tracking-wider">{item.category}</span>
+=======
+                            className="absolute inset-0 w-full h-full object-cover scale-105
+                              opacity-0 transition-all duration-500 ease-out
+                              group-hover:opacity-100 group-hover:scale-100"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                          {/* Before / After badges */}
+                          <div className="absolute top-3 left-3 flex gap-2">
+                            <span className="bg-red-500 text-white text-xs px-2 py-1 rounded font-medium
+                              transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-1">BEFORE</span>
+                            <span className="bg-green-500 text-white text-xs px-2 py-1 rounded font-medium
+                              opacity-0 translate-y-1 transition-all duration-300
+                              group-hover:opacity-100 group-hover:translate-y-0">AFTER</span>
+                          </div>
+                          {/* Gradient overlay with title */}
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4
+                            translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+                            <span className="text-white/70 text-xs uppercase tracking-wider">{item.category}</span>
+>>>>>>> Stashed changes
                             <h3 className="text-white font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>{item.title}</h3>
                           </div>
                         </div>
                         <div className="p-4 flex items-start justify-between gap-2">
                           <p className="text-gray-600 text-sm line-clamp-2 flex-1">{item.description}</p>
+<<<<<<< Updated upstream
                           <span className="text-[#2C5F7F] text-xs font-medium whitespace-nowrap mt-0.5">View service →</span>
+=======
+                          <span className="text-[#2C5F7F] text-xs font-semibold whitespace-nowrap mt-0.5
+                            group-hover:translate-x-0.5 transition-transform duration-200">View service →</span>
+>>>>>>> Stashed changes
                         </div>
                       </div>
                     </Link>
@@ -685,7 +777,19 @@ export default function Home() {
                 );
               })}
             </div>
-            <div className="text-center">
+
+            {/* Load More + View All */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              {visibleCount < filteredProjects.length && (
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setVisibleCount(v => v + 3)}
+                  className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white bg-white"
+                >
+                  Load More ({filteredProjects.length - visibleCount} remaining)
+                </Button>
+              )}
               <Link href="/gallery">
                 <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
                   View All Projects
