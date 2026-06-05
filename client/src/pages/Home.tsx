@@ -113,14 +113,32 @@ export default function Home() {
   const { data: dbGalleryItems } = trpc.gallery.list.useQuery();
   const featuredProjects = useMemo(() => {
     if (dbGalleryItems && dbGalleryItems.length > 0) {
-      return dbGalleryItems.slice(0, 6).map(item => ({
-        id: item.id,
-        title: item.title,
-        category: item.category,
-        description: item.description || '',
-        before: item.beforeImage,
-        after: item.afterImage,
-      }));
+      // Titles that already appear in the Case Studies section — exclude to avoid duplicates
+      const caseStudyTitles = new Set([
+        "Warehouse Cladding Restoration",
+        "Steel Roller Shutter Restoration",
+        "Large Steel Tank Restoration",
+        "Commercial Radiator Restoration",
+        "Commercial Gate Restoration",
+        "Heavy-Duty Vehicle Wheel Restoration",
+        "Heavy-Duty Commercial Vehicle Wheels",
+        "Complete Chassis Restoration",
+        "Farm Barn Shot Blasting",
+        "Agricultural Building Restoration",
+        "Marine Diesel Engine Block Restoration",
+        "Marine Engine Block — Side Profile",
+      ]);
+      return dbGalleryItems
+        .filter(item => !caseStudyTitles.has(item.title))
+        .slice(0, 6)
+        .map(item => ({
+          id: item.id,
+          title: item.title,
+          category: item.category,
+          description: item.description || '',
+          before: item.beforeImage,
+          after: item.afterImage,
+        }));
     }
     return [];
   }, [dbGalleryItems]);
