@@ -109,6 +109,22 @@ export default function Home() {
   // Fetch testimonials from database
   const { data: dbTestimonials } = trpc.testimonials.list.useQuery();
 
+  // Fetch gallery items for the homepage preview
+  const { data: dbGalleryItems } = trpc.gallery.list.useQuery();
+  const featuredProjects = useMemo(() => {
+    if (dbGalleryItems && dbGalleryItems.length > 0) {
+      return dbGalleryItems.slice(0, 6).map(item => ({
+        id: item.id,
+        title: item.title,
+        category: item.category,
+        description: item.description || '',
+        before: item.beforeImage,
+        after: item.afterImage,
+      }));
+    }
+    return [];
+  }, [dbGalleryItems]);
+
   // Use database data if available, otherwise use static fallback
   const displayTestimonials = useMemo(() => {
     if (dbTestimonials && dbTestimonials.length > 0) {
@@ -541,6 +557,67 @@ export default function Home() {
       <Suspense fallback={<div className="py-16" />}><ReviewCarousel /></Suspense>
       {/* Case Studies Section */}
       <Suspense fallback={<div className="py-16" />}><CaseStudies /></Suspense>
+
+      {/* Recent Projects Gallery Preview */}
+      {featuredProjects.length > 0 && (
+        <section className="py-20 bg-[#F5F1E8]">
+          <div className="container">
+            <div className="text-center mb-12">
+              <p className="text-[#2C5F7F] font-medium mb-2">Our Work</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Recent Shot Blasting Projects
+              </h2>
+              <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+                Hover over any project card to see the dramatic before-and-after transformation our shot blasting services deliver.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+              {featuredProjects.map((item) => (
+                <ScrollReveal key={item.id}>
+                  <div className="group relative overflow-hidden rounded-xl shadow-md cursor-pointer bg-white hover:shadow-xl transition-all duration-300">
+                    <div className="relative h-56 overflow-hidden">
+                      <img
+                        src={item.before}
+                        alt={`${item.title} - Before`}
+                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <img
+                        src={item.after}
+                        alt={`${item.title} - After`}
+                        className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <div className="absolute top-3 left-3 flex gap-2">
+                        <span className="bg-red-500 text-white text-xs px-2 py-1 rounded font-medium group-hover:opacity-0 transition-opacity">BEFORE</span>
+                        <span className="bg-green-500 text-white text-xs px-2 py-1 rounded font-medium opacity-0 group-hover:opacity-100 transition-opacity">AFTER</span>
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <span className="text-white/80 text-xs uppercase tracking-wider">{item.category}</span>
+                        <h3 className="text-white font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>{item.title}</h3>
+                      </div>
+                    </div>
+                    <div className="p-4">
+                      <p className="text-gray-600 text-sm line-clamp-2">{item.description}</p>
+                      <p className="text-[#2C5F7F] text-xs font-medium mt-2">Hover to see transformation →</p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+            <div className="text-center">
+              <Link href="/gallery">
+                <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
+                  View All Projects
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA Section */}
       <section className="py-16 bg-[#2C5F7F] text-white">

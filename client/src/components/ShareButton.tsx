@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Share2, Facebook, Twitter, Linkedin, Link2, Check } from "lucide-react";
+import { Share2, Facebook, Twitter, Linkedin, Link2, Check, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface ShareButtonProps {
@@ -19,6 +19,18 @@ export function ShareButton({ title, url, description }: ShareButtonProps) {
 
   const shareLinks = [
     {
+      label: "LinkedIn",
+      icon: Linkedin,
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}&summary=${encodedDesc}`,
+      colour: "hover:text-[#0A66C2]",
+    },
+    {
+      label: "WhatsApp",
+      icon: MessageCircle,
+      href: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`,
+      colour: "hover:text-[#25D366]",
+    },
+    {
       label: "Facebook",
       icon: Facebook,
       href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
@@ -29,12 +41,6 @@ export function ShareButton({ title, url, description }: ShareButtonProps) {
       icon: Twitter,
       href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
       colour: "hover:text-[#1DA1F2]",
-    },
-    {
-      label: "LinkedIn",
-      icon: Linkedin,
-      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}&summary=${encodedDesc}`,
-      colour: "hover:text-[#0A66C2]",
     },
   ];
 

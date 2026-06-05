@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Calendar, Tag, ArrowLeft, Share2, Clock, User } from "lucide-react";
+import { Calendar, Tag, ArrowLeft, Clock, User } from "lucide-react";
+import { ShareButton } from "@/components/ShareButton";
 import { Link, useRoute } from "wouter";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -82,17 +83,6 @@ export default function BlogPost() {
     keywords: (post?.tags ? (typeof post.tags === "string" ? JSON.parse(post.tags) : post.tags).join(", ") : undefined) || "shot blasting, surface preparation, industrial cleaning",
     canonical: slug ? `${SITE_URL}/blog/${slug}` : undefined,
   });
-
-  const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({ title: post?.title, text: post?.excerpt, url: window.location.href });
-      } catch (_) {}
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      alert("Link copied to clipboard!");
-    }
-  };
 
   if (isLoading) {
     return (
@@ -198,9 +188,11 @@ export default function BlogPost() {
                   <ArrowLeft className="w-4 h-4 mr-2" />Back to Blog
                 </Button>
               </Link>
-              <Button variant="outline" className="bg-white" onClick={handleShare}>
-                <Share2 className="w-4 h-4 mr-2" />Share
-              </Button>
+              <ShareButton
+                title={post.title}
+                url={`/blog/${slug}`}
+                description={post.excerpt}
+              />
             </div>
 
             {/* ── Prose content ── */}

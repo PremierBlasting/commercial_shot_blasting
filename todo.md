@@ -833,3 +833,16 @@
 - [x] Verified: structural-steel-frames shows Related Guides links in SSR output
 - [x] Verified: Birmingham H1 = "Birmingham Shot Blasting Services Near Me | West Midlands"
 - [x] TypeScript: 0 errors
+
+## Round 39 — Premier Blasting Gallery Import + Social Share + Sitemap Priority
+
+- [x] Scrape premierblasting.co.uk/our-work#shot-blasting for all shot blasting project images
+- [x] Download 28 before/after images (14 projects) and upload to S3/CloudFront CDN
+- [x] Insert all 14 new shot blasting projects into gallery_items database table
+- [x] Gallery page (Gallery.tsx) already fetches from DB — new projects appear automatically
+- [x] Add "Recent Shot Blasting Projects" section to homepage (6 featured cards with hover before/after)
+- [x] Add WhatsApp to ShareButton.tsx (LinkedIn, WhatsApp, Facebook, X/Twitter + copy link)
+- [x] Replace generic share button in BlogPost.tsx with ShareButton component (LinkedIn, WhatsApp, copy-link)
+- [x] Sitemap: top 20 major cities get priority 0.8 + changefreq weekly (was 0.6/monthly)
+- [x] Sitemap: /gallery and /our-work lastmod now uses real gallery item updatedAt date
+- [x] TypeScript: 0 errors

@@ -10,7 +10,7 @@
  */
 
 import type { Express } from "express";
-import { getPublishedBlogPosts } from "./db";
+import { getPublishedBlogPosts, getActiveGalleryItems } from "./db";
 
 const SITE_URL = "https://commercialshotblasting.co.uk";
 
@@ -103,6 +103,14 @@ const COUNTY_SLUGS = [
   "east-wales",
 ];
 
+// ── Top 20 major city slugs — higher priority/changefreq ─────────────────────
+const TOP_CITY_SLUGS = new Set([
+  "birmingham", "manchester", "leeds", "sheffield", "bristol",
+  "liverpool", "newcastle-upon-tyne", "nottingham", "leicester", "coventry",
+  "bradford", "cardiff", "glasgow", "edinburgh", "southampton",
+  "portsmouth", "derby", "wolverhampton", "stoke-on-trent", "hull",
+]);
+
 // ── Town slugs (650 service-area pages) ───────────────────────────────────────
 // Imported directly from shared locationData — works in both dev (tsx) and prod (compiled)
 import { locationData } from "@shared/locationData";
@@ -159,11 +167,42 @@ async function buildSitemap(): Promise<string> {
     );
   }
 
-  // Town / service-area pages
+  // Town / service-area pages — top 20 cities get higher priority + weekly crawl
   for (const slug of townSlugs) {
+    const isTopCity = TOP_CITY_SLUGS.has(slug);
+    const changefreq = isTopCity ? "weekly" : "monthly";
+    const priority = isTopCity ? "0.8" : "0.6";
     urls.push(
-      `  <url>\n    <loc>${escapeXml(`${SITE_URL}/service-areas/${slug}`)}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`
+      `  <url>\n    <loc>${escapeXml(`${SITE_URL}/service-areas/${slug}`)}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`
     );
+  }
+
+  // Gallery page — use most recent gallery item's updatedAt for lastmod
+  try {
+    const galleryRows = await getActiveGalleryItems();
+    if (galleryRows.length > 0) {
+      const latestGallery = galleryRows.reduce((a, b) =>
+        new Date(a.updatedAt) > new Date(b.updatedAt) ? a : b
+      );
+      const galleryLastmod = new Date(latestGallery.updatedAt).toISOString().split("T")[0];
+      // Update the /gallery and /our-work static entries with real lastmod
+      const galleryIdx = urls.findIndex(u => u.includes(`${SITE_URL}/gallery`));
+      if (galleryIdx >= 0) {
+        urls[galleryIdx] = urls[galleryIdx].replace(
+          /<lastmod>[^<]+<\/lastmod>/,
+          `<lastmod>${galleryLastmod}</lastmod>`
+        );
+      }
+      const ourWorkIdx = urls.findIndex(u => u.includes(`${SITE_URL}/our-work`));
+      if (ourWorkIdx >= 0) {
+        urls[ourWorkIdx] = urls[ourWorkIdx].replace(
+          /<lastmod>[^<]+<\/lastmod>/,
+          `<lastmod>${galleryLastmod}</lastmod>`
+        );
+      }
+    }
+  } catch (err) {
+    console.error("[Sitemap] Failed to load gallery items:", err);
   }
 
   // Blog post pages — use real updatedAt for lastmod
