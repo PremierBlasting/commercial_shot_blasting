@@ -1,209 +1,260 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { OptimizedImage } from "@/components/OptimizedImage";
-import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin, Clock, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
+import { X, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
-interface ProjectDetail {
+export interface ProjectDetailItem {
   id: number;
   title: string;
   category: string;
   description: string;
-  detailedDescription?: string;
+  // Support both beforeImage/afterImage (new) and before/after (legacy) field names
+  beforeImage?: string;
+  afterImage?: string;
   before?: string;
   after?: string;
-  video?: string;
-  additionalPhotos?: string[];
-  additionalImages?: string[];
-  location?: string;
-  completionDate?: string;
-  duration?: string;
-  specifications?: string[];
-  challenges?: string;
-  results?: string;
+  serviceHref?: string;
 }
 
 interface ProjectDetailModalProps {
-  project: ProjectDetail | null;
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
+  project: ProjectDetailItem | null;
+  // Support both onClose and open/onOpenChange patterns
+  onClose?: () => void;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  onPrev?: () => void;
+  onNext?: () => void;
+  hasPrev?: boolean;
+  hasNext?: boolean;
 }
 
-export function ProjectDetailModal({ project, open, onOpenChange }: ProjectDetailModalProps) {
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-
-  if (!project) return null;
-
-  const allPhotos = [
-    ...(project.before ? [project.before] : []),
-    ...(project.after ? [project.after] : []),
-    ...(project.additionalPhotos || []),
-    ...(project.additionalImages || [])
-  ];
-
-  const nextPhoto = () => {
-    setCurrentPhotoIndex((prev) => (prev + 1) % allPhotos.length);
+export function ProjectDetailModal({
+  project,
+  onClose,
+  open,
+  onOpenChange,
+  onPrev,
+  onNext,
+  hasPrev,
+  hasNext,
+}: ProjectDetailModalProps) {
+  const handleClose = () => {
+    onClose?.();
+    onOpenChange?.(false);
   };
+  const [sliderPos, setSliderPos] = useState(50);
+  const [isDragging, setIsDragging] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const prevPhoto = () => {
-    setCurrentPhotoIndex((prev) => (prev - 1 + allPhotos.length) % allPhotos.length);
-  };
+  // Reset slider when project changes
+  useEffect(() => {
+    setSliderPos(50);
+  }, [project?.id]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (!project) return;
+      if (e.key === "Escape") handleClose();
+      if (e.key === "ArrowLeft" && hasPrev && onPrev) onPrev();
+      if (e.key === "ArrowRight" && hasNext && onNext) onNext();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [project, onClose, onPrev, onNext, hasPrev, hasNext]);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (project) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [project]);
+
+  const updateSlider = useCallback((clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    setSliderPos((x / rect.width) * 100);
+  }, []);
+
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+    updateSlider(e.clientX);
+  }, [updateSlider]);
+
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (isDragging) updateSlider(e.clientX);
+  }, [isDragging, updateSlider]);
+
+  const handleMouseUp = useCallback(() => setIsDragging(false), []);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    setIsDragging(true);
+    updateSlider(e.touches[0].clientX);
+  }, [updateSlider]);
+
+  const handleTouchMove = useCallback((e: TouchEvent) => {
+    if (isDragging) updateSlider(e.touches[0].clientX);
+  }, [isDragging, updateSlider]);
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseup", handleMouseUp);
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleMouseUp);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleMouseUp);
+    };
+  }, [handleMouseMove, handleMouseUp, handleTouchMove]);
+
+  // Support open prop: if open is explicitly false, don't render
+  if (!project || open === false) return null;
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <div className="flex items-center gap-3 mb-2">
-            <DialogTitle className="text-2xl font-bold">{project.title}</DialogTitle>
-            <Badge variant="secondary" className="text-sm">
-              {project.category}
-            </Badge>
-          </div>
-        </DialogHeader>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-3 sm:p-6"
+      onClick={(e) => e.target === e.currentTarget && handleClose()}
+    >
+      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[92vh] overflow-y-auto flex flex-col">
+        {/* Close button */}
+        <button
+          onClick={handleClose}
+          className="absolute top-3 right-3 z-20 bg-white/90 hover:bg-white rounded-full p-1.5 shadow-md transition-colors"
+          aria-label="Close modal"
+        >
+          <X className="w-5 h-5 text-gray-700" />
+        </button>
 
-        <div className="space-y-6">
-          {/* Image/Video Gallery */}
-          <div className="relative">
-            <div className="relative aspect-video rounded-lg overflow-hidden bg-muted">
-              {project.video ? (
-                <video
-                  src={project.video}
-                  controls
-                  className="w-full h-full object-cover"
-                  preload="metadata"
-                >
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
-                <>
-                  <OptimizedImage
-                    src={allPhotos[currentPhotoIndex]}
-                    alt={`${project.title} - Photo ${currentPhotoIndex + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                  {project.before && currentPhotoIndex === 0 && (
-                    <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded font-semibold text-sm">
-                      Before
-                    </div>
-                  )}
-                  {project.before && currentPhotoIndex === 1 && (
-                    <div className="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded font-semibold text-sm">
-                      After
-                    </div>
-                  )}
-                </>
-              )}
-            </div>
+        {/* Before/After Slider */}
+        <div
+          ref={containerRef}
+          className="relative w-full overflow-hidden rounded-t-2xl select-none"
+          style={{ aspectRatio: "16/9", cursor: isDragging ? "col-resize" : "col-resize" }}
+          onMouseDown={handleMouseDown}
+          onTouchStart={handleTouchStart}
+        >
+          {/* AFTER image — full width, sits below */}
+          <img
+            src={project.afterImage || project.after || ''}
+            alt={`${project.title} — After`}
+            className="absolute inset-0 w-full h-full object-cover"
+            draggable={false}
+          />
 
-            {allPhotos.length > 1 && (
-              <>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white"
-                  onClick={prevPhoto}
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white"
-                  onClick={nextPhoto}
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </Button>
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                  {allPhotos.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentPhotoIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-all ${
-                        index === currentPhotoIndex
-                          ? "bg-white w-6"
-                          : "bg-white/60 hover:bg-white/80"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
+          {/* BEFORE image — clipped to left portion */}
+          <div
+            className="absolute inset-0 overflow-hidden pointer-events-none"
+            style={{ width: `${sliderPos}%` }}
+          >
+            <img
+              src={project.beforeImage || project.before || ''}
+              alt={`${project.title} — Before`}
+              className="absolute inset-0 h-full object-cover"
+              style={{ width: `${(100 / Math.max(sliderPos, 0.1)) * 100}%`, maxWidth: "none" }}
+              draggable={false}
+            />
           </div>
 
-          {/* Project Metadata */}
-          {(project.location || project.completionDate || project.duration) && (
-            <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-              {project.location && (
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4" />
-                  <span>{project.location}</span>
-                </div>
-              )}
-              {project.completionDate && (
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4" />
-                  <span>Completed {project.completionDate}</span>
-                </div>
-              )}
-              {project.duration && (
-                <div className="flex items-center gap-2">
-                  <Clock className="h-4 w-4" />
-                  <span>{project.duration}</span>
-                </div>
-              )}
-            </div>
-          )}
+          {/* Divider line */}
+          <div
+            className="absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_8px_rgba(0,0,0,0.5)] pointer-events-none"
+            style={{ left: `calc(${sliderPos}% - 1px)` }}
+          />
 
-          {/* Detailed Description */}
-          <div>
-            <h3 className="text-lg font-semibold mb-2">Project Overview</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              {project.detailedDescription || project.description}
-            </p>
+          {/* Drag handle */}
+          <div
+            className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 bg-white rounded-full shadow-xl flex items-center justify-center pointer-events-none ring-2 ring-white/60"
+            style={{ left: `${sliderPos}%` }}
+          >
+            <ChevronLeft className="w-3.5 h-3.5 text-gray-600" />
+            <ChevronRight className="w-3.5 h-3.5 text-gray-600" />
           </div>
 
-          {/* Challenges */}
-          {project.challenges && (
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Challenges</h3>
-              <p className="text-muted-foreground leading-relaxed">{project.challenges}</p>
-            </div>
-          )}
+          {/* BEFORE / AFTER labels */}
+          <div className="absolute top-3 left-3 pointer-events-none">
+            <span className="bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded shadow-md">
+              BEFORE
+            </span>
+          </div>
+          <div className="absolute top-3 right-3 pointer-events-none">
+            <span className="bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded shadow-md">
+              AFTER
+            </span>
+          </div>
 
-          {/* Specifications */}
-          {project.specifications && project.specifications.length > 0 && (
-            <div>
-              <h3 className="text-lg font-semibold mb-3">Project Specifications</h3>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                {project.specifications.map((spec, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-muted-foreground">{spec}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Results */}
-          {project.results && (
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Results</h3>
-              <p className="text-muted-foreground leading-relaxed">{project.results}</p>
-            </div>
-          )}
-
-          {/* CTA */}
-          <div className="bg-muted rounded-lg p-6 text-center">
-            <h3 className="text-xl font-semibold mb-2">Need Similar Work?</h3>
-            <p className="text-muted-foreground mb-4">
-              Get in touch to discuss your project requirements
-            </p>
-            <Button size="lg">Get a Free Quote</Button>
+          {/* Hint */}
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none">
+            <span className="bg-black/60 text-white text-xs px-3 py-1.5 rounded-full whitespace-nowrap">
+              ← Drag to compare →
+            </span>
           </div>
         </div>
-      </DialogContent>
-    </Dialog>
+
+        {/* Content */}
+        <div className="p-5 sm:p-6 flex-1">
+          <div className="mb-4">
+            <span className="inline-block bg-[#2C5F7F]/10 text-[#2C5F7F] text-xs font-semibold px-2.5 py-1 rounded-full mb-2 uppercase tracking-wide">
+              {project.category}
+            </span>
+            <h2
+              className="text-xl sm:text-2xl font-bold text-[#2C2C2C] leading-snug"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              {project.title}
+            </h2>
+          </div>
+
+          <p className="text-gray-600 leading-relaxed text-sm sm:text-base mb-6">
+            {project.description}
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+            {project.serviceHref && (
+              <Link href={project.serviceHref} onClick={handleClose}>
+                <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52] w-full sm:w-auto text-white">
+                  View This Service
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+            )}
+            <Link href="/gallery" onClick={handleClose}>
+              <Button
+                variant="outline"
+                className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white bg-white w-full sm:w-auto"
+              >
+                View All Projects
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Prev / Next navigation */}
+        {(hasPrev || hasNext) && (
+          <div className="flex justify-between items-center px-5 sm:px-6 py-4 border-t border-gray-100">
+            <button
+              onClick={onPrev}
+              disabled={!hasPrev}
+              className="flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-[#2C5F7F] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            >
+              <ChevronLeft className="w-4 h-4" /> Previous
+            </button>
+            <button
+              onClick={onNext}
+              disabled={!hasNext}
+              className="flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-[#2C5F7F] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            >
+              Next <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

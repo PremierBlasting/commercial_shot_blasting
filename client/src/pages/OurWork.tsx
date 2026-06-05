@@ -11,7 +11,7 @@ import { trpc } from "@/lib/trpc";
 import { Breadcrumb } from "@/components/Breadcrumb";
 
 import { Footer } from "@/components/Footer";
-import { ProjectDetailModal } from "@/components/ProjectDetailModal";
+import { ProjectDetailModal, type ProjectDetailItem } from "@/components/ProjectDetailModal";
 import { ScrollReveal } from "@/components/ScrollReveal";
 const galleryItems = [
   // Industrial Projects
@@ -21,7 +21,9 @@ const galleryItems = [
     category: "Structural Steel Frames",
     description: "Complete rust and scale removal from structural steel beams in manufacturing facility",
     before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/zZPJdDNrwllRPDRT.webp",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/zZPJdDNrwllRPDRT.webp",
     after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/fDsaRxagauTcgoki.webp",
+    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/fDsaRxagauTcgoki.webp",
   },
   {
     id: 2,
@@ -30,7 +32,9 @@ const galleryItems = [
     description: "Complete removal of original plastisol and multiple paint layers from warehouse cladding",
     detailedDescription: "This challenging warehouse cladding restoration project involved removing decades of accumulated coatings including the original plastisol finish and multiple layers of industrial paint. Our team used precision shot blasting techniques to strip all layers down to bare metal while preserving the structural integrity of the cladding panels.",
     before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp",
     after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
+    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
     location: "Birmingham, West Midlands",
     completionDate: "November 2025",
     duration: "5 days",
@@ -50,7 +54,9 @@ const galleryItems = [
     description: "Complete plastisol and multi-layer paint removal from factory cladding panels",
     detailedDescription: "This factory cladding restoration project involved the complete removal of original plastisol coating and multiple layers of industrial paint from factory roof cladding. The job proved more challenging than initially expected due to the extent of coating buildup, but our team adapted techniques and put in extra hours to deliver flawless results within the agreed budget. This project showcases our commitment to client satisfaction and our ability to handle complex coating removal challenges.",
     before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/okcUjGBJyNattGJb.webp",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/okcUjGBJyNattGJb.webp",
     after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UjSNpyqCeEUxElPP.webp",
+    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UjSNpyqCeEUxElPP.webp",
     location: "West Midlands",
     completionDate: "December 2025",
     duration: "7 days",
@@ -71,7 +77,9 @@ const galleryItems = [
     category: "Steel Containers",
     description: "Storage container surface preparation for recoating",
     before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp",
     after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp",
+    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp",
   },
   {
     id: 12,
@@ -80,7 +88,9 @@ const galleryItems = [
     description: "Complete rust and paint removal from large cylindrical steel storage tank",
     detailedDescription: "This challenging industrial tank restoration project involved removing decades of severe rust, failed paint coatings, and surface contamination from a large cylindrical steel storage tank. The extensive corrosion and paint deterioration required careful shot blasting to strip the surface down to bare metal while preserving the structural integrity of the tank walls. The project demonstrates our capability to handle large-scale industrial restoration work with precision and efficiency.",
     before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UhOtVLOfPobtqyhi.webp",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UhOtVLOfPobtqyhi.webp",
     after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
+    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
     location: "West Midlands",
     completionDate: "January 2026",
     duration: "6 days",
@@ -101,7 +111,9 @@ const galleryItems = [
     description: "Complete rust and contamination removal from industrial roller shutter doors",
     detailedDescription: "This industrial roller shutter restoration project involved removing rust spots, contamination, and surface degradation from large steel roller shutter doors at an industrial facility. The shutters had developed multiple areas of rust and surface deterioration that compromised both appearance and functionality. Our shot blasting process completely stripped the contaminated surface, revealing clean bare metal ready for protective coating application.",
     before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xvKQQIlLmNAFAvok.webp",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xvKQQIlLmNAFAvok.webp",
     after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/DUhxFvPPoYHiQnQF.webp",
+    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/DUhxFvPPoYHiQnQF.webp",
     location: "West Midlands",
     completionDate: "January 2026",
     duration: "3 days",
@@ -122,6 +134,8 @@ const galleryItems = [
     description: "High-efficiency shot blasting of industrial steel sheeting panels",
     detailedDescription: "This industrial steel sheeting project showcases our high-efficiency shot blasting capabilities for large-scale surface preparation. The video demonstrates our precision technique in action, removing rust, mill scale, and surface contamination from steel sheeting panels. This type of work is essential for preparing steel components for protective coating systems in industrial and construction applications, ensuring optimal adhesion and long-term corrosion protection.",
     video: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZRFzUipVNoPynrdt.mp4",
+    beforeImage: "",
+    afterImage: "",
     location: "West Midlands",
     completionDate: "January 2026",
     duration: "2 days",
@@ -142,7 +156,9 @@ const galleryItems = [
     category: "Steel Gates",
     description: "Industrial gate surface preparation for protective coating application",
     before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/MIIROVZiWbQlYLkF.webp",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/MIIROVZiWbQlYLkF.webp",
     after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/KMeJJHNNjmrVCsLA.webp",
+    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/KMeJJHNNjmrVCsLA.webp",
   },
   // Commercial Vehicle Projects
   {
@@ -152,7 +168,9 @@ const galleryItems = [
     description: "Complete wheel restoration for vintage farm truck with decades of paint, rust, and agricultural contamination",
     detailedDescription: "This vintage farm truck wheel restoration showcases our expertise in automotive component refurbishment. The wheels had accumulated decades of paint layers, rust, and agricultural contamination that required careful removal to preserve the underlying metal structure.",
     before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/SrqhpzNTsQrjJrai.webp",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/SrqhpzNTsQrjJrai.webp",
     after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/izABKdVFbfGtnMQJ.webp",
+    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/izABKdVFbfGtnMQJ.webp",
     location: "Leicestershire",
     completionDate: "October 2025",
     duration: "2 days",
@@ -172,7 +190,10 @@ const galleryItems = [
     category: "Automotive",
     description: "Systematic shot blasting of entire warehouse vehicle chassis frame including all structural members and cross-braces",
     detailedDescription: "A comprehensive chassis restoration project for a warehouse vehicle requiring complete removal of rust, old paint, and surface contamination from every structural component. This meticulous work prepared the chassis for a full protective coating system to ensure decades of future service. These images showcase the completed restoration from multiple angles, highlighting the pristine shot-blasted finish across all structural members.",
+    before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/dAQXgKdkBiPdcYhw.webp",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/dAQXgKdkBiPdcYhw.webp",
     after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/dAQXgKdkBiPdcYhw.webp",
+    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/dAQXgKdkBiPdcYhw.webp",
     location: "Nottinghamshire",
     completionDate: "December 2025",
     duration: "4 days",
@@ -199,7 +220,9 @@ const galleryItems = [
     description: "Vintage cast iron radiator restoration removing old paint and rust for heritage property",
     detailedDescription: "This heritage radiator restoration project involved careful removal of decades of accumulated paint layers and rust from vintage cast iron radiators in a period property. Our precision shot blasting technique stripped away all old coatings while preserving the intricate casting details and structural integrity of these valuable heating elements.",
     before: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YVIqmQibsinaulNx.webp",
+    beforeImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YVIqmQibsinaulNx.webp",
     after: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UmbeZQqmNyesAHVo.webp",
+    afterImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UmbeZQqmNyesAHVo.webp",
     location: "Nottinghamshire",
     completionDate: "January 2026",
     duration: "3 days",
@@ -221,7 +244,9 @@ const galleryItems = [
     description: "Shot blasting of farm barn concrete panels and steel frame — before and after results",
     detailedDescription: "This agricultural project involved shot blasting the concrete panels and steel frame of a large farm barn to remove years of weathering, algae, and surface contamination. Our mobile unit was deployed directly on-site, working systematically across the barn elevations using scissor lift access. The clean surface was prepared to specification ready for a protective coating system, extending the building's lifespan significantly.",
     before: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(5)_d258dff2.jpeg",
+    beforeImage: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(5)_d258dff2.jpeg",
     after: "/manus-storage/WhatsAppImage2026-04-27at16.58.42(1)_a8f17ecc.jpeg",
+    afterImage: "/manus-storage/WhatsAppImage2026-04-27at16.58.42(1)_a8f17ecc.jpeg",
     location: "North West England",
     completionDate: "April 2026",
     duration: "4 days",
@@ -242,7 +267,9 @@ const galleryItems = [
     description: "Concrete and steel agricultural building surfaces shot blasted clean with scissor lift access",
     detailedDescription: "This project involved restoring a large agricultural building with a combination of concrete panel walls and corrugated steel cladding. Our team worked across multiple elevations using scissor lift access, removing decades of weathering, biological growth, and old coatings. The project demonstrates our capability to handle complex mixed-surface agricultural buildings efficiently.",
     before: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(4)_5d798006.jpeg",
+    beforeImage: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(4)_5d798006.jpeg",
     after: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(6)_5c09aa7a.jpeg",
+    afterImage: "/manus-storage/WhatsAppImage2026-04-27at16.58.43(6)_5c09aa7a.jpeg",
     location: "North West England",
     completionDate: "April 2026",
     duration: "3 days",
@@ -263,6 +290,8 @@ const galleryItems = [
     description: "Watch our team shot blasting a farm barn on-site — mobile unit in action",
     detailedDescription: "This video captures our team in action shot blasting a large farm barn on-site. It shows our mobile blasting unit working across the barn's concrete panel elevations, demonstrating the speed and effectiveness of our process. The footage clearly shows the dramatic transformation as contaminated surfaces are stripped back to clean substrate in real time.",
     video: "/manus-storage/WhatsAppVideo2026-04-27at09.27.29(1)_3886b1d3.mp4",
+    beforeImage: "",
+    afterImage: "",
     location: "North West England",
     completionDate: "April 2026",
     duration: "4 days",
@@ -284,7 +313,9 @@ const galleryItems = [
     description: "Large-format marine diesel engine block stripped of decades of rust, paint and corrosion — before and after",
     detailedDescription: "This marine diesel engine block project showcases our specialist capability for heavy marine components. The engine had accumulated decades of rust, old paint layers, and corrosion across its entire surface. Our team shot blasted the block back to bare metal, achieving a clean, uniform surface profile ready for inspection and protective recoating. This type of work is critical for extending the service life of marine engines and ensuring coating systems bond correctly to the metal substrate.",
     before: "/manus-storage/marine-before-1_01d5fffa.jpg",
+    beforeImage: "/manus-storage/marine-before-1_01d5fffa.jpg",
     after: "/manus-storage/marine-after-1_dc53f2eb.jpg",
+    afterImage: "/manus-storage/marine-after-1_dc53f2eb.jpg",
     location: "Port of Liverpool",
     completionDate: "March 2026",
     duration: "2 days",
@@ -305,7 +336,9 @@ const galleryItems = [
     description: "Side view before and after — paint build-up and corrosion fully removed from marine engine block",
     detailedDescription: "This second view of the marine diesel engine block restoration shows the side profile transformation. The before image clearly shows the extent of paint build-up and corrosion on the engine casing. After shot blasting, the side profile reveals clean bare metal with a consistent surface profile across the entire casting, demonstrating the thoroughness of our process on complex marine components.",
     before: "/manus-storage/marine-before-2_c23a76dd.jpg",
+    beforeImage: "/manus-storage/marine-before-2_c23a76dd.jpg",
     after: "/manus-storage/marine-after-2_30cf45df.jpg",
+    afterImage: "/manus-storage/marine-after-2_30cf45df.jpg",
     location: "Port of Liverpool",
     completionDate: "March 2026",
     duration: "2 days",
@@ -362,7 +395,7 @@ export default function OurWork() {
   const [lightboxImages, setLightboxImages] = useState<string[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<typeof galleryItems[0] | null>(null);
+  const [selectedProject, setSelectedProject] = useState<ProjectDetailItem | null>(null);
   const [projectModalOpen, setProjectModalOpen] = useState(false);
 
   const openQuotePopup = () => setQuotePopupOpen(true);

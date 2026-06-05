@@ -10,6 +10,7 @@ import { StaticServiceAreasMap } from "@/components/StaticServiceAreasMap";
 import { ResponsiveHeroBackground } from "@/components/ResponsiveHeroBackground";
 import { trpc } from "@/lib/trpc";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { ProjectDetailModal, type ProjectDetailItem } from "@/components/ProjectDetailModal";
 
 // Below-the-fold components: lazy-loaded to reduce initial JS bundle and improve LCP
 const HubSpotForm = lazy(() => import("@/components/HubSpotForm").then(m => ({ default: m.HubSpotForm })));
@@ -43,6 +44,9 @@ export default function Home() {
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [projectCategory, setProjectCategory] = useState("All");
   const [visibleCount, setVisibleCount] = useState(6);
+  const [selectedProject, setSelectedProject] = useState<ProjectDetailItem | null>(null);
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(-1);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   // Set SEO title and meta description
   useEffect(() => {
@@ -114,13 +118,15 @@ export default function Home() {
   // Fetch gallery items for the homepage preview
   const { data: dbGalleryItems } = trpc.gallery.list.useQuery();
 
-  // Category-to-service mapping (Industrial → /services for generic overview)
+  // Category-to-service mapping (DB categories: Agriculture, Automotive, Gates, Industrial, Staircases)
   const CATEGORY_SERVICE_MAP: Record<string, string> = {
-    "Industrial": "/services",
+    "Industrial": "/services/structural-steel-frames",
+    "Agriculture": "/services/plant-machinery",
+    "Agricultural": "/services/plant-machinery",
     "Gates": "/services/steel-gates",
     "Automotive": "/services/commercial-vehicles",
+    "Staircases": "/services/staircases",
     "Marine": "/services/plant-machinery",
-    "Agricultural": "/services/plant-machinery",
     "Commercial": "/services/factory-cladding",
     "Containers": "/services/steel-containers",
     "Floors": "/services/floor-preparation",
@@ -128,6 +134,8 @@ export default function Home() {
     "Roller Shutters": "/services/steel-doors",
     "Cladding": "/services/factory-cladding",
     "Tanks": "/services/steel-containers",
+    "Fire Escapes": "/services/fire-escapes",
+    "Structural": "/services/structural-steel-frames",
   };
 
   // All non-duplicate projects (excluding those already shown in Case Studies)
@@ -156,6 +164,9 @@ export default function Home() {
           description: item.description || '',
           before: item.beforeImage,
           after: item.afterImage,
+          beforeImage: item.beforeImage,
+          afterImage: item.afterImage,
+          serviceHref: CATEGORY_SERVICE_MAP[item.category] || "/services",
         }));
     }
     return [];
@@ -646,11 +657,17 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-              {featuredProjects.map((item) => {
-                const serviceHref = CATEGORY_SERVICE_MAP[item.category] || "/services";
+              {featuredProjects.map((item, idx) => {
                 return (
                   <ScrollReveal key={item.id}>
-                    <Link href={serviceHref} className="block h-full">
+                    <button
+                      type="button"
+                      className="block h-full w-full text-left"
+                      onClick={() => {
+                        setSelectedProject({ id: item.id, title: item.title, category: item.category, description: item.description, beforeImage: item.beforeImage, afterImage: item.afterImage, serviceHref: item.serviceHref });
+                        setSelectedProjectIndex(idx);
+                      }}
+                    >
                       <div className="group relative overflow-hidden rounded-xl shadow-md cursor-pointer bg-white h-full
                         hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-out">
                         <div className="relative h-56 overflow-hidden">
@@ -694,7 +711,7 @@ export default function Home() {
                             group-hover:translate-x-0.5 transition-transform duration-200">View service →</span>
                         </div>
                       </div>
-                    </Link>
+                    </button>
                   </ScrollReveal>
                 );
               })}
@@ -706,10 +723,20 @@ export default function Home() {
                 <Button
                   variant="outline"
                   size="lg"
-                  onClick={() => setVisibleCount(v => v + 3)}
-                  className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white bg-white"
+                  onClick={() => {
+                    setIsLoadingMore(true);
+                    setTimeout(() => {
+                      setVisibleCount(v => v + 3);
+                      setIsLoadingMore(false);
+                    }, 400);
+                  }}
+                  disabled={isLoadingMore}
+                  className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white bg-white gap-2"
                 >
-                  Load More ({filteredProjects.length - visibleCount} remaining)
+                  {isLoadingMore ? (
+                    <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="10" strokeOpacity="0.25" /><path d="M12 2a10 10 0 0 1 10 10" /></svg>
+                  ) : null}
+                  {isLoadingMore ? "Loading…" : `Load More (${filteredProjects.length - visibleCount} remaining)`}
                 </Button>
               )}
               <Link href="/gallery">
@@ -981,6 +1008,12 @@ export default function Home() {
 
       {/* Quote Popup Modal */}
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
+
+      {/* Project Detail Modal */}
+      <ProjectDetailModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
 
       {/* Lightbox Modal */}
       {lightboxImage && (

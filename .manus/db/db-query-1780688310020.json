@@ -1,0 +1,25 @@
+{
+  "query": "SELECT DISTINCT category FROM gallery_items ORDER BY category;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT DISTINCT category FROM gallery_items ORDER BY category;",
+  "rows": [
+    {
+      "category": "Agriculture"
+    },
+    {
+      "category": "Automotive"
+    },
+    {
+      "category": "Gates"
+    },
+    {
+      "category": "Industrial"
+    },
+    {
+      "category": "Staircases"
+    }
+  ],
+  "messages": [],
+  "stdout": "category\nAgriculture\nAutomotive\nGates\nIndustrial\nStaircases\n",
+  "stderr": "",
+  "execution_time_ms": 710
+}

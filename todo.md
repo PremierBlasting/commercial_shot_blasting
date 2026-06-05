@@ -846,3 +846,17 @@
 - [x] Sitemap: top 20 major cities get priority 0.8 + changefreq weekly (was 0.6/monthly)
 - [x] Sitemap: /gallery and /our-work lastmod now uses real gallery item updatedAt date
 - [x] TypeScript: 0 errors
+
+## Round 40 — Project Detail Modal + Staircase Project + UX Improvements
+
+- [x] Add Gallery nav link to desktop and mobile Header menu
+- [x] Add category filter pills to Recent Projects section (Agriculture, Automotive, Gates, Industrial, Staircases)
+- [x] Make Recent Projects cards clickable — open ProjectDetailModal on click
+- [x] Build ProjectDetailModal component with draggable before/after slider
+- [x] Wire ProjectDetailModal into Home.tsx (import, state, render)
+- [x] Wire ProjectDetailModal into OurWork.tsx (fix selectedProject type to ProjectDetailItem)
+- [x] Refine CATEGORY_SERVICE_MAP to use correct service slugs (Agriculture → plant-machinery, Industrial → structural-steel-frames, Staircases → staircases)
+- [x] Add Load More spinner animation (400ms delay, animated SVG spinner, disabled state)
+- [x] Upload 7 staircase project images to S3 CDN
+- [x] Insert External Staircase Restoration project into gallery_items DB (category: Staircases)
+- [x] TypeScript: 0 errors

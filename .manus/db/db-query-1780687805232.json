@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO gallery_items (title, category, description, beforeImage, afterImage, sortOrder, isActive, createdAt, updatedAt)\nVALUES (\n  'External Steel Staircase & Balustrade Restoration',\n  'Staircases',\n  'A heavily corroded external steel staircase with ornate wrought-iron balustrades and railings was stripped back to bare metal using shot blasting. Years of rust, algae growth, and flaking paint were completely removed from every surface — including the open-grid treads, string sections, and decorative scroll details — leaving a clean, profiled surface ready for priming and powder coating.',\n  '/manus-storage/before3_560fa256.jpeg',\n  '/manus-storage/after3_37567cb1.jpeg',\n  100,\n  1,\n  NOW(),\n  NOW()\n);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute INSERT INTO gallery_items (title, category, description, beforeImage, afterImage, sortOrder, isActive, createdAt, updatedAt)\nVALUES (\n  'External Steel Staircase & Balustrade Restoration',\n  'Staircases',\n  'A heavily corroded external steel staircase with ornate wrought-iron balustrades and railings was stripped back to bare metal using shot blasting. Years of rust, algae growth, and flaking paint were completely removed from every surface — including the open-grid treads, string sections, and decorative scroll details — leaving a clean, profiled surface ready for priming and powder coating.',\n  '/manus-storage/before3_560fa256.jpeg',\n  '/manus-storage/after3_37567cb1.jpeg',\n  100,\n  1,\n  NOW(),\n  NOW()\n);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 601
+}
