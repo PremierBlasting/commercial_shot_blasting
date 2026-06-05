@@ -36,11 +36,28 @@ const testimonials = [
   },
 ];
 
+// Map gallery categories to matching service page slugs
+const CATEGORY_SERVICE_MAP: Record<string, string> = {
+  "Industrial": "/services/structural-steel-frames",
+  "Gates": "/services/steel-gates",
+  "Automotive": "/services/commercial-vehicles",
+  "Marine": "/services/plant-machinery",
+  "Agricultural": "/services/plant-machinery",
+  "Commercial": "/services/factory-cladding",
+  "Containers": "/services/steel-containers",
+  "Floors": "/services/floor-preparation",
+  "Radiators": "/services/commercial-radiators",
+  "Roller Shutters": "/services/steel-doors",
+  "Cladding": "/services/factory-cladding",
+  "Tanks": "/services/steel-containers",
+};
+
 export default function Home() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxImages, setLightboxImages] = useState<string[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [projectCategory, setProjectCategory] = useState("All");
 
   // Set SEO title and meta description
   useEffect(() => {
@@ -111,9 +128,10 @@ export default function Home() {
 
   // Fetch gallery items for the homepage preview
   const { data: dbGalleryItems } = trpc.gallery.list.useQuery();
-  const featuredProjects = useMemo(() => {
+
+  // All non-duplicate projects (excluding those already shown in Case Studies)
+  const allUniqueProjects = useMemo(() => {
     if (dbGalleryItems && dbGalleryItems.length > 0) {
-      // Titles that already appear in the Case Studies section — exclude to avoid duplicates
       const caseStudyTitles = new Set([
         "Warehouse Cladding Restoration",
         "Steel Roller Shutter Restoration",
@@ -130,7 +148,6 @@ export default function Home() {
       ]);
       return dbGalleryItems
         .filter(item => !caseStudyTitles.has(item.title))
-        .slice(0, 6)
         .map(item => ({
           id: item.id,
           title: item.title,
@@ -142,6 +159,20 @@ export default function Home() {
     }
     return [];
   }, [dbGalleryItems]);
+
+  // Unique categories for the filter pills
+  const projectCategories = useMemo(() => {
+    const cats = Array.from(new Set(allUniqueProjects.map(p => p.category)));
+    return ["All", ...cats];
+  }, [allUniqueProjects]);
+
+  // Filtered + limited to 6 for display
+  const featuredProjects = useMemo(() => {
+    const filtered = projectCategory === "All"
+      ? allUniqueProjects
+      : allUniqueProjects.filter(p => p.category === projectCategory);
+    return filtered.slice(0, 6);
+  }, [allUniqueProjects, projectCategory]);
 
   // Use database data if available, otherwise use static fallback
   const displayTestimonials = useMemo(() => {
@@ -577,53 +608,82 @@ export default function Home() {
       <Suspense fallback={<div className="py-16" />}><CaseStudies /></Suspense>
 
       {/* Recent Projects Gallery Preview */}
-      {featuredProjects.length > 0 && (
+      {allUniqueProjects.length > 0 && (
         <section className="py-20 bg-[#F5F1E8]">
           <div className="container">
-            <div className="text-center mb-12">
-              <p className="text-[#2C5F7F] font-medium mb-2">Our Work</p>
+            <div className="text-center mb-8">
+              <p className="text-[#2C5F7F] font-medium mb-2 uppercase tracking-wide text-sm">Our Work</p>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Recent Shot Blasting Projects
               </h2>
               <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-                Hover over any project card to see the dramatic before-and-after transformation our shot blasting services deliver.
+                Hover over any card to reveal the after shot. Click to explore the matching service.
               </p>
             </div>
+
+            {/* Category Filter Pills */}
+            <div className="flex flex-wrap justify-center gap-2 mb-10">
+              {projectCategories.map((cat) => {
+                const count = cat === "All"
+                  ? allUniqueProjects.length
+                  : allUniqueProjects.filter(p => p.category === cat).length;
+                const isActive = projectCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setProjectCategory(cat)}
+                    className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border ${
+                      isActive
+                        ? "bg-[#2C5F7F] text-white border-[#2C5F7F] shadow-md"
+                        : "bg-white text-gray-600 border-gray-200 hover:border-[#2C5F7F] hover:text-[#2C5F7F]"
+                    }`}
+                  >
+                    {cat} <span className={`ml-1 text-xs ${isActive ? "text-white/80" : "text-gray-400"}`}>({count})</span>
+                  </button>
+                );
+              })}
+            </div>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-              {featuredProjects.map((item) => (
-                <ScrollReveal key={item.id}>
-                  <div className="group relative overflow-hidden rounded-xl shadow-md cursor-pointer bg-white hover:shadow-xl transition-all duration-300">
-                    <div className="relative h-56 overflow-hidden">
-                      <img
-                        src={item.before}
-                        alt={`${item.title} - Before`}
-                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <img
-                        src={item.after}
-                        alt={`${item.title} - After`}
-                        className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      <div className="absolute top-3 left-3 flex gap-2">
-                        <span className="bg-red-500 text-white text-xs px-2 py-1 rounded font-medium group-hover:opacity-0 transition-opacity">BEFORE</span>
-                        <span className="bg-green-500 text-white text-xs px-2 py-1 rounded font-medium opacity-0 group-hover:opacity-100 transition-opacity">AFTER</span>
+              {featuredProjects.map((item) => {
+                const serviceHref = CATEGORY_SERVICE_MAP[item.category] || "/gallery";
+                return (
+                  <ScrollReveal key={item.id}>
+                    <Link href={serviceHref} className="block">
+                      <div className="group relative overflow-hidden rounded-xl shadow-md cursor-pointer bg-white hover:shadow-xl transition-all duration-300">
+                        <div className="relative h-56 overflow-hidden">
+                          <img
+                            src={item.before}
+                            alt={`${item.title} - Before`}
+                            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                          <img
+                            src={item.after}
+                            alt={`${item.title} - After`}
+                            className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                          <div className="absolute top-3 left-3 flex gap-2">
+                            <span className="bg-red-500 text-white text-xs px-2 py-1 rounded font-medium group-hover:opacity-0 transition-opacity">BEFORE</span>
+                            <span className="bg-green-500 text-white text-xs px-2 py-1 rounded font-medium opacity-0 group-hover:opacity-100 transition-opacity">AFTER</span>
+                          </div>
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <span className="text-white/80 text-xs uppercase tracking-wider">{item.category}</span>
+                            <h3 className="text-white font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>{item.title}</h3>
+                          </div>
+                        </div>
+                        <div className="p-4 flex items-start justify-between gap-2">
+                          <p className="text-gray-600 text-sm line-clamp-2 flex-1">{item.description}</p>
+                          <span className="text-[#2C5F7F] text-xs font-medium whitespace-nowrap mt-0.5">View service →</span>
+                        </div>
                       </div>
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                        <span className="text-white/80 text-xs uppercase tracking-wider">{item.category}</span>
-                        <h3 className="text-white font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>{item.title}</h3>
-                      </div>
-                    </div>
-                    <div className="p-4">
-                      <p className="text-gray-600 text-sm line-clamp-2">{item.description}</p>
-                      <p className="text-[#2C5F7F] text-xs font-medium mt-2">Hover to see transformation →</p>
-                    </div>
-                  </div>
-                </ScrollReveal>
-              ))}
+                    </Link>
+                  </ScrollReveal>
+                );
+              })}
             </div>
             <div className="text-center">
               <Link href="/gallery">
