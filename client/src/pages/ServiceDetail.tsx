@@ -8,6 +8,7 @@ import { trackPhoneCall } from "@/lib/analytics";
 import { getServiceById, services } from "@/data/services";
 import { getServiceGallery, getServiceGalleries } from "@/data/serviceGalleries";
 import { QuotePopup } from "@/components/QuotePopup";
+import { HubSpotForm } from "@/components/HubSpotForm";
 import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -1597,6 +1598,58 @@ export default function ServiceDetail() {
           </div>
         </section>
       )}
+
+      {/* Inline Quote Form Section */}
+      <section className="py-16 bg-[#F5F1E8]">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left: copy + trust signals */}
+            <div>
+              <h2 className="text-3xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Request a Free {service.shortTitle} Quote
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Fill in the short form and we'll get back to you within 24 hours with a no-obligation quote.
+                Our mobile units cover all of England and Wales — we come to your site.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  "Free site survey & assessment",
+                  "Competitive fixed-price quotes",
+                  "SA 2.5 & SA 3 standard as standard",
+                  "Fully insured, certified operators",
+                  "Available 7 days a week",
+                ].map((point) => (
+                  <li key={point} className="flex items-center gap-3 text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-[#4A7C59] flex-shrink-0" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+                <p className="text-sm text-gray-500 mb-1">Prefer to call?</p>
+                <a
+                  href="tel:07970566409"
+                  className="flex items-center gap-2 text-[#2C5F7F] font-bold text-xl hover:underline"
+                  onClick={() => trackPhoneCall('service-page-inline-form')}
+                >
+                  <Phone className="w-5 h-5" />
+                  07970 566409
+                </a>
+                <p className="text-xs text-gray-400 mt-1">Mon–Sat 7am–6pm</p>
+              </div>
+            </div>
+            {/* Right: HubSpot form */}
+            <div className="bg-white rounded-2xl shadow-md p-6 lg:p-8">
+              <h3 className="text-xl font-bold text-[#2C5F7F] mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Get Your Free Quote
+              </h3>
+              <p className="text-sm text-gray-500 mb-4">We respond within 24 hours</p>
+              <HubSpotForm className="hubspot-service-inline-form" />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="bg-[#2C5F7F] text-white py-16">

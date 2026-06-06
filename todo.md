@@ -880,3 +880,12 @@
 - [x] Add fullscreen lightbox button to ProjectDetailModal (separate buttons for Before and After images)
 - [x] Confirm category count badges already present on Gallery and OurWork filter pills
 - [x] Add skeleton shimmer loading state to BeforeAfterCard images
+
+## Round 43 — Service Page Enhancements
+
+- [x] Add 6 new service pages to sitemap-services.xml (Marine, Rust Removal, Mill Scale, Paint Stripping, Coating Removal, Agricultural)
+- [x] Add SEO meta tags for all 6 new service pages in server/metaTags.ts
+- [x] Add related projects section to service detail pages (up to 3 BeforeAfterCard items from DB)
+- [x] Dynamic service areas county grid already present on all service detail pages
+- [x] Add inline quote form section to service detail pages (two-column: trust signals left, HubSpotForm right)
+- [x] TypeScript: 0 errors
