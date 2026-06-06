@@ -94,6 +94,9 @@ export function BeforeAfterCard({
     };
   }, [handleMouseMove, handleMouseUp, handleTouchMove]);
 
+  // Determine whether we have both images for the slider
+  const hasBothImages = !!(beforeSrc && afterSrc && beforeSrc !== afterSrc);
+
   return (
     <div
       className={`group relative overflow-hidden rounded-xl shadow-md bg-white cursor-pointer
@@ -121,14 +124,15 @@ export function BeforeAfterCard({
             </span>
           </div>
         </div>
-      ) : (
+      ) : hasBothImages ? (
+        /* ── Before/After slider ── */
         <div
           ref={containerRef}
           className={`relative ${imageHeight} overflow-hidden select-none`}
-          style={{ cursor: isDragging ? "col-resize" : "col-resize" }}
+          style={{ cursor: "col-resize" }}
           onMouseDown={handleMouseDown}
           onTouchStart={handleTouchStart}
-          onClick={(e) => e.stopPropagation()} // slider area doesn't fire card onClick
+          onClick={(e) => e.stopPropagation()}
         >
           {/* AFTER image — full width, sits below */}
           <img
@@ -192,6 +196,31 @@ export function BeforeAfterCard({
               </span>
             </div>
           )}
+        </div>
+      ) : (
+        /* ── Single image fallback (no after image available) ── */
+        <div className={`relative ${imageHeight} overflow-hidden`}>
+          <img
+            src={beforeSrc || afterSrc}
+            alt={title}
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+          {/* Gradient overlay */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent h-20 pointer-events-none" />
+          {/* Category badge */}
+          {category && (
+            <div className="absolute top-3 left-3">
+              <span className="bg-[#2C5F7F]/90 text-white text-xs font-medium px-2 py-0.5 rounded shadow">
+                {category}
+              </span>
+            </div>
+          )}
+          <div className="absolute bottom-3 left-3">
+            <span className="bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded shadow">
+              COMPLETED
+            </span>
+          </div>
         </div>
       )}
 
