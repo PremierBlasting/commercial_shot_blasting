@@ -355,6 +355,8 @@ export default function Gallery() {
         onClose={() => setSelectedItem(null)}
         hasPrev={selectedProjectIndex > 0}
         hasNext={selectedProjectIndex < filteredItems.length - 1}
+        currentIndex={selectedProjectIndex >= 0 ? selectedProjectIndex + 1 : undefined}
+        totalCount={filteredItems.length}
         onPrev={() => {
           const newIdx = selectedProjectIndex - 1;
           if (newIdx >= 0) {

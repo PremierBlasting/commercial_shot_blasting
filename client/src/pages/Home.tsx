@@ -974,6 +974,8 @@ export default function Home() {
         onClose={() => setSelectedProject(null)}
         hasPrev={selectedProjectIndex > 0}
         hasNext={selectedProjectIndex < filteredProjects.length - 1}
+        currentIndex={selectedProjectIndex >= 0 ? selectedProjectIndex + 1 : undefined}
+        totalCount={filteredProjects.length}
         onPrev={() => {
           const newIdx = selectedProjectIndex - 1;
           if (newIdx >= 0) {

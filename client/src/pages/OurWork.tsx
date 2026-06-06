@@ -397,6 +397,7 @@ export default function OurWork() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<ProjectDetailItem | null>(null);
   const [projectModalOpen, setProjectModalOpen] = useState(false);
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(-1);
 
   const openQuotePopup = () => setQuotePopupOpen(true);
 
@@ -549,6 +550,7 @@ export default function OurWork() {
                   onClick={() => {
                     setSelectedProject(item);
                     setProjectModalOpen(true);
+                    setSelectedProjectIndex(idx);
                   }}
                 />
               </ScrollReveal>
@@ -790,7 +792,28 @@ export default function OurWork() {
       <ProjectDetailModal 
         project={selectedProject}
         open={projectModalOpen}
-        onOpenChange={setProjectModalOpen}
+        onOpenChange={(open) => {
+          setProjectModalOpen(open);
+          if (!open) setSelectedProjectIndex(-1);
+        }}
+        hasPrev={selectedProjectIndex > 0}
+        hasNext={selectedProjectIndex < filteredItems.length - 1}
+        currentIndex={selectedProjectIndex >= 0 ? selectedProjectIndex + 1 : undefined}
+        totalCount={filteredItems.length}
+        onPrev={() => {
+          const newIdx = selectedProjectIndex - 1;
+          if (newIdx >= 0) {
+            setSelectedProject(filteredItems[newIdx] as ProjectDetailItem);
+            setSelectedProjectIndex(newIdx);
+          }
+        }}
+        onNext={() => {
+          const newIdx = selectedProjectIndex + 1;
+          if (newIdx < filteredItems.length) {
+            setSelectedProject(filteredItems[newIdx] as ProjectDetailItem);
+            setSelectedProjectIndex(newIdx);
+          }
+        }}
       />
     </div>
   );

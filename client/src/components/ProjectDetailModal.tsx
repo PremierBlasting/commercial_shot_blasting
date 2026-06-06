@@ -26,6 +26,10 @@ interface ProjectDetailModalProps {
   onNext?: () => void;
   hasPrev?: boolean;
   hasNext?: boolean;
+  /** 1-based index of the current project in the list */
+  currentIndex?: number;
+  /** Total number of projects in the list */
+  totalCount?: number;
 }
 
 export function ProjectDetailModal({
@@ -37,6 +41,8 @@ export function ProjectDetailModal({
   onNext,
   hasPrev,
   hasNext,
+  currentIndex,
+  totalCount,
 }: ProjectDetailModalProps) {
   const handleClose = () => {
     onClose?.();
@@ -354,6 +360,11 @@ export function ProjectDetailModal({
             >
               <ChevronLeft className="w-4 h-4" /> Previous
             </button>
+            {currentIndex != null && totalCount != null && (
+              <span className="text-xs font-medium text-gray-400 tabular-nums select-none">
+                {currentIndex} of {totalCount}
+              </span>
+            )}
             <button
               onClick={onNext}
               disabled={!hasNext}
