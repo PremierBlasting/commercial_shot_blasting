@@ -23,6 +23,7 @@ interface BeforeAfterCardProps {
  *
  * The slider starts at 50 % and can be dragged left/right.
  * BEFORE label sits bottom-left, AFTER label sits bottom-right.
+ * A "swipe to compare" hint fades in then out on first mount.
  */
 export function BeforeAfterCard({
   beforeSrc,
@@ -37,14 +38,53 @@ export function BeforeAfterCard({
 }: BeforeAfterCardProps) {
   const [sliderPos, setSliderPos] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const [hintVisible, setHintVisible] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Animate the slider handle left→right on first mount as a visual hint,
+  // then fade out the text hint after 2 s.
+  useEffect(() => {
+    // Animate slider from 50 → 30 → 70 → 50 to hint at draggability
+    let frame: number;
+    let start: number | null = null;
+    const duration = 1200; // ms for the full animation
+
+    const animate = (ts: number) => {
+      if (!start) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      // Ease in-out sine wave: 50 + 20*sin(2π*progress)
+      const pos = 50 + 20 * Math.sin(2 * Math.PI * progress);
+      setSliderPos(pos);
+      if (progress < 1) {
+        frame = requestAnimationFrame(animate);
+      } else {
+        setSliderPos(50);
+      }
+    };
+
+    // Start animation after a short delay so images can load first
+    const timer = setTimeout(() => {
+      frame = requestAnimationFrame(animate);
+    }, 600);
+
+    // Fade out hint text after 2.8 s
+    const hintTimer = setTimeout(() => setHintVisible(false), 2800);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(hintTimer);
+      cancelAnimationFrame(frame);
+    };
+  }, []); // run once on mount
 
   const updateSlider = useCallback((clientX: number) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
     setSliderPos((x / rect.width) * 100);
-  }, []);
+    if (!hasInteracted) setHasInteracted(true);
+  }, [hasInteracted]);
 
   const handleMouseDown = useCallback(
     (e: React.MouseEvent) => {
@@ -193,6 +233,35 @@ export function BeforeAfterCard({
             <div className="absolute top-3 left-3 pointer-events-none">
               <span className="bg-[#2C5F7F]/90 text-white text-xs font-medium px-2 py-0.5 rounded shadow">
                 {category}
+              </span>
+            </div>
+          )}
+
+          {/* Swipe-to-compare hint — fades out after interaction or timeout */}
+          {!hasInteracted && (
+            <div
+              className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-center pointer-events-none"
+              style={{
+                opacity: hintVisible ? 1 : 0,
+                transition: "opacity 600ms ease",
+              }}
+            >
+              <span className="flex items-center gap-1.5 bg-black/60 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                {/* Finger/swipe icon */}
+                <svg
+                  className="w-3.5 h-3.5 flex-shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M9 11V6a2 2 0 0 1 4 0v5" />
+                  <path d="M13 11V8a2 2 0 0 1 4 0v3" />
+                  <path d="M17 11a2 2 0 0 1 4 0v3a8 8 0 0 1-8 8H9a8 8 0 0 1-8-8v-1a2 2 0 0 1 4 0" />
+                </svg>
+                Swipe to compare
               </span>
             </div>
           )}
