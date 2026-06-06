@@ -1,0 +1,22 @@
+{
+  "query": "SELECT id, title FROM gallery_items WHERE title IN ('Industrial Shot Blasting Tank Cleanup', 'Industrial Shot Blasting Transformation', 'Metal Gate Shot Blasting');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title FROM gallery_items WHERE title IN ('Industrial Shot Blasting Tank Cleanup', 'Industrial Shot Blasting Transformation', 'Metal Gate Shot Blasting');",
+  "rows": [
+    {
+      "id": "12",
+      "title": "Industrial Shot Blasting Tank Cleanup"
+    },
+    {
+      "id": "13",
+      "title": "Industrial Shot Blasting Transformation"
+    },
+    {
+      "id": "14",
+      "title": "Metal Gate Shot Blasting"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\n12\tIndustrial Shot Blasting Tank Cleanup\n13\tIndustrial Shot Blasting Transformation\n14\tMetal Gate Shot Blasting\n",
+  "stderr": "",
+  "execution_time_ms": 665
+}
