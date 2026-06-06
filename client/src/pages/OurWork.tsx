@@ -367,6 +367,7 @@ const categories = [
   { name: "Automotive", icon: "🚗" },
   { name: "Agriculture", icon: "🌾" },
   { name: "Marine & Offshore", icon: "⚓" },
+  { name: "Staircases", icon: "🪜" },
 ];
 
 const testimonials = [
