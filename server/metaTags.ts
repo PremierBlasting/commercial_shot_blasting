@@ -4306,12 +4306,124 @@ const serviceMeta: Record<string, ServiceMeta> = {
     faqs: [
       { question: "What is intumescent paint?", answer: "Intumescent paint expands under heat to create an insulating char layer around steel, maintaining structural integrity for the specified fire resistance period — typically R30, R60, R90, or R120." },
       { question: "Why does steel need shot blasting before intumescent painting?", answer: "Intumescent coatings require strong adhesion to perform correctly. Shot blasting to Sa 2.5 removes all contaminants and creates the surface profile needed for maximum mechanical adhesion." },
-      { question: "Do you provide a coating thickness report?", answer: "Yes. We measure dry film thickness on every coated member and provide a full coating report with product data sheets, batch numbers, and thickness readings for building control." }
+       { question: "Do you provide a coating thickness report?", answer: "Yes. We measure dry film thickness on every coated member and provide a full coating report with product data sheets, batch numbers, and thickness readings for building control." }
+    ]
+  },
+  "marine-shot-blasting": {
+    id: "marine-shot-blasting",
+    title: "Marine Shot Blasting",
+    description: "Specialist shot blasting for marine and offshore structures including vessels, jetties, lock gates, and port infrastructure. We remove marine corrosion, barnacle fouling, and old anti-fouling coatings to SA2.5/SA3 standard.",
+    heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+    benefits: ["Removes marine corrosion, barnacle fouling, and anti-fouling coatings", "Achieves SA2.5/SA3 standard for marine coating systems", "Mobile units deployable to ports, harbours, and inland waterways", "Suitable for steel vessels, lock gates, jetties, and offshore structures", "Prepares surfaces for epoxy, anti-fouling, and marine-grade coatings"],
+    process: [
+      { step: 1, title: "Marine Assessment", description: "We assess the structure, identify corrosion levels and fouling, and agree the blast standard and coating specification." },
+      { step: 2, title: "Containment & Environmental Controls", description: "Appropriate containment is set up to capture blast media and debris, meeting port and harbour environmental requirements." },
+      { step: 3, title: "Shot Blasting", description: "All surfaces are blasted to the agreed SA standard, removing all corrosion, fouling, and old coatings to create the correct surface profile." },
+      { step: 4, title: "Inspection", description: "Surface cleanliness and profile are verified before any coating application to ensure the marine coating system will perform correctly." },
+      { step: 5, title: "Coating Coordination", description: "We coordinate with coating applicators or apply primer coats immediately after blasting to prevent flash rusting in the marine environment." }
+    ],
+    applications: ["Steel vessels and barges", "Lock gates and sluice gates", "Jetties and pontoons", "Port and harbour infrastructure", "Offshore platform components", "Canal and river structures"],
+    faqs: [
+      { question: "Can you work in ports and harbours?", answer: "Yes, our mobile units are deployable to ports, harbours, and inland waterways. We work within port authority requirements and can provide method statements and risk assessments." },
+      { question: "What blast standard is required for marine coatings?", answer: "Most marine coating systems require SA2.5 or SA3 surface cleanliness with a defined surface profile. We achieve these standards and can provide inspection documentation for coating manufacturers' warranties." }
+    ]
+  },
+  "rust-removal": {
+    id: "rust-removal",
+    title: "Rust Removal",
+    description: "Professional rust removal by shot blasting for structural steel, plant, machinery, and fabrications. We remove all surface and deep-seated rust to achieve clean bare metal, ready for protective coating or galvanizing.",
+    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    benefits: ["Complete removal of surface and deep-seated rust", "Achieves SA2.5 or SA3 cleanliness standard", "Creates correct surface profile for coating adhesion", "Extends the service life of steel structures and components", "Mobile service — we come to your site across England and Wales"],
+    process: [
+      { step: 1, title: "Assessment", description: "We inspect the level of corrosion and agree the required cleanliness standard and surface profile for your coating system." },
+      { step: 2, title: "Preparation", description: "Components are positioned for optimal blast coverage. Areas not requiring treatment are masked as required." },
+      { step: 3, title: "Shot Blasting", description: "All corroded surfaces are blasted to remove rust, mill scale, and contamination, achieving clean bare metal to the agreed standard." },
+      { step: 4, title: "Inspection", description: "Surface cleanliness and profile are checked against the specification before coating." },
+      { step: 5, title: "Coating Coordination", description: "We coordinate primer or coating application immediately after blasting to prevent re-oxidation." }
+    ],
+    applications: ["Structural steelwork", "Plant and machinery", "Steel fabrications", "Pipework and vessels", "Agricultural equipment", "Commercial vehicles and trailers"],
+    faqs: [
+      { question: "Can you remove heavy rust and pitting?", answer: "Yes. Shot blasting is highly effective at removing all grades of rust including heavy corrosion and pitting. The abrasive media physically removes rust from the surface and creates a clean profile for coating." },
+      { question: "What cleanliness standard do you achieve?", answer: "We typically achieve SA2.5 (near-white metal) or SA3 (white metal) depending on your coating system requirements. We can provide inspection documentation confirming the achieved standard." }
+    ]
+  },
+  "mill-scale-removal": {
+    id: "mill-scale-removal",
+    title: "Mill Scale Removal",
+    description: "Specialist mill scale removal by shot blasting for new steel fabrications, structural sections, and plate. Mill scale must be removed before coating or galvanizing to ensure adhesion and prevent premature coating failure.",
+    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    benefits: ["Complete removal of mill scale from new and used steel", "Achieves SA2.5 or SA3 standard required by coating manufacturers", "Prevents premature coating failure caused by mill scale delamination", "Creates the correct surface profile for coating adhesion", "Essential pre-treatment before galvanizing, powder coating, or painting"],
+    process: [
+      { step: 1, title: "Assessment", description: "We assess the steel sections and agree the required cleanliness standard and surface profile for your coating or galvanizing specification." },
+      { step: 2, title: "Component Preparation", description: "Steel sections are positioned for full blast coverage. Threaded components and precision surfaces are protected as required." },
+      { step: 3, title: "Shot Blasting", description: "All surfaces are blasted to remove mill scale and any surface contamination, achieving clean bare metal to the agreed standard." },
+      { step: 4, title: "Inspection", description: "Surface cleanliness and profile are verified before coating or galvanizing." },
+      { step: 5, title: "Coating Coordination", description: "We coordinate with coating applicators or galvanizers to minimise the time between blasting and coating to prevent flash rusting." }
+    ],
+    applications: ["New structural steel fabrications", "Steel plate and sections", "Beams, columns, and purlins", "Steel for galvanizing", "New build steelwork", "Fabricated components for powder coating"],
+    faqs: [
+      { question: "Why does mill scale need to be removed before coating?", answer: "Mill scale is a brittle iron oxide layer formed during steel rolling. It has poor adhesion and will delaminate over time, taking the coating with it. Removing mill scale by shot blasting ensures the coating bonds directly to clean steel." },
+      { question: "Is mill scale removal required before galvanizing?", answer: "Yes. Galvanizers require clean steel free of mill scale and rust for the zinc to bond correctly. Shot blasting to SA2.5 or SA3 is the standard pre-treatment for galvanizing." }
+    ]
+  },
+  "paint-stripping": {
+    id: "paint-stripping",
+    title: "Paint Stripping",
+    description: "Industrial paint stripping by shot blasting for structural steel, plant, machinery, and fabrications. We remove all paint layers including lead-based paints, epoxy coatings, and intumescent systems to achieve clean bare metal.",
+    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    benefits: ["Removes all paint types including lead-based, epoxy, and intumescent coatings", "Achieves SA2.5 or SA3 cleanliness standard", "More effective than chemical stripping for complex geometries", "Creates correct surface profile for new coating system", "Mobile service — we come to your site"],
+    process: [
+      { step: 1, title: "Assessment", description: "We identify the existing coating system, check for lead-based paints, and agree the required cleanliness standard and blast media." },
+      { step: 2, title: "Containment", description: "Appropriate containment is set up to capture blast media and paint debris, particularly important for lead-based paint removal." },
+      { step: 3, title: "Shot Blasting", description: "All paint layers are removed by shot blasting, achieving clean bare metal to the agreed standard." },
+      { step: 4, title: "Inspection", description: "Surface cleanliness and profile are verified before new coating application." },
+      { step: 5, title: "Waste Disposal", description: "Blast media and paint debris are collected and disposed of in accordance with waste regulations, including special waste procedures for lead-based paints." }
+    ],
+    applications: ["Structural steelwork refurbishment", "Plant and machinery repainting", "Fire escape and staircase restoration", "Bridge steelwork", "Commercial vehicles", "Industrial equipment"],
+    faqs: [
+      { question: "Can you remove lead-based paint?", answer: "Yes. We have experience removing lead-based paints and follow appropriate containment and disposal procedures. We can provide method statements and risk assessments for lead paint removal projects." },
+      { question: "Is shot blasting better than chemical paint stripping?", answer: "For most industrial applications, shot blasting is faster, more effective, and creates the correct surface profile for new coatings in a single operation. Chemical stripping may be preferred for very thin sections or complex components where blast damage is a concern." }
+    ]
+  },
+  "coating-removal": {
+    id: "coating-removal",
+    title: "Coating Removal",
+    description: "Specialist coating removal by shot blasting for industrial and commercial structures. We remove epoxy coatings, plastisol, galvanizing, thermal spray coatings, and other surface treatments to prepare steel for refurbishment or re-coating.",
+    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    benefits: ["Removes epoxy, plastisol, galvanizing, thermal spray, and other coatings", "Achieves SA2.5 or SA3 cleanliness standard", "Prepares surfaces for re-coating or galvanizing", "More effective than mechanical or chemical removal for complex geometries", "Mobile service across England and Wales"],
+    process: [
+      { step: 1, title: "Coating Identification", description: "We identify the existing coating system and determine the appropriate blast media and pressure settings for effective removal." },
+      { step: 2, title: "Preparation", description: "Components are positioned for full blast coverage. Areas not requiring treatment are masked as required." },
+      { step: 3, title: "Shot Blasting", description: "All coating layers are removed by shot blasting, achieving clean bare metal to the agreed standard." },
+      { step: 4, title: "Inspection", description: "Surface cleanliness and profile are verified before re-coating." },
+      { step: 5, title: "Coating Coordination", description: "We coordinate with coating applicators to minimise the time between blasting and re-coating to prevent flash rusting." }
+    ],
+    applications: ["Factory cladding re-coating", "Structural steel refurbishment", "Plant and machinery", "Pipework and vessels", "Bridge steelwork", "Industrial equipment"],
+    faqs: [
+      { question: "Can you remove galvanizing?", answer: "Yes. Shot blasting can remove galvanized coatings from steel to prepare surfaces for re-galvanizing or alternative coating systems. The process creates the correct surface profile for the new coating." },
+      { question: "Can you remove plastisol from cladding?", answer: "Yes. We regularly remove plastisol coatings from factory and warehouse cladding panels as part of refurbishment projects. Shot blasting removes the coating without damaging the underlying steel profile." }
+    ]
+  },
+  "agricultural-shot-blasting": {
+    id: "agricultural-shot-blasting",
+    title: "Agricultural Shot Blasting",
+    description: "Specialist shot blasting for agricultural machinery, farm equipment, and agricultural structures. We remove rust, old paint, and contamination from tractors, implements, grain stores, and steel farm buildings to prepare for protective coating.",
+    heroImage: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1200&q=80",
+    benefits: ["Removes rust, old paint, and agricultural contamination", "Extends the service life of expensive agricultural machinery", "Prepares surfaces for protective coating to withstand harsh agricultural environments", "Mobile service — we come to your farm or agricultural site", "Suitable for tractors, implements, grain stores, and steel buildings"],
+    process: [
+      { step: 1, title: "Assessment", description: "We assess the machinery or structure, identify corrosion levels, and agree the required cleanliness standard and coating specification." },
+      { step: 2, title: "Preparation", description: "Machinery is prepared for blasting. Sensitive components such as bearings, seals, and hydraulics are protected before blasting begins." },
+      { step: 3, title: "Shot Blasting", description: "All surfaces are blasted to remove rust, old paint, and contamination, achieving clean bare metal to the agreed standard." },
+      { step: 4, title: "Inspection", description: "Surface cleanliness and profile are verified before coating application." },
+      { step: 5, title: "Coating Coordination", description: "We coordinate primer or coating application to protect the blasted surfaces before the machinery returns to service." }
+    ],
+    applications: ["Tractors and agricultural vehicles", "Farm implements and attachments", "Grain stores and hoppers", "Steel farm buildings and structures", "Irrigation equipment", "Livestock handling equipment"],
+    faqs: [
+      { question: "Can you blast tractors and farm machinery on-site?", answer: "Yes. Our mobile units come directly to your farm or agricultural site. We can blast tractors, implements, and other machinery on-site, minimising downtime and transport costs." },
+      { question: "What coating is recommended after blasting agricultural equipment?", answer: "For agricultural machinery, we recommend a zinc-rich primer followed by a two-pack epoxy or polyurethane topcoat for maximum durability in the harsh agricultural environment. We can advise on the most suitable coating system for your specific equipment." }
     ]
   }
 };
-
-
 /**
  * Generate SSR body HTML for service pages so crawlers see full content
  */

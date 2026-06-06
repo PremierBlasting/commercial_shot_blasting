@@ -16,14 +16,50 @@ import { getPreparationSteps } from "@shared/servicePreparationSteps";
 
 import { Footer } from "@/components/Footer";
 import { IntumescentQuoteForm } from "@/components/IntumescentQuoteForm";
+import { trpc } from "@/lib/trpc";
+import { BeforeAfterCard } from "@/components/BeforeAfterCard";
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
   const service = getServiceById(params.id || "");
+  const { data: galleryItems } = trpc.gallery.list.useQuery();
 
   const openQuotePopup = () => setQuotePopupOpen(true);
+
+  // Build a keyword map from service ID to gallery category keywords
+  const serviceKeywords: Record<string, string[]> = {
+    "structural-steel-frames": ["industrial", "steel", "structural"],
+    "fire-escape-shot-blasting": ["fire escape", "staircase", "industrial"],
+    "racking-mezzanine": ["industrial", "racking", "mezzanine"],
+    "gate-restoration": ["gates", "railings", "metal"],
+    "steel-doors-roller-shutters": ["industrial", "roller shutter", "steel"],
+    "bridge-steelwork": ["bridge", "structural", "industrial"],
+    "steel-containers": ["container", "industrial"],
+    "floor-shot-blasting": ["floor", "concrete", "industrial"],
+    "pipework-shot-blasting": ["pipework", "industrial"],
+    "telecom-tower": ["industrial", "steel"],
+    "machinery-shot-blasting": ["machinery", "industrial", "agricultural"],
+    "marine-shot-blasting": ["marine", "industrial"],
+    "rust-removal": ["industrial", "steel", "rust"],
+    "mill-scale-removal": ["industrial", "steel"],
+    "paint-stripping": ["industrial", "steel"],
+    "coating-removal": ["industrial", "cladding"],
+    "factory-cladding": ["cladding", "industrial", "agriculture"],
+    "agricultural-shot-blasting": ["agricultural", "agriculture", "farm"],
+    "steel-shot-blasting": ["industrial", "steel", "structural"],
+    "concrete-preparation": ["floor", "concrete"],
+    "automotive-restoration": ["automotive", "vehicle"],
+    "infrastructure-projects": ["bridge", "structural", "industrial"],
+    "intumescent-paint-removal": ["industrial", "steel"],
+  };
+
+  const keywords = serviceKeywords[params.id || ""] || [];
+  const relatedProjects = (galleryItems || []).filter(item => {
+    const cat = (item.category || "").toLowerCase();
+    return keywords.some(kw => cat.includes(kw));
+  }).slice(0, 3);
 
   // Set SEO metadata for this service
   if (service) {
@@ -1528,6 +1564,39 @@ export default function ServiceDetail() {
           </div>
         </div>
       </section>
+
+      {/* Related Projects Section */}
+      {relatedProjects.length > 0 && (
+        <section className="py-16 bg-white">
+          <div className="container">
+            <h2 className="text-3xl font-bold text-[#2C5F7F] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Recent {service.shortTitle} Projects
+            </h2>
+            <p className="text-gray-600 mb-8">See examples of our {service.title.toLowerCase()} work from across England and Wales.</p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {relatedProjects.map((item) => (
+                <BeforeAfterCard
+                  key={item.id}
+                  beforeSrc={item.beforeImage}
+                  afterSrc={item.afterImage}
+                  title={item.title}
+                  description={item.description || ""}
+                  category={item.category}
+                  onClick={() => {}}
+                />
+              ))}
+            </div>
+            <div className="text-center mt-8">
+              <Link href="/our-work">
+                <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                  View All Projects
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA Section */}
       <section className="bg-[#2C5F7F] text-white py-16">
