@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE gallery_items SET beforeImage = afterImage, afterImage = beforeImage WHERE id = 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute UPDATE gallery_items SET beforeImage = afterImage, afterImage = beforeImage WHERE id = 10;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 2330
+}
