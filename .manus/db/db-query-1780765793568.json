@@ -1,0 +1,31 @@
+{
+  "query": "SELECT id, title, category, beforeImage, afterImage FROM gallery_items WHERE title IN ('Commercial Gate Restoration', 'Steel Roller Shutter Restoration', 'Industrial Steel Framework') ORDER BY title;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title, category, beforeImage, afterImage FROM gallery_items WHERE title IN ('Commercial Gate Restoration', 'Steel Roller Shutter Restoration', 'Industrial Steel Framework') ORDER BY title;",
+  "rows": [
+    {
+      "id": "2",
+      "title": "Commercial Gate Restoration",
+      "category": "Gates",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-gate-restoration-before_72b62331.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-gate-restoration-after_2b5e5f4e.webp"
+    },
+    {
+      "id": "3",
+      "title": "Industrial Steel Framework",
+      "category": "Industrial",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-steel-framework-before_4ecedcd4.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-steel-framework-after_e6324439.webp"
+    },
+    {
+      "id": "1",
+      "title": "Steel Roller Shutter Restoration",
+      "category": "Industrial",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-roller-shutter-restoration-before_0c980c7c.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-roller-shutter-restoration-after_4eb2f9be.webp"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tcategory\tbeforeImage\tafterImage\n2\tCommercial Gate Restoration\tGates\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-gate-restoration-before_72b62331.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-gate-restoration-after_2b5e5f4e.webp\n3\tIndustrial Steel Framework\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-steel-framework-before_4ecedcd4.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-steel-framework-after_e6324439.webp\n1\tSteel Roller Shutter Restoration\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-roller-shutter-restoration-before_0c980c7c.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-roller-shutter-restoration-after_4eb2f9be.webp\n",
+  "stderr": "",
+  "execution_time_ms": 637
+}

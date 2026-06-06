@@ -1,0 +1,40 @@
+{
+  "query": "SELECT id, title, SUBSTRING(beforeImage, -50) as beforeEnd, SUBSTRING(afterImage, -50) as afterEnd FROM gallery_items WHERE id BETWEEN 10 AND 14 ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title, SUBSTRING(beforeImage, -50) as beforeEnd, SUBSTRING(afterImage, -50) as afterEnd FROM gallery_items WHERE id BETWEEN 10 AND 14 ORDER BY id;",
+  "rows": [
+    {
+      "id": "10",
+      "title": "Heavy-Duty Vehicle Wheel Restoration",
+      "beforeEnd": "uty-commercial-vehicle-wheels-before_af216bbe.webp",
+      "afterEnd": "duty-commercial-vehicle-wheels-after_19e01fdd.webp"
+    },
+    {
+      "id": "11",
+      "title": "Factory Cladding Restoration",
+      "beforeEnd": "/factory-cladding-restoration-before_dca57454.webp",
+      "afterEnd": "y/factory-cladding-restoration-after_1e593515.webp"
+    },
+    {
+      "id": "12",
+      "title": "Industrial Shot Blasting Tank Cleanup",
+      "beforeEnd": "ial-shot-blasting-tank-cleanup-before_ddb8af08.jpg",
+      "afterEnd": "rial-shot-blasting-tank-cleanup-after_a82c881e.jpg"
+    },
+    {
+      "id": "13",
+      "title": "Industrial Shot Blasting Transformation",
+      "beforeEnd": "l-shot-blasting-transformation-before_9de0efd2.jpg",
+      "afterEnd": "al-shot-blasting-transformation-after_ab7a5ed1.jpg"
+    },
+    {
+      "id": "14",
+      "title": "Metal Gate Shot Blasting",
+      "beforeEnd": "allery/metal-gate-shotblasting-before_c7a3383f.jpg",
+      "afterEnd": "gallery/metal-gate-shotblasting-after_58b16376.jpg"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tbeforeEnd\tafterEnd\n10\tHeavy-Duty Vehicle Wheel Restoration\tuty-commercial-vehicle-wheels-before_af216bbe.webp\tduty-commercial-vehicle-wheels-after_19e01fdd.webp\n11\tFactory Cladding Restoration\t/factory-cladding-restoration-before_dca57454.webp\ty/factory-cladding-restoration-after_1e593515.webp\n12\tIndustrial Shot Blasting Tank Cleanup\tial-shot-blasting-tank-cleanup-before_ddb8af08.jpg\trial-shot-blasting-tank-cleanup-after_a82c881e.jpg\n13\tIndustrial Shot Blasting Transformation\tl-shot-blasting-transformation-before_9de0efd2.jpg\tal-shot-blasting-transformation-after_ab7a5ed1.jpg\n14\tMetal Gate Shot Blasting\tallery/metal-gate-shotblasting-before_c7a3383f.jpg\tgallery/metal-gate-shotblasting-after_58b16376.jpg\n",
+  "stderr": "",
+  "execution_time_ms": 635
+}

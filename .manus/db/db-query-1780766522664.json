@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE gallery_items SET \n  beforeImage = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-roller-shutter-restoration-after_4eb2f9be.webp',\n  afterImage = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-roller-shutter-restoration-before_0c980c7c.webp'\nWHERE id = 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute UPDATE gallery_items SET \n  beforeImage = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-roller-shutter-restoration-after_4eb2f9be.webp',\n  afterImage = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-roller-shutter-restoration-before_0c980c7c.webp'\nWHERE id = 1;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1539
+}

@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE gallery_items SET \n  beforeImage = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-gate-restoration-after_8304db89.webp',\n  afterImage = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-gate-restoration-before_72b62331.webp'\nWHERE id = 2;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute UPDATE gallery_items SET \n  beforeImage = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-gate-restoration-after_8304db89.webp',\n  afterImage = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-gate-restoration-before_72b62331.webp'\nWHERE id = 2;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 647
+}

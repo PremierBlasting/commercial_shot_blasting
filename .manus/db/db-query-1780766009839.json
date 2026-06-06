@@ -1,0 +1,16 @@
+{
+  "query": "SELECT id, title, beforeImage, afterImage FROM gallery_items WHERE id = 30001;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title, beforeImage, afterImage FROM gallery_items WHERE id = 30001;",
+  "rows": [
+    {
+      "id": "30001",
+      "title": "External Steel Staircase & Balustrade Restoration",
+      "beforeImage": "/manus-storage/before3_308c668e.jpeg",
+      "afterImage": "/manus-storage/after3_938f4a95.jpeg"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tbeforeImage\tafterImage\n30001\tExternal Steel Staircase & Balustrade Restoration\t/manus-storage/before3_308c668e.jpeg\t/manus-storage/after3_938f4a95.jpeg\n",
+  "stderr": "",
+  "execution_time_ms": 663
+}

@@ -1,0 +1,45 @@
+{
+  "query": "SELECT id, title, afterImage FROM gallery_items WHERE id >= 9 ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title, afterImage FROM gallery_items WHERE id >= 9 ORDER BY id;",
+  "rows": [
+    {
+      "id": "9",
+      "title": "Large Steel Tank Restoration",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/large-steel-tank-restoration-after_6ce19ebe.webp"
+    },
+    {
+      "id": "10",
+      "title": "Heavy-Duty Vehicle Wheel Restoration",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/heavy-duty-commercial-vehicle-wheels-after_19e01fdd.webp"
+    },
+    {
+      "id": "11",
+      "title": "Factory Cladding Restoration",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/factory-cladding-restoration-after_1e593515.webp"
+    },
+    {
+      "id": "12",
+      "title": "Industrial Shot Blasting Tank Cleanup",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-shot-blasting-tank-cleanup-after_a82c881e.jpg"
+    },
+    {
+      "id": "13",
+      "title": "Industrial Shot Blasting Transformation",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-shot-blasting-transformation-after_ab7a5ed1.jpg"
+    },
+    {
+      "id": "14",
+      "title": "Metal Gate Shot Blasting",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/metal-gate-shotblasting-after_58b16376.jpg"
+    },
+    {
+      "id": "30001",
+      "title": "External Steel Staircase & Balustrade Restoration",
+      "afterImage": "/manus-storage/after3_37567cb1.jpeg"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tafterImage\n9\tLarge Steel Tank Restoration\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/large-steel-tank-restoration-after_6ce19ebe.webp\n10\tHeavy-Duty Vehicle Wheel Restoration\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/heavy-duty-commercial-vehicle-wheels-after_19e01fdd.webp\n11\tFactory Cladding Restoration\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/factory-cladding-restoration-after_1e593515.webp\n12\tIndustrial Shot Blasting Tank Cleanup\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-shot-blasting-tank-cleanup-after_a82c881e.jpg\n13\tIndustrial Shot Blasting Transformation\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-shot-blasting-transformation-after_ab7a5ed1.jpg\n14\tMetal Gate Shot Blasting\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/metal-gate-shotblasting-after_58b16376.jpg\n30001\tExternal Steel Staircase & Balustrade Restoration\t/manus-storage/after3_37567cb1.jpeg\n",
+  "stderr": "",
+  "execution_time_ms": 624
+}

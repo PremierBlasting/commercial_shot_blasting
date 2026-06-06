@@ -1,0 +1,115 @@
+{
+  "query": "SELECT id, title, category, beforeImage, afterImage FROM gallery_items ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title, category, beforeImage, afterImage FROM gallery_items ORDER BY id;",
+  "rows": [
+    {
+      "id": "1",
+      "title": "Steel Roller Shutter Restoration",
+      "category": "Industrial",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-roller-shutter-restoration-before_0c980c7c.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-roller-shutter-restoration-after_4eb2f9be.webp"
+    },
+    {
+      "id": "2",
+      "title": "Commercial Gate Restoration",
+      "category": "Gates",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-gate-restoration-before_72b62331.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-gate-restoration-after_2b5e5f4e.webp"
+    },
+    {
+      "id": "3",
+      "title": "Industrial Steel Framework",
+      "category": "Industrial",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-steel-framework-before_4ecedcd4.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-steel-framework-after_e6324439.webp"
+    },
+    {
+      "id": "4",
+      "title": "Agricultural Barn Wall Restoration",
+      "category": "Agriculture",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/agricultural-barn-wall-sandblasting-and-restoration-before_100b0059.jpg",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/agricultural-barn-wall-sandblasting-and-restoration-after_db296e91.jpg"
+    },
+    {
+      "id": "5",
+      "title": "Steel Container Blasting",
+      "category": "Industrial",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-container-blasting-before_ad28ae29.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-container-blasting-after_4c790129.webp"
+    },
+    {
+      "id": "6",
+      "title": "Warehouse Floor Preparation",
+      "category": "Industrial",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/warehouse-floor-preparation-before_4def1d79.jpg",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/warehouse-floor-preparation-after_b7923013.jpg"
+    },
+    {
+      "id": "7",
+      "title": "Commercial Radiator Restoration",
+      "category": "Industrial",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-radiator-restoration-before_4f19786e.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-radiator-restoration-after_4df23666.webp"
+    },
+    {
+      "id": "8",
+      "title": "Warehouse Cladding Restoration",
+      "category": "Industrial",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/warehouse-cladding-restoration-before_6b3609e3.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/warehouse-cladding-restoration-after_b30a189f.webp"
+    },
+    {
+      "id": "9",
+      "title": "Large Steel Tank Restoration",
+      "category": "Industrial",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/large-steel-tank-restoration-before_1d7306d9.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/large-steel-tank-restoration-after_6ce19ebe.webp"
+    },
+    {
+      "id": "10",
+      "title": "Heavy-Duty Vehicle Wheel Restoration",
+      "category": "Automotive",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/heavy-duty-commercial-vehicle-wheels-before_af216bbe.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/heavy-duty-commercial-vehicle-wheels-after_19e01fdd.webp"
+    },
+    {
+      "id": "11",
+      "title": "Factory Cladding Restoration",
+      "category": "Industrial",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/factory-cladding-restoration-before_dca57454.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/factory-cladding-restoration-after_1e593515.webp"
+    },
+    {
+      "id": "12",
+      "title": "Industrial Shot Blasting Tank Cleanup",
+      "category": "Industrial",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-shot-blasting-tank-cleanup-before_ddb8af08.jpg",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-shot-blasting-tank-cleanup-after_a82c881e.jpg"
+    },
+    {
+      "id": "13",
+      "title": "Industrial Shot Blasting Transformation",
+      "category": "Industrial",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-shot-blasting-transformation-before_9de0efd2.jpg",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-shot-blasting-transformation-after_ab7a5ed1.jpg"
+    },
+    {
+      "id": "14",
+      "title": "Metal Gate Shot Blasting",
+      "category": "Gates",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/metal-gate-shotblasting-before_c7a3383f.jpg",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/metal-gate-shotblasting-after_58b16376.jpg"
+    },
+    {
+      "id": "30001",
+      "title": "External Steel Staircase & Balustrade Restoration",
+      "category": "Staircases",
+      "beforeImage": "/manus-storage/before3_560fa256.jpeg",
+      "afterImage": "/manus-storage/after3_37567cb1.jpeg"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tcategory\tbeforeImage\tafterImage\n1\tSteel Roller Shutter Restoration\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-roller-shutter-restoration-before_0c980c7c.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-roller-shutter-restoration-after_4eb2f9be.webp\n2\tCommercial Gate Restoration\tGates\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-gate-restoration-before_72b62331.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-gate-restoration-after_2b5e5f4e.webp\n3\tIndustrial Steel Framework\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-steel-framework-before_4ecedcd4.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-steel-framework-after_e6324439.webp\n4\tAgricultural Barn Wall Restoration\tAgriculture\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/agricultural-barn-wall-sandblasting-and-restoration-before_100b0059.jpg\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/agricultural-barn-wall-sandblasting-and-restoration-after_db296e91.jpg\n5\tSteel Container Blasting\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-container-blasting-before_ad28ae29.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/steel-container-blasting-after_4c790129.webp\n6\tWarehouse Floor Preparation\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/warehouse-floor-preparation-before_4def1d79.jpg\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/warehouse-floor-preparation-after_b7923013.jpg\n7\tCommercial Radiator Restoration\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-radiator-restoration-before_4f19786e.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/commercial-radiator-restoration-after_4df23666.webp\n8\tWarehouse Cladding Restoration\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/warehouse-cladding-restoration-before_6b3609e3.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/warehouse-cladding-restoration-after_b30a189f.webp\n9\tLarge Steel Tank Restoration\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/large-steel-tank-restoration-before_1d7306d9.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/large-steel-tank-restoration-after_6ce19ebe.webp\n10\tHeavy-Duty Vehicle Wheel Restoration\tAutomotive\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/heavy-duty-commercial-vehicle-wheels-before_af216bbe.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/heavy-duty-commercial-vehicle-wheels-after_19e01fdd.webp\n11\tFactory Cladding Restoration\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/factory-cladding-restoration-before_dca57454.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/factory-cladding-restoration-after_1e593515.webp\n12\tIndustrial Shot Blasting Tank Cleanup\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-shot-blasting-tank-cleanup-before_ddb8af08.jpg\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-shot-blasting-tank-cleanup-after_a82c881e.jpg\n13\tIndustrial Shot Blasting Transformation\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-shot-blasting-transformation-before_9de0efd2.jpg\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/industrial-shot-blasting-transformation-after_ab7a5ed1.jpg\n14\tMetal Gate Shot Blasting\tGates\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/metal-gate-shotblasting-before_c7a3383f.jpg\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/shot-blasting-gallery/metal-gate-shotblasting-after_58b16376.jpg\n30001\tExternal Steel Staircase & Balustrade Restoration\tStaircases\t/manus-storage/before3_560fa256.jpeg\t/manus-storage/after3_37567cb1.jpeg\n",
+  "stderr": "",
+  "execution_time_ms": 667
+}
