@@ -134,7 +134,7 @@ export function BeforeAfterCard({
           onTouchStart={handleTouchStart}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* AFTER image — full width, sits below */}
+          {/* AFTER image — full width base layer (always visible on right side) */}
           <img
             src={afterSrc}
             alt={`${title} — After`}
@@ -143,7 +143,7 @@ export function BeforeAfterCard({
             loading="lazy"
           />
 
-          {/* BEFORE image — clipped to left portion */}
+          {/* BEFORE image — clipped to left portion; drag slider right to reveal more AFTER */}
           <div
             className="absolute inset-0 overflow-hidden pointer-events-none"
             style={{ width: `${sliderPos}%` }}
