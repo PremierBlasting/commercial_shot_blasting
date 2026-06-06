@@ -889,3 +889,13 @@
 - [x] Dynamic service areas county grid already present on all service detail pages
 - [x] Add inline quote form section to service detail pages (two-column: trust signals left, HubSpotForm right)
 - [x] TypeScript: 0 errors
+
+## Round 44 — Gallery/Our Work Merge & Before/After Fixes
+
+- [x] Swap before/after images for Agricultural Barn Wall (id=4), Steel Container (id=5), Warehouse Floor (id=6)
+- [x] Remove Gallery nav link from desktop and mobile nav in Header.tsx
+- [x] Add /gallery → /our-work redirect in App.tsx
+- [x] Remove unused Gallery lazy import from App.tsx
+- [x] Update /gallery link in ProjectDetailModal.tsx to /our-work
+- [x] Update /gallery link in Home.tsx to /our-work
+- [x] Update /gallery link in routers.ts CTA buttons to /our-work

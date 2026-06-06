@@ -33,7 +33,6 @@ const Home = lazy(() => import("./pages/Home"));
 
 // Lazy-loaded pages for code splitting
 const OurWork = lazy(() => import("./pages/OurWork"));
-const Gallery = lazy(() => import("./pages/Gallery"));
 const Admin = lazy(() => import("./pages/Admin"));
 const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
 const Services = lazy(() => import("./pages/Services"));
@@ -232,7 +231,7 @@ function Router() {
         <Route path={"/about"} component={About} />
         <Route path={"/preparation-cleanup"} component={PreparationCleanup} />
         <Route path={"/our-work"} component={OurWork} />
-        <Route path={"/gallery"} component={Gallery} />
+        <Route path={"/gallery"} component={() => { window.location.replace('/our-work'); return null; }} />
         <Route path={"/admin"} component={Admin} />
         <Route path={"/call-analytics"} component={CallAnalytics} />
         <Route path={"/reviews"} component={Reviews} />

@@ -591,7 +591,7 @@ export const appRouter = router({
               ],
               ctaButtons: [
                 { text: "Get a Free Quote Today", type: "primary", action: "openQuote" },
-                { text: "View Our Work", type: "outline", link: "/gallery" },
+                { text: "View Our Work", type: "outline", link: "/our-work" },
                 { text: "Call Now", type: "outline", link: "tel:07970566409", icon: "phone" }
               ]
             })

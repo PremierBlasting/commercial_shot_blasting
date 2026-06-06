@@ -159,7 +159,7 @@ export function ProjectDetailModal({
   }, [handleMouseMove, handleMouseUp, handleTouchMove]);
 
   // Share helpers
-  const shareUrl = typeof window !== "undefined" ? window.location.origin + "/gallery" : "";
+  const shareUrl = typeof window !== "undefined" ? window.location.origin + "/our-work" : "";
   const shareText = project ? `Shot blasting project: ${project.title} — Commercial Shot Blasting UK` : "";
 
   const handleCopyLink = async () => {
@@ -435,7 +435,7 @@ export function ProjectDetailModal({
                   </Button>
                 </Link>
               )}
-              <Link href="/gallery" onClick={handleClose}>
+              <Link href="/our-work" onClick={handleClose}>
                 <Button
                   variant="outline"
                   className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white bg-white w-full sm:w-auto"

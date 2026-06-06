@@ -698,7 +698,7 @@ export default function Home() {
                   {isLoadingMore ? "Loading…" : `Load More (${filteredProjects.length - visibleCount} remaining)`}
                 </Button>
               )}
-              <Link href="/gallery">
+              <Link href="/our-work">
                 <Button size="lg" className="bg-[#2C5F7F] hover:bg-[#1a3d52]">
                   View All Projects
                   <ArrowRight className="w-4 h-4 ml-2" />
