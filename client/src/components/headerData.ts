@@ -21,6 +21,12 @@ export const serviceLinks = [
   { title: "Steel Gates & Railings", href: "/services/steel-gates", description: "Precision restoration for commercial & industrial gates" },
   { title: "Plant & Machinery", href: "/services/plant-machinery", description: "On-site shot blasting for construction & agricultural equipment" },
   { title: "Intumescent Painting", href: "/services/intumescent-painting", description: "Fire-resistant coatings applied to perfectly prepared steel — R30 to R120" },
+  { title: "Marine Shot Blasting", href: "/services/marine-shot-blasting", description: "Specialist shot blasting for vessels, lock gates, jetties, and port infrastructure" },
+  { title: "Rust Removal", href: "/services/rust-removal", description: "Complete rust removal by shot blasting — faster and more thorough than grinding" },
+  { title: "Mill Scale Removal", href: "/services/mill-scale-removal", description: "Complete mill scale removal for optimal coating adhesion on new fabrications" },
+  { title: "Paint Stripping", href: "/services/paint-stripping", description: "Industrial paint stripping by shot blasting — all coats removed in one pass" },
+  { title: "Coating Removal", href: "/services/coating-removal", description: "Specialist removal of epoxy, polyurethane, intumescent, and marine coatings" },
+  { title: "Agricultural Shot Blasting", href: "/services/agricultural-shot-blasting", description: "Shot blasting for farm machinery, grain stores, and agricultural steelwork" },
 ];
 
 export const compactAreasLinks = [

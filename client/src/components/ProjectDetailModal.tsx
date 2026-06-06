@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { X, ChevronLeft, ChevronRight, ArrowRight, Share2, Check, Linkedin } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ArrowRight, Share2, Check, Linkedin, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 
@@ -56,6 +56,8 @@ export function ProjectDetailModal({
   const [shareOpen, setShareOpen] = useState(false);
   // Controls the per-project fade transition
   const [contentVisible, setContentVisible] = useState(true);
+  // Fullscreen lightbox state: null | 'before' | 'after' | 'single'
+  const [fullscreenSrc, setFullscreenSrc] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Animate in when project opens
@@ -220,6 +222,28 @@ export function ProjectDetailModal({
           <X className="w-5 h-5 text-gray-700" />
         </button>
 
+        {/* Fullscreen lightbox overlay */}
+        {fullscreenSrc && (
+          <div
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95"
+            onClick={() => setFullscreenSrc(null)}
+          >
+            <img
+              src={fullscreenSrc}
+              alt="Full screen view"
+              className="max-w-full max-h-full object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={() => setFullscreenSrc(null)}
+              className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition-colors"
+              aria-label="Close fullscreen"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+        )}
+
         {/* Content wrapper — fades when switching projects */}
         <div
           style={{
@@ -275,14 +299,30 @@ export function ProjectDetailModal({
                   <ChevronRight className="w-3.5 h-3.5 text-gray-600" />
                 </div>
 
-                {/* BEFORE / AFTER labels */}
-                <div className="absolute top-3 left-3 pointer-events-none">
-                  <span className="bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded shadow-md">
+                {/* BEFORE / AFTER labels + fullscreen buttons */}
+                <div className="absolute top-3 left-3 flex items-center gap-2">
+                  <span className="bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded shadow-md pointer-events-none">
                     BEFORE
                   </span>
+                  <button
+                    className="bg-black/50 hover:bg-black/70 text-white rounded p-1 transition-colors"
+                    title="View before image fullscreen"
+                    onClick={(e) => { e.stopPropagation(); setFullscreenSrc(beforeSrc); }}
+                    onMouseDown={(e) => e.stopPropagation()}
+                  >
+                    <Maximize2 className="w-3.5 h-3.5" />
+                  </button>
                 </div>
-                <div className="absolute top-3 right-3 pointer-events-none">
-                  <span className="bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded shadow-md">
+                <div className="absolute top-3 right-3 flex items-center gap-2">
+                  <button
+                    className="bg-black/50 hover:bg-black/70 text-white rounded p-1 transition-colors"
+                    title="View after image fullscreen"
+                    onClick={(e) => { e.stopPropagation(); setFullscreenSrc(afterSrc); }}
+                    onMouseDown={(e) => e.stopPropagation()}
+                  >
+                    <Maximize2 className="w-3.5 h-3.5" />
+                  </button>
+                  <span className="bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded shadow-md pointer-events-none">
                     AFTER
                   </span>
                 </div>

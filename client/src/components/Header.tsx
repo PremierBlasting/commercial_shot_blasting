@@ -199,28 +199,68 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
               }`}
               style={{ zIndex: 99999 }}
             >
-              <div className="w-[800px] bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden">
-                <div className="p-4">
-                  <div className="grid grid-cols-2 gap-x-4">
-                    {serviceLinks.map((service) => (
-                      <Link
-                        key={service.href}
-                        href={service.href}
-                        className="block px-3 py-2.5 hover:bg-[#2C5F7F] hover:text-white transition-colors group rounded-md"
-                        onClick={() => setServicesOpen(false)}
-                      >
-                        <div className="font-medium text-sm text-gray-900 group-hover:text-white">{service.title}</div>
-                        <div className="text-xs text-gray-500 group-hover:text-white/80 mt-0.5">{service.description}</div>
-                      </Link>
-                    ))}
+              <div className="w-[860px] bg-white rounded-lg shadow-2xl border border-gray-100 overflow-hidden">
+                <div className="p-5">
+                  <div className="grid grid-cols-3 gap-4">
+                    {/* Structural & Architectural */}
+                    <div className="rounded-lg overflow-hidden border border-gray-200">
+                      <div className="px-4 py-2 text-white text-sm font-bold" style={{ backgroundColor: '#2C5F7F' }}>Structural &amp; Architectural</div>
+                      {[
+                        { title: 'Structural Steel Shot Blasting', href: '/services/structural-steel-frames' },
+                        { title: 'Fire Escape Shot Blasting', href: '/services/fire-escapes' },
+                        { title: 'Racking & Mezzanine Blasting', href: '/services/warehouse-racking' },
+                        { title: 'Steel Gates & Railings', href: '/services/steel-gates' },
+                        { title: 'Steel Doors & Roller Shutters', href: '/services/steel-doors' },
+                        { title: 'Bridge Steelwork', href: '/services/bridge-steelwork' },
+                      ].map((s) => (
+                        <Link key={s.href} href={s.href} className="flex items-center justify-between px-4 py-2.5 hover:bg-[#2C5F7F]/5 border-t border-gray-100 group" onClick={() => setServicesOpen(false)}>
+                          <span className="text-gray-800 text-xs font-medium group-hover:text-[#2C5F7F]">{s.title}</span>
+                          <span className="text-gray-400 group-hover:text-[#2C5F7F] text-xs">→</span>
+                        </Link>
+                      ))}
+                    </div>
+                    {/* Industrial & Specialist */}
+                    <div className="rounded-lg overflow-hidden border border-gray-200">
+                      <div className="px-4 py-2 text-white text-sm font-bold" style={{ backgroundColor: '#1a3d52' }}>Industrial &amp; Specialist</div>
+                      {[
+                        { title: 'Container Shot Blasting', href: '/services/steel-containers' },
+                        { title: 'Floor Shot Blasting', href: '/services/floor-preparation' },
+                        { title: 'Pipework Shot Blasting', href: '/services/pipework' },
+                        { title: 'Telecom Tower Shot Blasting', href: '/services/telecom-towers' },
+                        { title: 'Machinery Shot Blasting', href: '/services/plant-machinery' },
+                        { title: 'Marine Shot Blasting', href: '/services/marine-shot-blasting' },
+                      ].map((s) => (
+                        <Link key={s.href} href={s.href} className="flex items-center justify-between px-4 py-2.5 hover:bg-[#1a3d52]/5 border-t border-gray-100 group" onClick={() => setServicesOpen(false)}>
+                          <span className="text-gray-800 text-xs font-medium group-hover:text-[#1a3d52]">{s.title}</span>
+                          <span className="text-gray-400 group-hover:text-[#1a3d52] text-xs">→</span>
+                        </Link>
+                      ))}
+                    </div>
+                    {/* Surface Preparation */}
+                    <div className="rounded-lg overflow-hidden border border-gray-200">
+                      <div className="px-4 py-2 text-white text-sm font-bold" style={{ backgroundColor: '#3d6b3d' }}>Surface Preparation</div>
+                      {[
+                        { title: 'Rust Removal', href: '/services/rust-removal' },
+                        { title: 'Mill Scale Removal', href: '/services/mill-scale-removal' },
+                        { title: 'Paint Stripping', href: '/services/paint-stripping' },
+                        { title: 'Coating Removal', href: '/services/coating-removal' },
+                        { title: 'Factory Cladding Blasting', href: '/services/factory-cladding' },
+                        { title: 'Agricultural Shot Blasting', href: '/services/agricultural-shot-blasting' },
+                      ].map((s) => (
+                        <Link key={s.href} href={s.href} className="flex items-center justify-between px-4 py-2.5 hover:bg-[#3d6b3d]/5 border-t border-gray-100 group" onClick={() => setServicesOpen(false)}>
+                          <span className="text-gray-800 text-xs font-medium group-hover:text-[#3d6b3d]">{s.title}</span>
+                          <span className="text-gray-400 group-hover:text-[#3d6b3d] text-xs">→</span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                  <div className="border-t border-gray-100 mt-3 pt-3">
+                  <div className="border-t border-gray-100 mt-4 pt-3">
                     <Link
                       href="/services"
-                      className="block px-3 py-2 text-[#2C5F7F] font-medium hover:bg-[#2C5F7F]/10 transition-colors rounded-md text-center"
+                      className="block px-3 py-2 text-[#2C5F7F] font-medium hover:bg-[#2C5F7F]/10 transition-colors rounded-md text-center text-sm"
                       onClick={() => setServicesOpen(false)}
                     >
-                      View All Services →
+                      View All 18 Services →
                     </Link>
                   </div>
                 </div>

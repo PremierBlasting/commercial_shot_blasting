@@ -40,6 +40,8 @@ export function BeforeAfterCard({
   const [isDragging, setIsDragging] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [hintVisible, setHintVisible] = useState(true);
+  const [beforeLoaded, setBeforeLoaded] = useState(false);
+  const [afterLoaded, setAfterLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Animate the slider handle left→right on first mount as a visual hint,
@@ -174,6 +176,11 @@ export function BeforeAfterCard({
           onTouchStart={handleTouchStart}
           onClick={(e) => e.stopPropagation()}
         >
+          {/* Skeleton shimmer — shown until both images load */}
+          {(!afterLoaded || !beforeLoaded) && (
+            <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+          )}
+
           {/* AFTER image — full width base layer (always visible on right side) */}
           <img
             src={afterSrc}
@@ -181,6 +188,7 @@ export function BeforeAfterCard({
             className="absolute inset-0 w-full h-full object-cover"
             draggable={false}
             loading="lazy"
+            onLoad={() => setAfterLoaded(true)}
           />
 
           {/* BEFORE image — clipped to left portion; drag slider right to reveal more AFTER */}
@@ -198,6 +206,7 @@ export function BeforeAfterCard({
               }}
               draggable={false}
               loading="lazy"
+              onLoad={() => setBeforeLoaded(true)}
             />
           </div>
 
@@ -269,11 +278,16 @@ export function BeforeAfterCard({
       ) : (
         /* ── Single image fallback (no after image available) ── */
         <div className={`relative ${imageHeight} overflow-hidden`}>
+          {/* Skeleton shimmer for single image */}
+          {!beforeLoaded && !afterLoaded && (
+            <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+          )}
           <img
             src={beforeSrc || afterSrc}
             alt={title}
             className="absolute inset-0 w-full h-full object-cover"
             loading="lazy"
+            onLoad={() => { setBeforeLoaded(true); setAfterLoaded(true); }}
           />
           {/* Gradient overlay */}
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent h-20 pointer-events-none" />

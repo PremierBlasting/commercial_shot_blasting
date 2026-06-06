@@ -1285,6 +1285,372 @@ export const services: ServiceData[] = [
         answer: "Yes. Like all our services, intumescent painting is delivered on a mobile basis across England and Wales. We bring all equipment to your site and can work around your construction programme. Contact us to discuss your project and we will provide a site visit and quotation."
       }
     ]
+  },
+  {
+    id: "marine-shot-blasting",
+    title: "Marine Shot Blasting",
+    shortTitle: "Marine Blasting",
+    tagline: "Specialist Shot Blasting for Marine & Offshore Structures",
+    description: "We provide specialist shot blasting services for marine and offshore structures, vessels, jetties, lock gates, and port infrastructure. Our mobile teams deliver controlled surface preparation that removes heavy corrosion, marine fouling, and failed coatings — achieving the cleanliness grades required for high-performance marine coatings and long-term corrosion protection in aggressive saltwater environments.",
+    heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+    benefits: [
+      "Removes heavy marine corrosion and fouling completely",
+      "Achieves Sa 2.5 or Sa 3 cleanliness for marine coatings",
+      "Suitable for vessels, jetties, lock gates, and port infrastructure",
+      "Mobile service delivered to your waterside location",
+      "Extends service life of marine steel structures",
+      "Compliant with marine coating manufacturer specifications"
+    ],
+    process: [
+      { step: 1, title: "Site Assessment", description: "We inspect the marine structure to assess corrosion levels, identify any structural concerns, and determine appropriate blast media, pressure settings, and containment requirements for the waterside environment." },
+      { step: 2, title: "Containment & Protection", description: "We install containment systems to prevent blast media and debris entering the water. Critical areas such as waterline zones and mechanical fittings are masked as required." },
+      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media and controlled pressure, we systematically remove marine corrosion, fouling, and old coatings to achieve the specified cleanliness grade — typically Sa 2.5 or Sa 3 for marine coating systems." },
+      { step: 4, title: "Quality Verification", description: "We conduct thorough inspections to ensure all surfaces meet the required cleanliness and surface profile specifications for the marine coating system." },
+      { step: 5, title: "Coating Coordination", description: "Cleaned surfaces are primed promptly to prevent flash rusting in the marine atmosphere. We coordinate timing with your coating contractor to ensure optimal adhesion conditions." }
+    ],
+    applications: [
+      "Lock gates and sluice structures",
+      "Jetties and pontoons",
+      "Port and harbour infrastructure",
+      "Offshore platform components",
+      "Marine vessel hulls and decks",
+      "Tidal barriers and flood defence structures",
+      "Mooring bollards and fendering systems",
+      "Underwater steel structures"
+    ],
+    caseStudies: [
+      {
+        title: "Canal Lock Gate Refurbishment",
+        client: "Waterways Infrastructure Operator",
+        challenge: "A pair of historic canal lock gates required complete surface preparation before recoating. The gates had decades of accumulated marine corrosion, old coal tar epoxy, and biological fouling that needed full removal to achieve a sound substrate for the new coating system.",
+        solution: "We mobilised to the canal with full containment equipment and shot blasted both gates to Sa 2.5, removing all corrosion, old coatings, and fouling. Containment screens prevented blast media entering the waterway. The work was completed during the scheduled lock closure window to minimise disruption to canal traffic.",
+        result: "Both lock gates were restored to bare metal with a consistent surface profile. The coating contractor applied the new marine epoxy system to a perfectly prepared substrate. The gates were returned to service within the scheduled maintenance window and are expected to provide 15–20 years of corrosion protection.",
+        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+      }
+    ],
+    faqs: [
+      {
+        question: "Can you work on structures in or near water?",
+        answer: "Yes. We have experience working on waterside structures including lock gates, jetties, and port infrastructure. We install appropriate containment to prevent blast media and debris entering the water, and we comply with any environmental permit conditions applicable to the site."
+      },
+      {
+        question: "What cleanliness grade do you achieve for marine coatings?",
+        answer: "We typically achieve Sa 2.5 (near-white metal) or Sa 3 (white metal) depending on the coating manufacturer's specification. Marine coating systems generally require Sa 2.5 as a minimum to ensure adequate adhesion in aggressive saltwater environments."
+      },
+      {
+        question: "How quickly do you prime after blasting in a marine environment?",
+        answer: "In marine atmospheres, flash rusting can occur very quickly. We coordinate closely with the coating contractor to ensure primer is applied within the shortest possible interval after blasting — typically within 4 hours and always within the same working day where conditions allow."
+      },
+      {
+        question: "Do you offer this service nationwide?",
+        answer: "Yes. Our mobile teams operate across England and Wales and can reach most coastal, river, and canal locations. Contact us to discuss your project and we will provide a site visit and quotation."
+      }
+    ]
+  },
+  {
+    id: "rust-removal",
+    title: "Rust Removal",
+    shortTitle: "Rust Removal",
+    tagline: "Complete Rust Removal by Shot Blasting — Commercial & Industrial",
+    description: "Shot blasting is the most effective method for removing rust from commercial and industrial steel structures. Unlike wire brushing, grinding, or chemical treatments, shot blasting removes rust completely and simultaneously creates a surface profile that maximises coating adhesion. Our mobile service brings this capability directly to your site, treating structures of any size to the cleanliness grade required by your coating specification.",
+    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    benefits: [
+      "Removes rust completely — not just surface treatment",
+      "Creates surface profile for optimal coating adhesion",
+      "Faster and more thorough than grinding or wire brushing",
+      "Achieves recognised cleanliness grades (Sa 2, Sa 2.5, Sa 3)",
+      "Suitable for structures of any size",
+      "Mobile service — we come to your site"
+    ],
+    process: [
+      { step: 1, title: "Rust Assessment", description: "We inspect the structure to assess the extent and depth of corrosion, identify any pitting or structural concerns, and determine the appropriate blast media and pressure settings for complete rust removal." },
+      { step: 2, title: "Surface Preparation", description: "The structure is prepared for blasting. Surrounding areas are protected with sheeting and seals to control blast media and debris. Mechanical fittings and non-steel components are masked as required." },
+      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media and controlled pressure, we systematically remove all rust, corrosion products, and surface contaminants to achieve the specified cleanliness grade — typically Sa 2.5 for most industrial coating systems." },
+      { step: 4, title: "Quality Inspection", description: "We conduct thorough inspections to confirm all rust has been removed and the surface profile meets the coating manufacturer's requirements." },
+      { step: 5, title: "Priming", description: "Cleaned surfaces are primed promptly to prevent re-rusting. We coordinate timing with your coating contractor or can apply a holding primer ourselves if required." }
+    ],
+    applications: [
+      "Structural steelwork",
+      "Industrial plant and equipment",
+      "Steel gates, railings, and fencing",
+      "Storage tanks and vessels",
+      "Bridge steelwork",
+      "Agricultural machinery and equipment",
+      "Commercial vehicles and trailers",
+      "Steel cladding and roofing"
+    ],
+    caseStudies: [
+      {
+        title: "Heavily Corroded Industrial Storage Tank",
+        client: "Chemical Processing Facility",
+        challenge: "A large industrial storage tank had developed heavy corrosion over several years of outdoor exposure. The existing coating had failed in multiple areas and the underlying steel had corroded significantly, with some areas showing deep pitting. A full recoat was required but the surface needed to be taken back to bare metal first.",
+        solution: "We mobilised to site with our mobile shot blasting equipment and systematically treated the entire tank exterior to Sa 2.5. The shot blasting removed all corrosion products, failed coating, and surface contaminants, including cleaning out the pitted areas to provide a sound substrate. A zinc-rich primer was applied the same day to prevent re-rusting.",
+        result: "The tank was restored to a clean, profiled surface ready for the full coating system. The client's coating contractor applied the specified epoxy system to a perfectly prepared substrate. The tank is expected to provide 20+ years of corrosion protection with the new coating system.",
+        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+      }
+    ],
+    faqs: [
+      {
+        question: "Is shot blasting better than wire brushing for rust removal?",
+        answer: "Yes, significantly. Wire brushing and grinding only remove surface rust and cannot achieve the surface profile required for long-term coating adhesion. Shot blasting removes rust completely — including from pits and surface irregularities — and simultaneously creates a mechanical key (surface profile) that maximises the adhesion of protective coatings. This is why coating manufacturers specify shot blasting as the preferred preparation method."
+      },
+      {
+        question: "What cleanliness grade do you achieve?",
+        answer: "We can achieve Sa 1 (light blast), Sa 2 (thorough blast), Sa 2.5 (near-white metal), or Sa 3 (white metal) depending on your coating specification. Most industrial coating systems require Sa 2.5 as a minimum. We will confirm the required grade before starting work."
+      },
+      {
+        question: "How quickly will the steel re-rust after blasting?",
+        answer: "Freshly blasted steel is highly reactive and will begin to flash rust within hours in humid conditions. We always coordinate closely with the coating contractor to ensure primer is applied as soon as possible after blasting — ideally the same day. We can also apply a holding primer ourselves if there will be a delay before the main coating system is applied."
+      },
+      {
+        question: "Can you treat structures in situ?",
+        answer: "Yes. Our mobile shot blasting service brings the equipment to your site. We can treat structures in place without the need for dismantling or transportation. We install appropriate containment to control blast media and debris."
+      }
+    ]
+  },
+  {
+    id: "mill-scale-removal",
+    title: "Mill Scale Removal",
+    shortTitle: "Mill Scale Removal",
+    tagline: "Professional Mill Scale Removal for Optimal Coating Adhesion",
+    description: "Mill scale is the blue-grey oxide layer formed on steel during hot rolling. While it appears hard and protective, mill scale is actually cathodic to the underlying steel — meaning it accelerates corrosion when the scale breaks down. Coating over mill scale leads to premature coating failure. Shot blasting is the only reliable method for complete mill scale removal, simultaneously creating the surface profile required for long-term coating adhesion.",
+    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    benefits: [
+      "Complete removal of mill scale — not just surface treatment",
+      "Prevents premature coating failure caused by mill scale",
+      "Creates optimal surface profile for coating adhesion",
+      "Achieves Sa 2.5 or Sa 3 as required by coating specifications",
+      "Suitable for new fabrications and structural steelwork",
+      "Mobile service — we come to your fabrication yard or site"
+    ],
+    process: [
+      { step: 1, title: "Steel Assessment", description: "We inspect the steel to assess the extent of mill scale coverage, identify any areas of existing corrosion, and determine the appropriate blast media and pressure settings for complete mill scale removal." },
+      { step: 2, title: "Component Preparation", description: "Steel components are positioned for optimal blast coverage. Threaded connections, machined surfaces, and non-steel components are masked as required." },
+      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media and controlled pressure, we systematically remove all mill scale and surface contaminants to achieve the specified cleanliness grade — typically Sa 2.5 for most coating systems." },
+      { step: 4, title: "Quality Verification", description: "We conduct thorough inspections to confirm all mill scale has been removed and the surface profile meets the coating manufacturer's requirements." },
+      { step: 5, title: "Coating Coordination", description: "Cleaned components are primed promptly to prevent surface oxidation. We coordinate timing with your coating contractor to ensure optimal adhesion conditions." }
+    ],
+    applications: [
+      "New structural steel fabrications",
+      "Steel beams, columns, and sections",
+      "Steel plate and sheet",
+      "Fabricated steelwork before galvanizing",
+      "Pipework and pressure vessels",
+      "Steel components before powder coating",
+      "Bridge and infrastructure steelwork",
+      "Industrial plant components"
+    ],
+    caseStudies: [
+      {
+        title: "New Build Structural Steel Frame — Mill Scale Removal",
+        client: "Steel Fabricator, West Midlands",
+        challenge: "A steel fabricator needed all structural steel for a new commercial building to be shot blasted to Sa 2.5 before delivery to site. The steel was freshly rolled with full mill scale coverage and needed to be prepared to the coating specification before the protective coating system could be applied.",
+        solution: "We mobilised to the fabrication yard and systematically shot blasted all structural members — columns, beams, purlins, and bracing — to Sa 2.5. The work was sequenced to match the fabricator's production schedule, with completed members primed and racked ready for delivery to site.",
+        result: "All structural steel was delivered to site with a clean, profiled, primed surface ready for the main coating system. The coating contractor confirmed excellent adhesion on all members. The project completed on schedule and the client has since appointed us as their preferred shot blasting contractor for all new fabrication work.",
+        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+      }
+    ],
+    faqs: [
+      {
+        question: "Why is mill scale a problem for coatings?",
+        answer: "Mill scale is cathodic to the underlying steel, which means that when moisture penetrates the coating and reaches the mill scale, it creates a galvanic cell that accelerates corrosion of the steel beneath. The mill scale then lifts away from the steel, taking the coating with it. This is why coating manufacturers specify mill scale removal as a prerequisite for long-term coating performance."
+      },
+      {
+        question: "Can mill scale be removed by pickling instead of shot blasting?",
+        answer: "Yes, acid pickling is an alternative method for mill scale removal, but it does not create a surface profile. Shot blasting removes mill scale and simultaneously creates the mechanical key required for coating adhesion. For most industrial coating systems, shot blasting is the preferred method because it achieves both objectives in a single operation."
+      },
+      {
+        question: "What surface profile do you achieve?",
+        answer: "Surface profile (anchor pattern depth) depends on the blast media used. We can achieve profiles ranging from Rz 25–100 μm depending on your coating specification. We will confirm the required profile before starting work and can provide profile measurement reports if required."
+      },
+      {
+        question: "Do you work at fabrication yards as well as on-site?",
+        answer: "Yes. We regularly work at steel fabrication yards, treating components before they are delivered to site. This is often more efficient than on-site blasting as it allows the coating system to be applied under controlled conditions. We can also work on-site for refurbishment projects."
+      }
+    ]
+  },
+  {
+    id: "paint-stripping",
+    title: "Paint Stripping",
+    shortTitle: "Paint Stripping",
+    tagline: "Industrial Paint Stripping by Shot Blasting — Fast, Complete, No Chemicals",
+    description: "Shot blasting is the most effective method for stripping paint from steel structures. It removes all paint layers simultaneously — including primers, intermediate coats, and topcoats — without chemicals, heat, or hand tools. Our mobile service delivers complete paint removal to the cleanliness grade required by your new coating specification, leaving a profiled surface ready for immediate recoating.",
+    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    benefits: [
+      "Removes all paint layers in a single operation",
+      "No chemicals, heat, or hand tools required",
+      "Creates surface profile for optimal recoating adhesion",
+      "Faster and more thorough than alternative stripping methods",
+      "Suitable for structures of any size",
+      "Mobile service — we come to your site"
+    ],
+    process: [
+      { step: 1, title: "Paint Assessment", description: "We inspect the structure to assess the existing paint system, identify any hazardous materials such as lead paint, and determine the appropriate blast media and pressure settings for complete paint removal." },
+      { step: 2, title: "Containment & Protection", description: "Surrounding areas are protected with sheeting and seals to control blast media and paint debris. If lead paint is present, we implement appropriate containment and disposal procedures." },
+      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media and controlled pressure, we systematically remove all paint layers to achieve the specified cleanliness grade — typically Sa 2.5 for most recoating specifications." },
+      { step: 4, title: "Quality Inspection", description: "We conduct thorough inspections to confirm all paint has been removed and the surface profile meets the new coating manufacturer's requirements." },
+      { step: 5, title: "Priming", description: "Stripped surfaces are primed promptly to prevent re-rusting. We coordinate timing with your coating contractor or can apply a holding primer ourselves if required." }
+    ],
+    applications: [
+      "Structural steelwork refurbishment",
+      "Steel gates, railings, and fencing",
+      "Industrial plant and equipment",
+      "Commercial vehicles and trailers",
+      "Steel cladding and roofing",
+      "Bridge steelwork",
+      "Storage tanks and vessels",
+      "Fire escapes and access steelwork"
+    ],
+    caseStudies: [
+      {
+        title: "Multi-Storey Car Park Steelwork — Full Paint Strip",
+        client: "Property Management Company",
+        challenge: "A 1980s multi-storey car park required a full recoat of its structural steelwork. The existing paint system had failed in multiple areas and the specification required complete removal of all existing coatings before the new system could be applied.",
+        solution: "We mobilised to site with our mobile shot blasting equipment and systematically stripped all structural steelwork to Sa 2.5. The work was phased to allow the car park to remain partially operational during the refurbishment. A zinc-rich primer was applied the same day to each section as it was completed.",
+        result: "All structural steelwork was stripped to bare metal with a consistent surface profile. The coating contractor applied the new system to a perfectly prepared substrate. The client received a full coating inspection report confirming compliance with the specification.",
+        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+      }
+    ],
+    faqs: [
+      {
+        question: "Can you strip lead paint safely?",
+        answer: "Yes. We have experience working with lead paint and implement appropriate containment, PPE, and disposal procedures. All waste containing lead paint is disposed of in accordance with hazardous waste regulations. We can provide a COSHH assessment and risk method statement for lead paint removal projects."
+      },
+      {
+        question: "How many coats of paint can you remove in one pass?",
+        answer: "Shot blasting removes all paint layers simultaneously regardless of the number of coats. There is no practical limit — we have stripped structures with 10+ coats of accumulated paint in a single operation."
+      },
+      {
+        question: "Will shot blasting damage the underlying steel?",
+        answer: "No, when carried out correctly. We select blast media and pressure settings appropriate for the substrate and the required cleanliness grade. Shot blasting removes surface contaminants without removing base metal or reducing the structural integrity of the steel."
+      },
+      {
+        question: "Do you offer this service nationwide?",
+        answer: "Yes. Our mobile teams operate across England and Wales. We bring all equipment to your site and can work around your operational requirements. Contact us to discuss your project and we will provide a site visit and quotation."
+      }
+    ]
+  },
+  {
+    id: "coating-removal",
+    title: "Coating Removal",
+    shortTitle: "Coating Removal",
+    tagline: "Complete Coating Removal by Shot Blasting — All Coating Types",
+    description: "We provide specialist coating removal services for all types of industrial and protective coatings — including epoxy, polyurethane, zinc-rich primers, coal tar epoxy, intumescent coatings, and specialist marine systems. Shot blasting removes coatings completely and simultaneously creates the surface profile required for the replacement coating system, making it the most efficient preparation method for coating refurbishment projects.",
+    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    benefits: [
+      "Removes all coating types including epoxy, polyurethane, and zinc primers",
+      "Complete removal — no residual coating left on surface",
+      "Creates surface profile for replacement coating adhesion",
+      "Faster than alternative removal methods",
+      "Suitable for structures of any size",
+      "Mobile service — we come to your site"
+    ],
+    process: [
+      { step: 1, title: "Coating Assessment", description: "We inspect the existing coating system to identify coating types, assess adhesion and condition, and determine the appropriate blast media and pressure settings for complete removal without damaging the substrate." },
+      { step: 2, title: "Containment & Protection", description: "Surrounding areas are protected with sheeting and seals to control blast media and coating debris. Mechanical fittings and non-steel components are masked as required." },
+      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media and controlled pressure, we systematically remove all coating layers to achieve the specified cleanliness grade for the replacement coating system." },
+      { step: 4, title: "Quality Verification", description: "We conduct thorough inspections to confirm all coating has been removed and the surface profile meets the replacement coating manufacturer's requirements." },
+      { step: 5, title: "Coating Coordination", description: "Cleaned surfaces are primed promptly to prevent re-rusting. We coordinate timing with your coating contractor to ensure optimal adhesion conditions for the replacement system." }
+    ],
+    applications: [
+      "Epoxy coating removal",
+      "Polyurethane coating removal",
+      "Zinc-rich primer removal",
+      "Coal tar epoxy removal",
+      "Intumescent coating removal",
+      "Marine coating removal",
+      "Powder coat removal",
+      "Failed or delaminating coating systems"
+    ],
+    caseStudies: [
+      {
+        title: "Intumescent Coating Removal — Office Block Refurbishment",
+        client: "Commercial Property Developer",
+        challenge: "A 1990s office block undergoing change of use required all existing intumescent coatings to be removed from the structural steelwork before a new, upgraded fire protection system could be applied. The existing coatings had partially delaminated and could not be overcoated.",
+        solution: "We mobilised to site and shot blasted all structural members to Sa 2.5, removing all existing intumescent coating, primer, and surface corrosion. The work was phased to allow the building to remain partially operational. A zinc epoxy primer was applied the same day to each section as it was completed.",
+        result: "All structural steelwork was stripped to bare metal with a consistent surface profile. The intumescent coating contractor applied the new system to a perfectly prepared substrate. The project completed on programme and the building achieved its upgraded fire resistance rating.",
+        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+      }
+    ],
+    faqs: [
+      {
+        question: "Can you remove hard epoxy coatings?",
+        answer: "Yes. Shot blasting is highly effective at removing hard epoxy coatings, including two-pack epoxy, coal tar epoxy, and high-build epoxy systems. We select blast media and pressure settings appropriate for the coating type and substrate to achieve complete removal without damaging the steel."
+      },
+      {
+        question: "Can you remove intumescent coatings?",
+        answer: "Yes. We regularly remove intumescent coatings from structural steelwork as part of refurbishment and change-of-use projects. Shot blasting removes intumescent coatings completely and prepares the surface for a new fire protection system."
+      },
+      {
+        question: "What if only part of the coating has failed?",
+        answer: "We can treat the entire structure to ensure a consistent surface condition, or we can spot-treat areas where the coating has failed. The appropriate approach depends on the extent of failure and the requirements of the replacement coating specification. We will advise on the most cost-effective approach after inspecting the structure."
+      },
+      {
+        question: "Do you offer this service nationwide?",
+        answer: "Yes. Our mobile teams operate across England and Wales. Contact us to discuss your project and we will provide a site visit and quotation."
+      }
+    ]
+  },
+  {
+    id: "agricultural-shot-blasting",
+    title: "Agricultural Shot Blasting",
+    shortTitle: "Agricultural Blasting",
+    tagline: "Shot Blasting for Agricultural Machinery, Equipment & Buildings",
+    description: "We provide specialist shot blasting services for the agricultural sector — from tractors and farm machinery to grain stores, livestock buildings, and agricultural steelwork. Our mobile service comes to your farm or yard, removing rust, old paint, and surface contamination from agricultural equipment and structures to prepare them for protective coatings that extend service life and reduce long-term maintenance costs.",
+    heroImage: "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1200&q=80",
+    benefits: [
+      "Mobile service — we come to your farm or yard",
+      "Removes rust and old paint from agricultural machinery",
+      "Extends equipment and building service life",
+      "Prepares surfaces for protective coatings",
+      "Suitable for tractors, implements, and farm buildings",
+      "Reduces long-term maintenance costs"
+    ],
+    process: [
+      { step: 1, title: "Equipment Assessment", description: "We inspect the agricultural machinery or structure to assess corrosion levels, identify any components requiring protection, and determine the appropriate blast media and pressure settings." },
+      { step: 2, title: "Component Preparation", description: "Mechanical components, bearings, seals, and non-steel parts are masked or removed as required. Surrounding areas are protected to control blast media and debris." },
+      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media and controlled pressure, we systematically remove rust, old paint, and surface contaminants from all accessible surfaces to achieve the required cleanliness for protective coating." },
+      { step: 4, title: "Quality Inspection", description: "We conduct thorough inspections to ensure all surfaces meet the required cleanliness and profile specifications for the coating system." },
+      { step: 5, title: "Coating Coordination", description: "Cleaned surfaces are primed promptly to prevent re-rusting. We coordinate timing with your coating contractor or can recommend suitable agricultural coating systems." }
+    ],
+    applications: [
+      "Tractors and agricultural vehicles",
+      "Farm implements and attachments",
+      "Grain stores and storage bins",
+      "Livestock building steelwork",
+      "Agricultural trailers and tankers",
+      "Farm gates and fencing",
+      "Irrigation equipment",
+      "Agricultural building cladding"
+    ],
+    caseStudies: [
+      {
+        title: "Farm Grain Store Steelwork Restoration",
+        client: "Arable Farm, Lincolnshire",
+        challenge: "A large grain store had developed significant corrosion on its structural steelwork and cladding fixings after years of exposure to the agricultural environment. The farm manager needed the steelwork prepared and recoated before the harvest season to protect the grain store from further deterioration.",
+        solution: "We mobilised to the farm during a quiet period before harvest and shot blasted all structural steelwork and affected cladding areas to Sa 2.5. The work was completed in two days, allowing the coating contractor to apply the protective system in time for harvest.",
+        result: "The grain store steelwork was restored to a clean, profiled surface and recoated with a high-build agricultural coating system. The farm manager reported that the building looked as good as new and was confident it would provide many more years of service. The project completed well within the harvest deadline.",
+        image: "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800&q=80"
+      }
+    ],
+    faqs: [
+      {
+        question: "Can you treat tractors and farm machinery on-site?",
+        answer: "Yes. Our mobile service brings all equipment to your farm or yard. We can treat tractors, implements, and other agricultural machinery in situ without the need for transportation. We work around your operational requirements and can schedule work during quieter periods."
+      },
+      {
+        question: "What coatings do you recommend for agricultural equipment?",
+        answer: "For agricultural machinery, we typically recommend a zinc-rich primer followed by a high-build epoxy or polyurethane topcoat. For farm buildings, agricultural-grade coatings designed for the specific environment are most appropriate. We can advise on suitable coating systems based on your specific requirements."
+      },
+      {
+        question: "Can you treat farm buildings as well as machinery?",
+        answer: "Yes. We treat both agricultural machinery and farm buildings including grain stores, livestock buildings, and agricultural steelwork. Our mobile service can handle structures of any size."
+      },
+      {
+        question: "Do you offer this service nationwide?",
+        answer: "Yes. Our mobile teams operate across England and Wales. We regularly work on farms throughout the Midlands, East Anglia, Yorkshire, and the South West. Contact us to discuss your project and we will provide a site visit and quotation."
+      }
+    ]
   }
 ];
 

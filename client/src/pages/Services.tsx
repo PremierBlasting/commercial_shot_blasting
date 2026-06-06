@@ -5,126 +5,68 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { Footer } from "@/components/Footer";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
-interface Service {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-}
-
-const services: Service[] = [
+const serviceCategories = [
   {
-    id: "structural-steel-frames",
-    title: "Structural Steel Frames",
-    description: "High-performance cleaning for steel structures, removing rust, mill scale, and old coatings.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sUfXaBUgQWNMAvEc.webp"
+    name: "Structural & Architectural",
+    color: "#2C5F7F",
+    services: [
+      { id: "structural-steel-frames", title: "Structural Steel Shot Blasting" },
+      { id: "fire-escapes", title: "Fire Escape Shot Blasting" },
+      { id: "warehouse-racking", title: "Racking & Mezzanine Blasting" },
+      { id: "steel-gates", title: "Steel Gates & Railings" },
+      { id: "steel-doors", title: "Steel Doors & Roller Shutters" },
+      { id: "bridge-steelwork", title: "Bridge Steelwork" },
+    ]
   },
   {
-    id: "steel-containers",
-    title: "Steel Container Blasting",
-    description: "Specialist shot blasting for steel containers and large storage structures, removing rust and old coatings.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/bGsCKoWjNMKfOhKj.webp"
+    name: "Industrial & Specialist",
+    color: "#1a3d52",
+    services: [
+      { id: "steel-containers", title: "Container Shot Blasting" },
+      { id: "floor-preparation", title: "Floor Shot Blasting" },
+      { id: "pipework", title: "Pipework Shot Blasting" },
+      { id: "telecom-towers", title: "Telecom Tower Shot Blasting" },
+      { id: "plant-machinery", title: "Machinery Shot Blasting" },
+      { id: "marine-shot-blasting", title: "Marine Shot Blasting" },
+    ]
   },
   {
-    id: "factory-cladding",
-    title: "Factory & Warehouse Cladding",
-    description: "Specialist cladding restoration removing plastisol and paint layers from factory and industrial building panels.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/GmdvvhZjrHfYtOVb.webp"
-  },
-  {
-    id: "fire-escapes",
-    title: "Fire Escapes & External Stair Towers",
-    description: "Complete restoration of fire escape structures, ensuring safety compliance and longevity.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oySJrMBHyyuJOevk.webp"
-  },
-  {
-    id: "staircases",
-    title: "Internal Staircases & Handrails",
-    description: "Precision cleaning for architectural metalwork, preparing surfaces for premium finishes.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/TLjFQFhDhVdFaDwj.webp"
-  },
-  {
-    id: "bridge-steelwork",
-    title: "Bridge Steelwork",
-    description: "Specialized treatment for bridge components, meeting stringent infrastructure standards.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/cuwoxubhXPpGCUSf.webp"
-  },
-  {
-    id: "ladders",
-    title: "Fixed Ladders & Access Systems",
-    description: "Thorough cleaning of access equipment, removing corrosion and preparing for protective coatings.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yXusfqsGJHZwuETv.webp"
-  },
-  {
-    id: "warehouse-racking",
-    title: "Warehouse Racking Systems",
-    description: "Complete refurbishment of storage systems, extending service life and improving appearance.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WmoactuoGfwMmVwl.webp"
-  },
-  {
-    id: "pipework",
-    title: "Process Pipework",
-    description: "Surface profiling for optimal coating adhesion on industrial pipework and process equipment.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eqezEvtOwgDSGsCT.webp"
-  },
-  {
-    id: "telecom-towers",
-    title: "Telecom Masts & Lattice Towers",
-    description: "Specialized treatment for telecommunications infrastructure, ensuring long-term protection.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XLIXJyIInSTPQjlE.webp"
-  },
-  {
-    id: "floor-preparation",
-    title: "Floor Preparation & Shot Blasting",
-    description: "Professional floor surface preparation for commercial and industrial facilities, removing coatings and creating ideal surface profiles.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YMGizlSGgTjDQAyi.webp"
-  },
-  {
-    id: "powder-coating",
-    title: "Shot Blasting & Powder Coating",
-    description: "End-to-end metal surface solutions combining shot blasting with premium powder coating application.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/NpTRkKdXbfRWbnOl.webp"
-  },
-  {
-    id: "commercial-radiators",
-    title: "Commercial Radiators",
-    description: "Professional restoration for cast iron and steel radiators in commercial buildings and heritage properties.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nVyZGEbqdoYwEDMv.webp"
-  },
-  {
-    id: "commercial-vehicles",
-    title: "Commercial & Agricultural Vehicles",
-    description: "Heavy-duty restoration for farm trucks, warehouse vehicles, and industrial transport equipment including complete chassis and wheel restoration.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/NtAgxBOsLSxEcmau.webp"
-  },
-  {
-    id: "steel-doors",
-    title: "Steel Doors & Roller Shutters",
-    description: "Professional restoration for industrial doors, warehouse roller shutters, security doors, and commercial access systems.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/EOszbYQwsYrTFvjN.webp"
-  },
-  {
-    id: "steel-sheeting",
-    title: "Steel Sheeting",
-    description: "Professional surface preparation for steel sheets, panels, and flat metal products used in construction and manufacturing.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QXdidJpwgjaMnlmb.webp"
-  },
-  {
-    id: "steel-gates",
-    title: "Steel Gates & Railings",
-    description: "Precision restoration for commercial and industrial entrance gates, perimeter railings, and decorative metalwork.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/dIVmiYILOzXbQFlg.webp"
-  },
-  {
-    id: "plant-machinery",
-    title: "Plant & Machinery",
-    description: "On-site shot blasting for construction equipment, agricultural machinery, and industrial plant without the need for transportation.",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/symRlOinndpZEzlR.webp"
+    name: "Surface Preparation",
+    color: "#3d6b3d",
+    services: [
+      { id: "rust-removal", title: "Rust Removal" },
+      { id: "mill-scale-removal", title: "Mill Scale Removal" },
+      { id: "paint-stripping", title: "Paint Stripping" },
+      { id: "coating-removal", title: "Coating Removal" },
+      { id: "factory-cladding", title: "Factory Cladding Blasting" },
+      { id: "agricultural-shot-blasting", title: "Agricultural Shot Blasting" },
+    ]
   }
+];
+
+// Full service list for the image grid below
+const allServices = [
+  { id: "structural-steel-frames", title: "Structural Steel Shot Blasting", description: "High-performance cleaning for steel structures, removing rust, mill scale, and old coatings.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sUfXaBUgQWNMAvEc.webp" },
+  { id: "fire-escapes", title: "Fire Escape Shot Blasting", description: "Complete restoration of fire escape structures, ensuring safety compliance and longevity.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oySJrMBHyyuJOevk.webp" },
+  { id: "warehouse-racking", title: "Racking & Mezzanine Blasting", description: "Complete refurbishment of storage systems, extending service life and improving appearance.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WmoactuoGfwMmVwl.webp" },
+  { id: "steel-gates", title: "Steel Gates & Railings", description: "Precision restoration for commercial and industrial entrance gates, perimeter railings, and decorative metalwork.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/dIVmiYILOzXbQFlg.webp" },
+  { id: "steel-doors", title: "Steel Doors & Roller Shutters", description: "Professional restoration for industrial doors, warehouse roller shutters, security doors, and commercial access systems.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/EOszbYQwsYrTFvjN.webp" },
+  { id: "bridge-steelwork", title: "Bridge Steelwork", description: "Specialized treatment for bridge components, meeting stringent infrastructure standards.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/cuwoxubhXPpGCUSf.webp" },
+  { id: "steel-containers", title: "Container Shot Blasting", description: "Specialist shot blasting for steel containers and large storage structures, removing rust and old coatings.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/bGsCKoWjNMKfOhKj.webp" },
+  { id: "floor-preparation", title: "Floor Shot Blasting", description: "Professional floor surface preparation for commercial and industrial facilities.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YMGizlSGgTjDQAyi.webp" },
+  { id: "pipework", title: "Pipework Shot Blasting", description: "Surface profiling for optimal coating adhesion on industrial pipework and process equipment.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eqezEvtOwgDSGsCT.webp" },
+  { id: "telecom-towers", title: "Telecom Tower Shot Blasting", description: "Specialized treatment for telecommunications infrastructure, ensuring long-term protection.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XLIXJyIInSTPQjlE.webp" },
+  { id: "plant-machinery", title: "Machinery Shot Blasting", description: "On-site shot blasting for construction equipment, agricultural machinery, and industrial plant.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/symRlOinndpZEzlR.webp" },
+  { id: "marine-shot-blasting", title: "Marine Shot Blasting", description: "Specialist shot blasting for vessels, lock gates, jetties, and port infrastructure.", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" },
+  { id: "rust-removal", title: "Rust Removal", description: "Complete rust removal by shot blasting — faster and more thorough than grinding or wire brushing.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sUfXaBUgQWNMAvEc.webp" },
+  { id: "mill-scale-removal", title: "Mill Scale Removal", description: "Complete mill scale removal for optimal coating adhesion on new fabrications and structural steelwork.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/bGsCKoWjNMKfOhKj.webp" },
+  { id: "paint-stripping", title: "Paint Stripping", description: "Industrial paint stripping by shot blasting — all coats removed in one pass, no chemicals required.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/GmdvvhZjrHfYtOVb.webp" },
+  { id: "coating-removal", title: "Coating Removal", description: "Specialist removal of epoxy, polyurethane, intumescent, and marine coatings from steel structures.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QXdidJpwgjaMnlmb.webp" },
+  { id: "factory-cladding", title: "Factory Cladding Blasting", description: "Specialist cladding restoration removing plastisol and paint layers from factory and industrial building panels.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/GmdvvhZjrHfYtOVb.webp" },
+  { id: "agricultural-shot-blasting", title: "Agricultural Shot Blasting", description: "Shot blasting for farm machinery, grain stores, and agricultural steelwork — mobile service to your farm.", image: "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800&q=80" },
 ];
 
 export default function Services() {
@@ -213,38 +155,75 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Category Grid — matches the 3-column layout from the screenshot */}
       <section className="py-16 bg-gray-50">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, idx) => (
-              <ScrollReveal key={service.id} delay={Math.min(idx % 3, 2) * 80}>
-              <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full">
-                <div className="h-64 overflow-hidden">
-                  <img loading="lazy"
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  width={800}
-                  height={600}
-                />
+          <div className="text-center mb-10">
+            <p className="text-[#2C5F7F] font-medium mb-2">All Services</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Browse by Service Category
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {serviceCategories.map((category) => (
+              <ScrollReveal key={category.name}>
+                <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm bg-white h-full">
+                  <div className="px-5 py-3 text-white font-bold text-lg" style={{ backgroundColor: category.color }}>
+                    {category.name}
+                  </div>
+                  <div className="divide-y divide-gray-100">
+                    {category.services.map((service) => (
+                      <Link
+                        key={service.id}
+                        href={`/services/${service.id}`}
+                        className="flex items-center justify-between px-5 py-3 hover:bg-gray-50 transition-colors group"
+                      >
+                        <span className="text-gray-800 text-sm font-medium group-hover:text-[#2C5F7F]">{service.title}</span>
+                        <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#2C5F7F] flex-shrink-0" />
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-2xl text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    {service.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base text-gray-700 mb-6">
-                    {service.description}
-                  </CardDescription>
-                  <Link href={`/services/${service.id}`}>
-                    <Button variant="link" className="text-[#2C5F7F] hover:text-[#1a3d52] p-0 h-auto font-semibold">
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Full Services Image Grid */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <div className="text-center mb-10">
+            <p className="text-[#2C5F7F] font-medium mb-2">All 18 Services</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Our Complete Shot Blasting Service Range
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {allServices.map((service, idx) => (
+              <ScrollReveal key={service.id} delay={Math.min(idx % 3, 2) * 80}>
+                <Link href={`/services/${service.id}`} className="block group">
+                  <div className="rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-300 h-full bg-white">
+                    <div className="h-52 overflow-hidden">
+                      <img loading="lazy"
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        width={800}
+                        height={600}
+                      />
+                    </div>
+                    <div className="p-5">
+                      <h3 className="text-lg font-bold text-[#2C5F7F] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                        {service.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 mb-4 leading-relaxed">{service.description}</p>
+                      <span className="text-[#2C5F7F] font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Learn More <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>

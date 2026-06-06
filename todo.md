@@ -871,3 +871,12 @@
 - [x] Replace hover-toggle cards in Home.tsx Recent Projects with BeforeAfterCard
 - [x] Wire ProjectDetailModal to Gallery.tsx with Prev/Next navigation
 - [x] TypeScript: 0 errors confirmed
+
+## Round 42 — Service Pages, UX Improvements
+
+- [x] Add 6 new service pages: Marine Shot Blasting, Rust Removal, Mill Scale Removal, Paint Stripping, Coating Removal, Agricultural Shot Blasting
+- [x] Redesign Services page with three-column category layout (Structural & Architectural, Industrial & Specialist, Surface Preparation)
+- [x] Update Header dropdown to show three-column category layout matching Services page
+- [x] Add fullscreen lightbox button to ProjectDetailModal (separate buttons for Before and After images)
+- [x] Confirm category count badges already present on Gallery and OurWork filter pills
+- [x] Add skeleton shimmer loading state to BeforeAfterCard images
