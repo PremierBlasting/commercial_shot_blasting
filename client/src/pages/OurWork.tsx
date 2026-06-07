@@ -361,7 +361,6 @@ const categories = [
   { name: "Steel Doors/Shutters", icon: "🚧" },
   { name: "Steel Containers", icon: "📦" },
   { name: "Factory/Warehouse Cladding", icon: "🏗️" },
-  { name: "Steel Gates", icon: "🚪" },
   { name: "Steel Sheeting", icon: "📄" },
   { name: "Radiators", icon: "🔥" },
   { name: "Automotive", icon: "🚗" },
