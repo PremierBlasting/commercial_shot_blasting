@@ -87,11 +87,11 @@ export default function ShrewsburyServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/shrewsbury");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/shrewsbury");
       document.head.appendChild(meta);
     }
 
@@ -133,6 +133,18 @@ export default function ShrewsburyServiceArea() {
     e.preventDefault();
     submitContact.mutate(formData);
   };
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between shot blasting and sandblasting?","acceptedAnswer":{"@type":"Answer","text":"Shot blasting uses centrifugal force from a wheel to propel abrasive media (like steel shot or grit), while sandblasting uses compressed air. Shot blasting is generally faster, more environmentally friendly, and creates less dust, making it ideal for large industrial surfaces."}},{"@type":"Question","name":"Is shot blasting safe for historic buildings and delicate surfaces?","acceptedAnswer":{"@type":"Answer","text":"Yes, when performed by experts. We use specialized, low-pressure techniques and select the appropriate media to gently remove contaminants without damaging the underlying historic material, which is essential for projects like those in Shrewsbury's conservation areas."}},{"@type":"Question","name":"Do you offer mobile shot blasting services in the Shropshire area?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Our fully equipped mobile units can travel across Shrewsbury, Telford, Oswestry, and the wider Shropshire and Mid-Wales region to perform on-site shot blasting for large structures, machinery, and infrastructure."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>

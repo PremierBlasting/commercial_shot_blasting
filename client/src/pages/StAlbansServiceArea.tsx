@@ -91,11 +91,11 @@ export default function StAlbansServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/st-albans");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/st-albans");
       document.head.appendChild(meta);
     }
 
@@ -139,6 +139,18 @@ export default function StAlbansServiceArea() {
   };
 
   // The main structure is adapted from Home.tsx
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you serve all areas within the St Albans City and District?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide full shot blasting services across the entire St Albans City and District, including Harpenden, Redbourn, Wheathampstead, and London Colney."}},{"@type":"Question","name":"What industries in St Albans do you specialize in?","acceptedAnswer":{"@type":"Answer","text":"We frequently work with the local automotive repair sector, construction companies, and businesses involved in the restoration of St Albans' many historic buildings and infrastructure."}},{"@type":"Question","name":"How long does a typical shot blasting project take in the St Albans area?","acceptedAnswer":{"@type":"Answer","text":"Project duration varies based on size and complexity. We offer a fast turnaround and will provide a detailed timeline with your free, no-obligation quote."}},{"@type":"Question","name":"Are your services suitable for historic properties in St Albans?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We use specialized, non-destructive blasting media and techniques suitable for delicate surfaces, ensuring the preservation of historic structures common in St Albans."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />

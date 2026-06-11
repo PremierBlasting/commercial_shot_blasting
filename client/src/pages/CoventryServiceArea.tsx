@@ -118,11 +118,11 @@ export default function CoventryServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/coventry");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/coventry");
       document.head.appendChild(meta);
     }
 

@@ -899,3 +899,18 @@
 - [x] Update /gallery link in ProjectDetailModal.tsx to /our-work
 - [x] Update /gallery link in Home.tsx to /our-work
 - [x] Update /gallery link in routers.ts CTA buttons to /our-work
+
+## Round 45 — Real Project Photos from Google Drive
+
+- [x] Download 25 HEIC images from Google Drive "Steels" folder (shot blasting project photos by Chris)
+- [x] Convert all 25 HEIC images to WebP format (1920px wide, quality 85)
+- [x] Upload all 25 WebP images to S3 CDN via manus-upload-file --webdev
+- [x] Add 5 new gallery entries to gallery_items DB with real project photos (category: Structural Steel)
+- [x] Add "Structural Steel" category filter to Gallery/OurWork page
+- [x] Replace Unsplash placeholder hero images on 5 service pages with real project photos:
+  - coating-removal: IMG_3354 (steel column mid-blast, coating/bare metal contrast)
+  - intumescent-painting: IMG_3363 (wide industrial space with steel columns)
+  - rust-removal: IMG_3350 (close-up rust/coating on steel column)
+  - mill-scale-removal: IMG_3291 (active blasting on site with workers in PPE)
+  - paint-stripping: IMG_3334 (wide interior with worker blasting steel column)
+- [x] Replace Unsplash placeholder case study images on same 5 service pages with real project photos

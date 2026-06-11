@@ -307,6 +307,18 @@ const ContactFormSection = () => {
     submitContact.mutate(formData);
   };
 
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer mobile shot blasting services in the area?","acceptedAnswer":{"@type":"Answer","text":"Yes, we operate a fully mobile shot blasting unit and can service all areas within the area and the wider Herefordshire county, including Leominster, Ross-on-Wye, and Ledbury."}},{"@type":"Question","name":"What kind of surfaces can you blast in Hereford?","acceptedAnswer":{"@type":"Answer","text":"We can safely and effectively blast steel, concrete, stone, brick, wood, and various other materials. We tailor the abrasive and pressure to the specific surface and project requirement."}},{"@type":"Question","name":"How quickly can you start a project in the area?","acceptedAnswer":{"@type":"Answer","text":"We aim to provide a quote within 24 hours of inquiry. Project start times depend on our current schedule, but we prioritize local commercial and industrial clients."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
+  }, []);
+
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="container">
@@ -438,11 +450,11 @@ export default function HerefordServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/hereford");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/hereford");
       document.head.appendChild(meta);
     }
 

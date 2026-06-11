@@ -157,6 +157,7 @@ const categories = [
   { name: "Agriculture", icon: "🚜" },
   { name: "Infrastructure", icon: "🌉" },
   { name: "Commercial", icon: "🏢" },
+  { name: "Structural Steel", icon: "🏗️" },
 ];
 
 const testimonials = [

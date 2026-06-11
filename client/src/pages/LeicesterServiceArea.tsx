@@ -76,11 +76,11 @@ export default function LeicesterServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/leicester");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/leicester");
       document.head.appendChild(meta);
     }
 
@@ -141,6 +141,18 @@ export default function LeicesterServiceArea() {
     { name: "Mr. A. Patel", company: "Leicester Manufacturing Ltd.", quote: "The team did an outstanding job preparing our factory floor for a new epoxy coating. Fast, professional, and minimal disruption to our operations." },
     { name: "Ms. S. Khan", company: "Historic Restoration, Leicester", quote: "Excellent work on the old brickwork of our Victorian building. The surface was cleaned perfectly without any damage to the delicate structure." },
   ];
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer on-site shot blasting in Leicester?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide mobile, on-site shot blasting services across Leicester and the wider East Midlands region for large structures and machinery."}},{"@type":"Question","name":"What types of surfaces can you treat?","acceptedAnswer":{"@type":"Answer","text":"We can treat a wide range of surfaces including steel, concrete, brick, stone, and wood, ideal for Leicester's diverse industrial and historic buildings."}},{"@type":"Question","name":"How quickly can you start a project in Leicester?","acceptedAnswer":{"@type":"Answer","text":"We aim to provide a quote within 24 hours and can typically schedule a start date within one week, depending on the project size and our current workload."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>

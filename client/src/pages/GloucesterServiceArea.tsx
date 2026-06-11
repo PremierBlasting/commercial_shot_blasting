@@ -120,11 +120,11 @@ export default function GloucesterServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/gloucester");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/gloucester");
       document.head.appendChild(meta);
     }
 
@@ -170,6 +170,18 @@ export default function GloucesterServiceArea() {
     e.preventDefault();
     submitContact.mutate(formData);
   };
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is shot blasting and why is it needed in Gloucester?","acceptedAnswer":{"@type":"Answer","text":"Shot blasting is a method of surface preparation that uses a stream of abrasive material (shot) propelled at high velocity to clean, strengthen, or polish metal and concrete surfaces. In Gloucester's key sectors like Aerospace and Manufacturing, it's essential for preparing components and structures for high-performance coatings, ensuring longevity and compliance with strict industry standards."}},{"@type":"Question","name":"Do you serve the wider Gloucestershire area?","acceptedAnswer":{"@type":"Answer","text":"Yes, while we are based in Gloucester, we regularly serve clients across Cheltenham, Stroud, Tewkesbury, and the entire Gloucestershire region, including the M5 corridor and surrounding industrial parks."}},{"@type":"Question","name":"What materials can be shot blasted?","acceptedAnswer":{"@type":"Answer","text":"We handle a wide range of materials, including steel, concrete, aluminium, and other alloys. Our services are tailored for heavy-duty industrial applications, rust removal, paint stripping, and surface profiling."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>

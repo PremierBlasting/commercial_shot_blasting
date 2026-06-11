@@ -107,11 +107,11 @@ export default function IpswichServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/ipswich");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/ipswich");
       document.head.appendChild(meta);
     }
 
@@ -138,6 +138,18 @@ export default function IpswichServiceArea() {
   }, []);
 
   const { locationName, region, heroTitle, heroSubtitle, whyChooseUs, services, industries, testimonials, faq } = ipswichData;
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you service areas outside of Ipswich town center?","acceptedAnswer":{"@type":"Answer","text":"Yes, we cover the entire Suffolk region, including Felixstowe, Stowmarket, and Colchester."}},{"@type":"Question","name":"What types of blasting media do you use for marine applications?","acceptedAnswer":{"@type":"Answer","text":"We use specialized media like garnet and glass bead for marine equipment to ensure effective cleaning without damaging sensitive surfaces."}},{"@type":"Question","name":"Can you handle large industrial floor preparation?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We have heavy-duty equipment suitable for large-scale concrete floor preparation in warehouses and distribution centers across Ipswich."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>

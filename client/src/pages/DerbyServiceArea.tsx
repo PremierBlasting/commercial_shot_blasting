@@ -76,11 +76,11 @@ export default function DerbyServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/derby");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/derby");
       document.head.appendChild(meta);
     }
 
@@ -152,6 +152,18 @@ export default function DerbyServiceArea() {
     { question: "What safety standards do you adhere to for aerospace projects?", answer: "We adhere to strict industry safety and quality requirements, including specific surface cleanliness and profile requirements essential for aerospace coatings and materials." },
     { question: "Are your services mobile within the East Midlands region?", answer: "Absolutely. While we are based near Derby, our mobile units are fully equipped to serve clients across the entire East Midlands, including Nottingham, Leicester, and beyond." },
   ];
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you handle large components for Derby's rail industry?","acceptedAnswer":{"@type":"Answer","text":"Yes, we have the capacity and specialized equipment to handle large-scale components, including bogies and structural elements, common in the rail sector."}},{"@type":"Question","name":"What safety standards do you adhere to for aerospace projects?","acceptedAnswer":{"@type":"Answer","text":"We adhere to strict industry safety and quality requirements, including specific surface cleanliness and profile requirements essential for aerospace coatings and materials."}},{"@type":"Question","name":"Are your services mobile within the East Midlands region?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. While we are based near Derby, our mobile units are fully equipped to serve clients across the entire East Midlands, including Nottingham, Leicester, and beyond."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>

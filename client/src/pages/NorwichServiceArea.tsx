@@ -86,11 +86,11 @@ export default function NorwichServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/norwich");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/norwich");
       document.head.appendChild(meta);
     }
 
@@ -172,6 +172,18 @@ export default function NorwichServiceArea() {
       company: "East Coast Marine Services"
     }
   ];
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why choose local shot blasting services in Norwich?","acceptedAnswer":{"@type":"Answer","text":"Choosing a local provider ensures faster response times, lower transport costs, and a team that understands the specific industrial and heritage requirements of the Norwich and East Anglia region. We are committed to supporting local businesses."}},{"@type":"Question","name":"What types of surfaces can you shot blast in Norwich?","acceptedAnswer":{"@type":"Answer","text":"We handle a wide range of materials, including steel structures, concrete floors, machinery, automotive parts, and delicate heritage stonework. We use various media, from steel grit for heavy-duty cleaning to softer abrasives for restoration projects."}},{"@type":"Question","name":"Do you offer on-site shot blasting services in Norfolk?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide fully mobile, on-site shot blasting services across Norwich, Norfolk, and the wider East Anglia area. Our mobile units are equipped to handle large-scale infrastructure and construction projects at your location."}},{"@type":"Question","name":"How does shot blasting compare to sandblasting?","acceptedAnswer":{"@type":"Answer","text":"Shot blasting uses centrifugal force to propel abrasive media (usually steel shot or grit) and is highly efficient for large, flat surfaces and heavy-duty cleaning. Sandblasting (or abrasive blasting) uses compressed air and is often better for intricate or smaller components. We offer both methods to suit your specific needs."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>

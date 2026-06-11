@@ -334,11 +334,11 @@ export default function CambridgeServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/cambridge");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/cambridge");
       document.head.appendChild(meta);
     }
 
@@ -362,6 +362,18 @@ export default function CambridgeServiceArea() {
       meta.content = description;
       document.head.appendChild(meta);
     }
+  }, []);
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer mobile shot blasting services in Cambridge?","acceptedAnswer":{"@type":"Answer","text":"Yes, we operate a fully mobile unit capable of serving all areas of Cambridge, including the city centre, Science Parks, and surrounding towns like Ely and Newmarket. We can work on-site to minimize disruption."}},{"@type":"Question","name":"Is shot blasting safe for historic buildings and university properties?","acceptedAnswer":{"@type":"Answer","text":"We use specialized, low-pressure abrasive blasting techniques, often with softer media, specifically designed for delicate surfaces like historic brick and stone. We always conduct a test patch first to ensure material integrity."}},{"@type":"Question","name":"What is the typical turnaround time for a commercial floor project?","acceptedAnswer":{"@type":"Answer","text":"Turnaround time depends on the size and condition of the floor. For a standard 500m\\u00b2 warehouse floor, preparation can often be completed within 1-2 days. We work with you to schedule outside of peak hours."}},{"@type":"Question","name":"Can you prepare surfaces for cleanroom or laboratory coatings?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We are experts in achieving the precise surface profile (CSP) required for high-performance, seamless coatings used in cleanroom and laboratory environments, which are critical for Cambridge's biotech sector."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
   }, []);
 
   return (

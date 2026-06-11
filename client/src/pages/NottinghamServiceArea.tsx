@@ -41,6 +41,18 @@ const Breadcrumb = ({ items }: { items: { label: string; href?: string }[] }) =>
 // Placeholder for a simple FAQ component
 const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
   const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you cover the wider the area area?","acceptedAnswer":{"@type":"Answer","text":"Yes, while we are based in the area, our services extend across the entire the area region, including Derby, Leicester, Lincoln, and surrounding areas."}},{"@type":"Question","name":"What is your typical turnaround time for a project in Nottingham?","acceptedAnswer":{"@type":"Answer","text":"Turnaround time depends on the project size and complexity. However, for most commercial projects in the Nottingham area, we aim for completion within 1-3 working days after the initial site survey."}},{"@type":"Question","name":"Are your services suitable for historic buildings like those in the Lace Market?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We offer specialist, non-destructive blasting techniques perfect for sensitive heritage restoration projects, ensuring the integrity of historic materials."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
+  }, []);
+
   return (
     <div className="border-b border-gray-200 py-4">
       <button
@@ -114,11 +126,11 @@ export default function NottinghamServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/nottingham");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/nottingham");
       document.head.appendChild(meta);
     }
 

@@ -136,11 +136,11 @@ export default function LincolnServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/lincoln");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/lincoln");
       document.head.appendChild(meta);
     }
 
@@ -182,6 +182,18 @@ export default function LincolnServiceArea() {
     e.preventDefault();
     submitContact.mutate(formData);
   };
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer mobile shot blasting services in the area?","acceptedAnswer":{"@type":"Answer","text":"Yes, our fully equipped mobile units cover all of the area and the wider the area area, allowing us to perform on-site work at your location."}},{"@type":"Question","name":"What is the typical turnaround time for a project in the area?","acceptedAnswer":{"@type":"Answer","text":"Turnaround time depends on the project size and complexity. We pride ourselves on efficiency and will provide a clear timeline with your free quote, often completing smaller jobs within a day."}},{"@type":"Question","name":"Are your services suitable for historic buildings in Lincoln?","acceptedAnswer":{"@type":"Answer","text":"We offer specialized, gentle blasting techniques, such as soda or sponge blasting, which are ideal for the restoration of historic and listed buildings, ensuring no damage to the underlying structure."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>

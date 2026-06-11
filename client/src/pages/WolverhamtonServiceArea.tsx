@@ -96,11 +96,11 @@ export default function WolverhamptonServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/wolverhampton");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/wolverhampton");
       document.head.appendChild(meta);
     }
 
@@ -142,6 +142,18 @@ export default function WolverhamptonServiceArea() {
     e.preventDefault();
     submitContact.mutate(formData);
   };
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer on-site shot blasting services in Wolverhampton?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide mobile, on-site shot blasting services across Wolverhampton and the wider West Midlands area for large structures and fixed equipment."}},{"@type":"Question","name":"What types of surfaces can you blast?","acceptedAnswer":{"@type":"Answer","text":"We handle a wide range of materials including steel, concrete, brick, stone, and various metals. Our services are tailored to the specific needs of Wolverhampton's diverse industrial base."}},{"@type":"Question","name":"How long does a typical shot blasting job take?","acceptedAnswer":{"@type":"Answer","text":"The duration depends on the size and complexity of the project. We provide a detailed timeline with every quote, aiming for minimal disruption to your Wolverhampton business operations."}},{"@type":"Question","name":"Are your services compliant with local Wolverhampton council regulations?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We adhere to all relevant health, safety, and waste management practices, ensuring a fully compliant and responsible service for all our Wolverhampton clients."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>

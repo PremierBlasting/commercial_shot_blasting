@@ -69,11 +69,11 @@ export default function SheffieldServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/sheffield");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/sheffield");
       document.head.appendChild(meta);
     }
 
@@ -97,6 +97,18 @@ export default function SheffieldServiceArea() {
       meta.content = description;
       document.head.appendChild(meta);
     }
+  }, []);
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can you provide a quote for Sheffield projects?","acceptedAnswer":{"@type":"Answer","text":"We typically provide same-day quotes for Sheffield area projects. Contact us with your project details and we'll respond within hours."}},{"@type":"Question","name":"Do you service all areas of Sheffield?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide comprehensive coverage throughout Sheffield and the surrounding Yorkshire region. We handle projects of all sizes from small components to large industrial equipment."}},{"@type":"Question","name":"What types of surfaces can you blast?","acceptedAnswer":{"@type":"Answer","text":"We can blast steel, cast iron, aluminum, concrete, and many other surfaces. Our equipment is versatile and can handle various materials and coating types."}},{"@type":"Question","name":"Are your services environmentally friendly?","acceptedAnswer":{"@type":"Answer","text":"Yes, we fully comply with UK waste management practices and use waste management practices. We can discuss specific project requirements for your project."}},{"@type":"Question","name":"Can you handle urgent or emergency projects?","acceptedAnswer":{"@type":"Answer","text":"We often accommodate urgent projects. Contact us directly to discuss your timeline and we'll do our best to accommodate your needs."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
   }, []);
 
   return (

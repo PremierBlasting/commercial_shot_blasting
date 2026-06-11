@@ -1212,7 +1212,7 @@ export const services: ServiceData[] = [
     shortTitle: "Intumescent Painting",
     tagline: "Fire-Resistant Coatings Applied to Perfectly Prepared Steel",
     description: "Commercial Shot Blasting now offers a complete intumescent painting service for structural steel, fire escapes, and industrial metalwork. We prepare the steel to the correct cleanliness grade using shot blasting, then apply certified intumescent coatings that expand under heat to protect the structure and maintain fire resistance ratings. From R30 to R120, we deliver compliant, inspected, and documented fire protection for new builds, refurbishments, and structural upgrades across England and Wales.",
-    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3363_26c5983e.webp",
     benefits: [
       "Full in-house service: shot blasting and intumescent painting under one contract",
       "Certified coatings compliant with BS EN 13381 and ASFP guidelines",
@@ -1248,7 +1248,7 @@ export const services: ServiceData[] = [
         challenge: "A 3,000 m² warehouse extension required all primary structural steel to achieve a 60-minute fire resistance rating. The principal contractor needed a single subcontractor to handle both surface preparation and intumescent painting.",
         solution: "We mobilised to site and shot blasted all columns and beams to Sa 2.5 before applying a zinc epoxy primer, a certified intumescent basecoat at the DFT required for R60, and a grey polyurethane sealer. All work was carried out in a controlled sequence to avoid delays to follow-on trades.",
         result: "All structural members achieved the R60 fire resistance rating. A full DFT survey and coating report was submitted to the building control officer. The project completed on programme and the client has since appointed us on two further warehouse projects.",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3363_26c5983e.webp"
       },
       {
         title: "Fire Escape Refurbishment — R30 Rating Restored",
@@ -1256,7 +1256,7 @@ export const services: ServiceData[] = [
         challenge: "An external fire escape on a 1970s office block had corroded through its original intumescent coating. The building's fire risk assessment required the escape to be restored to a minimum R30 rating before the building could be reoccupied.",
         solution: "We removed all existing coatings and corrosion by shot blasting to Sa 2.5, applied an epoxy primer, and then applied a water-based intumescent coating at the specified DFT for R30. A topcoat in the client's specified RAL colour completed the restoration.",
         result: "The fire escape was restored to full compliance. The building control officer accepted the coating report and the property was reoccupied within the client's deadline. Total project duration was four days including surface preparation.",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3343_0483fe56.webp"
       }
     ],
     faqs: [
@@ -1353,7 +1353,7 @@ export const services: ServiceData[] = [
     shortTitle: "Rust Removal",
     tagline: "Complete Rust Removal by Shot Blasting — Commercial & Industrial",
     description: "Shot blasting is the most effective method for removing rust from commercial and industrial steel structures. Unlike wire brushing, grinding, or chemical treatments, shot blasting removes rust completely and simultaneously creates a surface profile that maximises coating adhesion. Our mobile service brings this capability directly to your site, treating structures of any size to the cleanliness grade required by your coating specification.",
-    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3350_877ba6b6.webp",
     benefits: [
       "Removes rust completely — not just surface treatment",
       "Creates surface profile for optimal coating adhesion",
@@ -1386,7 +1386,7 @@ export const services: ServiceData[] = [
         challenge: "A large industrial storage tank had developed heavy corrosion over several years of outdoor exposure. The existing coating had failed in multiple areas and the underlying steel had corroded significantly, with some areas showing deep pitting. A full recoat was required but the surface needed to be taken back to bare metal first.",
         solution: "We mobilised to site with our mobile shot blasting equipment and systematically treated the entire tank exterior to Sa 2.5. The shot blasting removed all corrosion products, failed coating, and surface contaminants, including cleaning out the pitted areas to provide a sound substrate. A zinc-rich primer was applied the same day to prevent re-rusting.",
         result: "The tank was restored to a clean, profiled surface ready for the full coating system. The client's coating contractor applied the specified epoxy system to a perfectly prepared substrate. The tank is expected to provide 20+ years of corrosion protection with the new coating system.",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3350_877ba6b6.webp"
       }
     ],
     faqs: [
@@ -1414,7 +1414,7 @@ export const services: ServiceData[] = [
     shortTitle: "Mill Scale Removal",
     tagline: "Professional Mill Scale Removal for Optimal Coating Adhesion",
     description: "Mill scale is the blue-grey oxide layer formed on steel during hot rolling. While it appears hard and protective, mill scale is actually cathodic to the underlying steel — meaning it accelerates corrosion when the scale breaks down. Coating over mill scale leads to premature coating failure. Shot blasting is the only reliable method for complete mill scale removal, simultaneously creating the surface profile required for long-term coating adhesion.",
-    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3291_eabbc044.webp",
     benefits: [
       "Complete removal of mill scale — not just surface treatment",
       "Prevents premature coating failure caused by mill scale",
@@ -1447,7 +1447,7 @@ export const services: ServiceData[] = [
         challenge: "A steel fabricator needed all structural steel for a new commercial building to be shot blasted to Sa 2.5 before delivery to site. The steel was freshly rolled with full mill scale coverage and needed to be prepared to the coating specification before the protective coating system could be applied.",
         solution: "We mobilised to the fabrication yard and systematically shot blasted all structural members — columns, beams, purlins, and bracing — to Sa 2.5. The work was sequenced to match the fabricator's production schedule, with completed members primed and racked ready for delivery to site.",
         result: "All structural steel was delivered to site with a clean, profiled, primed surface ready for the main coating system. The coating contractor confirmed excellent adhesion on all members. The project completed on schedule and the client has since appointed us as their preferred shot blasting contractor for all new fabrication work.",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3291_eabbc044.webp"
       }
     ],
     faqs: [
@@ -1475,7 +1475,7 @@ export const services: ServiceData[] = [
     shortTitle: "Paint Stripping",
     tagline: "Industrial Paint Stripping by Shot Blasting — Fast, Complete, No Chemicals",
     description: "Shot blasting is the most effective method for stripping paint from steel structures. It removes all paint layers simultaneously — including primers, intermediate coats, and topcoats — without chemicals, heat, or hand tools. Our mobile service delivers complete paint removal to the cleanliness grade required by your new coating specification, leaving a profiled surface ready for immediate recoating.",
-    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3334_98d6c98d.webp",
     benefits: [
       "Removes all paint layers in a single operation",
       "No chemicals, heat, or hand tools required",
@@ -1508,7 +1508,7 @@ export const services: ServiceData[] = [
         challenge: "A 1980s multi-storey car park required a full recoat of its structural steelwork. The existing paint system had failed in multiple areas and the specification required complete removal of all existing coatings before the new system could be applied.",
         solution: "We mobilised to site with our mobile shot blasting equipment and systematically stripped all structural steelwork to Sa 2.5. The work was phased to allow the car park to remain partially operational during the refurbishment. A zinc-rich primer was applied the same day to each section as it was completed.",
         result: "All structural steelwork was stripped to bare metal with a consistent surface profile. The coating contractor applied the new system to a perfectly prepared substrate. The client received a full coating inspection report confirming compliance with the specification.",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3334_98d6c98d.webp"
       }
     ],
     faqs: [
@@ -1536,7 +1536,7 @@ export const services: ServiceData[] = [
     shortTitle: "Coating Removal",
     tagline: "Complete Coating Removal by Shot Blasting — All Coating Types",
     description: "We provide specialist coating removal services for all types of industrial and protective coatings — including epoxy, polyurethane, zinc-rich primers, coal tar epoxy, intumescent coatings, and specialist marine systems. Shot blasting removes coatings completely and simultaneously creates the surface profile required for the replacement coating system, making it the most efficient preparation method for coating refurbishment projects.",
-    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
+    heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3354_1d9bb82e.webp",
     benefits: [
       "Removes all coating types including epoxy, polyurethane, and zinc primers",
       "Complete removal — no residual coating left on surface",
@@ -1569,7 +1569,7 @@ export const services: ServiceData[] = [
         challenge: "A 1990s office block undergoing change of use required all existing intumescent coatings to be removed from the structural steelwork before a new, upgraded fire protection system could be applied. The existing coatings had partially delaminated and could not be overcoated.",
         solution: "We mobilised to site and shot blasted all structural members to Sa 2.5, removing all existing intumescent coating, primer, and surface corrosion. The work was phased to allow the building to remain partially operational. A zinc epoxy primer was applied the same day to each section as it was completed.",
         result: "All structural steelwork was stripped to bare metal with a consistent surface profile. The intumescent coating contractor applied the new system to a perfectly prepared substrate. The project completed on programme and the building achieved its upgraded fire resistance rating.",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3354_1d9bb82e.webp"
       }
     ],
     faqs: [

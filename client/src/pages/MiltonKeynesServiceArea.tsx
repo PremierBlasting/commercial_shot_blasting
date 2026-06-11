@@ -79,11 +79,11 @@ export default function MiltonKeynesServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/milton-keynes");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/milton-keynes");
       document.head.appendChild(meta);
     }
 
@@ -157,6 +157,18 @@ export default function MiltonKeynesServiceArea() {
       answer: "Pricing is project-specific. We offer a free, no-obligation quote after an initial site assessment. Factors include the size of the area, the type of surface, and the required profile. Contact us today for a precise estimate."
     },
   ];
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the typical turnaround time for a project in Milton Keynes?","acceptedAnswer":{"@type":"Answer","text":"Turnaround time depends on the project size and complexity. For standard industrial floor preparation (e.g., a 1,000 sq ft warehouse), we can often complete the job within 1-2 days. We prioritize minimizing disruption for our Milton Keynes clients."}},{"@type":"Question","name":"Do you offer dustless blasting options for sensitive environments like data centres?","acceptedAnswer":{"@type":"Answer","text":"Yes, we offer advanced dustless and low-dust shot blasting techniques, which are ideal for the high-tech and sensitive environments common in Milton Keynes, ensuring minimal impact on surrounding operations."}},{"@type":"Question","name":"Is your service available across all of Buckinghamshire, or just Milton Keynes?","acceptedAnswer":{"@type":"Answer","text":"While we specialize in serving the Milton Keynes area, we proudly extend our services across all of Buckinghamshire and the wider South East region, leveraging our strategic location near major transport links."}},{"@type":"Question","name":"How much does shot blasting cost in the Milton Keynes area?","acceptedAnswer":{"@type":"Answer","text":"Pricing is project-specific. We offer a free, no-obligation quote after an initial site assessment. Factors include the size of the area, the type of surface, and the required profile. Contact us today for a precise estimate."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <PageLayout>

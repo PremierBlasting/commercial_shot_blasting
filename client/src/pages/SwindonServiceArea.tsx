@@ -102,11 +102,11 @@ export default function SwindonServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/swindon");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/swindon");
       document.head.appendChild(meta);
     }
 
@@ -150,6 +150,18 @@ export default function SwindonServiceArea() {
     e.preventDefault();
     submitContact.mutate(formData);
   };
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer mobile shot blasting services in Swindon?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide fully mobile shot blasting services across Swindon, Wiltshire, and the surrounding areas. We can come to your site, whether it's an industrial estate, construction site, or commercial property."}},{"@type":"Question","name":"What industries in Swindon do you primarily serve?","acceptedAnswer":{"@type":"Answer","text":"We serve a wide range of Swindon's key sectors, including the automotive supply chain, logistics and distribution centers along the M4 corridor, construction and infrastructure projects, and general engineering/manufacturing."}},{"@type":"Question","name":"How long does a typical shot blasting job take in the Swindon area?","acceptedAnswer":{"@type":"Answer","text":"The duration depends on the size and complexity of the project. We pride ourselves on fast turnaround times and will provide a detailed timeline with your free, no-obligation quote."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>

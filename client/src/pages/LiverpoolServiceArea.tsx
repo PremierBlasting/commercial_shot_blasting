@@ -69,11 +69,11 @@ export default function LiverpoolServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/liverpool");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/liverpool");
       document.head.appendChild(meta);
     }
 
@@ -97,6 +97,18 @@ export default function LiverpoolServiceArea() {
       meta.content = description;
       document.head.appendChild(meta);
     }
+  }, []);
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can you complete a shot blasting project in Liverpool?","acceptedAnswer":{"@type":"Answer","text":"Project timelines vary based on scope and complexity. Most projects are completed within 1-3 weeks. We'll provide a detailed timeline during the initial consultation."}},{"@type":"Question","name":"Do you offer emergency or rush blasting services?","acceptedAnswer":{"@type":"Answer","text":"Yes, we can accommodate urgent requests. Contact us directly at 07970 566409 to discuss your timeline requirements."}},{"@type":"Question","name":"What makes your Liverpool service different?","acceptedAnswer":{"@type":"Answer","text":"Our team has deep expertise in the North West's maritime and manufacturing sectors, allowing us to understand and meet the specific needs of local businesses efficiently."}},{"@type":"Question","name":"Can you handle large-scale industrial projects?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We have the equipment and expertise to handle projects of any size, from small components to large structural elements."}},{"@type":"Question","name":"Do you provide waste management documentation?","acceptedAnswer":{"@type":"Answer","text":"Yes, we maintain full compliance with waste management practices and provide all necessary documentation for your records."}},{"@type":"Question","name":"How do I get started with a quote?","acceptedAnswer":{"@type":"Answer","text":"Simply click 'Get a Free Quote' above or call us at 07970 566409. We'll arrange a site visit to assess your requirements."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
   }, []);
 
   return (

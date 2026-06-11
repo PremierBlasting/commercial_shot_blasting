@@ -275,11 +275,11 @@ const CardiffServiceArea: React.FC = () => {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/cardiff");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/cardiff");
       document.head.appendChild(meta);
     }
 
@@ -303,6 +303,18 @@ const CardiffServiceArea: React.FC = () => {
       meta.content = description;
       document.head.appendChild(meta);
     }
+  }, []);
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What areas in South Wales do you cover?","acceptedAnswer":{"@type":"Answer","text":"We primarily serve Cardiff, but our service area extends across the whole of South Wales, including Newport, Swansea, Bridgend, and the Valleys."}},{"@type":"Question","name":"Is dustless blasting suitable for domestic properties in Cardiff?","acceptedAnswer":{"@type":"Answer","text":"Yes, dustless blasting is ideal for domestic projects like driveway cleaning, timber restoration, and paint removal on houses, as it minimizes mess and environmental impact."}},{"@type":"Question","name":"Do you handle large industrial projects at the Port of Cardiff?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We have the capacity and expertise to handle large-scale industrial projects, including ship hull cleaning, tank preparation, and structural steel maintenance at the port."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
   }, []);
 
   return (

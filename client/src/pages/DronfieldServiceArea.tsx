@@ -71,6 +71,16 @@ export default function DronfieldServiceArea() {
       document.head.appendChild(meta);
     }
 
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) {
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/dronfield");
+    } else {
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', 'og:url');
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/dronfield");
+      document.head.appendChild(meta);
+    }
+
     // Set Twitter Card meta tags
     const twitterTitle = document.querySelector('meta[name="twitter:title"]');
     if (twitterTitle) {

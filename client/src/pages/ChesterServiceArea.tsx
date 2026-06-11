@@ -81,11 +81,11 @@ export default function ChesterServiceArea() {
 
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk");
+      ogUrl.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/chester");
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:url');
-      meta.setAttribute('content', "https://commercialshotblasting.co.uk");
+      meta.setAttribute('content', "https://commercialshotblasting.co.uk/service-areas/chester");
       document.head.appendChild(meta);
     }
 
@@ -147,6 +147,18 @@ export default function ChesterServiceArea() {
     { question: "What is the typical turnaround time for a project in Chester?", answer: "Turnaround time depends on the project's size and complexity. For smaller components, we can often complete the work within 24-48 hours. For larger industrial projects, we provide a detailed timeline in our initial quote." },
     { question: "Are you fully insured to work on commercial sites?", answer: "Absolutely. We are fully insured and our team is highly trained and certified, adhering to all UK safety standards. We are a trusted partner for commercial and industrial clients throughout Chester." },
   ];
+
+  useEffect(() => {
+    const faqSchema = document.createElement('script');
+    faqSchema.type = 'application/ld+json';
+    faqSchema.id = 'faq-schema';
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer mobile shot blasting services in Chester?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide fully mobile shot blasting services across Chester, Ellesmere Port, and the wider Cheshire area. We can perform work on-site for large structures, machinery, and infrastructure projects."}},{"@type":"Question","name":"Is your process safe for historic Chester buildings?","acceptedAnswer":{"@type":"Answer","text":"We use a variety of media and techniques, including gentler methods like soda blasting or vapor blasting, which are ideal for sensitive surfaces found on historic buildings in Chester, ensuring preservation while achieving a clean finish."}},{"@type":"Question","name":"What is the typical turnaround time for a project in Chester?","acceptedAnswer":{"@type":"Answer","text":"Turnaround time depends on the project's size and complexity. For smaller components, we can often complete the work within 24-48 hours. For larger industrial projects, we provide a detailed timeline in our initial quote."}},{"@type":"Question","name":"Are you fully insured to work on commercial sites?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We are fully insured and our team is highly trained and certified, adhering to all UK safety standards. We are a trusted partner for commercial and industrial clients throughout Chester."}}]}`;
+    document.head.appendChild(faqSchema);
+    return () => {
+      const el = document.getElementById('faq-schema');
+      if (el) el.remove();
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
