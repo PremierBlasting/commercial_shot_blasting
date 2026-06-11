@@ -5,6 +5,8 @@ interface HeroCarouselProps {
   className?: string;
   /** Optional county/location-specific image shown as the first (static) background slide */
   primaryImage?: string;
+  /** Accessible label for the hero section, e.g. 'Shot blasting services in Birmingham' */
+  heroAlt?: string;
 }
 
 // Hero carousel images - real job site photos (no people, no signs)
@@ -40,7 +42,7 @@ function getResponsiveImageUrl(image: { base: string; sizes: Record<string, stri
  * Used across homepage and all service area pages for consistent visual experience
  * Automatically serves appropriately sized images based on screen width
  */
-export function HeroCarousel({ children, className = "", primaryImage }: HeroCarouselProps) {
+export function HeroCarousel({ children, className = "", primaryImage, heroAlt }: HeroCarouselProps) {
   const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1920);
 
   useEffect(() => {
@@ -53,7 +55,10 @@ export function HeroCarousel({ children, className = "", primaryImage }: HeroCar
   }, []);
 
   return (
-    <section className={`relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white overflow-hidden ${className}`}>
+    <section
+      className={`relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white overflow-hidden ${className}`}
+      aria-label={heroAlt}
+    >
       {/* Animated Background Carousel - Responsive Images */}
       <div className="absolute inset-0">
         {/* County/location-specific primary image shown first (static, no animation) */}

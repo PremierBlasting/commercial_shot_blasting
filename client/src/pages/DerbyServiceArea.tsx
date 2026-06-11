@@ -181,7 +181,8 @@ export default function DerbyServiceArea() {
       </div>
 
       {/* Hero Section */}
-      <HeroCarousel className="py-20 lg:py-32">
+      <HeroCarousel className="py-20 lg:py-32"
+        heroAlt="Shot blasting services in Derby, Derbyshire">
         <div className="max-w-3xl">
           <p className="text-[#F5F1E8] font-medium mb-2">Professional Shot Blasting Services</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -202,7 +203,23 @@ export default function DerbyServiceArea() {
             </Button>
           </div>
         </div>
-      </HeroCarousel>{/* Why Choose Us Section - Derby Focus */}
+      </HeroCarousel>
+      {/* Local Industry Callout */}
+      <section className="py-4 bg-[#2C5F7F] text-white">
+        <div className="container">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-semibold uppercase tracking-wider text-white/70">Primary sector</span>
+              <span className="text-sm font-semibold text-white bg-white/20 px-3 py-1 rounded-full">Aerospace & Rail Engineering</span>
+            </div>
+            <p className="text-sm text-white/90 max-w-2xl">We regularly work with precision engineering subcontractors in the Raynesway industrial corridor, rail maintenance firms near Pride Park, and structural steel fabricators supplying the East Midlands construction market.</p>
+            <div className="flex-shrink-0 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-center">
+              <div className="text-xs text-white/70 uppercase tracking-wider">Midlands base</div>
+              <div className="text-sm font-bold text-white">~40 mins to Derby</div>
+            </div>
+          </div>
+        </div>
+      </section>{/* Why Choose Us Section - Derby Focus */}
       <section id="about" className="py-20 bg-white">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">

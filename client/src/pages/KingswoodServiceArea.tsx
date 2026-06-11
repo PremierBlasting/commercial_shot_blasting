@@ -111,14 +111,15 @@ export default function KingswoodServiceArea() {
       </section>
 
       {/* Hero Section */}
-      <HeroCarousel className="py-16 md:py-24">
+      <HeroCarousel className="py-16 md:py-24"
+        heroAlt="Shot blasting services in Kingswood, South Gloucestershire">
         <div className="max-w-3xl">
           <p className="text-[#F5F1E8] font-medium mb-2">Professional Shot Blasting Services</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
             Shot Blasting Services in Kingswood
           </h1>
           <p className="text-lg text-white/90 mb-8">
-            Commercial Shot Blasting provides professional surface preparation and rust removal services throughout Kingswood and South Gloucestershire. Serving local manufacturers, industrial facilities, and commercial projects with precision blasting solutions.
+            Kingswood's engineering and construction sectors — on the eastern fringe of Bristol — create consistent demand for surface preparation. We serve fabricators, construction contractors, and industrial maintenance teams across the South Gloucestershire area.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
@@ -133,6 +134,22 @@ export default function KingswoodServiceArea() {
           </div>
         </div>
       </HeroCarousel>
+      {/* Local Industry Callout */}
+      <section className="py-4 bg-[#2C5F7F] text-white">
+        <div className="container">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-semibold uppercase tracking-wider text-white/70">Primary sector</span>
+              <span className="text-sm font-semibold text-white bg-white/20 px-3 py-1 rounded-full">Engineering & Construction</span>
+            </div>
+            <p className="text-sm text-white/90 max-w-2xl">We regularly work with engineering firms at the Kingswood industrial estate, construction contractors on the South Gloucestershire development pipeline, and fabricators supplying the Bristol construction market.</p>
+            <div className="flex-shrink-0 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-center">
+              <div className="text-xs text-white/70 uppercase tracking-wider">Midlands base</div>
+              <div className="text-sm font-bold text-white">~1 hr 30 mins to Kingswood</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* About Section */}
       <section className="py-16 bg-[#F5F1E8]">

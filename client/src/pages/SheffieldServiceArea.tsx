@@ -118,14 +118,15 @@ export default function SheffieldServiceArea() {
       </section>
 
       {/* Hero Section */}
-      <HeroCarousel className="py-16 md:py-24">
+      <HeroCarousel className="py-16 md:py-24"
+        heroAlt="Shot blasting services in Sheffield, South Yorkshire">
         <div className="max-w-3xl">
           <p className="text-[#F5F1E8] font-medium mb-2">Professional Shot Blasting Services</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
             Shot Blasting Services in Sheffield
           </h1>
           <p className="text-lg text-white/90 mb-8">
-            Commercial Shot Blasting provides professional surface preparation and rust removal services throughout Sheffield and Yorkshire. Serving local steel manufacturers, engineering firms, and industrial facilities with precision blasting solutions.
+            Sheffield's steel and advanced manufacturing heritage means surface preparation is a core requirement for local businesses. From the Lower Don Valley's fabrication yards to the Advanced Manufacturing Park at Rotherham, we deliver SA2.5 and SA3 standard blasting to the heart of UK steel country.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
@@ -139,7 +140,23 @@ export default function SheffieldServiceArea() {
             </Button>
           </div>
         </div>
-      </HeroCarousel>{/* About Sheffield Service Area */}
+      </HeroCarousel>
+      {/* Local Industry Callout */}
+      <section className="py-4 bg-[#2C5F7F] text-white">
+        <div className="container">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-semibold uppercase tracking-wider text-white/70">Primary sector</span>
+              <span className="text-sm font-semibold text-white bg-white/20 px-3 py-1 rounded-full">Steel Fabrication & Manufacturing</span>
+            </div>
+            <p className="text-sm text-white/90 max-w-2xl">We regularly work with steel fabricators in the Lower Don Valley, structural engineers supplying the Advanced Manufacturing Park, and heritage restoration contractors working on Sheffield's Victorian industrial buildings.</p>
+            <div className="flex-shrink-0 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-center">
+              <div className="text-xs text-white/70 uppercase tracking-wider">Midlands base</div>
+              <div className="text-sm font-bold text-white">~1 hr 15 mins to Sheffield</div>
+            </div>
+          </div>
+        </div>
+      </section>{/* About Sheffield Service Area */}
       <section className="py-16 bg-[#F5F1E8]">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">

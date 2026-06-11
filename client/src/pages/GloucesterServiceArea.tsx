@@ -207,7 +207,8 @@ export default function GloucesterServiceArea() {
       </div>
 
       {/* Hero Section */}
-      <HeroCarousel className="py-20 lg:py-32">
+      <HeroCarousel className="py-20 lg:py-32"
+        heroAlt="Shot blasting services in Gloucester, Gloucestershire">
         <div className="max-w-3xl">
           <p className="text-[#F5F1E8] font-medium mb-2">Professional Shot Blasting Services</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -228,7 +229,23 @@ export default function GloucesterServiceArea() {
             </Button>
           </div>
         </div>
-      </HeroCarousel>{/* Services Grid (Generic, as per template) */}
+      </HeroCarousel>
+      {/* Local Industry Callout */}
+      <section className="py-4 bg-[#2C5F7F] text-white">
+        <div className="container">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-semibold uppercase tracking-wider text-white/70">Primary sector</span>
+              <span className="text-sm font-semibold text-white bg-white/20 px-3 py-1 rounded-full">Aerospace & Agriculture</span>
+            </div>
+            <p className="text-sm text-white/90 max-w-2xl">We regularly work with aerospace subcontractors at Staverton Airport, agricultural machinery operators across the Severn Vale, and structural steel contractors on the Gloucester Quays and Blackfriars regeneration projects.</p>
+            <div className="flex-shrink-0 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-center">
+              <div className="text-xs text-white/70 uppercase tracking-wider">Midlands base</div>
+              <div className="text-sm font-bold text-white">~1 hr to Gloucester</div>
+            </div>
+          </div>
+        </div>
+      </section>{/* Services Grid (Generic, as per template) */}
       <section id="services" className="py-20 bg-[#F5F1E8]">
         <div className="container">
           <div className="text-center mb-12">
