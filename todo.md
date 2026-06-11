@@ -914,3 +914,16 @@
   - mill-scale-removal: IMG_3291 (active blasting on site with workers in PPE)
   - paint-stripping: IMG_3334 (wide interior with worker blasting steel column)
 - [x] Replace Unsplash placeholder case study images on same 5 service pages with real project photos
+
+## Round 46 — Structural Steel Case Study Page
+
+- [x] Create dedicated Structural Steel case study page using real Steels project photos
+- [x] Build case study layout with hero, project overview, challenge/process/results narrative, and image gallery
+- [x] Add route for the Structural Steel case study page in App.tsx
+- [x] Add internal links to the new case study page from relevant project/service sections
+- [x] Add SEO metadata and schema support for the Structural Steel case study page
+- [x] Check TypeScript/dev status after adding the new case study page
+- [x] Save checkpoint and deliver the new case study page
+
+- [x] Save reviewed Steels image findings into a reusable project notes file for case study authoring
+

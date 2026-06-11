@@ -1,0 +1,490 @@
+import { useState } from "react";
+import { Link } from "wouter";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { useSEO } from "@/hooks/useSEO";
+
+const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG";
+
+const images = {
+  hero: `${CDN}/manus-storage/IMG_3365_53136e5c.webp`,
+  overview1: `${CDN}/manus-storage/IMG_3363_a0420394.webp`,
+  overview2: `${CDN}/manus-storage/IMG_3291_a1d86cba.webp`,
+  challenge1: `${CDN}/manus-storage/IMG_3339_77018437.webp`,
+  challenge2: `${CDN}/manus-storage/IMG_3355_33602204.webp`,
+  challenge3: `${CDN}/manus-storage/IMG_3349_a63d77ee.webp`,
+  process1: `${CDN}/manus-storage/IMG_3292_74d78e63.webp`,
+  process2: `${CDN}/manus-storage/IMG_3293_ac592b81.webp`,
+  process3: `${CDN}/manus-storage/IMG_3334_0f7cd85b.webp`,
+  detail1: `${CDN}/manus-storage/IMG_3354_a13c2294.webp`,
+  detail2: `${CDN}/manus-storage/IMG_3350_a6c30653.webp`,
+  detail3: `${CDN}/manus-storage/IMG_3335_a79a71bd.webp`,
+  detail4: `${CDN}/manus-storage/IMG_3340_9451a105.webp`,
+  detail5: `${CDN}/manus-storage/IMG_3341_923f0b98.webp`,
+  detail6: `${CDN}/manus-storage/IMG_3342_9bd742ad.webp`,
+  detail7: `${CDN}/manus-storage/IMG_3343_e8128234.webp`,
+  detail8: `${CDN}/manus-storage/IMG_3346_632e9cd6.webp`,
+  detail9: `${CDN}/manus-storage/IMG_3351_58e7a45d.webp`,
+  detail10: `${CDN}/manus-storage/IMG_3353_280f5383.webp`,
+  detail11: `${CDN}/manus-storage/IMG_3356_3dadbef0.webp`,
+  detail12: `${CDN}/manus-storage/IMG_3357_03aa92df.webp`,
+  wide1: `${CDN}/manus-storage/IMG_3358_44aac58f.webp`,
+  wide2: `${CDN}/manus-storage/IMG_3359_1bdf63a6.webp`,
+  wide3: `${CDN}/manus-storage/IMG_3360_00f37def.webp`,
+  wide4: `${CDN}/manus-storage/IMG_3366_92994bf0.webp`,
+};
+
+const galleryGroups = [
+  {
+    label: "Site Overview",
+    items: [
+      { src: images.overview1, caption: "The vast open-plan commercial space — dozens of structural steel columns requiring full surface preparation" },
+      { src: images.wide1, caption: "Scale of the project: multiple bays of structural steelwork across the entire building footprint" },
+      { src: images.wide2, caption: "Open commercial unit showing the column grid and extent of the blasting scope" },
+      { src: images.wide3, caption: "Wide view of the site during works — safety barriers and blast equipment in position" },
+      { src: images.wide4, caption: "The site from a different angle, showing the full depth of the commercial space" },
+    ],
+  },
+  {
+    label: "Before — Existing Coatings",
+    items: [
+      { src: images.challenge1, caption: "White paint with heavy rust patches — typical condition of the columns before blasting began" },
+      { src: images.challenge2, caption: "Blue industrial paint over the upper section, bare metal already achieved on the lower section" },
+      { src: images.challenge3, caption: "Rust and peeling paint on a structural column — the condition that required complete removal" },
+    ],
+  },
+  {
+    label: "During — Active Blasting Works",
+    items: [
+      { src: images.process1, caption: "Two operators working simultaneously — one blasting a column base, one working on the adjacent column" },
+      { src: images.process2, caption: "Close-up of the team working in tandem — full PPE including blast helmets, hi-vis, and protective suits" },
+      { src: images.process3, caption: "Operator working on a column within the main building interior, blast hose and equipment visible" },
+      { src: images.overview2, caption: "Active blasting underway — safety cones and barriers in place, full site safety compliance" },
+    ],
+  },
+  {
+    label: "Detail — Surface Preparation Progress",
+    items: [
+      { src: images.detail1, caption: "Vertical close-up showing the blasting progress line — coated section above, clean bare metal below" },
+      { src: images.detail2, caption: "Clear contrast between the remaining coating and the freshly blasted surface profile" },
+      { src: images.detail3, caption: "Column base freshly blasted to bare metal — the uniform grey surface profile is ideal for coating adhesion" },
+      { src: images.detail4, caption: "Another column showing the progress line — consistent surface preparation across all steelwork" },
+      { src: images.detail5, caption: "Mid-blast detail showing the transition from coated to clean steel" },
+      { src: images.detail6, caption: "Close-up of the surface profile achieved — Sa 2.5 near-white metal standard" },
+      { src: images.detail7, caption: "Column base preparation — all mill scale, rust, and paint removed to bare metal" },
+      { src: images.detail8, caption: "Multiple columns showing consistent surface preparation across the project" },
+      { src: images.detail9, caption: "Surface preparation detail — uniform profile ready for protective coating application" },
+      { src: images.detail10, caption: "Column showing the clean, profiled surface achieved by shot blasting" },
+      { src: images.detail11, caption: "Consistent surface preparation across the column grid" },
+      { src: images.detail12, caption: "Wide view showing the scale of completed surface preparation" },
+    ],
+  },
+];
+
+function LightboxModal({ src, caption, onClose, onPrev, onNext, hasPrev, hasNext }: {
+  src: string; caption: string; onClose: () => void;
+  onPrev: () => void; onNext: () => void; hasPrev: boolean; hasNext: boolean;
+}) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+      onClick={onClose}
+    >
+      <button
+        className="absolute top-4 right-4 text-white/80 hover:text-white text-3xl font-light leading-none"
+        onClick={onClose}
+        aria-label="Close lightbox"
+      >
+        ×
+      </button>
+      {hasPrev && (
+        <button
+          className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-5xl font-light leading-none"
+          onClick={(e) => { e.stopPropagation(); onPrev(); }}
+          aria-label="Previous image"
+        >
+          ‹
+        </button>
+      )}
+      {hasNext && (
+        <button
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-5xl font-light leading-none"
+          onClick={(e) => { e.stopPropagation(); onNext(); }}
+          aria-label="Next image"
+        >
+          ›
+        </button>
+      )}
+      <div className="max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
+        <img
+          src={src}
+          alt={caption}
+          className="w-full max-h-[80vh] object-contain rounded-lg"
+        />
+        {caption && (
+          <p className="text-white/80 text-sm text-center mt-3 px-4">{caption}</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default function StructuralSteelCaseStudy() {
+  const [lightbox, setLightbox] = useState<{ src: string; caption: string; allImages: { src: string; caption: string }[]; index: number } | null>(null);
+
+  useSEO({
+    title: "Structural Steel Shot Blasting Case Study | Commercial Building Refurbishment",
+    description: "Full case study: shot blasting of structural steel columns across a large commercial building. Complete coating removal to Sa 2.5 standard, ready for protective recoating. View 25 real project photos.",
+    canonical: "/case-studies/structural-steel",
+    image: images.hero,
+  });
+
+  const openLightbox = (allImages: { src: string; caption: string }[], index: number) => {
+    setLightbox({ src: allImages[index].src, caption: allImages[index].caption, allImages, index });
+  };
+
+  const moveLightbox = (delta: number) => {
+    if (!lightbox) return;
+    const newIndex = lightbox.index + delta;
+    if (newIndex >= 0 && newIndex < lightbox.allImages.length) {
+      setLightbox({ ...lightbox, src: lightbox.allImages[newIndex].src, caption: lightbox.allImages[newIndex].caption, index: newIndex });
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Hero */}
+      <div className="relative h-[60vh] min-h-[420px] overflow-hidden">
+        <img
+          src={images.hero}
+          alt="Structural steel shot blasting — large commercial building refurbishment"
+          className="w-full h-full object-cover object-center"
+          fetchPriority="high"
+          width={1920}
+          height={1080}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-end pb-10 px-6 md:px-12 max-w-5xl mx-auto">
+          <nav className="flex items-center gap-2 text-white/60 text-sm mb-4" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <span>/</span>
+            <Link href="/our-work" className="hover:text-white transition-colors">Our Work</Link>
+            <span>/</span>
+            <span className="text-white">Structural Steel Case Study</span>
+          </nav>
+          <div className="flex flex-wrap gap-2 mb-3">
+            <Badge className="bg-amber-500 text-white border-0">Case Study</Badge>
+            <Badge variant="outline" className="text-white border-white/40">Structural Steel</Badge>
+            <Badge variant="outline" className="text-white border-white/40">Commercial Refurbishment</Badge>
+          </div>
+          <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+            Commercial Building Structural Steel<br className="hidden md:block" /> Shot Blasting
+          </h1>
+          <p className="text-white/80 text-lg mt-3 max-w-2xl">
+            Complete coating removal from all structural steel columns across a large commercial building undergoing full refurbishment — achieved to Sa 2.5 near-white metal standard.
+          </p>
+        </div>
+      </div>
+
+      {/* Project Stats Bar */}
+      <div className="bg-slate-900 text-white">
+        <div className="max-w-5xl mx-auto px-6 md:px-12 py-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { label: "Project Type", value: "Commercial Refurbishment" },
+            { label: "Scope", value: "Full Building — All Columns" },
+            { label: "Standard Achieved", value: "Sa 2.5 Near-White Metal" },
+            { label: "Service", value: "Mobile Shot Blasting" },
+          ].map((stat) => (
+            <div key={stat.label}>
+              <p className="text-white/50 text-xs uppercase tracking-wider mb-1">{stat.label}</p>
+              <p className="text-white font-semibold text-sm">{stat.value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="max-w-5xl mx-auto px-6 md:px-12 py-12">
+
+        {/* Project Overview */}
+        <section className="mb-14">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Project Overview</h2>
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <div className="space-y-4 text-slate-700 leading-relaxed">
+              <p>
+                This project involved the complete shot blasting of all structural steel columns throughout a large commercial building undergoing a comprehensive refurbishment programme. The building — a former large-format retail or commercial unit — required full surface preparation of its steel frame prior to the application of a new protective coating system.
+              </p>
+              <p>
+                The structural steelwork had accumulated multiple layers of industrial paint and coating over its service life, with significant rust and corrosion present on many columns. The existing coatings needed to be removed entirely to allow proper structural inspection and to achieve the surface profile required by the new coating specification.
+              </p>
+              <p>
+                Commercial Shot Blasting deployed a team of specialist operators with mobile blasting equipment, working systematically through the building to treat every column from base to full accessible height. All works were carried out in compliance with full site safety requirements, including PPE, containment, and coordination with the main contractor.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <img
+                src={images.overview1}
+                alt="Wide view of the commercial building showing the scale of structural steelwork"
+                className="w-full h-48 object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity col-span-2"
+                onClick={() => openLightbox([{ src: images.overview1, caption: "The vast open-plan commercial space — dozens of structural steel columns requiring full surface preparation" }, { src: images.wide1, caption: "Scale of the project: multiple bays of structural steelwork" }], 0)}
+                loading="lazy"
+              />
+              <img
+                src={images.wide1}
+                alt="Multiple bays of structural steelwork across the building"
+                className="w-full h-36 object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => openLightbox([{ src: images.overview1, caption: "Wide view" }, { src: images.wide1, caption: "Scale of the project" }], 1)}
+                loading="lazy"
+              />
+              <img
+                src={images.wide3}
+                alt="Wide view of the site during works"
+                className="w-full h-36 object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => openLightbox([{ src: images.wide3, caption: "Wide view of the site during works" }], 0)}
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        <Separator className="mb-14" />
+
+        {/* Challenge */}
+        <section className="mb-14">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">The Challenge</h2>
+          <p className="text-slate-500 mb-6">Existing coatings, rust, and site complexity</p>
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {[
+              { src: images.challenge1, caption: "White paint with heavy rust patches — typical condition of the columns before blasting" },
+              { src: images.challenge2, caption: "Blue industrial paint over the upper section — multiple coating layers requiring complete removal" },
+              { src: images.challenge3, caption: "Rust and peeling paint — the extent of corrosion that had developed under the existing coatings" },
+            ].map((img, i) => (
+              <div key={i} className="group cursor-pointer" onClick={() => openLightbox([images.challenge1, images.challenge2, images.challenge3].map((s, j) => ({ src: s, caption: ["White paint with heavy rust patches", "Blue industrial paint — multiple coating layers", "Rust and peeling paint"][j] })), i)}>
+                <img
+                  src={img.src}
+                  alt={img.caption}
+                  className="w-full h-52 object-cover rounded-lg group-hover:opacity-90 transition-opacity"
+                  loading="lazy"
+                />
+                <p className="text-sm text-slate-500 mt-2 leading-snug">{img.caption}</p>
+              </div>
+            ))}
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="border-slate-200">
+              <CardContent className="pt-6">
+                <h3 className="font-semibold text-slate-900 mb-3">Surface Condition</h3>
+                <ul className="space-y-2 text-slate-700 text-sm">
+                  <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">▸</span>Multiple layers of industrial paint, including blue and white topcoats over primers</li>
+                  <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">▸</span>Significant rust and corrosion present on many columns, particularly at the base plates</li>
+                  <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">▸</span>Mill scale on some sections of steelwork — incompatible with the new coating specification</li>
+                  <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">▸</span>Uneven coating adhesion across the column grid due to varying surface histories</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="border-slate-200">
+              <CardContent className="pt-6">
+                <h3 className="font-semibold text-slate-900 mb-3">Site Complexity</h3>
+                <ul className="space-y-2 text-slate-700 text-sm">
+                  <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">▸</span>Active construction site with multiple trades working concurrently</li>
+                  <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">▸</span>Large open-plan building with dozens of columns requiring consistent treatment</li>
+                  <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">▸</span>Blast media containment required across a large floor area</li>
+                  <li className="flex items-start gap-2"><span className="text-amber-500 mt-0.5">▸</span>Coordination with main contractor programme and access requirements</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        <Separator className="mb-14" />
+
+        {/* Process */}
+        <section className="mb-14">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Our Approach</h2>
+          <p className="text-slate-500 mb-6">Systematic, safe, and efficient surface preparation</p>
+          <div className="grid md:grid-cols-2 gap-8 items-start mb-8">
+            <div className="space-y-4 text-slate-700 leading-relaxed">
+              <p>
+                Our team deployed mobile shot blasting equipment and worked systematically through the building, treating each column in sequence. Two operators worked simultaneously to maintain programme efficiency, each equipped with full blast PPE including specialist blast helmets, protective suits, and hi-visibility clothing.
+              </p>
+              <p>
+                Each column was blasted from the base plate upward, ensuring complete removal of all coatings, rust, and mill scale. The base plates — typically the most corroded section — received particular attention to ensure sound metal was exposed for the new coating system.
+              </p>
+              <p>
+                Site safety was maintained throughout, with safety cones, barriers, and exclusion zones established around active blasting areas. All blast media was contained and cleaned up progressively to maintain a safe working environment for other trades on site.
+              </p>
+            </div>
+            <div className="space-y-3">
+              {[
+                { step: "01", title: "Site Assessment", desc: "Full survey of all columns to assess coating condition, identify problem areas, and plan the blasting sequence." },
+                { step: "02", title: "Containment & Safety", desc: "Blast exclusion zones established, safety barriers and cones in place, coordination with site manager." },
+                { step: "03", title: "Systematic Blasting", desc: "Two operators working in tandem, treating each column from base to full accessible height." },
+                { step: "04", title: "Quality Verification", desc: "Each column inspected after blasting to confirm Sa 2.5 standard achieved before moving on." },
+                { step: "05", title: "Media Recovery & Cleanup", desc: "Blast media recovered and disposed of, site left clean and ready for the coating contractor." },
+              ].map((s) => (
+                <div key={s.step} className="flex gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs font-bold">{s.step}</div>
+                  <div>
+                    <p className="font-semibold text-slate-900 text-sm">{s.title}</p>
+                    <p className="text-slate-600 text-sm">{s.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Process photos */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[
+              { src: images.process1, caption: "Two operators working simultaneously on adjacent columns" },
+              { src: images.process2, caption: "Close-up of the team in full PPE — blast helmets, hi-vis, protective suits" },
+              { src: images.process3, caption: "Operator working on a column within the building interior" },
+              { src: images.overview2, caption: "Active blasting underway — safety cones and barriers in place" },
+            ].map((img, i) => (
+              <div key={i} className="group cursor-pointer" onClick={() => openLightbox([images.process1, images.process2, images.process3, images.overview2].map((s, j) => ({ src: s, caption: ["Two operators working simultaneously", "Full PPE — blast helmets, hi-vis, protective suits", "Operator working on a column", "Active blasting underway"][j] })), i)}>
+                <img
+                  src={img.src}
+                  alt={img.caption}
+                  className="w-full h-36 object-cover rounded-lg group-hover:opacity-90 transition-opacity"
+                  loading="lazy"
+                />
+                <p className="text-xs text-slate-500 mt-1.5 leading-snug">{img.caption}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <Separator className="mb-14" />
+
+        {/* Results */}
+        <section className="mb-14">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Results</h2>
+          <p className="text-slate-500 mb-6">Sa 2.5 near-white metal achieved across all columns</p>
+          <div className="grid md:grid-cols-2 gap-8 items-start mb-8">
+            <div className="space-y-4 text-slate-700 leading-relaxed">
+              <p>
+                Every structural steel column across the building was successfully treated to Sa 2.5 near-white metal standard (ISO 8501-1). All existing coatings, rust, mill scale, and surface contamination were completely removed, leaving a clean, profiled surface with the anchor profile required for the replacement coating system.
+              </p>
+              <p>
+                The consistent surface preparation across all columns — visible in the uniform grey bare metal finish in the photographs — ensures that the new protective coating system will achieve full adhesion and provide the long-term corrosion protection required for the refurbished building.
+              </p>
+              <p>
+                The project was completed on programme, with the site handed back to the main contractor clean and ready for the coating contractor to begin work without delay.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="col-span-2 bg-slate-50 rounded-xl p-5 grid grid-cols-2 gap-4">
+                {[
+                  { metric: "Sa 2.5", label: "Blast standard achieved" },
+                  { metric: "100%", label: "Coating removal — no residual paint" },
+                  { metric: "All columns", label: "Treated to specification" },
+                  { metric: "On programme", label: "Delivered to contractor schedule" },
+                ].map((m) => (
+                  <div key={m.label} className="text-center">
+                    <p className="text-2xl font-bold text-slate-900">{m.metric}</p>
+                    <p className="text-xs text-slate-500 mt-1">{m.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Separator className="mb-14" />
+
+        {/* Full Photo Gallery */}
+        <section className="mb-14">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Project Photo Gallery</h2>
+          <p className="text-slate-500 mb-8">All 25 photos from the project — click any image to view full size</p>
+          {galleryGroups.map((group) => (
+            <div key={group.label} className="mb-10">
+              <h3 className="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+                <span className="w-1 h-5 bg-amber-500 rounded-full inline-block" />
+                {group.label}
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                {group.items.map((img, i) => (
+                  <div
+                    key={i}
+                    className="group cursor-pointer overflow-hidden rounded-lg"
+                    onClick={() => openLightbox(group.items, i)}
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.caption}
+                      className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+
+        <Separator className="mb-14" />
+
+        {/* Services Used */}
+        <section className="mb-14">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Services Delivered</h2>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              { title: "Structural Steel Shot Blasting", href: "/services/structural-steel-frames", desc: "Complete surface preparation of structural steel frames and columns." },
+              { title: "Coating Removal", href: "/services/coating-removal", desc: "Specialist removal of all coating types including industrial paint and primers." },
+              { title: "Rust Removal", href: "/services/rust-removal", desc: "Complete rust removal to bare metal, including heavily corroded base plates." },
+              { title: "Mill Scale Removal", href: "/services/mill-scale-removal", desc: "Removal of mill scale to achieve the surface profile required by coating specifications." },
+              { title: "Paint Stripping", href: "/services/paint-stripping", desc: "Multi-layer paint stripping from structural steelwork in a single operation." },
+              { title: "Mobile Shot Blasting", href: "/services", desc: "On-site service — we brought all equipment to the commercial building." },
+            ].map((s) => (
+              <Link key={s.href} href={s.href}>
+                <Card className="h-full border-slate-200 hover:border-amber-400 hover:shadow-md transition-all cursor-pointer">
+                  <CardContent className="pt-5 pb-5">
+                    <h3 className="font-semibold text-slate-900 text-sm mb-1.5">{s.title}</h3>
+                    <p className="text-slate-500 text-xs leading-relaxed">{s.desc}</p>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="bg-slate-900 rounded-2xl p-8 md:p-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+            Have a Similar Structural Steel Project?
+          </h2>
+          <p className="text-white/70 mb-6 max-w-xl mx-auto">
+            We provide mobile shot blasting for structural steel across commercial and industrial buildings throughout England and Wales. Contact us for a free site survey and quote.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link href="/contact">
+              <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-white border-0 font-semibold">
+                Get a Free Quote
+              </Button>
+            </Link>
+            <Link href="/our-work">
+              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 bg-transparent">
+                View More Projects
+              </Button>
+            </Link>
+          </div>
+          <p className="text-white/40 text-sm mt-4">Call us on <a href="tel:07970566409" className="text-white/60 hover:text-white">07970 566409</a> — free site surveys available</p>
+        </section>
+      </div>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <LightboxModal
+          src={lightbox.src}
+          caption={lightbox.caption}
+          onClose={() => setLightbox(null)}
+          onPrev={() => moveLightbox(-1)}
+          onNext={() => moveLightbox(1)}
+          hasPrev={lightbox.index > 0}
+          hasNext={lightbox.index < lightbox.allImages.length - 1}
+        />
+      )}
+    </div>
+  );
+}
