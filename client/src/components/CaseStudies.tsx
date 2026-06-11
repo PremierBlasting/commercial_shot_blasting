@@ -194,6 +194,33 @@ export function CaseStudies() {
           </p>
         </div>
 
+        {/* Featured Case Study Banner */}
+        <div className="mb-10 rounded-2xl overflow-hidden border border-amber-300/60 bg-gradient-to-r from-amber-50 to-white flex flex-col md:flex-row items-stretch shadow-sm">
+          <div className="relative md:w-64 h-44 md:h-auto flex-shrink-0 overflow-hidden">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3365_53136e5c.webp"
+              alt="Structural steel shot blasting — commercial building project"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-amber-50/20" />
+          </div>
+          <div className="flex-1 p-5 md:p-7 flex flex-col justify-center">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-600 mb-1.5">Featured Project</span>
+            <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-1.5" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Commercial Building Structural Steel Shot Blasting
+            </h3>
+            <p className="text-gray-600 text-sm mb-4 max-w-lg">
+              Complete coating removal from all structural steel columns across a large commercial building — achieved to Sa 2.5 near-white metal standard. Documented with 25 real on-site photographs.
+            </p>
+            <Link href="/case-studies/structural-steel">
+              <button className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors w-fit">
+                View Full Case Study <ArrowRight className="w-4 h-4" />
+              </button>
+            </Link>
+          </div>
+        </div>
+
         {/* Category Filter Tabs */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {categories.map((cat) => {

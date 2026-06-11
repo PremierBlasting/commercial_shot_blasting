@@ -927,3 +927,9 @@
 
 - [x] Save reviewed Steels image findings into a reusable project notes file for case study authoring
 
+
+## Round 47 — Homepage Featured Project & JSON-LD Schema
+
+- [x] Add Featured Project section to homepage (Home.tsx) linking to Structural Steel case study
+- [x] Add JSON-LD structured data (Article/WebPage schema) to the StructuralSteelCaseStudy page
+- [x] Save checkpoint and deliver

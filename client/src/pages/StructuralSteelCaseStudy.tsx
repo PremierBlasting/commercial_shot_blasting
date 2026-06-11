@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -140,6 +140,64 @@ export default function StructuralSteelCaseStudy() {
     canonical: "/case-studies/structural-steel",
     image: images.hero,
   });
+
+  // JSON-LD structured data for SEO
+  useEffect(() => {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Commercial Building Structural Steel Shot Blasting — Full Case Study",
+      "description": "Full case study documenting the shot blasting of structural steel columns across a large commercial building. Complete coating removal to Sa 2.5 near-white metal standard, ready for protective recoating. 25 real on-site photographs.",
+      "image": [
+        images.hero,
+        images.overview1,
+        images.process1,
+      ],
+      "author": {
+        "@type": "Organization",
+        "name": "Commercial Shot Blasting",
+        "url": "https://commercialshotblasting.co.uk",
+        "telephone": "+447970566409"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Commercial Shot Blasting",
+        "url": "https://commercialshotblasting.co.uk",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://commercialshotblasting.co.uk/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://commercialshotblasting.co.uk/case-studies/structural-steel"
+      },
+      "about": {
+        "@type": "Service",
+        "name": "Structural Steel Shot Blasting",
+        "serviceType": "Shot Blasting",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Commercial Shot Blasting",
+          "url": "https://commercialshotblasting.co.uk",
+          "areaServed": "England and Wales"
+        }
+      },
+      "keywords": "structural steel shot blasting, commercial building shot blasting, Sa 2.5 surface preparation, coating removal structural steel, shot blasting case study UK"
+    };
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "jsonld-case-study-structural-steel";
+    script.textContent = JSON.stringify(schema);
+    // Remove any existing script with this id before inserting
+    const existing = document.getElementById("jsonld-case-study-structural-steel");
+    if (existing) existing.remove();
+    document.head.appendChild(script);
+    return () => {
+      const el = document.getElementById("jsonld-case-study-structural-steel");
+      if (el) el.remove();
+    };
+  }, []);
 
   const openLightbox = (allImages: { src: string; caption: string }[], index: number) => {
     setLightbox({ src: allImages[index].src, caption: allImages[index].caption, allImages, index });
