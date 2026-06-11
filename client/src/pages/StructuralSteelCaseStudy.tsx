@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { useSEO } from "@/hooks/useSEO";
-import { Volume2, VolumeX } from "lucide-react";
+import { Volume2, VolumeX, Play, Pause, X, PlayCircle } from "lucide-react";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG";
 
@@ -135,12 +135,26 @@ function LightboxModal({ src, caption, onClose, onPrev, onNext, hasPrev, hasNext
 export default function StructuralSteelCaseStudy() {
   const [lightbox, setLightbox] = useState<{ src: string; caption: string; allImages: { src: string; caption: string }[]; index: number } | null>(null);
   const [isCaseStudyMuted, setIsCaseStudyMuted] = useState(true);
+  const [isCaseStudyPlaying, setIsCaseStudyPlaying] = useState(true);
+  const [fullVideoOpen, setFullVideoOpen] = useState(false);
   const caseStudyVideoRef = useRef<HTMLVideoElement>(null);
 
   const toggleCaseStudyMute = () => {
     if (caseStudyVideoRef.current) {
       caseStudyVideoRef.current.muted = !caseStudyVideoRef.current.muted;
       setIsCaseStudyMuted(caseStudyVideoRef.current.muted);
+    }
+  };
+
+  const toggleCaseStudyPlay = () => {
+    if (caseStudyVideoRef.current) {
+      if (caseStudyVideoRef.current.paused) {
+        caseStudyVideoRef.current.play();
+        setIsCaseStudyPlaying(true);
+      } else {
+        caseStudyVideoRef.current.pause();
+        setIsCaseStudyPlaying(false);
+      }
     }
   };
 
@@ -217,6 +231,47 @@ export default function StructuralSteelCaseStudy() {
       "keywords": "structural steel shot blasting, commercial building, Sa 2.5, coating removal, UK shot blasting"
     };
 
+    // ImageGallery JSON-LD schema — makes all 25 photos eligible for Google image rich results
+    const imageGallerySchema = {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "Structural Steel Shot Blasting — Commercial Building Refurbishment Photo Gallery",
+      "description": "25 real on-site photographs documenting the full scope of structural steel shot blasting across a large commercial building. Shows site overview, before condition, active blasting works, and surface preparation detail.",
+      "url": "https://commercialshotblasting.co.uk/case-studies/structural-steel",
+      "author": {
+        "@type": "Organization",
+        "name": "Commercial Shot Blasting",
+        "url": "https://commercialshotblasting.co.uk"
+      },
+      "image": [
+        { "@type": "ImageObject", "contentUrl": images.hero, "name": "Structural steel column — Sa 2.5 surface achieved, ready for recoating", "description": "Close-up of a structural steel column after shot blasting, showing the near-white metal finish achieved to Sa 2.5 standard" },
+        { "@type": "ImageObject", "contentUrl": images.overview1, "name": "Commercial building interior — full column grid requiring surface preparation", "description": "Wide view of the vast open-plan commercial space showing dozens of structural steel columns requiring full surface preparation" },
+        { "@type": "ImageObject", "contentUrl": images.overview2, "name": "Active blasting underway — safety compliance on site", "description": "Active blasting underway with safety cones and barriers in place, full site safety compliance" },
+        { "@type": "ImageObject", "contentUrl": images.challenge1, "name": "Before: white paint with heavy rust patches on structural column", "description": "White paint with heavy rust patches — typical condition of the columns before blasting began" },
+        { "@type": "ImageObject", "contentUrl": images.challenge2, "name": "Before: blue industrial paint over upper section, bare metal on lower section", "description": "Blue industrial paint over the upper section, bare metal already achieved on the lower section" },
+        { "@type": "ImageObject", "contentUrl": images.challenge3, "name": "Before: rust and peeling paint requiring complete removal", "description": "Rust and peeling paint on a structural column — the condition that required complete removal" },
+        { "@type": "ImageObject", "contentUrl": images.process1, "name": "Two operators blasting simultaneously — structural steel columns", "description": "Two operators working simultaneously — one blasting a column base, one working on the adjacent column" },
+        { "@type": "ImageObject", "contentUrl": images.process2, "name": "Shot blasting team in full PPE — blast helmets and protective suits", "description": "Close-up of the team working in tandem — full PPE including blast helmets, hi-vis, and protective suits" },
+        { "@type": "ImageObject", "contentUrl": images.process3, "name": "Operator blasting structural steel column — commercial building interior", "description": "Operator working on a column within the main building interior, blast hose and equipment visible" },
+        { "@type": "ImageObject", "contentUrl": images.detail1, "name": "Surface preparation detail — coating removal progress on structural steel", "description": "Close-up showing the contrast between the original coating and the blasted near-white metal surface" },
+        { "@type": "ImageObject", "contentUrl": images.detail2, "name": "Structural steel column mid-blast — coating and rust removal in progress", "description": "Mid-blast view showing the active removal of coating and rust from a structural steel column" },
+        { "@type": "ImageObject", "contentUrl": images.detail3, "name": "Column base detail — Sa 2.5 surface preparation achieved", "description": "Column base showing the clean near-white metal surface achieved after shot blasting" },
+        { "@type": "ImageObject", "contentUrl": images.detail4, "name": "Multiple columns blasted — commercial building refurbishment progress", "description": "Multiple columns showing the progression of blasting works across the building" },
+        { "@type": "ImageObject", "contentUrl": images.detail5, "name": "Structural steel surface detail — bare metal after coating removal", "description": "Detailed view of the bare metal surface achieved after complete coating removal" },
+        { "@type": "ImageObject", "contentUrl": images.detail6, "name": "Shot blasting surface profile — Sa 2.5 near-white metal standard", "description": "Surface profile showing the anchor pattern created by shot blasting, ideal for protective coating adhesion" },
+        { "@type": "ImageObject", "contentUrl": images.detail7, "name": "Structural column — full height coating removal completed", "description": "Full height view of a structural column with complete coating removal achieved" },
+        { "@type": "ImageObject", "contentUrl": images.detail8, "name": "Column connection detail — blasting around structural joints", "description": "Detail of blasting work around structural connection points and joints" },
+        { "@type": "ImageObject", "contentUrl": images.detail9, "name": "Surface preparation quality — consistent Sa 2.5 standard across all columns", "description": "Consistent near-white metal surface quality achieved across multiple columns" },
+        { "@type": "ImageObject", "contentUrl": images.detail10, "name": "Structural steel — before and after comparison on single column", "description": "Single column showing the dramatic difference between the original coated surface and the blasted finish" },
+        { "@type": "ImageObject", "contentUrl": images.detail11, "name": "Commercial building steel frame — blasting works in progress", "description": "Wide view showing the steel frame of the commercial building with blasting works in progress" },
+        { "@type": "ImageObject", "contentUrl": images.detail12, "name": "Shot blasting equipment on site — mobile blasting unit", "description": "Mobile shot blasting equipment positioned on site for the commercial building project" },
+        { "@type": "ImageObject", "contentUrl": images.wide1, "name": "Scale of the project — multiple bays of structural steelwork", "description": "Scale of the project: multiple bays of structural steelwork across the entire building footprint" },
+        { "@type": "ImageObject", "contentUrl": images.wide2, "name": "Open commercial unit — column grid and blasting scope", "description": "Open commercial unit showing the column grid and extent of the blasting scope" },
+        { "@type": "ImageObject", "contentUrl": images.wide3, "name": "Site during works — safety barriers and blast equipment in position", "description": "Wide view of the site during works — safety barriers and blast equipment in position" },
+        { "@type": "ImageObject", "contentUrl": images.wide4, "name": "Full depth of commercial space — structural steel blasting project", "description": "The site from a different angle, showing the full depth of the commercial space" }
+      ]
+    };
+
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.id = "jsonld-case-study-structural-steel";
@@ -225,18 +280,27 @@ export default function StructuralSteelCaseStudy() {
     videoScript.type = "application/ld+json";
     videoScript.id = "jsonld-case-study-video";
     videoScript.textContent = JSON.stringify(videoSchema);
+    const galleryScript = document.createElement("script");
+    galleryScript.type = "application/ld+json";
+    galleryScript.id = "jsonld-case-study-gallery";
+    galleryScript.textContent = JSON.stringify(imageGallerySchema);
     // Remove any existing scripts with these ids before inserting
     const existing = document.getElementById("jsonld-case-study-structural-steel");
     if (existing) existing.remove();
     const existingVideo = document.getElementById("jsonld-case-study-video");
     if (existingVideo) existingVideo.remove();
+    const existingGallery = document.getElementById("jsonld-case-study-gallery");
+    if (existingGallery) existingGallery.remove();
     document.head.appendChild(script);
     document.head.appendChild(videoScript);
+    document.head.appendChild(galleryScript);
     return () => {
       const el = document.getElementById("jsonld-case-study-structural-steel");
       if (el) el.remove();
       const vel = document.getElementById("jsonld-case-study-video");
       if (vel) vel.remove();
+      const gel = document.getElementById("jsonld-case-study-gallery");
+      if (gel) gel.remove();
     };
   }, []);
 
@@ -270,13 +334,31 @@ export default function StructuralSteelCaseStudy() {
           {/* Fallback poster image */}
           <img src={images.hero} alt="Structural steel shot blasting — large commercial building refurbishment" className="w-full h-full object-cover" />
         </video>
-        {/* Mute/Unmute Toggle */}
+        {/* Video Controls: Play/Pause + Mute/Unmute */}
+        <div className="absolute bottom-4 right-4 z-20 flex items-center gap-2">
+          <button
+            onClick={toggleCaseStudyPlay}
+            aria-label={isCaseStudyPlaying ? "Pause video" : "Play video"}
+            className="flex items-center justify-center w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 text-white/80 hover:text-white transition-all backdrop-blur-sm border border-white/20"
+          >
+            {isCaseStudyPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+          </button>
+          <button
+            onClick={toggleCaseStudyMute}
+            aria-label={isCaseStudyMuted ? "Unmute video" : "Mute video"}
+            className="flex items-center justify-center w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 text-white/80 hover:text-white transition-all backdrop-blur-sm border border-white/20"
+          >
+            {isCaseStudyMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+          </button>
+        </div>
+        {/* Play Full Video Button */}
         <button
-          onClick={toggleCaseStudyMute}
-          aria-label={isCaseStudyMuted ? "Unmute video" : "Mute video"}
-          className="absolute bottom-4 right-4 z-20 flex items-center justify-center w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 text-white/80 hover:text-white transition-all backdrop-blur-sm border border-white/20"
+          onClick={() => setFullVideoOpen(true)}
+          aria-label="Play full video"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 hover:bg-white/30 text-white text-sm font-medium backdrop-blur-sm border border-white/30 transition-all"
         >
-          {isCaseStudyMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+          <PlayCircle className="w-4 h-4" />
+          Play full video
         </button>
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-end pb-10 px-6 md:px-12 max-w-5xl mx-auto">
@@ -300,6 +382,40 @@ export default function StructuralSteelCaseStudy() {
           </p>
         </div>
       </div>
+
+      {/* Full Video Modal */}
+      {fullVideoOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+          onClick={() => setFullVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl rounded-xl overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setFullVideoOpen(false)}
+              aria-label="Close video"
+              className="absolute top-3 right-3 z-10 flex items-center justify-center w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white transition-all"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <video
+              autoPlay
+              controls
+              playsInline
+              className="w-full aspect-video bg-black"
+              poster={images.hero}
+            >
+              <source src={`${CDN}/manus-storage/hero_video_30s_fbb59d63.mp4`} type="video/mp4" />
+            </video>
+            <div className="bg-slate-900 px-5 py-3">
+              <p className="text-white font-semibold text-sm">Structural Steel Shot Blasting — Commercial Building Refurbishment</p>
+              <p className="text-white/60 text-xs mt-0.5">Sa 2.5 near-white metal standard · Full building scope · Mobile shot blasting</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Project Stats Bar */}
       <div className="bg-slate-900 text-white">

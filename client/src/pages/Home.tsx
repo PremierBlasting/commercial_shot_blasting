@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Star, Quote, X, Volume2, VolumeX } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Star, Quote, X, Volume2, VolumeX, Play, Pause } from "lucide-react";
 import { useState, useMemo, useEffect, useRef, lazy, Suspense } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
@@ -49,12 +49,25 @@ export default function Home() {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(-1);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
   const heroVideoRef = useRef<HTMLVideoElement>(null);
 
   const toggleMute = () => {
     if (heroVideoRef.current) {
       heroVideoRef.current.muted = !heroVideoRef.current.muted;
       setIsMuted(heroVideoRef.current.muted);
+    }
+  };
+
+  const togglePlay = () => {
+    if (heroVideoRef.current) {
+      if (heroVideoRef.current.paused) {
+        heroVideoRef.current.play();
+        setIsPlaying(true);
+      } else {
+        heroVideoRef.current.pause();
+        setIsPlaying(false);
+      }
     }
   };
 
@@ -294,14 +307,23 @@ export default function Home() {
             <ResponsiveHeroBackground />
           </video>
         </div>
-        {/* Mute/Unmute Toggle */}
-        <button
-          onClick={toggleMute}
-          aria-label={isMuted ? "Unmute video" : "Mute video"}
-          className="absolute bottom-4 right-4 z-20 flex items-center justify-center w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 text-white/80 hover:text-white transition-all backdrop-blur-sm border border-white/20"
-        >
-          {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-        </button>
+        {/* Video Controls: Play/Pause + Mute/Unmute */}
+        <div className="absolute bottom-4 right-4 z-20 flex items-center gap-2">
+          <button
+            onClick={togglePlay}
+            aria-label={isPlaying ? "Pause video" : "Play video"}
+            className="flex items-center justify-center w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 text-white/80 hover:text-white transition-all backdrop-blur-sm border border-white/20"
+          >
+            {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+          </button>
+          <button
+            onClick={toggleMute}
+            aria-label={isMuted ? "Unmute video" : "Mute video"}
+            className="flex items-center justify-center w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 text-white/80 hover:text-white transition-all backdrop-blur-sm border border-white/20"
+          >
+            {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+          </button>
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a3d52]/80 via-[#2C5F7F]/60 to-transparent"></div>
         <div className="container relative z-10">
           <div className="max-w-3xl">

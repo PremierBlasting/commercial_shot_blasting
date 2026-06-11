@@ -951,3 +951,11 @@
 - [x] Add VideoObject JSON-LD schema to homepage (30s video)
 - [x] Add VideoObject JSON-LD schema to case study page (15s video)
 - [x] Save checkpoint and deliver
+
+## Round 50 — Video Controls, Full Video Modal & ImageGallery Schema
+
+- [x] Add play/pause toggle button to homepage hero video (next to mute button)
+- [x] Add play/pause toggle button to case study hero video (next to mute button)
+- [x] Add 'Play full video' button to case study page that opens 30s video in a popup modal
+- [x] Add ImageGallery JSON-LD schema block to case study page with all 25 photo URLs
+- [x] Save checkpoint and deliver
