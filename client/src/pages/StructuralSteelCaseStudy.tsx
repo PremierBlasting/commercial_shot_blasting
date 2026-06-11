@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { useSEO } from "@/hooks/useSEO";
+import { Volume2, VolumeX } from "lucide-react";
 
 const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG";
 
@@ -133,6 +134,15 @@ function LightboxModal({ src, caption, onClose, onPrev, onNext, hasPrev, hasNext
 
 export default function StructuralSteelCaseStudy() {
   const [lightbox, setLightbox] = useState<{ src: string; caption: string; allImages: { src: string; caption: string }[]; index: number } | null>(null);
+  const [isCaseStudyMuted, setIsCaseStudyMuted] = useState(true);
+  const caseStudyVideoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleCaseStudyMute = () => {
+    if (caseStudyVideoRef.current) {
+      caseStudyVideoRef.current.muted = !caseStudyVideoRef.current.muted;
+      setIsCaseStudyMuted(caseStudyVideoRef.current.muted);
+    }
+  };
 
   useSEO({
     title: "Structural Steel Shot Blasting Case Study | Commercial Building Refurbishment",
@@ -185,17 +195,48 @@ export default function StructuralSteelCaseStudy() {
       },
       "keywords": "structural steel shot blasting, commercial building shot blasting, Sa 2.5 surface preparation, coating removal structural steel, shot blasting case study UK"
     };
+    const videoSchema = {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Structural Steel Shot Blasting — Commercial Building Refurbishment",
+      "description": "15-second clip showing active shot blasting of structural steel columns in a large commercial building. Workers in full PPE blasting to Sa 2.5 near-white metal standard.",
+      "thumbnailUrl": images.hero,
+      "contentUrl": `${CDN}/manus-storage/hero_video_15s_01f5fd66.mp4`,
+      "uploadDate": "2026-06-11",
+      "duration": "PT15S",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Commercial Shot Blasting",
+        "url": "https://commercialshotblasting.co.uk",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://commercialshotblasting.co.uk/logo.png"
+        }
+      },
+      "embedUrl": "https://commercialshotblasting.co.uk/case-studies/structural-steel",
+      "keywords": "structural steel shot blasting, commercial building, Sa 2.5, coating removal, UK shot blasting"
+    };
+
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.id = "jsonld-case-study-structural-steel";
     script.textContent = JSON.stringify(schema);
-    // Remove any existing script with this id before inserting
+    const videoScript = document.createElement("script");
+    videoScript.type = "application/ld+json";
+    videoScript.id = "jsonld-case-study-video";
+    videoScript.textContent = JSON.stringify(videoSchema);
+    // Remove any existing scripts with these ids before inserting
     const existing = document.getElementById("jsonld-case-study-structural-steel");
     if (existing) existing.remove();
+    const existingVideo = document.getElementById("jsonld-case-study-video");
+    if (existingVideo) existingVideo.remove();
     document.head.appendChild(script);
+    document.head.appendChild(videoScript);
     return () => {
       const el = document.getElementById("jsonld-case-study-structural-steel");
       if (el) el.remove();
+      const vel = document.getElementById("jsonld-case-study-video");
+      if (vel) vel.remove();
     };
   }, []);
 
@@ -215,14 +256,28 @@ export default function StructuralSteelCaseStudy() {
     <div className="min-h-screen bg-white">
       {/* Hero */}
       <div className="relative h-[60vh] min-h-[420px] overflow-hidden">
-        <img
-          src={images.hero}
-          alt="Structural steel shot blasting — large commercial building refurbishment"
-          className="w-full h-full object-cover object-center"
-          fetchPriority="high"
-          width={1920}
-          height={1080}
-        />
+        <video
+          ref={caseStudyVideoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          poster={images.hero}
+          preload="auto"
+        >
+          <source src={`${CDN}/manus-storage/hero_video_15s_01f5fd66.mp4`} type="video/mp4" />
+          {/* Fallback poster image */}
+          <img src={images.hero} alt="Structural steel shot blasting — large commercial building refurbishment" className="w-full h-full object-cover" />
+        </video>
+        {/* Mute/Unmute Toggle */}
+        <button
+          onClick={toggleCaseStudyMute}
+          aria-label={isCaseStudyMuted ? "Unmute video" : "Mute video"}
+          className="absolute bottom-4 right-4 z-20 flex items-center justify-center w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 text-white/80 hover:text-white transition-all backdrop-blur-sm border border-white/20"
+        >
+          {isCaseStudyMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+        </button>
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-end pb-10 px-6 md:px-12 max-w-5xl mx-auto">
           <nav className="flex items-center gap-2 text-white/60 text-sm mb-4" aria-label="Breadcrumb">

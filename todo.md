@@ -941,3 +941,13 @@
 - [x] Replace ResponsiveHeroBackground image carousel with autoplay muted looping video in hero section
 - [x] Keep image carousel as fallback inside <video> noscript/source fallback
 - [x] Save checkpoint and deliver
+
+## Round 49 — Video Enhancements & Schema
+
+- [x] Encode and upload 15s video (File 42) to CDN
+- [x] Add mute/unmute toggle button to homepage hero video
+- [x] Fix mobile video opacity (lower on small screens for text legibility)
+- [x] Embed 15s video in Structural Steel case study hero section
+- [x] Add VideoObject JSON-LD schema to homepage (30s video)
+- [x] Add VideoObject JSON-LD schema to case study page (15s video)
+- [x] Save checkpoint and deliver

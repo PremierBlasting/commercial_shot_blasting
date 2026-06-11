@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Star, Quote, X } from "lucide-react";
-import { useState, useMemo, useEffect, lazy, Suspense } from "react";
+import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Star, Quote, X, Volume2, VolumeX } from "lucide-react";
+import { useState, useMemo, useEffect, useRef, lazy, Suspense } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -48,6 +48,15 @@ export default function Home() {
   const [selectedProject, setSelectedProject] = useState<ProjectDetailItem | null>(null);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(-1);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    if (heroVideoRef.current) {
+      heroVideoRef.current.muted = !heroVideoRef.current.muted;
+      setIsMuted(heroVideoRef.current.muted);
+    }
+  };
 
   // Set SEO title and meta description
   useEffect(() => {
@@ -105,9 +114,42 @@ export default function Home() {
       },
     });
 
+    // VideoObject JSON-LD for the homepage hero video
+    const videoSchemaId = 'home-hero-video-schema';
+    let videoEl = document.getElementById(videoSchemaId);
+    if (!videoEl) {
+      videoEl = document.createElement('script');
+      videoEl.id = videoSchemaId;
+      (videoEl as HTMLScriptElement).type = 'application/ld+json';
+      document.head.appendChild(videoEl);
+    }
+    videoEl.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      'name': 'Commercial Shot Blasting Services — UK Industrial Surface Preparation',
+      'description': '30-second showreel of commercial and industrial shot blasting work across the UK. Rust removal, coating removal, and surface preparation for structural steel, factory cladding, and machinery.',
+      'thumbnailUrl': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YScoptyBJOkODpiP.webp',
+      'contentUrl': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/hero_video_30s_fbb59d63.mp4',
+      'uploadDate': '2026-06-11',
+      'duration': 'PT30S',
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'Commercial Shot Blasting',
+        'url': 'https://commercialshotblasting.co.uk',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': 'https://commercialshotblasting.co.uk/logo.png'
+        }
+      },
+      'embedUrl': 'https://commercialshotblasting.co.uk',
+      'keywords': 'shot blasting, commercial shot blasting, industrial shot blasting, surface preparation, UK'
+    });
+
     return () => {
       const s = document.getElementById(websiteSchemaId);
       if (s) s.remove();
+      const v = document.getElementById(videoSchemaId);
+      if (v) v.remove();
     };
   }, []);
 
@@ -238,20 +280,28 @@ export default function Home() {
         {/* Video Background */}
         <div className="absolute inset-0">
           <video
+            ref={heroVideoRef}
             autoPlay
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-40"
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-30 sm:opacity-40"
             poster="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YScoptyBJOkODpiP.webp"
             preload="auto"
-            aria-hidden="true"
           >
             <source src="https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/hero_video_30s_fbb59d63.mp4" type="video/mp4" />
             {/* Fallback: static image carousel for browsers that can't play video */}
             <ResponsiveHeroBackground />
           </video>
         </div>
+        {/* Mute/Unmute Toggle */}
+        <button
+          onClick={toggleMute}
+          aria-label={isMuted ? "Unmute video" : "Mute video"}
+          className="absolute bottom-4 right-4 z-20 flex items-center justify-center w-9 h-9 rounded-full bg-black/40 hover:bg-black/60 text-white/80 hover:text-white transition-all backdrop-blur-sm border border-white/20"
+        >
+          {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+        </button>
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a3d52]/80 via-[#2C5F7F]/60 to-transparent"></div>
         <div className="container relative z-10">
           <div className="max-w-3xl">
