@@ -235,8 +235,23 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white py-20 lg:py-32 overflow-hidden">
-        {/* Animated Background Carousel - Responsive Images */}
-        <ResponsiveHeroBackground />
+        {/* Video Background */}
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-40"
+            poster="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YScoptyBJOkODpiP.webp"
+            preload="auto"
+            aria-hidden="true"
+          >
+            <source src="https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/hero_video_30s_fbb59d63.mp4" type="video/mp4" />
+            {/* Fallback: static image carousel for browsers that can't play video */}
+            <ResponsiveHeroBackground />
+          </video>
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a3d52]/80 via-[#2C5F7F]/60 to-transparent"></div>
         <div className="container relative z-10">
           <div className="max-w-3xl">

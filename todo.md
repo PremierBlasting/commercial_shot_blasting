@@ -933,3 +933,11 @@
 - [x] Add Featured Project section to homepage (Home.tsx) linking to Structural Steel case study
 - [x] Add JSON-LD structured data (Article/WebPage schema) to the StructuralSteelCaseStudy page
 - [x] Save checkpoint and deliver
+
+## Round 48 — Homepage Hero Video
+
+- [x] Re-encode uploaded 30s MP4 to web-optimised 1920px H.264 (13 MB, faststart)
+- [x] Upload hero video to CDN
+- [x] Replace ResponsiveHeroBackground image carousel with autoplay muted looping video in hero section
+- [x] Keep image carousel as fallback inside <video> noscript/source fallback
+- [x] Save checkpoint and deliver
