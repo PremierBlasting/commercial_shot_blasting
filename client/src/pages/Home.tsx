@@ -50,7 +50,19 @@ export default function Home() {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [videoProgress, setVideoProgress] = useState(0);
   const heroVideoRef = useRef<HTMLVideoElement>(null);
+
+  // Track video progress for the progress bar
+  useEffect(() => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+    const onTimeUpdate = () => {
+      if (video.duration) setVideoProgress((video.currentTime / video.duration) * 100);
+    };
+    video.addEventListener("timeupdate", onTimeUpdate);
+    return () => video.removeEventListener("timeupdate", onTimeUpdate);
+  }, []);
 
   const toggleMute = () => {
     if (heroVideoRef.current) {
@@ -354,6 +366,13 @@ export default function Home() {
               </Button>
             </div>
           </div>
+        </div>
+        {/* Video Progress Bar */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 h-[3px] bg-white/10">
+          <div
+            className="h-full bg-amber-400 transition-none"
+            style={{ width: `${videoProgress}%` }}
+          />
         </div>
       </section>
 

@@ -137,7 +137,19 @@ export default function StructuralSteelCaseStudy() {
   const [isCaseStudyMuted, setIsCaseStudyMuted] = useState(true);
   const [isCaseStudyPlaying, setIsCaseStudyPlaying] = useState(true);
   const [fullVideoOpen, setFullVideoOpen] = useState(false);
+  const [caseStudyProgress, setCaseStudyProgress] = useState(0);
   const caseStudyVideoRef = useRef<HTMLVideoElement>(null);
+
+  // Track video progress for the progress bar
+  useEffect(() => {
+    const video = caseStudyVideoRef.current;
+    if (!video) return;
+    const onTimeUpdate = () => {
+      if (video.duration) setCaseStudyProgress((video.currentTime / video.duration) * 100);
+    };
+    video.addEventListener("timeupdate", onTimeUpdate);
+    return () => video.removeEventListener("timeupdate", onTimeUpdate);
+  }, []);
 
   const toggleCaseStudyMute = () => {
     if (caseStudyVideoRef.current) {
@@ -350,6 +362,13 @@ export default function StructuralSteelCaseStudy() {
           >
             {isCaseStudyMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
           </button>
+        </div>
+        {/* Video Progress Bar */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 h-[3px] bg-white/10">
+          <div
+            className="h-full bg-amber-400 transition-none"
+            style={{ width: `${caseStudyProgress}%` }}
+          />
         </div>
         {/* Play Full Video Button */}
         <button
