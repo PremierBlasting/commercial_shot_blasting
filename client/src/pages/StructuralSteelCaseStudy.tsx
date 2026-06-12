@@ -138,7 +138,10 @@ export default function StructuralSteelCaseStudy() {
   const [isCaseStudyPlaying, setIsCaseStudyPlaying] = useState(true);
   const [fullVideoOpen, setFullVideoOpen] = useState(false);
   const [caseStudyProgress, setCaseStudyProgress] = useState(0);
+  const [caseStudyDuration, setCaseStudyDuration] = useState(0);
+  const [caseStudyHover, setCaseStudyHover] = useState<{ x: number; pct: number } | null>(null);
   const caseStudyVideoRef = useRef<HTMLVideoElement>(null);
+  const caseStudyProgressRef = useRef<HTMLDivElement>(null);
 
   // Track video progress for the progress bar
   useEffect(() => {
@@ -147,9 +150,33 @@ export default function StructuralSteelCaseStudy() {
     const onTimeUpdate = () => {
       if (video.duration) setCaseStudyProgress((video.currentTime / video.duration) * 100);
     };
+    const onLoadedMetadata = () => setCaseStudyDuration(video.duration);
     video.addEventListener("timeupdate", onTimeUpdate);
-    return () => video.removeEventListener("timeupdate", onTimeUpdate);
+    video.addEventListener("loadedmetadata", onLoadedMetadata);
+    if (video.duration) setCaseStudyDuration(video.duration);
+    return () => {
+      video.removeEventListener("timeupdate", onTimeUpdate);
+      video.removeEventListener("loadedmetadata", onLoadedMetadata);
+    };
   }, []);
+
+  const seekCaseStudyVideo = (e: React.MouseEvent<HTMLDivElement>) => {
+    const bar = caseStudyProgressRef.current;
+    const video = caseStudyVideoRef.current;
+    if (!bar || !video || !video.duration) return;
+    const rect = bar.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    video.currentTime = pct * video.duration;
+    setCaseStudyProgress(pct * 100);
+  };
+
+  const onCaseStudyProgressMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const bar = caseStudyProgressRef.current;
+    if (!bar) return;
+    const rect = bar.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    setCaseStudyHover({ x: e.clientX - rect.left, pct });
+  };
 
   const toggleCaseStudyMute = () => {
     if (caseStudyVideoRef.current) {
@@ -363,12 +390,47 @@ export default function StructuralSteelCaseStudy() {
             {isCaseStudyMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
           </button>
         </div>
-        {/* Video Progress Bar */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 h-[3px] bg-white/10">
+        {/* Video Progress Bar — seekable with tooltip */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 flex items-center group/csbar">
+          <button
+            onClick={toggleCaseStudyPlay}
+            aria-label={isCaseStudyPlaying ? "Pause video" : "Play video"}
+            className="flex-shrink-0 flex items-center justify-center w-8 h-8 bg-black/50 hover:bg-black/70 text-white/80 hover:text-white transition-all"
+          >
+            {isCaseStudyPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
+          </button>
           <div
-            className="h-full bg-amber-400 transition-none"
-            style={{ width: `${caseStudyProgress}%` }}
-          />
+            ref={caseStudyProgressRef}
+            className="relative flex-1 h-[3px] bg-white/20 cursor-pointer group-hover/csbar:h-[5px] transition-all duration-150"
+            onClick={seekCaseStudyVideo}
+            onMouseMove={onCaseStudyProgressMouseMove}
+            onMouseLeave={() => setCaseStudyHover(null)}
+            role="slider"
+            aria-label="Video progress"
+            aria-valuenow={Math.round(caseStudyProgress)}
+            aria-valuemin={0}
+            aria-valuemax={100}
+          >
+            <div
+              className="h-full bg-amber-400 transition-none"
+              style={{ width: `${caseStudyProgress}%` }}
+            />
+            <div
+              className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-amber-400 opacity-0 group-hover/csbar:opacity-100 transition-opacity -translate-x-1/2 pointer-events-none"
+              style={{ left: `${caseStudyProgress}%` }}
+            />
+            {caseStudyHover && caseStudyDuration > 0 && (
+              <div
+                className="absolute bottom-5 -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded pointer-events-none whitespace-nowrap"
+                style={{ left: caseStudyHover.x }}
+              >
+                {(() => {
+                  const remaining = caseStudyDuration - caseStudyHover.pct * caseStudyDuration;
+                  return remaining < 1 ? "End" : `${Math.ceil(remaining)}s remaining`;
+                })()}
+              </div>
+            )}
+          </div>
         </div>
         {/* Play Full Video Button */}
         <button

@@ -51,7 +51,10 @@ export default function Home() {
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
   const [videoProgress, setVideoProgress] = useState(0);
+  const [videoDuration, setVideoDuration] = useState(0);
+  const [progressHover, setProgressHover] = useState<{ x: number; pct: number } | null>(null);
   const heroVideoRef = useRef<HTMLVideoElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
 
   // Track video progress for the progress bar
   useEffect(() => {
@@ -60,9 +63,33 @@ export default function Home() {
     const onTimeUpdate = () => {
       if (video.duration) setVideoProgress((video.currentTime / video.duration) * 100);
     };
+    const onLoadedMetadata = () => setVideoDuration(video.duration);
     video.addEventListener("timeupdate", onTimeUpdate);
-    return () => video.removeEventListener("timeupdate", onTimeUpdate);
+    video.addEventListener("loadedmetadata", onLoadedMetadata);
+    if (video.duration) setVideoDuration(video.duration);
+    return () => {
+      video.removeEventListener("timeupdate", onTimeUpdate);
+      video.removeEventListener("loadedmetadata", onLoadedMetadata);
+    };
   }, []);
+
+  const seekVideo = (e: React.MouseEvent<HTMLDivElement>) => {
+    const bar = progressBarRef.current;
+    const video = heroVideoRef.current;
+    if (!bar || !video || !video.duration) return;
+    const rect = bar.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    video.currentTime = pct * video.duration;
+    setVideoProgress(pct * 100);
+  };
+
+  const onProgressMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const bar = progressBarRef.current;
+    if (!bar) return;
+    const rect = bar.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    setProgressHover({ x: e.clientX - rect.left, pct });
+  };
 
   const toggleMute = () => {
     if (heroVideoRef.current) {
@@ -367,12 +394,51 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* Video Progress Bar */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 h-[3px] bg-white/10">
+        {/* Video Progress Bar — seekable with tooltip */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 flex items-center group/bar">
+          {/* Play/Pause mini toggle integrated into bar area */}
+          <button
+            onClick={togglePlay}
+            aria-label={isPlaying ? "Pause video" : "Play video"}
+            className="flex-shrink-0 flex items-center justify-center w-8 h-8 bg-black/50 hover:bg-black/70 text-white/80 hover:text-white transition-all"
+          >
+            {isPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
+          </button>
+          {/* Seekable track */}
           <div
-            className="h-full bg-amber-400 transition-none"
-            style={{ width: `${videoProgress}%` }}
-          />
+            ref={progressBarRef}
+            className="relative flex-1 h-[3px] bg-white/20 cursor-pointer group-hover/bar:h-[5px] transition-all duration-150"
+            onClick={seekVideo}
+            onMouseMove={onProgressMouseMove}
+            onMouseLeave={() => setProgressHover(null)}
+            role="slider"
+            aria-label="Video progress"
+            aria-valuenow={Math.round(videoProgress)}
+            aria-valuemin={0}
+            aria-valuemax={100}
+          >
+            <div
+              className="h-full bg-amber-400 transition-none"
+              style={{ width: `${videoProgress}%` }}
+            />
+            {/* Scrub knob — visible on hover */}
+            <div
+              className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-amber-400 opacity-0 group-hover/bar:opacity-100 transition-opacity -translate-x-1/2 pointer-events-none"
+              style={{ left: `${videoProgress}%` }}
+            />
+            {/* Time-remaining tooltip */}
+            {progressHover && videoDuration > 0 && (
+              <div
+                className="absolute bottom-5 -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded pointer-events-none whitespace-nowrap"
+                style={{ left: progressHover.x }}
+              >
+                {(() => {
+                  const remaining = videoDuration - progressHover.pct * videoDuration;
+                  return remaining < 1 ? "End" : `${Math.ceil(remaining)}s remaining`;
+                })()}
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
