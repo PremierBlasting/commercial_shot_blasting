@@ -959,3 +959,13 @@
 - [x] Add 'Play full video' button to case study page that opens 30s video in a popup modal
 - [x] Add ImageGallery JSON-LD schema block to case study page with all 25 photo URLs
 - [x] Save checkpoint and deliver
+
+## Round 51 — Iron Silicate Media Content
+
+- [x] Update services.ts process steps for structural steel, coating removal, rust removal, and mill scale removal to name iron silicate as the primary media
+- [x] Add iron silicate media explanation to PreparationCleanup page
+- [x] Update HomeFAQ to include an iron silicate / media quality question
+- [x] Update Structural Steel case study process section to mention iron silicate media
+- [x] Update About page quality section to reference iron silicate media
+- [x] Update Home.tsx features/quality section to mention iron silicate media
+- [x] Save checkpoint and deliver

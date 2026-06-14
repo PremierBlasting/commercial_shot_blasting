@@ -38,11 +38,11 @@ export const services: ServiceData[] = [
       
     ],
     process: [
-      { step: 1, title: "Structural Assessment", description: "We inspect the steel frame components to determine appropriate blast media, pressure settings, and surface preparation requirements." },
+      { step: 1, title: "Structural Assessment", description: "We inspect the steel frame components to determine the correct grade of iron silicate media, pressure settings, and surface preparation requirements for your coating specification." },
       { step: 2, title: "Component Preparation", description: "Frame sections are positioned for optimal blast coverage. Critical areas such as bolt holes and connection points are protected as required." },
-      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media, we systematically clean all frame surfaces to achieve professional cleanliness for your coating system." },
-      { step: 4, title: "Quality Inspection", description: "We conduct thorough inspections to ensure all surfaces meet the required cleanliness and profile specifications." },
-      { step: 5, title: "Coating Coordination", description: "Cleaned components are prepared for galvanizing, powder coating, or painting, with timing coordinated to minimize surface oxidation." }
+      { step: 3, title: "Iron Silicate Blasting", description: "We use premium iron silicate (copper slag) media — a high-density, angular abrasive that delivers a consistent Sa 2.5 cleanliness grade and a sharp Rz 50–75 μm anchor profile on every pass. Its hardness and angular shape make it ideal for cutting through mill scale and welding residue on structural steel, achieving the profile depth required by leading coating systems in a single operation." },
+      { step: 4, title: "Quality Inspection", description: "We conduct thorough inspections using Elcometer profile gauges and visual cleanliness comparators to confirm all surfaces meet the required Sa 2.5 cleanliness and profile specifications." },
+      { step: 5, title: "Coating Coordination", description: "Cleaned components are prepared for galvanizing, powder coating, or painting, with timing coordinated to minimise flash rusting. Iron silicate's low soluble salt content means the blasted surface remains stable longer than with many alternative media." }
     ],
     applications: [
       "Building frame structures",
@@ -1363,11 +1363,11 @@ export const services: ServiceData[] = [
       "Mobile service — we come to your site"
     ],
     process: [
-      { step: 1, title: "Rust Assessment", description: "We inspect the structure to assess the extent and depth of corrosion, identify any pitting or structural concerns, and determine the appropriate blast media and pressure settings for complete rust removal." },
+      { step: 1, title: "Rust Assessment", description: "We inspect the structure to assess the extent and depth of corrosion, identify any pitting or structural concerns, and select the correct grade of iron silicate media for complete rust removal without over-profiling the substrate." },
       { step: 2, title: "Surface Preparation", description: "The structure is prepared for blasting. Surrounding areas are protected with sheeting and seals to control blast media and debris. Mechanical fittings and non-steel components are masked as required." },
-      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media and controlled pressure, we systematically remove all rust, corrosion products, and surface contaminants to achieve the specified cleanliness grade — typically Sa 2.5 for most industrial coating systems." },
-      { step: 4, title: "Quality Inspection", description: "We conduct thorough inspections to confirm all rust has been removed and the surface profile meets the coating manufacturer's requirements." },
-      { step: 5, title: "Priming", description: "Cleaned surfaces are primed promptly to prevent re-rusting. We coordinate timing with your coating contractor or can apply a holding primer ourselves if required." }
+      { step: 3, title: "Iron Silicate Blasting", description: "We use iron silicate (copper slag) — a premium angular abrasive that cuts through rust, corrosion products, and surface contaminants in a single pass. Its high hardness and consistent particle geometry deliver a reliable Sa 2.5 finish with a sharp anchor profile, giving the replacement coating system the mechanical key it needs for long-term adhesion." },
+      { step: 4, title: "Quality Inspection", description: "We conduct thorough inspections using visual cleanliness comparators and profile gauges to confirm all rust has been removed and the surface profile meets the coating manufacturer's requirements." },
+      { step: 5, title: "Priming", description: "Cleaned surfaces are primed promptly to prevent re-rusting. Iron silicate's low chloride content minimises the risk of under-film corrosion, giving the primer the best possible foundation. We coordinate timing with your coating contractor or can apply a holding primer ourselves if required." }
     ],
     applications: [
       "Structural steelwork",
@@ -1424,11 +1424,11 @@ export const services: ServiceData[] = [
       "Mobile service — we come to your fabrication yard or site"
     ],
     process: [
-      { step: 1, title: "Steel Assessment", description: "We inspect the steel to assess the extent of mill scale coverage, identify any areas of existing corrosion, and determine the appropriate blast media and pressure settings for complete mill scale removal." },
+      { step: 1, title: "Steel Assessment", description: "We inspect the steel to assess the extent of mill scale coverage, identify any areas of existing corrosion, and select the correct grade of iron silicate media to achieve complete mill scale removal to the specified cleanliness grade." },
       { step: 2, title: "Component Preparation", description: "Steel components are positioned for optimal blast coverage. Threaded connections, machined surfaces, and non-steel components are masked as required." },
-      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media and controlled pressure, we systematically remove all mill scale and surface contaminants to achieve the specified cleanliness grade — typically Sa 2.5 for most coating systems." },
-      { step: 4, title: "Quality Verification", description: "We conduct thorough inspections to confirm all mill scale has been removed and the surface profile meets the coating manufacturer's requirements." },
-      { step: 5, title: "Coating Coordination", description: "Cleaned components are primed promptly to prevent surface oxidation. We coordinate timing with your coating contractor to ensure optimal adhesion conditions." }
+      { step: 3, title: "Iron Silicate Blasting", description: "Iron silicate (copper slag) is our media of choice for mill scale removal. Its angular, high-density particles fracture on impact, exposing fresh cutting edges that slice through the hard mill scale oxide layer in a single pass. The result is a consistent Sa 2.5 surface with a sharp Rz 50–75 μm anchor profile — exactly what coating manufacturers require for long-term adhesion on new fabrications." },
+      { step: 4, title: "Quality Verification", description: "We conduct thorough inspections using Elcometer profile gauges and ISO 8501-1 visual comparators to confirm all mill scale has been removed and the surface profile meets the coating manufacturer's requirements. Certificates of conformance are available on request." },
+      { step: 5, title: "Coating Coordination", description: "Cleaned components are primed promptly to prevent surface oxidation. Iron silicate leaves a chemically clean surface with low soluble salt content, giving primers the best possible bond. We coordinate timing with your coating contractor to ensure optimal adhesion conditions." }
     ],
     applications: [
       "New structural steel fabrications",
@@ -1485,9 +1485,9 @@ export const services: ServiceData[] = [
       "Mobile service — we come to your site"
     ],
     process: [
-      { step: 1, title: "Paint Assessment", description: "We inspect the structure to assess the existing paint system, identify any hazardous materials such as lead paint, and determine the appropriate blast media and pressure settings for complete paint removal." },
+      { step: 1, title: "Paint Assessment", description: "We inspect the structure to assess the existing paint system, identify any hazardous materials such as lead paint, and select the correct grade of iron silicate media for complete paint removal without damaging the substrate." },
       { step: 2, title: "Containment & Protection", description: "Surrounding areas are protected with sheeting and seals to control blast media and paint debris. If lead paint is present, we implement appropriate containment and disposal procedures." },
-      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media and controlled pressure, we systematically remove all paint layers to achieve the specified cleanliness grade — typically Sa 2.5 for most recoating specifications." },
+      { step: 3, title: "Iron Silicate Blasting", description: "Using iron silicate (copper slag) media and controlled pressure, we systematically remove all paint layers to achieve the specified cleanliness grade — typically Sa 2.5 for most recoating specifications." },
       { step: 4, title: "Quality Inspection", description: "We conduct thorough inspections to confirm all paint has been removed and the surface profile meets the new coating manufacturer's requirements." },
       { step: 5, title: "Priming", description: "Stripped surfaces are primed promptly to prevent re-rusting. We coordinate timing with your coating contractor or can apply a holding primer ourselves if required." }
     ],
@@ -1546,9 +1546,9 @@ export const services: ServiceData[] = [
       "Mobile service — we come to your site"
     ],
     process: [
-      { step: 1, title: "Coating Assessment", description: "We inspect the existing coating system to identify coating types, assess adhesion and condition, and determine the appropriate blast media and pressure settings for complete removal without damaging the substrate." },
+      { step: 1, title: "Coating Assessment", description: "We inspect the existing coating system to identify coating types, assess adhesion and condition, and select the correct grade of iron silicate media for complete removal without damaging the substrate." },
       { step: 2, title: "Containment & Protection", description: "Surrounding areas are protected with sheeting and seals to control blast media and coating debris. Mechanical fittings and non-steel components are masked as required." },
-      { step: 3, title: "Shot Blasting", description: "Using appropriate blast media and controlled pressure, we systematically remove all coating layers to achieve the specified cleanliness grade for the replacement coating system." },
+      { step: 3, title: "Iron Silicate Blasting", description: "We use iron silicate (copper slag) media — a premium angular abrasive with the hardness and particle density to cut through even the toughest industrial coatings, including two-pack epoxy, coal tar epoxy, and intumescent systems. The angular particle shape fractures on impact, continually exposing fresh cutting edges that strip all coating layers in a single pass and leave a sharp anchor profile ready for the replacement system." },
       { step: 4, title: "Quality Verification", description: "We conduct thorough inspections to confirm all coating has been removed and the surface profile meets the replacement coating manufacturer's requirements." },
       { step: 5, title: "Coating Coordination", description: "Cleaned surfaces are primed promptly to prevent re-rusting. We coordinate timing with your coating contractor to ensure optimal adhesion conditions for the replacement system." }
     ],

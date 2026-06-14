@@ -620,6 +620,9 @@ export default function StructuralSteelCaseStudy() {
                 Our team deployed mobile shot blasting equipment and worked systematically through the building, treating each column in sequence. Two operators worked simultaneously to maintain programme efficiency, each equipped with full blast PPE including specialist blast helmets, protective suits, and hi-visibility clothing.
               </p>
               <p>
+                We used <strong>iron silicate (copper slag)</strong> as the blasting media throughout this project. Iron silicate is a premium angular abrasive that delivers a consistent Sa 2.5 cleanliness grade and a sharp Rz 50–75 μm anchor profile in a single pass — the surface condition required by the replacement coating specification. Its high hardness and angular particle shape cut through the existing paint layers, rust, and mill scale far more efficiently than rounded steel shot, and its low soluble salt content minimises the risk of under-film corrosion in the finished coating system.
+              </p>
+              <p>
                 Each column was blasted from the base plate upward, ensuring complete removal of all coatings, rust, and mill scale. The base plates — typically the most corroded section — received particular attention to ensure sound metal was exposed for the new coating system.
               </p>
               <p>
@@ -630,7 +633,7 @@ export default function StructuralSteelCaseStudy() {
               {[
                 { step: "01", title: "Site Assessment", desc: "Full survey of all columns to assess coating condition, identify problem areas, and plan the blasting sequence." },
                 { step: "02", title: "Containment & Safety", desc: "Blast exclusion zones established, safety barriers and cones in place, coordination with site manager." },
-                { step: "03", title: "Systematic Blasting", desc: "Two operators working in tandem, treating each column from base to full accessible height." },
+                { step: "03", title: "Iron Silicate Blasting", desc: "Two operators working in tandem with iron silicate (copper slag) media, treating each column from base to full accessible height to achieve Sa 2.5 near-white metal." },
                 { step: "04", title: "Quality Verification", desc: "Each column inspected after blasting to confirm Sa 2.5 standard achieved before moving on." },
                 { step: "05", title: "Media Recovery & Cleanup", desc: "Blast media recovered and disposed of, site left clean and ready for the coating contractor." },
               ].map((s) => (

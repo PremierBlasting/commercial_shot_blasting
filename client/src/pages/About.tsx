@@ -110,7 +110,7 @@ export default function About() {
             {[
               {
                 title: "Quality First",
-                description: "We never compromise on the quality of our work. Every project receives the same meticulous attention to detail, regardless of size.",
+                description: "We never compromise on the quality of our work. We use premium iron silicate (copper slag) media on every commercial project — a high-density angular abrasive that delivers a consistent Sa 2.5 cleanliness grade and the sharp anchor profile required by leading coating systems. Every project receives the same meticulous attention to detail, regardless of size.",
               },
               {
                 title: "Customer Focus",
@@ -190,7 +190,7 @@ export default function About() {
               {
                 step: "03",
                 title: "Shot Blasting",
-                description: "We execute the shot blasting work with precision, using advanced equipment and techniques.",
+                description: "We execute the shot blasting work with precision, using iron silicate (copper slag) media and advanced equipment to achieve the Sa 2.5 cleanliness grade and surface profile required by your coating specification.",
               },
               {
                 step: "04",

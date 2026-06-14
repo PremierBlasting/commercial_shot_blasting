@@ -223,6 +223,43 @@ export default function PreparationCleanup() {
         </div>
       </section>
 
+      {/* Iron Silicate Media Section */}
+      <section className="py-16 bg-[#2C5F7F] text-white">
+        <div className="container max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-amber-300 font-semibold mb-2 uppercase tracking-wide text-sm">Our Media of Choice</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Why We Use Iron Silicate
+              </h2>
+              <p className="text-white/90 leading-relaxed mb-4">
+                The quality of a shot blast job depends as much on the media as on the equipment and technique. We use <strong className="text-white">iron silicate (copper slag)</strong> as our primary blasting media on all commercial and industrial projects — and it is a deliberate choice.
+              </p>
+              <p className="text-white/90 leading-relaxed mb-4">
+                Iron silicate is a high-density, angular abrasive produced as a by-product of copper smelting. Its angular particle shape fractures on impact, continuously exposing fresh cutting edges that slice through mill scale, rust, and failed coatings far more efficiently than rounded steel shot or grit. The result is a consistent <strong className="text-white">Sa 2.5 cleanliness grade</strong> and a sharp <strong className="text-white">Rz 50–75 μm anchor profile</strong> in a single pass — the surface condition required by most industrial coating specifications.
+              </p>
+              <p className="text-white/90 leading-relaxed">
+                Iron silicate also has a <strong className="text-white">low soluble salt content</strong>, which minimises the risk of under-film corrosion and gives protective coatings the best possible long-term adhesion. This is why it is the preferred media for structural steelwork, storage tanks, and any application where coating longevity matters.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { label: "Cleanliness Grade", value: "Sa 2.5", note: "Near-white metal, every time" },
+                { label: "Anchor Profile", value: "Rz 50–75 μm", note: "Sharp mechanical key for coatings" },
+                { label: "Particle Shape", value: "Angular", note: "Fractures on impact for efficiency" },
+                { label: "Salt Content", value: "Low", note: "Minimises under-film corrosion" },
+              ].map((stat, i) => (
+                <div key={i} className="bg-white/10 rounded-lg p-5 border border-white/20">
+                  <p className="text-amber-300 text-xs font-semibold uppercase tracking-wide mb-1">{stat.label}</p>
+                  <p className="text-white text-2xl font-bold mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>{stat.value}</p>
+                  <p className="text-white/70 text-xs leading-snug">{stat.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQs */}
       <section className="py-16 bg-[#F5F1E8]">
         <div className="container max-w-4xl">

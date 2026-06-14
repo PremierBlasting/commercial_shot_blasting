@@ -99,6 +99,18 @@ const faqs: FAQItem[] = [
         <Link href="/preparation-cleanup" className="text-[#1e6b8c] hover:underline font-medium">four-stage preparation and cleanup process</Link>. This includes containment and protection of surrounding areas, careful surface preparation, protection of delicate fixtures, and thorough post-blast clean-down. We pride ourselves on leaving sites ready for the next phase of work with minimal disruption.
       </>
     )
+  },
+  {
+    question: "What blasting media do you use, and why?",
+    answer: (
+      <>
+        We use <strong>iron silicate (copper slag)</strong> as our primary blasting media for commercial and industrial projects. Iron silicate is a premium angular abrasive that delivers a consistent{' '}
+        <Link href="/services/mill-scale-removal" className="text-[#1e6b8c] hover:underline font-medium">Sa 2.5 cleanliness grade</Link> and a sharp Rz 50–75 μm anchor profile in a single pass — the surface condition required by most industrial coating specifications. Its high hardness and angular particle shape mean it cuts through{' '}
+        <Link href="/services/rust-removal" className="text-[#1e6b8c] hover:underline font-medium">rust</Link>,{' '}
+        <Link href="/services/mill-scale-removal" className="text-[#1e6b8c] hover:underline font-medium">mill scale</Link>, and{' '}
+        <Link href="/services/coating-removal" className="text-[#1e6b8c] hover:underline font-medium">failed coatings</Link> far more efficiently than steel shot or grit. Iron silicate also has a low soluble salt content, which minimises the risk of under-film corrosion and gives protective coatings the best possible long-term adhesion.
+      </>
+    )
   }
 ];
 
@@ -136,6 +148,10 @@ const generateFAQSchema = () => {
     {
       question: "How do you prepare and clean up the work area?",
       answer: "We follow a systematic four-stage preparation and cleanup process. This includes containment and protection of surrounding areas, careful surface preparation, protection of delicate fixtures, and thorough post-blast clean-down. We pride ourselves on leaving sites ready for the next phase of work with minimal disruption."
+    },
+    {
+      question: "What blasting media do you use, and why?",
+      answer: "We use iron silicate (copper slag) as our primary blasting media for commercial and industrial projects. Iron silicate is a premium angular abrasive that delivers a consistent Sa 2.5 cleanliness grade and a sharp Rz 50–75 μm anchor profile in a single pass — the surface condition required by most industrial coating specifications. Its high hardness and angular particle shape mean it cuts through rust, mill scale, and failed coatings far more efficiently than steel shot or grit. Iron silicate also has a low soluble salt content, which minimises the risk of under-film corrosion and gives protective coatings the best possible long-term adhesion."
     }
   ];
 
