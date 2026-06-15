@@ -1,0 +1,40 @@
+{
+  "query": "SELECT id, title, beforeImage, afterImage FROM gallery_items WHERE category = 'Structural Steel' ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title, beforeImage, afterImage FROM gallery_items WHERE category = 'Structural Steel' ORDER BY id;",
+  "rows": [
+    {
+      "id": "60001",
+      "title": "Structural Steel Column Coating Removal",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3350_877ba6b6.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3354_1d9bb82e.webp"
+    },
+    {
+      "id": "60002",
+      "title": "Industrial Facility Floor & Column Preparation",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3291_eabbc044.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3334_98d6c98d.webp"
+    },
+    {
+      "id": "60003",
+      "title": "Large-Scale Commercial Steelwork Blasting",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3363_26c5983e.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3335_5e8f45e0.webp"
+    },
+    {
+      "id": "60004",
+      "title": "Steel Column Surface Preparation — Close Detail",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3355_982f03e7.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3356_ed08e478.webp"
+    },
+    {
+      "id": "60005",
+      "title": "Structural Steelwork Refurbishment Project",
+      "beforeImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3359_5eb30c16.webp",
+      "afterImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3360_5cd3dc7e.webp"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tbeforeImage\tafterImage\n60001\tStructural Steel Column Coating Removal\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3350_877ba6b6.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3354_1d9bb82e.webp\n60002\tIndustrial Facility Floor & Column Preparation\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3291_eabbc044.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3334_98d6c98d.webp\n60003\tLarge-Scale Commercial Steelwork Blasting\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3363_26c5983e.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3335_5e8f45e0.webp\n60004\tSteel Column Surface Preparation — Close Detail\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3355_982f03e7.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3356_ed08e478.webp\n60005\tStructural Steelwork Refurbishment Project\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3359_5eb30c16.webp\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3360_5cd3dc7e.webp\n",
+  "stderr": "",
+  "execution_time_ms": 599
+}

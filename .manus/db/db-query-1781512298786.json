@@ -1,0 +1,9 @@
+{
+  "query": "\nUPDATE gallery_items SET \n  beforeImage = '/manus-storage/IMG_3350_9187e682.webp',\n  afterImage = '/manus-storage/IMG_3354_453eec22.webp'\nWHERE id = 60001;\n\nUPDATE gallery_items SET \n  beforeImage = '/manus-storage/IMG_3291_574099cf.webp',\n  afterImage = '/manus-storage/IMG_3334_b30c8a60.webp'\nWHERE id = 60002;\n\nUPDATE gallery_items SET \n  beforeImage = '/manus-storage/IMG_3363_0a085dff.webp',\n  afterImage = '/manus-storage/IMG_3335_dd4555a9.webp'\nWHERE id = 60003;\n\nUPDATE gallery_items SET \n  beforeImage = '/manus-storage/IMG_3355_5f0c7fe9.webp',\n  afterImage = '/manus-storage/IMG_3356_2f19c846.webp'\nWHERE id = 60004;\n\nUPDATE gallery_items SET \n  beforeImage = '/manus-storage/IMG_3359_9ad86a7a.webp',\n  afterImage = '/manus-storage/IMG_3360_1dcf2fed.webp'\nWHERE id = 60005;\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute \nUPDATE gallery_items SET \n  beforeImage = '/manus-storage/IMG_3350_9187e682.webp',\n  afterImage = '/manus-storage/IMG_3354_453eec22.webp'\nWHERE id = 60001;\n\nUPDATE gallery_items SET \n  beforeImage = '/manus-storage/IMG_3291_574099cf.webp',\n  afterImage = '/manus-storage/IMG_3334_b30c8a60.webp'\nWHERE id = 60002;\n\nUPDATE gallery_items SET \n  beforeImage = '/manus-storage/IMG_3363_0a085dff.webp',\n  afterImage = '/manus-storage/IMG_3335_dd4555a9.webp'\nWHERE id = 60003;\n\nUPDATE gallery_items SET \n  beforeImage = '/manus-storage/IMG_3355_5f0c7fe9.webp',\n  afterImage = '/manus-storage/IMG_3356_2f19c846.webp'\nWHERE id = 60004;\n\nUPDATE gallery_items SET \n  beforeImage = '/manus-storage/IMG_3359_9ad86a7a.webp',\n  afterImage = '/manus-storage/IMG_3360_1dcf2fed.webp'\nWHERE id = 60005;\n",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 790
+}

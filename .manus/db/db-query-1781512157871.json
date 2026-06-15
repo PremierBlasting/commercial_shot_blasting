@@ -1,0 +1,129 @@
+{
+  "query": "SELECT id, title, category, LEFT(beforeImage, 80) as beforeImg, LEFT(afterImage, 80) as afterImg FROM gallery_items ORDER BY category, id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title, category, LEFT(beforeImage, 80) as beforeImg, LEFT(afterImage, 80) as afterImg FROM gallery_items ORDER BY category, id;",
+  "rows": [
+    {
+      "id": "4",
+      "title": "Agricultural Barn Wall Restoration",
+      "category": "Agriculture",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "10",
+      "title": "Heavy-Duty Vehicle Wheel Restoration",
+      "category": "Automotive",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "2",
+      "title": "Commercial Gate Restoration",
+      "category": "Gates",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "1",
+      "title": "Steel Roller Shutter Restoration",
+      "category": "Industrial",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "3",
+      "title": "Industrial Steel Framework",
+      "category": "Industrial",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "5",
+      "title": "Steel Container Blasting",
+      "category": "Industrial",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "6",
+      "title": "Warehouse Floor Preparation",
+      "category": "Industrial",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "7",
+      "title": "Commercial Radiator Restoration",
+      "category": "Industrial",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "8",
+      "title": "Warehouse Cladding Restoration",
+      "category": "Industrial",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "9",
+      "title": "Large Steel Tank Restoration",
+      "category": "Industrial",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "11",
+      "title": "Factory Cladding Restoration",
+      "category": "Industrial",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "30001",
+      "title": "External Steel Staircase & Balustrade Restoration",
+      "category": "Staircases",
+      "beforeImg": "/manus-storage/before3_308c668e.jpeg",
+      "afterImg": "/manus-storage/after3_938f4a95.jpeg"
+    },
+    {
+      "id": "60001",
+      "title": "Structural Steel Column Coating Removal",
+      "category": "Structural Steel",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "60002",
+      "title": "Industrial Facility Floor & Column Preparation",
+      "category": "Structural Steel",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "60003",
+      "title": "Large-Scale Commercial Steelwork Blasting",
+      "category": "Structural Steel",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "60004",
+      "title": "Steel Column Surface Preparation — Close Detail",
+      "category": "Structural Steel",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    },
+    {
+      "id": "60005",
+      "title": "Structural Steelwork Refurbishment Project",
+      "category": "Structural Steel",
+      "beforeImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/",
+      "afterImg": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tcategory\tbeforeImg\tafterImg\n4\tAgricultural Barn Wall Restoration\tAgriculture\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n10\tHeavy-Duty Vehicle Wheel Restoration\tAutomotive\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n2\tCommercial Gate Restoration\tGates\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n1\tSteel Roller Shutter Restoration\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n3\tIndustrial Steel Framework\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n5\tSteel Container Blasting\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n6\tWarehouse Floor Preparation\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n7\tCommercial Radiator Restoration\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n8\tWarehouse Cladding Restoration\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n9\tLarge Steel Tank Restoration\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n11\tFactory Cladding Restoration\tIndustrial\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n30001\tExternal Steel Staircase & Balustrade Restoration\tStaircases\t/manus-storage/before3_308c668e.jpeg\t/manus-storage/after3_938f4a95.jpeg\n60001\tStructural Steel Column Coating Removal\tStructural Steel\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n60002\tIndustrial Facility Floor & Column Preparation\tStructural Steel\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n60003\tLarge-Scale Commercial Steelwork Blasting\tStructural Steel\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n60004\tSteel Column Surface Preparation — Close Detail\tStructural Steel\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n60005\tStructural Steelwork Refurbishment Project\tStructural Steel\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/\n",
+  "stderr": "",
+  "execution_time_ms": 573
+}

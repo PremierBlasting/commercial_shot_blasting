@@ -1,0 +1,129 @@
+{
+  "query": "SELECT id, title, category, isActive, \n  CASE WHEN beforeImage LIKE '%cloudfront%' AND LENGTH(beforeImage) > 100 THEN 'CDN' \n       WHEN beforeImage LIKE '%manuscdn%' THEN 'manuscdn' \n       WHEN beforeImage LIKE '/manus-storage%' THEN 'local'\n       WHEN beforeImage = '' OR beforeImage IS NULL THEN 'EMPTY'\n       ELSE 'other' END as imgType\nFROM gallery_items WHERE isActive = 1 ORDER BY category, id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title, category, isActive, \n  CASE WHEN beforeImage LIKE '%cloudfront%' AND LENGTH(beforeImage) > 100 THEN 'CDN' \n       WHEN beforeImage LIKE '%manuscdn%' THEN 'manuscdn' \n       WHEN beforeImage LIKE '/manus-storage%' THEN 'local'\n       WHEN beforeImage = '' OR beforeImage IS NULL THEN 'EMPTY'\n       ELSE 'other' END as imgType\nFROM gallery_items WHERE isActive = 1 ORDER BY category, id;",
+  "rows": [
+    {
+      "id": "4",
+      "title": "Agricultural Barn Wall Restoration",
+      "category": "Agriculture",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "10",
+      "title": "Heavy-Duty Vehicle Wheel Restoration",
+      "category": "Automotive",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "2",
+      "title": "Commercial Gate Restoration",
+      "category": "Gates",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "1",
+      "title": "Steel Roller Shutter Restoration",
+      "category": "Industrial",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "3",
+      "title": "Industrial Steel Framework",
+      "category": "Industrial",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "5",
+      "title": "Steel Container Blasting",
+      "category": "Industrial",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "6",
+      "title": "Warehouse Floor Preparation",
+      "category": "Industrial",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "7",
+      "title": "Commercial Radiator Restoration",
+      "category": "Industrial",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "8",
+      "title": "Warehouse Cladding Restoration",
+      "category": "Industrial",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "9",
+      "title": "Large Steel Tank Restoration",
+      "category": "Industrial",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "11",
+      "title": "Factory Cladding Restoration",
+      "category": "Industrial",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "30001",
+      "title": "External Steel Staircase & Balustrade Restoration",
+      "category": "Staircases",
+      "isActive": "1",
+      "imgType": "local"
+    },
+    {
+      "id": "60001",
+      "title": "Structural Steel Column Coating Removal",
+      "category": "Structural Steel",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "60002",
+      "title": "Industrial Facility Floor & Column Preparation",
+      "category": "Structural Steel",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "60003",
+      "title": "Large-Scale Commercial Steelwork Blasting",
+      "category": "Structural Steel",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "60004",
+      "title": "Steel Column Surface Preparation — Close Detail",
+      "category": "Structural Steel",
+      "isActive": "1",
+      "imgType": "CDN"
+    },
+    {
+      "id": "60005",
+      "title": "Structural Steelwork Refurbishment Project",
+      "category": "Structural Steel",
+      "isActive": "1",
+      "imgType": "CDN"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tcategory\tisActive\timgType\n4\tAgricultural Barn Wall Restoration\tAgriculture\t1\tCDN\n10\tHeavy-Duty Vehicle Wheel Restoration\tAutomotive\t1\tCDN\n2\tCommercial Gate Restoration\tGates\t1\tCDN\n1\tSteel Roller Shutter Restoration\tIndustrial\t1\tCDN\n3\tIndustrial Steel Framework\tIndustrial\t1\tCDN\n5\tSteel Container Blasting\tIndustrial\t1\tCDN\n6\tWarehouse Floor Preparation\tIndustrial\t1\tCDN\n7\tCommercial Radiator Restoration\tIndustrial\t1\tCDN\n8\tWarehouse Cladding Restoration\tIndustrial\t1\tCDN\n9\tLarge Steel Tank Restoration\tIndustrial\t1\tCDN\n11\tFactory Cladding Restoration\tIndustrial\t1\tCDN\n30001\tExternal Steel Staircase & Balustrade Restoration\tStaircases\t1\tlocal\n60001\tStructural Steel Column Coating Removal\tStructural Steel\t1\tCDN\n60002\tIndustrial Facility Floor & Column Preparation\tStructural Steel\t1\tCDN\n60003\tLarge-Scale Commercial Steelwork Blasting\tStructural Steel\t1\tCDN\n60004\tSteel Column Surface Preparation — Close Detail\tStructural Steel\t1\tCDN\n60005\tStructural Steelwork Refurbishment Project\tStructural Steel\t1\tCDN\n",
+  "stderr": "",
+  "execution_time_ms": 576
+}
