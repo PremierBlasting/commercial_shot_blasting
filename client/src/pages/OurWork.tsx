@@ -357,6 +357,7 @@ const galleryItems = [
 
 const categories = [
   { name: "All", icon: "🔍" },
+  { name: "Structural Steel", icon: "🔩" },
   { name: "Structural Steel Frames", icon: "🏭" },
   { name: "Steel Doors/Shutters", icon: "🚧" },
   { name: "Steel Containers", icon: "📦" },
