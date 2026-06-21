@@ -181,7 +181,7 @@ export default function Home() {
       'name': 'Commercial Shot Blasting Services — UK Industrial Surface Preparation',
       'description': '30-second showreel of commercial and industrial shot blasting work across the UK. Rust removal, coating removal, and surface preparation for structural steel, factory cladding, and machinery.',
       'thumbnailUrl': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YScoptyBJOkODpiP.webp',
-      'contentUrl': 'https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/hero_video_30s_fbb59d63.mp4',
+      'contentUrl': '/manus-storage/hero_video_30s_83819d35.mp4',
       'uploadDate': '2026-06-11',
       'duration': 'PT30S',
       'publisher': {
@@ -341,7 +341,7 @@ export default function Home() {
             poster="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YScoptyBJOkODpiP.webp"
             preload="auto"
           >
-            <source src="https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/hero_video_30s_fbb59d63.mp4" type="video/mp4" />
+            <source src="/manus-storage/hero_video_30s_83819d35.mp4" type="video/mp4" />
             {/* Fallback: static image carousel for browsers that can't play video */}
             <ResponsiveHeroBackground />
           </video>

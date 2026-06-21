@@ -1,0 +1,40 @@
+{
+  "query": "SELECT id, title, beforeImage, afterImage FROM gallery_items WHERE category = 'Structural Steel' ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title, beforeImage, afterImage FROM gallery_items WHERE category = 'Structural Steel' ORDER BY id;",
+  "rows": [
+    {
+      "id": "60001",
+      "title": "Structural Steel Column Coating Removal",
+      "beforeImage": "/manus-storage/IMG_3350_9187e682.webp",
+      "afterImage": "/manus-storage/IMG_3354_453eec22.webp"
+    },
+    {
+      "id": "60002",
+      "title": "Industrial Facility Floor & Column Preparation",
+      "beforeImage": "/manus-storage/IMG_3291_574099cf.webp",
+      "afterImage": "/manus-storage/IMG_3334_b30c8a60.webp"
+    },
+    {
+      "id": "60003",
+      "title": "Large-Scale Commercial Steelwork Blasting",
+      "beforeImage": "/manus-storage/IMG_3363_0a085dff.webp",
+      "afterImage": "/manus-storage/IMG_3335_dd4555a9.webp"
+    },
+    {
+      "id": "60004",
+      "title": "Steel Column Surface Preparation — Close Detail",
+      "beforeImage": "/manus-storage/IMG_3355_5f0c7fe9.webp",
+      "afterImage": "/manus-storage/IMG_3356_2f19c846.webp"
+    },
+    {
+      "id": "60005",
+      "title": "Structural Steelwork Refurbishment Project",
+      "beforeImage": "/manus-storage/IMG_3359_9ad86a7a.webp",
+      "afterImage": "/manus-storage/IMG_3360_1dcf2fed.webp"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tbeforeImage\tafterImage\n60001\tStructural Steel Column Coating Removal\t/manus-storage/IMG_3350_9187e682.webp\t/manus-storage/IMG_3354_453eec22.webp\n60002\tIndustrial Facility Floor & Column Preparation\t/manus-storage/IMG_3291_574099cf.webp\t/manus-storage/IMG_3334_b30c8a60.webp\n60003\tLarge-Scale Commercial Steelwork Blasting\t/manus-storage/IMG_3363_0a085dff.webp\t/manus-storage/IMG_3335_dd4555a9.webp\n60004\tSteel Column Surface Preparation — Close Detail\t/manus-storage/IMG_3355_5f0c7fe9.webp\t/manus-storage/IMG_3356_2f19c846.webp\n60005\tStructural Steelwork Refurbishment Project\t/manus-storage/IMG_3359_9ad86a7a.webp\t/manus-storage/IMG_3360_1dcf2fed.webp\n",
+  "stderr": "",
+  "execution_time_ms": 550
+}

@@ -7,34 +7,32 @@ import { Separator } from "@/components/ui/separator";
 import { useSEO } from "@/hooks/useSEO";
 import { Volume2, VolumeX, Play, Pause, X, PlayCircle } from "lucide-react";
 
-const CDN = "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG";
-
 const images = {
-  hero: `${CDN}/manus-storage/IMG_3365_53136e5c.webp`,
-  overview1: `${CDN}/manus-storage/IMG_3363_a0420394.webp`,
-  overview2: `${CDN}/manus-storage/IMG_3291_a1d86cba.webp`,
-  challenge1: `${CDN}/manus-storage/IMG_3339_77018437.webp`,
-  challenge2: `${CDN}/manus-storage/IMG_3355_33602204.webp`,
-  challenge3: `${CDN}/manus-storage/IMG_3349_a63d77ee.webp`,
-  process1: `${CDN}/manus-storage/IMG_3292_74d78e63.webp`,
-  process2: `${CDN}/manus-storage/IMG_3293_ac592b81.webp`,
-  process3: `${CDN}/manus-storage/IMG_3334_0f7cd85b.webp`,
-  detail1: `${CDN}/manus-storage/IMG_3354_a13c2294.webp`,
-  detail2: `${CDN}/manus-storage/IMG_3350_a6c30653.webp`,
-  detail3: `${CDN}/manus-storage/IMG_3335_a79a71bd.webp`,
-  detail4: `${CDN}/manus-storage/IMG_3340_9451a105.webp`,
-  detail5: `${CDN}/manus-storage/IMG_3341_923f0b98.webp`,
-  detail6: `${CDN}/manus-storage/IMG_3342_9bd742ad.webp`,
-  detail7: `${CDN}/manus-storage/IMG_3343_e8128234.webp`,
-  detail8: `${CDN}/manus-storage/IMG_3346_632e9cd6.webp`,
-  detail9: `${CDN}/manus-storage/IMG_3351_58e7a45d.webp`,
-  detail10: `${CDN}/manus-storage/IMG_3353_280f5383.webp`,
-  detail11: `${CDN}/manus-storage/IMG_3356_3dadbef0.webp`,
-  detail12: `${CDN}/manus-storage/IMG_3357_03aa92df.webp`,
-  wide1: `${CDN}/manus-storage/IMG_3358_44aac58f.webp`,
-  wide2: `${CDN}/manus-storage/IMG_3359_1bdf63a6.webp`,
-  wide3: `${CDN}/manus-storage/IMG_3360_00f37def.webp`,
-  wide4: `${CDN}/manus-storage/IMG_3366_92994bf0.webp`,
+  hero: "/manus-storage/IMG_3365_56728af1.webp",
+  overview1: "/manus-storage/IMG_3363_b23b32da.webp",
+  overview2: "/manus-storage/IMG_3291_59833f26.webp",
+  challenge1: "/manus-storage/IMG_3339_a869318b.webp",
+  challenge2: "/manus-storage/IMG_3355_362d1f7f.webp",
+  challenge3: "/manus-storage/IMG_3349_cb9e8c4d.webp",
+  process1: "/manus-storage/IMG_3292_7bee69d3.webp",
+  process2: "/manus-storage/IMG_3293_6ba36e99.webp",
+  process3: "/manus-storage/IMG_3334_2858c684.webp",
+  detail1: "/manus-storage/IMG_3354_caa39ac3.webp",
+  detail2: "/manus-storage/IMG_3350_31ece4f3.webp",
+  detail3: "/manus-storage/IMG_3335_66ca0def.webp",
+  detail4: "/manus-storage/IMG_3340_d53be3b8.webp",
+  detail5: "/manus-storage/IMG_3341_2a6bee76.webp",
+  detail6: "/manus-storage/IMG_3342_aa872ff8.webp",
+  detail7: "/manus-storage/IMG_3343_ac1c8682.webp",
+  detail8: "/manus-storage/IMG_3346_8ac6e144.webp",
+  detail9: "/manus-storage/IMG_3351_e881450f.webp",
+  detail10: "/manus-storage/IMG_3353_30cb94a2.webp",
+  detail11: "/manus-storage/IMG_3356_0e439bba.webp",
+  detail12: "/manus-storage/IMG_3357_75c3a571.webp",
+  wide1: "/manus-storage/IMG_3358_fa5ea2cf.webp",
+  wide2: "/manus-storage/IMG_3359_d748791d.webp",
+  wide3: "/manus-storage/IMG_3360_63bedb19.webp",
+  wide4: "/manus-storage/IMG_3366_af09464b.webp",
 };
 
 const galleryGroups = [
@@ -254,7 +252,7 @@ export default function StructuralSteelCaseStudy() {
       "name": "Structural Steel Shot Blasting — Commercial Building Refurbishment",
       "description": "15-second clip showing active shot blasting of structural steel columns in a large commercial building. Workers in full PPE blasting to Sa 2.5 near-white metal standard.",
       "thumbnailUrl": images.hero,
-      "contentUrl": `${CDN}/manus-storage/hero_video_15s_01f5fd66.mp4`,
+      "contentUrl": "/manus-storage/hero_video_15s_4219ca94.mp4",
       "uploadDate": "2026-06-11",
       "duration": "PT15S",
       "publisher": {
@@ -369,7 +367,7 @@ export default function StructuralSteelCaseStudy() {
           poster={images.hero}
           preload="auto"
         >
-          <source src={`${CDN}/manus-storage/hero_video_15s_01f5fd66.mp4`} type="video/mp4" />
+          <source src="/manus-storage/hero_video_15s_4219ca94.mp4" type="video/mp4" />
           {/* Fallback poster image */}
           <img src={images.hero} alt="Structural steel shot blasting — large commercial building refurbishment" className="w-full h-full object-cover" />
         </video>
@@ -488,7 +486,7 @@ export default function StructuralSteelCaseStudy() {
               className="w-full aspect-video bg-black"
               poster={images.hero}
             >
-              <source src={`${CDN}/manus-storage/hero_video_30s_fbb59d63.mp4`} type="video/mp4" />
+              <source src="/manus-storage/hero_video_30s_83819d35.mp4" type="video/mp4" />
             </video>
             <div className="bg-slate-900 px-5 py-3">
               <p className="text-white font-semibold text-sm">Structural Steel Shot Blasting — Commercial Building Refurbishment</p>
