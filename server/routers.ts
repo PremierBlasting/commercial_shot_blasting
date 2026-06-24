@@ -36,6 +36,7 @@ import {
   getServiceAreaContent,
 } from "./db";
 import { storagePut } from "./storage";
+import { notifyNewLead } from "./leadNotifications";
 import { generateAndUploadBlogOgImage } from "./ogImage";
 import { nanoid } from "nanoid";
 
@@ -271,6 +272,14 @@ export const appRouter = router({
       }))
       .mutation(async ({ input }) => {
         await createContactSubmission(input);
+        // Fire-and-forget: email notification + HubSpot contact creation
+        // Errors are caught internally and logged — form submission always succeeds
+        notifyNewLead({
+          name: input.name,
+          email: input.email,
+          phone: input.phone,
+          message: input.message,
+        }).catch((err) => console.error('[contact.submit] notifyNewLead error:', err));
         return { success: true };
       }),
     
