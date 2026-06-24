@@ -975,5 +975,5 @@
 - [x] Add email notification to contact form submit procedure (send to enquiry@premierblasting.co.uk, chris@premierblasting.co.uk, info@optimised.marketing)
 - [x] Push website contact form submissions to CSB HubSpot account as contacts (so lead_sync_v2.py picks them up)
 - [x] Add HUBSPOT_CSB_TOKEN and RESEND_API_KEY as secrets in the webdev project
-- [ ] Test full lead flow: form submit → email notification + HubSpot contact created → lead_sync_v2.py picks up → Google Sheet + Premier Blasting HubSpot
-- [ ] Save checkpoint and deliver
+- [x] Test full lead flow: form submit → email notification + HubSpot contact created → lead_sync_v2.py picks up → Google Sheet + Premier Blasting HubSpot
+- [x] Save checkpoint and deliver
