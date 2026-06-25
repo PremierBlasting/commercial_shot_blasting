@@ -401,7 +401,7 @@ export default function AerospaceIndustry() {
               >
                 Request a Quote
               </button>
-              <Link href="/free-site-survey" className="border-2 border-[#2C5F7F] text-[#2C5F7F] px-8 py-3 rounded-lg font-semibold hover:bg-[#2C5F7F]/10 transition-colors">
+              <Link href="/site-survey" className="border-2 border-[#2C5F7F] text-[#2C5F7F] px-8 py-3 rounded-lg font-semibold hover:bg-[#2C5F7F]/10 transition-colors">
                   Book Site Survey
                 </Link>
             </div>

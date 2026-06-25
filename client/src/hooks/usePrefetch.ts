@@ -10,7 +10,7 @@ const routeImports: Record<string, () => Promise<unknown>> = {
   '/blog': () => import('../pages/Blog'),
   '/service-areas': () => import('../pages/ServiceAreas'),
   '/preparation-cleanup': () => import('../pages/PreparationCleanup'),
-  '/free-site-survey': () => import('../pages/FreeSiteSurvey'),
+  '/site-survey': () => import('../pages/FreeSiteSurvey'),
   '/privacy-policy': () => import('../pages/PrivacyPolicy'),
   '/terms': () => import('../pages/Terms'),
 };

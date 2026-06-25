@@ -10,7 +10,7 @@ import { BackToTop } from "@/components/BackToTop";
 
 export default function FreeSiteSurvey() {
   // Set SEO metadata
-  useSEO({ title: "Site Survey | Commercial Shot Blasting", description: "Book your site survey today. Expert assessment of your shot blasting requirements with no obligation quote. Call 07970 566409.", canonical: "https://commercialshotblasting.co.uk/free-site-survey" });
+  useSEO({ title: "Site Survey | Commercial Shot Blasting", description: "Book your site survey today. Expert assessment of your shot blasting requirements with no obligation quote. Call 07970 566409.", canonical: "https://commercialshotblasting.co.uk/site-survey" });
 
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
@@ -144,7 +144,7 @@ export default function FreeSiteSurvey() {
       <Breadcrumb 
         items={[
           { label: "Home", href: "/" },
-          { label: "Site Survey", href: "/free-site-survey", isCurrentPage: true }
+          { label: "Site Survey", href: "/site-survey", isCurrentPage: true }
         ]}
         className="container mt-4"
       />

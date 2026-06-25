@@ -250,7 +250,8 @@ function Router() {
           <Route path="/industries/agriculture" component={() => <Suspense fallback={<IndustryPageSkeleton />}><AgricultureIndustry /></Suspense>} />
           <Route path="/industries/transport-logistics" component={() => <Suspense fallback={<IndustryPageSkeleton />}><TransportLogisticsIndustry /></Suspense>} />
           <Route path="/industries/heritage-restoration" component={() => <Suspense fallback={<IndustryPageSkeleton />}><HeritageRestorationIndustry /></Suspense>} />
-        <Route path="/free-site-survey" component={FreeSiteSurvey} />
+        <Route path="/site-survey" component={FreeSiteSurvey} />
+        <Route path="/free-site-survey">{() => { window.location.replace("/site-survey"); return null; }}</Route>
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/terms" component={Terms} />
         <Route path="/blog" component={Blog} />
