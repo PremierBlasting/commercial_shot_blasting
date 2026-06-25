@@ -409,7 +409,7 @@ const locationSlugMap: Record<string, string> = {
 export default function ServiceAreas() {
   useSEO({
     title: "Shot Blasting Service Areas | UK Coverage | Commercial Shot Blasting",
-    description: "Commercial Shot Blasting covers the whole of the UK. Find your nearest service area and get a free quote for professional shot blasting services.",
+    description: "Commercial Shot Blasting covers the whole of the UK. Find your nearest service area and get a site visit for professional shot blasting services.",
     canonical: "https://commercialshotblasting.co.uk/service-areas"
   });
 
@@ -445,7 +445,7 @@ export default function ServiceAreas() {
     },
     {
       question: "How quickly can you attend site for a shot blasting quote?",
-      answer: "We aim to arrange a free site survey within 3-5 working days of your enquiry, depending on location and current workload. For urgent projects, call us directly on 07970 566409 and we will do our best to accommodate your timeline. Written quotes are typically provided within 24 hours of the site visit."
+      answer: "We aim to arrange a site survey within 3-5 working days of your enquiry, depending on location and current workload. For urgent projects, call us directly on 07970 566409 and we will do our best to accommodate your timeline. Written quotes are typically provided within 24 hours of the site visit."
     }
   ];
 
@@ -486,7 +486,7 @@ export default function ServiceAreas() {
                 className="bg-[#d4a853] hover:bg-[#c49843] text-[#1a3d52] font-semibold"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Request Free Site Visit
+                Request A Site Visit
               </Button>
               <Button 
                 variant="outline" 
@@ -612,7 +612,7 @@ export default function ServiceAreas() {
                         className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
                         onClick={() => setQuotePopupOpen(true)}
                       >
-                        Request a Free Site Visit for {region.name}
+                        Request A Site Visit for {region.name}
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
                       <Button 
@@ -780,7 +780,7 @@ export default function ServiceAreas() {
             Ready to Get Started?
           </h2>
           <p className="text-white/80 max-w-2xl mx-auto mb-8">
-            Contact us today for a free, no-obligation quote. We'll visit your site, assess your requirements, and provide a competitive price.
+            Contact us today for a no-obligation quote. We'll visit your site, assess your requirements, and provide a competitive price.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button 
@@ -788,7 +788,7 @@ export default function ServiceAreas() {
               className="bg-[#d4a853] hover:bg-[#c49843] text-[#1a3d52] font-semibold"
               onClick={() => setQuotePopupOpen(true)}
             >
-              Request a Free Site Visit
+              Request A Site Visit
             </Button>
             <Button 
               size="lg"

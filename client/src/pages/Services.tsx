@@ -79,7 +79,7 @@ export default function Services() {
     // Update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Professional shot blasting services UK-wide — structural steel, factory cladding, containers, floor preparation, rust removal & more. Mobile service to your site. SA2.5/SA3 standard. Free quote. Call 07970 566409');
+      metaDescription.setAttribute('content', 'Professional shot blasting services UK-wide — structural steel, factory cladding, containers, floor preparation, rust removal & more. Mobile service to your site. SA2.5/SA3 standard. Site visit. Call 07970 566409');
     }
     
     // Update meta keywords (reduced from 9 to 7)
@@ -123,7 +123,7 @@ export default function Services() {
             className="bg-white text-[#2C5F7F] hover:bg-gray-100"
             onClick={() => setQuotePopupOpen(true)}
           >
-            Request Free Site Visit
+            Request A Site Visit
           </Button>
         </div>
       </section>
@@ -144,7 +144,7 @@ export default function Services() {
               { label: "18 Services", sub: "Full range available" },
               { label: "SA2.5 / SA3", sub: "Blast standard guaranteed" },
               { label: "Mobile UK-Wide", sub: "We come to your site" },
-              { label: "Free Quotes", sub: "24-hour response" },
+              { label: "Site Visits", sub: "24-hour response" },
             ].map((item) => (
               <div key={item.label} className="bg-[#f0f6fb] rounded-xl p-4">
                 <p className="font-bold text-[#2C5F7F] text-lg">{item.label}</p>
@@ -268,7 +268,7 @@ export default function Services() {
               { q: "What shot blasting services do you offer?", a: "We offer 18 specialist shot blasting services including structural steel frames, factory and warehouse cladding, steel containers, floor preparation, fire escapes, staircases, bridge steelwork, warehouse racking, process pipework, telecom masts, commercial radiators, commercial vehicles, steel doors, steel sheeting, steel gates, plant and machinery, and combined shot blasting and powder coating." },
               { q: "Do you offer shot blasting services across the whole of the UK?", a: "Yes. Our mobile shot blasting services cover England and Wales. We travel directly to your site, so there is no need to transport your materials. We regularly work across the Midlands, North West, Yorkshire, South East, South West, and Wales." },
               { q: "What blast standard do your shot blasting services achieve?", a: "All our shot blasting services are carried out to SA2.5 near white metal or SA3 white metal as specified. These are internationally recognised standards (ISO 8501-1) that define the cleanliness of the blasted surface and are required by most protective coating manufacturers." },
-              { q: "How much do shot blasting services cost?", a: "The cost of shot blasting services depends on the surface area, material type, blast standard required, and site location. We provide free, no-obligation quotes for all projects. Call 07970 566409 or use our online quote form to get a price." },
+              { q: "How much do shot blasting services cost?", a: "The cost of shot blasting services depends on the surface area, material type, blast standard required, and site location. We provide no-obligation quotes for all projects. Call 07970 566409 or use our online quote form to get a price." },
               { q: "How quickly can you carry out shot blasting services?", a: "We aim to respond to all enquiries within 24 hours and can typically schedule a site visit within a few days. For urgent projects, call us directly on 07970 566409 to discuss availability." },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-xl p-6 shadow-sm">
@@ -287,10 +287,10 @@ export default function Services() {
       <section className="py-16 bg-[#2C5F7F] text-white">
         <div className="container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Request a Free Site Visit for Shot Blasting Services UK
+            Request A Site Visit for Shot Blasting Services UK
           </h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8">
-            Free, no-obligation quotes for all shot blasting services across the UK. We typically respond within 24 hours and can schedule a free site survey at your convenience.
+            No-obligation quotes for all shot blasting services across the UK. We typically respond within 24 hours and can schedule a site survey at your convenience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -298,7 +298,7 @@ export default function Services() {
               className="bg-white text-[#2C5F7F] hover:bg-gray-100"
               onClick={() => setQuotePopupOpen(true)}
             >
-              Request Free Site Visit
+              Request A Site Visit
             </Button>
             <Link href="/contact">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">

@@ -129,8 +129,8 @@ const CTASection = () => (
   <section className="bg-blue-600 text-white py-20 text-center">
     <div className="container mx-auto px-4">
       <h2 className="text-4xl font-bold mb-4">Ready to Start Your Project in Cardiff?</h2>
-      <p className="text-xl mb-8">Get a free, no-obligation quote from our local experts today.</p>
-      <Button variant="secondary" size="lg">Request a Free Cardiff Quote</Button>
+      <p className="text-xl mb-8">Get a no-obligation quote from our local experts today.</p>
+      <Button variant="secondary" size="lg">Request A Site Visit</Button>
     </div>
   </section>
 );
@@ -354,7 +354,7 @@ const CardiffServiceArea: React.FC = () => {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
-              Request Free Site Visit
+              Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2">

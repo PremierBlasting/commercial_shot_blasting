@@ -384,11 +384,11 @@ export default function Reviews() {
             Ready to Join Our Happy Customers?
           </h2>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
-            Get a free, no-obligation quote for your project. We cover the whole of the UK.
+            Get a no-obligation quote for your project. We cover the whole of the UK.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
-              Request Free Site Visit
+              Request A Site Visit
             </Button>
             <a href="tel:07970566409">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">

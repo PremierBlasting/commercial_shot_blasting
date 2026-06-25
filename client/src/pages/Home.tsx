@@ -121,7 +121,7 @@ export default function Home() {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', 'UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Free quote. Call 07970 566409.');
+    metaDescription.setAttribute('content', 'UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Site visit. Call 07970 566409.');
 
     // Update or create meta keywords
     let metaKeywords = document.querySelector('meta[name="keywords"]');
@@ -378,7 +378,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>
-                Request Free Site Visit
+                Request A Site Visit
               </Button>
               <Link href="/our-work">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
@@ -889,10 +889,10 @@ export default function Home() {
               <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Ready to Transform Your Surfaces?
               </h2>
-              <p className="text-white/80">Contact us today for a free, no-obligation quote.</p>
+              <p className="text-white/80">Contact us today for a no-obligation quote.</p>
             </div>
             <div className="flex gap-4">
-              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>Request Free Site Visit</Button>
+              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>Request A Site Visit</Button>
               <a href="tel:07970566409">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                   <Phone className="w-4 h-4 mr-2" /> Call Us
@@ -1009,7 +1009,7 @@ export default function Home() {
             <div>
               <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Request a Free Site Visit
+                Request A Site Visit
               </h2>
               <p className="text-gray-600 mb-8">
                 Fill out the form and our team will get back to you within 24 hours with a detailed quote for your project.

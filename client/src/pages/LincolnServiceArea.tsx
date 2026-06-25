@@ -40,7 +40,7 @@ const TESTIMONIALS = [
 
 const FAQS = [
   { question: `Do you offer mobile shot blasting services in ${LOCATION_NAME}?`, answer: `Yes, our fully equipped mobile units cover all of ${LOCATION_NAME} and the wider ${REGION_NAME} area, allowing us to perform on-site work at your location.` },
-  { question: "What is the typical turnaround time for a project in the area?", answer: "Turnaround time depends on the project size and complexity. We pride ourselves on efficiency and will provide a clear timeline with your free quote, often completing smaller jobs within a day." },
+  { question: "What is the typical turnaround time for a project in the area?", answer: "Turnaround time depends on the project size and complexity. We pride ourselves on efficiency and will provide a clear timeline with your site visit, often completing smaller jobs within a day." },
   { question: "Are your services suitable for historic buildings in Lincoln?", answer: "We offer specialized, gentle blasting techniques, such as soda or sponge blasting, which are ideal for the restoration of historic and listed buildings, ensuring no damage to the underlying structure." },
 ];
 
@@ -75,7 +75,7 @@ const ContactForm = ({ formData, setFormData, handleSubmit, submitContact }: { f
       required
     />
     <Button type="submit" size="lg" className="w-full bg-[#2C5F7F] hover:bg-[#1a3d52]" disabled={submitContact.isPending}>
-      {submitContact.isPending ? "Submitting..." : "Request Free Site Visit"}
+      {submitContact.isPending ? "Submitting..." : "Request A Site Visit"}
     </Button>
   </form>
 );
@@ -168,7 +168,7 @@ export default function LincolnServiceArea() {
     const faqSchema = document.createElement('script');
     faqSchema.type = 'application/ld+json';
     faqSchema.id = 'faq-schema';
-    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer mobile shot blasting services in the area?","acceptedAnswer":{"@type":"Answer","text":"Yes, our fully equipped mobile units cover all of the area and the wider the area area, allowing us to perform on-site work at your location."}},{"@type":"Question","name":"What is the typical turnaround time for a project in the area?","acceptedAnswer":{"@type":"Answer","text":"Turnaround time depends on the project size and complexity. We pride ourselves on efficiency and will provide a clear timeline with your free quote, often completing smaller jobs within a day."}},{"@type":"Question","name":"Are your services suitable for historic buildings in Lincoln?","acceptedAnswer":{"@type":"Answer","text":"We offer specialized, gentle blasting techniques, such as soda or sponge blasting, which are ideal for the restoration of historic and listed buildings, ensuring no damage to the underlying structure."}}]}`;
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer mobile shot blasting services in the area?","acceptedAnswer":{"@type":"Answer","text":"Yes, our fully equipped mobile units cover all of the area and the wider the area area, allowing us to perform on-site work at your location."}},{"@type":"Question","name":"What is the typical turnaround time for a project in the area?","acceptedAnswer":{"@type":"Answer","text":"Turnaround time depends on the project size and complexity. We pride ourselves on efficiency and will provide a clear timeline with your site visit, often completing smaller jobs within a day."}},{"@type":"Question","name":"Are your services suitable for historic buildings in Lincoln?","acceptedAnswer":{"@type":"Answer","text":"We offer specialized, gentle blasting techniques, such as soda or sponge blasting, which are ideal for the restoration of historic and listed buildings, ensuring no damage to the underlying structure."}}]}`;
     document.head.appendChild(faqSchema);
     return () => {
       const el = document.getElementById('faq-schema');
@@ -223,7 +223,7 @@ export default function LincolnServiceArea() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
-              Request Free Site Visit
+              Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2">
@@ -517,7 +517,7 @@ export default function LincolnServiceArea() {
           <div className="max-w-2xl mx-auto text-center mb-10">
             <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Request a Free Site Visit in Lincoln
+              Request A Site Visit in Lincoln
             </h2>
           </div>
           <div className="max-w-2xl mx-auto">
@@ -538,10 +538,10 @@ export default function LincolnServiceArea() {
               <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Start Your {LOCATION_NAME} Project Today
               </h2>
-              <p className="text-white/80">Contact us for a free, no-obligation quote tailored to your needs in {LOCATION_NAME}.</p>
+              <p className="text-white/80">Contact us for a no-obligation quote tailored to your needs in {LOCATION_NAME}.</p>
             </div>
             <div className="flex gap-4">
-              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Request Free Site Visit</Button>
+              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Request A Site Visit</Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 <Phone className="w-4 h-4 mr-2" /> Call {CONTACT_PHONE}
               </Button>
@@ -557,7 +557,7 @@ export default function LincolnServiceArea() {
             <div>
               <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Request a Free Site Visit for {LOCATION_NAME}
+                Request A Site Visit for {LOCATION_NAME}
               </h2>
               <p className="text-gray-600 mb-8">
                 Fill out the form and our local team will get back to you within 24 hours with a detailed quote for your project in {LOCATION_NAME}.

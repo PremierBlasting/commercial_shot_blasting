@@ -10,7 +10,7 @@ import { BackToTop } from "@/components/BackToTop";
 
 export default function FreeSiteSurvey() {
   // Set SEO metadata
-  useSEO({ title: "Free Site Survey | Commercial Shot Blasting", description: "Book your free site survey today. Expert assessment of your shot blasting requirements with no obligation quote. Call 07970 566409.", canonical: "https://commercialshotblasting.co.uk/free-site-survey" });
+  useSEO({ title: "Site Survey | Commercial Shot Blasting", description: "Book your site survey today. Expert assessment of your shot blasting requirements with no obligation quote. Call 07970 566409.", canonical: "https://commercialshotblasting.co.uk/free-site-survey" });
 
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
@@ -75,7 +75,7 @@ export default function FreeSiteSurvey() {
   ];
 
   const benefits = [
-    "No obligation - the survey is completely free with no pressure to proceed",
+    "No obligation - the survey is with no pressure to proceed",
     "Accurate pricing - site surveys ensure quotes reflect actual requirements",
     "Expert advice - benefit from our experience across diverse industries",
     "Tailored solutions - we recommend the best approach for your specific needs",
@@ -98,7 +98,7 @@ export default function FreeSiteSurvey() {
     },
     {
       question: "What areas do you cover for site surveys?",
-      answer: "We offer free site surveys across the Midlands and surrounding regions. For locations further afield, please contact us to discuss arrangements."
+      answer: "We offer site surveys across the Midlands and surrounding regions. For locations further afield, please contact us to discuss arrangements."
     },
     {
       question: "Can you survey during our operational hours?",
@@ -144,7 +144,7 @@ export default function FreeSiteSurvey() {
       <Breadcrumb 
         items={[
           { label: "Home", href: "/" },
-          { label: "Free Site Survey", href: "/free-site-survey", isCurrentPage: true }
+          { label: "Site Survey", href: "/free-site-survey", isCurrentPage: true }
         ]}
         className="container mt-4"
       />
@@ -159,17 +159,17 @@ export default function FreeSiteSurvey() {
               <span className="text-sm font-medium uppercase tracking-wider">Professional Assessment</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Free Site Survey
+              Site Survey
             </h1>
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-              Book a free, no-obligation site survey and get expert assessment of your shot blasting requirements. Our experienced team will visit your premises, evaluate your needs, and provide a detailed quotation tailored to your project.
+              Book a no-obligation site survey and get expert assessment of your shot blasting requirements. Our experienced team will visit your premises, evaluate your needs, and provide a detailed quotation tailored to your project.
             </p>
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={() => setQuotePopupOpen(true)}
                 className="bg-white text-[#2C5F7F] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
               >
-                Book Your Free Survey
+                Book Your Site Survey
               </button>
               <a
                 href="tel:07970566409"
@@ -189,10 +189,10 @@ export default function FreeSiteSurvey() {
           <div className="text-center mb-12">
             <p className="text-[#2C5F7F] font-medium mb-2">Comprehensive Assessment</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              What's Included in Your Free Survey
+              What's Included in Your Site Survey
             </h2>
             <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-              Our free site survey provides everything you need to make an informed decision about your shot blasting project.
+              Our site survey provides everything you need to make an informed decision about your shot blasting project.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -336,7 +336,7 @@ export default function FreeSiteSurvey() {
               Coverage Area
             </h2>
             <p className="text-gray-600 mb-8 leading-relaxed">
-              We offer free site surveys across the Midlands and surrounding regions, including Birmingham, Nottingham, Leicester, Derby, Sheffield, Manchester, and beyond. For locations outside our standard coverage area, please contact us to discuss arrangements.
+              We offer site surveys across the Midlands and surrounding regions, including Birmingham, Nottingham, Leicester, Derby, Sheffield, Manchester, and beyond. For locations outside our standard coverage area, please contact us to discuss arrangements.
             </p>
             <Link href="/service-areas" className="inline-flex items-center gap-2 text-[#2C5F7F] font-semibold hover:gap-3 transition-all">
                 View All Service Areas <ArrowRight className="w-4 h-4" />
@@ -351,17 +351,17 @@ export default function FreeSiteSurvey() {
           <div className="max-w-3xl mx-auto text-center">
             <ThumbsUp className="w-16 h-16 mx-auto mb-6 opacity-80" />
             <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Ready to Book Your Free Site Survey?
+              Ready to Book Your Site Survey?
             </h2>
             <p className="text-white/90 mb-8 leading-relaxed">
-              Take the first step towards your shot blasting project. Book your free, no-obligation site survey today and get expert advice tailored to your specific requirements.
+              Take the first step towards your shot blasting project. Book your no-obligation site survey today and get expert advice tailored to your specific requirements.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <button
                 onClick={() => setQuotePopupOpen(true)}
                 className="bg-white text-[#2C5F7F] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg"
               >
-                Book Free Site Survey
+                Book Site Survey
               </button>
               <a
                 href="tel:07970566409"

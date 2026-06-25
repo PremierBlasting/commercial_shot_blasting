@@ -90,7 +90,7 @@ const HeroSection = ({ setQuotePopupOpen }: { setQuotePopupOpen: (open: boolean)
       </p>
       <div className="flex flex-wrap gap-4">
         <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
-          Request Free Site Visit
+          Request A Site Visit
         </Button>
         <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
           <a href="tel:07970566409" className="flex items-center gap-2">
@@ -265,10 +265,10 @@ const CTASection = () => (
           <h2 className="text-3xl font-bold mb-2 text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
             Ready for Your Cambridge Project?
           </h2>
-          <p className="text-gray-600">Contact our local Cambridgeshire team today for a free, no-obligation site assessment and quote.</p>
+          <p className="text-gray-600">Contact our local Cambridgeshire team today for a no-obligation site assessment.</p>
         </div>
         <div className="flex gap-4">
-          <Button size="lg" className="bg-[#2C5F7F] text-white hover:bg-[#1a3d52]">Request Free Site Visit</Button>
+          <Button size="lg" className="bg-[#2C5F7F] text-white hover:bg-[#1a3d52]">Request A Site Visit</Button>
           <Button size="lg" variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F]/10">
             <Phone className="w-4 h-4 mr-2" /> 07970 566409
           </Button>

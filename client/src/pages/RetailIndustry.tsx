@@ -143,7 +143,7 @@ export default function RetailIndustry() {
                 onClick={() => setQuotePopupOpen(true)}
                 className="bg-white text-[#2C5F7F] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
               >
-                Request Free Site Visit
+                Request A Site Visit
               </button>
               <a
                 href="tel:07970566409"
@@ -329,7 +329,7 @@ export default function RetailIndustry() {
               Ready to Refresh Your Retail Equipment?
             </h2>
             <p className="text-gray-600 mb-8 leading-relaxed">
-              Contact us today for a free consultation and discover how our shot blasting services can help maintain your brand standards while reducing equipment costs across your retail estate.
+              Contact us today for a no-obligation consultation — discover how our shot blasting services can help maintain your brand standards while reducing equipment costs across your retail estate.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <button
@@ -339,7 +339,7 @@ export default function RetailIndustry() {
                 Request a Quote
               </button>
               <Link href="/free-site-survey" className="border-2 border-[#2C5F7F] text-[#2C5F7F] px-8 py-3 rounded-lg font-semibold hover:bg-[#2C5F7F]/10 transition-colors">
-                  Book Free Site Survey
+                  Book Site Survey
                 </Link>
             </div>
           </div>

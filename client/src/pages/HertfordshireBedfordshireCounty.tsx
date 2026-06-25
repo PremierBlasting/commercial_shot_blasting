@@ -55,7 +55,7 @@ export default function HertfordshireBedfordshireCounty() {
                 onClick={() => setQuotePopupOpen(true)}
                 className="bg-[#7ac5e3] hover:bg-[#5eb5d6] text-[#1e3a5f] font-semibold px-8 py-3 rounded-lg transition-colors"
               >
-                Request Free Site Visit
+                Request A Site Visit
               </button>
               <Button
                 variant="outline"
@@ -176,7 +176,7 @@ export default function HertfordshireBedfordshireCounty() {
             Ready to Get Started in Hertfordshire & Bedfordshire?
           </h2>
           <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-            Contact us today for a free quote on your shot blasting project. 
+            Contact us today for a site visit on your shot blasting project. 
             We cover all areas of Hertfordshire & Bedfordshire with our mobile shot blasting service.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -184,7 +184,7 @@ export default function HertfordshireBedfordshireCounty() {
               onClick={() => setQuotePopupOpen(true)}
               className="bg-[#7ac5e3] hover:bg-[#5eb5d6] text-[#1e3a5f] font-semibold px-8 py-3 rounded-lg transition-colors"
             >
-              Request Free Site Visit
+              Request A Site Visit
             </button>
             <Button
               variant="outline"

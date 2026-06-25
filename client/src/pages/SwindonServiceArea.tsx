@@ -40,7 +40,7 @@ const swindonFaqs = [
   },
   {
     question: "How long does a typical shot blasting job take in the Swindon area?",
-    answer: "The duration depends on the size and complexity of the project. We pride ourselves on fast turnaround times and will provide a detailed timeline with your free, no-obligation quote."
+    answer: "The duration depends on the size and complexity of the project. We pride ourselves on fast turnaround times and will provide a detailed timeline with your no-obligation quote."
   },
 ];
 
@@ -135,7 +135,7 @@ export default function SwindonServiceArea() {
     const faqSchema = document.createElement('script');
     faqSchema.type = 'application/ld+json';
     faqSchema.id = 'faq-schema';
-    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer mobile shot blasting services in Swindon?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide fully mobile shot blasting services across Swindon, Wiltshire, and the surrounding areas. We can come to your site, whether it's an industrial estate, construction site, or commercial property."}},{"@type":"Question","name":"What industries in Swindon do you primarily serve?","acceptedAnswer":{"@type":"Answer","text":"We serve a wide range of Swindon's key sectors, including the automotive supply chain, logistics and distribution centers along the M4 corridor, construction and infrastructure projects, and general engineering/manufacturing."}},{"@type":"Question","name":"How long does a typical shot blasting job take in the Swindon area?","acceptedAnswer":{"@type":"Answer","text":"The duration depends on the size and complexity of the project. We pride ourselves on fast turnaround times and will provide a detailed timeline with your free, no-obligation quote."}}]}`;
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer mobile shot blasting services in Swindon?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide fully mobile shot blasting services across Swindon, Wiltshire, and the surrounding areas. We can come to your site, whether it's an industrial estate, construction site, or commercial property."}},{"@type":"Question","name":"What industries in Swindon do you primarily serve?","acceptedAnswer":{"@type":"Answer","text":"We serve a wide range of Swindon's key sectors, including the automotive supply chain, logistics and distribution centers along the M4 corridor, construction and infrastructure projects, and general engineering/manufacturing."}},{"@type":"Question","name":"How long does a typical shot blasting job take in the Swindon area?","acceptedAnswer":{"@type":"Answer","text":"The duration depends on the size and complexity of the project. We pride ourselves on fast turnaround times and will provide a detailed timeline with your no-obligation quote."}}]}`;
     document.head.appendChild(faqSchema);
     return () => {
       const el = document.getElementById('faq-schema');
@@ -183,7 +183,7 @@ export default function SwindonServiceArea() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
-              Request Free Site Visit
+              Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2">
@@ -485,10 +485,10 @@ export default function SwindonServiceArea() {
               <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Ready to Start Your Swindon Project?
               </h2>
-              <p className="text-white/80">Contact our local team today for a free, no-obligation quote.</p>
+              <p className="text-white/80">Contact our local team today for a no-obligation quote.</p>
             </div>
             <div className="flex gap-4">
-              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Request Free Site Visit</Button>
+              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Request A Site Visit</Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 <Phone className="w-4 h-4 mr-2" /> Call Swindon Team
               </Button>
@@ -504,7 +504,7 @@ export default function SwindonServiceArea() {
             <div>
               <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Request a Free Site Visit for Swindon
+                Request A Site Visit for Swindon
               </h2>
               <p className="text-gray-600 mb-8">
                 Fill out the form and our Swindon-based team will get back to you within 24 hours with a detailed quote for your project in Wiltshire.

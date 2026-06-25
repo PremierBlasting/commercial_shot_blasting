@@ -127,7 +127,7 @@ export default function ServiceDetail() {
           <p className="text-xl text-white/90 mb-6 max-w-2xl">{service.tagline}</p>
           <div className="flex flex-wrap gap-4">
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>
-              Request Free Site Visit
+              Request A Site Visit
             </Button>
             <a href="tel:07970566409">
               <Button variant="outline" className="border-white text-white hover:bg-white/10">
@@ -1229,7 +1229,7 @@ export default function ServiceDetail() {
                         onClick={openQuotePopup}
                         className="flex-1 bg-[#2C5F7F] hover:bg-[#234a63] text-white font-semibold py-3 px-6 rounded-lg transition-colors text-sm"
                       >
-                        Request Free Site Survey
+                        Request A Site Survey
                       </button>
                       <a
                         href="tel:07970566409"
@@ -1373,7 +1373,7 @@ export default function ServiceDetail() {
                 <p className="text-gray-600 mb-5">
                   Our mobile units deliver <strong>{service.title.toLowerCase()}</strong> services across 35 counties in England and Wales.
                   Select a county below to see all the towns and areas we cover, or{' '}
-                  <Link href="/contact" className="text-[#2C5F7F] underline">contact us</Link> for a free site survey.
+                  <Link href="/contact" className="text-[#2C5F7F] underline">contact us</Link> for a site survey.
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 mb-4">
                   {[
@@ -1479,10 +1479,10 @@ export default function ServiceDetail() {
               <Card className="sticky top-24">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    Request Free Site Visit
+                    Request A Site Visit
                   </h3>
                   <p className="text-gray-600 mb-6">
-                    Ready to discuss your {service.shortTitle.toLowerCase()} project? Contact us for a free, no-obligation quote.
+                    Ready to discuss your {service.shortTitle.toLowerCase()} project? Contact us for a no-obligation quote.
                   </p>
                   <div className="space-y-3">
                     <Button className="w-full bg-[#2C5F7F] hover:bg-[#234a63]" onClick={openQuotePopup}>
@@ -1618,7 +1618,7 @@ export default function ServiceDetail() {
             {/* Left: copy + trust signals */}
             <div>
               <h2 className="text-3xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Request a Free {service.shortTitle} Quote
+                Request A {service.shortTitle} Site Visit
               </h2>
               <p className="text-gray-600 mb-6">
                 Fill in the short form and we'll get back to you within 24 hours with a no-obligation quote.
@@ -1626,7 +1626,7 @@ export default function ServiceDetail() {
               </p>
               <ul className="space-y-3 mb-8">
                 {[
-                  "Free site survey & assessment",
+                  "Site survey & assessment",
                   "Competitive fixed-price quotes",
                   "SA 2.5 & SA 3 standard as standard",
                   "Fully insured, certified operators",
@@ -1654,7 +1654,7 @@ export default function ServiceDetail() {
             {/* Right: HubSpot form */}
             <div className="bg-white rounded-2xl shadow-md p-6 lg:p-8">
               <h3 className="text-xl font-bold text-[#2C5F7F] mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Request a Free Site Visit
+                Request A Site Visit
               </h3>
               <p className="text-sm text-gray-500 mb-4">We respond within 24 hours</p>
               <HubSpotForm className="hubspot-service-inline-form" />
@@ -1670,11 +1670,11 @@ export default function ServiceDetail() {
             Ready to Start Your {service.shortTitle} Project?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Contact us today for a free consultation and quote. Our team is ready to help with your surface preparation needs.
+            Contact us today for a no-obligation consultation. Our team is ready to help with your surface preparation needs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 text-lg px-8 py-6" onClick={openQuotePopup}>
-              Request a Free Site Visit
+              Request A Site Visit
             </Button>
             <a href="tel:07970566409">
               <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6">
@@ -1758,7 +1758,7 @@ export default function ServiceDetail() {
             onClick={() => setQuotePopupOpen(true)}
           >
             <ArrowRight className="w-4 h-4" />
-            Request Free Site Visit
+            Request A Site Visit
           </button>
           <a
             href="tel:07970566409"

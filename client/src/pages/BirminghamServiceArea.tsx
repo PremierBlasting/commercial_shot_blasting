@@ -146,7 +146,7 @@ export default function BirminghamServiceArea() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
-              Request Free Site Visit
+              Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2">
@@ -361,7 +361,7 @@ export default function BirminghamServiceArea() {
             <div className="bg-[#2C5F7F] text-white p-8 rounded-lg">
               <h3 className="text-2xl font-bold mb-6">Ready to Get Started?</h3>
               <p className="mb-6">
-                Contact us today for a free, no-obligation quote on your Birmingham shot blasting project.
+                Contact us today for a no-obligation quote on your Birmingham shot blasting project.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
@@ -391,7 +391,7 @@ export default function BirminghamServiceArea() {
                 </div>
               </div>
               <Button size="lg" className="w-full mt-6 bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
-                Request a Free Site Visit
+                Request A Site Visit
               </Button>
             </div>
           </div>
@@ -616,7 +616,7 @@ export default function BirminghamServiceArea() {
           <div className="max-w-2xl mx-auto text-center mb-10">
             <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Request a Free Site Visit in Birmingham
+              Request A Site Visit in Birmingham
             </h2>
           </div>
           <div className="max-w-2xl mx-auto">
@@ -636,11 +636,11 @@ export default function BirminghamServiceArea() {
             Transform Your Surfaces Today
           </h2>
           <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-            Get professional shot blasting services in Birmingham. Contact us for a free quote and discover why local businesses trust Commercial Shot Blasting.
+            Get professional shot blasting services in Birmingham. Contact us for a site visit and discover why local businesses trust Commercial Shot Blasting.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
-              Request Free Site Visit
+              Request A Site Visit
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">

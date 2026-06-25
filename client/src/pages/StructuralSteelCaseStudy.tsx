@@ -766,12 +766,12 @@ export default function StructuralSteelCaseStudy() {
             Have a Similar Structural Steel Project?
           </h2>
           <p className="text-white/70 mb-6 max-w-xl mx-auto">
-            We provide mobile shot blasting for structural steel across commercial and industrial buildings throughout England and Wales. Contact us for a free site survey and quote.
+            We provide mobile shot blasting for structural steel across commercial and industrial buildings throughout England and Wales. Contact us for a site survey and quote.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/contact">
               <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-white border-0 font-semibold">
-                Request Free Site Visit
+                Request A Site Visit
               </Button>
             </Link>
             <Link href="/our-work">
@@ -780,7 +780,7 @@ export default function StructuralSteelCaseStudy() {
               </Button>
             </Link>
           </div>
-          <p className="text-white/40 text-sm mt-4">Call us on <a href="tel:07970566409" className="text-white/60 hover:text-white">07970 566409</a> — free site surveys available</p>
+          <p className="text-white/40 text-sm mt-4">Call us on <a href="tel:07970566409" className="text-white/60 hover:text-white">07970 566409</a> — site surveys available</p>
         </section>
       </div>
 

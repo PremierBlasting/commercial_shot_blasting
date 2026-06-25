@@ -95,7 +95,7 @@ export default function Industries() {
             className="bg-white text-[#2C5F7F] hover:bg-gray-100"
             onClick={() => setQuotePopupOpen(true)}
           >
-            Request Free Site Visit
+            Request A Site Visit
           </Button>
         </div>
       </section>
@@ -145,7 +145,7 @@ export default function Industries() {
             Ready to Discuss Your Project?
           </h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8">
-            Get in touch with our team to discuss your industry-specific shot blasting requirements. We provide free quotes and expert advice for all projects.
+            Get in touch with our team to discuss your industry-specific shot blasting requirements. We provide site visits and expert advice for all projects.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -153,7 +153,7 @@ export default function Industries() {
               className="bg-white text-[#2C5F7F] hover:bg-gray-100"
               onClick={() => setQuotePopupOpen(true)}
             >
-              Request Free Site Visit
+              Request A Site Visit
             </Button>
             <Link href="/contact">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">

@@ -127,7 +127,7 @@ export default function ManufacturingIndustry() {
                 onClick={() => setQuotePopupOpen(true)}
                 className="bg-white text-[#2C5F7F] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
               >
-                Request Free Site Visit
+                Request A Site Visit
               </button>
               <a
                 href="tel:07970566409"
@@ -398,14 +398,14 @@ export default function ManufacturingIndustry() {
             Ready to Refurbish Your Manufacturing Equipment?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Get a free quote for warehouse racking, crane systems, process pipework, or access equipment. Save 60% vs replacement, minimize downtime, maintain quality.
+            Get a site visit for warehouse racking, crane systems, process pipework, or access equipment. Save 60% vs replacement, minimize downtime, maintain quality.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button
               onClick={() => setQuotePopupOpen(true)}
               className="bg-white text-[#2C5F7F] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg"
             >
-              Request a Free Site Visit
+              Request A Site Visit
             </button>
             <a
               href="tel:07970566409"

@@ -155,7 +155,7 @@ export default function MiltonKeynesServiceArea() {
     },
     {
       question: "How much does shot blasting cost in the Milton Keynes area?",
-      answer: "Pricing is project-specific. We offer a free, no-obligation quote after an initial site assessment. Factors include the size of the area, the type of surface, and the required profile. Contact us today for a precise estimate."
+      answer: "Pricing is project-specific. We offer a no-obligation quote after an initial site assessment. Factors include the size of the area, the type of surface, and the required profile. Contact us today for a precise estimate."
     },
   ];
 
@@ -163,7 +163,7 @@ export default function MiltonKeynesServiceArea() {
     const faqSchema = document.createElement('script');
     faqSchema.type = 'application/ld+json';
     faqSchema.id = 'faq-schema';
-    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the typical turnaround time for a project in Milton Keynes?","acceptedAnswer":{"@type":"Answer","text":"Turnaround time depends on the project size and complexity. For standard industrial floor preparation (e.g., a 1,000 sq ft warehouse), we can often complete the job within 1-2 days. We prioritize minimizing disruption for our Milton Keynes clients."}},{"@type":"Question","name":"Do you offer dustless blasting options for sensitive environments like data centres?","acceptedAnswer":{"@type":"Answer","text":"Yes, we offer advanced dustless and low-dust shot blasting techniques, which are ideal for the high-tech and sensitive environments common in Milton Keynes, ensuring minimal impact on surrounding operations."}},{"@type":"Question","name":"Is your service available across all of Buckinghamshire, or just Milton Keynes?","acceptedAnswer":{"@type":"Answer","text":"While we specialize in serving the Milton Keynes area, we proudly extend our services across all of Buckinghamshire and the wider South East region, leveraging our strategic location near major transport links."}},{"@type":"Question","name":"How much does shot blasting cost in the Milton Keynes area?","acceptedAnswer":{"@type":"Answer","text":"Pricing is project-specific. We offer a free, no-obligation quote after an initial site assessment. Factors include the size of the area, the type of surface, and the required profile. Contact us today for a precise estimate."}}]}`;
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the typical turnaround time for a project in Milton Keynes?","acceptedAnswer":{"@type":"Answer","text":"Turnaround time depends on the project size and complexity. For standard industrial floor preparation (e.g., a 1,000 sq ft warehouse), we can often complete the job within 1-2 days. We prioritize minimizing disruption for our Milton Keynes clients."}},{"@type":"Question","name":"Do you offer dustless blasting options for sensitive environments like data centres?","acceptedAnswer":{"@type":"Answer","text":"Yes, we offer advanced dustless and low-dust shot blasting techniques, which are ideal for the high-tech and sensitive environments common in Milton Keynes, ensuring minimal impact on surrounding operations."}},{"@type":"Question","name":"Is your service available across all of Buckinghamshire, or just Milton Keynes?","acceptedAnswer":{"@type":"Answer","text":"While we specialize in serving the Milton Keynes area, we proudly extend our services across all of Buckinghamshire and the wider South East region, leveraging our strategic location near major transport links."}},{"@type":"Question","name":"How much does shot blasting cost in the Milton Keynes area?","acceptedAnswer":{"@type":"Answer","text":"Pricing is project-specific. We offer a no-obligation quote after an initial site assessment. Factors include the size of the area, the type of surface, and the required profile. Contact us today for a precise estimate."}}]}`;
     document.head.appendChild(faqSchema);
     return () => {
       const el = document.getElementById('faq-schema');
@@ -212,7 +212,7 @@ export default function MiltonKeynesServiceArea() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
-              Request Free Site Visit
+              Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2">
@@ -508,10 +508,10 @@ export default function MiltonKeynesServiceArea() {
               <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Ready to Transform Your Surfaces in Milton Keynes?
               </h2>
-              <p className="text-white/80">Contact us today for a free, no-obligation quote for your Buckinghamshire project.</p>
+              <p className="text-white/80">Contact us today for a no-obligation quote for your Buckinghamshire project.</p>
             </div>
             <div className="flex gap-4">
-              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Request Free Site Visit</Button>
+              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Request A Site Visit</Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 <Phone className="w-4 h-4 mr-2" /> Call Us
               </Button>
@@ -532,7 +532,7 @@ export default function MiltonKeynesServiceArea() {
           <div className="max-w-2xl mx-auto text-center mb-10">
             <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Request a Free Site Visit in Milton Keynes
+              Request A Site Visit in Milton Keynes
             </h2>
           </div>
           <div className="max-w-2xl mx-auto">

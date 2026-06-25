@@ -164,7 +164,7 @@ export function LeadForm({
       {(heading || locationName) && (
         <div className="mb-1">
           <h3 className={`font-semibold text-base ${headingColor}`}>
-            {heading ?? `Request a free site visit${locationName ? ` in ${locationName}` : ""}`}
+            {heading ?? `Request a site visit${locationName ? ` in ${locationName}` : ""}`}
           </h3>
           {subheading && <p className={`text-xs mt-0.5 ${subColor}`}>{subheading}</p>}
         </div>

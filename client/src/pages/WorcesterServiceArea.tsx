@@ -150,7 +150,7 @@ export default function WorcesterServiceArea() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
-              Request Free Site Visit
+              Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2">
@@ -454,10 +454,10 @@ export default function WorcesterServiceArea() {
               <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Ready to Start Your Worcester Project?
               </h2>
-              <p className="text-white/80">Contact our local team today for a free, no-obligation quote.</p>
+              <p className="text-white/80">Contact our local team today for a no-obligation quote.</p>
             </div>
             <div className="flex gap-4">
-              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Request Free Site Visit</Button>
+              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Request A Site Visit</Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 <Phone className="w-4 h-4 mr-2" /> Call Us
               </Button>
@@ -487,7 +487,7 @@ export default function WorcesterServiceArea() {
           <div className="max-w-2xl mx-auto text-center mb-10">
             <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Request a Free Site Visit in Worcester
+              Request A Site Visit in Worcester
             </h2>
           </div>
           <div className="max-w-2xl mx-auto">

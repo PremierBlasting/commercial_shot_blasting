@@ -217,14 +217,14 @@ export default function About() {
             Ready to Transform Your Surfaces?
           </h2>
           <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
-            Get in touch with our expert team today for a free consultation and quote.
+            Get in touch with our expert team today for a no-obligation consultation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={openQuotePopup}
               className="bg-white text-[#2C5F7F] px-8 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors"
             >
-              Request Free Site Visit
+              Request A Site Visit
             </button>
             <a
               href="tel:07970566409"

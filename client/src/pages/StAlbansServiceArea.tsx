@@ -29,7 +29,7 @@ const localTestimonials = [
 const faqs = [
   { question: "Do you serve all areas within the St Albans City and District?", answer: "Yes, we provide full shot blasting services across the entire St Albans City and District, including Harpenden, Redbourn, Wheathampstead, and London Colney." },
   { question: "What industries in St Albans do you specialize in?", answer: "We frequently work with the local automotive repair sector, construction companies, and businesses involved in the restoration of St Albans' many historic buildings and infrastructure." },
-  { question: "How long does a typical shot blasting project take in the St Albans area?", answer: "Project duration varies based on size and complexity. We offer a fast turnaround and will provide a detailed timeline with your free, no-obligation quote." },
+  { question: "How long does a typical shot blasting project take in the St Albans area?", answer: "Project duration varies based on size and complexity. We offer a fast turnaround and will provide a detailed timeline with your no-obligation quote." },
   { question: "Are your services suitable for historic properties in St Albans?", answer: "Absolutely. We use specialized, non-destructive blasting media and techniques suitable for delicate surfaces, ensuring the preservation of historic structures common in St Albans." },
 ];
 
@@ -122,7 +122,7 @@ export default function StAlbansServiceArea() {
     const faqSchema = document.createElement('script');
     faqSchema.type = 'application/ld+json';
     faqSchema.id = 'faq-schema';
-    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you serve all areas within the St Albans City and District?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide full shot blasting services across the entire St Albans City and District, including Harpenden, Redbourn, Wheathampstead, and London Colney."}},{"@type":"Question","name":"What industries in St Albans do you specialize in?","acceptedAnswer":{"@type":"Answer","text":"We frequently work with the local automotive repair sector, construction companies, and businesses involved in the restoration of St Albans' many historic buildings and infrastructure."}},{"@type":"Question","name":"How long does a typical shot blasting project take in the St Albans area?","acceptedAnswer":{"@type":"Answer","text":"Project duration varies based on size and complexity. We offer a fast turnaround and will provide a detailed timeline with your free, no-obligation quote."}},{"@type":"Question","name":"Are your services suitable for historic properties in St Albans?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We use specialized, non-destructive blasting media and techniques suitable for delicate surfaces, ensuring the preservation of historic structures common in St Albans."}}]}`;
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you serve all areas within the St Albans City and District?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide full shot blasting services across the entire St Albans City and District, including Harpenden, Redbourn, Wheathampstead, and London Colney."}},{"@type":"Question","name":"What industries in St Albans do you specialize in?","acceptedAnswer":{"@type":"Answer","text":"We frequently work with the local automotive repair sector, construction companies, and businesses involved in the restoration of St Albans' many historic buildings and infrastructure."}},{"@type":"Question","name":"How long does a typical shot blasting project take in the St Albans area?","acceptedAnswer":{"@type":"Answer","text":"Project duration varies based on size and complexity. We offer a fast turnaround and will provide a detailed timeline with your no-obligation quote."}},{"@type":"Question","name":"Are your services suitable for historic properties in St Albans?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We use specialized, non-destructive blasting media and techniques suitable for delicate surfaces, ensuring the preservation of historic structures common in St Albans."}}]}`;
     document.head.appendChild(faqSchema);
     return () => {
       const el = document.getElementById('faq-schema');
@@ -171,7 +171,7 @@ export default function StAlbansServiceArea() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
-              Request Free Site Visit
+              Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2">
@@ -466,7 +466,7 @@ export default function StAlbansServiceArea() {
               <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Ready for Shot Blasting in St Albans?
               </h2>
-              <p className="text-white/80">Contact our Hertfordshire team today for a free, no-obligation quote.</p>
+              <p className="text-white/80">Contact our Hertfordshire team today for a no-obligation quote.</p>
             </div>
             <div className="flex gap-4">
               <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Get Your St Albans Quote</Button>
@@ -485,7 +485,7 @@ export default function StAlbansServiceArea() {
             <div>
               <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Request a Free Site Visit
+                Request A Site Visit
               </h2>
               <p className="text-gray-600 mb-8">
                 Fill out the form and our team will get back to you within 24 hours with a detailed quote for your project.

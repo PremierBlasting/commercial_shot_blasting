@@ -221,12 +221,12 @@ export default function BlogPost() {
                 Need Professional Shot Blasting?
               </h3>
               <p className="text-white/80 text-lg mb-6 max-w-xl mx-auto">
-                Our expert team covers Birmingham, the West Midlands, and the whole of the UK. Get a free, no-obligation quote today.
+                Our expert team covers Birmingham, the West Midlands, and the whole of the UK. Get a no-obligation quote today.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link href="/contact">
                   <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-gray-100 font-semibold px-8">
-                    Request Free Site Visit
+                    Request A Site Visit
                   </Button>
                 </Link>
                 <a href="tel:07970566409">

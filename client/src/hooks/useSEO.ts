@@ -84,7 +84,7 @@ export function useSEO({ title, description, keywords, image, canonical }: SEOCo
 export function getServiceSEO(serviceName: string, serviceDescription: string): SEOConfig {
   return {
     title: `${serviceName} Shot Blasting Services UK | Commercial Shot Blasting`,
-    description: `Professional ${serviceName.toLowerCase()} shot blasting services across the UK. ${serviceDescription.substring(0, 100)}... Free quote. Call 07970 566409.`,
+    description: `Professional ${serviceName.toLowerCase()} shot blasting services across the UK. ${serviceDescription.substring(0, 100)}... Site visit. Call 07970 566409.`,
     keywords: `${serviceName.toLowerCase()} shot blasting, ${serviceName.toLowerCase()} shot blasting services, commercial ${serviceName.toLowerCase()}, industrial ${serviceName.toLowerCase()}, shot blasting UK`,
     image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nSiMtaICoFPZGPZV.png"
   };
@@ -97,7 +97,7 @@ export function getLocationSEO(locationName: string, slug?: string, county?: str
   const countyStr = county ? `, ${county}` : '';
   return {
     title: `Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal & Surface Prep`,
-    description: `Shot blasting in ${locationName}${countyStr} — 9 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors & more. Free quote: 07970 566409`,
+    description: `Shot blasting in ${locationName}${countyStr} — 9 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors & more. Site visit: 07970 566409`,
     keywords: `shot blasting ${locationName}, ${locationName} shot blasting, mobile shot blasting ${locationName}, rust removal ${locationName}, surface preparation ${locationName}, commercial shot blasting ${locationName}${county ? `, shot blasting ${county}` : ''}`,
     image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nSiMtaICoFPZGPZV.png",
     canonical: slug ? `${SITE_URL}/service-areas/${slug}` : undefined
@@ -110,7 +110,7 @@ export function getLocationSEO(locationName: string, slug?: string, county?: str
 export function getCountySEO(countyName: string, slug?: string): SEOConfig {
   return {
     title: `Shot Blasting ${countyName} | Commercial Services Across the County`,
-    description: `Professional commercial shot blasting services across ${countyName}. Covering all major towns and cities with expert surface preparation. Free quotes available.`,
+    description: `Professional commercial shot blasting services across ${countyName}. Covering all major towns and cities with expert surface preparation. Site visits available.`,
     keywords: `shot blasting ${countyName}, ${countyName} shot blasting services, commercial blasting ${countyName}, industrial shot blasting`,
     image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nSiMtaICoFPZGPZV.png",
     canonical: slug ? `${SITE_URL}/counties/${slug}` : undefined

@@ -170,7 +170,7 @@ export default function NotFound() {
           <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
           <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
           <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
-          <Link href="/free-site-survey" className="hover:text-white transition-colors">Free Site Survey</Link>
+          <Link href="/free-site-survey" className="hover:text-white transition-colors">Site Survey</Link>
         </div>
       </div>
     </div>

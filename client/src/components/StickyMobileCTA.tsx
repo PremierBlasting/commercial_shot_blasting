@@ -2,7 +2,7 @@
  * StickyMobileCTA — Fixed bottom bar on mobile viewports.
  *
  * Shows three tappable CTAs:
- *   📞 Call  |  💬 WhatsApp  |  📋 Request Free Site Visit
+ *   📞 Call  |  💬 WhatsApp  |  📋 Request A Site Visit
  *
  * Hidden on md+ (tablet/desktop) where the nav bar already has these CTAs.
  * Uses safe-area-inset-bottom for iPhone notch compatibility.
@@ -13,7 +13,7 @@ import { Link } from "wouter";
 const PHONE_NUMBER = "01543222777";
 const PHONE_DISPLAY = "01543 222 777";
 const WHATSAPP_NUMBER = "447970566409";
-const WHATSAPP_MESSAGE = "Hi, I'd like to request a free site visit for shot blasting. Could you help?";
+const WHATSAPP_MESSAGE = "Hi, I'd like to request a site visit for shot blasting. Could you help?";
 
 export function StickyMobileCTA() {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
@@ -54,11 +54,11 @@ export function StickyMobileCTA() {
           </a>
         </div>
 
-        {/* Request Free Site Visit */}
+        {/* Request A Site Visit */}
         <Link
           href="/contact"
           className="flex flex-col items-center justify-center gap-1 py-3 px-2 bg-orange-600 hover:bg-orange-500 active:bg-orange-700 transition-colors"
-          aria-label="Request a free site visit"
+          aria-label="Request a site visit"
         >
           <QuoteIcon />
           <span className="text-[11px] font-semibold tracking-wide text-white">Site Visit</span>

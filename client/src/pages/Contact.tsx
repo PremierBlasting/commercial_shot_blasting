@@ -12,7 +12,7 @@ import { BackToTop } from "@/components/BackToTop";
 import { Footer } from "@/components/Footer";
 export default function Contact() {
   // Set SEO metadata
-  useSEO({ title: "Contact Us | Commercial Shot Blasting", description: "Get in touch with Commercial Shot Blasting for a free quote. Call 07970 566409 or fill out our contact form for expert surface preparation services.", canonical: "https://commercialshotblasting.co.uk/contact" });
+  useSEO({ title: "Contact Us | Commercial Shot Blasting", description: "Get in touch with Commercial Shot Blasting for a site visit. Call 07970 566409 or fill out our contact form for expert surface preparation services.", canonical: "https://commercialshotblasting.co.uk/contact" });
 
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
@@ -40,7 +40,7 @@ export default function Contact() {
             Get In Touch
           </h1>
           <p className="text-xl text-white/90 mb-6 max-w-2xl">
-            Ready to transform your surfaces? Contact our expert team for a free consultation and quote.
+            Ready to transform your surfaces? Contact our expert team for a no-obligation consultation.
           </p>
         </div>
       </section>
@@ -50,7 +50,7 @@ export default function Contact() {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <p className="text-[#2C5F7F] font-medium mb-2">Request Free Site Visit</p>
+              <p className="text-[#2C5F7F] font-medium mb-2">Request A Site Visit</p>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Let's Discuss Your Project
               </h2>
@@ -128,8 +128,8 @@ export default function Contact() {
             <div>
               <LeadForm
                 variant="light"
-                heading="Request a Free Site Visit"
-                subheading="We'll arrange a free site visit and get back to you within 24 hours."
+                heading="Request A Site Visit"
+                subheading="We'll arrange a site visit and get back to you within 24 hours."
                 showWhatsApp={true}
               />
             </div>

@@ -99,7 +99,7 @@ export function IntumescentQuoteForm({ onOpenQuotePopup }: IntumescentQuoteFormP
         <Flame className="w-6 h-6 text-orange-300 flex-shrink-0" />
         <div>
           <h3 className="text-lg font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Get a Free Intumescent Painting Quote
+            Request An Intumescent Painting Site Visit
           </h3>
           <p className="text-sm text-white/80">
             Tell us about your project — we'll respond within 24 hours
@@ -243,7 +243,7 @@ export function IntumescentQuoteForm({ onOpenQuotePopup }: IntumescentQuoteFormP
             disabled={submitContact.isPending}
             className="flex-1 bg-[#2C5F7F] hover:bg-[#1e4a63] text-white font-semibold py-3"
           >
-            {submitContact.isPending ? "Sending…" : "Request Free Site Visit"}
+            {submitContact.isPending ? "Sending…" : "Request A Site Visit"}
           </Button>
           <Button
             type="button"

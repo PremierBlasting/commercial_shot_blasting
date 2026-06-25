@@ -57,7 +57,7 @@ export function generateLocationFAQs(locationName: string, county?: string): FAQ
   return [
     {
       question: `What shot blasting services do you offer in ${locationName}?`,
-      answer: `We offer a comprehensive range of shot blasting services in ${locationName}, including structural steelwork blasting, factory and warehouse cladding restoration, container shot blasting, industrial floor preparation, rust and mill scale removal, plant and machinery blasting, fire escape and staircase restoration, and warehouse racking preparation. All services are delivered by our mobile units directly to your site${countyText}. Call 07970 566409 for a free quote.`
+      answer: `We offer a comprehensive range of shot blasting services in ${locationName}, including structural steelwork blasting, factory and warehouse cladding restoration, container shot blasting, industrial floor preparation, rust and mill scale removal, plant and machinery blasting, fire escape and staircase restoration, and warehouse racking preparation. All services are delivered by our mobile units directly to your site${countyText}. Call 07970 566409 for a site visit.`
     },
     {
       question: `Do you provide mobile shot blasting services in ${locationName}?`,
@@ -65,7 +65,7 @@ export function generateLocationFAQs(locationName: string, county?: string): FAQ
     },
     {
       question: `How much do shot blasting services cost in ${locationName}?`,
-      answer: `The cost of shot blasting services in ${locationName} depends on the size of the project, the surface type, and site accessibility. We provide free, no-obligation quotes for all projects${countyText}. Contact us on 07970 566409 or request a quote online to get an accurate price for your specific requirements.`
+      answer: `The cost of shot blasting services in ${locationName} depends on the size of the project, the surface type, and site accessibility. We provide no-obligation quotes for all projects${countyText}. Contact us on 07970 566409 or request a quote online to get an accurate price for your specific requirements.`
     },
     {
       question: `What surfaces can be shot blasted in ${locationName}?`,
@@ -101,7 +101,7 @@ export function generateLocationFAQs(locationName: string, county?: string): FAQ
     },
     {
       question: `What areas near ${locationName} do you cover for shot blasting?`,
-      answer: `Our shot blasting services cover ${locationName} and all surrounding towns and villages throughout ${areaText}. We operate a fleet of 9 mobile units and regularly serve clients within a 50-mile radius of ${locationName}. If you are unsure whether we cover your specific location, call 07970 566409 and we will confirm availability and provide a free quote.`
+      answer: `Our shot blasting services cover ${locationName} and all surrounding towns and villages throughout ${areaText}. We operate a fleet of 9 mobile units and regularly serve clients within a 50-mile radius of ${locationName}. If you are unsure whether we cover your specific location, call 07970 566409 and we will confirm availability and provide a site visit.`
     }
   ];
 }

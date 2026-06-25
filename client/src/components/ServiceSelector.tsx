@@ -157,7 +157,7 @@ export default function ServiceSelector() {
             </Button>
             <Link href="/contact" className="flex-1">
               <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                Request Free Site Visit
+                Request A Site Visit
               </Button>
             </Link>
           </div>

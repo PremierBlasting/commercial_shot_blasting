@@ -189,7 +189,7 @@ export default function CoventryServiceArea() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
-              Request Free Site Visit
+              Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2">
@@ -477,10 +477,10 @@ export default function CoventryServiceArea() {
               <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Ready to Transform Your Surfaces in Coventry?
               </h2>
-              <p className="text-white/80">Contact your local West Midlands experts today for a free, no-obligation quote.</p>
+              <p className="text-white/80">Contact your local West Midlands experts today for a no-obligation quote.</p>
             </div>
             <div className="flex gap-4">
-              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Request Free Site Visit</Button>
+              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Request A Site Visit</Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 <Phone className="w-4 h-4 mr-2" /> Call Us
               </Button>
@@ -496,7 +496,7 @@ export default function CoventryServiceArea() {
             <div>
               <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Request a Free Site Visit for Your Coventry Project
+                Request A Site Visit for Your Coventry Project
               </h2>
               <p className="text-gray-600 mb-8">
                 Fill out the form and our team will get back to you within 24 hours with a detailed quote for your project in Coventry.

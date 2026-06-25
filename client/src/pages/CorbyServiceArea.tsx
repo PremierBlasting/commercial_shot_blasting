@@ -134,7 +134,7 @@ export default function CorbyServiceArea() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
-              Request Free Site Visit
+              Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2">
@@ -310,7 +310,7 @@ export default function CorbyServiceArea() {
           <div className="max-w-2xl mx-auto text-center mb-10">
             <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Request a Free Site Visit in Corby
+              Request A Site Visit in Corby
             </h2>
           </div>
           <div className="max-w-2xl mx-auto">
@@ -330,11 +330,11 @@ export default function CorbyServiceArea() {
             Ready to Get Started in Corby?
           </h2>
           <p className="text-white/80 max-w-2xl mx-auto mb-8">
-            Contact us today for a free quote on your shot blasting project. We serve all of Corby and the surrounding Northamptonshire area.
+            Contact us today for a site visit on your shot blasting project. We serve all of Corby and the surrounding Northamptonshire area.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
-              Request Free Site Visit
+              Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2">
