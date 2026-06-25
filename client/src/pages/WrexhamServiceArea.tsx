@@ -15,6 +15,7 @@ import { Footer } from "@/components/Footer";
 import { NearbyTowns } from "@/components/NearbyTowns";
 import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
+import { LeadForm } from "@/components/LeadForm";
 export default function WrexhamServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
@@ -544,6 +545,25 @@ export default function WrexhamServiceArea() {
         locationName={nearbyTownsData["wrexham"].location}
         towns={nearbyTownsData["wrexham"].towns}
       />
+
+      {/* Contact Form Section */}
+      <section id="contact" className="py-20 bg-white">
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center mb-10">
+            <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Request a Free Site Visit in Wrexham
+            </h2>
+          </div>
+          <div className="max-w-2xl mx-auto">
+            <LeadForm
+              locationName="Wrexham"
+              variant="light"
+            />
+          </div>
+        </div>
+      </section>
+
 
 
 

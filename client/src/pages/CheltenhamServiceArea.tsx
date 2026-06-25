@@ -12,6 +12,7 @@ import { HeroCarousel } from "@/components/HeroCarousel";
 import { Footer } from "@/components/Footer";
 import { locationData } from "@/data/locationData";
 import { LocationMap } from "@/components/LocationMap";
+import { LeadForm } from "@/components/LeadForm";
 
 export default function CheltenhamServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -302,6 +303,25 @@ export default function CheltenhamServiceArea() {
           </div>
         </div>
       </section>
+
+      {/* Contact Form Section */}
+      <section id="contact" className="py-20 bg-white">
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center mb-10">
+            <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Request a Free Site Visit in Cheltenham
+            </h2>
+          </div>
+          <div className="max-w-2xl mx-auto">
+            <LeadForm
+              locationName="Cheltenham"
+              variant="light"
+            />
+          </div>
+        </div>
+      </section>
+
 
       {/* CTA Section */}
       <section className="py-16 bg-[#2C5F7F]">

@@ -8,8 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Quote } from "lucide-react";
 import { useState, useEffect } from "react";
-import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { LocationMap } from "@/components/LocationMap";
@@ -20,6 +18,7 @@ import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { LeadForm } from "@/components/LeadForm";
 
 export default function WorcesterServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -108,23 +107,6 @@ export default function WorcesterServiceArea() {
 
   // The userAuth hooks provides authentication state
   let { user, loading, error, isAuthenticated, logout } = useAuth();
-
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
-
-  const submitContact = trpc.contact.submit.useMutation({
-    onSuccess: () => {
-      toast.success("Thank you! We'll be in touch shortly.");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    },
-    onError: (error) => {
-      toast.error(error.message || "Failed to submit. Please try again.");
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    submitContact.mutate(formData);
-  };
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
@@ -484,82 +466,6 @@ export default function WorcesterServiceArea() {
         </div>
       </section>
 
-      {/* Contact Section (Kept from template) */}
-      <section id="contact" className="py-20 bg-white">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
-              <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Request a Free Site Visit
-              </h2>
-              <p className="text-gray-600 mb-8">
-                Fill out the form and our team will get back to you within 24 hours with a detailed quote for your project.
-              </p>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <Input
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                />
-                <Input
-                  type="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                />
-                <Input
-                  type="tel"
-                  placeholder="Your Phone (Optional)"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                />
-                <Textarea
-                  placeholder="Tell us about your project in Worcester..."
-                  rows={5}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  required
-                />
-                <Button type="submit" className="w-full bg-[#2C5F7F] hover:bg-[#1a3d52]" disabled={submitContact.isPending}>
-                  {submitContact.isPending ? "Sending..." : "Submit Request"}
-                </Button>
-              </form>
-            </div>
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <MapPin className="w-6 h-6 text-[#2C5F7F] flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-bold text-lg text-[#2C2C2C]">Local Office</h3>
-                  <p className="text-gray-600">Serving Worcester & The West Midlands</p>
-                  <p className="text-gray-600">Flexible On-Site Service Available</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <Phone className="w-6 h-6 text-[#2C5F7F] flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-bold text-lg text-[#2C2C2C]">Call Us</h3>
-                  <p className="text-gray-600">07970 566409</p>
-                  <p className="text-gray-600">Mon - Fri, 8am - 5pm</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <Mail className="w-6 h-6 text-[#2C5F7F] flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-bold text-lg text-[#2C2C2C]">Email Us</h3>
-                  <p className="text-gray-600">info@shotblasting.co.uk</p>
-                  <p className="text-gray-600">We respond within 24 hours</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer (Kept from template) */}
-      
       {/* Service Area Map */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -574,6 +480,25 @@ export default function WorcesterServiceArea() {
           <LocationMap locationName="Worcester" />
         </div>
       </section>
+
+      {/* Contact Form Section */}
+      <section id="contact" className="py-20 bg-white">
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center mb-10">
+            <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Request a Free Site Visit in Worcester
+            </h2>
+          </div>
+          <div className="max-w-2xl mx-auto">
+            <LeadForm
+              locationName="Worcester"
+              variant="light"
+            />
+          </div>
+        </div>
+      </section>
+
 
 <footer className="bg-[#2C2C2C] text-white py-10">
         <div className="container text-center text-sm">

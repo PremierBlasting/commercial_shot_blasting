@@ -3,12 +3,8 @@ import { Header } from "@/components/Header";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Star } from "lucide-react";
 import { useState, useEffect } from "react";
-import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { LocationMap } from "@/components/LocationMap";
@@ -21,6 +17,7 @@ import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { LeadForm } from "@/components/LeadForm";
 // Mock Testimonials for St Albans
 const localTestimonials = [
   { name: "David L.", location: "St Albans", text: "The team did an outstanding job on our commercial vehicle fleet. Fast, professional, and the finish was perfect. Highly recommend for any business in Hertfordshire." },
@@ -120,24 +117,6 @@ export default function StAlbansServiceArea() {
       document.head.appendChild(meta);
     }
   }, []);
-
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
-
-  const submitContact = trpc.contact.submit.useMutation({
-    onSuccess: () => {
-      toast.success("Thank you! We'll be in touch shortly.");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    },
-    onError: (error) => {
-      toast.error(error.message || "Failed to submit. Please try again.");
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    submitContact.mutate(formData);
-  };
-
   // The main structure is adapted from Home.tsx
   useEffect(() => {
     const faqSchema = document.createElement('script');
@@ -541,31 +520,10 @@ export default function StAlbansServiceArea() {
                 </div>
               </div>
             </div>
-            <Card className="p-6">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">Name</label>
-                    <Input placeholder="Your name" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} required />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">Email</label>
-                    <Input type="email" placeholder="Your email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} required />
-                  </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-1 block">Phone</label>
-                  <Input placeholder="Your phone number" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-1 block">Project Details</label>
-                  <Textarea placeholder="Tell us about your project in St Albans..." rows={4} value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} required />
-                </div>
-                <Button type="submit" className="w-full bg-[#2C5F7F] hover:bg-[#234d66]">
-                  Request a Quote
-                </Button>
-              </form>
-            </Card>
+            <LeadForm
+                locationName="St Albans"
+                variant="light"
+              />
           </div>
         </div>
       </section>

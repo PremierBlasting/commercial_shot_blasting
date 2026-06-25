@@ -13,6 +13,7 @@ import { LocationMap } from "@/components/LocationMap";
 import { NearbyTowns } from "@/components/NearbyTowns";
 import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
+import { LeadForm } from "@/components/LeadForm";
 
 export default function SheffieldServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -521,6 +522,25 @@ export default function SheffieldServiceArea() {
           <LocationMap locationName="Sheffield" />
         </div>
       </section>
+
+      {/* Contact Form Section */}
+      <section id="contact" className="py-20 bg-white">
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center mb-10">
+            <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Request a Free Site Visit in Sheffield
+            </h2>
+          </div>
+          <div className="max-w-2xl mx-auto">
+            <LeadForm
+              locationName="Sheffield"
+              variant="light"
+            />
+          </div>
+        </div>
+      </section>
+
 
 
 

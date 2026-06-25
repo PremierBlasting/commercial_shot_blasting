@@ -4,12 +4,8 @@ import { QuotePopup } from "@/components/QuotePopup";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Star } from "lucide-react";
 import { useState, useEffect } from "react";
-import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 import { Footer } from "@/components/Footer";
@@ -21,6 +17,7 @@ import { HeroCarousel } from "@/components/HeroCarousel";// The useAuth hook is 
 // import { useAuth } from "@/_core/hooks/useAuth";
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
+import { LeadForm } from "@/components/LeadForm";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton"; 
 
 const CHESTER_CONTACT_NUMBER = "07970 566409"; // Assuming same contact number
@@ -112,23 +109,6 @@ export default function ChesterServiceArea() {
   }, []);
 
   let { user, loading, error, isAuthenticated, logout } = useAuth();
-
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
-
-  const submitContact = trpc.contact.submit.useMutation({
-    onSuccess: () => {
-      toast.success("Thank you! We'll be in touch shortly.");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    },
-    onError: (error) => {
-      toast.error(error.message || "Failed to submit. Please try again.");
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    submitContact.mutate(formData);
-  };
 
   const chesterIndustries = [
     "Construction & Restoration", "Advanced Engineering", "Automotive", "Marine & Rail", "Historic Building Preservation",
@@ -548,31 +528,10 @@ export default function ChesterServiceArea() {
                 </div>
               </div>
             </div>
-            <Card className="p-6">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">Name</label>
-                    <Input placeholder="Your name" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} required />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">Email</label>
-                    <Input type="email" placeholder="Your email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} required />
-                  </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-1 block">Phone</label>
-                  <Input placeholder="Your phone number" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-1 block">Project Details (Location: Chester)</label>
-                  <Textarea placeholder="Tell us about your project..." rows={4} value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} required />
-                </div>
-                <Button type="submit" className="w-full bg-[#2C5F7F] hover:bg-[#234d66]">
-                  Request a Quote
-                </Button>
-              </form>
-            </Card>
+            <LeadForm
+                locationName="Chester"
+                variant="light"
+              />
           </div>
         </div>
       </section>

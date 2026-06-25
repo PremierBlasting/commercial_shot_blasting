@@ -4,12 +4,8 @@ import { QuotePopup } from "@/components/QuotePopup";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Home as HomeIcon } from "lucide-react";
 import { useState, useEffect } from "react";
-import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
@@ -20,6 +16,7 @@ import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { LeadForm } from "@/components/LeadForm";
 // --- Hereford Specific Data ---
 const LOCATION_NAME = "Hereford";
 const REGION_NAME = "West Midlands"; // Hereford is in Herefordshire, which is part of the West Midlands region.
@@ -290,23 +287,6 @@ const CTASection = () => (
 );
 
 const ContactFormSection = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
-
-  const submitContact = trpc.contact.submit.useMutation({
-    onSuccess: () => {
-      toast.success("Thank you! We'll be in touch shortly.");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    },
-    onError: (error) => {
-      toast.error(error.message || "Failed to submit. Please try again.");
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    submitContact.mutate(formData);
-  };
-
   useEffect(() => {
     const faqSchema = document.createElement('script');
     faqSchema.type = 'application/ld+json';
@@ -361,31 +341,10 @@ const ContactFormSection = () => {
               </div>
             </div>
           </div>
-          <Card className="p-6">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium mb-1 block">Name</label>
-                  <Input placeholder="Your name" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} required />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-1 block">Email</label>
-                  <Input type="email" placeholder="Your email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} required />
-                </div>
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-1 block">Phone</label>
-                <Input placeholder="Your phone number" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
-              </div>
-              <div>
-                <label className="text-sm font-medium mb-1 block">Project Details in {LOCATION_NAME}</label>
-                <Textarea placeholder="Tell us about your project in Hereford..." rows={4} value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} required />
-              </div>
-              <Button type="submit" className="w-full bg-[#2C5F7F] hover:bg-[#234d66]">
-                Request Site Visit for {LOCATION_NAME}
-              </Button>
-            </form>
-          </Card>
+          <LeadForm
+                locationName="Hereford"
+                variant="light"
+              />
         </div>
       </div>
     </section>

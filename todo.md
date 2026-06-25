@@ -1001,3 +1001,10 @@
 - [x] Add a preferred visit date picker field to LeadForm
 - [x] Pass visit date through to email notification and HubSpot message
 - [x] Save checkpoint and deploy
+
+## Round 56 — Full LeadForm Rollout + Google Sheet Notes Column Fix
+
+- [x] Fix leadNotifications.ts: store project summary in HubSpot field 'could_you_please_provide_a_brief_summary_of_your_project' to match column J Notes in Google Sheet
+- [x] Replace inline forms on all standalone service area pages (Chester, Coventry, Derby, Gloucester, Hereford, Leicester, Lincoln, Norwich, Nottingham, Shrewsbury, St Albans, Stoke, Swindon, Wolverhampton, Worcester, Birmingham, Bristol) with LeadForm
+- [x] Replace form on ServiceDetail page with LeadForm
+- [x] Save checkpoint and deploy

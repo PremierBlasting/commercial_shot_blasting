@@ -4,12 +4,8 @@ import { QuotePopup } from "@/components/QuotePopup";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Home as HomeIcon } from "lucide-react";
 import { useState, useEffect } from "react";
-import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
@@ -21,6 +17,7 @@ import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { LeadForm } from "@/components/LeadForm";
 // --- Gloucester Specific Content ---
 const LOCATION_NAME = "Gloucester";
 const REGION_NAME = "Gloucestershire";
@@ -153,23 +150,6 @@ export default function GloucesterServiceArea() {
   // The userAuth hooks provides authentication state
   // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
   let { user, loading, error, isAuthenticated, logout } = useAuth();
-
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
-
-  const submitContact = trpc.contact.submit.useMutation({
-    onSuccess: () => {
-      toast.success("Thank you! We'll be in touch shortly.");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    },
-    onError: (error) => {
-      toast.error(error.message || "Failed to submit. Please try again.");
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    submitContact.mutate(formData);
-  };
 
   useEffect(() => {
     const faqSchema = document.createElement('script');
@@ -574,31 +554,10 @@ export default function GloucesterServiceArea() {
                 </div>
               </div>
             </div>
-            <Card className="p-6">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">Name</label>
-                    <Input placeholder="Your name" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} required />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium mb-1 block">Email</label>
-                    <Input type="email" placeholder="Your email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} required />
-                  </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-1 block">Phone</label>
-                  <Input placeholder="Your phone number" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-1 block">Project Details in {LOCATION_NAME}</label>
-                  <Textarea placeholder="Tell us about your project..." rows={4} value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} required />
-                </div>
-                <Button type="submit" className="w-full bg-[#2C5F7F] hover:bg-[#234d66]">
-                  Request a Quote
-                </Button>
-              </form>
-            </Card>
+            <LeadForm
+                locationName="Gloucester"
+                variant="light"
+              />
           </div>
         </div>
       </section>

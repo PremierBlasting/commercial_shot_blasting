@@ -235,6 +235,8 @@ export async function createHubSpotContact(lead: LeadData): Promise<boolean> {
     lifecyclestage: "lead",
     hs_lead_status: "NEW",
     message: messageBody,
+    // Maps to column J "Notes" in Google Sheet (read by lead_sync_v2.py)
+    could_you_please_provide_a_brief_summary_of_your_project: lead.message,
   };
 
   try {

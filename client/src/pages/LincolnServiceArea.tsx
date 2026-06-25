@@ -7,8 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Factory, Truck, Wheat, Lock, Construction } from "lucide-react";
 import { useState, useEffect } from "react";
-import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { LocationMap } from "@/components/LocationMap";
@@ -19,6 +17,7 @@ import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { LeadForm } from "@/components/LeadForm";
 
 // --- Location-Specific Data ---
 const LOCATION_NAME = "Lincoln";
@@ -165,24 +164,6 @@ export default function LincolnServiceArea() {
       document.head.appendChild(meta);
     }
   }, []);
-
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
-
-  const submitContact = trpc.contact.submit.useMutation({
-    onSuccess: () => {
-      toast.success("Thank you! We'll be in touch shortly.");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    },
-    onError: (error) => {
-      toast.error(error.message || "Failed to submit. Please try again.");
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    submitContact.mutate(formData);
-  };
-
   useEffect(() => {
     const faqSchema = document.createElement('script');
     faqSchema.type = 'application/ld+json';
@@ -530,6 +511,25 @@ export default function LincolnServiceArea() {
         </div>
       </section>
 
+      {/* Contact Form Section */}
+      <section id="contact" className="py-20 bg-white">
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center mb-10">
+            <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Request a Free Site Visit in Lincoln
+            </h2>
+          </div>
+          <div className="max-w-2xl mx-auto">
+            <LeadForm
+              locationName="Lincoln"
+              variant="light"
+            />
+          </div>
+        </div>
+      </section>
+
+
       {/* CTA Section */}
       <section id="cta" className="py-16 bg-[#2C5F7F] text-white">
         <div className="container">
@@ -577,14 +577,10 @@ export default function LincolnServiceArea() {
                 </div>
               </div>
             </div>
-            <Card className="p-8 shadow-lg">
-              <ContactForm
-                formData={formData}
-                setFormData={setFormData}
-                handleSubmit={handleSubmit}
-                submitContact={submitContact}
-              />
-            </Card>
+            <LeadForm
+              locationName="Lincoln"
+              variant="light"
+            />
           </div>
         </div>
       </section>

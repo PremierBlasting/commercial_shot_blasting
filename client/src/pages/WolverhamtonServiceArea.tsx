@@ -3,12 +3,8 @@ import { Header } from "@/components/Header";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Factory, Car, Hammer, HardHat, TrainFront, Building2 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb";
 import { LocationMap } from "@/components/LocationMap"; // Assuming this component exists
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
@@ -18,6 +14,7 @@ import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { LeadForm } from "@/components/LeadForm";
 
 const WOLVERHAMPTON_INDUSTRIES = [
   { name: "Advanced Manufacturing", icon: Factory, desc: "Precision cleaning for machinery, components, and tooling in Wolverhampton's high-tech sector." },
@@ -125,24 +122,6 @@ export default function WolverhamptonServiceArea() {
       document.head.appendChild(meta);
     }
   }, []);
-
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
-
-  const submitContact = trpc.contact.submit.useMutation({
-    onSuccess: () => {
-      toast.success("Thank you! We'll be in touch shortly.");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    },
-    onError: (error) => {
-      toast.error(error.message || "Failed to submit. Please try again.");
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    submitContact.mutate(formData);
-  };
-
   useEffect(() => {
     const faqSchema = document.createElement('script');
     faqSchema.type = 'application/ld+json';
@@ -522,40 +501,10 @@ export default function WolverhamptonServiceArea() {
                 </div>
               </div>
             </div>
-            <Card className="p-8 shadow-xl">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <Input
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                />
-                <Input
-                  type="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                />
-                <Input
-                  type="tel"
-                  placeholder="Your Phone (e.g., 07xxx xxxxxx)"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  required
-                />
-                <Textarea
-                  placeholder="Tell us about your project in Wolverhampton..."
-                  rows={5}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  required
-                />
-                <Button type="submit" className="w-full" disabled={submitContact.isPending}>
-                  {submitContact.isPending ? "Sending..." : "Request Site Visit"}
-                </Button>
-              </form>
-            </Card>
+            <LeadForm
+                locationName="Wolverhamton"
+                variant="light"
+              />
           </div>
         </div>
       </section>

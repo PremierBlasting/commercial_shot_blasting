@@ -16,6 +16,7 @@ import { locationData } from "@/data/locationData";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { Phone } from "lucide-react";
+import { LeadForm } from "@/components/LeadForm";
 
 // Mock components for the sake of structure, assuming they exist in the project
 const HeroSection = ({ title, subtitle, ctaText }: { title: string; subtitle: string; ctaText: string }) => (

@@ -5,10 +5,6 @@ import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { TrackedPhoneButton } from "@/components/TrackedPhoneButton";
@@ -17,6 +13,7 @@ import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { LeadForm } from "@/components/LeadForm";
 
 // Placeholder for a simple Breadcrumb component, as one was not found in the UI components
 const Breadcrumb = ({ items }: { items: { label: string; href?: string }[] }) => (
@@ -155,24 +152,6 @@ export default function NottinghamServiceArea() {
       document.head.appendChild(meta);
     }
   }, []);
-
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
-
-  const submitContact = trpc.contact.submit.useMutation({
-    onSuccess: () => {
-      toast.success("Thank you! We'll be in touch shortly.");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    },
-    onError: (error) => {
-      toast.error(error.message || "Failed to submit. Please try again.");
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    submitContact.mutate(formData);
-  };
-
   const locationName = "Nottingham";
   const regionName = "East Midlands";
 
@@ -541,39 +520,10 @@ export default function NottinghamServiceArea() {
                 </div>
               </div>
             </div>
-            <Card className="p-8 shadow-xl">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <Input
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                />
-                <Input
-                  type="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                />
-                <Input
-                  type="tel"
-                  placeholder="Your Phone (Optional)"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                />
-                <Textarea
-                  placeholder={`Tell us about your project in ${locationName} (e.g., steel structure, concrete floor, historic facade)`}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  rows={5}
-                  required
-                />
-                <Button type="submit" className="w-full bg-[#2C5F7F] hover:bg-[#1a3d52]">
-                  Request Site Visit
-                </Button>
-              </form>
-            </Card>
+            <LeadForm
+                locationName="Nottingham"
+                variant="light"
+              />
           </div>
         </div>
       </section>

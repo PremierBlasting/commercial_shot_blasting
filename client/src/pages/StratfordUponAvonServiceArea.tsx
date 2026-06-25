@@ -13,6 +13,7 @@ import { Link } from "wouter";
 import { NearbyTowns } from "@/components/NearbyTowns";
 import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
+import { LeadForm } from "@/components/LeadForm";
 
 export default function StratfordUponAvonServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);

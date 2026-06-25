@@ -3,12 +3,8 @@ import { Header } from "@/components/Header";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Home as HomeIcon, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { LocationMap } from "@/components/LocationMap";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
@@ -18,6 +14,7 @@ import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { LeadForm } from "@/components/LeadForm";
 
 // Dummy data for Testimonials and FAQ
 const localTestimonials = [
@@ -116,24 +113,6 @@ export default function ShrewsburyServiceArea() {
       document.head.appendChild(meta);
     }
   }, []);
-
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
-
-  const submitContact = trpc.contact.submit.useMutation({
-    onSuccess: () => {
-      toast.success("Thank you! We'll be in touch shortly.");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    },
-    onError: (error) => {
-      toast.error(error.message || "Failed to submit. Please try again.");
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    submitContact.mutate(formData);
-  };
-
   useEffect(() => {
     const faqSchema = document.createElement('script');
     faqSchema.type = 'application/ld+json';
@@ -535,39 +514,10 @@ export default function ShrewsburyServiceArea() {
                 </div>
               </div>
             </div>
-            <Card className="p-8 shadow-xl">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <Input
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                />
-                <Input
-                  type="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                />
-                <Input
-                  type="tel"
-                  placeholder="Your Phone Number"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                />
-                <Textarea
-                  placeholder="Tell us about your project in Shrewsbury..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  rows={5}
-                  required
-                />
-                <Button type="submit" className="w-full" disabled={submitContact.isPending}>
-                  {submitContact.isPending ? "Sending..." : "Request Site Visit"}
-                </Button>
-              </form>
-            </Card>
+            <LeadForm
+                locationName="Shrewsbury"
+                variant="light"
+              />
           </div>
         </div>
       </section>

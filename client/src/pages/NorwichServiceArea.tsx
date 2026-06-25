@@ -4,12 +4,8 @@ import { QuotePopup } from "@/components/QuotePopup";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Quote } from "lucide-react";
 import { useState, useEffect } from "react";
-import { toast } from "sonner";
-import { trpc } from "@/lib/trpc";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { LocationMap } from "@/components/LocationMap";
@@ -20,6 +16,7 @@ import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
+import { LeadForm } from "@/components/LeadForm";
 
 // Placeholder for a simple Testimonial Card component
 const TestimonialCard = ({ quote, name, company }: { quote: string, name: string, company: string }) => (
@@ -117,23 +114,6 @@ export default function NorwichServiceArea() {
   }, []);
 
   let { user, loading, error, isAuthenticated, logout } = useAuth();
-
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
-
-  const submitContact = trpc.contact.submit.useMutation({
-    onSuccess: () => {
-      toast.success("Thank you! We'll be in touch shortly.");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    },
-    onError: (error) => {
-      toast.error(error.message || "Failed to submit. Please try again.");
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    submitContact.mutate(formData);
-  };
 
   const norwichIndustries = [
     "Advanced Engineering", "Construction & Infrastructure", "Energy & Renewables",
@@ -551,39 +531,10 @@ export default function NorwichServiceArea() {
                 </div>
               </div>
             </div>
-            <Card className="p-8 shadow-xl">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <Input
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                />
-                <Input
-                  type="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                />
-                <Input
-                  type="tel"
-                  placeholder="Your Phone (Optional)"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                />
-                <Textarea
-                  placeholder="Tell us about your project in Norwich (e.g., location, material, size)"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  rows={5}
-                  required
-                />
-                <Button type="submit" className="w-full bg-[#2C5F7F] hover:bg-[#1a3d52]">
-                  Submit Request
-                </Button>
-              </form>
-            </Card>
+            <LeadForm
+                locationName="Norwich"
+                variant="light"
+              />
           </div>
         </div>
       </section>
