@@ -68,6 +68,9 @@ export const contactSubmissions = mysqlTable("contact_submissions", {
   phone: varchar("phone", { length: 50 }),
   message: text("message").notNull(),
   status: mysqlEnum("status", ["new", "read", "replied", "archived"]).default("new").notNull(),
+  sourcePage: varchar("sourcePage", { length: 500 }),
+  locationName: varchar("locationName", { length: 255 }),
+  utmData: text("utmData"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
 });

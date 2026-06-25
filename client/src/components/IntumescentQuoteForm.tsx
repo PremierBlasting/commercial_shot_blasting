@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { trpc } from "@/lib/trpc";
+import { formatUTMForSubmission } from "@/lib/utm";
 import { CheckCircle, Flame, Ruler, Building2, Phone } from "lucide-react";
 
 interface IntumescentQuoteFormProps {
@@ -61,7 +62,16 @@ export function IntumescentQuoteForm({ onOpenQuotePopup }: IntumescentQuoteFormP
       `Project size: ${projectSize || "Not specified"}`,
       `Location: ${location || "Not specified"}`,
     ].join("\n");
-    submitContact.mutate({ name, email, phone, message });
+    const utmData = formatUTMForSubmission();
+    submitContact.mutate({
+      name,
+      email,
+      phone,
+      message,
+      sourcePage: typeof window !== 'undefined' ? window.location.href : undefined,
+      locationName: location || undefined,
+      utmData: Object.keys(utmData).length > 0 ? utmData : undefined,
+    });
   };
 
   if (step === "success") {

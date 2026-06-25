@@ -977,3 +977,14 @@
 - [x] Add HUBSPOT_CSB_TOKEN and RESEND_API_KEY as secrets in the webdev project
 - [x] Test full lead flow: form submit → email notification + HubSpot contact created → lead_sync_v2.py picks up → Google Sheet + Premier Blasting HubSpot
 - [x] Save checkpoint and deliver
+
+## Round 53 — Custom Branded Forms & Full Lead Pipeline
+
+- [x] Build custom LeadForm component (branded, captures source page + UTM params)
+- [x] Expand contact.submit tRPC to accept sourcePage, locationName, utmData fields
+- [x] Update leadNotifications.ts to push to Premier Blasting HubSpot (tagged as CSB lead)
+- [x] Replace HubSpotForm embed on Contact page with custom LeadForm
+- [x] Replace HubSpotForm embed in QuotePopup with custom LeadForm
+- [x] Update LocationPage inline form to pass sourcePage + UTM data
+- [x] Update IntumescentQuoteForm to pass sourcePage + UTM data
+- [x] Save checkpoint and deliver

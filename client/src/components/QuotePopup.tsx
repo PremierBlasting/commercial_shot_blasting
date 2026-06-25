@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { HubSpotForm } from "./HubSpotForm";
+import { LeadForm } from "./LeadForm";
 import { useEffect } from "react";
 import { trackQuoteRequest } from "@/lib/analytics";
 
@@ -11,7 +11,7 @@ interface QuotePopupProps {
 
 /**
  * Quote Popup Modal
- * Displays HubSpot form in a modal dialog
+ * Displays the custom branded LeadForm in a modal dialog
  */
 export function QuotePopup({ open, onOpenChange, locationName }: QuotePopupProps) {
   // Track when quote popup opens
@@ -25,7 +25,7 @@ export function QuotePopup({ open, onOpenChange, locationName }: QuotePopupProps
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto bg-[#F5F1E8]">
         <DialogHeader>
-          <DialogTitle 
+          <DialogTitle
             className="text-2xl font-bold text-[#2C5F7F] text-center"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
@@ -36,7 +36,14 @@ export function QuotePopup({ open, onOpenChange, locationName }: QuotePopupProps
           </DialogDescription>
         </DialogHeader>
         <div className="mt-4">
-          <HubSpotForm className="hubspot-popup-form" locationName={locationName} />
+          <LeadForm
+            variant="light"
+            locationName={locationName}
+            showWhatsApp={true}
+            onSuccess={() => {
+              // Keep the popup open to show the success state
+            }}
+          />
         </div>
       </DialogContent>
     </Dialog>

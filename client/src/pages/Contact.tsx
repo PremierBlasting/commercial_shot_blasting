@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock, Shield, Award } from "lucide-react";
 import { useState } from "react";
 import { useSEO } from "@/hooks/useSEO";
-import { HubSpotForm } from "@/components/HubSpotForm";
+import { LeadForm } from "@/components/LeadForm";
 import { Header } from "@/components/Header";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -125,9 +125,14 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <Card className="p-6">
-              <HubSpotForm />
-            </Card>
+            <div>
+              <LeadForm
+                variant="light"
+                heading="Request a Free Quote"
+                subheading="We'll get back to you within 24 hours with a detailed quote."
+                showWhatsApp={true}
+              />
+            </div>
           </div>
         </div>
       </section>

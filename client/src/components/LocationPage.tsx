@@ -20,6 +20,7 @@ import { countyContext } from '@shared/countyContext';
 import { services } from '@/data/services';
 import { getProjectsForCounty } from '@/data/recentProjects';
 import { trpc } from "@/lib/trpc";
+import { formatUTMForSubmission } from "@/lib/utm";
 export type { LocationData };
 
 // Sub-component: renders AI-refreshed content for this location if available
@@ -91,11 +92,15 @@ export function LocationPage({ location }: LocationPageProps) {
       setFormError('Please enter your name and phone number.');
       return;
     }
+    const utmData = formatUTMForSubmission();
     contactMutation.mutate({
       name: formName.trim(),
       email: formEmail.trim() || `${formPhone.replace(/\s/g, '')}@sms.placeholder`,
       phone: formPhone.trim(),
       message: formMessage.trim() || `Quote request from ${location.name} town page`,
+      sourcePage: typeof window !== 'undefined' ? window.location.href : undefined,
+      locationName: location.name,
+      utmData: Object.keys(utmData).length > 0 ? utmData : undefined,
     });
   };
 

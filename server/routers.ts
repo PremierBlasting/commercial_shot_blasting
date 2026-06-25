@@ -269,16 +269,31 @@ export const appRouter = router({
         email: z.string().email(),
         phone: z.string().optional(),
         message: z.string().min(1),
+        sourcePage: z.string().optional(),
+        locationName: z.string().optional(),
+        utmData: z.record(z.string(), z.string()).optional(),
       }))
       .mutation(async ({ input }) => {
-        await createContactSubmission(input);
-        // Fire-and-forget: email notification + HubSpot contact creation
+        await createContactSubmission({
+          name: input.name,
+          email: input.email,
+          phone: input.phone,
+          message: input.message,
+          sourcePage: input.sourcePage,
+          locationName: input.locationName,
+          utmData: input.utmData ? JSON.stringify(input.utmData) : undefined,
+          // utmData is Record<string,string> from zod — cast is safe
+        });
+        // Fire-and-forget: email notification + HubSpot contact creation in both accounts
         // Errors are caught internally and logged — form submission always succeeds
         notifyNewLead({
           name: input.name,
           email: input.email,
           phone: input.phone,
           message: input.message,
+          sourcePage: input.sourcePage,
+          locationName: input.locationName,
+          utmData: input.utmData as Record<string, string> | undefined,
         }).catch((err) => console.error('[contact.submit] notifyNewLead error:', err));
         return { success: true };
       }),
