@@ -1,15 +1,19 @@
 /**
  * LeadForm — Custom branded contact/quote form for Commercial Shot Blasting
  *
- * Replaces the HubSpot embedded form. Captures:
- *  - Name, phone, email, message
- *  - Source page URL (window.location.href)
- *  - Location name (optional, passed as prop)
- *  - UTM / attribution data (from utm.ts)
+ * Matches the original HubSpot form fields:
+ *  - First Name, Last Name
+ *  - Email, Phone Number
+ *  - Postal Code
+ *  - What Type of Service is Required? (dropdown)
+ *  - When is Your Preferred Completion Date? (dropdown)
+ *  - Could You Please Provide a Brief Summary of Your Project?
+ *
+ * Also captures: source page URL, location name, UTM attribution data
  */
 
 import { useState } from "react";
-import { CheckCircle, Phone, ArrowRight, MessageSquare } from "lucide-react";
+import { CheckCircle, ArrowRight } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { formatUTMForSubmission } from "@/lib/utm";
 
@@ -28,6 +32,29 @@ export interface LeadFormProps {
   onSuccess?: () => void;
 }
 
+const SERVICE_OPTIONS = [
+  "Structural Steel Shot Blasting",
+  "Fire Escapes & Stair Towers",
+  "Staircases & Balustrades",
+  "Factory Cladding & Roofing",
+  "Machinery & Equipment",
+  "Rust & Paint Removal",
+  "Intumescent Coating Preparation",
+  "Factory Floor Preparation",
+  "Bridge & Infrastructure",
+  "Other / Not Sure",
+];
+
+const COMPLETION_DATE_OPTIONS = [
+  "As soon as possible",
+  "Within 2 weeks",
+  "Within 1 month",
+  "1–3 months",
+  "3–6 months",
+  "6+ months / Planning stage",
+  "Flexible / Not sure yet",
+];
+
 export function LeadForm({
   variant = "light",
   locationName,
@@ -36,10 +63,14 @@ export function LeadForm({
   showWhatsApp = true,
   onSuccess,
 }: LeadFormProps) {
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [serviceType, setServiceType] = useState("");
+  const [completionDate, setCompletionDate] = useState("");
+  const [projectSummary, setProjectSummary] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
@@ -51,25 +82,41 @@ export function LeadForm({
       onSuccess?.();
     },
     onError: (err) => {
-      setError(err.message || "Something went wrong. Please call us directly.");
+      setError(err.message || "Something went wrong. Please call us directly on 07970 566409.");
     },
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!name.trim() || !phone.trim()) {
-      setError("Please enter your name and phone number.");
+
+    if (!firstName.trim() || !phone.trim()) {
+      setError("Please enter your first name and phone number.");
       return;
     }
+
+    const fullName = [firstName.trim(), lastName.trim()].filter(Boolean).join(" ");
+
+    // Build a structured message that mirrors the HubSpot form fields
+    const messageParts = [
+      serviceType && `Service Required: ${serviceType}`,
+      completionDate && `Preferred Completion: ${completionDate}`,
+      postalCode && `Postal Code: ${postalCode}`,
+      locationName && `Location: ${locationName}`,
+      projectSummary.trim() && `Project Summary:\n${projectSummary.trim()}`,
+    ].filter(Boolean);
+
+    const message = messageParts.length > 0
+      ? messageParts.join("\n")
+      : `Quote request${locationName ? ` from ${locationName}` : ""}`;
 
     const utmData = formatUTMForSubmission();
 
     contactMutation.mutate({
-      name: name.trim(),
+      name: fullName,
       email: email.trim() || `${phone.replace(/\s/g, "")}@sms.placeholder`,
       phone: phone.trim(),
-      message: message.trim() || `Quote request${locationName ? ` from ${locationName}` : ""}`,
+      message,
       sourcePage: typeof window !== "undefined" ? window.location.href : undefined,
       locationName: locationName,
       utmData: Object.keys(utmData).length > 0 ? utmData : undefined,
@@ -79,12 +126,22 @@ export function LeadForm({
   // ── Styles based on variant ──────────────────────────────────────────────────
   const bg = isDark ? "bg-white/10 backdrop-blur-sm" : "bg-white";
   const border = isDark ? "border-white/20" : "border-[#2C5F7F]/20";
-  const inputBg = isDark ? "bg-white/10 border-white/20 text-white placeholder-white/40" : "bg-white border-gray-200 text-gray-800 placeholder-gray-400";
-  const inputFocus = isDark ? "focus:border-[#7ec8e3]" : "focus:border-[#2C5F7F] focus:ring-[#2C5F7F]/20";
+  const inputBg = isDark
+    ? "bg-white/10 border-white/20 text-white placeholder-white/40"
+    : "bg-white border-gray-200 text-gray-800 placeholder-gray-400";
+  const inputFocus = isDark
+    ? "focus:border-[#7ec8e3] focus:ring-[#7ec8e3]/20"
+    : "focus:border-[#2C5F7F] focus:ring-[#2C5F7F]/20";
   const labelColor = isDark ? "text-blue-200" : "text-gray-600";
   const headingColor = isDark ? "text-white" : "text-[#1a3a52]";
   const subColor = isDark ? "text-blue-100" : "text-gray-500";
   const privacyColor = isDark ? "text-blue-200/70" : "text-gray-400";
+  const selectBg = isDark
+    ? "bg-[#1a3a52] border-white/20 text-white"
+    : "bg-white border-gray-200 text-gray-800";
+
+  const inputClass = `w-full rounded-lg px-3 py-2.5 text-sm border transition-colors focus:outline-none focus:ring-2 ${inputBg} ${inputFocus}`;
+  const selectClass = `w-full rounded-lg px-3 py-2.5 text-sm border transition-colors focus:outline-none focus:ring-2 ${selectBg} ${inputFocus} appearance-none cursor-pointer`;
 
   if (submitted) {
     return (
@@ -92,7 +149,7 @@ export function LeadForm({
         <CheckCircle className={`w-12 h-12 mx-auto mb-4 ${isDark ? "text-[#7ec8e3]" : "text-[#2C5F7F]"}`} />
         <h3 className={`font-bold text-lg mb-2 ${headingColor}`}>Quote Request Sent!</h3>
         <p className={`text-sm ${subColor}`}>
-          Thanks, {name}. We'll be in touch within 24 hours.
+          Thanks, {firstName}. We'll be in touch within 24 hours.
           {" "}For urgent jobs, call us directly on{" "}
           <a href="tel:07970566409" className={`font-semibold ${isDark ? "text-[#7ec8e3]" : "text-[#2C5F7F]"} hover:underline`}>
             07970 566409
@@ -116,26 +173,56 @@ export function LeadForm({
         </div>
       )}
 
-      {/* Name */}
+      {/* First Name + Last Name */}
+      <div className="grid grid-cols-2 gap-3">
+        <div>
+          <label className={`block text-xs font-medium mb-1 ${labelColor}`} htmlFor="lf-firstname">
+            First Name *
+          </label>
+          <input
+            id="lf-firstname"
+            type="text"
+            required
+            placeholder="e.g. John"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label className={`block text-xs font-medium mb-1 ${labelColor}`} htmlFor="lf-lastname">
+            Last Name
+          </label>
+          <input
+            id="lf-lastname"
+            type="text"
+            placeholder="e.g. Smith"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            className={inputClass}
+          />
+        </div>
+      </div>
+
+      {/* Email */}
       <div>
-        <label className={`block text-xs font-medium mb-1 ${labelColor}`} htmlFor="lf-name">
-          Your name *
+        <label className={`block text-xs font-medium mb-1 ${labelColor}`} htmlFor="lf-email">
+          Email Address
         </label>
         <input
-          id="lf-name"
-          type="text"
-          required
-          placeholder="e.g. John Smith"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className={`w-full rounded-lg px-3 py-2.5 text-sm border transition-colors focus:outline-none focus:ring-2 ${inputBg} ${inputFocus}`}
+          id="lf-email"
+          type="email"
+          placeholder="e.g. john@company.co.uk"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className={inputClass}
         />
       </div>
 
       {/* Phone */}
       <div>
         <label className={`block text-xs font-medium mb-1 ${labelColor}`} htmlFor="lf-phone">
-          Phone number *
+          Phone Number *
         </label>
         <input
           id="lf-phone"
@@ -144,39 +231,89 @@ export function LeadForm({
           placeholder="e.g. 07700 900000"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          className={`w-full rounded-lg px-3 py-2.5 text-sm border transition-colors focus:outline-none focus:ring-2 ${inputBg} ${inputFocus}`}
+          className={inputClass}
         />
       </div>
 
-      {/* Email */}
+      {/* Postal Code */}
       <div>
-        <label className={`block text-xs font-medium mb-1 ${labelColor}`} htmlFor="lf-email">
-          Email address <span className={privacyColor}>(optional)</span>
+        <label className={`block text-xs font-medium mb-1 ${labelColor}`} htmlFor="lf-postcode">
+          Postal Code
         </label>
         <input
-          id="lf-email"
-          type="email"
-          placeholder="e.g. john@company.co.uk"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={`w-full rounded-lg px-3 py-2.5 text-sm border transition-colors focus:outline-none focus:ring-2 ${inputBg} ${inputFocus}`}
+          id="lf-postcode"
+          type="text"
+          placeholder="e.g. B1 1AA"
+          value={postalCode}
+          onChange={(e) => setPostalCode(e.target.value)}
+          className={inputClass}
         />
       </div>
 
-      {/* Message */}
+      {/* Service Type Dropdown */}
       <div>
-        <label className={`block text-xs font-medium mb-1 ${labelColor}`} htmlFor="lf-message">
-          What do you need blasting? <span className={privacyColor}>(optional)</span>
+        <label className={`block text-xs font-medium mb-1 ${labelColor}`} htmlFor="lf-service">
+          What Type of Service is Required?
+        </label>
+        <div className="relative">
+          <select
+            id="lf-service"
+            value={serviceType}
+            onChange={(e) => setServiceType(e.target.value)}
+            className={selectClass}
+          >
+            <option value="">— Please select —</option>
+            {SERVICE_OPTIONS.map((opt) => (
+              <option key={opt} value={opt}>{opt}</option>
+            ))}
+          </select>
+          <div className={`pointer-events-none absolute inset-y-0 right-3 flex items-center ${isDark ? "text-white/60" : "text-gray-400"}`}>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      {/* Preferred Completion Date Dropdown */}
+      <div>
+        <label className={`block text-xs font-medium mb-1 ${labelColor}`} htmlFor="lf-completion">
+          When is Your Preferred Completion Date?
+        </label>
+        <div className="relative">
+          <select
+            id="lf-completion"
+            value={completionDate}
+            onChange={(e) => setCompletionDate(e.target.value)}
+            className={selectClass}
+          >
+            <option value="">— Please select —</option>
+            {COMPLETION_DATE_OPTIONS.map((opt) => (
+              <option key={opt} value={opt}>{opt}</option>
+            ))}
+          </select>
+          <div className={`pointer-events-none absolute inset-y-0 right-3 flex items-center ${isDark ? "text-white/60" : "text-gray-400"}`}>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      {/* Project Summary */}
+      <div>
+        <label className={`block text-xs font-medium mb-1 ${labelColor}`} htmlFor="lf-summary">
+          Could You Please Provide a Brief Summary of Your Project?
         </label>
         <textarea
-          id="lf-message"
+          id="lf-summary"
           rows={3}
           placeholder={locationName
-            ? `e.g. Structural steel shot blasting in ${locationName} — 200m² of beams`
-            : "e.g. Structural steel, factory floor, rust removal…"}
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          className={`w-full rounded-lg px-3 py-2.5 text-sm border transition-colors focus:outline-none focus:ring-2 resize-none ${inputBg} ${inputFocus}`}
+            ? `e.g. 200m² of structural steel beams in ${locationName} requiring rust removal and shot blasting to SA2.5`
+            : "e.g. Structural steel beams requiring rust removal and shot blasting to SA2.5…"}
+          value={projectSummary}
+          onChange={(e) => setProjectSummary(e.target.value)}
+          className={`${inputClass} resize-none`}
         />
       </div>
 
@@ -191,7 +328,7 @@ export function LeadForm({
         {contactMutation.isPending ? (
           <span>Sending…</span>
         ) : (
-          <><ArrowRight className="w-4 h-4" /> Get My Free Quote</>
+          <><ArrowRight className="w-4 h-4" /> Submit</>
         )}
       </button>
 
@@ -203,9 +340,9 @@ export function LeadForm({
       {showWhatsApp && (
         <>
           <div className="flex items-center gap-3">
-            <div className="flex-1 h-px bg-white/10" />
+            <div className={`flex-1 h-px ${isDark ? "bg-white/10" : "bg-gray-200"}`} />
             <span className={`text-xs ${privacyColor}`}>or</span>
-            <div className="flex-1 h-px bg-white/10" />
+            <div className={`flex-1 h-px ${isDark ? "bg-white/10" : "bg-gray-200"}`} />
           </div>
           <a
             href={`https://wa.me/447970566409?text=${encodeURIComponent(

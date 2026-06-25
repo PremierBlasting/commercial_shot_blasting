@@ -988,3 +988,9 @@
 - [x] Update LocationPage inline form to pass sourcePage + UTM data
 - [x] Update IntumescentQuoteForm to pass sourcePage + UTM data
 - [x] Save checkpoint and deliver
+
+## Round 54 — Match HubSpot Form Fields on Custom LeadForm
+
+- [x] Update LeadForm to match HubSpot fields: First Name, Last Name, Email, Phone, Postal Code, Service Type (dropdown), Preferred Completion Date (dropdown), Project Summary
+- [x] Pass all new fields through contact.submit tRPC and into HubSpot/email notifications
+- [x] Save checkpoint and deploy
