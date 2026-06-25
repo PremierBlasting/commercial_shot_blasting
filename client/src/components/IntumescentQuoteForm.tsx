@@ -243,7 +243,7 @@ export function IntumescentQuoteForm({ onOpenQuotePopup }: IntumescentQuoteFormP
             disabled={submitContact.isPending}
             className="flex-1 bg-[#2C5F7F] hover:bg-[#1e4a63] text-white font-semibold py-3"
           >
-            {submitContact.isPending ? "Sending…" : "Request Free Quote"}
+            {submitContact.isPending ? "Sending…" : "Request Free Site Visit"}
           </Button>
           <Button
             type="button"

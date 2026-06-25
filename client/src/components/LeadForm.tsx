@@ -71,6 +71,7 @@ export function LeadForm({
   const [serviceType, setServiceType] = useState("");
   const [completionDate, setCompletionDate] = useState("");
   const [projectSummary, setProjectSummary] = useState("");
+  const [visitDate, setVisitDate] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
@@ -100,6 +101,7 @@ export function LeadForm({
     // Build a structured message that mirrors the HubSpot form fields
     const messageParts = [
       serviceType && `Service Required: ${serviceType}`,
+      visitDate && `Preferred Site Visit Date: ${visitDate}`,
       completionDate && `Preferred Completion: ${completionDate}`,
       postalCode && `Postal Code: ${postalCode}`,
       locationName && `Location: ${locationName}`,
@@ -147,9 +149,9 @@ export function LeadForm({
     return (
       <div className={`${bg} border ${border} rounded-xl p-8 text-center`}>
         <CheckCircle className={`w-12 h-12 mx-auto mb-4 ${isDark ? "text-[#7ec8e3]" : "text-[#2C5F7F]"}`} />
-        <h3 className={`font-bold text-lg mb-2 ${headingColor}`}>Quote Request Sent!</h3>
+        <h3 className={`font-bold text-lg mb-2 ${headingColor}`}>Site Visit Requested!</h3>
         <p className={`text-sm ${subColor}`}>
-          Thanks, {firstName}. We'll be in touch within 24 hours.
+          Thanks, {firstName}. We'll be in touch within 24 hours to confirm your site visit.
           {" "}For urgent jobs, call us directly on{" "}
           <a href="tel:07970566409" className={`font-semibold ${isDark ? "text-[#7ec8e3]" : "text-[#2C5F7F]"} hover:underline`}>
             07970 566409
@@ -167,7 +169,7 @@ export function LeadForm({
       {(heading || locationName) && (
         <div className="mb-1">
           <h3 className={`font-semibold text-base ${headingColor}`}>
-            {heading ?? `Request a free quote${locationName ? ` in ${locationName}` : ""}`}
+            {heading ?? `Request a free site visit${locationName ? ` in ${locationName}` : ""}`}
           </h3>
           {subheading && <p className={`text-xs mt-0.5 ${subColor}`}>{subheading}</p>}
         </div>
@@ -246,6 +248,21 @@ export function LeadForm({
           placeholder="e.g. B1 1AA"
           value={postalCode}
           onChange={(e) => setPostalCode(e.target.value)}
+          className={inputClass}
+        />
+      </div>
+
+      {/* Preferred Site Visit Date */}
+      <div>
+        <label className={`block text-xs font-medium mb-1 ${labelColor}`} htmlFor="lf-visitdate">
+          Preferred Site Visit Date
+        </label>
+        <input
+          id="lf-visitdate"
+          type="date"
+          min={new Date().toISOString().split('T')[0]}
+          value={visitDate}
+          onChange={(e) => setVisitDate(e.target.value)}
           className={inputClass}
         />
       </div>

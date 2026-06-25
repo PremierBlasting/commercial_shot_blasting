@@ -97,7 +97,7 @@ export function LocationPage({ location }: LocationPageProps) {
       name: formName.trim(),
       email: formEmail.trim() || `${formPhone.replace(/\s/g, '')}@sms.placeholder`,
       phone: formPhone.trim(),
-      message: formMessage.trim() || `Quote request from ${location.name} town page`,
+      message: formMessage.trim() || `Site visit request from ${location.name} town page`,
       sourcePage: typeof window !== 'undefined' ? window.location.href : undefined,
       locationName: location.name,
       utmData: Object.keys(utmData).length > 0 ? utmData : undefined,
@@ -165,7 +165,7 @@ export function LocationPage({ location }: LocationPageProps) {
               <span className="text-blue-200 text-sm">(127 reviews)</span>
             </div>
             <p className="text-xl text-blue-100 mb-8">
-              Mobile shot blasting in {location.name}, {location.county} — rust removal, surface preparation, and industrial cleaning to SA2.5/SA3 standard. 9 mobile units. Same-week availability. Free quotes.
+              Mobile shot blasting in {location.name}, {location.county} — rust removal, surface preparation, and industrial cleaning to SA2.5/SA3 standard. 9 mobile units. Same-week availability. Free site visits.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 
@@ -173,7 +173,7 @@ export function LocationPage({ location }: LocationPageProps) {
                 className="bg-white text-[#2C5F7F] hover:bg-gray-100"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Get a Free Quote
+                Request Free Site Visit
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               <Button 
@@ -234,7 +234,7 @@ export function LocationPage({ location }: LocationPageProps) {
               </div>
               <div className="flex items-center gap-2 text-sm text-gray-600">
                 <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-                <span>Free Site Quotes</span>
+                <span>Free Site Visits</span>
               </div>
             </div>
           </div>
@@ -264,7 +264,7 @@ export function LocationPage({ location }: LocationPageProps) {
                 )}
               </p>
               <p>
-                Whether you need a single component blasted or a full factory cladding programme, our mobile shot blasting service in {location.name} delivers consistent, high-quality results with minimal disruption to your operations. Call <a href="tel:07970566409" className="text-[#2C5F7F] hover:underline font-medium">07970 566409</a> for a free, no-obligation quote.
+                Whether you need a single component blasted or a full factory cladding programme, our mobile shot blasting service in {location.name} delivers consistent, high-quality results with minimal disruption to your operations. Call <a href="tel:07970566409" className="text-[#2C5F7F] hover:underline font-medium">07970 566409</a> to arrange a free, no-obligation site visit.
               </p>
               {countyContext[location.countySlug] && (
                 <p className="mt-4 text-gray-600 border-l-4 border-[#2C5F7F] pl-4 italic">
@@ -285,7 +285,7 @@ export function LocationPage({ location }: LocationPageProps) {
               Why Choose Our Shot Blasting Services in {location.name}?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We are the specialist choice for commercial and industrial shot blasting services in {location.name} — mobile, SA2.5/SA3 certified, and free to quote.
+              We are the specialist choice for commercial and industrial shot blasting services in {location.name} — mobile, SA2.5/SA3 certified, with free site visits.
             </p>
           </div>
 
@@ -295,7 +295,7 @@ export function LocationPage({ location }: LocationPageProps) {
               { value: "18", label: "Shot Blasting Services" },
               { value: "SA2.5", label: "Guaranteed Blast Standard" },
               { value: "UK-Wide", label: "Mobile Coverage" },
-              { value: "Free", label: "Site Surveys & Quotes" },
+              { value: "Free", label: "Site Visits" },
             ].map((stat) => (
               <div key={stat.label} className="text-center bg-white rounded-xl py-5 px-3 shadow-sm">
                 <div className="text-2xl font-black text-[#2C5F7F] mb-1">{stat.value}</div>
@@ -341,7 +341,7 @@ export function LocationPage({ location }: LocationPageProps) {
               </div>
               <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">24-Hour Response in {location.name}</h3>
               <p className="text-gray-600">
-                We typically respond to quote requests within 24 hours and can schedule a free site survey at your convenience anywhere in {location.name}.
+                We typically respond within 24 hours and can schedule a free site visit at your convenience anywhere in {location.name}.
               </p>
             </div>
 
@@ -359,7 +359,7 @@ export function LocationPage({ location }: LocationPageProps) {
               <div className="w-12 h-12 bg-[#2C5F7F]/10 rounded-lg flex items-center justify-center mb-4">
                 <Phone className="w-6 h-6 text-[#2C5F7F]" />
               </div>
-              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">Free Quotes</h3>
+              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">Free Site Visits</h3>
               <p className="text-gray-600">
                 No-obligation quotations for all projects in {location.name}. Call us today to discuss your requirements.
               </p>
@@ -730,10 +730,10 @@ export function LocationPage({ location }: LocationPageProps) {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Get a Quote for Shot Blasting Services in {location.name}
+              Request a Free Site Visit in {location.name}
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Free, no-obligation quotes for all shot blasting services in {location.name} and across {location.county}. Call us today or request a quote online — we typically respond within 24 hours.
+              Free, no-obligation site visits for all shot blasting services in {location.name} and across {location.county}. Call us today or request a site visit online — we typically respond within 24 hours.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button 
@@ -741,7 +741,7 @@ export function LocationPage({ location }: LocationPageProps) {
                 className="bg-white text-[#2C5F7F] hover:bg-gray-100"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Get a Free Quote
+                Request Free Site Visit
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               <Button 
@@ -930,15 +930,15 @@ export function LocationPage({ location }: LocationPageProps) {
         </div>
       </section>
 
-      {/* Get a Quote — embedded inline contact form */}
+      {/* Request Free Site Visit — embedded inline contact form */}
       <section className="py-14 bg-[#1a3a52] text-white">
         <div className="container">
           <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
             {/* Left: copy + service links */}
             <div className="flex-1 md:max-w-md">
-              <p className="text-[#7ec8e3] font-medium mb-1 uppercase tracking-wide text-xs">Free Quote — No Obligation</p>
+              <p className="text-[#7ec8e3] font-medium mb-1 uppercase tracking-wide text-xs">Free Site Visit — No Obligation</p>
               <h2 className="text-2xl md:text-3xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Get a Quote for Shot Blasting in {location.name}
+                Request a Free Site Visit in {location.name}
               </h2>
               <p className="text-blue-100 text-sm leading-relaxed mb-5">
                 We provide mobile shot blasting services across {location.county}. Whether you need{" "}
@@ -981,12 +981,12 @@ export function LocationPage({ location }: LocationPageProps) {
               {formSubmitted ? (
                 <div className="bg-white/10 rounded-xl p-6 text-center">
                   <CheckCircle className="w-10 h-10 text-[#7ec8e3] mx-auto mb-3" />
-                  <h3 className="font-bold text-lg mb-1">Quote request sent!</h3>
-                  <p className="text-blue-100 text-sm">We’ll be in touch within 24 hours. For urgent jobs, call us directly on 07970 566409.</p>
+                  <h3 className="font-bold text-lg mb-1">Site visit requested!</h3>
+                  <p className="text-blue-100 text-sm">We'll be in touch within 24 hours to confirm your site visit. For urgent jobs, call us directly on 07970 566409.</p>
                 </div>
               ) : (
                 <form onSubmit={handleInlineFormSubmit} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 flex flex-col gap-4">
-                  <h3 className="font-semibold text-base mb-1">Request a free quote</h3>
+                  <h3 className="font-semibold text-base mb-1">Request a free site visit</h3>
                   <div>
                     <label className="block text-xs text-blue-200 mb-1" htmlFor="inline-name">Your name *</label>
                     <input
@@ -1044,7 +1044,7 @@ export function LocationPage({ location }: LocationPageProps) {
                     {contactMutation.isPending ? (
                       <span>Sending…</span>
                     ) : (
-                      <><ArrowRight className="w-4 h-4" /> Get My Free Quote</>
+                      <><ArrowRight className="w-4 h-4" /> Request Free Site Visit</>
                     )}
                   </button>
                   <p className="text-blue-200 text-xs text-center">No spam. We'll only use your details to respond to your enquiry.</p>
@@ -1127,7 +1127,7 @@ export function LocationPage({ location }: LocationPageProps) {
         </div>
       </section>
 
-      {/* Item 10: Sticky mobile Get a Quote bar */}
+      {/* Item 10: Sticky mobile Request Free Site Visit bar */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#2C5F7F] shadow-[0_-2px_12px_rgba(0,0,0,0.15)]">
         <div className="flex items-stretch">
           <button
@@ -1136,7 +1136,7 @@ export function LocationPage({ location }: LocationPageProps) {
             onClick={() => setQuotePopupOpen(true)}
           >
             <ArrowRight className="w-4 h-4" />
-            Get a Free Quote
+            Request Free Site Visit
           </button>
           <a
             href="tel:07970566409"

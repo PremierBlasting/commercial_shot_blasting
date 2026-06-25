@@ -123,7 +123,7 @@ export default function Services() {
             className="bg-white text-[#2C5F7F] hover:bg-gray-100"
             onClick={() => setQuotePopupOpen(true)}
           >
-            Get a Free Quote
+            Request Free Site Visit
           </Button>
         </div>
       </section>
@@ -287,7 +287,7 @@ export default function Services() {
       <section className="py-16 bg-[#2C5F7F] text-white">
         <div className="container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Get a Quote for Shot Blasting Services UK
+            Request a Free Site Visit for Shot Blasting Services UK
           </h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8">
             Free, no-obligation quotes for all shot blasting services across the UK. We typically respond within 24 hours and can schedule a free site survey at your convenience.
@@ -298,7 +298,7 @@ export default function Services() {
               className="bg-white text-[#2C5F7F] hover:bg-gray-100"
               onClick={() => setQuotePopupOpen(true)}
             >
-              Get a Free Quote
+              Request Free Site Visit
             </Button>
             <Link href="/contact">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">

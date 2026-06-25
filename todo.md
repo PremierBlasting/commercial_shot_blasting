@@ -994,3 +994,10 @@
 - [x] Update LeadForm to match HubSpot fields: First Name, Last Name, Email, Phone, Postal Code, Service Type (dropdown), Preferred Completion Date (dropdown), Project Summary
 - [x] Pass all new fields through contact.submit tRPC and into HubSpot/email notifications
 - [x] Save checkpoint and deploy
+
+## Round 55 — "Request Free Site Visit" CTA + Date Picker
+
+- [x] Replace all "Get a Free Quote" / "Get Free Quote" / "Get a Quote" CTAs across the site with "Request Free Site Visit"
+- [x] Add a preferred visit date picker field to LeadForm
+- [x] Pass visit date through to email notification and HubSpot message
+- [x] Save checkpoint and deploy

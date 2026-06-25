@@ -231,7 +231,7 @@ export default function GloucesterServiceArea() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
-              Get a Free Quote Today
+              Request Free Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2">
@@ -523,7 +523,7 @@ export default function GloucesterServiceArea() {
               <p className="text-white/80">Contact your local {LOCATION_NAME} experts today for a free, no-obligation quote.</p>
             </div>
             <div className="flex gap-4">
-              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Get a Quote</Button>
+              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Request Free Site Visit</Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 <Phone className="w-4 h-4 mr-2" /> Call Us
               </Button>
@@ -539,7 +539,7 @@ export default function GloucesterServiceArea() {
             <div>
               <p className="text-[#2C5F7F] font-medium mb-2">Get In Touch</p>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Request a Free Quote
+                Request a Free Site Visit
               </h2>
               <p className="text-gray-600 mb-8">
                 Fill out the form and our team will get back to you within 24 hours with a detailed quote for your project in {LOCATION_NAME}.

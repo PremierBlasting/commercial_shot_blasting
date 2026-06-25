@@ -142,7 +142,7 @@ export default function SheffieldServiceArea() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
-              Get a Free Quote
+              Request Free Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2">
@@ -535,7 +535,7 @@ export default function SheffieldServiceArea() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
-              Get a Free Quote
+              Request Free Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
               <Phone className="w-4 h-4 mr-2" />

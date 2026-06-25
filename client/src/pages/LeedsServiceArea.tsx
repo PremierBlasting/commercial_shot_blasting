@@ -103,7 +103,7 @@ export default function LeedsServiceArea() {
     const faqSchema = document.createElement('script');
     faqSchema.type = 'application/ld+json';
     faqSchema.id = 'faq-schema';
-    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can you complete a shot blasting project in Leeds?","acceptedAnswer":{"@type":"Answer","text":"Project timelines vary based on scope and complexity. Most projects are completed within 1-3 weeks. We'll provide a detailed timeline during the initial consultation."}},{"@type":"Question","name":"Do you offer emergency or rush blasting services?","acceptedAnswer":{"@type":"Answer","text":"Yes, we can accommodate urgent requests. Contact us directly at 07970 566409 to discuss your timeline requirements."}},{"@type":"Question","name":"What makes your Leeds service different?","acceptedAnswer":{"@type":"Answer","text":"Our team has deep expertise in Yorkshire's manufacturing sector, allowing us to understand and meet the specific needs of local businesses efficiently."}},{"@type":"Question","name":"Can you handle large-scale industrial projects?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We have the equipment and expertise to handle projects of any size, from small components to large structural elements."}},{"@type":"Question","name":"Do you provide waste management documentation?","acceptedAnswer":{"@type":"Answer","text":"Yes, we maintain full compliance with waste management practices and provide all necessary documentation for your records."}},{"@type":"Question","name":"How do I get started with a quote?","acceptedAnswer":{"@type":"Answer","text":"Simply click 'Get a Free Quote' above or call us at 07970 566409. We'll arrange a site visit to assess your requirements."}}]}`;
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can you complete a shot blasting project in Leeds?","acceptedAnswer":{"@type":"Answer","text":"Project timelines vary based on scope and complexity. Most projects are completed within 1-3 weeks. We'll provide a detailed timeline during the initial consultation."}},{"@type":"Question","name":"Do you offer emergency or rush blasting services?","acceptedAnswer":{"@type":"Answer","text":"Yes, we can accommodate urgent requests. Contact us directly at 07970 566409 to discuss your timeline requirements."}},{"@type":"Question","name":"What makes your Leeds service different?","acceptedAnswer":{"@type":"Answer","text":"Our team has deep expertise in Yorkshire's manufacturing sector, allowing us to understand and meet the specific needs of local businesses efficiently."}},{"@type":"Question","name":"Can you handle large-scale industrial projects?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We have the equipment and expertise to handle projects of any size, from small components to large structural elements."}},{"@type":"Question","name":"Do you provide waste management documentation?","acceptedAnswer":{"@type":"Answer","text":"Yes, we maintain full compliance with waste management practices and provide all necessary documentation for your records."}},{"@type":"Question","name":"How do I get started with a quote?","acceptedAnswer":{"@type":"Answer","text":"Simply click 'Request a Free Site Visit' above or call us at 07970 566409. We'll arrange a site visit to assess your requirements."}}]}`;
     document.head.appendChild(faqSchema);
     return () => {
       const el = document.getElementById('faq-schema');
@@ -142,7 +142,7 @@ export default function LeedsServiceArea() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
-              Get a Free Quote
+              Request Free Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2">
@@ -431,7 +431,7 @@ export default function LeedsServiceArea() {
               },
               {
                 q: "How do I get started with a quote?",
-                a: "Simply click 'Get a Free Quote' above or call us at 07970 566409. We'll arrange a site visit to assess your requirements."
+                a: "Simply click 'Request a Free Site Visit' above or call us at 07970 566409. We'll arrange a site visit to assess your requirements."
               }
             ].map((faq, index) => (
               <details key={index} className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer group">
@@ -473,7 +473,7 @@ export default function LeedsServiceArea() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
-              Get a Free Quote
+              Request Free Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
               <Phone className="w-4 h-4 mr-2" />

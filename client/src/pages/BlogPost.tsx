@@ -226,7 +226,7 @@ export default function BlogPost() {
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link href="/contact">
                   <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-gray-100 font-semibold px-8">
-                    Get a Free Quote
+                    Request Free Site Visit
                   </Button>
                 </Link>
                 <a href="tel:07970566409">

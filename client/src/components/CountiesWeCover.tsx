@@ -44,7 +44,7 @@ export function CountiesWeCover({ industry, heading }: CountiesWeCoverProps) {
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
             Our mobile shot blasting units operate across England and Wales. Select your county to
-            see local service details, coverage towns, and get a free quote.
+            see local service details, coverage towns, and request a free site visit.
           </p>
         </div>
 

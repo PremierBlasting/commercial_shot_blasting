@@ -275,7 +275,7 @@ export default function HeritageRestorationIndustry() {
               onClick={() => setQuotePopupOpen(true)}
               className="bg-white text-[#6b4423] px-8 py-3 rounded-lg font-semibold hover:bg-white/90 transition-colors"
             >
-              Request Free Quote
+              Request Free Site Visit
             </button>
             <a 
               href="tel:07970566409"

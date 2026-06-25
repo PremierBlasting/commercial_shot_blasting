@@ -50,7 +50,7 @@ export default function Contact() {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <p className="text-[#2C5F7F] font-medium mb-2">Request a Quote</p>
+              <p className="text-[#2C5F7F] font-medium mb-2">Request Free Site Visit</p>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Let's Discuss Your Project
               </h2>
@@ -128,8 +128,8 @@ export default function Contact() {
             <div>
               <LeadForm
                 variant="light"
-                heading="Request a Free Quote"
-                subheading="We'll get back to you within 24 hours with a detailed quote."
+                heading="Request a Free Site Visit"
+                subheading="We'll arrange a free site visit and get back to you within 24 hours."
                 showWhatsApp={true}
               />
             </div>

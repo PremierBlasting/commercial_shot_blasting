@@ -211,7 +211,7 @@ export default function MiltonKeynesServiceArea() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
-              Get a Free Quote Today
+              Request Free Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2">
@@ -510,7 +510,7 @@ export default function MiltonKeynesServiceArea() {
               <p className="text-white/80">Contact us today for a free, no-obligation quote for your Buckinghamshire project.</p>
             </div>
             <div className="flex gap-4">
-              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Get a Quote</Button>
+              <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90">Request Free Site Visit</Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 <Phone className="w-4 h-4 mr-2" /> Call Us
               </Button>

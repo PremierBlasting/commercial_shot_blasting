@@ -483,7 +483,7 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
                       className="bg-[#2C5F7F] hover:bg-[#1a3d52] text-xs"
                       onClick={onQuoteClick}
                     >
-                      Get Quote
+                      Request Site Visit
                     </Button>
                     <Button 
                       size="sm" 

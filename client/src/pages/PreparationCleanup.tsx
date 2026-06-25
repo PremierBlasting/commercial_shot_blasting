@@ -115,7 +115,7 @@ export default function PreparationCleanup() {
               className="bg-white text-[#2C5F7F] hover:bg-gray-100"
               onClick={() => setQuotePopupOpen(true)}
             >
-              Get a Free Quote
+              Request Free Site Visit
             </Button>
             <Button 
               size="lg" 
@@ -298,7 +298,7 @@ export default function PreparationCleanup() {
               className="bg-white text-[#2C5F7F] hover:bg-gray-100"
               onClick={() => setQuotePopupOpen(true)}
             >
-              Request Quote
+              Request Site Visit
             </Button>
             <Button 
               size="lg" 

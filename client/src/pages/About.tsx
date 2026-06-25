@@ -224,7 +224,7 @@ export default function About() {
               onClick={openQuotePopup}
               className="bg-white text-[#2C5F7F] px-8 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors"
             >
-              Get a Free Quote
+              Request Free Site Visit
             </button>
             <a
               href="tel:07970566409"

@@ -61,7 +61,7 @@ export default function NorthWestCounty() {
                 onClick={() => setQuotePopupOpen(true)}
                 className="bg-[#7ac5e3] hover:bg-[#5eb5d6] text-[#1e3a5f] font-semibold px-8 py-3 rounded-lg transition-colors"
               >
-                Get a Free Quote
+                Request Free Site Visit
               </button>
               <Button
                 variant="outline"
@@ -190,7 +190,7 @@ export default function NorthWestCounty() {
               onClick={() => setQuotePopupOpen(true)}
               className="bg-[#7ac5e3] hover:bg-[#5eb5d6] text-[#1e3a5f] font-semibold px-8 py-3 rounded-lg transition-colors"
             >
-              Get a Free Quote
+              Request Free Site Visit
             </button>
             <Button
               variant="outline"

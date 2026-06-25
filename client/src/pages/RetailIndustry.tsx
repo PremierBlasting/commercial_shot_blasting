@@ -143,7 +143,7 @@ export default function RetailIndustry() {
                 onClick={() => setQuotePopupOpen(true)}
                 className="bg-white text-[#2C5F7F] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
               >
-                Get a Free Quote
+                Request Free Site Visit
               </button>
               <a
                 href="tel:07970566409"

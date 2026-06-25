@@ -486,7 +486,7 @@ export default function ServiceAreas() {
                 className="bg-[#d4a853] hover:bg-[#c49843] text-[#1a3d52] font-semibold"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Get a Free Quote
+                Request Free Site Visit
               </Button>
               <Button 
                 variant="outline" 
@@ -612,7 +612,7 @@ export default function ServiceAreas() {
                         className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
                         onClick={() => setQuotePopupOpen(true)}
                       >
-                        Get a Quote for {region.name}
+                        Request a Free Site Visit for {region.name}
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
                       <Button 
@@ -788,7 +788,7 @@ export default function ServiceAreas() {
               className="bg-[#d4a853] hover:bg-[#c49843] text-[#1a3d52] font-semibold"
               onClick={() => setQuotePopupOpen(true)}
             >
-              Request a Free Quote
+              Request a Free Site Visit
             </Button>
             <Button 
               size="lg"

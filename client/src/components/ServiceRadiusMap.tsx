@@ -213,7 +213,7 @@ export function ServiceRadiusMap({
               </svg>
             </div>
             <div>
-              <p className="text-sm text-gray-600 font-medium">Free Quotes</p>
+              <p className="text-sm text-gray-600 font-medium">Free Site Visits</p>
               <p className="text-lg font-bold text-gray-900">24 Hours</p>
             </div>
           </div>

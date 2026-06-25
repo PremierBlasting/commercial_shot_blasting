@@ -771,7 +771,7 @@ export default function StructuralSteelCaseStudy() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/contact">
               <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-white border-0 font-semibold">
-                Get a Free Quote
+                Request Free Site Visit
               </Button>
             </Link>
             <Link href="/our-work">

@@ -334,7 +334,7 @@ export function CountyPage({ county }: CountyPageProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
-              Get a Free Quote
+              Request Free Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2" onClick={() => trackPhoneCall('07970566409', 'County Page')}>
@@ -609,7 +609,7 @@ export function CountyPage({ county }: CountyPageProps) {
                 07970 566409
               </a>
               <Button onClick={() => setQuotePopupOpen(true)} className="bg-[#E8B84A] hover:bg-[#d4a63d] text-[#1a3d52]">
-                Get a Free Quote
+                Request Free Site Visit
               </Button>
             </div>
           </div>
@@ -737,7 +737,7 @@ export function CountyPage({ county }: CountyPageProps) {
                 Call us: 07970 566409
               </a>
               <Button onClick={() => setQuotePopupOpen(true)} className="bg-[#E8B84A] hover:bg-[#d4a63d] text-[#1a3d52]">
-                Get a Free Quote
+                Request Free Site Visit
               </Button>
             </div>
           </div>
@@ -900,14 +900,14 @@ export function CountyPage({ county }: CountyPageProps) {
       <section className="py-16 bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white">
         <div className="container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Get a Quote for Shot Blasting Services in {county.name}
+            Request a Free Site Visit for Shot Blasting Services in {county.name}
           </h2>
           <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
             Free, no-obligation quotes for all shot blasting services across {county.name}. We typically respond within 24 hours and can schedule a free site survey at your convenience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
-              Get a Free Quote
+              Request Free Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
               <a href="tel:07970566409" className="flex items-center gap-2" onClick={() => trackPhoneCall('07970566409', 'County Page')}>
@@ -1069,7 +1069,7 @@ export function CountyPage({ county }: CountyPageProps) {
             </div>
             <div className="mt-8 text-center">
               <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52] text-white" onClick={() => setQuotePopupOpen(true)}>
-                Get a Free Quote
+                Request Free Site Visit
               </Button>
             </div>
           </div>

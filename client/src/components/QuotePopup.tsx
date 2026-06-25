@@ -29,10 +29,10 @@ export function QuotePopup({ open, onOpenChange, locationName }: QuotePopupProps
             className="text-2xl font-bold text-[#2C5F7F] text-center"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Get a Free Quote
+            Request Free Site Visit
           </DialogTitle>
           <DialogDescription className="text-center text-gray-600">
-            Fill out the form below and we'll get back to you within 24 hours
+            Fill out the form below and we'll arrange a free site visit within 24 hours
           </DialogDescription>
         </DialogHeader>
         <div className="mt-4">

@@ -511,7 +511,7 @@ export default function Areas() {
                 className="bg-[#E8B84A] hover:bg-[#d4a63d] text-[#1a3d52] font-semibold px-8 py-6 text-lg"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Get a Free Quote
+                Request Free Site Visit
               </Button>
               <a href="tel:07970566409">
                 <Button variant="outline" className="border-white text-white hover:bg-white hover:text-[#1a3d52] px-8 py-6 text-lg w-full sm:w-auto">
@@ -665,7 +665,7 @@ export default function Areas() {
                 className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Get a Quote for South Yorkshire
+                Request a Free Site Visit for South Yorkshire
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -724,7 +724,7 @@ export default function Areas() {
                 className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Get a Quote for North Yorkshire
+                Request a Free Site Visit for North Yorkshire
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -782,7 +782,7 @@ export default function Areas() {
                 className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Get a Quote for West Yorkshire
+                Request a Free Site Visit for West Yorkshire
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -840,7 +840,7 @@ export default function Areas() {
                 className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Get a Quote for Greater Manchester
+                Request a Free Site Visit for Greater Manchester
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -888,7 +888,7 @@ export default function Areas() {
                 className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Get a Quote for Merseyside
+                Request a Free Site Visit for Merseyside
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -946,7 +946,7 @@ export default function Areas() {
                 className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Get a Quote for Essex
+                Request a Free Site Visit for Essex
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -1005,7 +1005,7 @@ export default function Areas() {
                 className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Get a Quote for Bristol &amp; Bath
+                Request a Free Site Visit for Bristol &amp; Bath
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -1054,7 +1054,7 @@ export default function Areas() {
                 className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Get a Quote for Oxfordshire
+                Request a Free Site Visit for Oxfordshire
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -1103,7 +1103,7 @@ export default function Areas() {
                 className="bg-[#2C5F7F] hover:bg-[#1a3d52]"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Get a Quote for Surrey
+                Request a Free Site Visit for Surrey
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -1153,7 +1153,7 @@ export default function Areas() {
                 <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">35+</div><div className="text-xs text-gray-500">Clients Served</div></div>
               </div>
               <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
-                Get a Quote for Hertfordshire
+                Request a Free Site Visit for Hertfordshire
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -1203,7 +1203,7 @@ export default function Areas() {
                 <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">28+</div><div className="text-xs text-gray-500">Clients Served</div></div>
               </div>
               <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
-                Get a Quote for Bedfordshire
+                Request a Free Site Visit for Bedfordshire
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -1253,7 +1253,7 @@ export default function Areas() {
                 <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">32+</div><div className="text-xs text-gray-500">Clients Served</div></div>
               </div>
               <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
-                Get a Quote for Buckinghamshire
+                Request a Free Site Visit for Buckinghamshire
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -1303,7 +1303,7 @@ export default function Areas() {
                 <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">30+</div><div className="text-xs text-gray-500">Clients Served</div></div>
               </div>
               <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
-                Get a Quote for Berkshire
+                Request a Free Site Visit for Berkshire
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -1353,7 +1353,7 @@ export default function Areas() {
                 <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">45+</div><div className="text-xs text-gray-500">Clients Served</div></div>
               </div>
               <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
-                Get a Quote for Hampshire
+                Request a Free Site Visit for Hampshire
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -1403,7 +1403,7 @@ export default function Areas() {
                 <div className="text-center"><div className="text-2xl font-bold text-[#2C5F7F]">24+</div><div className="text-xs text-gray-500">Clients Served</div></div>
               </div>
               <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
-                Get a Quote for Shropshire
+                Request a Free Site Visit for Shropshire
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -1454,7 +1454,7 @@ export default function Areas() {
               </div>
               <div className="flex gap-3 flex-wrap">
                 <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
-                  Get a Quote for Lancashire
+                  Request a Free Site Visit for Lancashire
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
                 <Link href="/counties/lancashire">
@@ -1511,7 +1511,7 @@ export default function Areas() {
               </div>
               <div className="flex gap-3 flex-wrap">
                 <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
-                  Get a Quote for Tyne &amp; Wear
+                  Request a Free Site Visit for Tyne &amp; Wear
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
                 <Link href="/counties/tyne-and-wear">
@@ -1566,7 +1566,7 @@ export default function Areas() {
               </div>
               <div className="flex gap-3 flex-wrap">
                 <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
-                  Get a Quote for County Durham
+                  Request a Free Site Visit for County Durham
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
                 <Link href="/counties/durham">
@@ -1621,7 +1621,7 @@ export default function Areas() {
               </div>
               <div className="flex gap-3 flex-wrap">
                 <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
-                  Get a Quote for Northumberland
+                  Request a Free Site Visit for Northumberland
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
                 <Link href="/counties/northumberland">
@@ -1676,7 +1676,7 @@ export default function Areas() {
               </div>
               <div className="flex gap-3 flex-wrap">
                 <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
-                  Get a Quote for Cumbria
+                  Request a Free Site Visit for Cumbria
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
                 <Link href="/counties/cumbria">

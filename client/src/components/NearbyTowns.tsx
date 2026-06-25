@@ -52,7 +52,7 @@ export const NearbyTowns: React.FC<NearbyTownsProps> = ({ locationName, towns })
                     href="/contact"
                     className="inline-flex items-center justify-center px-6 py-3 bg-[#2C5F7F] text-white font-semibold rounded-lg hover:bg-[#1a3d52] transition-colors duration-200"
                   >
-                    Request a Quote
+                    Request Free Site Visit
                   </a>
                   <a
                     href="tel:07970566409"

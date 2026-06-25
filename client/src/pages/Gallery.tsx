@@ -537,7 +537,7 @@ export default function Gallery() {
             Get in touch today and let us show you what professional shot blasting can do for your project.
           </p>
           <div className="flex justify-center gap-4">
-            <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>Get a Free Quote</Button>
+            <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>Request Free Site Visit</Button>
             <a href="tel:07970566409">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 <Phone className="w-4 h-4 mr-2" /> Call Us

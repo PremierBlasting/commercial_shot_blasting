@@ -127,7 +127,7 @@ export default function ServiceDetail() {
           <p className="text-xl text-white/90 mb-6 max-w-2xl">{service.tagline}</p>
           <div className="flex flex-wrap gap-4">
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>
-              Get a Free Quote
+              Request Free Site Visit
             </Button>
             <a href="tel:07970566409">
               <Button variant="outline" className="border-white text-white hover:bg-white/10">
@@ -1479,14 +1479,14 @@ export default function ServiceDetail() {
               <Card className="sticky top-24">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    Get a Free Quote
+                    Request Free Site Visit
                   </h3>
                   <p className="text-gray-600 mb-6">
                     Ready to discuss your {service.shortTitle.toLowerCase()} project? Contact us for a free, no-obligation quote.
                   </p>
                   <div className="space-y-3">
                     <Button className="w-full bg-[#2C5F7F] hover:bg-[#234a63]" onClick={openQuotePopup}>
-                      Request Quote
+                      Request Site Visit
                     </Button>
                     <a href="tel:07970566409" className="block">
                       <Button variant="outline" className="w-full border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F]/10">
@@ -1654,7 +1654,7 @@ export default function ServiceDetail() {
             {/* Right: HubSpot form */}
             <div className="bg-white rounded-2xl shadow-md p-6 lg:p-8">
               <h3 className="text-xl font-bold text-[#2C5F7F] mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Get Your Free Quote
+                Request a Free Site Visit
               </h3>
               <p className="text-sm text-gray-500 mb-4">We respond within 24 hours</p>
               <HubSpotForm className="hubspot-service-inline-form" />
@@ -1674,7 +1674,7 @@ export default function ServiceDetail() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 text-lg px-8 py-6" onClick={openQuotePopup}>
-              Get Your Free Quote
+              Request a Free Site Visit
             </Button>
             <a href="tel:07970566409">
               <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6">
@@ -1758,7 +1758,7 @@ export default function ServiceDetail() {
             onClick={() => setQuotePopupOpen(true)}
           >
             <ArrowRight className="w-4 h-4" />
-            Get a Free Quote
+            Request Free Site Visit
           </button>
           <a
             href="tel:07970566409"
