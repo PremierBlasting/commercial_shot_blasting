@@ -33,15 +33,10 @@ export interface LeadFormProps {
 }
 
 const SERVICE_OPTIONS = [
-  "Structural Steel Shot Blasting",
-  "Fire Escapes & Stair Towers",
-  "Staircases & Balustrades",
-  "Factory Cladding & Roofing",
+  "Structural Steelwork",
+  "Factory, Cladding & Roofing",
   "Machinery & Equipment",
-  "Rust & Paint Removal",
-  "Intumescent Coating Preparation",
-  "Factory Floor Preparation",
-  "Bridge & Infrastructure",
+  "Floors & Surfaces",
   "Other / Not Sure",
 ];
 
