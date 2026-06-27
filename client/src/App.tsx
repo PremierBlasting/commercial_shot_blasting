@@ -52,6 +52,7 @@ const CallAnalytics = lazy(() => import("./pages/CallAnalytics"));
 const Reviews = lazy(() => import("./pages/Reviews"));
 const StructuralSteelCaseStudy = lazy(() => import("./pages/StructuralSteelCaseStudy"));
 const SteelFabricationsPage = lazy(() => import("./pages/SteelFabricationsPage"));
+const ExternalStaircasesPage = lazy(() => import("./pages/ExternalStaircasesPage"));
 
 // Lazy-loaded service area pages
 const BirminghamServiceArea = lazy(() => import("./pages/BirminghamServiceArea"));
@@ -239,6 +240,7 @@ function Router() {
         <Route path={"/reviews"} component={Reviews} />
         <Route path={"/case-studies/structural-steel"} component={StructuralSteelCaseStudy} />
         <Route path={"/steel-fabrications"} component={SteelFabricationsPage} />
+        <Route path={"/external-staircases"} component={ExternalStaircasesPage} />
         <Route path={"/services"} component={Services} />
         <Route path={"/services/:id"} component={ServiceDetail} />
         <Route path={"/industries"} component={Industries} />

@@ -8,6 +8,7 @@ export const serviceLinks = [
   { title: "Factory & Warehouse Cladding", href: "/services/factory-cladding", description: "Specialist cladding restoration removing plastisol and paint layers" },
   { title: "Fire Escapes & External Stair Towers", href: "/services/fire-escapes", description: "Specialist surface preparation for fire safety infrastructure" },
   { title: "Internal Steel Staircases, Balustrades & Handrails", href: "/services/staircases", description: "Precision shot blasting for architectural metalwork" },
+  { title: "External Staircases Shot Blasting", href: "/external-staircases", description: "On-site shot blasting of external steel staircases to Sa 2.5 standard" },
   { title: "Bridge Steelwork (Girders, Crossmembers, Parapet Rails)", href: "/services/bridge-steelwork", description: "Comprehensive surface preparation for bridge infrastructure" },
   { title: "Fixed Ladders & Step-Over Platforms", href: "/services/ladders", description: "Comprehensive surface preparation for industrial access systems" },
   { title: "Warehouse Racking & Pallet Rack Frames", href: "/services/warehouse-racking", description: "Professional shot blasting for warehouse racking systems" },

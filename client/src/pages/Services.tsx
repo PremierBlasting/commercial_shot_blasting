@@ -15,6 +15,7 @@ const serviceCategories = [
     services: [
       { id: "structural-steel-frames", title: "Structural Steel Shot Blasting" },
       { id: "steel-fabrications", title: "Steel Fabrications Shot Blasting", href: "/steel-fabrications" },
+      { id: "external-staircases", title: "External Staircases Shot Blasting", href: "/external-staircases" },
       { id: "fire-escapes", title: "Fire Escape Shot Blasting" },
       { id: "warehouse-racking", title: "Racking & Mezzanine Blasting" },
       { id: "steel-gates", title: "Steel Gates & Railings" },
@@ -52,6 +53,7 @@ const serviceCategories = [
 const allServices = [
   { id: "structural-steel-frames", title: "Structural Steel Shot Blasting", description: "High-performance cleaning for steel structures, removing rust, mill scale, and old coatings.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sUfXaBUgQWNMAvEc.webp" },
   { id: "steel-fabrications", title: "Steel Fabrications Shot Blasting", description: "On-site shot blasting for fabricated steelwork — frames, base plates, arch sections, and channel assemblies blasted to Sa 2.5 standard.", image: "/manus-storage/SteelFabrications1After_ff77c1d1.jpg", href: "/steel-fabrications" },
+  { id: "external-staircases", title: "External Staircases Shot Blasting", description: "On-site shot blasting of external steel staircases — rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required.", image: "/manus-storage/SteelFabrications1After_ff77c1d1.jpg", href: "/external-staircases" },
   { id: "fire-escapes", title: "Fire Escape Shot Blasting", description: "Complete restoration of fire escape structures, ensuring safety compliance and longevity.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oySJrMBHyyuJOevk.webp" },
   { id: "warehouse-racking", title: "Racking & Mezzanine Blasting", description: "Complete refurbishment of storage systems, extending service life and improving appearance.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WmoactuoGfwMmVwl.webp" },
   { id: "steel-gates", title: "Steel Gates & Railings", description: "Precision restoration for commercial and industrial entrance gates, perimeter railings, and decorative metalwork.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/dIVmiYILOzXbQFlg.webp" },
