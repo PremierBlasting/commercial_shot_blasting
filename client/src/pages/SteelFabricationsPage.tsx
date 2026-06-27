@@ -42,10 +42,10 @@ const JSONLD_ARTICLE = {
 
 const faqs = [
   { question: "What standard do you blast fabrications to?", answer: "We blast all fabrications to Sa 2.5 near-white metal standard with an Rz 50–75 μm anchor profile — the specification required by most protective coating systems including epoxy, polyurethane, and intumescent paints." },
-  { question: "What sizes of fabrication can you handle?", answer: "Our blast cabinet accommodates pieces from small brackets and base plates up to large structural frames. Contact us with your dimensions and we'll confirm suitability before booking." },
-  { question: "How long does it take?", answer: "Most fabrication batches are turned around within 24–48 hours. Larger or more complex batches may take slightly longer — we'll give you an accurate estimate when you enquire." },
-  { question: "Do you offer collection and delivery?", answer: "Yes. We can collect fabrications from your site and return them once blasted, or you can drop them at our facility. We cover England and Wales." },
-  { question: "Can you blast mixed batches of different shapes?", answer: "Absolutely. Our blast cabinet handles mixed batches of different shapes and sizes simultaneously — frames, plates, channels, and curved sections can all be processed together, reducing cost per piece." },
+  { question: "Do you come to our site?", answer: "Yes — we always work on-site at your premises. We bring all our mobile blasting equipment to you, so there's no need to transport your fabrications anywhere. We cover England and Wales." },
+  { question: "How long does it take?", answer: "Timescales depend on the volume and complexity of your fabrications. We'll give you an accurate estimate when you enquire, and we work around your schedule to minimise disruption." },
+  { question: "Can you blast while other work is ongoing?", answer: "Yes. Our mobile setup is self-contained and we can work in a designated area of your site while other trades continue elsewhere. We discuss logistics with you before starting." },
+  { question: "Can you blast mixed batches of different shapes?", answer: "Absolutely. We handle mixed batches of different shapes and sizes on-site — frames, plates, channels, and curved sections can all be processed in the same visit, reducing cost per piece." },
 ];
 
 export default function SteelFabricationsPage() {
@@ -142,10 +142,10 @@ export default function SteelFabricationsPage() {
                   About This Service
                 </h2>
                 <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                  Steel fabrications arrive at our facility coated in rust, mill scale, and old paint. Using iron silicate (copper slag) media in our enclosed blast cabinet, we remove all surface contamination and create the anchor profile that coatings need to bond permanently.
+                  We come to your site and blast your steel fabrications on location — no need to transport anything. Using iron silicate (copper slag) media, we remove all rust, mill scale, and old paint, creating the anchor profile that coatings need to bond permanently.
                 </p>
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  Every piece is blasted to <strong>Sa 2.5 near-white metal standard</strong> with an <strong>Rz 50–75 μm anchor profile</strong> — the specification required by most protective coating systems. Fabrications leave our facility ready for immediate priming, powder coating, or galvanising.
+                  Every piece is blasted to <strong>Sa 2.5 near-white metal standard</strong> with an <strong>Rz 50–75 μm anchor profile</strong> — the specification required by most protective coating systems. Your fabrications are ready for immediate priming, powder coating, or galvanising without leaving your premises.
                 </p>
               </div>
 
@@ -157,12 +157,12 @@ export default function SteelFabricationsPage() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   {[
                     "Sa 2.5 standard achieved on every piece — no exceptions",
-                    "Enclosed blast cabinet for all-face coverage including internal sections",
+                    "We come to you — no transport costs or delays",
                     "Iron silicate media for consistent Rz 50–75 μm anchor profile",
-                    "24–48 hour turnaround on most fabrication batches",
-                    "Collection and return service across England and Wales",
+                    "Fast turnaround — minimal disruption to your production schedule",
+                    "Mobile service covering England and Wales",
                     "Fully documented process with job references maintained throughout",
-                    "Mixed batches of different shapes and sizes processed together",
+                    "Mixed batches of different shapes and sizes processed on-site",
                     "Curved sections, channels, and complex profiles handled with ease",
                   ].map((benefit, i) => (
                     <div key={i} className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm">
@@ -206,7 +206,7 @@ export default function SteelFabricationsPage() {
                           <img src={images.p1During} alt="Project 1 During — steel frames inside blast cabinet mid-process" className="w-full h-full object-cover" loading="lazy" width={800} height={600} />
                           <div className="absolute top-3 left-3 bg-amber-600/90 text-white px-3 py-1 rounded-full text-sm font-semibold">During</div>
                         </div>
-                        <p className="text-sm text-gray-600">Inside the enclosed blast cabinet mid-process</p>
+                        <p className="text-sm text-gray-600">On-site blasting in progress at the customer's premises</p>
                       </div>
                       <div className="space-y-2">
                         <div className="relative rounded-lg overflow-hidden shadow-lg aspect-[4/3]">
@@ -232,7 +232,7 @@ export default function SteelFabricationsPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                       <BeforeAfterSlider beforeImage={images.p2Before} afterImage={images.p2After} beforeLabel="Before" afterLabel="After" className="shadow-xl" />
                       <div className="space-y-4">
-                        <p className="text-gray-700 leading-relaxed">A large fabricated steel frame with heavy rust and surface contamination, positioned in our blast cabinet. The frame carries job reference markings confirming traceability throughout the process.</p>
+                        <p className="text-gray-700 leading-relaxed">A large fabricated steel frame with heavy rust and surface contamination, blasted on-site at the customer's premises. The frame carries job reference markings confirming traceability throughout the process.</p>
                         <p className="text-gray-700 leading-relaxed">After blasting, the frame shows a clean, uniform surface with no residual rust, mill scale, or old coatings. The white-grey appearance is characteristic of a freshly blasted Sa 2.5 surface, ready for immediate priming.</p>
                         <div className="bg-blue-50 border border-blue-100 rounded-lg p-4">
                           <div className="text-sm font-semibold text-[#2C5F7F] mb-2">Specification Achieved</div>
@@ -329,11 +329,11 @@ export default function SteelFabricationsPage() {
                 </h2>
                 <div className="space-y-4">
                   {[
-                    { step: 1, title: "Collection or Drop-Off", description: "We collect fabrications from your site or you can drop them at our blast facility. We handle pieces of all sizes — from small brackets to large structural frames." },
-                    { step: 2, title: "Blast Cabinet Preparation", description: "Fabrications are positioned in our enclosed blast cabinet, ensuring every surface — including internal faces, welds, and recesses — is fully accessible." },
-                    { step: 3, title: "Iron Silicate Shot Blasting", description: "We blast using iron silicate (copper slag) media to achieve Sa 2.5 near-white metal standard with an Rz 50–75 μm anchor profile ideal for paint and coating adhesion." },
-                    { step: 4, title: "Quality Inspection", description: "Each piece is inspected against the Sa 2.5 standard before leaving our facility. Any areas that need additional passes are re-blasted at no extra cost." },
-                    { step: 5, title: "Return or Collection", description: "Finished fabrications are returned to your site or collected by your team, ready for immediate priming or coating application." },
+                    { step: 1, title: "Site Survey & Setup", description: "We visit your site, assess the fabrications, agree the scope of work, and set up our mobile blasting equipment. We work around your schedule to minimise disruption." },
+                    { step: 2, title: "Surface Preparation", description: "Any loose material, grease, or contamination is removed before blasting begins, ensuring the iron silicate media can work directly on the steel surface." },
+                    { step: 3, title: "On-Site Shot Blasting", description: "We blast using iron silicate (copper slag) media to achieve Sa 2.5 near-white metal standard with an Rz 50–75 μm anchor profile — all carried out at your premises." },
+                    { step: 4, title: "Quality Inspection", description: "Each piece is inspected against the Sa 2.5 standard on-site. Any areas that need additional passes are re-blasted at no extra cost before we leave." },
+                    { step: 5, title: "Ready for Coating", description: "Your fabrications are left on-site, clean and profiled, ready for immediate priming, powder coating, or galvanising without any transport delays." },
                   ].map((s) => (
                     <div key={s.step} className="flex gap-4 bg-white p-6 rounded-lg shadow-sm">
                       <div className="w-10 h-10 rounded-full bg-[#2C5F7F] text-white flex items-center justify-center font-bold flex-shrink-0">{s.step}</div>
@@ -410,8 +410,7 @@ export default function SteelFabricationsPage() {
                     Request A Site Visit
                   </h3>
                   <p className="text-gray-600 mb-6">
-                    Ready to discuss your fabrications project? Contact us for a no-obligation quote.
-                  </p>
+                Ready to discuss your fabrications project? We come to you — contact us for a no-obligation quote.               </p>
                   <div className="space-y-3">
                     <Button className="w-full bg-[#2C5F7F] hover:bg-[#234a63]" onClick={() => setQuotePopupOpen(true)}>
                       Request Site Visit
@@ -443,8 +442,8 @@ export default function SteelFabricationsPage() {
                       { label: "Surface Standard", value: "Sa 2.5 Near-White Metal" },
                       { label: "Anchor Profile", value: "Rz 50–75 μm" },
                       { label: "Blast Media", value: "Iron Silicate (Copper Slag)" },
-                      { label: "Method", value: "Enclosed Blast Cabinet" },
-                      { label: "Turnaround", value: "24–48 Hours Typical" },
+{ label: "Method", value: "Mobile On-Site Blasting" },
+                    { label: "Coverage", value: "England & Wales" },
                     ].map(({ label, value }) => (
                       <div key={label} className="flex justify-between gap-2 border-b border-gray-100 pb-2 last:border-0 last:pb-0">
                         <span className="text-gray-500">{label}</span>
@@ -480,7 +479,7 @@ export default function SteelFabricationsPage() {
                       <Clock className="w-5 h-5 text-[#2C5F7F] mt-0.5" />
                       <div>
                         <h4 className="font-semibold text-gray-800">Fast Turnaround</h4>
-                        <p className="text-sm text-gray-600">24–48 hr on most batches</p>
+                        <p className="text-sm text-gray-600">Mobile — we come to you</p>
                       </div>
                     </div>
                   </div>
