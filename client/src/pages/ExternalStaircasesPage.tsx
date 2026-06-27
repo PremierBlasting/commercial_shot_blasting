@@ -131,10 +131,9 @@ export default function ExternalStaircasesPage() {
       {/* Stats bar */}
       <section className="bg-[#1a3d52] text-white py-6 border-t border-white/10">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-3 gap-6 text-center">
             {[
               { value: "Sa 2.5", label: "Surface Standard" },
-              { value: "Rz 50–75μm", label: "Anchor Profile" },
               { value: "1–2 days", label: "Typical Turnaround" },
               { value: "100%", label: "On-Site Service" },
             ].map(({ value, label }) => (
@@ -355,7 +354,6 @@ export default function ExternalStaircasesPage() {
                   <div className="space-y-3 text-sm">
                     {[
                       { label: "Surface Standard", value: "Sa 2.5 Near-White Metal" },
-                      { label: "Anchor Profile", value: "Rz 50–75 μm" },
                       { label: "Blast Media", value: "Iron Silicate (Copper Slag)" },
                       { label: "Method", value: "Mobile On-Site Blasting" },
                       { label: "Turnaround", value: "1–2 Days Typical" },
