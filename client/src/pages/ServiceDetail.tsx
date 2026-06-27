@@ -547,6 +547,18 @@ export default function ServiceDetail() {
                       Learn More <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
+
+                  {/* Steel Fabrications Gallery CTA */}
+                  <div className="mt-8 p-5 rounded-xl border border-[#7EC8E3]/40 bg-gradient-to-r from-[#e8f4f9] to-[#f0f8ff] flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <div className="flex-1">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-[#2C5F7F]/70 mb-1">Project Gallery</p>
+                      <p className="text-lg font-bold text-slate-900" style={{ fontFamily: "'Playfair Display', serif" }}>Steel Fabrications — Before &amp; After Photos</p>
+                      <p className="text-sm text-gray-600 mt-1">See 5 real fabrication projects: frames, base plates, arch fabrications, and channel assemblies blasted to Sa 2.5 standard — with interactive before/after sliders and a during shot inside our blast cabinet.</p>
+                    </div>
+                    <Link href="/steel-fabrications" className="flex-shrink-0 inline-flex items-center gap-2 bg-[#2C5F7F] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#1e4a63] transition-colors whitespace-nowrap">
+                      View Gallery <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
                 </div>
               )}
 
