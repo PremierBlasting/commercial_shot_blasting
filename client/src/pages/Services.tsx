@@ -14,6 +14,7 @@ const serviceCategories = [
     color: "#2C5F7F",
     services: [
       { id: "structural-steel-frames", title: "Structural Steel Shot Blasting" },
+      { id: "steel-fabrications", title: "Steel Fabrications Shot Blasting", href: "/steel-fabrications" },
       { id: "fire-escapes", title: "Fire Escape Shot Blasting" },
       { id: "warehouse-racking", title: "Racking & Mezzanine Blasting" },
       { id: "steel-gates", title: "Steel Gates & Railings" },
@@ -50,6 +51,7 @@ const serviceCategories = [
 // Full service list for the image grid below
 const allServices = [
   { id: "structural-steel-frames", title: "Structural Steel Shot Blasting", description: "High-performance cleaning for steel structures, removing rust, mill scale, and old coatings.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sUfXaBUgQWNMAvEc.webp" },
+  { id: "steel-fabrications", title: "Steel Fabrications Shot Blasting", description: "On-site shot blasting for fabricated steelwork — frames, base plates, arch sections, and channel assemblies blasted to Sa 2.5 standard.", image: "/manus-storage/SteelFabrications1After_ff77c1d1.jpg", href: "/steel-fabrications" },
   { id: "fire-escapes", title: "Fire Escape Shot Blasting", description: "Complete restoration of fire escape structures, ensuring safety compliance and longevity.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oySJrMBHyyuJOevk.webp" },
   { id: "warehouse-racking", title: "Racking & Mezzanine Blasting", description: "Complete refurbishment of storage systems, extending service life and improving appearance.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WmoactuoGfwMmVwl.webp" },
   { id: "steel-gates", title: "Steel Gates & Railings", description: "Precision restoration for commercial and industrial entrance gates, perimeter railings, and decorative metalwork.", image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/dIVmiYILOzXbQFlg.webp" },
@@ -175,7 +177,7 @@ export default function Services() {
                     {category.services.map((service) => (
                       <Link
                         key={service.id}
-                        href={`/services/${service.id}`}
+                        href={(service as any).href ?? `/services/${service.id}`}
                         className="flex items-center justify-between px-5 py-3 hover:bg-gray-50 transition-colors group"
                       >
                         <span className="text-gray-800 text-sm font-medium group-hover:text-[#2C5F7F]">{service.title}</span>
@@ -194,7 +196,7 @@ export default function Services() {
       <section className="py-16 bg-white">
         <div className="container">
           <div className="text-center mb-10">
-            <p className="text-[#2C5F7F] font-medium mb-2">All 18 Services</p>
+            <p className="text-[#2C5F7F] font-medium mb-2">All 19 Services</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
               Our Complete Shot Blasting Service Range
             </h2>
@@ -202,7 +204,7 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {allServices.map((service, idx) => (
               <ScrollReveal key={service.id} delay={Math.min(idx % 3, 2) * 80}>
-                <Link href={`/services/${service.id}`} className="block group">
+                <Link href={(service as any).href ?? `/services/${service.id}`} className="block group">
                   <div className="rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-300 h-full bg-white">
                     <div className="h-52 overflow-hidden">
                       <img loading="lazy"
