@@ -207,6 +207,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                       <div className="px-4 py-2 text-white text-sm font-bold" style={{ backgroundColor: '#2C5F7F' }}>Structural &amp; Architectural</div>
                       {[
                         { title: 'Structural Steel Shot Blasting', href: '/services/structural-steel-frames' },
+                        { title: 'Steel Fabrications Gallery', href: '/steel-fabrications' },
                         { title: 'Fire Escape Shot Blasting', href: '/services/fire-escapes' },
                         { title: 'Racking & Mezzanine Blasting', href: '/services/warehouse-racking' },
                         { title: 'Steel Gates & Railings', href: '/services/steel-gates' },
@@ -404,12 +405,6 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             onMouseEnter={() => prefetch('/our-work')}
             onMouseLeave={cancelPrefetch}
           >Our Work</Link>
-          <Link 
-            href="/steel-fabrications" 
-            className="hover:text-white/80 transition"
-            onMouseEnter={() => prefetch('/steel-fabrications')}
-            onMouseLeave={cancelPrefetch}
-          >Steel Fabrications</Link>
           <Link 
             href="/reviews" 
             className="hover:text-white/80 transition"
@@ -637,7 +632,6 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             
             <Link href="/preparation-cleanup" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Prep & Cleanup</Link>
             <Link href="/our-work" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Our Work</Link>
-            <Link href="/steel-fabrications" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Steel Fabrications</Link>
             <Link href="/reviews" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Reviews</Link>
             <Link href="/blog" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Blog</Link>
             

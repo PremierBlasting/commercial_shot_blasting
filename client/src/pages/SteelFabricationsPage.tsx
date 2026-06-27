@@ -1,4 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { QuotePopup } from "@/components/QuotePopup";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
@@ -114,6 +117,8 @@ const processSteps = [
 ];
 
 export default function SteelFabricationsPage() {
+  const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+
   useSEO({
     title: "Steel Fabrications Shot Blasting | Before & After Gallery | Commercial Shot Blasting",
     description: "See real before and after photos of fabricated steelwork shot blasted to Sa 2.5 standard. Frames, base plates, arch fabrications, and channel assemblies — all blasted clean and ready for coating.",
@@ -140,7 +145,8 @@ export default function SteelFabricationsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen flex flex-col bg-white">
+      <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
       {/* ── Hero ──────────────────────────────────────────────────────────────── */}
       <section className="relative bg-gradient-to-br from-[#1a2e3d] via-[#2C5F7F] to-[#1a3d52] text-white py-20 md:py-28">
         <div className="absolute inset-0 opacity-10"
@@ -612,6 +618,8 @@ export default function SteelFabricationsPage() {
           />
         </div>
       </section>
+      <Footer />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
     </div>
   );
 }
