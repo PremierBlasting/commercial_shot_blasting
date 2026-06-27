@@ -353,6 +353,116 @@ const galleryItems = [
     results: "Complete paint and corrosion removal achieved across the side profile with all casting detail preserved. The clean surface was ready for the client's marine-grade coating specification."
   },
   // Infrastructure Projects
+
+  // Steel Fabrications Projects
+  {
+    id: 30,
+    title: "Steel Fabrications — Project 1",
+    category: "Steel Fabrications",
+    description: "Fabricated steelwork blasted from heavy rust and mill scale to Sa 2.5 near-white metal standard — before, during, and after",
+    detailedDescription: "This steel fabrications project shows the full transformation of heavily rusted and scaled fabricated steelwork. Our team attended site and shot blasted the components in place, achieving Sa 2.5 near-white metal standard throughout. The during photo clearly shows the blasting process in action, stripping the surface back to clean bare metal ready for immediate priming and protective coating.",
+    before: "/manus-storage/SteelFabrications1before_090ae51a.jpg",
+    beforeImage: "/manus-storage/SteelFabrications1before_090ae51a.jpg",
+    after: "/manus-storage/SteelFabrications1After_ff77c1d1.jpg",
+    afterImage: "/manus-storage/SteelFabrications1After_ff77c1d1.jpg",
+    additionalImages: [
+      "/manus-storage/SteelFabrications1During_856056db.jpg"
+    ],
+    completionDate: "June 2026",
+    specifications: [
+      "Sa 2.5 near-white metal standard achieved",
+      "Complete rust and mill scale removal",
+      "On-site mobile shot blasting",
+      "Ready for immediate priming and coating",
+      "All fabricated profiles and sections treated"
+    ],
+    challenges: "The fabricated steelwork had accumulated heavy rust and mill scale across complex profiles including channels, angles, and plate sections. On-site blasting required careful containment and systematic working to ensure full coverage across all surfaces.",
+    results: "All fabricated steelwork was blasted to Sa 2.5 near-white metal standard with a consistent surface profile throughout. The components were ready for immediate priming, eliminating transport delays and reducing overall project time."
+  },
+  {
+    id: 31,
+    title: "Steel Fabrications — Project 2",
+    category: "Steel Fabrications",
+    description: "Fabricated steel components shot blasted on-site to Sa 2.5 — rust and scale fully removed",
+    detailedDescription: "Project 2 in our steel fabrications portfolio demonstrates the transformation of fabricated steel components from heavily corroded surfaces to clean bare metal. Shot blasted on-site to Sa 2.5 near-white metal standard, the components were ready for protective coating immediately after blasting with no transport required.",
+    before: "/manus-storage/SteelFabrications2before_c3997659.jpg",
+    beforeImage: "/manus-storage/SteelFabrications2before_c3997659.jpg",
+    after: "/manus-storage/SteelFabrications2After_beae57f5.jpg",
+    afterImage: "/manus-storage/SteelFabrications2After_beae57f5.jpg",
+    completionDate: "June 2026",
+    specifications: [
+      "Sa 2.5 near-white metal standard",
+      "On-site mobile shot blasting",
+      "Complete rust and contamination removal",
+      "Coating-ready surface profile",
+      "No transport required"
+    ],
+    challenges: "Achieving consistent Sa 2.5 across varied section thicknesses and profiles required careful pressure management throughout the job.",
+    results: "All components blasted to specification with a uniform surface profile. Ready for immediate coating application on-site."
+  },
+  {
+    id: 32,
+    title: "Steel Fabrications — Project 3",
+    category: "Steel Fabrications",
+    description: "On-site shot blasting of fabricated steelwork — mill scale and rust stripped to bare metal",
+    detailedDescription: "Project 3 showcases our on-site shot blasting capability for fabricated steelwork. The before image shows the extent of mill scale and rust present on the fabricated sections. After blasting, the after image reveals a clean, uniform bare metal surface profile ready for priming.",
+    before: "/manus-storage/SteelFabrications3Before_b1e94331.jpg",
+    beforeImage: "/manus-storage/SteelFabrications3Before_b1e94331.jpg",
+    after: "/manus-storage/SteelFabrications3After_434a8bd1.jpg",
+    afterImage: "/manus-storage/SteelFabrications3After_434a8bd1.jpg",
+    completionDate: "June 2026",
+    specifications: [
+      "Sa 2.5 near-white metal standard",
+      "Mill scale and rust removal",
+      "On-site mobile blasting unit",
+      "Uniform surface profile throughout",
+      "Ready for priming and coating"
+    ],
+    challenges: "Mill scale on new fabrications can be particularly stubborn to remove uniformly. Careful abrasive selection and pressure settings ensured complete removal without over-blasting.",
+    results: "Clean bare metal surface achieved across all sections. Consistent surface profile ready for the client's coating specification."
+  },
+  {
+    id: 33,
+    title: "Steel Fabrications — Project 4",
+    category: "Steel Fabrications",
+    description: "Fabricated steel sections blasted to Sa 2.5 on-site — coating-ready finish achieved",
+    detailedDescription: "Project 4 in our steel fabrications gallery shows the before and after of fabricated steel sections shot blasted on-site. The work was carried out at the client's premises, removing all rust, mill scale, and surface contamination to achieve a Sa 2.5 near-white metal finish ready for the client's protective coating system.",
+    before: "/manus-storage/SteelFabrications4before_dad326c3.jpg",
+    beforeImage: "/manus-storage/SteelFabrications4before_dad326c3.jpg",
+    after: "/manus-storage/SteelFabrications4After_f09f90c9.jpg",
+    afterImage: "/manus-storage/SteelFabrications4After_f09f90c9.jpg",
+    completionDate: "June 2026",
+    specifications: [
+      "Sa 2.5 near-white metal standard",
+      "On-site at client premises",
+      "Complete surface contamination removal",
+      "Rz 50–75μm anchor profile",
+      "Immediate coating-ready finish"
+    ],
+    challenges: "Working at the client's premises required careful dust and abrasive containment to protect surrounding areas and equipment.",
+    results: "Sa 2.5 surface standard achieved across all fabricated sections. Client was able to proceed with coating immediately after blasting."
+  },
+  {
+    id: 34,
+    title: "Steel Fabrications — Project 5",
+    category: "Steel Fabrications",
+    description: "Final steel fabrications project — heavily rusted fabricated steelwork restored to near-white metal",
+    detailedDescription: "The fifth project in our steel fabrications portfolio demonstrates the dramatic transformation possible with on-site shot blasting. Heavily rusted fabricated steelwork was blasted back to Sa 2.5 near-white metal standard, providing the ideal surface for a long-lasting protective coating system.",
+    before: "/manus-storage/SteelFabrications5before_ca2e0610.jpg",
+    beforeImage: "/manus-storage/SteelFabrications5before_ca2e0610.jpg",
+    after: "/manus-storage/SteelFabrications5After_0ea5c92c.jpg",
+    afterImage: "/manus-storage/SteelFabrications5After_0ea5c92c.jpg",
+    completionDate: "June 2026",
+    specifications: [
+      "Sa 2.5 near-white metal standard",
+      "Heavy rust removal from fabricated sections",
+      "On-site mobile shot blasting",
+      "Uniform surface profile for coating adhesion",
+      "24–48hr typical turnaround"
+    ],
+    challenges: "Heavy rust penetration on some sections required extended blasting time to achieve the required Sa 2.5 standard without damaging the underlying metal.",
+    results: "All fabricated steelwork restored to near-white metal standard. The client was impressed with the thoroughness of the rust removal and the quality of the surface profile achieved."
+  }
 ];
 
 const categories = [
@@ -368,6 +478,7 @@ const categories = [
   { name: "Agriculture", icon: "🌾" },
   { name: "Marine & Offshore", icon: "⚓" },
   { name: "Staircases", icon: "🪜" },
+  { name: "Steel Fabrications", icon: "🔧" },
 ];
 
 const testimonials = [
