@@ -44,6 +44,13 @@ export default function MarineIndustry() {
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yXusfqsGJHZwuETv.webp",
       link: "/services/ladders",
       benefits: ["Corrosion protection", "Extended service life", "Minimal downtime"]
+    },
+    {
+      title: "Steel Fabrications Shot Blasting",
+      description: "On-site shot blasting for fabricated marine steelwork — frames, brackets, and structural assemblies blasted to Sa 2.5 near-white metal standard. Ideal preparation for marine-grade coatings and corrosion protection systems.",
+      image: "/manus-storage/SteelFabrications1After_ff77c1d1.jpg",
+      link: "/steel-fabrications",
+      benefits: ["Sa 2.5 near-white metal", "Marine coating ready", "On-site service"]
     }
   ];
 

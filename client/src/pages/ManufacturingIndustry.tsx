@@ -49,7 +49,14 @@ export default function ManufacturingIndustry() {
       description: "Fire protection coating for structural steel and plant equipment. Applied after shot blasting to the required Sa 2.5 profile, achieving R30 to R120 fire resistance ratings. Ideal for factories, warehouses, and industrial facilities requiring passive fire protection.",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WmoactuoGfwMmVwl.webp",
       link: "/services/intumescent-painting",
-      benefits: ["R30\u2013R120 fire ratings", "Passive fire protection", "Combined blast & coat"]
+      benefits: ["R30–R120 fire ratings", "Passive fire protection", "Combined blast & coat"]
+    },
+    {
+      title: "Steel Fabrications Shot Blasting",
+      description: "On-site shot blasting for fabricated components — frames, base plates, bracket assemblies, and channel sections blasted to Sa 2.5 near-white metal standard. We come to your facility, no transport required, minimising production delays.",
+      image: "/manus-storage/SteelFabrications1After_ff77c1d1.jpg",
+      link: "/steel-fabrications",
+      benefits: ["Sa 2.5 standard guaranteed", "On-site service", "Minimal production disruption"]
     }
   ];
 

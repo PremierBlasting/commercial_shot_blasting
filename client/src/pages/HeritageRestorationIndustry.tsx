@@ -44,6 +44,13 @@ export default function HeritageRestorationIndustry() {
       image: "/service-commercial-radiators.png",
       link: "/services/commercial-radiators",
       benefits: ["Museum quality", "Artifact preservation", "Documentation"]
+    },
+    {
+      title: "Steel Fabrications Shot Blasting",
+      description: "On-site shot blasting for fabricated heritage steelwork — replacement sections, repair brackets, and new structural inserts blasted to Sa 2.5 near-white metal standard before priming and coating to match original finishes.",
+      image: "/manus-storage/SteelFabrications1After_ff77c1d1.jpg",
+      link: "/steel-fabrications",
+      benefits: ["Sa 2.5 standard", "Coating-ready finish", "On-site service"]
     }
   ];
 

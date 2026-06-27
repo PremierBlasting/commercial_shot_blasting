@@ -50,7 +50,14 @@ export default function ConstructionIndustry() {
       description: "Fire protection coating applied directly after shot blasting to achieve the required Sa 2.5 surface profile. We prepare and coat structural steel to R30, R60, R90, and R120 fire resistance ratings — a single-supplier solution that saves time and cost.",
       image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sUfXaBUgQWNMAvEc.webp",
       link: "/services/intumescent-painting",
-      benefits: ["R30\u2013R120 fire ratings", "BS EN ISO 12944 compliant", "Combined blast & coat service"]
+      benefits: ["R30–R120 fire ratings", "BS EN ISO 12944 compliant", "Combined blast & coat service"]
+    },
+    {
+      title: "Steel Fabrications Shot Blasting",
+      description: "On-site shot blasting for fabricated steelwork — frames, base plates, arch sections, channels, and bracket assemblies blasted to Sa 2.5 near-white metal standard. We come to your site, no transport required.",
+      image: "/manus-storage/SteelFabrications1After_ff77c1d1.jpg",
+      link: "/steel-fabrications",
+      benefits: ["Sa 2.5 standard guaranteed", "All shapes and profiles", "No transport required"]
     }
   ];
 
