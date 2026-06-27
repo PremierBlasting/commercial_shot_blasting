@@ -1008,3 +1008,12 @@
 - [x] Replace inline forms on all standalone service area pages (Chester, Coventry, Derby, Gloucester, Hereford, Leicester, Lincoln, Norwich, Nottingham, Shrewsbury, St Albans, Stoke, Swindon, Wolverhampton, Worcester, Birmingham, Bristol) with LeadForm
 - [x] Replace form on ServiceDetail page with LeadForm
 - [x] Save checkpoint and deploy
+
+
+## Round 59 — Steel Fabrications Page
+
+- [x] Upload all 11 steel fabrications images to S3 CDN
+- [x] Create SteelFabricationsPage.tsx with hero, 5 project galleries, stats, LeadForm, JSON-LD
+- [x] Register /steel-fabrications route in App.tsx
+- [x] Add Steel Fabrications link to Header.tsx navigation (desktop + mobile)
+- [x] Add /steel-fabrications to sitemap.ts

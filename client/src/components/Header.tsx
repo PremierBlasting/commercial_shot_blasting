@@ -405,6 +405,12 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             onMouseLeave={cancelPrefetch}
           >Our Work</Link>
           <Link 
+            href="/steel-fabrications" 
+            className="hover:text-white/80 transition"
+            onMouseEnter={() => prefetch('/steel-fabrications')}
+            onMouseLeave={cancelPrefetch}
+          >Steel Fabrications</Link>
+          <Link 
             href="/reviews" 
             className="hover:text-white/80 transition"
             onMouseEnter={() => prefetch('/reviews')}
@@ -631,6 +637,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             
             <Link href="/preparation-cleanup" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Prep & Cleanup</Link>
             <Link href="/our-work" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Our Work</Link>
+            <Link href="/steel-fabrications" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Steel Fabrications</Link>
             <Link href="/reviews" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Reviews</Link>
             <Link href="/blog" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Blog</Link>
             
