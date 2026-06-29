@@ -25,19 +25,64 @@ const images = {
   p5After:  "/manus-storage/SteelFabrications5After_0ea5c92c.jpg",
 };
 
-// ── JSON-LD ────────────────────────────────────────────────────────────────────
-const JSONLD_ARTICLE = {
+// ── JSON-LD — rich schema graph ───────────────────────────────────────────────
+const JSONLD_GRAPH = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Steel Fabrications Shot Blasting — Project Gallery",
-  "description": "Real before-and-after project photos showing shot blasting of fabricated steelwork: frames, base plates, arch fabrications, and channel assemblies blasted to Sa 2.5 standard.",
-  "url": "https://commercialshotblasting.co.uk/steel-fabrications",
-  "image": images.p1After,
-  "author": { "@type": "Organization", "name": "Commercial Shot Blasting", "url": "https://commercialshotblasting.co.uk" },
-  "publisher": { "@type": "Organization", "name": "Commercial Shot Blasting", "url": "https://commercialshotblasting.co.uk", "logo": { "@type": "ImageObject", "url": "https://commercialshotblasting.co.uk/logo.png" } },
-  "datePublished": "2024-06-01",
-  "dateModified": "2025-06-01",
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://commercialshotblasting.co.uk/steel-fabrications" }
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://commercialshotblasting.co.uk/steel-fabrications#service",
+      "name": "Steel Fabrications Shot Blasting",
+      "alternateName": ["Fabricated Steel Shot Blasting", "Shot Blasting Fabricated Steelwork", "Mobile Shot Blasting Fabrications"],
+      "description": "On-site shot blasting of steel fabrications across England and Wales. Rust, mill scale, and old coatings removed from frames, base plates, arch sections, channels, and brackets to Sa 2.5 near-white metal standard. Mobile service — we come to your site.",
+      "url": "https://commercialshotblasting.co.uk/steel-fabrications",
+      "serviceType": "Shot Blasting",
+      "category": "Surface Preparation",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Commercial Shot Blasting",
+        "url": "https://commercialshotblasting.co.uk",
+        "telephone": "+447970566409",
+        "email": "info@commercialshotblasting.co.uk",
+        "areaServed": ["England", "Wales"],
+        "priceRange": "££"
+      },
+      "areaServed": { "@type": "Country", "name": "United Kingdom" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Steel Fabrications Shot Blasting Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fabricated Steel Frame Shot Blasting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Steel Base Plate Shot Blasting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Arch Fabrication Shot Blasting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Steel Channel and Bracket Shot Blasting" } }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://commercialshotblasting.co.uk/steel-fabrications#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "What standard do you blast fabrications to?", "acceptedAnswer": { "@type": "Answer", "text": "We blast all fabrications to Sa 2.5 near-white metal standard with an Rz 50–75 μm anchor profile — the specification required by most protective coating systems including epoxy, polyurethane, and intumescent paints." } },
+        { "@type": "Question", "name": "Do you come to our site to blast steel fabrications?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we always work on-site at your premises. We bring all our mobile blasting equipment to you, so there's no need to transport your fabrications anywhere. We cover England and Wales." } },
+        { "@type": "Question", "name": "How long does shot blasting steel fabrications take?", "acceptedAnswer": { "@type": "Answer", "text": "Timescales depend on the volume and complexity of your fabrications. We'll give you an accurate estimate when you enquire, and we work around your schedule to minimise disruption." } },
+        { "@type": "Question", "name": "Can you blast mixed batches of different fabrication shapes?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We handle mixed batches of different shapes and sizes on-site — frames, plates, channels, and curved sections can all be processed in the same visit, reducing cost per piece." } },
+        { "@type": "Question", "name": "Can you blast while other work is ongoing on site?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our mobile setup is self-contained and we can work in a designated area of your site while other trades continue elsewhere. We discuss logistics with you before starting." } }
+      ]
+    },
+    {
+      "@type": "ImageGallery",
+      "@id": "https://commercialshotblasting.co.uk/steel-fabrications#gallery",
+      "name": "Steel Fabrications Shot Blasting — Before & After Project Gallery",
+      "description": "Five real project before-and-after photo sets showing shot blasting of fabricated steelwork to Sa 2.5 near-white metal standard.",
+      "image": [
+        { "@type": "ImageObject", "url": images.p1Before, "name": "Fabricated steel frames before shot blasting — heavy rust and mill scale", "description": "Multi-piece fabricated steel frame assembly with heavy rust and mill scale before on-site shot blasting" },
+        { "@type": "ImageObject", "url": images.p1After, "name": "Fabricated steel frames after shot blasting — clean Sa 2.5 surface", "description": "Clean Sa 2.5 near-white metal surface on fabricated steel frames after on-site shot blasting, ready for priming" },
+        { "@type": "ImageObject", "url": images.p3Before, "name": "Steel base plate before shot blasting — severe rust coverage", "description": "Heavily rusted steel base plate before on-site shot blasting" },
+        { "@type": "ImageObject", "url": images.p3After, "name": "Steel base plate after shot blasting — clean bare metal", "description": "Steel base plate after shot blasting to Sa 2.5 standard — clean, smooth surface ready for coating" }
+      ]
+    }
+  ]
 };
 
 const faqs = [
@@ -53,9 +98,10 @@ export default function SteelFabricationsPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
   useSEO({
-    title: "Steel Fabrications Shot Blasting | Before & After Gallery | Commercial Shot Blasting",
-    description: "See real before and after photos of fabricated steelwork shot blasted to Sa 2.5 standard. Frames, base plates, arch fabrications, and channel assemblies — all blasted clean and ready for coating.",
-    keywords: "steel fabrications shot blasting, fabricated steel blasting, before after shot blasting, Sa 2.5 steel fabrications, shot blasting gallery",
+    title: "Shot Blasting Steel Fabrications UK | On-Site Service | Sa 2.5 Standard | Commercial Shot Blasting",
+    description: "Mobile on-site shot blasting for steel fabrications across England and Wales. Frames, base plates, arch sections, channels, and brackets blasted to Sa 2.5 near-white metal standard. No transport required — we come to you. Call 07970 566409.",
+    keywords: "shot blasting steel fabrications, fabricated steel shot blasting, shot blasting fabricated steelwork, mobile shot blasting fabrications, Sa 2.5 steel fabrications, rust removal fabricated steel, mill scale removal fabrications, shot blasting fabricated steel frames, steel fabrications surface preparation UK",
+    image: images.p1After,
     canonical: "https://commercialshotblasting.co.uk/steel-fabrications",
   });
 
@@ -63,7 +109,7 @@ export default function SteelFabricationsPage() {
     const s = document.createElement("script");
     s.type = "application/ld+json";
     s.id = "steel-fab-jsonld";
-    s.textContent = JSON.stringify(JSONLD_ARTICLE);
+    s.textContent = JSON.stringify(JSONLD_GRAPH);
     document.head.appendChild(s);
     return () => { s.parentNode?.removeChild(s); };
   }, []);
@@ -109,10 +155,10 @@ export default function SteelFabricationsPage() {
             Back to Services
           </Link>
           <h1 className="text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Steel Fabrications Shot Blasting
+            Shot Blasting Steel Fabrications
           </h1>
           <p className="text-xl text-white/90 mb-6 max-w-2xl">
-            Before &amp; after project gallery — fabricated steelwork blasted to Sa 2.5 near-white metal standard
+            Mobile on-site shot blasting for fabricated steelwork — rust, mill scale, and old coatings removed to Sa 2.5 near-white metal standard. We come to your site, anywhere in England and Wales.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
@@ -139,13 +185,19 @@ export default function SteelFabricationsPage() {
               {/* About */}
               <div>
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  About This Service
+                  Shot Blasting Steel Fabrications — On-Site Service
                 </h2>
+                {/* AI Overview / Featured Snippet target block */}
+                <div className="bg-blue-50 border-l-4 border-[#2C5F7F] rounded-r-lg p-5 mb-6">
+                  <p className="text-gray-800 font-medium leading-relaxed">
+                    <strong>Shot blasting steel fabrications</strong> is the process of propelling iron silicate (copper slag) abrasive media at high velocity against fabricated steelwork to remove rust, mill scale, and old coatings — producing a clean, profiled surface ready for protective coating. Commercial Shot Blasting carries out this process <strong>on-site at your premises</strong> across England and Wales, achieving <strong>Sa 2.5 near-white metal standard</strong> with an Rz 50–75 μm anchor profile on every project.
+                  </p>
+                </div>
                 <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                  We come to your site and blast your steel fabrications on location — no need to transport anything. Using iron silicate (copper slag) media, we remove all rust, mill scale, and old paint, creating the anchor profile that coatings need to bond permanently.
+                  We attend your site with our mobile blasting unit and blast your steel fabrications in place — no need to transport anything. Using iron silicate (copper slag) media, we remove all rust, mill scale, and old paint from frames, base plates, arch sections, channels, and brackets, creating the anchor profile that coatings need to bond permanently.
                 </p>
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  Every piece is blasted to <strong>Sa 2.5 near-white metal standard</strong> with an <strong>Rz 50–75 μm anchor profile</strong> — the specification required by most protective coating systems. Your fabrications are ready for immediate priming, powder coating, or galvanising without leaving your premises.
+                  Every fabrication is blasted to <strong>Sa 2.5 near-white metal standard</strong> with an <strong>Rz 50–75 μm anchor profile</strong> — the specification required by most protective coating systems including epoxy primers, polyurethane topcoats, and intumescent paints. Your fabrications are ready for immediate priming, powder coating, or galvanising without leaving your premises.
                 </p>
               </div>
 
@@ -176,10 +228,10 @@ export default function SteelFabricationsPage() {
               {/* ── Project Gallery ──────────────────────────────────────────── */}
               <div>
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Project Gallery
+                  Steel Fabrications Shot Blasting — Project Gallery
                 </h2>
                 <p className="text-gray-600 mb-8">
-                  Drag the slider on each image to compare before and after. Project 1 also includes a during shot taken inside the blast cabinet.
+                  Real before-and-after photos from shot blasting steel fabrications on-site. Drag the slider on each image to compare the surface before and after blasting. Project 1 also includes a during shot showing the blasting process in action.
                 </p>
 
                 <div className="space-y-16">
@@ -196,24 +248,24 @@ export default function SteelFabricationsPage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                       <div className="space-y-2">
                         <div className="relative rounded-lg overflow-hidden shadow-lg aspect-[4/3]">
-                          <img src={images.p1Before} alt="Project 1 Before — fabricated steel frames with heavy rust and mill scale" className="w-full h-full object-cover" loading="lazy" width={800} height={600} />
+                          <img src={images.p1Before} alt="Fabricated steel frames before shot blasting — heavy rust and mill scale across all members, requiring Sa 2.5 surface preparation" className="w-full h-full object-cover" loading="lazy" width={800} height={600} />
                           <div className="absolute top-3 left-3 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-semibold">Before</div>
                         </div>
-                        <p className="text-sm text-gray-600">Heavy rust and mill scale across all frame members</p>
+                        <p className="text-sm text-gray-600">Heavy rust and mill scale across all frame members — typical condition of fabrications stored outdoors</p>
                       </div>
                       <div className="space-y-2">
                         <div className="relative rounded-lg overflow-hidden shadow-lg aspect-[4/3]">
-                          <img src={images.p1During} alt="Project 1 During — steel frames inside blast cabinet mid-process" className="w-full h-full object-cover" loading="lazy" width={800} height={600} />
+                          <img src={images.p1During} alt="Steel fabrications shot blasting in progress on-site — iron silicate media stripping rust and mill scale from fabricated steel frames" className="w-full h-full object-cover" loading="lazy" width={800} height={600} />
                           <div className="absolute top-3 left-3 bg-amber-600/90 text-white px-3 py-1 rounded-full text-sm font-semibold">During</div>
                         </div>
-                        <p className="text-sm text-gray-600">On-site blasting in progress at the customer's premises</p>
+                        <p className="text-sm text-gray-600">Mobile shot blasting in progress on-site — no transport required</p>
                       </div>
                       <div className="space-y-2">
                         <div className="relative rounded-lg overflow-hidden shadow-lg aspect-[4/3]">
-                          <img src={images.p1After} alt="Project 1 After — clean blasted steel frames ready for coating" className="w-full h-full object-cover" loading="lazy" width={800} height={600} />
+                          <img src={images.p1After} alt="Fabricated steel frames after shot blasting to Sa 2.5 near-white metal standard — clean, profiled surface ready for epoxy primer or powder coating" className="w-full h-full object-cover" loading="lazy" width={800} height={600} />
                           <div className="absolute top-3 left-3 bg-[#2C5F7F] text-white px-3 py-1 rounded-full text-sm font-semibold">After</div>
                         </div>
-                        <p className="text-sm text-gray-600">Clean Sa 2.5 surface, ready for immediate priming</p>
+                        <p className="text-sm text-gray-600">Sa 2.5 near-white metal surface achieved — ready for immediate priming or powder coating</p>
                       </div>
                     </div>
                     <p className="text-sm text-gray-500 mb-2 font-medium">Interactive before/after comparison:</p>
@@ -240,7 +292,7 @@ export default function SteelFabricationsPage() {
                             <div><span className="font-medium">Standard:</span> Sa 2.5</div>
                             <div><span className="font-medium">Profile:</span> Rz 50–75 μm</div>
                             <div><span className="font-medium">Media:</span> Iron silicate</div>
-                            <div><span className="font-medium">Method:</span> Blast cabinet</div>
+                            <div><span className="font-medium">Method:</span> Mobile On-Site Blasting</div>
                           </div>
                         </div>
                       </div>

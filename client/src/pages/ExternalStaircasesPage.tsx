@@ -15,21 +15,83 @@ const videos = {
   v2: "/manus-storage/WhatsAppVideo2026-06-27at13.50.17(2)_f192dcbc.mp4",
 };
 
-// ── JSON-LD ────────────────────────────────────────────────────────────────────
-const JSONLD = {
+// ── JSON-LD — rich schema graph ───────────────────────────────────────────────
+const JSONLD_GRAPH = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "External Staircases Shot Blasting",
-  "description": "On-site shot blasting of external steel staircases — rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. Mobile service covering England and Wales.",
-  "url": "https://commercialshotblasting.co.uk/external-staircases",
-  "provider": {
-    "@type": "Organization",
-    "name": "Commercial Shot Blasting",
-    "url": "https://commercialshotblasting.co.uk",
-    "telephone": "07970566409"
-  },
-  "areaServed": { "@type": "Country", "name": "United Kingdom" },
-  "serviceType": "Shot Blasting"
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://commercialshotblasting.co.uk/external-staircases#service",
+      "name": "External Staircases Shot Blasting",
+      "alternateName": ["External Steel Staircase Shot Blasting", "Staircase Rust Removal", "Shot Blasting External Steps UK"],
+      "description": "On-site mobile shot blasting of external steel staircases across England and Wales. Rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required — we blast the staircase in place at your premises.",
+      "url": "https://commercialshotblasting.co.uk/external-staircases",
+      "serviceType": "Shot Blasting",
+      "category": "Surface Preparation",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Commercial Shot Blasting",
+        "url": "https://commercialshotblasting.co.uk",
+        "telephone": "+447970566409",
+        "email": "info@commercialshotblasting.co.uk",
+        "areaServed": ["England", "Wales"],
+        "priceRange": "££"
+      },
+      "areaServed": { "@type": "Country", "name": "United Kingdom" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "External Staircase Shot Blasting Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "External Steel Staircase Rust Removal" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "External Staircase Paint Stripping" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "External Staircase Surface Preparation for Coating" } }
+        ]
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://commercialshotblasting.co.uk/external-staircases#video1",
+      "name": "External Staircase Shot Blasting in Action — On-Site Mobile Service",
+      "description": "Watch our mobile shot blasting unit in action on an external steel staircase. The video shows rust and old paint being stripped back to clean bare metal Sa 2.5 standard in real time.",
+      "thumbnailUrl": "https://commercialshotblasting.co.uk/manus-storage/staircase_thumb_d419ab8f.jpg",
+      "contentUrl": "https://commercialshotblasting.co.uk/manus-storage/WhatsAppVideo2026-06-27at13.50.17(1)_eb3b71ad.mp4",
+      "uploadDate": "2026-06-27",
+      "duration": "PT1M",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Commercial Shot Blasting",
+        "url": "https://commercialshotblasting.co.uk"
+      },
+      "keywords": "shot blasting external staircase, staircase rust removal, mobile shot blasting UK"
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://commercialshotblasting.co.uk/external-staircases#video2",
+      "name": "External Staircase After Shot Blasting — Sa 2.5 Surface Transformation",
+      "description": "The finished result of shot blasting an external steel staircase — a clean, uniform Sa 2.5 near-white metal surface across the entire structure, ready for the client's chosen coating system.",
+      "thumbnailUrl": "https://commercialshotblasting.co.uk/manus-storage/staircase_thumb_d419ab8f.jpg",
+      "contentUrl": "https://commercialshotblasting.co.uk/manus-storage/WhatsAppVideo2026-06-27at13.50.17(2)_f192dcbc.mp4",
+      "uploadDate": "2026-06-27",
+      "duration": "PT1M",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Commercial Shot Blasting",
+        "url": "https://commercialshotblasting.co.uk"
+      },
+      "keywords": "shot blasting external staircase, Sa 2.5 surface preparation, external staircase coating ready"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://commercialshotblasting.co.uk/external-staircases#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "Do you blast external staircases on-site?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we always work on-site at your premises. We bring all our mobile blasting equipment to you, so there is no need to dismantle or transport the staircase. We cover England and Wales." } },
+        { "@type": "Question", "name": "What standard do you blast external staircases to?", "acceptedAnswer": { "@type": "Answer", "text": "We blast all external steelwork to Sa 2.5 near-white metal standard with an Rz 50–75 μm anchor profile — the specification required by most protective coating systems including epoxy, polyurethane, and intumescent paints." } },
+        { "@type": "Question", "name": "Can you blast an external staircase while the building is occupied?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our mobile setup is self-contained and we can work in a designated area while the building remains occupied. We discuss logistics with you before starting and implement appropriate dust and abrasive containment." } },
+        { "@type": "Question", "name": "How long does it take to shot blast an external staircase?", "acceptedAnswer": { "@type": "Answer", "text": "Most external staircases can be completed in one to two days. Timescales depend on the size and condition of the staircase. We will give you an accurate estimate when you enquire." } },
+        { "@type": "Question", "name": "What happens after shot blasting an external staircase?", "acceptedAnswer": { "@type": "Answer", "text": "Once blasted, the steel surface is ready for immediate priming. We recommend applying a primer coat within four hours of blasting to prevent flash rusting, especially in humid conditions." } }
+      ]
+    }
+  ]
 };
 
 const faqs = [
@@ -60,9 +122,10 @@ export default function ExternalStaircasesPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
   useSEO({
-    title: "External Staircases Shot Blasting | On-Site Service | Commercial Shot Blasting",
-    description: "On-site shot blasting of external steel staircases across England and Wales. Rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. Mobile service — we come to you.",
-    keywords: "external staircases shot blasting, staircase shot blasting, steel staircase rust removal, external staircase surface preparation, shot blasting staircases UK",
+    title: "Shot Blasting External Staircases UK | On-Site Rust Removal | Sa 2.5 Standard | Commercial Shot Blasting",
+    description: "Mobile on-site shot blasting for external steel staircases across England and Wales. Rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required — we come to you. Call 07970 566409.",
+    keywords: "shot blasting external staircases, external staircase shot blasting, external staircase rust removal, steel staircase shot blasting UK, mobile shot blasting staircases, external staircase surface preparation, shot blast external steps, staircase rust and paint removal UK, external steel staircase coating preparation",
+    image: "/manus-storage/staircase_thumb_d419ab8f.jpg",
     canonical: "https://commercialshotblasting.co.uk/external-staircases",
   });
 
@@ -70,7 +133,7 @@ export default function ExternalStaircasesPage() {
     const s = document.createElement("script");
     s.type = "application/ld+json";
     s.id = "ext-stairs-jsonld";
-    s.textContent = JSON.stringify(JSONLD);
+    s.textContent = JSON.stringify(JSONLD_GRAPH);
     document.head.appendChild(s);
     return () => { s.parentNode?.removeChild(s); };
   }, []);
@@ -109,10 +172,10 @@ export default function ExternalStaircasesPage() {
             🪜 External Steelwork
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-            External Staircases<br />Shot Blasting
+            Shot Blasting External Staircases
           </h1>
           <p className="text-xl text-white/90 mb-6 max-w-2xl">
-            On-site shot blasting of external steel staircases — rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. We come to you, anywhere in England and Wales.
+            Mobile on-site shot blasting for external steel staircases — rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required. We come to you, anywhere in England and Wales.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 font-semibold" onClick={() => setQuotePopupOpen(true)}>
@@ -157,8 +220,14 @@ export default function ExternalStaircasesPage() {
               {/* About */}
               <div>
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  About This Service
+                  Shot Blasting External Staircases — On-Site Service
                 </h2>
+                {/* AI Overview / Featured Snippet target block */}
+                <div className="bg-blue-50 border-l-4 border-[#2C5F7F] rounded-r-lg p-5 mb-6">
+                  <p className="text-gray-800 font-medium leading-relaxed">
+                    <strong>Shot blasting external staircases</strong> is the process of propelling iron silicate abrasive media at high velocity against the steel surface to remove rust, old paint, and contamination — producing a clean, profiled surface ready for a long-lasting protective coating. Commercial Shot Blasting carries out this process <strong>on-site at your premises</strong>, blasting the staircase in place without dismantling. The result is a <strong>Sa 2.5 near-white metal surface</strong> with an Rz 50–75 μm anchor profile, ready for immediate priming.
+                  </p>
+                </div>
                 <p className="text-gray-700 text-lg leading-relaxed mb-4">
                   External steel staircases are constantly exposed to the elements — rain, frost, and humidity accelerate rust and cause old paint to fail. Shot blasting is the most effective way to strip the surface back to bare metal and prepare it for a long-lasting protective coating system.
                 </p>
@@ -197,10 +266,10 @@ export default function ExternalStaircasesPage() {
               {/* ── Video Gallery ──────────────────────────────────────────────── */}
               <div>
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  See Our Work
+                  External Staircase Shot Blasting — See Our Work
                 </h2>
                 <p className="text-gray-600 mb-8">
-                  Watch our team shot blasting external staircases on-site. The videos show the blasting process in action and the dramatic surface transformation achieved.
+                  Watch our mobile shot blasting unit in action on external steel staircases. The videos show the rust and paint removal process and the dramatic Sa 2.5 surface transformation achieved on-site.
                 </p>
 
                 <div className="space-y-12">
@@ -210,8 +279,8 @@ export default function ExternalStaircasesPage() {
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 bg-[#2C5F7F] text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">1</div>
                       <div>
-                        <h3 className="text-2xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>External Staircase — Shot Blasting in Action</h3>
-                        <p className="text-gray-500 text-sm mt-0.5">On-site mobile blasting — rust and old paint stripped back to bare metal</p>
+                        <h3 className="text-2xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>External Staircase Shot Blasting — In Action</h3>
+                        <p className="text-gray-500 text-sm mt-0.5">Mobile on-site blasting — rust and old paint stripped to Sa 2.5 near-white metal standard</p>
                       </div>
                     </div>
                     <div className="rounded-xl overflow-hidden shadow-xl bg-black">
@@ -219,14 +288,16 @@ export default function ExternalStaircasesPage() {
                         controls
                         preload="metadata"
                         className="w-full max-h-[520px] object-contain"
-                        aria-label="Video showing external staircase shot blasting in action"
+                        aria-label="Video showing shot blasting of an external steel staircase on-site — rust and old paint removed to Sa 2.5 near-white metal standard"
+                        title="External Staircase Shot Blasting — On-Site Mobile Service"
                       >
                         <source src={videos.v1} type="video/mp4" />
+                        <track kind="descriptions" label="Shot blasting external steel staircase, removing rust and old paint to Sa 2.5 standard" />
                         Your browser does not support the video tag.
                       </video>
                     </div>
                     <p className="text-sm text-gray-600 mt-3">
-                      Our mobile blasting unit in action on an external steel staircase. The video clearly shows the transformation as rust and old paint are stripped back to clean bare metal in real time.
+                      Our mobile shot blasting unit in action on an external steel staircase. The video clearly shows the transformation as rust and old paint are stripped back to clean bare metal — achieving Sa 2.5 near-white metal standard in real time, on-site at the customer's premises.
                     </p>
                   </div>
 
@@ -235,8 +306,8 @@ export default function ExternalStaircasesPage() {
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 bg-[#2C5F7F] text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">2</div>
                       <div>
-                        <h3 className="text-2xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>External Staircase — Surface Transformation</h3>
-                        <p className="text-gray-500 text-sm mt-0.5">Sa 2.5 near-white metal finish achieved — ready for immediate priming</p>
+                        <h3 className="text-2xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>External Staircase After Shot Blasting — Sa 2.5 Surface</h3>
+                        <p className="text-gray-500 text-sm mt-0.5">Sa 2.5 near-white metal finish achieved across the full structure — ready for immediate priming</p>
                       </div>
                     </div>
                     <div className="rounded-xl overflow-hidden shadow-xl bg-black">
@@ -244,14 +315,16 @@ export default function ExternalStaircasesPage() {
                         controls
                         preload="metadata"
                         className="w-full max-h-[520px] object-contain"
-                        aria-label="Video showing external staircase surface after shot blasting"
+                        aria-label="Video showing external steel staircase after shot blasting — clean Sa 2.5 near-white metal surface ready for protective coating"
+                        title="External Staircase After Shot Blasting — Sa 2.5 Surface Transformation"
                       >
                         <source src={videos.v2} type="video/mp4" />
+                        <track kind="descriptions" label="External steel staircase after shot blasting — clean Sa 2.5 near-white metal surface ready for coating" />
                         Your browser does not support the video tag.
                       </video>
                     </div>
                     <p className="text-sm text-gray-600 mt-3">
-                      The finished result — a clean, uniform Sa 2.5 surface across the entire staircase structure, ready for the client's chosen coating system. The characteristic white-grey appearance confirms near-white metal standard has been achieved.
+                      The finished result of shot blasting an external steel staircase — a clean, uniform Sa 2.5 near-white metal surface across the entire structure including treads, risers, stringers, and handrails. Ready for the client's chosen coating system. The characteristic white-grey appearance confirms near-white metal standard has been achieved throughout.
                     </p>
                   </div>
 
@@ -261,7 +334,7 @@ export default function ExternalStaircasesPage() {
               {/* Process Steps */}
               <div>
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Our Process
+                  How We Shot Blast External Staircases
                 </h2>
                 <div className="space-y-4">
                   {[
@@ -285,25 +358,25 @@ export default function ExternalStaircasesPage() {
               {/* FAQs */}
               <div>
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Frequently Asked Questions
+                  External Staircase Shot Blasting — FAQs
                 </h2>
-                <div className="space-y-3">
+                <div className="space-y-3" itemScope itemType="https://schema.org/FAQPage">
                   {faqs.map((faq, i) => (
-                    <div key={i} className="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div key={i} className="bg-white rounded-lg shadow-sm overflow-hidden" itemScope itemType="https://schema.org/Question">
                       <button
                         className="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors"
                         onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
                         aria-expanded={expandedFaq === i}
                       >
-                        <span className="font-semibold text-gray-800 pr-4">{faq.question}</span>
+                        <span className="font-semibold text-gray-800 pr-4" itemProp="name">{faq.question}</span>
                         {expandedFaq === i
                           ? <ChevronUp className="w-5 h-5 text-[#2C5F7F] flex-shrink-0" />
                           : <ChevronDown className="w-5 h-5 text-[#2C5F7F] flex-shrink-0" />
                         }
                       </button>
                       {expandedFaq === i && (
-                        <div className="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
-                          {faq.answer}
+                        <div className="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4" itemScope itemType="https://schema.org/Answer">
+                          <span itemProp="text">{faq.answer}</span>
                         </div>
                       )}
                     </div>

@@ -26,8 +26,8 @@ const STATIC_PAGES = [
   { loc: "/reviews", changefreq: "monthly", priority: "0.6" },
   { loc: "/prep-and-cleanup", changefreq: "monthly", priority: "0.6" },
   { loc: "/our-work", changefreq: "monthly", priority: "0.6" },
-  { loc: "/steel-fabrications", changefreq: "monthly", priority: "0.7" },
-  { loc: "/external-staircases", changefreq: "monthly", priority: "0.7" },
+  { loc: "/steel-fabrications", changefreq: "weekly", priority: "0.8" },
+  { loc: "/external-staircases", changefreq: "weekly", priority: "0.8" },
   { loc: "/sitemap", changefreq: "monthly", priority: "0.5" },
 ];
 
