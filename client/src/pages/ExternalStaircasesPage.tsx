@@ -22,9 +22,9 @@ const JSONLD_GRAPH = {
     {
       "@type": "Service",
       "@id": "https://commercialshotblasting.co.uk/external-staircases#service",
-      "name": "External Staircases Shot Blasting",
-      "alternateName": ["External Steel Staircase Shot Blasting", "Staircase Rust Removal", "Shot Blasting External Steps UK"],
-      "description": "On-site mobile shot blasting of external steel staircases across England and Wales. Rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required — we blast the staircase in place at your premises.",
+      "name": "External Staircases & Fire Escapes Shot Blasting",
+      "alternateName": ["External Steel Staircase Shot Blasting", "Fire Escape Shot Blasting UK", "Shot Blasting Fire Escapes", "Staircase Rust Removal", "Shot Blasting External Steps UK"],
+      "description": "On-site mobile shot blasting of external steel staircases and fire escapes across England and Wales. Rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required — we blast the structure in place at your premises.",
       "url": "https://commercialshotblasting.co.uk/external-staircases",
       "serviceType": "Shot Blasting",
       "category": "Surface Preparation",
@@ -43,7 +43,9 @@ const JSONLD_GRAPH = {
         "name": "External Staircase Shot Blasting Services",
         "itemListElement": [
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "External Steel Staircase Rust Removal" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fire Escape Shot Blasting UK" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "External Staircase Paint Stripping" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fire Escape Rust Removal" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "External Staircase Surface Preparation for Coating" } }
         ]
       }
@@ -122,9 +124,9 @@ export default function ExternalStaircasesPage() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
   useSEO({
-    title: "Shot Blasting External Staircases UK | On-Site Rust Removal | Sa 2.5 Standard | Commercial Shot Blasting",
-    description: "Mobile on-site shot blasting for external steel staircases across England and Wales. Rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required — we come to you. Call 07970 566409.",
-    keywords: "shot blasting external staircases, external staircase shot blasting, external staircase rust removal, steel staircase shot blasting UK, mobile shot blasting staircases, external staircase surface preparation, shot blast external steps, staircase rust and paint removal UK, external steel staircase coating preparation",
+    title: "Shot Blasting External Staircases & Fire Escapes UK | On-Site Rust Removal | Sa 2.5 | Commercial Shot Blasting",
+    description: "Mobile on-site shot blasting for external steel staircases and fire escapes across England and Wales. Rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required — we come to you. Call 07970 566409.",
+    keywords: "shot blasting external staircases, shot blasting fire escapes, fire escape shot blasting UK, external staircase shot blasting, external staircase rust removal, steel staircase shot blasting UK, mobile shot blasting staircases, shot blasting fire escapes UK, fire escape rust removal, external staircase surface preparation, shot blast external steps UK, staircase rust and paint removal UK",
     image: "/manus-storage/staircase_thumb_d419ab8f.jpg",
     canonical: "https://commercialshotblasting.co.uk/external-staircases",
   });
@@ -172,10 +174,10 @@ export default function ExternalStaircasesPage() {
             🪜 External Steelwork
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Shot Blasting External Staircases
+            Shot Blasting External Staircases &amp; Fire Escapes
           </h1>
           <p className="text-xl text-white/90 mb-6 max-w-2xl">
-            Mobile on-site shot blasting for external steel staircases — rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required. We come to you, anywhere in England and Wales.
+            Mobile on-site shot blasting for external steel staircases and fire escapes — rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required. We come to you, anywhere in England and Wales.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 font-semibold" onClick={() => setQuotePopupOpen(true)}>
@@ -220,12 +222,12 @@ export default function ExternalStaircasesPage() {
               {/* About */}
               <div>
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  Shot Blasting External Staircases — On-Site Service
+                  Shot Blasting External Staircases &amp; Fire Escapes — On-Site Service
                 </h2>
                 {/* AI Overview / Featured Snippet target block */}
                 <div className="bg-blue-50 border-l-4 border-[#2C5F7F] rounded-r-lg p-5 mb-6">
                   <p className="text-gray-800 font-medium leading-relaxed">
-                    <strong>Shot blasting external staircases</strong> is the process of propelling iron silicate abrasive media at high velocity against the steel surface to remove rust, old paint, and contamination — producing a clean, profiled surface ready for a long-lasting protective coating. Commercial Shot Blasting carries out this process <strong>on-site at your premises</strong>, blasting the staircase in place without dismantling. The result is a <strong>Sa 2.5 near-white metal surface</strong> with an Rz 50–75 μm anchor profile, ready for immediate priming.
+                    <strong>Shot blasting external staircases and fire escapes</strong> is the process of propelling iron silicate abrasive media at high velocity against the steel surface to remove rust, old paint, and contamination — producing a clean, profiled surface ready for a long-lasting protective coating. Commercial Shot Blasting carries out this process <strong>on-site at your premises</strong>, blasting the staircase or fire escape in place without dismantling. The result is a <strong>Sa 2.5 near-white metal surface</strong> with an Rz 50–75 μm anchor profile, ready for immediate priming. Steel must be primed <strong>within 2–4 hours of blasting</strong> to prevent flash rusting.
                   </p>
                 </div>
                 <p className="text-gray-700 text-lg leading-relaxed mb-4">
@@ -478,6 +480,10 @@ export default function ExternalStaircasesPage() {
                 <h3 className="text-xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
                   Related Services
                 </h3>
+                <a href="/services/fire-escapes" className="flex items-center justify-between p-3 rounded-lg hover:bg-[#2C5F7F]/5 transition-colors group mb-1">
+                  <span className="text-gray-700 group-hover:text-[#2C5F7F] font-medium text-sm">Fire Escapes &amp; Stair Towers</span>
+                  <ArrowRight className="w-4 h-4 text-[#2C5F7F] opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
                 <div className="grid grid-cols-1 gap-4">
                   {[
                     { title: "Steel Gates Shot Blasting", href: "/services/steel-gates", tagline: "On-site blasting for steel gates and railings" },

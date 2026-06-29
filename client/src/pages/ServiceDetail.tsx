@@ -639,32 +639,70 @@ export default function ServiceDetail() {
                 </div>
               )}
 
-              {/* Fire Escapes Image Showcase */}
+              {/* Fire Escapes Video Showcase */}
               {service.id === 'fire-escapes' && (
                 <div className="mb-12">
-                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    Professional External Staircase Shot Blasting
+                  <h2 className="text-3xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    Fire Escape Shot Blasting — See Our Work
                   </h2>
-                  <div className="overflow-hidden rounded-lg shadow-2xl">
-                    <img loading="lazy"
-                      src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/rHwvfVVLlyNaSMZs.webp" 
-                      alt="Professional shot blasting of external industrial staircase and fire escape structure" 
-                      className="w-full h-auto object-cover"
-                      width="800" height="600"
-                    />
-                    <div className="bg-gradient-to-r from-blue-50 to-gray-50 p-6">
-                      <p className="text-lg font-semibold text-gray-800 mb-3">Expert Surface Preparation for Safety-Critical Infrastructure</p>
-                      <p className="text-gray-700 mb-2">
-                        Our specialist team provides comprehensive shot blasting services for external staircases, fire escapes, and stair towers. Using controlled techniques and professional containment systems, we remove rust, old coatings, and corrosion while working safely at height.
-                      </p>
-                      <p className="text-gray-700">
-                        Every project is completed to the highest safety standards, ensuring fire escape structures are prepared for protective coatings that will provide decades of corrosion protection and maintain fire safety requirements.
-                      </p>
+                  <p className="text-gray-600 mb-8">
+                    Watch our mobile shot blasting unit removing rust, old paint, and corrosion from external fire escape steelwork — all carried out on-site at the customer's premises, no dismantling required, blasted to Sa 2.5 near-white metal standard.
+                  </p>
+
+                  {/* Video 1 — blasting in action */}
+                  <div className="mb-8">
+                    <div className="rounded-xl overflow-hidden shadow-xl bg-black">
+                      <video
+                        controls
+                        preload="metadata"
+                        poster="/manus-storage/staircase_thumb_d419ab8f.jpg"
+                        className="w-full max-h-[520px] object-contain"
+                        aria-label="On-site shot blasting of a rusted steel fire escape — rust, old paint and corrosion removed to Sa 2.5 near-white metal standard using mobile blasting equipment"
+                        title="Fire Escape Shot Blasting — On-Site Rust and Paint Removal"
+                      >
+                        <source src="/manus-storage/WhatsAppVideo2026-06-27at13.50.17(1)_eb3b71ad.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
                     </div>
+                    <p className="text-sm text-gray-600 mt-3">
+                      Mobile shot blasting removing rust and old paint from a steel fire escape structure — blasted in place on-site to Sa 2.5 near-white metal standard. No dismantling, no transport. We come to you.
+                    </p>
+                  </div>
+
+                  {/* Video 2 — finished Sa 2.5 surface */}
+                  <div className="mb-8">
+                    <div className="rounded-xl overflow-hidden shadow-xl bg-black">
+                      <video
+                        controls
+                        preload="metadata"
+                        poster="/manus-storage/staircase_thumb_d419ab8f.jpg"
+                        className="w-full max-h-[520px] object-contain"
+                        aria-label="Steel fire escape after shot blasting — clean Sa 2.5 near-white metal surface across all structural members, treads, risers and handrails, ready for priming and protective coating"
+                        title="Fire Escape After Shot Blasting — Sa 2.5 Surface Ready for Protective Coating"
+                      >
+                        <source src="/manus-storage/WhatsAppVideo2026-06-27at13.50.17(2)_f192dcbc.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    <p className="text-sm text-gray-600 mt-3">
+                      The completed Sa 2.5 near-white metal surface on a steel fire escape — all structural members, treads, risers, stringers, and handrails blasted clean and ready for immediate priming and long-lasting protective coating application.
+                    </p>
+                  </div>
+
+                  {/* Related Service: External Staircases */}
+                  <div className="mt-4 p-5 rounded-xl border border-[#2C5F7F]/20 bg-[#2C5F7F]/5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                    <div className="flex-1">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-[#2C5F7F]/70 mb-1">Related Service</p>
+                      <p className="text-lg font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>External Staircases Shot Blasting</p>
+                      <p className="text-sm text-gray-600 mt-1">We also specialise in shot blasting external steel access staircases — loading bay steps, industrial staircases, and external building stairs blasted on-site to Sa 2.5 standard. See our dedicated page with more videos and project details.</p>
+                    </div>
+                    <Link href="/external-staircases" className="flex-shrink-0 inline-flex items-center gap-2 bg-[#2C5F7F] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#1e4a63] transition-colors">
+                      View Page <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
 
                   {/* Related Service: Intumescent Painting */}
-                  <div className="mt-8 p-5 rounded-xl border border-[#2C5F7F]/20 bg-[#2C5F7F]/5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <div className="mt-4 p-5 rounded-xl border border-[#2C5F7F]/20 bg-[#2C5F7F]/5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <div className="flex-1">
                       <p className="text-xs font-semibold uppercase tracking-widest text-[#2C5F7F]/70 mb-1">Related Service</p>
                       <p className="text-lg font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>Intumescent Painting</p>
