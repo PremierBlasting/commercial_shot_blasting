@@ -357,6 +357,42 @@ export default function ExternalStaircasesPage() {
                 </div>
               </div>
 
+              {/* Priming & Painting */}
+              <div className="bg-amber-50 border-l-4 border-amber-500 rounded-r-xl p-6">
+                <h2 className="text-2xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Prime &amp; Paint Within 2–4 Hours of Blasting
+                </h2>
+                <p className="text-gray-800 font-medium leading-relaxed mb-4">
+                  Once your external staircase or fire escape has been shot blasted to Sa 2.5 near-white metal, the surface is highly reactive.
+                  <strong> Flash rusting can begin within 2–4 hours</strong> in normal UK conditions — and even faster in wet or coastal environments.
+                  To protect the investment of blasting, the steel <strong>must be primed immediately after we finish</strong>.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <h3 className="font-bold text-[#2C5F7F] mb-2">Why Flash Rust Happens</h3>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      Shot blasting removes all rust, old paint, and coatings — leaving bare reactive steel. Without a protective primer,
+                      moisture in the air immediately begins oxidising the surface. Even a thin layer of flash rust will compromise coating
+                      adhesion and significantly reduce the lifespan of the paint system.
+                    </p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <h3 className="font-bold text-[#2C5F7F] mb-2">What We Recommend</h3>
+                    <ul className="text-gray-700 text-sm space-y-1">
+                      <li>✓ Have your painter on-site and ready before we start</li>
+                      <li>✓ Apply an epoxy zinc phosphate primer within 2–4 hours</li>
+                      <li>✓ For large staircases, we blast in sections so coating can begin immediately</li>
+                      <li>✓ Keep the blasted surface dry and sheltered if priming is delayed</li>
+                      <li>✓ Follow with a polyurethane or epoxy topcoat for long-term weather protection</li>
+                    </ul>
+                  </div>
+                </div>
+                <p className="text-gray-700 text-sm">
+                  We are happy to coordinate our blasting schedule around your painter’s availability — just let us know when booking.
+                  On larger staircases we can work in sections, allowing coating to begin on completed areas while we continue blasting.
+                </p>
+              </div>
+
               {/* FAQs */}
               <div>
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
