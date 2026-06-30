@@ -90,7 +90,8 @@ const JSONLD_GRAPH = {
         { "@type": "Question", "name": "What standard do you blast external staircases to?", "acceptedAnswer": { "@type": "Answer", "text": "We blast all external steelwork to Sa 2.5 near-white metal standard with an Rz 50–75 μm anchor profile — the specification required by most protective coating systems including epoxy, polyurethane, and intumescent paints." } },
         { "@type": "Question", "name": "Can you blast an external staircase while the building is occupied?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our mobile setup is self-contained and we can work in a designated area while the building remains occupied. We discuss logistics with you before starting and implement appropriate dust and abrasive containment." } },
         { "@type": "Question", "name": "How long does it take to shot blast an external staircase?", "acceptedAnswer": { "@type": "Answer", "text": "Most external staircases can be completed in one to two days. Timescales depend on the size and condition of the staircase. We will give you an accurate estimate when you enquire." } },
-        { "@type": "Question", "name": "What happens after shot blasting an external staircase?", "acceptedAnswer": { "@type": "Answer", "text": "Once blasted, the steel surface is ready for immediate priming. We recommend applying a primer coat within four hours of blasting to prevent flash rusting, especially in humid conditions." } }
+        { "@type": "Question", "name": "What happens after shot blasting an external staircase?", "acceptedAnswer": { "@type": "Answer", "text": "Once blasted, the steel surface is ready for immediate priming. We recommend applying a primer coat within four hours of blasting to prevent flash rusting, especially in humid conditions. We can advise on suitable coating systems if required." } },
+        { "@type": "Question", "name": "How quickly does steel rust after shot blasting?", "acceptedAnswer": { "@type": "Answer", "text": "Freshly blasted steel can begin to flash rust within 2–4 hours in normal UK conditions — and even faster in humid or coastal environments. Shot blasting removes all protective mill scale and coatings, leaving bare reactive steel. We strongly recommend having your painter on-site and ready to apply an epoxy zinc phosphate primer immediately after we finish. We can coordinate our blasting schedule around your painter's availability, and for large staircases we can blast in sections so coating begins on completed areas while we continue working." } }
       ]
     }
   ]
@@ -116,6 +117,10 @@ const faqs = [
   {
     question: "What happens after blasting?",
     answer: "Once blasted, the steel surface is ready for immediate priming. We recommend applying a primer coat within four hours of blasting to prevent flash rusting, especially in humid conditions. We can advise on suitable coating systems if required."
+  },
+  {
+    question: "How quickly does steel rust after shot blasting?",
+    answer: "Freshly blasted steel can begin to flash rust within 2–4 hours in normal UK conditions — and even faster in humid or coastal environments. Shot blasting removes all protective mill scale and coatings, leaving bare reactive steel. We strongly recommend having your painter on-site and ready to apply an epoxy zinc phosphate primer immediately after we finish. We can coordinate our blasting schedule around your painter's availability, and for large staircases we can blast in sections so coating begins on completed areas while we continue working."
   },
 ];
 
@@ -387,12 +392,14 @@ export default function ExternalStaircasesPage() {
                     </ul>
                   </div>
                 </div>
-                <p className="text-gray-700 text-sm">
-                  We are happy to coordinate our blasting schedule around your painter’s availability — just let us know when booking.
+                <p className="text-gray-700 text-sm mb-4">
+                  We are happy to coordinate our blasting schedule around your painter's availability — just let us know when booking.
                   On larger staircases we can work in sections, allowing coating to begin on completed areas while we continue blasting.
                 </p>
+                <Button className="bg-[#2C5F7F] hover:bg-[#234a63] text-white font-semibold" onClick={() => setQuotePopupOpen(true)}>
+                  Request a Quote — We Come to You
+                </Button>
               </div>
-
               {/* FAQs */}
               <div>
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>

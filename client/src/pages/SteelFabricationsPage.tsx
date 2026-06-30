@@ -430,12 +430,14 @@ export default function SteelFabricationsPage() {
                     </ul>
                   </div>
                 </div>
-                <p className="text-gray-700 text-sm">
-                  We are happy to coordinate our blasting schedule around your painter’s availability — just let us know when booking.
+                <p className="text-gray-700 text-sm mb-4">
+                  We are happy to coordinate our blasting schedule around your painter's availability — just let us know when booking.
                   We can also work in sections on larger fabrications, allowing coating to begin on completed areas while we continue blasting.
                 </p>
+                <Button className="bg-[#2C5F7F] hover:bg-[#234a63] text-white font-semibold" onClick={() => setQuotePopupOpen(true)}>
+                  Request a Quote — We Come to You
+                </Button>
               </div>
-
               {/* Testimonials */}
               <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                 <div className="flex items-center gap-3 mb-4">
