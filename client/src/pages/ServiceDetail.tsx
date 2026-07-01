@@ -1418,6 +1418,20 @@ export default function ServiceDetail() {
                 </div>
               </div>
 
+              {/* Related Service: Car Park Paint Removal — shown on floor-preparation page */}
+              {(service.id === 'floor-preparation' || service.id === 'floor-shot-blasting' || service.id === 'coating-removal' || service.id === 'paint-stripping') && (
+                <div className="p-5 rounded-xl border border-[#2C5F7F]/20 bg-[#2C5F7F]/5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <div className="flex-1">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-[#2C5F7F]/70 mb-1">Related Service</p>
+                    <p className="text-lg font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>Car Park Paint &amp; Line Marking Removal</p>
+                    <p className="text-sm text-gray-600 mt-1">Need car park bay markings, thermoplastic road paint, or old line markings removed? Our mobile shot blasting units remove all marking types from tarmac and concrete — no chemicals, no scarring, ready for re-marking. We cover car parks, retail parks, industrial estates, and airports across England and Wales.</p>
+                  </div>
+                  <Link href="/services/car-park-paint-removal" className="flex-shrink-0 inline-flex items-center gap-2 bg-[#2C5F7F] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#1e4a63] transition-colors">
+                    Learn More <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              )}
+
               {/* Related Service: Intumescent Painting — shown on staircases page */}
               {service.id === 'staircases' && (
                 <div className="p-5 rounded-xl border border-[#2C5F7F]/20 bg-[#2C5F7F]/5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
