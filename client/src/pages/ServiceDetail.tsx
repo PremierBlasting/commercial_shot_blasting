@@ -772,6 +772,37 @@ export default function ServiceDetail() {
                       Learn More <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
+
+                  {/* Further Reading */}
+                  <div className="mt-8">
+                    <h3 className="text-xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Further Reading</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <Link href="/blog/shot-blasting-external-staircases" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
+                        <img src="/manus-storage/staircase_during1_e3065e80.jpg" alt="Shot blasting external staircase on-site" className="w-full h-36 object-cover" loading="lazy" />
+                        <div className="p-4">
+                          <span className="text-xs font-semibold text-[#C17F3B] uppercase tracking-wide">Guide</span>
+                          <h4 className="mt-1 text-sm font-bold text-[#2C5F7F] group-hover:underline leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>Shot Blasting External Staircases: The Complete Guide</h4>
+                          <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-[#2C5F7F] group-hover:gap-2 transition-all">Read the guide <ArrowRight className="w-3 h-3" /></span>
+                        </div>
+                      </Link>
+                      <Link href="/blog/flash-rust-after-shot-blasting" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
+                        <img src="/manus-storage/staircase_after_sa25_2e0c8e5a.jpg" alt="Clean Sa 2.5 steel surface after shot blasting" className="w-full h-36 object-cover" loading="lazy" />
+                        <div className="p-4">
+                          <span className="text-xs font-semibold text-[#C17F3B] uppercase tracking-wide">Technical Guide</span>
+                          <h4 className="mt-1 text-sm font-bold text-[#2C5F7F] group-hover:underline leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>Flash Rust After Shot Blasting: Causes, Prevention &amp; Solutions</h4>
+                          <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-[#2C5F7F] group-hover:gap-2 transition-all">Read the guide <ArrowRight className="w-3 h-3" /></span>
+                        </div>
+                      </Link>
+                      <Link href="/blog/shot-blasting-vs-sandblasting-difference" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-vs-sandblasting-difference.png" alt="Shot blasting vs sandblasting comparison" className="w-full h-36 object-cover" loading="lazy" />
+                        <div className="p-4">
+                          <span className="text-xs font-semibold text-[#C17F3B] uppercase tracking-wide">Explainer</span>
+                          <h4 className="mt-1 text-sm font-bold text-[#2C5F7F] group-hover:underline leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>Shot Blasting vs Sandblasting: What's the Difference?</h4>
+                          <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-[#2C5F7F] group-hover:gap-2 transition-all">Read the article <ArrowRight className="w-3 h-3" /></span>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               )}
 

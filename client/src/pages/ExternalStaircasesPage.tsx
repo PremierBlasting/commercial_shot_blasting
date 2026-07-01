@@ -556,7 +556,7 @@ export default function ExternalStaircasesPage() {
           <h2 className="text-2xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
             Further Reading
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link href="/blog/shot-blasting-external-staircases" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
               <img
                 src="/manus-storage/staircase_during1_e3065e80.jpg"
@@ -594,6 +594,26 @@ export default function ExternalStaircasesPage() {
                 </p>
                 <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F] group-hover:gap-2 transition-all">
                   See the projects <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </Link>
+            <Link href="/blog/shot-blasting-vs-sandblasting-difference" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-vs-sandblasting-difference.png"
+                alt="Shot blasting vs sandblasting — understanding the difference"
+                className="w-full h-44 object-cover"
+                loading="lazy"
+              />
+              <div className="p-4">
+                <span className="text-xs font-semibold text-[#C17F3B] uppercase tracking-wide">Explainer</span>
+                <h3 className="mt-1 text-base font-bold text-[#2C5F7F] group-hover:underline leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Shot Blasting vs Sandblasting: What's the Difference?
+                </h3>
+                <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+                  The term &quot;sandblasting&quot; is still widely used, but silica sand is illegal in the UK. We explain what the difference is, why it matters, and what abrasive media is used instead.
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F] group-hover:gap-2 transition-all">
+                  Read the article <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
             </Link>

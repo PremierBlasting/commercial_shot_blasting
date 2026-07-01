@@ -1,0 +1,74 @@
+{
+  "query": "SELECT slug, title, featuredImage, LEFT(content, 200) as content_preview FROM blog_posts WHERE content LIKE '%## %' OR content LIKE '%**%' ORDER BY createdAt DESC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT slug, title, featuredImage, LEFT(content, 200) as content_preview FROM blog_posts WHERE content LIKE '%## %' OR content LIKE '%**%' ORDER BY createdAt DESC;",
+  "rows": [
+    {
+      "slug": "shot-blasting-structural-steel-standards-certification",
+      "title": "Shot Blasting for Structural Steel: Standards, Certification, and Compliance",
+      "featuredImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-structural-steel-standards-certification.png",
+      "content_preview": "# Shot Blasting for Structural Steel: Standards, Certification, and Compliance"
+    },
+    {
+      "slug": "how-much-does-shot-blasting-cost-uk",
+      "title": "How Much Does Shot Blasting Cost in the UK? (2025 Price Guide)",
+      "featuredImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/how-much-does-shot-blasting-cost-uk.png",
+      "content_preview": "# How Much Does Shot Blasting Cost in the UK? (2025 Price Guide)"
+    },
+    {
+      "slug": "shot-blasting-for-shipping-containers",
+      "title": "Shot Blasting for Shipping Containers: The Complete Guide",
+      "featuredImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-for-shipping-containers.png",
+      "content_preview": "# Shot Blasting for Shipping Containers: The Complete Guide"
+    },
+    {
+      "slug": "shot-blasting-vs-wire-brushing",
+      "title": "Shot Blasting vs Wire Brushing: Which Is Right for Your Project?",
+      "featuredImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-vs-wire-brushing.png",
+      "content_preview": "# Shot Blasting vs Wire Brushing: Which Is Right for Your Project?"
+    },
+    {
+      "slug": "how-to-specify-surface-preparation-for-structural-steel",
+      "title": "How to Specify Surface Preparation for Structural Steel",
+      "featuredImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/how-to-specify-surface-preparation-for-structural-steel.png",
+      "content_preview": "# How to Specify Surface Preparation for Structural Steel"
+    },
+    {
+      "slug": "why-shot-blasting-essential-before-intumescent-painting",
+      "title": "Why Shot Blasting is Essential Before Intumescent Painting",
+      "featuredImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/why-shot-blasting-essential-before-intumescent-painting.png",
+      "content_preview": "# Why Shot Blasting is Essential Before Intumescent Painting"
+    },
+    {
+      "slug": "shot-blasting-structural-steel-guide",
+      "title": "The Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection",
+      "featuredImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-structural-steel-guide.png",
+      "content_preview": "# The Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection"
+    },
+    {
+      "slug": "shot-blasting-powder-coating-partnership",
+      "title": "Shot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes",
+      "featuredImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-powder-coating-partnership.png",
+      "content_preview": "# Shot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes"
+    },
+    {
+      "slug": "factory-warehouse-cladding-restoration",
+      "title": "Restoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment",
+      "featuredImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/factory-warehouse-cladding-restoration.png",
+      "content_preview": "# Restoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment"
+    }
+  ],
+  "messages": [
+    "When structural steel is specified for a construction project in the UK, the surface preparation standard is not left to",
+    "If you are budgeting for a shot blasting project, you have probably noticed that most contractors are reluctant to publish prices onli",
+    "Shipping containers are built to last, but decades of exposure to salt air, rain, and industrial environments take a heavy toll. Rust, scal",
+    "When it comes to removing rust, old paint, and mill scale from steel, two methods dominate the conversation: shot blasting and wire ",
+    "Getting the surface preparation specification right is one of the most important decisions in any structural steel project. Specify too low a",
+    "Intumescent paint is one of the most effective passive fire protection systems available for structural steel. When exposed to heat, the c",
+    "Structural steel forms the backbone of modern construction, from towering office blocks to sprawling indust",
+    "The combination of shot blasting and powder coating represents one of the most effective finishing systems availa",
+    "Factory and warehouse cladding systems face relentless exposure to the elements, industrial poll"
+  ],
+  "stdout": "slug\ttitle\tfeaturedImage\tcontent_preview\nshot-blasting-structural-steel-standards-certification\tShot Blasting for Structural Steel: Standards, Certification, and Compliance\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-structural-steel-standards-certification.png\t# Shot Blasting for Structural Steel: Standards, Certification, and Compliance\n\nWhen structural steel is specified for a construction project in the UK, the surface preparation standard is not left to\nhow-much-does-shot-blasting-cost-uk\tHow Much Does Shot Blasting Cost in the UK? (2025 Price Guide)\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/how-much-does-shot-blasting-cost-uk.png\t# How Much Does Shot Blasting Cost in the UK? (2025 Price Guide)\n\nIf you are budgeting for a shot blasting project, you have probably noticed that most contractors are reluctant to publish prices onli\nshot-blasting-for-shipping-containers\tShot Blasting for Shipping Containers: The Complete Guide\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-for-shipping-containers.png\t# Shot Blasting for Shipping Containers: The Complete Guide\n\nShipping containers are built to last, but decades of exposure to salt air, rain, and industrial environments take a heavy toll. Rust, scal\nshot-blasting-vs-wire-brushing\tShot Blasting vs Wire Brushing: Which Is Right for Your Project?\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-vs-wire-brushing.png\t# Shot Blasting vs Wire Brushing: Which Is Right for Your Project?\n\nWhen it comes to removing rust, old paint, and mill scale from steel, two methods dominate the conversation: shot blasting and wire \nhow-to-specify-surface-preparation-for-structural-steel\tHow to Specify Surface Preparation for Structural Steel\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/how-to-specify-surface-preparation-for-structural-steel.png\t# How to Specify Surface Preparation for Structural Steel\n\nGetting the surface preparation specification right is one of the most important decisions in any structural steel project. Specify too low a\nwhy-shot-blasting-essential-before-intumescent-painting\tWhy Shot Blasting is Essential Before Intumescent Painting\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/why-shot-blasting-essential-before-intumescent-painting.png\t# Why Shot Blasting is Essential Before Intumescent Painting\n\nIntumescent paint is one of the most effective passive fire protection systems available for structural steel. When exposed to heat, the c\nshot-blasting-structural-steel-guide\tThe Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-structural-steel-guide.png\t# The Complete Guide to Shot Blasting Structural Steel: Preparation for Long-Term Protection\nStructural steel forms the backbone of modern construction, from towering office blocks to sprawling indust\nshot-blasting-powder-coating-partnership\tShot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-powder-coating-partnership.png\t# Shot Blasting and Powder Coating: The Perfect Partnership for Durable Metal Finishes\nThe combination of shot blasting and powder coating represents one of the most effective finishing systems availa\nfactory-warehouse-cladding-restoration\tRestoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/factory-warehouse-cladding-restoration.png\t# Restoring Factory and Warehouse Cladding: Why Shot Blasting is Essential for Successful Refurbishment\nFactory and warehouse cladding systems face relentless exposure to the elements, industrial poll\n",
+  "stderr": "",
+  "execution_time_ms": 594
+}

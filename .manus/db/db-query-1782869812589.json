@@ -1,0 +1,16 @@
+{
+  "query": "SELECT id, slug, title, featuredImage FROM blog_posts WHERE slug = 'shot-blasting-vs-sandblasting-difference';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, slug, title, featuredImage FROM blog_posts WHERE slug = 'shot-blasting-vs-sandblasting-difference';",
+  "rows": [
+    {
+      "id": "100002",
+      "slug": "shot-blasting-vs-sandblasting-difference",
+      "title": "Shot Blasting vs Sandblasting: What's the Difference?",
+      "featuredImage": "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-vs-sandblasting-difference.png"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tslug\ttitle\tfeaturedImage\n100002\tshot-blasting-vs-sandblasting-difference\tShot Blasting vs Sandblasting: What's the Difference?\thttps://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-vs-sandblasting-difference.png\n",
+  "stderr": "",
+  "execution_time_ms": 577
+}
