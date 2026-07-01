@@ -3,7 +3,7 @@
 
 export const serviceLinks = [
   { title: "Structural Steel Frames", href: "/services/structural-steel-frames", description: "Comprehensive shot blasting for building frames and trusses" },
-  { title: "Steel Fabrications Gallery", href: "/steel-fabrications", description: "Before & after project photos — fabricated steel blasted to Sa 2.5" },
+  { title: "Steel Fabrications Blasting", href: "/steel-fabrications", description: "Before & after project photos — fabricated steel blasted to Sa 2.5" },
   { title: "Steel Container Blasting", href: "/services/steel-containers", description: "Specialist shot blasting for shipping containers and storage tanks" },
   { title: "Factory & Warehouse Cladding", href: "/services/factory-cladding", description: "Specialist cladding restoration removing plastisol and paint layers" },
   { title: "Fire Escapes & External Stair Towers", href: "/services/fire-escapes", description: "Specialist surface preparation for fire safety infrastructure" },

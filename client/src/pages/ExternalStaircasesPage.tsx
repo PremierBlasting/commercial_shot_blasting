@@ -532,7 +532,7 @@ export default function ExternalStaircasesPage() {
                     { title: "Steel Gates Shot Blasting", href: "/services/steel-gates", tagline: "On-site blasting for steel gates and railings" },
                     { title: "Rust Removal", href: "/services/rust-removal", tagline: "Complete rust removal to bare metal standard" },
                     { title: "Structural Steel Shot Blasting", href: "/services/structural-steel-frames", tagline: "On-site blasting for building frames and trusses" },
-                    { title: "Steel Fabrications Gallery", href: "/steel-fabrications", tagline: "Before & after photos from fabrication projects" },
+                    { title: "Steel Fabrications Blasting", href: "/steel-fabrications", tagline: "Before & after photos from fabrication projects" },
                   ].map((s) => (
                     <Link key={s.href} href={s.href} className="group flex gap-3 bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow border border-gray-100 p-3">
                       <div className="flex flex-col justify-center min-w-0">

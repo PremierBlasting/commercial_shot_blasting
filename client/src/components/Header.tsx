@@ -207,7 +207,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                       <div className="px-4 py-2 text-white text-sm font-bold" style={{ backgroundColor: '#2C5F7F' }}>Structural &amp; Architectural</div>
                       {[
                         { title: 'Structural Steel Shot Blasting', href: '/services/structural-steel-frames' },
-                        { title: 'Steel Fabrications Gallery', href: '/steel-fabrications' },
+                        { title: 'Steel Fabrications Blasting', href: '/steel-fabrications' },
                         { title: 'Fire Escape Shot Blasting', href: '/services/fire-escapes' },
                         { title: 'Racking & Mezzanine Blasting', href: '/services/warehouse-racking' },
                         { title: 'Steel Gates & Railings', href: '/services/steel-gates' },
