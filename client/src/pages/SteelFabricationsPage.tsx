@@ -606,6 +606,77 @@ export default function SteelFabricationsPage() {
         </div>
       </section>
 
+      {/* Further Reading */}
+      <section className="py-12 bg-[#f5f0e8]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Further Reading
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Link href="/blog/shot-blasting-steel-fabrications-uk" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
+              <img
+                src="/manus-storage/SteelFabrications1before_090ae51a.jpg"
+                alt="Steel fabrication before shot blasting — mill scale and rust on fabricated steel structure"
+                className="w-full h-44 object-cover"
+                loading="lazy"
+              />
+              <div className="p-4">
+                <span className="text-xs font-semibold text-[#C17F3B] uppercase tracking-wide">Project Photos</span>
+                <h3 className="mt-1 text-base font-bold text-[#2C5F7F] group-hover:underline leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Shot Blasting Steel Fabrications UK: Before &amp; After Photos
+                </h3>
+                <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+                  Five real fabrication projects with before, during, and after photos showing mill scale and rust removal to Sa 2.5 near-white metal standard.
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F] group-hover:gap-2 transition-all">
+                  See the projects <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </Link>
+            <Link href="/blog/flash-rust-after-shot-blasting" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
+              <img
+                src="/manus-storage/staircase_after1_2dc6ad73.jpg"
+                alt="Clean Sa 2.5 near-white metal surface immediately after shot blasting — must be primed within 2–4 hours to prevent flash rust"
+                className="w-full h-44 object-cover"
+                loading="lazy"
+              />
+              <div className="p-4">
+                <span className="text-xs font-semibold text-[#C17F3B] uppercase tracking-wide">Technical Guide</span>
+                <h3 className="mt-1 text-base font-bold text-[#2C5F7F] group-hover:underline leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Flash Rust After Shot Blasting: Why You Must Prime Within 2–4 Hours
+                </h3>
+                <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+                  What flash rust is, why it forms so quickly on freshly blasted steel, and how to prevent it from undermining your coating system.
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F] group-hover:gap-2 transition-all">
+                  Read the guide <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </Link>
+            <Link href="/blog/shot-blasting-external-staircases" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
+              <img
+                src="/manus-storage/staircase_during1_e3065e80.jpg"
+                alt="Shot blasting external staircase on-site — rust and old paint stripped to Sa 2.5 near-white metal"
+                className="w-full h-44 object-cover"
+                loading="lazy"
+              />
+              <div className="p-4">
+                <span className="text-xs font-semibold text-[#C17F3B] uppercase tracking-wide">Guide</span>
+                <h3 className="mt-1 text-base font-bold text-[#2C5F7F] group-hover:underline leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Shot Blasting External Staircases: The Complete Guide
+                </h3>
+                <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+                  Why rust spreads so fast on external steel staircases, how shot blasting removes it to Sa 2.5 standard, and what to expect from our on-site mobile service.
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F] group-hover:gap-2 transition-all">
+                  Read the guide <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <Footer />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
     </div>
