@@ -226,6 +226,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                       {[
                         { title: 'Container Shot Blasting', href: '/services/steel-containers' },
                         { title: 'Floor Shot Blasting', href: '/services/floor-preparation' },
+                        { title: 'Car Park Paint Removal', href: '/services/car-park-paint-removal' },
                         { title: 'Pipework Shot Blasting', href: '/services/pipework' },
                         { title: 'Telecom Tower Shot Blasting', href: '/services/telecom-towers' },
                         { title: 'Machinery Shot Blasting', href: '/services/plant-machinery' },

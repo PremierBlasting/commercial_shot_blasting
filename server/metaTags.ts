@@ -6293,6 +6293,30 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     return modifiedHtml;
   }
 
+  // ── Car Park Paint Removal page ────────────────────────────────────────────
+  if (url === '/services/car-park-paint-removal' || url === '/services/car-park-paint-removal/') {
+    const cpTitle = 'Car Park Paint & Line Marking Removal | Shot Blasting UK | Commercial Shot Blasting';
+    const cpDesc = 'Mobile on-site shot blasting to remove car park line markings, bay numbers, thermoplastic road markings, and old paint from tarmac and concrete. England and Wales. Free site survey and quotation.';
+    const cpUrl = `${SITE_URL}/services/car-park-paint-removal`;
+    let modifiedHtml = html;
+    modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${cpTitle}</title>`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${cpDesc}" />`);
+    modifiedHtml = modifiedHtml.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${cpUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${cpUrl}" />
+    <link rel="alternate" hreflang="en" href="${cpUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${cpTitle}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${cpDesc}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${cpUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:title"[^>]*>/, `<meta name="twitter:title" content="${cpTitle}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:description"[^>]*>/, `<meta name="twitter:description" content="${cpDesc}" />`);
+    const cpBreadcrumb = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Services","item":`${SITE_URL}/services`},{"@type":"ListItem","position":3,"name":"Car Park Paint & Line Marking Removal","item":cpUrl}]});
+    const cpWebPage = JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":cpTitle,"description":cpDesc,"url":cpUrl,"inLanguage":"en-GB"});
+    const cpService = JSON.stringify({"@context":"https://schema.org","@type":"Service","name":"Car Park Paint & Line Marking Removal","alternateName":["Car Park Line Marking Removal","Car Park Shot Blasting","Road Paint Removal UK","Thermoplastic Road Marking Removal","Parking Bay Paint Removal"],"description":cpDesc,"url":cpUrl,"serviceType":"Shot Blasting","provider":{"@type":"LocalBusiness","name":BUSINESS_NAME,"url":SITE_URL,"telephone":"07970566409","email":"info@commercialshotblasting.co.uk","areaServed":["England","Wales"]},"areaServed":{"@type":"Country","name":"United Kingdom"}});
+    const cpFaq = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can you remove car park line markings without damaging the tarmac?","acceptedAnswer":{"@type":"Answer","text":"Yes. We use calibrated shot blasting equipment that removes paint and thermoplastic markings from the surface without cutting into the tarmac or concrete substrate. The result is a clean surface with no visible scarring, ready for re-marking."}},{"@type":"Question","name":"Do you work on-site at the car park?","acceptedAnswer":{"@type":"Answer","text":"Yes — we bring all our mobile shot blasting equipment to your site. There is no need to close the entire car park; we can work bay by bay or section by section, allowing you to keep part of the facility operational during the works."}},{"@type":"Question","name":"What types of car park markings can you remove?","acceptedAnswer":{"@type":"Answer","text":"We can remove all types of car park and road markings including painted bay lines, thermoplastic markings, bay numbers, disabled bay symbols, directional arrows, hatching, yellow lines, and road paint from both tarmac and concrete surfaces."}},{"@type":"Question","name":"How long does car park line marking removal take?","acceptedAnswer":{"@type":"Answer","text":"Timescales depend on the size of the car park and the number of bays. As a guide, a standard 100-bay car park can typically be completed in one to two days. We will provide an accurate programme when you enquire."}},{"@type":"Question","name":"Do you remove thermoplastic road markings?","acceptedAnswer":{"@type":"Answer","text":"Yes. Thermoplastic markings are thicker and more durable than paint, but shot blasting removes them effectively without the heat or chemicals required by other methods. The surface is left clean and ready for new markings to be applied."}},{"@type":"Question","name":"What areas do you cover for car park paint removal?","acceptedAnswer":{"@type":"Answer","text":"We cover the whole of England and Wales from our bases in the Midlands. We regularly work in Nottingham, Birmingham, Manchester, Leeds, London, Bristol, and across our 35-county service area. Travel is included in our quotation."}}]});
+    modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${cpBreadcrumb}</script>\n<script type="application/ld+json">${cpWebPage}</script>\n<script type="application/ld+json">${cpService}</script>\n<script type="application/ld+json">${cpFaq}</script>\n</head>`);
+    return modifiedHtml;
+  }
+
   // ── Counties index page: /counties ────────────────────────────────────────
   if (url === '/counties' || url === '/counties/') {
     const countiesTitle = 'Shot Blasting Services by County | Commercial Shot Blasting';

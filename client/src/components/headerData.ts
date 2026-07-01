@@ -29,6 +29,7 @@ export const serviceLinks = [
   { title: "Paint Stripping", href: "/services/paint-stripping", description: "Industrial paint stripping by shot blasting — all coats removed in one pass" },
   { title: "Coating Removal", href: "/services/coating-removal", description: "Specialist removal of epoxy, polyurethane, intumescent, and marine coatings" },
   { title: "Agricultural Shot Blasting", href: "/services/agricultural-shot-blasting", description: "Shot blasting for farm machinery, grain stores, and agricultural steelwork" },
+  { title: "Car Park Paint & Line Marking Removal", href: "/services/car-park-paint-removal", description: "Mobile shot blasting to remove bay markings, thermoplastic road paint, and old coatings from tarmac and concrete" },
 ];
 
 export const compactAreasLinks = [
