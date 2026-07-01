@@ -4766,6 +4766,25 @@ function generateServiceBodyHTML(serviceId: string): string {
         { q: "Do you provide a coating thickness report?", a: "Yes. We measure dry film thickness on every coated member and provide a full coating report with product data sheets, batch numbers, and thickness readings for building control." },
       ],
     },
+    "agricultural-shot-blasting": {
+      title: "Agricultural Shot Blasting",
+      tagline: "Mobile Shot Blasting for Farm Machinery, Grain Stores & Agricultural Steelwork",
+      description: "Commercial Shot Blasting provides specialist shot blasting services for the agricultural sector across England and Wales. Our mobile units come directly to your farm or yard to remove rust, old paint, and surface contamination from tractors, farm implements, grain stores, livestock buildings, and agricultural steelwork — preparing surfaces for protective coatings that extend service life and reduce long-term maintenance costs.",
+      steps: [
+        { title: "On-Site Assessment", description: "We visit your farm or agricultural site to assess the machinery or structures, confirm the required cleanliness standard, and agree the coating specification with you." },
+        { title: "Preparation & Protection", description: "Sensitive components — bearings, seals, hydraulic fittings, and electrical connections — are masked and protected before blasting begins." },
+        { title: "Shot Blasting", description: "All surfaces are blasted to remove rust, old paint, and contamination, achieving clean bare metal to Sa 2 or Sa 2.5 standard as required." },
+        { title: "Surface Inspection", description: "Surface cleanliness and profile are verified before coating application to ensure the substrate is ready for the specified primer or topcoat." },
+        { title: "Coating Coordination", description: "We coordinate primer or protective coating application to protect the freshly blasted surfaces before the machinery or structure returns to service." },
+      ],
+      applications: ["Tractors and agricultural vehicles", "Farm implements and attachments", "Grain stores and hoppers", "Steel farm buildings and portal frames", "Livestock handling equipment", "Irrigation and water management equipment", "Trailers, ploughs, and spreaders", "Silage clamps and slurry stores"],
+      faqs: [
+        { q: "Can you blast tractors and farm machinery on-site?", a: "Yes. Our mobile units come directly to your farm or agricultural site. We can blast tractors, implements, and other machinery on-site, minimising downtime and transport costs. We work around your farming schedule to reduce disruption." },
+        { q: "What coating is recommended after blasting agricultural equipment?", a: "For agricultural machinery, we recommend a zinc-rich primer followed by a two-pack epoxy or polyurethane topcoat for maximum durability in the harsh agricultural environment. We can advise on the most suitable coating system for your specific equipment and budget." },
+        { q: "Can you blast grain stores and steel farm buildings?", a: "Yes. We regularly blast grain stores, steel portal frame farm buildings, and agricultural structures. Our mobile equipment can treat large areas of structural steelwork and cladding on-site without the need to dismantle the building." },
+        { q: "How much does agricultural shot blasting cost?", a: "Cost depends on the size and condition of the machinery or structure. We provide free site surveys and detailed quotations. As a guide, a single tractor chassis typically takes one day; a grain store or farm building will be priced per square metre of surface area." },
+      ],
+    },
   };
 
   const d = serviceData[serviceId];
@@ -4921,6 +4940,10 @@ function generateServiceBodyHTML(serviceId: string): string {
         {slug: "why-shot-blasting-essential-before-intumescent-painting", title: "Why Shot Blasting is Essential Before Intumescent Painting"},
         {slug: "shot-blasting-structural-steel-guide", title: "The Complete Guide to Shot Blasting Structural Steel"},
         {slug: "how-to-specify-surface-preparation-for-structural-steel", title: "How to Specify Surface Preparation for Structural Steel"},
+      ],
+      "agricultural-shot-blasting": [
+        {slug: "shot-blasting-vs-sandblasting-difference", title: "Shot Blasting vs Sandblasting: What's the Difference?"},
+        {slug: "how-much-does-shot-blasting-cost-uk", title: "How Much Does Shot Blasting Cost in the UK? (2025 Price Guide)"},
       ],
     };
     const relatedPosts = SERVICE_BLOG_MAP[serviceId] || [];
@@ -6225,6 +6248,48 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       ]
     });
     modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n<script type="application/ld+json">${aggregateRatingSchema}</script>\n</head>`);
+    return modifiedHtml;
+  }
+
+  // ── Site Survey page: /site-survey ─────────────────────────────────────────
+  if (url === '/site-survey' || url === '/site-survey/') {
+    const surveyTitle = 'Free Site Survey for Shot Blasting | No-Obligation Quote | Commercial Shot Blasting';
+    const surveyDesc = 'Request a free, no-obligation site survey for your shot blasting project. We visit your site, assess the surfaces, confirm the blast standard required, and provide a detailed written quote — at no charge. Call 07970 566409.';
+    const surveyUrl = `${SITE_URL}/site-survey`;
+    let modifiedHtml = html;
+    modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${surveyTitle}</title>`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${surveyDesc}" />`);
+    modifiedHtml = modifiedHtml.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${surveyUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${surveyUrl}" />
+    <link rel="alternate" hreflang="en" href="${surveyUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${surveyTitle}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${surveyDesc}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${surveyUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:title"[^>]*>/, `<meta name="twitter:title" content="${surveyTitle}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:description"[^>]*>/, `<meta name="twitter:description" content="${surveyDesc}" />`);
+    const breadcrumbSchema = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Free Site Survey","item":surveyUrl}]});
+    const webPageSchema = JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":surveyTitle,"description":surveyDesc,"url":surveyUrl});
+    const serviceSchema = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Free Site Survey for Shot Blasting",
+      "description": "A free, no-obligation site visit to assess your surfaces, confirm the blast standard required (SA2.5 or SA3), and provide a detailed written quotation.",
+      "url": surveyUrl,
+      "provider": {"@type": "LocalBusiness", "name": BUSINESS_NAME, "url": SITE_URL, "telephone": "07970566409"},
+      "areaServed": {"@type": "Country", "name": "United Kingdom"},
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP", "description": "Free, no-obligation site survey and written quotation"}
+    });
+    const faqSchema = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Is the site survey really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our site surveys are completely free and carry no obligation. We visit your site, assess the surfaces, and provide a detailed written quote — at no charge, regardless of whether you proceed with the work."}},
+        {"@type":"Question","name":"How quickly can you carry out a site survey?","acceptedAnswer":{"@type":"Answer","text":"We typically arrange site surveys within 2–5 working days of your enquiry. For urgent projects, call us directly on 07970 566409 and we will do our best to accommodate a faster visit."}},
+        {"@type":"Question","name":"What does the site survey involve?","acceptedAnswer":{"@type":"Answer","text":"Our surveyor will inspect the surfaces to be blasted, assess the level of corrosion or coating to be removed, confirm the blast standard required (SA2.5 or SA3), measure the surface area, and discuss your coating specification. You will receive a detailed written quote within 24 hours of the visit."}},
+        {"@type":"Question","name":"Do you cover my area for a site survey?","acceptedAnswer":{"@type":"Answer","text":"We cover 35 counties across England and Wales. Call 07970 566409 or use our online form to check availability in your area."}}
+      ]
+    });
+    modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n<script type="application/ld+json">${serviceSchema}</script>\n<script type="application/ld+json">${faqSchema}</script>\n</head>`);
     return modifiedHtml;
   }
 

@@ -1,0 +1,14 @@
+{
+  "query": "SELECT slug, LEFT(content, 200) as content_preview FROM blog_posts WHERE slug = 'shot-blasting-vs-sandblasting-difference';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT slug, LEFT(content, 200) as content_preview FROM blog_posts WHERE slug = 'shot-blasting-vs-sandblasting-difference';",
+  "rows": [
+    {
+      "slug": "shot-blasting-vs-sandblasting-difference",
+      "content_preview": "<p>The terms \"shot blasting\" and \"sandblasting\" are often used interchangeably by clients, but they describe different processes that produce different results on different substrates. Choosing the wr"
+    }
+  ],
+  "messages": [],
+  "stdout": "slug\tcontent_preview\nshot-blasting-vs-sandblasting-difference\t<p>The terms \"shot blasting\" and \"sandblasting\" are often used interchangeably by clients, but they describe different processes that produce different results on different substrates. Choosing the wr\n",
+  "stderr": "",
+  "execution_time_ms": 612
+}

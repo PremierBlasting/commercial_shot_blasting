@@ -50,6 +50,24 @@ async function startServer() {
     res.redirect(301, "/site-survey");
   });
 
+  // 301 redirects: old/legacy service URL slugs → canonical current URLs
+  app.get("/services/marine-services", (_req, res) => {
+    res.redirect(301, "/services/marine-shot-blasting");
+  });
+  app.get("/services/bridge-steelwork-shot-blasting", (_req, res) => {
+    res.redirect(301, "/services/bridge-steelwork");
+  });
+  app.get("/services/automotive-restoration", (_req, res) => {
+    res.redirect(301, "/services/commercial-vehicles");
+  });
+  app.get("/services/steel-shot-blasting", (_req, res) => {
+    res.redirect(301, "/services/structural-steel-frames");
+  });
+  // 301 redirect: /gloucestershire → /counties/gloucestershire
+  app.get("/gloucestershire", (_req, res) => {
+    res.redirect(301, "/counties/gloucestershire");
+  });
+
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
@@ -88,6 +106,12 @@ async function startServer() {
   });
 
   // IndexNow key file — must be served before static middleware / SPA fallback
+  // Key: e8e86d804d074a3c99b7d1f29561bf59
+  app.get("/e8e86d804d074a3c99b7d1f29561bf59.txt", (_req, res) => {
+    res.set("Content-Type", "text/plain");
+    res.send("e8e86d804d074a3c99b7d1f29561bf59");
+  });
+  // Legacy key file (keep for backwards compat)
   app.get("/commercialshotblasting.txt", (_req, res) => {
     res.set("Content-Type", "text/plain");
     res.send("commercialshotblasting");
