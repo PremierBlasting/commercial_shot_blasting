@@ -14,7 +14,7 @@ const IMG = {
   aerial:  "https://images.unsplash.com/photo-1612917231506-a0825d1bc76d?w=1200&q=80&fit=crop&auto=format",
   bays:    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&fit=crop&auto=format",
   surface: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=1200&q=80&fit=crop&auto=format",
-  markings:"https://images.unsplash.com/photo-1473090826765-d54ac2fdc1eb?w=1200&q=80&fit=crop&auto=format",
+  markings:"/manus-storage/ben-elliott-dk1F7gz38Cs-unsplash_76d9783d.webp",
 };
 
 // ── JSON-LD rich schema graph ─────────────────────────────────────────────────
@@ -403,7 +403,7 @@ export default function CarParkPage() {
           <div className="rounded-2xl overflow-hidden shadow-xl order-2 md:order-1">
             <img
               src={IMG.markings}
-              alt="Close-up of car park bay markings on tarmac — white painted lines showing typical line marking that can be removed by shot blasting"
+              alt="UK car park with white bay line markings on tarmac — typical car park surface preparation and line marking removal project"
               className="w-full h-72 object-cover"
               width="600"
               height="288"
