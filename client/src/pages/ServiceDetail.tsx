@@ -689,6 +689,66 @@ export default function ServiceDetail() {
                     </p>
                   </div>
 
+                  {/* Before & After Gallery */}
+                  <div className="mt-10 mb-8">
+                    <h2 className="text-3xl font-bold text-[#2C5F7F] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      Fire Escape Shot Blasting — Before &amp; After Gallery
+                    </h2>
+                    <p className="text-gray-600 mb-8">
+                      Drag the slider on each image to compare the rusted, corroded steel before blasting with the clean Sa 2.5 near-white metal surface after. All work carried out on-site — no dismantling, no transport.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      {/* Project 1 */}
+                      <div>
+                        <h3 className="text-lg font-semibold text-[#2C5F7F] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Project 1</h3>
+                        <BeforeAfterSlider
+                          beforeImage="/manus-storage/fireescape1before_b56bfae9.jpg"
+                          afterImage="/manus-storage/FireEscape1after1_c5b095f6.jpg"
+                          beforeLabel="Before"
+                          afterLabel="After"
+                          className="shadow-xl rounded-xl overflow-hidden"
+                        />
+                        <p className="text-sm text-gray-500 mt-2">Heavy rust and old paint removed to Sa 2.5 near-white metal standard — treads, risers, and structural members.</p>
+                      </div>
+                      {/* Project 2 */}
+                      <div>
+                        <h3 className="text-lg font-semibold text-[#2C5F7F] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Project 2</h3>
+                        <BeforeAfterSlider
+                          beforeImage="/manus-storage/FireEscape1before2_5381dc45.jpg"
+                          afterImage="/manus-storage/FireEscape1after2_6ec7b073.jpg"
+                          beforeLabel="Before"
+                          afterLabel="After"
+                          className="shadow-xl rounded-xl overflow-hidden"
+                        />
+                        <p className="text-sm text-gray-500 mt-2">Corroded handrails and landing plates blasted clean — surface profile created for maximum primer adhesion.</p>
+                      </div>
+                      {/* Project 3 */}
+                      <div>
+                        <h3 className="text-lg font-semibold text-[#2C5F7F] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Project 3</h3>
+                        <BeforeAfterSlider
+                          beforeImage="/manus-storage/FireEscape1before3_a7902523.jpg"
+                          afterImage="/manus-storage/FireEscape1after3_e04fabf0.jpg"
+                          beforeLabel="Before"
+                          afterLabel="After"
+                          className="shadow-xl rounded-xl overflow-hidden"
+                        />
+                        <p className="text-sm text-gray-500 mt-2">Stringers and cross-members freed of scale and corrosion — ready for epoxy zinc phosphate primer within 2–4 hours.</p>
+                      </div>
+                      {/* Project 4 */}
+                      <div>
+                        <h3 className="text-lg font-semibold text-[#2C5F7F] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Project 4</h3>
+                        <BeforeAfterSlider
+                          beforeImage="/manus-storage/FireEscape1before4_b36c600d.jpg"
+                          afterImage="/manus-storage/FireEscape1after4_cad5023d.jpg"
+                          beforeLabel="Before"
+                          afterLabel="After"
+                          className="shadow-xl rounded-xl overflow-hidden"
+                        />
+                        <p className="text-sm text-gray-500 mt-2">Full fire escape structure blasted on-site — all surfaces including bolt heads, welds, and tight angles prepared to specification.</p>
+                      </div>
+                    </div>
+                  </div>
+
                   {/* Related Service: External Staircases */}
                   <div className="mt-4 p-5 rounded-xl border border-[#2C5F7F]/20 bg-[#2C5F7F]/5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     <div className="flex-1">
