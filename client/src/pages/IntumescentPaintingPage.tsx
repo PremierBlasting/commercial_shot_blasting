@@ -20,6 +20,7 @@ const IMG = {
   before:  "/manus-storage/WhatsAppImage2026-07-03at10.26.46_09230ac7.jpeg",
 };
 const VIDEO = "/manus-storage/intumescentpaint_cbe14861.mp4";
+const HERO_VIDEO = "/manus-storage/DJI_hero_web_a4e24131.mp4";
 const VIDEO_ALL3 = "/manus-storage/all3_3c7034df.mp4";
 
 // ── JSON-LD rich schema graph ─────────────────────────────────────────────────
@@ -195,16 +196,17 @@ export default function IntumescentPaintingPage() {
       />
       <Header />
 
-      {/* ── Hero ───────────────────────────────────────────────────────────── */}
+        {/* ── Hero ────────────────────────────────────────────────────── */}
       <section className="relative min-h-[520px] flex items-end pb-16 overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={IMG.hero}
-            alt="Operative on MEWP spray-applying intumescent fire protection paint to structural steel roof trusses at HB Tunnelling, Doncaster"
+          <video
+            src={HERO_VIDEO}
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full h-full object-cover"
-            width="1600"
-            height="900"
-            loading="eager"
+            aria-hidden="true"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0d2233]/95 via-[#0d2233]/70 to-[#0d2233]/30" />
         </div>
@@ -222,7 +224,7 @@ export default function IntumescentPaintingPage() {
               Intumescent Painting for Structural Steel
             </h1>
             <p className="mt-4 text-lg text-white/85 max-w-2xl">
-              On-site shot blasting and certified intumescent fire protection coatings in a single mobilisation. Two specialist teams, blasting and painting on the same day — anywhere in England and Wales.
+              On-site shot blasting and certified intumescent fire protection coatings in a single mobilisation. Three specialist operatives, blasting and painting on the same day — anywhere in England and Wales.
             </p>
             <div className="flex flex-wrap gap-3 mt-8">
               <Button
@@ -264,13 +266,13 @@ export default function IntumescentPaintingPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-[#2C5F7F] mb-5" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Blasted and Painted on the Same Day — Two Teams, One Mobilisation.
+                Blasted and Painted on the Same Day — Three Operatives, One Mobilisation.
               </h2>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                We bring two specialist teams to site on the same day — one shot blasting the steelwork to Sa 2.5 near-white metal standard, the other following directly behind applying primer and intumescent topcoat. As one section of steel is blasted clean, the painting team moves in immediately. By the time we pack up and leave, the entire structure is blasted, primed, and coated.
+                We bring three specialist operatives to site on the same day — the blasting team working through the steelwork to Sa 2.5 near-white metal standard, the painting team following directly behind applying primer and intumescent topcoat. As one section of steel is blasted clean, the painting team moves in immediately. By the time we pack up and leave, the entire structure is blasted, primed, and coated.
               </p>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                This is not the same as booking two separate contractors. Because both teams are ours, they work in sequence, not in conflict. There is no handover gap, no risk of flash rusting between blast and paint, and no dispute over substrate condition. The coating is applied to the correct surface in the correct window — every time.
+                This is not the same as booking two separate contractors. Because all three operatives are ours, they work in sequence, not in conflict. There is no handover gap, no risk of flash rusting between blast and paint, and no dispute over substrate condition. The coating is applied to the correct surface in the correct window — every time.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 We work on portal frames, roof trusses, mezzanine floors, and complex fabrications across England and Wales. One mobilisation, one invoice, one point of contact.
@@ -343,7 +345,7 @@ export default function IntumescentPaintingPage() {
               How We Blast and Paint Your Steel in a Single Visit
             </h2>
             <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
-              Two teams, working in parallel on the same structure. No waiting for a second contractor. No gap between blast and paint.
+              Three operatives, working in parallel on the same structure. No waiting for a second contractor. No gap between blast and paint.
             </p>
           </div>
 

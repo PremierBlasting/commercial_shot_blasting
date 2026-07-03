@@ -881,6 +881,46 @@ export default function Home() {
         </section>
       )}
 
+      {/* All Three Teams Video Callout */}
+      <section className="py-16 bg-white">
+        <div className="container max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-orange-600 mb-3">On Site — Same Day</span>
+              <h2 className="text-3xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Blasting and Painting at the Same Time
+              </h2>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                We bring three specialist operatives to site on the same day. The blasting team works through the structure to Sa 2.5 near-white metal standard while the painting team follows directly behind, applying primer and intumescent topcoat. All three work simultaneously across the structure.
+              </p>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                No second visit. No gap between blast and paint. No coordinating two separate contractors. One mobilisation, one invoice, one point of contact.
+              </p>
+              <a href="/services/intumescent-painting">
+                <button className="inline-flex items-center gap-2 bg-[#2C5F7F] hover:bg-[#1a3d52] text-white font-semibold px-6 py-3 rounded-lg transition-colors">
+                  Learn About Our Intumescent Painting Service
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                </button>
+              </a>
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <video
+                src="/manus-storage/all3_3c7034df.mp4"
+                controls
+                muted
+                playsInline
+                preload="metadata"
+                className="w-full aspect-video object-cover bg-black"
+                aria-label="Video showing three operatives working simultaneously — shot blasting and intumescent painting at the same time on the same structure"
+              />
+              <div className="bg-[#2C5F7F] px-4 py-2 text-white text-xs font-medium text-center">
+                Three Operatives On Site — Blasting &amp; Painting Simultaneously
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-[#2C5F7F] text-white">
         <div className="container">
