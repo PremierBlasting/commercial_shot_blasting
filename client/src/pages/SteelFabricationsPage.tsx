@@ -612,7 +612,7 @@ export default function SteelFabricationsPage() {
           <h2 className="text-2xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
             Further Reading
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Link href="/blog/shot-blasting-steel-fabrications-uk" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
               <img
                 src="/manus-storage/SteelFabrications1before_090ae51a.jpg"
@@ -666,10 +666,30 @@ export default function SteelFabricationsPage() {
                   Shot Blasting External Staircases: The Complete Guide
                 </h3>
                 <p className="mt-2 text-sm text-gray-600 line-clamp-2">
-                  Why rust spreads so fast on external steel staircases, how shot blasting removes it to Sa 2.5 standard, and what to expect from our on-site mobile service.
+                  Why rust spreads so fast on external steel staircases, how shot blasting removes it to Sa 2.5 standard, and what to expect from our on-site mobile service.
                 </p>
                 <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F] group-hover:gap-2 transition-all">
                   Read the guide <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </Link>
+            <Link href="/services/intumescent-painting" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
+              <img
+                src="/manus-storage/intumescentpaint6_9c8f5a2b.jpeg"
+                alt="Intumescent painting of structural steel roof trusses on scissor lift — fire protection coating applied after shot blasting to Sa 2.5"
+                className="w-full h-44 object-cover"
+                loading="lazy"
+              />
+              <div className="p-4">
+                <span className="text-xs font-semibold text-[#C17F3B] uppercase tracking-wide">Service</span>
+                <h3 className="mt-1 text-base font-bold text-[#2C5F7F] group-hover:underline leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Intumescent Painting for Structural Steel
+                </h3>
+                <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+                  R30–R120 fire protection coatings applied after shot blasting — combined in a single mobilisation with full DFT documentation for building control.
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F] group-hover:gap-2 transition-all">
+                  View service <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
             </Link>

@@ -1017,3 +1017,6 @@
 - [x] Register /steel-fabrications route in App.tsx
 - [x] Add Steel Fabrications link to Header.tsx navigation (desktop + mobile)
 - [x] Add /steel-fabrications to sitemap.ts
+- [x] Add intumescent painting page as 4th card to Steel Fabrications Further Reading section (grid: md:grid-cols-2 lg:grid-cols-4)
+- [x] Create intumescent painting blog post (slug: intumescent-painting-structural-steel) — DFT table, section factors, HB Tunnelling project, R30-R120 ratings, Sa 2.5 requirement, primer systems, regulatory context
+- [x] Add Further Reading section to IntumescentPaintingPage with 3 cards: blog post + flash rust guide + steel fabrications service

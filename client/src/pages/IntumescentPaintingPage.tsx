@@ -569,6 +569,77 @@ export default function IntumescentPaintingPage() {
         </div>
       </section>
 
+      {/* Further Reading */}
+      <section className="py-12 bg-[#f5f0e8]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Further Reading
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Link href="/blog/intumescent-painting-structural-steel" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
+              <img
+                src="/manus-storage/intumescentpaint6_9c8f5a2b.jpeg"
+                alt="Intumescent painting applied to structural steel roof trusses — fire protection coating after shot blasting to Sa 2.5"
+                className="w-full h-44 object-cover"
+                loading="lazy"
+              />
+              <div className="p-4">
+                <span className="text-xs font-semibold text-[#C17F3B] uppercase tracking-wide">Technical Guide</span>
+                <h3 className="mt-1 text-base font-bold text-[#2C5F7F] group-hover:underline leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Intumescent Painting for Structural Steel: The Complete UK Guide
+                </h3>
+                <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+                  DFT requirements, section factors, fire ratings R30 to R120, and why shot blasting to Sa 2.5 is essential before application.
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F] group-hover:gap-2 transition-all">
+                  Read the guide <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </Link>
+            <Link href="/blog/flash-rust-after-shot-blasting" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
+              <img
+                src="/manus-storage/staircase_after1_2dc6ad73.jpg"
+                alt="Clean Sa 2.5 near-white metal surface immediately after shot blasting — must be primed within 2–4 hours to prevent flash rust"
+                className="w-full h-44 object-cover"
+                loading="lazy"
+              />
+              <div className="p-4">
+                <span className="text-xs font-semibold text-[#C17F3B] uppercase tracking-wide">Technical Guide</span>
+                <h3 className="mt-1 text-base font-bold text-[#2C5F7F] group-hover:underline leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Flash Rust After Shot Blasting: Why You Must Prime Within 2–4 Hours
+                </h3>
+                <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+                  What flash rust is, why it forms so quickly on freshly blasted steel, and how to prevent it from undermining your coating system.
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F] group-hover:gap-2 transition-all">
+                  Read the guide <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </Link>
+            <Link href="/steel-fabrications" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
+              <img
+                src="/manus-storage/SteelFabrications1before_090ae51a.jpg"
+                alt="Steel fabrication before shot blasting — mill scale and rust on fabricated steel structure ready for intumescent painting"
+                className="w-full h-44 object-cover"
+                loading="lazy"
+              />
+              <div className="p-4">
+                <span className="text-xs font-semibold text-[#C17F3B] uppercase tracking-wide">Service</span>
+                <h3 className="mt-1 text-base font-bold text-[#2C5F7F] group-hover:underline leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Shot Blasting Steel Fabrications
+                </h3>
+                <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+                  Mobile shot blasting for fabricated steel structures, removing mill scale and rust to Sa 2.5 standard — ready for primer and intumescent coating.
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F] group-hover:gap-2 transition-all">
+                  View service <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <Footer />
       <QuotePopup open={quoteOpen} onOpenChange={setQuoteOpen} />
     </div>
