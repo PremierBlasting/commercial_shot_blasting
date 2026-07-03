@@ -231,7 +231,7 @@ export default function IntumescentPaintingPage() {
             height="900"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0d2233]/90 via-[#0d2233]/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d2233]/95 via-[#0d2233]/70 to-[#0d2233]/30" />
         </div>
         <div className="relative container">
           <Breadcrumb items={[
@@ -534,13 +534,13 @@ export default function IntumescentPaintingPage() {
               },
               {
                 href: "/services/staircases",
-                img: "/manus-storage/staircase_after_sa25_2e0c8e5a.jpg",
+                img: "/manus-storage/staircase_thumb_d419ab8f.jpg",
                 title: "External Staircases",
                 desc: "Shot blasting and intumescent painting of internal and external steel staircases for fire compliance.",
               },
               {
                 href: "/services/fire-escapes",
-                img: "/manus-storage/fire_escape_after_1_d0d8b3e9.jpg",
+                img: "/manus-storage/fireescape1before_b56bfae9.jpg",
                 title: "Fire Escape Shot Blasting",
                 desc: "On-site shot blasting of fire escapes and emergency stairways — combined with intumescent painting where required.",
               },
