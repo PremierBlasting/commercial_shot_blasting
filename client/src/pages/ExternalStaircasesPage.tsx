@@ -529,6 +529,7 @@ export default function ExternalStaircasesPage() {
                 </a>
                 <div className="grid grid-cols-1 gap-4">
                   {[
+                    { title: "Intumescent Painting", href: "/services/intumescent-painting", tagline: "Fire protection coatings applied after Sa 2.5 blasting" },
                     { title: "Steel Gates Shot Blasting", href: "/services/steel-gates", tagline: "On-site blasting for steel gates and railings" },
                     { title: "Rust Removal", href: "/services/rust-removal", tagline: "Complete rust removal to bare metal standard" },
                     { title: "Structural Steel Shot Blasting", href: "/services/structural-steel-frames", tagline: "On-site blasting for building frames and trusses" },

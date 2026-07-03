@@ -275,15 +275,23 @@ export default function IntumescentPaintingPage() {
                 We work on portal frames, roof trusses, mezzanine floors, and complex fabrications across England and Wales. One mobilisation, one invoice, one point of contact.
               </p>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img
-                src={IMG.spray1}
-                alt="Operative spray-applying intumescent fire protection paint to structural steel beams from a MEWP platform — Doncaster project"
-                className="w-full h-80 object-cover"
-                width="600"
-                height="320"
-                loading="lazy"
-              />
+            <div className="space-y-4">
+              {/* Placeholder slot for a photo showing both teams on site simultaneously */}
+              <div className="rounded-2xl overflow-hidden shadow-xl bg-[#0d2233] flex flex-col items-center justify-center h-48 border-2 border-dashed border-orange-400/40 relative">
+                <Flame className="w-8 h-8 text-orange-400 mb-2 opacity-60" />
+                <p className="text-white/60 text-sm font-medium text-center px-6">Photo of both teams working on site at the same time — blasting and painting simultaneously</p>
+                <p className="text-white/30 text-xs mt-1">(Upload a photo to replace this placeholder)</p>
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src={IMG.spray1}
+                  alt="Operative spray-applying intumescent fire protection paint to structural steel beams from a MEWP platform — Doncaster project"
+                  className="w-full h-48 object-cover"
+                  width="600"
+                  height="192"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link, useParams } from "wouter";
-import { Phone, Mail, MapPin, CheckCircle, ArrowRight, ArrowLeft, Clock, Shield, Award, ChevronDown, ChevronUp, Star } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle, ArrowRight, ArrowLeft, Clock, Shield, Award, ChevronDown, ChevronUp, Star, Flame } from "lucide-react";
 import { useState } from "react";
 import { getServiceSEO, useSEO } from "@/hooks/useSEO";
 import { trackPhoneCall } from "@/lib/analytics";
@@ -770,6 +770,39 @@ export default function ServiceDetail() {
                     </div>
                     <Link href="/services/intumescent-painting" className="flex-shrink-0 inline-flex items-center gap-2 bg-[#2C5F7F] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#1e4a63] transition-colors">
                       Learn More <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+
+                  {/* Sa 2.5 & Fire Compliance Callout */}
+                  <div className="mt-8 rounded-2xl bg-[#0d2233] p-6">
+                    <span className="inline-block text-xs font-semibold uppercase tracking-widest text-orange-300 mb-3">Surface Preparation & Fire Compliance</span>
+                    <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Why Sa 2.5 Matters for Fire Escape Coatings</h3>
+                    <p className="text-white/80 text-sm leading-relaxed mb-4">
+                      Fire escapes and stair towers in commercial buildings are frequently required to carry a fire resistance rating. Intumescent paint is the standard method — but it will only perform correctly when applied to a properly prepared substrate.
+                    </p>
+                    <p className="text-white/80 text-sm leading-relaxed mb-5">
+                      Shot blasting to <strong className="text-white">Sa 2.5 near-white metal standard</strong> removes all rust, old paint, and mill scale and creates an Rz 50–75 μm anchor profile. Without this profile, intumescent coatings cannot bond correctly — and a coating that delaminates under heat provides no protection at all.
+                    </p>
+                    <div className="grid sm:grid-cols-3 gap-3 mb-5">
+                      {[
+                        { icon: <Shield className="w-4 h-4 text-orange-400" />, title: "Sa 2.5 Standard", body: "All rust, old paint, and mill scale removed. Required by all intumescent paint manufacturers." },
+                        { icon: <CheckCircle className="w-4 h-4 text-orange-400" />, title: "Rz 50–75 μm Profile", body: "Mechanical anchor profile created by blasting. Primer and intumescent topcoat key into this surface." },
+                        { icon: <Award className="w-4 h-4 text-orange-400" />, title: "Blast & Paint Same Day", body: "Both teams on site together. No gap between blast and paint, no flash rust between trades." },
+                      ].map(({ icon, title, body }) => (
+                        <div key={title} className="flex gap-3 bg-white/5 rounded-xl p-3 border border-white/10">
+                          <div className="flex-shrink-0 mt-0.5">{icon}</div>
+                          <div>
+                            <p className="font-semibold text-white text-sm mb-1">{title}</p>
+                            <p className="text-xs text-white/70 leading-relaxed">{body}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <Link
+                      href="/services/intumescent-painting"
+                      className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors"
+                    >
+                      <Flame className="w-4 h-4" /> View Intumescent Painting Service
                     </Link>
                   </div>
 
