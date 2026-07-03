@@ -276,11 +276,15 @@ export default function IntumescentPaintingPage() {
               </p>
             </div>
             <div className="space-y-4">
-              {/* Placeholder slot for a photo showing both teams on site simultaneously */}
-              <div className="rounded-2xl overflow-hidden shadow-xl bg-[#0d2233] flex flex-col items-center justify-center h-48 border-2 border-dashed border-orange-400/40 relative">
-                <Flame className="w-8 h-8 text-orange-400 mb-2 opacity-60" />
-                <p className="text-white/60 text-sm font-medium text-center px-6">Photo of both teams working on site at the same time — blasting and painting simultaneously</p>
-                <p className="text-white/30 text-xs mt-1">(Upload a photo to replace this placeholder)</p>
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src="/manus-storage/teams_first_frame_d11cfa22.jpg"
+                  alt="Three teams on site at the same time — shot blasting and intumescent painting in progress simultaneously"
+                  className="w-full h-48 object-cover"
+                  width="600"
+                  height="192"
+                  loading="lazy"
+                />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img
@@ -310,71 +314,64 @@ export default function IntumescentPaintingPage() {
             </p>
           </div>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Connector line */}
-            <div className="hidden md:block absolute top-8 left-[calc(50%-1px)] w-0.5 h-[calc(100%-4rem)] bg-orange-200" />
-
-            <div className="space-y-8">
-              {[
-                {
-                  time: "Morning",
-                  team: "Blasting Team",
-                  teamColor: "bg-[#2C5F7F] text-white",
-                  icon: <Shield className="w-5 h-5" />,
-                  title: "Shot Blasting Begins",
-                  desc: "The blasting team mobilises with portable blast equipment and MEWPs. They work systematically through the structure, blasting each section to Sa 2.5 near-white metal standard and creating the Rz anchor profile required for coating adhesion.",
-                  side: "left",
-                },
-                {
-                  time: "Same Morning",
-                  team: "Painting Team",
-                  teamColor: "bg-orange-500 text-white",
-                  icon: <Flame className="w-5 h-5" />,
-                  title: "Painting Team Follows Behind",
-                  desc: "As each section is blasted clean, the painting team moves in immediately — applying primer and intumescent topcoat before flash rust can form. Both teams are on site simultaneously, working in coordinated sequence across the structure.",
-                  side: "right",
-                },
-                {
-                  time: "Afternoon",
-                  team: "Both Teams",
-                  teamColor: "bg-[#2C5F7F] text-white",
-                  icon: <CheckCircle className="w-5 h-5" />,
-                  title: "Structure Fully Coated",
-                  desc: "By end of day, the entire structure is blasted, primed, and coated. No second visit required. No waiting for a separate painting contractor to be available. The principal contractor can hand over the programme without a gap.",
-                  side: "left",
-                },
-                {
-                  time: "Sign-Off",
-                  team: "Documentation",
-                  teamColor: "bg-gray-700 text-white",
-                  icon: <Award className="w-5 h-5" />,
-                  title: "One Invoice. One Package.",
-                  desc: "We issue a single invoice covering both operations. Documentation — including DFT records, product data sheets, and certificate of conformance — is provided as a single package for building control. One point of contact throughout.",
-                  side: "right",
-                },
-              ].map(({ time, team, teamColor, icon, title, desc, side }) => (
-                <div key={title} className={`md:grid md:grid-cols-2 md:gap-12 flex flex-col gap-4`}>
-                  {/* Left column content */}
-                  <div className={`${side === 'right' ? 'md:col-start-2' : 'md:col-start-1'} bg-white rounded-2xl shadow-sm border border-gray-100 p-6 relative`}>
-                    <div className="flex items-start gap-4">
-                      <div className={`w-10 h-10 rounded-full ${teamColor} flex items-center justify-center flex-shrink-0`}>
-                        {icon}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex flex-wrap items-center gap-2 mb-1">
-                          <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest">{time}</span>
-                          <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${teamColor}`}>{team}</span>
-                        </div>
-                        <p className="font-bold text-[#2C5F7F] text-lg mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>{title}</p>
-                        <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Spacer for opposite column */}
-                  <div className={`hidden md:block ${side === 'right' ? 'md:col-start-1 md:row-start-auto' : ''}`} style={{ gridRow: 'auto' }} />
+          {/* Side-by-side simultaneous teams layout */}
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {/* Blasting Team card */}
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#2C5F7F] text-white flex items-center justify-center flex-shrink-0">
+                  <Shield className="w-5 h-5" />
                 </div>
-              ))}
+                <div>
+                  <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest block">On Site — Same Day</span>
+                  <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#2C5F7F] text-white">Blasting Team</span>
+                </div>
+              </div>
+              <p className="font-bold text-[#2C5F7F] text-lg mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Shot Blasting the Structure</p>
+              <p className="text-sm text-gray-600 leading-relaxed">The blasting team works through the structure with portable blast equipment and MEWPs, blasting each section to Sa 2.5 near-white metal standard and creating the Rz anchor profile required for coating adhesion.</p>
+            </div>
+            {/* Painting Team card */}
+            <div className="bg-white rounded-2xl shadow-sm border border-orange-100 p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center flex-shrink-0">
+                  <Flame className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest block">On Site — Same Day</span>
+                  <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-orange-500 text-white">Painting Team</span>
+                </div>
+              </div>
+              <p className="font-bold text-[#2C5F7F] text-lg mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Applying Primer & Intumescent Coat</p>
+              <p className="text-sm text-gray-600 leading-relaxed">The painting team works directly alongside the blasting team — as each section is blasted clean, primer and intumescent topcoat are applied immediately. Both teams are on site at the same time, working in coordinated sequence across the structure.</p>
+            </div>
+          </div>
+          {/* Result row */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#2C5F7F] text-white flex items-center justify-center flex-shrink-0">
+                  <CheckCircle className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest block">End of Visit</span>
+                  <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-[#2C5F7F] text-white">Both Teams</span>
+                </div>
+              </div>
+              <p className="font-bold text-[#2C5F7F] text-lg mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Structure Fully Coated</p>
+              <p className="text-sm text-gray-600 leading-relaxed">By the time both teams pack up and leave, the entire structure is blasted, primed, and coated. No second visit. No waiting for a separate contractor to become available.</p>
+            </div>
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-gray-700 text-white flex items-center justify-center flex-shrink-0">
+                  <Award className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest block">Sign-Off</span>
+                  <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-gray-700 text-white">Documentation</span>
+                </div>
+              </div>
+              <p className="font-bold text-[#2C5F7F] text-lg mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>One Invoice. One Package.</p>
+              <p className="text-sm text-gray-600 leading-relaxed">A single invoice covers both operations. Documentation — DFT records, product data sheets, certificate of conformance — is issued as one package for building control. One point of contact throughout.</p>
             </div>
           </div>
 

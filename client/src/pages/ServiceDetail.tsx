@@ -82,7 +82,8 @@ export default function ServiceDetail() {
   // Get other services for the sidebar
   // Pin intumescent-painting first for structural-steel-frames since fire protection is directly relevant
   const otherServicesRaw = services.filter(s => s.id !== service.id);
-  const otherServices = service.id === 'structural-steel-frames'
+  const pinIntumescent = ['structural-steel-frames', 'fire-escapes'];
+  const otherServices = pinIntumescent.includes(service.id)
     ? [
         ...otherServicesRaw.filter(s => s.id === 'intumescent-painting'),
         ...otherServicesRaw.filter(s => s.id !== 'intumescent-painting'),

@@ -4278,12 +4278,12 @@ const serviceMeta: Record<string, ServiceMeta> = {
   "intumescent-painting": {
     id: "intumescent-painting",
     title: "Intumescent Painting — Fire-Resistant Coatings for Structural Steel",
-    description: "Complete intumescent painting service for structural steel, fire escapes, and industrial metalwork. We shot blast to Sa 2.5, apply certified intumescent coatings, and provide full DFT documentation for fire resistance ratings from R30 to R120.",
+    description: "Complete intumescent painting service for structural steel, fire escapes, and industrial metalwork. We shot blast to Sa 2.5, apply certified intumescent coatings, and provide full DFT documentation. Two specialist teams on site at the same time — blasting and painting in a single visit.",
     heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
     benefits: [
       "Full in-house service: shot blasting and intumescent painting under one contract",
       "Certified coatings compliant with BS EN 13381 and ASFP guidelines",
-      "Fire resistance ratings from R30 to R120 achieved and documented",
+      "Certified fire protection coatings applied and fully documented",
       "Mobile service across England and Wales",
       "Detailed DFT inspection records and coating thickness reports provided"
     ],
@@ -4304,7 +4304,7 @@ const serviceMeta: Record<string, ServiceMeta> = {
       "New build and refurbishment projects"
     ],
     faqs: [
-      { question: "What is intumescent paint?", answer: "Intumescent paint expands under heat to create an insulating char layer around steel, maintaining structural integrity for the specified fire resistance period — typically R30, R60, R90, or R120." },
+      { question: "What is intumescent paint?", answer: "Intumescent paint expands under heat to create an insulating char layer around steel, maintaining structural integrity for the specified fire resistance period. The steel must be blasted to Sa 2.5 before application to ensure the coating bonds correctly." },
       { question: "Why does steel need shot blasting before intumescent painting?", answer: "Intumescent coatings require strong adhesion to perform correctly. Shot blasting to Sa 2.5 removes all contaminants and creates the surface profile needed for maximum mechanical adhesion." },
        { question: "Do you provide a coating thickness report?", answer: "Yes. We measure dry film thickness on every coated member and provide a full coating report with product data sheets, batch numbers, and thickness readings for building control." }
     ]
