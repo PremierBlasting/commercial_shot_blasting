@@ -80,7 +80,14 @@ export default function ServiceDetail() {
   }
 
   // Get other services for the sidebar
-  const otherServices = services.filter(s => s.id !== service.id);
+  // Pin intumescent-painting first for structural-steel-frames since fire protection is directly relevant
+  const otherServicesRaw = services.filter(s => s.id !== service.id);
+  const otherServices = service.id === 'structural-steel-frames'
+    ? [
+        ...otherServicesRaw.filter(s => s.id === 'intumescent-painting'),
+        ...otherServicesRaw.filter(s => s.id !== 'intumescent-painting'),
+      ]
+    : otherServicesRaw;
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
@@ -541,7 +548,7 @@ export default function ServiceDetail() {
                     <div className="flex-1">
                       <p className="text-xs font-semibold uppercase tracking-widest text-[#2C5F7F]/70 mb-1">Related Service</p>
                       <p className="text-lg font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>Intumescent Painting</p>
-                      <p className="text-sm text-gray-600 mt-1">We offer a complete in-house service — shot blast to Sa 2.5, then apply certified intumescent coatings for fire resistance ratings from R30 to R120, with full DFT documentation.</p>
+                      <p className="text-sm text-gray-600 mt-1">We offer a complete in-house service — shot blast to Sa 2.5, then apply certified intumescent coatings for structural steel fire protection. Two teams on site, blasting and painting on the same day.</p>
                     </div>
                     <Link href="/services/intumescent-painting" className="flex-shrink-0 inline-flex items-center gap-2 bg-[#2C5F7F] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#1e4a63] transition-colors">
                       Learn More <ArrowRight className="w-4 h-4" />

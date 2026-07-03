@@ -221,7 +221,7 @@ export default function IntumescentPaintingPage() {
               Intumescent Painting for Structural Steel
             </h1>
             <p className="mt-4 text-lg text-white/85 max-w-2xl">
-              On-site shot blasting and certified intumescent fire protection coatings in a single mobilisation. R30–R120 ratings with full DFT documentation for building control — anywhere in England and Wales.
+              On-site shot blasting and certified intumescent fire protection coatings in a single mobilisation. Two specialist teams, blasting and painting on the same day — anywhere in England and Wales.
             </p>
             <div className="flex flex-wrap gap-3 mt-8">
               <Button
