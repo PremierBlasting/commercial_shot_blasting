@@ -424,8 +424,37 @@ export default function IntumescentPaintingPage() {
         </div>
       </section>
 
-      {/* ── Project Video ─────────────────────────────────────────────────── */}
+      {/* ── All Three Teams Video ──────────────────────────────────────────── */}
       <section className="py-16 bg-[#f5f8fa]">
+        <div className="container max-w-5xl">
+          <div className="text-center mb-8">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-orange-600 mb-3">On Site — Same Day</span>
+            <h2 className="text-3xl font-bold text-[#2C5F7F] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              All Three Teams Working at the Same Time
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              This is what it looks like when our blasting and painting teams are on site together. Three operatives working simultaneously across the structure — blasting one section while the next is already being coated.
+            </p>
+          </div>
+          <div className="rounded-2xl overflow-hidden shadow-2xl max-w-3xl mx-auto">
+            <video
+              src={VIDEO_ALL3}
+              controls
+              muted
+              playsInline
+              preload="metadata"
+              className="w-full aspect-video object-cover bg-black"
+              aria-label="Video showing all three operatives working simultaneously — shot blasting and intumescent painting at the same time on the same structure"
+            />
+            <div className="bg-[#2C5F7F] px-4 py-3 text-white text-sm font-medium text-center">
+              Three Operatives On Site — Blasting &amp; Painting Simultaneously
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Project Video ─────────────────────────────────────────────────── */}
+      <section className="py-16 bg-white">
         <div className="container max-w-5xl">
           <h2 className="text-3xl font-bold text-[#2C5F7F] mb-3 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
             HB Tunnelling Project — Doncaster, South Yorkshire
