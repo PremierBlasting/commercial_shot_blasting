@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight, Phone, Shield, Clock, Award, ChevronDown, ChevronUp, Flame } from "lucide-react";
 import { Breadcrumb } from "@/components/Breadcrumb";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // ── CDN asset paths ────────────────────────────────────────────────────────────
 const IMG = {
@@ -169,6 +169,15 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 export default function IntumescentPaintingPage() {
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [lightboxImg, setLightboxImg] = useState<{ src: string; alt: string } | null>(null);
+
+  useEffect(() => {
+    if (!lightboxImg) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxImg(null);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [lightboxImg]);
 
   useSEO({
     title: "Intumescent Painting for Structural Steel | Commercial Shot Blasting",

@@ -6,7 +6,7 @@ import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowRight, Phone, Mail, Shield, Clock, Award, ChevronDown, ChevronUp } from "lucide-react";
+import { CheckCircle, ArrowRight, Phone, Mail, Shield, Clock, Award, ChevronDown, ChevronUp, Flame } from "lucide-react";
 import { Breadcrumb } from "@/components/Breadcrumb";
 
 // ── CDN video paths ────────────────────────────────────────────────────────────
@@ -545,6 +545,52 @@ export default function ExternalStaircasesPage() {
                 </div>
               </div>
 
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Sa 2.5 & Fire Compliance Callout ─────────────────────────────── */}
+      <section className="py-14 bg-[#0d2233]">
+        <div className="container max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-orange-300 mb-3">Surface Preparation & Fire Compliance</span>
+              <h2 className="text-3xl font-bold text-white mb-5" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Why Sa 2.5 Matters for Staircase Fire Protection
+              </h2>
+              <p className="text-white/80 leading-relaxed mb-4">
+                External and internal steel staircases in commercial and industrial buildings are frequently required to carry a fire resistance rating under Approved Document B. Intumescent paint is the standard method for achieving this — but it will only perform correctly if the steel has been properly prepared first.
+              </p>
+              <p className="text-white/80 leading-relaxed mb-4">
+                Shot blasting to <strong className="text-white">Sa 2.5 near-white metal standard</strong> removes all rust, old paint, and mill scale and creates an Rz 50–75 μm anchor profile in the steel surface. Without this profile, intumescent coatings cannot bond correctly — and a coating that delaminates under heat provides no protection at all.
+              </p>
+              <p className="text-white/80 leading-relaxed">
+                We provide shot blasting and intumescent painting as a combined service for staircases. Both operations are carried out by our teams in a single mobilisation — no separate contractors, no gap between blast and paint, no risk of flash rusting between trades.
+              </p>
+              <div className="mt-6">
+                <Link
+                  href="/services/intumescent-painting"
+                  className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2.5 rounded-lg text-sm transition-colors"
+                >
+                  <Flame className="w-4 h-4" /> View Intumescent Painting Service
+                </Link>
+              </div>
+            </div>
+            <div className="space-y-4">
+              {[
+                { icon: <Shield className="w-5 h-5 text-orange-400" />, title: "Sa 2.5 Near-White Metal", body: "The internationally recognised standard for surface cleanliness before protective coating application. Required by all intumescent paint manufacturers as the minimum substrate condition." },
+                { icon: <CheckCircle className="w-5 h-5 text-orange-400" />, title: "Rz 50–75 μm Anchor Profile", body: "Shot blasting creates a mechanical surface profile that primer and intumescent topcoat can key into. Without this profile, coatings are prone to delamination under heat." },
+                { icon: <Award className="w-5 h-5 text-orange-400" />, title: "Combined Blast & Paint Service", body: "We blast and paint staircases in a single visit. One contractor, one invoice, one documentation package for building control sign-off." },
+              ].map(({ icon, title, body }) => (
+                <div key={title} className="flex gap-4 bg-white/5 rounded-xl p-4 border border-white/10">
+                  <div className="flex-shrink-0 mt-0.5">{icon}</div>
+                  <div>
+                    <p className="font-semibold text-white mb-1">{title}</p>
+                    <p className="text-sm text-white/70 leading-relaxed">{body}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
