@@ -84,34 +84,10 @@ const JSONLD_GRAPH = {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What fire resistance ratings can you achieve with intumescent paint?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We can achieve R30, R60, R90, and R120 fire resistance ratings depending on the steel section size, DFT (dry film thickness) applied, and the product specification. All ratings are calculated to BS EN 13381-8 using manufacturer-approved DFT schedules."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "Do you shot blast before applying intumescent paint?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes — all intumescent coatings require a clean, profiled substrate to achieve the specified adhesion. We shot blast the steelwork to Sa 2.5 near-white metal standard before applying primer and intumescent topcoat. This is a single-mobilisation package: blast and paint in one visit."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you apply intumescent paint on-site to existing structures?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. We work on new-build structural steel and on existing structures that require upgrading to current fire regulations. Our mobile MEWP-mounted equipment allows us to reach all sections of complex roof trusses, portal frames, and mezzanine steelwork without the need for scaffolding in most cases."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What documentation do you provide for building control?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We provide a full DFT (dry film thickness) inspection report, product data sheets, application records, and a certificate of conformance. This documentation package is accepted by building control officers and structural engineers as evidence of compliance with BS 476 and BS EN 13381."
           }
         },
         {
@@ -156,20 +132,8 @@ const JSONLD_GRAPH = {
 
 const FAQS = [
   {
-    q: "What fire resistance ratings can you achieve with intumescent paint?",
-    a: "We can achieve R30, R60, R90, and R120 fire resistance ratings depending on the steel section size, DFT (dry film thickness) applied, and the product specification. All ratings are calculated to BS EN 13381-8 using manufacturer-approved DFT schedules."
-  },
-  {
     q: "Do you shot blast before applying intumescent paint?",
     a: "Yes — all intumescent coatings require a clean, profiled substrate to achieve the specified adhesion. We shot blast the steelwork to Sa 2.5 near-white metal standard before applying primer and intumescent topcoat. This is a single-mobilisation package: blast and paint in one visit."
-  },
-  {
-    q: "Can you apply intumescent paint on-site to existing structures?",
-    a: "Yes. We work on new-build structural steel and on existing structures that require upgrading to current fire regulations. Our mobile MEWP-mounted equipment allows us to reach all sections of complex roof trusses, portal frames, and mezzanine steelwork without the need for scaffolding in most cases."
-  },
-  {
-    q: "What documentation do you provide for building control?",
-    a: "We provide a full DFT (dry film thickness) inspection report, product data sheets, application records, and a certificate of conformance. This documentation package is accepted by building control officers and structural engineers as evidence of compliance with BS 476 and BS EN 13381."
   },
   {
     q: "How long does intumescent paint take to dry before other trades can work?",
