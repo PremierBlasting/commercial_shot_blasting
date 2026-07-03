@@ -235,8 +235,8 @@ export default function IntumescentPaintingPage() {
           <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-white text-sm font-medium">
             {[
               { icon: <Shield className="w-4 h-4" />, text: "Sa 2.5 Surface Preparation" },
-              { icon: <CheckCircle className="w-4 h-4" />, text: "Mobile On-Site Service" },
-              { icon: <Clock className="w-4 h-4" />, text: "Single Mobilisation" },
+              { icon: <Flame className="w-4 h-4" />, text: "Two Teams, One Day" },
+              { icon: <Clock className="w-4 h-4" />, text: "Blast & Paint in One Visit" },
               { icon: <Award className="w-4 h-4" />, text: "England & Wales Coverage" },
             ].map(({ icon, text }) => (
               <div key={text} className="flex items-center gap-2">
@@ -254,16 +254,16 @@ export default function IntumescentPaintingPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-[#2C5F7F] mb-5" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Shot Blast & Intumescent Paint — One Team, One Visit
+                Two Teams. One Day. Steel Blasted and Painted Before We Leave.
               </h2>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                Intumescent paint is a passive fire protection coating that expands when exposed to heat, forming a thick char layer that insulates the steel and delays structural failure. Building regulations require structural steel to achieve a minimum fire resistance period — typically R30, R60, or R90 — and intumescent paint is the most practical method for achieving this on site.
+                We bring two specialist teams to site on the same day — one shot blasting the steelwork to Sa 2.5 near-white metal standard, the other following directly behind applying primer and intumescent topcoat. As one section of steel is blasted clean, the painting team moves in immediately. By the time we pack up and leave, the entire structure is blasted, primed, and coated.
               </p>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                The coating only performs correctly when applied to a properly prepared substrate. That is why we provide shot blasting and intumescent painting as a combined service: we blast the steelwork to Sa 2.5 near-white metal, apply the specified primer, and then spray-apply the intumescent topcoat — all in a single mobilisation. This eliminates the coordination risk between separate contractors and ensures the coating system is applied in the correct sequence.
+                This is not the same as booking two separate contractors. Because both teams are ours, they work in sequence, not in conflict. There is no handover gap, no risk of flash rusting between blast and paint, and no dispute over substrate condition. The coating is applied to the correct surface in the correct window — every time.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                We work on new-build commercial and industrial units, warehouse conversions, mezzanine extensions, and portal frame buildings across England and Wales. Our operatives are trained and certificated, and we provide a full DFT documentation package for building control sign-off.
+                We work on portal frames, roof trusses, mezzanine floors, and complex fabrications across England and Wales. One mobilisation, one invoice, one point of contact.
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-xl">
@@ -276,6 +276,103 @@ export default function IntumescentPaintingPage() {
                 loading="lazy"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── End-to-End Delivery ──────────────────────────────────────────── */}
+      <section className="py-14 bg-orange-50 border-y border-orange-100">
+        <div className="container max-w-5xl">
+          <div className="text-center mb-10">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-orange-600 mb-3">End-to-End Project Delivery</span>
+            <h2 className="text-3xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              How We Deliver a Complete Project in a Single Day
+            </h2>
+            <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
+              Two teams, working in parallel on the same structure. No waiting for a second contractor. No gap between blast and paint.
+            </p>
+          </div>
+
+          {/* Timeline */}
+          <div className="relative">
+            {/* Connector line */}
+            <div className="hidden md:block absolute top-8 left-[calc(50%-1px)] w-0.5 h-[calc(100%-4rem)] bg-orange-200" />
+
+            <div className="space-y-8">
+              {[
+                {
+                  time: "Morning",
+                  team: "Blasting Team",
+                  teamColor: "bg-[#2C5F7F] text-white",
+                  icon: <Shield className="w-5 h-5" />,
+                  title: "Shot Blasting Begins",
+                  desc: "The blasting team mobilises with portable blast equipment and MEWPs. They work systematically through the structure, blasting each section to Sa 2.5 near-white metal standard and creating the Rz anchor profile required for coating adhesion.",
+                  side: "left",
+                },
+                {
+                  time: "Same Morning",
+                  team: "Painting Team",
+                  teamColor: "bg-orange-500 text-white",
+                  icon: <Flame className="w-5 h-5" />,
+                  title: "Painting Team Follows Behind",
+                  desc: "As each section is blasted clean, the painting team moves in immediately — applying primer and intumescent topcoat before flash rust can form. Both teams are on site simultaneously, working in coordinated sequence across the structure.",
+                  side: "right",
+                },
+                {
+                  time: "Afternoon",
+                  team: "Both Teams",
+                  teamColor: "bg-[#2C5F7F] text-white",
+                  icon: <CheckCircle className="w-5 h-5" />,
+                  title: "Structure Fully Coated",
+                  desc: "By end of day, the entire structure is blasted, primed, and coated. No second visit required. No waiting for a separate painting contractor to be available. The principal contractor can hand over the programme without a gap.",
+                  side: "left",
+                },
+                {
+                  time: "Sign-Off",
+                  team: "Documentation",
+                  teamColor: "bg-gray-700 text-white",
+                  icon: <Award className="w-5 h-5" />,
+                  title: "One Invoice. One Package.",
+                  desc: "We issue a single invoice covering both operations. Documentation — including DFT records, product data sheets, and certificate of conformance — is provided as a single package for building control. One point of contact throughout.",
+                  side: "right",
+                },
+              ].map(({ time, team, teamColor, icon, title, desc, side }) => (
+                <div key={title} className={`md:grid md:grid-cols-2 md:gap-12 flex flex-col gap-4`}>
+                  {/* Left column content */}
+                  <div className={`${side === 'right' ? 'md:col-start-2' : 'md:col-start-1'} bg-white rounded-2xl shadow-sm border border-gray-100 p-6 relative`}>
+                    <div className="flex items-start gap-4">
+                      <div className={`w-10 h-10 rounded-full ${teamColor} flex items-center justify-center flex-shrink-0`}>
+                        {icon}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                          <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest">{time}</span>
+                          <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${teamColor}`}>{team}</span>
+                        </div>
+                        <p className="font-bold text-[#2C5F7F] text-lg mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>{title}</p>
+                        <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Spacer for opposite column */}
+                  <div className={`hidden md:block ${side === 'right' ? 'md:col-start-1 md:row-start-auto' : ''}`} style={{ gridRow: 'auto' }} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom CTA strip */}
+          <div className="mt-12 bg-[#2C5F7F] rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6">
+            <div className="flex-1 text-center sm:text-left">
+              <p className="text-white font-bold text-lg" style={{ fontFamily: "'Playfair Display', serif" }}>Ready to book both teams for your project?</p>
+              <p className="text-white/75 text-sm mt-1">Tell us the structure, the location, and the programme date — we'll confirm availability and price for the combined service.</p>
+            </div>
+            <Button
+              onClick={() => setQuoteOpen(true)}
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 text-base rounded-lg shadow-lg flex-shrink-0"
+            >
+              Request a Quote
+            </Button>
           </div>
         </div>
       </section>
