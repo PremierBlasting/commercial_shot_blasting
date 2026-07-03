@@ -20,6 +20,7 @@ const IMG = {
   before:  "/manus-storage/WhatsAppImage2026-07-03at10.26.46_09230ac7.jpeg",
 };
 const VIDEO = "/manus-storage/intumescentpaint_cbe14861.mp4";
+const VIDEO_ALL3 = "/manus-storage/all3_3c7034df.mp4";
 
 // ── JSON-LD rich schema graph ─────────────────────────────────────────────────
 const JSONLD_GRAPH = {
@@ -295,6 +296,38 @@ export default function IntumescentPaintingPage() {
                   height="192"
                   loading="lazy"
                 />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Why One Contractor Callout ─────────────────────────────────── */}
+      <section className="py-10 bg-[#f5f8fa] border-y border-gray-200">
+        <div className="container max-w-5xl">
+          <div className="bg-white rounded-2xl shadow-sm border border-[#2C5F7F]/15 p-8">
+            <div className="flex flex-col md:flex-row md:items-start gap-6">
+              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-orange-500 text-white flex items-center justify-center">
+                <CheckCircle className="w-6 h-6" />
+              </div>
+              <div className="flex-1">
+                <h2 className="text-2xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Why Use One Contractor for Both?
+                </h2>
+                <div className="grid sm:grid-cols-3 gap-6 text-sm text-gray-600">
+                  <div>
+                    <p className="font-semibold text-[#2C5F7F] mb-1">No gap between blast and paint</p>
+                    <p>Flash rust forms on bare steel within hours. When both teams are ours, primer goes on in the same window the blast is completed — before contamination can take hold.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[#2C5F7F] mb-1">No dispute over substrate condition</p>
+                    <p>When blasting and painting are separate contracts, each party can blame the other if adhesion fails. With one contractor responsible for both, there is no ambiguity.</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[#2C5F7F] mb-1">One programme slot, not two</p>
+                    <p>Coordinating two separate contractors means two mobilisations, two access windows, and twice the programme risk. We do both in a single visit, freeing up your programme.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
