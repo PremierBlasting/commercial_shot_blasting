@@ -586,6 +586,7 @@ export default function SteelFabricationsPage() {
                 <div className="grid grid-cols-1 gap-4">
                   {[
                     { title: "Structural Steel Shot Blasting", href: "/services/structural-steel-frames", tagline: "On-site blasting for building frames and trusses" },
+                    { title: "Intumescent Painting", href: "/services/intumescent-painting", tagline: "Fire protection coatings applied after Sa 2.5 blasting" },
                     { title: "Rust Removal", href: "/services/rust-removal", tagline: "Complete rust removal to bare metal standard" },
                     { title: "Mill Scale Removal", href: "/services/mill-scale-removal", tagline: "Mill scale removal for optimal coating adhesion" },
                     { title: "Case Study: Commercial Building", href: "/case-studies/structural-steel", tagline: "25 real photos from a large structural steel project" },

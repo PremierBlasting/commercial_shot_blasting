@@ -34,6 +34,7 @@ export interface LeadFormProps {
 
 const SERVICE_OPTIONS = [
   "Structural Steelwork",
+  "Intumescent Painting",
   "Factory, Cladding & Roofing",
   "Machinery & Equipment",
   "Floors & Surfaces",

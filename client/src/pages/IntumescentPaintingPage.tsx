@@ -168,6 +168,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function IntumescentPaintingPage() {
   const [quoteOpen, setQuoteOpen] = useState(false);
+  const [lightboxImg, setLightboxImg] = useState<{ src: string; alt: string } | null>(null);
 
   useSEO({
     title: "Intumescent Painting for Structural Steel | Commercial Shot Blasting",
@@ -338,17 +339,60 @@ export default function IntumescentPaintingPage() {
               { src: IMG.hero, alt: "Operative on MEWP applying intumescent coating to steel roof structure — fire protection painting in progress at HB Tunnelling" },
               { src: IMG.spray1, alt: "Spray application of intumescent paint to structural steel beam from MEWP — certified fire protection coating, Doncaster South Yorkshire" },
             ].map(({ src, alt }, i) => (
-              <div key={i} className="rounded-xl overflow-hidden shadow-md aspect-[4/3]">
+              <button
+                key={i}
+                className="rounded-xl overflow-hidden shadow-md aspect-[4/3] cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-[#2C5F7F] focus:ring-offset-2 group"
+                onClick={() => setLightboxImg({ src, alt })}
+                aria-label={`Enlarge image: ${alt}`}
+              >
                 <img
                   src={src}
                   alt={alt}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   width="400"
                   height="300"
                   loading="lazy"
                 />
-              </div>
+              </button>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Sa 2.5 Callout ────────────────────────────────────────────────── */}
+      <section className="py-14 bg-[#0d2233]">
+        <div className="container max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-orange-300 mb-3">Why Surface Preparation Matters</span>
+              <h2 className="text-3xl font-bold text-white mb-5" style={{ fontFamily: "'Playfair Display', serif" }}>
+                What Happens If Steel Isn't Blasted First?
+              </h2>
+              <p className="text-white/80 leading-relaxed mb-4">
+                Intumescent paint applied over mill scale, rust, or contaminated steel will not bond correctly to the substrate. When the coating is exposed to heat, it needs to expand uniformly — but if adhesion is poor, the char layer delaminates rather than insulating the steel. The result is a coating that fails at the moment it is needed most.
+              </p>
+              <p className="text-white/80 leading-relaxed mb-4">
+                Shot blasting to <strong className="text-white">Sa 2.5 near-white metal standard</strong> removes all mill scale, rust, and surface contamination and creates a mechanical anchor profile in the steel surface. This profile — typically Rz 50–75 μm — gives the primer and intumescent topcoat a surface to key into, ensuring the coating system performs as specified.
+              </p>
+              <p className="text-white/80 leading-relaxed">
+                This is why we provide shot blasting and intumescent painting as a single combined service. Using the same contractor for both operations eliminates the risk of flash rusting or contamination between trades, and ensures the coating is applied to the correct substrate in the correct sequence.
+              </p>
+            </div>
+            <div className="space-y-4">
+              {[
+                { icon: <Shield className="w-5 h-5 text-orange-400" />, title: "Sa 2.5 Near-White Metal", body: "The internationally recognised standard for surface cleanliness before protective coating application. All visible mill scale, rust, and coatings are removed." },
+                { icon: <CheckCircle className="w-5 h-5 text-orange-400" />, title: "Rz 50–75 μm Anchor Profile", body: "Shot blasting creates a mechanical surface profile that primer and intumescent topcoat can bond to — without this profile, coatings are prone to delamination." },
+                { icon: <Award className="w-5 h-5 text-orange-400" />, title: "Single Contractor, Zero Handover Risk", body: "We blast and paint in one visit. No gap between trades means no flash rust, no contamination, and no dispute over substrate condition." },
+              ].map(({ icon, title, body }) => (
+                <div key={title} className="flex gap-4 bg-white/5 rounded-xl p-4 border border-white/10">
+                  <div className="flex-shrink-0 mt-0.5">{icon}</div>
+                  <div>
+                    <p className="font-semibold text-white mb-1">{title}</p>
+                    <p className="text-sm text-white/70 leading-relaxed">{body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -606,6 +650,31 @@ export default function IntumescentPaintingPage() {
 
       <Footer />
       <QuotePopup open={quoteOpen} onOpenChange={setQuoteOpen} />
+
+      {/* ── Lightbox ──────────────────────────────────────────────────────── */}
+      {lightboxImg && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+          onClick={() => setLightboxImg(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image lightbox"
+        >
+          <button
+            className="absolute top-4 right-4 text-white/70 hover:text-white text-3xl leading-none font-light focus:outline-none"
+            onClick={() => setLightboxImg(null)}
+            aria-label="Close lightbox"
+          >
+            ×
+          </button>
+          <img
+            src={lightboxImg.src}
+            alt={lightboxImg.alt}
+            className="max-w-full max-h-[90vh] rounded-xl shadow-2xl object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }
