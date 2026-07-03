@@ -244,8 +244,8 @@ export default function IntumescentPaintingPage() {
           <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-white text-sm font-medium">
             {[
               { icon: <Shield className="w-4 h-4" />, text: "Sa 2.5 Surface Preparation" },
-              { icon: <Flame className="w-4 h-4" />, text: "Two Teams, One Day" },
-              { icon: <Clock className="w-4 h-4" />, text: "Blast & Paint in One Visit" },
+              { icon: <Flame className="w-4 h-4" />, text: "Two Teams, Same Day" },
+              { icon: <Clock className="w-4 h-4" />, text: "Blast & Paint Same Day" },
               { icon: <Award className="w-4 h-4" />, text: "England & Wales Coverage" },
             ].map(({ icon, text }) => (
               <div key={text} className="flex items-center gap-2">
@@ -263,7 +263,7 @@ export default function IntumescentPaintingPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-[#2C5F7F] mb-5" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Two Teams. One Day. Steel Blasted and Painted Before We Leave.
+                Two Teams. Same Day. Steel Blasted and Painted Before We Leave.
               </h2>
               <p className="text-gray-600 mb-4 leading-relaxed">
                 We bring two specialist teams to site on the same day — one shot blasting the steelwork to Sa 2.5 near-white metal standard, the other following directly behind applying primer and intumescent topcoat. As one section of steel is blasted clean, the painting team moves in immediately. By the time we pack up and leave, the entire structure is blasted, primed, and coated.
@@ -295,7 +295,7 @@ export default function IntumescentPaintingPage() {
           <div className="text-center mb-10">
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-orange-600 mb-3">End-to-End Project Delivery</span>
             <h2 className="text-3xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              How We Deliver a Complete Project in a Single Day
+              How We Deliver a Complete Project on the Same Day
             </h2>
             <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
               Two teams, working in parallel on the same structure. No waiting for a second contractor. No gap between blast and paint.
