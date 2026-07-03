@@ -233,10 +233,10 @@ export default function IntumescentPaintingPage() {
         <div className="container">
           <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-white text-sm font-medium">
             {[
-              { icon: <Shield className="w-4 h-4" />, text: "R30–R120 Fire Ratings" },
-              { icon: <Award className="w-4 h-4" />, text: "BS EN 13381-8 Compliant" },
-              { icon: <CheckCircle className="w-4 h-4" />, text: "Full DFT Documentation" },
+              { icon: <Shield className="w-4 h-4" />, text: "Sa 2.5 Surface Preparation" },
+              { icon: <CheckCircle className="w-4 h-4" />, text: "Mobile On-Site Service" },
               { icon: <Clock className="w-4 h-4" />, text: "Single Mobilisation" },
+              { icon: <Award className="w-4 h-4" />, text: "England & Wales Coverage" },
             ].map(({ icon, text }) => (
               <div key={text} className="flex items-center gap-2">
                 {icon}
