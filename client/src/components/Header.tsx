@@ -213,6 +213,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                         { title: 'Steel Gates & Railings', href: '/services/steel-gates' },
                         { title: 'Steel Doors & Roller Shutters', href: '/services/steel-doors' },
                         { title: 'Bridge Steelwork', href: '/services/bridge-steelwork' },
+                        { title: 'Intumescent Painting', href: '/services/intumescent-painting' },
                       ].map((s) => (
                         <Link key={s.href} href={s.href} className="flex items-center justify-between px-4 py-2.5 hover:bg-[#2C5F7F]/5 border-t border-gray-100 group" onClick={() => setServicesOpen(false)}>
                           <span className="text-gray-800 text-xs font-medium group-hover:text-[#2C5F7F]">{s.title}</span>
@@ -262,7 +263,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                       className="block px-3 py-2 text-[#2C5F7F] font-medium hover:bg-[#2C5F7F]/10 transition-colors rounded-md text-center text-sm"
                       onClick={() => setServicesOpen(false)}
                     >
-                      View All 18 Services →
+                      View All 19 Services →
                     </Link>
                   </div>
                 </div>

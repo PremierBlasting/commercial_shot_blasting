@@ -116,6 +116,8 @@ export function Footer() {
               <li><Link href="/services/steel-sheeting" className="hover:text-white">Steel Sheeting</Link></li>
               <li><Link href="/services/steel-gates" className="hover:text-white">Steel Gates & Railings</Link></li>
               <li><Link href="/services/plant-machinery" className="hover:text-white">Plant & Machinery</Link></li>
+              <li><Link href="/services/intumescent-painting" className="hover:text-white">Intumescent Painting</Link></li>
+              <li><Link href="/services/car-park-paint-removal" className="hover:text-white">Car Park Paint Removal</Link></li>
             </ul>
           </div>
 

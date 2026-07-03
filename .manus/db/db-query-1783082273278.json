@@ -1,0 +1,70 @@
+{
+  "query": "SELECT id, title, category, sortOrder FROM gallery_items ORDER BY sortOrder LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title, category, sortOrder FROM gallery_items ORDER BY sortOrder LIMIT 10;",
+  "rows": [
+    {
+      "id": "60001",
+      "title": "Structural Steel Column Coating Removal",
+      "category": "Structural Steel",
+      "sortOrder": "5"
+    },
+    {
+      "id": "60002",
+      "title": "Industrial Facility Floor & Column Preparation",
+      "category": "Structural Steel",
+      "sortOrder": "6"
+    },
+    {
+      "id": "60003",
+      "title": "Large-Scale Commercial Steelwork Blasting",
+      "category": "Structural Steel",
+      "sortOrder": "7"
+    },
+    {
+      "id": "60004",
+      "title": "Steel Column Surface Preparation — Close Detail",
+      "category": "Structural Steel",
+      "sortOrder": "8"
+    },
+    {
+      "id": "60005",
+      "title": "Structural Steelwork Refurbishment Project",
+      "category": "Structural Steel",
+      "sortOrder": "9"
+    },
+    {
+      "id": "1",
+      "title": "Steel Roller Shutter Restoration",
+      "category": "Industrial",
+      "sortOrder": "10"
+    },
+    {
+      "id": "2",
+      "title": "Commercial Gate Restoration",
+      "category": "Gates",
+      "sortOrder": "20"
+    },
+    {
+      "id": "3",
+      "title": "Industrial Steel Framework",
+      "category": "Industrial",
+      "sortOrder": "30"
+    },
+    {
+      "id": "4",
+      "title": "Agricultural Barn Wall Restoration",
+      "category": "Agriculture",
+      "sortOrder": "40"
+    },
+    {
+      "id": "5",
+      "title": "Steel Container Blasting",
+      "category": "Industrial",
+      "sortOrder": "50"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tcategory\tsortOrder\n60001\tStructural Steel Column Coating Removal\tStructural Steel\t5\n60002\tIndustrial Facility Floor & Column Preparation\tStructural Steel\t6\n60003\tLarge-Scale Commercial Steelwork Blasting\tStructural Steel\t7\n60004\tSteel Column Surface Preparation — Close Detail\tStructural Steel\t8\n60005\tStructural Steelwork Refurbishment Project\tStructural Steel\t9\n1\tSteel Roller Shutter Restoration\tIndustrial\t10\n2\tCommercial Gate Restoration\tGates\t20\n3\tIndustrial Steel Framework\tIndustrial\t30\n4\tAgricultural Barn Wall Restoration\tAgriculture\t40\n5\tSteel Container Blasting\tIndustrial\t50\n",
+  "stderr": "",
+  "execution_time_ms": 604
+}

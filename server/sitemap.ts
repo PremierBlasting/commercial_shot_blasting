@@ -29,6 +29,7 @@ const STATIC_PAGES = [
   { loc: "/steel-fabrications", changefreq: "weekly", priority: "0.8" },
   { loc: "/external-staircases", changefreq: "weekly", priority: "0.8" },
   { loc: "/services/car-park-paint-removal", changefreq: "weekly", priority: "0.8" },
+  { loc: "/services/intumescent-painting", changefreq: "weekly", priority: "0.8" },
   { loc: "/sitemap", changefreq: "monthly", priority: "0.5" },
 ];
 

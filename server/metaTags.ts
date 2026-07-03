@@ -6317,6 +6317,33 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     return modifiedHtml;
   }
 
+  // ── Intumescent Painting page ─────────────────────────────────────────────
+  if (url === '/services/intumescent-painting' || url === '/services/intumescent-painting/') {
+    const ipTitle = 'Intumescent Painting on Structural Steel UK | Commercial Shot Blasting';
+    const ipDesc = 'Mobile intumescent painting on structural steel across England and Wales. We shot blast to Sa 2.5, apply primer, and spray intumescent coatings to R30–R120 fire ratings. Free site survey and fixed-price quotation.';
+    const ipUrl = `${SITE_URL}/services/intumescent-painting`;
+    const ipImage = 'https://storage.manus.space/webdev-static/commercial_shot_blasting_manus/intumescentpaint.jpeg';
+    let modifiedHtml = html;
+    modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${ipTitle}</title>`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${ipDesc}" />`);
+    modifiedHtml = modifiedHtml.replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${ipUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${ipUrl}" />
+    <link rel="alternate" hreflang="en" href="${ipUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${ipTitle}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${ipDesc}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${ipUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:image"[^>]*>/, `<meta property="og:image" content="${ipImage}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:title"[^>]*>/, `<meta name="twitter:title" content="${ipTitle}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:description"[^>]*>/, `<meta name="twitter:description" content="${ipDesc}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:image"[^>]*>/, `<meta name="twitter:image" content="${ipImage}" />`);
+    const ipBreadcrumb = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Services","item":`${SITE_URL}/services`},{"@type":"ListItem","position":3,"name":"Intumescent Painting","item":ipUrl}]});
+    const ipWebPage = JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":ipTitle,"description":ipDesc,"url":ipUrl,"inLanguage":"en-GB","primaryImageOfPage":{"@type":"ImageObject","url":ipImage}});
+    const ipService = JSON.stringify({"@context":"https://schema.org","@type":"Service","name":"Intumescent Painting on Structural Steel","alternateName":["Intumescent Coating Application","Fire Protection Painting Steel","Intumescent Paint Spraying UK","Structural Steel Fire Protection","R30 R60 R90 R120 Intumescent Coating"],"description":ipDesc,"url":ipUrl,"serviceType":"Intumescent Painting","provider":{"@type":"LocalBusiness","name":BUSINESS_NAME,"url":SITE_URL,"telephone":"07970566409","email":"info@commercialshotblasting.co.uk","areaServed":["England","Wales"]},"areaServed":{"@type":"Country","name":"United Kingdom"}});
+    const ipFaq = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is intumescent paint and how does it work?","acceptedAnswer":{"@type":"Answer","text":"Intumescent paint is a fire-resistant coating applied to structural steel. In the event of a fire, it expands to form a thick insulating char layer that protects the steel from heat, delaying structural failure and giving occupants more time to evacuate. It is specified to fire ratings of R30, R60, R90, or R120 (minutes of fire resistance)."}},{"@type":"Question","name":"Why does steel need to be shot blasted before intumescent painting?","acceptedAnswer":{"@type":"Answer","text":"Intumescent coatings require a clean, profiled steel surface to bond correctly. Shot blasting removes mill scale, rust, old coatings, and contamination, and creates a surface profile (typically 40–70 microns) that gives the coating mechanical adhesion. Without proper surface preparation, the coating can delaminate and will fail to provide the specified fire rating."}},{"@type":"Question","name":"What fire ratings can you achieve?","acceptedAnswer":{"@type":"Answer","text":"We apply intumescent coatings to achieve R30, R60, R90, and R120 fire ratings. The required dry film thickness (DFT) depends on the steel section factor, the fire rating required, and the coating product used. We work to the coating manufacturer's specification and can provide full application records."}},{"@type":"Question","name":"Do you work on-site or in a workshop?","acceptedAnswer":{"@type":"Answer","text":"We work both on-site and in workshops. For new-build structural steel, we typically blast and prime in a workshop before the steel is erected, then apply the intumescent topcoat on-site after erection. For existing structures, we carry out all works on-site using mobile equipment and cherry pickers or scissor lifts."}},{"@type":"Question","name":"What areas do you cover for intumescent painting?","acceptedAnswer":{"@type":"Answer","text":"We cover the whole of England and Wales. We regularly work in South Yorkshire, West Yorkshire, the East Midlands, West Midlands, Greater Manchester, and London. Travel is included in our fixed-price quotation."}},{"@type":"Question","name":"Can you provide a combined shot blasting and intumescent painting service?","acceptedAnswer":{"@type":"Answer","text":"Yes — this is our most common scope. We provide a single-contract service covering surface preparation (shot blasting to Sa 2.5), primer application, and intumescent topcoat. Using one contractor for both operations eliminates interface risk and simplifies programme management for the main contractor."}}]});
+    modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${ipBreadcrumb}</script>\n<script type="application/ld+json">${ipWebPage}</script>\n<script type="application/ld+json">${ipService}</script>\n<script type="application/ld+json">${ipFaq}</script>\n</head>`);
+    return modifiedHtml;
+  }
+
   // ── Counties index page: /counties ────────────────────────────────────────
   if (url === '/counties' || url === '/counties/') {
     const countiesTitle = 'Shot Blasting Services by County | Commercial Shot Blasting';
