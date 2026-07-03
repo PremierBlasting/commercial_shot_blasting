@@ -1211,12 +1211,12 @@ export const services: ServiceData[] = [
     title: "Intumescent Painting",
     shortTitle: "Intumescent Painting",
     tagline: "Fire-Resistant Coatings Applied to Perfectly Prepared Steel",
-    description: "Commercial Shot Blasting now offers a complete intumescent painting service for structural steel, fire escapes, and industrial metalwork. We prepare the steel to the correct cleanliness grade using shot blasting, then apply certified intumescent coatings that expand under heat to protect the structure and maintain fire resistance ratings. From R30 to R120, we deliver compliant, inspected, and documented fire protection for new builds, refurbishments, and structural upgrades across England and Wales.",
+    description: "Commercial Shot Blasting offers a complete intumescent painting service for structural steel, fire escapes, and industrial metalwork. We prepare the steel to the correct cleanliness grade using shot blasting, then apply certified intumescent coatings that expand under heat to protect the structure. Two specialist teams on site at the same time — blasting and painting in a single visit — delivering compliant, inspected, and documented fire protection for new builds, refurbishments, and structural upgrades across England and Wales.",
     heroImage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3363_26c5983e.webp",
     benefits: [
       "Full in-house service: shot blasting and intumescent painting under one contract",
       "Certified coatings compliant with BS EN 13381 and ASFP guidelines",
-      "Fire resistance ratings from R30 to R120 achieved and documented",
+      "Certified fire protection coatings applied and fully documented",
       "Mobile service — we come to your site anywhere in England and Wales",
       "Correct surface preparation ensures maximum coating adhesion and longevity",
       "Detailed inspection records and coating thickness reports provided",
@@ -1224,7 +1224,7 @@ export const services: ServiceData[] = [
       "Coordination with principal contractors and fire engineers available"
     ],
     process: [
-      { step: 1, title: "Site Survey & Specification", description: "We visit your site to assess the steel, confirm the required fire resistance rating (e.g. R30, R60, R90, R120), and agree the coating system. We review structural drawings where available and confirm the DFT (dry film thickness) required to achieve the specification." },
+      { step: 1, title: "Site Survey & Specification", description: "We visit your site to assess the steel, confirm the required fire resistance rating with your fire engineer or building control officer, and agree the coating system. We review structural drawings where available and confirm the DFT (dry film thickness) required to achieve the specification." },
       { step: 2, title: "Surface Preparation by Shot Blasting", description: "All steel is shot blasted to Sa 2.5 (near-white metal) or Sa 3 (white metal) as required by the coating manufacturer's data sheet. This removes mill scale, rust, and old coatings and creates the correct surface profile for maximum adhesion." },
       { step: 3, title: "Primer Application", description: "An approved zinc-rich or epoxy primer is applied immediately after blasting to prevent flash rusting and provide the correct base for the intumescent topcoat. Primer DFT is measured and recorded." },
       { step: 4, title: "Intumescent Coating Application", description: "The intumescent basecoat is applied in controlled passes to achieve the specified DFT. We use approved products from leading manufacturers. Wet film thickness is checked during application; dry film thickness is measured and logged after curing." },
@@ -1270,7 +1270,7 @@ export const services: ServiceData[] = [
       },
       {
         question: "What fire resistance ratings can you achieve?",
-        answer: "We can achieve fire resistance ratings from R30 to R120 depending on the steel section factor, the coating system specified, and the required DFT. We work to the coating manufacturer's published data sheets and can provide documentation to support ratings of R30, R60, R90, and R120 for both protected and unprotected steel sections."
+        answer: "The fire resistance rating achievable depends on the steel section factor, the coating system specified, and the DFT applied. We work to the coating manufacturer's published data sheets and provide full documentation for building control and fire engineer sign-off."
       },
       {
         question: "Do you provide a coating thickness report?",
