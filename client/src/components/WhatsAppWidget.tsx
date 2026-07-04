@@ -30,8 +30,8 @@ export function WhatsAppWidget() {
 
   return (
     <>
-      {/* Floating WhatsApp Button */}
-      <div className="fixed top-1/2 -translate-y-1/2 right-6 z-50">
+      {/* Floating WhatsApp Button — hidden on mobile, visible on desktop */}
+      <div className="hidden md:block fixed top-1/2 -translate-y-1/2 right-6 z-50">
         {/* Pulse ring animation - stops after 10 seconds or when opened */}
         {!isOpen && showPulse && (
           <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30" />
