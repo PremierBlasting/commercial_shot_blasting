@@ -266,13 +266,13 @@ export default function IntumescentPaintingPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-[#2C5F7F] mb-5" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Blasted and Painted on the Same Day — Three Operatives, One Mobilisation.
+                Blasted and Painted on the Same Day — Multiple Operatives, One Mobilisation.
               </h2>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                We bring three specialist operatives to site on the same day — the blasting team working through the steelwork to Sa 2.5 near-white metal standard, the painting team following directly behind applying primer and intumescent topcoat. As one section of steel is blasted clean, the painting team moves in immediately. By the time we pack up and leave, the entire structure is blasted, primed, and coated.
+                We bring multiple specialist operatives to site on the same day — the blasting team working through the steelwork to Sa 2.5 near-white metal standard, the painting team following directly behind applying primer and intumescent topcoat. As one section of steel is blasted clean, the painting team moves in immediately. By the time we pack up and leave, the entire structure is blasted, primed, and coated.
               </p>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                This is not the same as booking two separate contractors. Because all three operatives are ours, they work in sequence, not in conflict. There is no handover gap, no risk of flash rusting between blast and paint, and no dispute over substrate condition. The coating is applied to the correct surface in the correct window — every time.
+                This is not the same as booking two separate contractors. Because all operatives are ours, they work in sequence, not in conflict. There is no handover gap, no risk of flash rusting between blast and paint, and no dispute over substrate condition. The coating is applied to the correct surface in the correct window — every time.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 We work on portal frames, roof trusses, mezzanine floors, and complex fabrications across England and Wales. One mobilisation, one invoice, one point of contact.
