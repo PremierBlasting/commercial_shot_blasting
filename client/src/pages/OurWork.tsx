@@ -651,7 +651,7 @@ export default function OurWork() {
           <div className="rounded-2xl overflow-hidden border border-amber-300/60 bg-gradient-to-r from-amber-50 to-white flex flex-col md:flex-row items-stretch shadow-sm">
             <div className="relative md:w-72 h-48 md:h-auto flex-shrink-0 overflow-hidden">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/manus-storage/IMG_3365_53136e5c.webp"
+                src="https://commercialshotblasting.co.uk/manus-storage/IMG_3365_53136e5c.webp"
                 alt="Structural steel shot blasting case study"
                 className="w-full h-full object-cover"
                 loading="lazy"

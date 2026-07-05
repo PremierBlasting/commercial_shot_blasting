@@ -555,7 +555,7 @@ export default function CarParkPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link href="/blog/shot-blasting-vs-sandblasting-difference" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-vs-sandblasting-difference.png"
+                src="https://commercialshotblasting.co.uk/blog-og-images/shot-blasting-vs-sandblasting-difference.png"
                 alt="Shot blasting vs sandblasting — understanding the difference"
                 className="w-full h-44 object-cover"
                 loading="lazy"

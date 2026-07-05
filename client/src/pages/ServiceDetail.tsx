@@ -923,7 +923,7 @@ export default function ServiceDetail() {
                         </div>
                       </Link>
                       <Link href="/blog/shot-blasting-vs-sandblasting-difference" className="group bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
-                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/blog-og-images/shot-blasting-vs-sandblasting-difference.png" alt="Shot blasting vs sandblasting comparison" className="w-full h-36 object-cover" loading="lazy" />
+                        <img src="https://commercialshotblasting.co.uk/blog-og-images/shot-blasting-vs-sandblasting-difference.png" alt="Shot blasting vs sandblasting comparison" className="w-full h-36 object-cover" loading="lazy" />
                         <div className="p-4">
                           <span className="text-xs font-semibold text-[#C17F3B] uppercase tracking-wide">Explainer</span>
                           <h4 className="mt-1 text-sm font-bold text-[#2C5F7F] group-hover:underline leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>Shot Blasting vs Sandblasting: What's the Difference?</h4>
