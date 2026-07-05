@@ -477,6 +477,94 @@ export default function ServiceDetail() {
                 <IntumescentQuoteForm onOpenQuotePopup={openQuotePopup} />
               )}
 
+              {/* Structural Steel Frames — Sa 2.5 Near-White Metal Section */}
+              {service.id === 'structural-steel-frames' && (
+                <div className="mb-12">
+                  {/* Section header */}
+                  <div className="mb-8">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-[#2C5F7F]/60 mb-2">Surface Preparation Standard</p>
+                    <h2 className="text-3xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      Sa 2.5 Near-White Metal — Why It Matters for Structural Steel
+                    </h2>
+                    <p className="text-gray-600 leading-relaxed">
+                      Every structural steel frame we blast is prepared to <strong>Sa 2.5 near-white metal standard</strong> — the internationally recognised benchmark for structural steelwork that will receive a protective or intumescent coating. This isn't a preference; it's what the coating manufacturers require for their products to perform as specified.
+                    </p>
+                  </div>
+
+                  {/* Photo + video side by side */}
+                  <div className="grid md:grid-cols-2 gap-6 mb-8">
+                    <div className="overflow-hidden rounded-xl shadow-lg">
+                      <img
+                        src="https://commercialshotblasting.co.uk/manus-storage/struct_thumbnail_hd_bc2083e2.jpg"
+                        alt="Steel column and beam connection blasted to Sa 2.5 near-white metal standard"
+                        className="w-full h-72 object-cover"
+                        width="576"
+                        height="288"
+                        loading="lazy"
+                      />
+                      <div className="bg-gray-50 p-3">
+                        <p className="text-sm text-gray-700">Steel column and beam connection — blasted to Sa 2.5 near-white metal, ready for coating</p>
+                      </div>
+                    </div>
+                    <div className="overflow-hidden rounded-xl shadow-lg">
+                      <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-72 object-cover"
+                        aria-label="Shot blasting structural steel to Sa 2.5 standard"
+                      >
+                        <source src="https://commercialshotblasting.co.uk/manus-storage/WhatsAppVideo2026-07-03at11.37.45_9416062e.mp4" type="video/mp4" />
+                      </video>
+                      <div className="bg-gray-50 p-3">
+                        <p className="text-sm text-gray-700">Live footage — blasting structural steelwork to Sa 2.5 near-white metal standard on site</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* What Sa 2.5 means */}
+                  <div className="grid md:grid-cols-3 gap-5 mb-8">
+                    <div className="bg-[#2C5F7F]/5 border border-[#2C5F7F]/15 rounded-xl p-5">
+                      <div className="w-10 h-10 bg-[#2C5F7F] rounded-lg flex items-center justify-center mb-3">
+                        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                      </div>
+                      <h3 className="font-bold text-[#2C5F7F] mb-2">What Sa 2.5 Means</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">Sa 2.5 is defined in ISO 8501-1 as a very thorough blast clean — at least 95% of the surface is free from all mill scale, rust, paint, and foreign matter. The remaining traces must be only slight staining in the form of spots or stripes.</p>
+                    </div>
+                    <div className="bg-orange-50 border border-orange-200 rounded-xl p-5">
+                      <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mb-3">
+                        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                      </div>
+                      <h3 className="font-bold text-gray-800 mb-2">The Anchor Profile</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">Shot blasting creates a microscopic anchor profile (Rz 50–75 μm) across the steel surface. This roughness dramatically increases the surface area available for coating adhesion — without it, even the best primer will peel prematurely.</p>
+                    </div>
+                    <div className="bg-green-50 border border-green-200 rounded-xl p-5">
+                      <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mb-3">
+                        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                      </div>
+                      <h3 className="font-bold text-gray-800 mb-2">Why Timing Matters</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">Freshly blasted steel will begin to flash rust within hours in humid conditions. Our on-site service means primer is applied the same day the steel is blasted — eliminating the window in which contamination can re-occur before coating.</p>
+                    </div>
+                  </div>
+
+                  {/* What happens without Sa 2.5 */}
+                  <div className="bg-red-50 border-l-4 border-red-400 rounded-r-xl p-6 mb-8">
+                    <h3 className="font-bold text-red-800 mb-3 text-lg">What Happens If Steel Isn't Prepared to Sa 2.5?</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <ul className="space-y-2 text-sm text-red-700">
+                        <li className="flex items-start gap-2"><span className="mt-1 w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />Coatings applied over mill scale will delaminate — mill scale contracts at a different rate to steel and takes the coating with it</li>
+                        <li className="flex items-start gap-2"><span className="mt-1 w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />Intumescent paint applied without Sa 2.5 will not achieve its specified fire resistance performance</li>
+                      </ul>
+                      <ul className="space-y-2 text-sm text-red-700">
+                        <li className="flex items-start gap-2"><span className="mt-1 w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />Coating warranties are voided if the substrate preparation is not documented to the required standard</li>
+                        <li className="flex items-start gap-2"><span className="mt-1 w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />Premature corrosion under the coating is invisible until it has already caused structural damage</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Structural Steel Frames Custom Gallery with Before/During/After */}
               {service.id === 'structural-steel-frames' && (
                 <div>
