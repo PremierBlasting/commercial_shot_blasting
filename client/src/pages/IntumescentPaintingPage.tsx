@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { QuotePopup } from "@/components/QuotePopup";
+import { IntumescentQuoteForm } from "@/components/IntumescentQuoteForm";
 import { Link } from "wouter";
 import { useSEO } from "@/hooks/useSEO";
 import { Card, CardContent } from "@/components/ui/card";
@@ -859,6 +860,61 @@ export default function IntumescentPaintingPage() {
                 </span>
               </div>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Dedicated Contact Form ────────────────────────────────────── */}
+      <section className="py-16 bg-white" id="get-a-quote">
+        <div className="container max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div>
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-orange-600 mb-3">Get a Quote</span>
+              <h2 className="text-3xl font-bold text-[#2C5F7F] mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Request a Quote from Our Intumescent Painting Contractors
+              </h2>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Tell us about your project — the type of steelwork, the required fire rating, and the location — and we will come back to you with a fixed-price quotation within 24 hours. No obligation.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[#2C5F7F] text-sm">Fixed-price quotation</p>
+                    <p className="text-sm text-gray-500">No hidden extras. One price covers blasting, priming, and intumescent coating.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[#2C5F7F] text-sm">Response within 24 hours</p>
+                    <p className="text-sm text-gray-500">We review every enquiry the same day and respond with availability and pricing.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Shield className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[#2C5F7F] text-sm">England &amp; Wales coverage</p>
+                    <p className="text-sm text-gray-500">We mobilise to any commercial or industrial site across England and Wales.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-8 pt-6 border-t border-gray-100">
+                <p className="text-sm text-gray-500 mb-2">Prefer to call?</p>
+                <a href="tel:07970566409" className="inline-flex items-center gap-2 text-[#2C5F7F] font-bold text-lg hover:text-orange-600 transition-colors">
+                  <Phone className="w-5 h-5" /> 07970 566409
+                </a>
+              </div>
+            </div>
+            <div>
+              <IntumescentQuoteForm onOpenQuotePopup={() => setQuoteOpen(true)} />
+            </div>
           </div>
         </div>
       </section>

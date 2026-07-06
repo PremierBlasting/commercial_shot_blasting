@@ -891,10 +891,14 @@ export default function Home() {
                 Blasting and Painting at the Same Time
               </h2>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                We bring three specialist operatives to site on the same day. The blasting team works through the structure to Sa 2.5 near-white metal standard while the painting team follows directly behind, applying primer and intumescent topcoat. All three work simultaneously across the structure.
+                We bring multiple specialist operatives to site on the same day. The blasting team works through the structure to Sa 2.5 near-white metal standard while the painting team follows directly behind, applying primer and intumescent topcoat. All operatives work simultaneously across the structure.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                No second visit. No gap between blast and paint. No coordinating two separate contractors. One mobilisation, one invoice, one point of contact.
+                No second visit. No gap between blast and paint. No coordinating two separate contractors. As{" "}
+                <a href="/services/intumescent-painting" className="text-[#2C5F7F] font-semibold underline underline-offset-2 hover:text-orange-600 transition-colors">
+                  intumescent painting contractors
+                </a>{" "}
+                who also blast in-house, we remove the handover risk entirely. One mobilisation, one invoice, one point of contact.
               </p>
               <a href="/services/intumescent-painting">
                 <button className="inline-flex items-center gap-2 bg-[#2C5F7F] hover:bg-[#1a3d52] text-white font-semibold px-6 py-3 rounded-lg transition-colors">
