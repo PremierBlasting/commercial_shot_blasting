@@ -6319,8 +6319,8 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
 
   // ── Intumescent Painting page ─────────────────────────────────────────────
   if (url === '/services/intumescent-painting' || url === '/services/intumescent-painting/') {
-    const ipTitle = 'Intumescent Painting on Structural Steel UK | Commercial Shot Blasting';
-    const ipDesc = 'Mobile intumescent painting on structural steel across England and Wales. We shot blast to Sa 2.5, apply primer, and spray intumescent coatings to R30–R120 fire ratings. Free site survey and fixed-price quotation.';
+    const ipTitle = 'Intumescent Painting Contractors | Structural Steel Fire Protection | Commercial Shot Blasting';
+    const ipDesc = 'Looking for intumescent painting contractors for structural steel? We blast to Sa 2.5 and apply certified fire protection coatings on the same day — multiple operatives, single mobilisation, anywhere in England and Wales.';
     const ipUrl = `${SITE_URL}/services/intumescent-painting`;
     const ipImage = 'https://storage.manus.space/webdev-static/commercial_shot_blasting_manus/intumescentpaint.jpeg';
     let modifiedHtml = html;
