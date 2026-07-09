@@ -165,7 +165,7 @@ export function LocationPage({ location }: LocationPageProps) {
               <span className="text-blue-200 text-sm">(127 reviews)</span>
             </div>
             <p className="text-xl text-blue-100 mb-8">
-              Mobile shot blasting in {location.name}, {location.county} — rust removal, surface preparation, and industrial cleaning to SA2.5/SA3 standard. 9 mobile units. Same-week availability. Site visits.
+              Mobile shot blasting in {location.name}, {location.county} — rust removal, surface preparation, and industrial cleaning to SA2.5/SA3 standard. 12 mobile units. Same-week availability. Site visits.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button 

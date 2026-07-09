@@ -337,7 +337,7 @@ function getAboutPageSchema() {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     "name": "About Commercial Shot Blasting",
-    "description": "Learn about Commercial Shot Blasting - professional mobile shot blasting services across England and Wales with 9 dedicated teams.",
+    "description": "Learn about Commercial Shot Blasting - professional mobile shot blasting services across England and Wales with 12 dedicated teams.",
     "mainEntity": getLocalBusinessSchema()
   };
 }
@@ -362,7 +362,7 @@ function getHomeFAQSchema() {
     },
     {
       question: "What areas do you cover?",
-      answer: "We provide mobile shot blasting services across England and Wales, with 9 dedicated teams strategically positioned from our West Midlands headquarters. We cover over 100 locations including Birmingham, Manchester, Leeds, Bristol, and many more."
+      answer: "We provide mobile shot blasting services across England and Wales, with 12 dedicated teams strategically positioned from our West Midlands headquarters. We cover over 100 locations including Birmingham, Manchester, Leeds, Bristol, and many more."
     },
     {
       question: "How much does shot blasting cost?",

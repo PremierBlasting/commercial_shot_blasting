@@ -1,0 +1,25 @@
+{
+  "query": "SELECT id, title, category FROM gallery_items WHERE title LIKE '%HB Tunnelling%' ORDER BY id;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title, category FROM gallery_items WHERE title LIKE '%HB Tunnelling%' ORDER BY id;",
+  "rows": [
+    {
+      "id": "90001",
+      "title": "HB Tunnelling — Shot Blasting Before Intumescent Painting, Doncaster",
+      "category": "Intumescent Painting"
+    },
+    {
+      "id": "90002",
+      "title": "HB Tunnelling — Intumescent Spray Application from MEWP, Doncaster",
+      "category": "Intumescent Painting"
+    },
+    {
+      "id": "90003",
+      "title": "HB Tunnelling — Intumescent Painting Detail, Doncaster",
+      "category": "Intumescent Painting"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\tcategory\n90001\tHB Tunnelling — Shot Blasting Before Intumescent Painting, Doncaster\tIntumescent Painting\n90002\tHB Tunnelling — Intumescent Spray Application from MEWP, Doncaster\tIntumescent Painting\n90003\tHB Tunnelling — Intumescent Painting Detail, Doncaster\tIntumescent Painting\n",
+  "stderr": "",
+  "execution_time_ms": 571
+}

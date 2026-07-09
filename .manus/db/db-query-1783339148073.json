@@ -1,0 +1,18 @@
+{
+  "query": "SELECT id, title FROM gallery_items WHERE title IN ('Large-Scale Commercial Steelwork Blasting', 'Structural Steelwork Refurbishment Project');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT id, title FROM gallery_items WHERE title IN ('Large-Scale Commercial Steelwork Blasting', 'Structural Steelwork Refurbishment Project');",
+  "rows": [
+    {
+      "id": "60003",
+      "title": "Large-Scale Commercial Steelwork Blasting"
+    },
+    {
+      "id": "60005",
+      "title": "Structural Steelwork Refurbishment Project"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\ttitle\n60003\tLarge-Scale Commercial Steelwork Blasting\n60005\tStructural Steelwork Refurbishment Project\n",
+  "stderr": "",
+  "execution_time_ms": 1194
+}

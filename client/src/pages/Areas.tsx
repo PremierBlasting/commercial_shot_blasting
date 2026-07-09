@@ -504,7 +504,7 @@ export default function Areas() {
               Our Service Areas
             </h1>
             <p className="text-xl text-white/80 mb-8">
-              Based at our West Midlands headquarters with 9 dedicated teams strategically positioned across the country, we deliver professional shot blasting services throughout England and Wales.
+              Based at our West Midlands headquarters with 12 dedicated teams strategically positioned across the country, we deliver professional shot blasting services throughout England and Wales.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 

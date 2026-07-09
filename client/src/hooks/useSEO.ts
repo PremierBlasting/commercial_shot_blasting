@@ -97,7 +97,7 @@ export function getLocationSEO(locationName: string, slug?: string, county?: str
   const countyStr = county ? `, ${county}` : '';
   return {
     title: `Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal & Surface Prep`,
-    description: `Shot blasting in ${locationName}${countyStr} — 9 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors & more. Site visit: 07970 566409`,
+    description: `Shot blasting in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors & more. Site visit: 07970 566409`,
     keywords: `shot blasting ${locationName}, ${locationName} shot blasting, mobile shot blasting ${locationName}, rust removal ${locationName}, surface preparation ${locationName}, commercial shot blasting ${locationName}${county ? `, shot blasting ${county}` : ''}`,
     image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/nSiMtaICoFPZGPZV.png",
     canonical: slug ? `${SITE_URL}/service-areas/${slug}` : undefined

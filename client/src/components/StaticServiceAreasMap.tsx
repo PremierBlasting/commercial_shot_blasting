@@ -135,7 +135,7 @@ export function StaticServiceAreasMap() {
             Covering Most of England and Wales
           </h3>
           <p className="text-white/80 mb-6 text-sm md:text-base">
-            Based at our West Midlands headquarters with 9 dedicated teams strategically positioned across the country, we deliver professional shot blasting services throughout England and Wales.
+            Based at our West Midlands headquarters with 12 dedicated teams strategically positioned across the country, we deliver professional shot blasting services throughout England and Wales.
           </p>
           
           {/* Counties list - organized by region */}

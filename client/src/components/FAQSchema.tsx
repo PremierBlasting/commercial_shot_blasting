@@ -89,7 +89,7 @@ export function generateLocationFAQs(locationName: string, county?: string): FAQ
     },
     {
       question: `Do you offer same-week shot blasting in ${locationName}?`,
-      answer: `Yes — we operate 9 mobile shot blasting units across the UK, which means we can often offer same-week availability for projects in ${locationName}${countyText}. For urgent requirements, call 07970 566409 directly and we will do our best to accommodate your schedule. Planned projects can be booked in advance to suit your programme.`
+      answer: `Yes — we operate 12 mobile shot blasting units across the UK, which means we can often offer same-week availability for projects in ${locationName}${countyText}. For urgent requirements, call 07970 566409 directly and we will do our best to accommodate your schedule. Planned projects can be booked in advance to suit your programme.`
     },
     {
       question: `Can you blast structural steel for construction projects in ${locationName}?`,
@@ -101,7 +101,7 @@ export function generateLocationFAQs(locationName: string, county?: string): FAQ
     },
     {
       question: `What areas near ${locationName} do you cover for shot blasting?`,
-      answer: `Our shot blasting services cover ${locationName} and all surrounding towns and villages throughout ${areaText}. We operate a fleet of 9 mobile units and regularly serve clients within a 50-mile radius of ${locationName}. If you are unsure whether we cover your specific location, call 07970 566409 and we will confirm availability and provide a site visit.`
+      answer: `Our shot blasting services cover ${locationName} and all surrounding towns and villages throughout ${areaText}. We operate a fleet of 12 mobile units and regularly serve clients within a 50-mile radius of ${locationName}. If you are unsure whether we cover your specific location, call 07970 566409 and we will confirm availability and provide a site visit.`
     }
   ];
 }
