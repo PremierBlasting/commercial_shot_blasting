@@ -501,10 +501,10 @@ export default function Areas() {
               <span className="text-sm font-medium">{totalLocations}+ Service Locations</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Our Service Areas
+              Shot Blasting Services Near Me — All Areas
             </h1>
             <p className="text-xl text-white/80 mb-8">
-              Based at our West Midlands headquarters with 12 dedicated teams strategically positioned across the country, we deliver professional shot blasting services throughout England and Wales.
+              Looking for a shot blasting contractor near you? Our 12 mobile teams cover 650+ towns and cities across England and Wales, delivering professional on-site shot blasting services directly to your premises.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 

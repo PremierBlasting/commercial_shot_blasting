@@ -5877,6 +5877,16 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
       <p>Phone: <a href="tel:${PHONE.replace(/\s/g, "")}">${PHONE}</a></p>
       <p>Email: <a href="mailto:info@commercialshotblasting.co.uk">info@commercialshotblasting.co.uk</a></p>
     </section>
+    <section aria-label="Further Reading">
+      <h2>Further Reading — Shot Blasting Guides &amp; Resources</h2>
+      <ul>
+        <li><a href="${SITE_URL}/blog/shot-blasting-structural-steel-guide">The Complete Guide to Shot Blasting Structural Steel</a></li>
+        <li><a href="${SITE_URL}/blog/why-shot-blasting-essential-before-intumescent-painting">Why Shot Blasting is Essential Before Intumescent Painting</a></li>
+        <li><a href="${SITE_URL}/blog/how-much-does-shot-blasting-cost-uk">How Much Does Shot Blasting Cost in the UK? (2025 Price Guide)</a></li>
+        <li><a href="${SITE_URL}/blog/shot-blasting-vs-sandblasting-difference">Shot Blasting vs Sandblasting: What's the Difference?</a></li>
+        <li><a href="${SITE_URL}/blog/shot-blasting-structural-steel-standards-certification">Shot Blasting for Structural Steel: Standards, Certification, and Compliance</a></li>
+      </ul>
+    </section>
   </main>
 </div>`;
 }
@@ -5987,13 +5997,13 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
       .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
     const areaMetaTags = `
-    <title>Shot Blasting Service Areas | ${BUSINESS_NAME}</title>
+    <title>Shot Blasting Services Near Me | Mobile Contractor All Areas | ${BUSINESS_NAME}</title>
     <link rel="canonical" href="${serviceAreasUrl}" />
     <link rel="alternate" hreflang="en-gb" href="${serviceAreasUrl}" />
     <link rel="alternate" hreflang="en" href="${serviceAreasUrl}" />
-    <meta name="description" content="Commercial Shot Blasting provides professional mobile shot blasting services across the UK. Browse our service areas covering the Midlands, North West, Yorkshire, South West, Wales, and more." />
-    <meta property="og:title" content="Shot Blasting Service Areas | ${BUSINESS_NAME}" />
-    <meta property="og:description" content="Commercial Shot Blasting provides professional mobile shot blasting services across the UK. Browse our service areas covering the Midlands, North West, Yorkshire, South West, Wales, and more." />
+    <meta name="description" content="Looking for a shot blasting contractor near you? Commercial Shot Blasting operates 12 mobile units across England and Wales — covering the Midlands, North West, Yorkshire, South West, Wales, and more. Same-week availability. Free quote." />
+    <meta property="og:title" content="Shot Blasting Services Near Me | Mobile Contractor All Areas | ${BUSINESS_NAME}" />
+    <meta property="og:description" content="Looking for a shot blasting contractor near you? 12 mobile units covering England and Wales — Midlands, North West, Yorkshire, South West, Wales, and more. Free quote: 07970 566409." />
     <meta property="og:url" content="${serviceAreasUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${LOGO}" />
@@ -6002,8 +6012,8 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Shot Blasting Service Areas | ${BUSINESS_NAME}" />
-    <meta name="twitter:description" content="Commercial Shot Blasting provides professional mobile shot blasting services across the UK. Browse our service areas covering the Midlands, North West, Yorkshire, South West, Wales, and more." />
+    <meta name="twitter:title" content="Shot Blasting Services Near Me | Mobile Contractor All Areas | ${BUSINESS_NAME}" />
+    <meta name="twitter:description" content="Looking for a shot blasting contractor near you? 12 mobile units covering England and Wales. Same-week availability. Free quote: 07970 566409." />
     <meta name="twitter:image" content="${LOGO}" />
     <meta name="twitter:image:alt" content="Commercial Shot Blasting service areas across the UK Midlands, North West, Yorkshire and more" />
     ${generateServiceAreasIndexSchemas()}
