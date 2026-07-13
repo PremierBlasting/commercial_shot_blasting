@@ -31,3284 +31,3284 @@ const locCoords: Record<string, [number, number]> = {
 const locationMeta: Record<string, LocationMeta> = {
   // West Midlands
   "birmingham": {
-    title: "Birmingham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Birmingham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Birmingham — structural steelwork, factory cladding & industrial plant. SA2.5/SA3 standard. Serving the West Midlands — shot blasting near me. Free site survey. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/birmingham"
   },
   "wolverhampton": {
-    title: "Wolverhampton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wolverhampton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Wolverhampton — manufacturing plant, automotive components & structural steel. SA2.5/SA3 standard. West Midlands coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/wolverhampton"
   },
   "coventry": {
-    title: "Coventry Shot Blasting Services | Commercial Shot Blasting",
+    title: "Coventry Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Coventry — automotive & aerospace surface preparation to SA2.5/SA3 standard. Structural steel, containers & cladding — shot blasting near me. Free site survey. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/coventry"
   },
   // East Midlands
   "leicester": {
-    title: "Leicester Shot Blasting Services | Commercial Shot Blasting",
+    title: "Leicester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Leicester — manufacturing plant, logistics structures & engineering steelwork. SA2.5/SA3 standard. East Midlands coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/leicester"
   },
   "derby": {
-    title: "Derby Shot Blasting Services | Commercial Shot Blasting",
+    title: "Derby Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Derby — rail engineering, aerospace fabrications & manufacturing plant. SA2.5/SA3 standard. Derbyshire coverage — shot blasting near me. Free site survey. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/derby"
   },
   "nottingham": {
-    title: "Nottingham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Nottingham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Nottingham — pharmaceutical plant, construction steelwork & industrial equipment. SA2.5/SA3 standard. Nottinghamshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/nottingham"
   },
   // Yorkshire
   "sheffield": {
-    title: "Sheffield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sheffield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Sheffield — structural steel fabrications, manufacturing plant & engineering components. SA2.5/SA3 standard. South Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/sheffield"
   },
   "leeds": {
-    title: "Leeds Shot Blasting Services | Commercial Shot Blasting",
+    title: "Leeds Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Leeds — manufacturing plant, logistics warehouse structures & construction steelwork. SA2.5/SA3 standard. West Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/leeds"
   },
   // North West
   "manchester": {
-    title: "Manchester Shot Blasting Services | Commercial Shot Blasting",
+    title: "Manchester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Manchester — engineering plant, chemical processing structures & commercial construction. SA2.5/SA3 standard. Greater Manchester coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/manchester"
   },
   "liverpool": {
-    title: "Liverpool Shot Blasting Services | Commercial Shot Blasting",
+    title: "Liverpool Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Liverpool — marine & port structures, logistics plant & industrial steelwork. SA2.5/SA3 standard. Merseyside coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/liverpool"
   },
   "chester": {
-    title: "Chester Shot Blasting Services | Commercial Shot Blasting",
+    title: "Chester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Chester — heritage structures, manufacturing plant & commercial construction steelwork. SA2.5/SA3 standard. Cheshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/chester"
   },
   // Staffordshire
   "stoke-on-trent": {
-    title: "Stoke-on-Trent Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stoke-on-Trent Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Stoke-on-Trent — ceramics industry plant, manufacturing structures & construction steelwork. SA2.5/SA3 standard. Staffordshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/stoke-on-trent"
   },
   // Shropshire
   "shrewsbury": {
-    title: "Shrewsbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Shrewsbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Shrewsbury — agricultural machinery, manufacturing plant & heritage structures. SA2.5/SA3 standard. Shropshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/shrewsbury"
   },
   // Worcestershire
   "worcester": {
-    title: "Worcester Shot Blasting Services | Commercial Shot Blasting",
+    title: "Worcester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Worcester — manufacturing plant, agricultural equipment & commercial construction. SA2.5/SA3 standard. Worcestershire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/worcester"
   },
   // Herefordshire
   "hereford": {
-    title: "Hereford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hereford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Hereford — agricultural machinery, food processing plant & construction steelwork. SA2.5/SA3 standard. Herefordshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/hereford"
   },
   // Gloucestershire
   "gloucester": {
-    title: "Gloucester Shot Blasting Services | Commercial Shot Blasting",
+    title: "Gloucester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Gloucester — aerospace fabrications, manufacturing plant & heritage structures. SA2.5/SA3 standard. Gloucestershire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/gloucester"
   },
   // South West
   "bristol": {
-    title: "Bristol Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bristol Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Bristol — aerospace & defence plant, marine structures & commercial construction. SA2.5/SA3 standard. Bristol & Bath coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/bristol"
   },
   // Wales
   "cardiff": {
-    title: "Cardiff Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cardiff Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Cardiff — steel fabrications, port infrastructure & manufacturing plant. SA2.5/SA3 standard. South Wales coverage — shot blasting near me. Free site survey. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/cardiff"
   },
   "wrexham": {
-    title: "Wrexham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wrexham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Wrexham — manufacturing plant, automotive components & industrial steelwork. SA2.5/SA3 standard. North Wales coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/wrexham"
   },
   // Oxfordshire
   "oxford": {
-    title: "Oxford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Oxford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Oxford — heritage restoration, research facility plant & construction steelwork. SA2.5/SA3 standard. Oxfordshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/oxford"
   },
   // Wiltshire
   "swindon": {
-    title: "Swindon Shot Blasting Services | Commercial Shot Blasting",
+    title: "Swindon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Swindon — automotive & logistics plant, manufacturing structures & construction steelwork. SA2.5/SA3 standard. Wiltshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/swindon"
   },
   // Buckinghamshire
   "milton-keynes": {
-    title: "Milton Keynes Shot Blasting Services | Commercial Shot Blasting",
+    title: "Milton Keynes Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Milton Keynes — logistics warehouse structures, manufacturing plant & technology sector steelwork. SA2.5/SA3 standard — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/milton-keynes"
   },
   // Northamptonshire
   "northampton": {
-    title: "Northampton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Northampton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Northampton — logistics & distribution structures, manufacturing plant & construction steelwork. SA2.5/SA3 standard — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/northampton"
   },
   // Cambridgeshire
   "peterborough": {
-    title: "Peterborough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Peterborough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Peterborough — logistics & distribution plant, agricultural equipment & construction steelwork. SA2.5/SA3 standard — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/peterborough"
   },
   "cambridge": {
-    title: "Cambridge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cambridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Cambridge — research & technology plant, heritage structures & construction steelwork. SA2.5/SA3 standard. Cambridgeshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/cambridge"
   },
   // Norfolk
   "norwich": {
-    title: "Norwich Shot Blasting Services | Commercial Shot Blasting",
+    title: "Norwich Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Norwich — agricultural machinery, food processing plant & construction steelwork. SA2.5/SA3 standard. Norfolk coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/norwich"
   },
   // Suffolk
   "ipswich": {
-    title: "Ipswich Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ipswich Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Ipswich — marine & port structures, agricultural equipment & manufacturing plant. SA2.5/SA3 standard. Suffolk coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/ipswich"
   },
   // Lincolnshire
   "lincoln": {
-    title: "Lincoln Shot Blasting Services | Commercial Shot Blasting",
+    title: "Lincoln Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Lincoln — agricultural machinery, food processing plant & heritage structures. SA2.5/SA3 standard. Lincolnshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/lincoln"
   },
   "chesterfield": {
-    title: "Chesterfield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Chesterfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Chesterfield — manufacturing plant, construction steelwork & industrial equipment. SA2.5/SA3 standard. Derbyshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/chesterfield"
   },
   // Warwickshire
   "stratford-upon-avon": {
-    title: "Stratford-upon-Avon Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stratford-upon-Avon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Stratford-upon-Avon — heritage restoration, agricultural equipment & construction steelwork. SA2.5/SA3 standard. Warwickshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/stratford-upon-avon"
   },
   // North East England
   "newcastle": {
-    title: "Newcastle Shot Blasting Services | Commercial Shot Blasting",
+    title: "Newcastle Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Newcastle upon Tyne — shipbuilding & marine structures, automotive plant & construction steelwork. SA2.5/SA3 standard. Tyne & Wear coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/newcastle"
   },
   "sunderland": {
-    title: "Sunderland Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sunderland Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Sunderland — automotive & manufacturing plant, marine structures & construction steelwork. SA2.5/SA3 standard. Tyne & Wear coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/sunderland"
   },
   "darlington": {
-    title: "Darlington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Darlington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Darlington — manufacturing plant, engineering components & construction steelwork. SA2.5/SA3 standard. County Durham coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/darlington"
   },
   "carlisle": {
-    title: "Carlisle Shot Blasting Services | Commercial Shot Blasting",
+    title: "Carlisle Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Carlisle — manufacturing plant, agricultural equipment & construction steelwork. SA2.5/SA3 standard. Cumbria coverage — shot blasting near me. Free site survey. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/carlisle"
   },
   "gateshead": {
-    title: "Gateshead Shot Blasting Services | Commercial Shot Blasting",
+    title: "Gateshead Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Gateshead — structural steelwork, manufacturing plant & commercial construction. SA2.5/SA3 standard. Tyne & Wear coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/gateshead"
   },
   "middlesbrough": {
-    title: "Middlesbrough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Middlesbrough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Middlesbrough — chemical & petrochemical plant, steel fabrications & port infrastructure. SA2.5/SA3 standard. Teesside coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/middlesbrough"
   },
   "hartlepool": {
-    title: "Hartlepool Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hartlepool Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Hartlepool — marine & port structures, manufacturing plant & construction steelwork. SA2.5/SA3 standard. County Durham coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/hartlepool"
   },
   // North West England
   "preston": {
-    title: "Preston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Preston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Preston — manufacturing & textile engineering plant, energy sector structures & construction steelwork. SA2.5/SA3 standard. Lancashire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/preston"
   },
   "blackburn": {
-    title: "Blackburn Shot Blasting Services | Commercial Shot Blasting",
+    title: "Blackburn Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Blackburn — manufacturing plant, engineering structures & construction steelwork. SA2.5/SA3 standard. Lancashire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/blackburn"
   },
   // South England
   "southampton": {
-    title: "Southampton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Southampton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Southampton — marine & shipyard structures, port infrastructure & commercial construction. SA2.5/SA3 standard. Hampshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/southampton"
   },
   "portsmouth": {
-    title: "Portsmouth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Portsmouth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Portsmouth — naval & marine structures, aerospace & defence plant, commercial construction. SA2.5/SA3 standard. Hampshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/portsmouth"
   },
   "reading": {
-    title: "Reading Shot Blasting Services | Commercial Shot Blasting",
+    title: "Reading Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Reading — commercial construction steelwork, logistics plant & manufacturing structures. SA2.5/SA3 standard. Berkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/reading"
   },
   // Essex
   "colchester": {
-    title: "Colchester Shot Blasting Services | Commercial Shot Blasting",
+    title: "Colchester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Colchester — logistics & distribution structures, agricultural plant & manufacturing steelwork. SA2.5/SA3 standard. Essex coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/colchester"
   },
   // Taunton / Somerset
   "taunton": {
-    title: "Taunton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Taunton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Taunton — agricultural machinery, food processing plant & construction steelwork. SA2.5/SA3 standard. Somerset coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/taunton"
   },
   // Yorkshire — additional towns
   "barnsley": {
-    title: "Barnsley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Barnsley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Barnsley — structural steelwork, mining & engineering plant, industrial cladding. SA2.5/SA3 standard. South Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/barnsley"
   },
   "rotherham": {
-    title: "Rotherham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Rotherham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Rotherham — steel & engineering structures, manufacturing plant & industrial containers. SA2.5/SA3 standard. South Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/rotherham"
   },
   "doncaster": {
-    title: "Doncaster Shot Blasting Services | Commercial Shot Blasting",
+    title: "Doncaster Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Doncaster — logistics & distribution structures, rail & transport plant, agricultural machinery. SA2.5/SA3 standard. South Yorkshire — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/doncaster"
   },
   "wakefield": {
-    title: "Wakefield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wakefield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Wakefield — manufacturing & logistics structures, structural steelwork & industrial plant. SA2.5/SA3 standard. West Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/wakefield"
   },
   "bradford": {
-    title: "Bradford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bradford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Bradford — textile & manufacturing plant, structural steelwork & commercial construction. SA2.5/SA3 standard. West Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/bradford"
   },
   "huddersfield": {
-    title: "Huddersfield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Huddersfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Huddersfield — engineering & manufacturing plant, industrial cladding & structural steel. SA2.5/SA3 standard. West Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/huddersfield"
   },
   "york": {
-    title: "York Shot Blasting Services | Commercial Shot Blasting",
+    title: "York Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in York — heritage & restoration steelwork, rail & transport structures, commercial construction. SA2.5/SA3 standard. North Yorkshire — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/york"
   },
   "harrogate": {
-    title: "Harrogate Shot Blasting Services | Commercial Shot Blasting",
+    title: "Harrogate Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Harrogate — commercial construction steelwork, agricultural plant & industrial structures. SA2.5/SA3 standard. North Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/harrogate"
   },
   // Greater Manchester — additional towns
   "salford": {
-    title: "Salford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Salford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Salford — media & commercial construction steelwork, logistics plant & industrial structures. SA2.5/SA3 standard. Greater Manchester — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/salford"
   },
   "stockport": {
-    title: "Stockport Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stockport Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Stockport — manufacturing & engineering plant, commercial construction steelwork & industrial cladding. SA2.5/SA3 standard. Greater Manchester — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/stockport"
   },
   "bolton": {
-    title: "Bolton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bolton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Bolton — engineering & manufacturing structures, industrial plant & commercial steelwork. SA2.5/SA3 standard. Greater Manchester coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/bolton"
   },
   "rochdale": {
-    title: "Rochdale Shot Blasting Services | Commercial Shot Blasting",
+    title: "Rochdale Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Rochdale — textile & manufacturing plant, industrial cladding & structural steelwork. SA2.5/SA3 standard. Greater Manchester coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/rochdale"
   },
   "oldham": {
-    title: "Oldham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Oldham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Oldham — engineering & manufacturing plant, commercial construction & industrial structures. SA2.5/SA3 standard. Greater Manchester — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/oldham"
   },
   // West Midlands — additional towns
   "walsall": {
-    title: "Walsall Shot Blasting Services | Commercial Shot Blasting",
+    title: "Walsall Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Walsall — manufacturing & engineering plant, structural steelwork & industrial cladding. SA2.5/SA3 standard. West Midlands coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/walsall"
   },
   "west-bromwich": {
-    title: "West Bromwich Shot Blasting Services | Commercial Shot Blasting",
+    title: "West Bromwich Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in West Bromwich — automotive & manufacturing plant, structural steelwork & industrial containers. SA2.5/SA3 standard. West Midlands — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/west-bromwich"
   },
   "solihull": {
-    title: "Solihull Shot Blasting Services | Commercial Shot Blasting",
+    title: "Solihull Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Solihull — automotive & aerospace plant, commercial construction steelwork & industrial structures. SA2.5/SA3 standard. West Midlands — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/solihull"
   },
   "sutton-coldfield": {
-    title: "Sutton Coldfield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sutton Coldfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Sutton Coldfield — commercial construction steelwork, manufacturing plant & industrial structures. SA2.5/SA3 standard. West Midlands — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/sutton-coldfield"
   },
   "dudley": {
-    title: "Dudley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Dudley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Dudley — engineering & manufacturing plant, structural steelwork & industrial cladding. SA2.5/SA3 standard. West Midlands coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/dudley"
   },
   // East Midlands — additional towns
   "loughborough": {
-    title: "Loughborough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Loughborough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Loughborough — engineering & manufacturing plant, logistics structures & commercial steelwork. SA2.5/SA3 standard. Leicestershire — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/loughborough"
   },
   "mansfield": {
-    title: "Mansfield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Mansfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Mansfield — manufacturing & engineering plant, structural steelwork & industrial containers. SA2.5/SA3 standard. Nottinghamshire — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/mansfield"
   },
   "tamworth": {
-    title: "Tamworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Tamworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Tamworth — logistics & distribution structures, manufacturing plant & commercial steelwork. SA2.5/SA3 standard. Staffordshire — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/tamworth"
   },
   "burton-on-trent": {
-    title: "Burton-on-Trent Shot Blasting Services | Commercial Shot Blasting",
+    title: "Burton-on-Trent Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Burton-on-Trent — brewing & food processing plant, logistics structures & manufacturing steelwork. SA2.5/SA3 standard. Staffordshire — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/burton-on-trent"
   },
   "stafford": {
-    title: "Stafford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stafford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Stafford — engineering & manufacturing plant, commercial construction steelwork & industrial structures. SA2.5/SA3 standard. Staffordshire — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/stafford"
   },
   "telford": {
-    title: "Telford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Telford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Telford — manufacturing & engineering plant, structural steelwork & industrial cladding. SA2.5/SA3 standard. Shropshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/telford"
   },
   // East of England — additional towns
   "luton": {
-    title: "Luton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Luton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Luton — aerospace & aviation plant, logistics structures & commercial construction steelwork. SA2.5/SA3 standard. Bedfordshire — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/luton"
   },
   "stevenage": {
-    title: "Stevenage Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stevenage Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Stevenage — aerospace & defence plant, manufacturing structures & commercial steelwork. SA2.5/SA3 standard. Hertfordshire — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/stevenage"
   },
   "watford": {
-    title: "Watford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Watford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Watford — commercial construction steelwork, logistics plant & manufacturing structures. SA2.5/SA3 standard. Hertfordshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/watford"
   },
   "southend-on-sea": {
-    title: "Southend-on-Sea Shot Blasting Services | Commercial Shot Blasting",
+    title: "Southend-on-Sea Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Southend-on-Sea — marine & coastal structures, commercial construction & logistics plant. SA2.5/SA3 standard. Essex coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/southend-on-sea"
   },
   // South West — additional towns
   "bath": {
-    title: "Bath Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bath Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Bath — heritage & restoration steelwork, commercial construction & industrial structures. SA2.5/SA3 standard. Somerset/Wiltshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/bath"
   },
   "exeter": {
-    title: "Exeter Shot Blasting Services | Commercial Shot Blasting",
+    title: "Exeter Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Exeter — commercial construction steelwork, agricultural plant & industrial structures. SA2.5/SA3 standard. Devon coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/exeter"
   },
   "yeovil": {
-    title: "Yeovil Shot Blasting Services | Commercial Shot Blasting",
+    title: "Yeovil Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Yeovil — aerospace & defence plant, agricultural machinery & commercial construction steelwork. SA2.5/SA3 standard. Somerset — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/yeovil"
   },
   // Wales — additional towns
   "swansea": {
-    title: "Swansea Shot Blasting Services | Commercial Shot Blasting",
+    title: "Swansea Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Swansea — marine & port structures, steel & manufacturing plant, commercial construction. SA2.5/SA3 standard. South Wales coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/swansea"
   },
   "newport": {
-    title: "Newport Shot Blasting Services | Commercial Shot Blasting",
+    title: "Newport Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Newport — steel & manufacturing plant, port infrastructure & commercial construction steelwork. SA2.5/SA3 standard. South Wales coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/newport"
   },
   "merthyr-tydfil": {
-    title: "Merthyr Tydfil Shot Blasting Services | Commercial Shot Blasting",
+    title: "Merthyr Tydfil Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Merthyr Tydfil — engineering & manufacturing plant, structural steelwork & industrial structures. SA2.5/SA3 standard. South Wales coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/merthyr-tydfil"
   },
   // North West — additional towns
   "warrington": {
-    title: "Warrington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Warrington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Warrington — chemical & process plant, logistics structures & manufacturing steelwork. SA2.5/SA3 standard. Cheshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/warrington"
   },
   "runcorn": {
-    title: "Runcorn Shot Blasting Services | Commercial Shot Blasting",
+    title: "Runcorn Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Runcorn — chemical & process plant, industrial structures & commercial construction steelwork. SA2.5/SA3 standard. Cheshire coverage — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/runcorn"
   },
   "widnes": {
-    title: "Widnes Shot Blasting Services | Commercial Shot Blasting",
+    title: "Widnes Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Widnes — chemical & industrial plant, logistics structures & commercial steelwork. SA2.5/SA3 standard. Cheshire/Merseyside — shot blasting near me. Free quote. Call 07970 566409",
     url: "https://commercialshotblasting.co.uk/service-areas/widnes"
   },
   "abbots-bromley": {
-    title: "Abbots Bromley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Abbots Bromley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for top-tier shot blasting in Abbots Bromley? offering Construction and structural steel, surface preparation solutions. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/abbots-bromley"
   },
   "abergele": {
-    title: "Abergele Shot Blasting Services | Commercial Shot Blasting",
+    title: "Abergele Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Abergele businesses, professional shot blasting. Enhance your manufacturing operations with our SA3 shot blasting. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/abergele"
   },
   "acle": {
-    title: "Acle Shot Blasting Services | Commercial Shot Blasting",
+    title: "Acle Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting in Acle: rust removal & surface preparation for Norfolks Agriculture sector. Quality results. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/acle"
   },
   "albrighton": {
-    title: "Albrighton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Albrighton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Albrighton and Shropshire with professional shot blasting. Specializing in Construction, Agriculture and mobile. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/albrighton"
   },
   "alcester": {
-    title: "Alcester Shot Blasting Services | Commercial Shot Blasting",
+    title: "Alcester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services in Alcester, Warwickshire. Specializing in SA2.5. Trusted by Warwickshire Manufacturing firms. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/alcester"
   },
   "aldeburgh": {
-    title: "Aldeburgh Shot Blasting Services | Commercial Shot Blasting",
+    title: "Aldeburgh Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Aldeburgh for Construction & Agriculture projects. Our SA3 service ensures pristine surfaces. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/aldeburgh"
   },
   "aldridge": {
-    title: "Aldridge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Aldridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting solutions for Aldridge. We handle structural steel projects for Construction clients across West Midlands. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/aldridge"
   },
   "alford": {
-    title: "Alford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Alford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "We provide structural steel shot blasting in Alford. Catering to Lincolnshire's Manufacturing and Agriculture sectors. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/alford"
   },
   "alfreton": {
-    title: "Alfreton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Alfreton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting in Alfreton — expert rust removal & SA2.5 steel cleaning. Helping Derbyshire manufacturing & construction. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/alfreton"
   },
   "alnwick": {
-    title: "Alnwick Shot Blasting Services | Commercial Shot Blasting",
+    title: "Alnwick Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable surface preparation shot blasting in Alnwick for Construction and Engineering projects. Ensure lasting finishes. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/alnwick"
   },
   "alsager": {
-    title: "Alsager Shot Blasting Services | Commercial Shot Blasting",
+    title: "Alsager Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized shot blasting for Alsager's shot blasting. SA3, surface preparation. Serving Cheshire's Manufacturing, Construction sector. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/alsager"
   },
   "alvechurch": {
-    title: "Alvechurch Shot Blasting Services | Commercial Shot Blasting",
+    title: "Alvechurch Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need SA3 shot blasting in Alvechurch? We provide expert solutions for Construction sectors. Specializing in Worcestershire for all your needs. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/alvechurch"
   },
   "amersham": {
-    title: "Amersham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Amersham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Amersham businesses, our shot blasting for Logistics and Manufacturing industries. Specializing in mobile and rust removal. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/amersham"
   },
   "amesbury": {
-    title: "Amesbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Amesbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting solutions in Amesbury. We offer shot blasting, including mobile. Serving Wiltshire agriculture & manufacturing sectors....",
     url: "https://commercialshotblasting.co.uk/service-areas/amesbury"
   },
   "ampthill": {
-    title: "Ampthill Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ampthill Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Manufacturing and Logistics in Ampthill, choose our expert shot blasting. Our team ensures SA2.5/SA3 standards for durable finishes. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ampthill"
   },
   "anstey": {
-    title: "Anstey Shot Blasting Services | Commercial Shot Blasting",
+    title: "Anstey Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "In Anstey, we offer professional shot blasting for Manufacturing. Specializing in surface preparation across Leicestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/anstey"
   },
   "anston": {
-    title: "Anston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Anston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Discover the best SA3 shot blasting in Anston for your Construction and Manufacturing requirements.  Trust our skilled technicians. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/anston"
   },
   "appledore": {
-    title: "Appledore Shot Blasting Services | Commercial Shot Blasting",
+    title: "Appledore Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Appledore for Marine & Agriculture projects. We offer rust removal and surface preparation services. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/appledore"
   },
   "arlesey": {
-    title: "Arlesey Shot Blasting Services | Commercial Shot Blasting",
+    title: "Arlesey Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Arlesey businesses trust our mobile shot blasting. Dedicated to supporting Bedfordshire's Manufacturing and Manufacturing sectors. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/arlesey"
   },
   "arnold": {
-    title: "Arnold Shot Blasting Services | Commercial Shot Blasting",
+    title: "Arnold Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive shot blasting in Arnold for manufacturing, engineering projects. Our rust removal shot blasting ensures top-quality results. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/arnold"
   },
   "ashbourne": {
-    title: "Ashbourne Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ashbourne Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Leading shot blasting in Ashbourne — SA3 standard rust removal for heavy machinery. Assisting Derbyshire construction professionals. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ashbourne"
   },
   "ashby-de-la-zouch": {
-    title: "Ashby-de-la-Zouch Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ashby-de-la-Zouch Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing SA2.5 shot blasting in Ashby-de-la-Zouch for Manufacturing & Engineering sectors. Covering all of Leicestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ashby-de-la-zouch"
   },
   "askern": {
-    title: "Askern Shot Blasting Services | Commercial Shot Blasting",
+    title: "Askern Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking rust removal shot blasting in Askern? We cater to Steel and Manufacturing businesses with precision.  Advanced techniques applied. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/askern"
   },
   "atherstone": {
-    title: "Atherstone Shot Blasting Services | Commercial Shot Blasting",
+    title: "Atherstone Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Get superior shot blasting results in Atherstone. Specializing in SA3, rust removal. Supporting Warwickshire Manufacturing and Construction. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/atherstone"
   },
   "attleborough": {
-    title: "Attleborough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Attleborough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking shot blasting in Attleborough? We offer structural steel & surface preparation services for Norfolks Agriculture industry. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/attleborough"
   },
   "aughton": {
-    title: "Aughton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Aughton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "From Manufacturing to Steel, Aughton trusts us for SA3 shot blasting services.  With years of experience.  Precision work every time. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/aughton"
   },
   "axbridge": {
-    title: "Axbridge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Axbridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services for Axbridge, Somerset – specializing in rust removal & mobile. Call today. Fast, efficient, and reliable service.",
     url: "https://commercialshotblasting.co.uk/service-areas/axbridge"
   },
   "aylesbury": {
-    title: "Aylesbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Aylesbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting in Aylesbury for Manufacturing and Logistics industries. Specializing in structural steel. Get your surfaces ready. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/aylesbury"
   },
   "aylsham": {
-    title: "Aylsham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Aylsham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Aylsham for Agriculture and Construction applications. Featuring SA2.5 and structural steel solutions. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/aylsham"
   },
   "baildon": {
-    title: "Baildon Shot Blasting Services | Commercial Shot Blasting",
+    title: "Baildon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Baildon for Engineering, Construction businesses. Our mobile solutions ensure optimal surface preparation. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/baildon"
   },
   "bakewell": {
-    title: "Bakewell Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bakewell Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Industrial shot blasting in Bakewell — structural steel treatment & SA2.5 finishing. Ideal for Derbyshire engineering businesses. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/bakewell"
   },
   "banbury": {
-    title: "Banbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Banbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Banbury, comprehensive shot blasting solutions including rust removal, and more. Serving Oxfordshire for the Aerospace sector. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/banbury"
   },
   "bangor-wales": {
-    title: "Bangor Wales Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bangor Wales Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Bangor, East Wales. Professional rust removal shot blasting for manufacturing & construction in East Wales. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bangor-wales"
   },
   "barnstaple": {
-    title: "Barnstaple Shot Blasting Services | Commercial Shot Blasting",
+    title: "Barnstaple Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting in Barnstaple for Agriculture & Agriculture sectors. Includes mobile & surface preparation. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/barnstaple"
   },
   "barrow-upon-soar": {
-    title: "Barrow upon Soar Shot Blasting Services | Commercial Shot Blasting",
+    title: "Barrow upon Soar Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Engineering in Barrow upon Soar, our shot blasting delivers surface preparation results. Trusted in Leicestershire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/barrow-upon-soar"
   },
   "barton-le-clay": {
-    title: "Barton-le-Clay Shot Blasting Services | Commercial Shot Blasting",
+    title: "Barton-le-Clay Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Barton-le-Clay businesses trust our mobile shot blasting. Effective rust removal and surface preparation for all projects. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/barton-le-clay"
   },
   "batley": {
-    title: "Batley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Batley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Batley for Construction businesses. Our rust removal solutions ensure optimal surface preparation. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/batley"
   },
   "bawtry": {
-    title: "Bawtry Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bawtry Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Top-tier rust removal shot blasting in Bawtry for Construction and Manufacturing projects. Get a fast quote.  Utilizing modern equipment. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bawtry"
   },
   "beaconsfield": {
-    title: "Beaconsfield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Beaconsfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting in Beaconsfield for Manufacturing and Construction industries. Specializing in surface preparation. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/beaconsfield"
   },
   "beaumaris": {
-    title: "Beaumaris Shot Blasting Services | Commercial Shot Blasting",
+    title: "Beaumaris Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting services for Beaumaris. Ideal for construction projects. We offer surface preparation shot blasting for optimal results. Get a ...",
     url: "https://commercialshotblasting.co.uk/service-areas/beaumaris"
   },
   "beccles": {
-    title: "Beccles Shot Blasting Services | Commercial Shot Blasting",
+    title: "Beccles Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Agriculture & Construction businesses in Beccles, professional shot blasting. Our structural steel service ensures pristine surfaces. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/beccles"
   },
   "bedford": {
-    title: "Bedford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bedford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Bedford businesses trust our mobile shot blasting. Your go-to for all Manufacturing and Logistics shot blasting requirements. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/bedford"
   },
   "bedworth": {
-    title: "Bedworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bedworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Enhance surfaces in Bedworth with our shot blasting. Specializing in structural steel, mobile. Trusted by Warwickshire Engineering firms. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/bedworth"
   },
   "beeston": {
-    title: "Beeston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Beeston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for shot blasting in Beeston? We offer construction projects. Our SA2.5 shot blasting ensures top-quality results. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/beeston"
   },
   "belper": {
-    title: "Belper Shot Blasting Services | Commercial Shot Blasting",
+    title: "Belper Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Belper — comprehensive SA2.5 surface preparation. Delivering for Derbyshire manufacturing businesses. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/belper"
   },
   "bentley": {
-    title: "Bentley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bentley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Experience the difference with our rust removal shot blasting in Bentley for Construction and Steel sectors.  Dedicated to your satisfaction. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bentley"
   },
   "bewdley": {
-    title: "Bewdley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bewdley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need shot blasting for surface preparation in Bewdley? We provide expert solutions for Manufacturing sectors. We serve all of Worcestershire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/bewdley"
   },
   "biddulph": {
-    title: "Biddulph Shot Blasting Services | Commercial Shot Blasting",
+    title: "Biddulph Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for top-tier shot blasting in Biddulph? offering Engineering and Construction and SA2.5, structural steel solutions. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/biddulph"
   },
   "bideford": {
-    title: "Bideford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bideford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting in Bideford for Agriculture & Construction sectors. Includes structural steel & surface preparation. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bideford"
   },
   "biggleswade": {
-    title: "Biggleswade Shot Blasting Services | Commercial Shot Blasting",
+    title: "Biggleswade Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Biggleswade businesses trust our mobile shot blasting. Effective rust removal and surface preparation for all projects. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/biggleswade"
   },
   "bilston": {
-    title: "Bilston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bilston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized shot blasting in Bilston and surrounding areas. Our expertise includes SA2.5, structural steel for Engineering, Construction app... Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/bilston"
   },
   "bingham": {
-    title: "Bingham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bingham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive shot blasting in Bingham for engineering projects. Our surface preparation shot blasting ensures top-quality results. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bingham"
   },
   "bingley": {
-    title: "Bingley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bingley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive shot blasting in Bingley, West Yorkshire. Trusted for Manufacturing, Engineering applications, including mobile and rust removal. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bingley"
   },
   "birkenhead": {
-    title: "Birkenhead Shot Blasting Services | Commercial Shot Blasting",
+    title: "Birkenhead Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Birkenhead, Merseyside. Expert surface preparation and rust removal for Marine and Manufacturing industries. Get a free quote today.",
     url: "https://commercialshotblasting.co.uk/service-areas/birkenhead"
   },
   "bishops-castle": {
-    title: "Bishops Castle Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bishops Castle Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Bishops Castle and Shropshire with professional shot blasting. Specializing in Agriculture and surface preparation. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bishops-castle"
   },
   "blaby": {
-    title: "Blaby Shot Blasting Services | Commercial Shot Blasting",
+    title: "Blaby Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "In Blaby, we offer professional shot blasting for Manufacturing & Engineering. Specializing in SA3 across Leicestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/blaby"
   },
   "blaenau-ffestiniog": {
-    title: "Blaenau Ffestiniog Shot Blasting Services | Commercial Shot Blasting",
+    title: "Blaenau Ffestiniog Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Blaenau Ffestiniog, East Wales. Serving construction sectors with rust removal shot blasting and rust removal. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/blaenau-ffestiniog"
   },
   "bletchley": {
-    title: "Bletchley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bletchley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting in Bletchley for Logistics and Manufacturing industries. Specializing in surface preparation and SA2.5. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bletchley"
   },
   "bloxwich": {
-    title: "Bloxwich Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bloxwich Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Bloxwich businesses, top-tier shot blasting services. Specializing in SA3, SA2.5 for the Manufacturing industry. Your local experts. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bloxwich"
   },
   "bollington": {
-    title: "Bollington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bollington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need shot blasting in Bollington? Get quality shot blasting. structural steel. Serving Cheshire's Construction sector. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/bollington"
   },
   "bolsover": {
-    title: "Bolsover Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bolsover Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Advanced shot blasting in Bolsover — SA3 mobile blasting for commercial steelwork. Assisting Derbyshire engineering professionals. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bolsover"
   },
   "borehamwood": {
-    title: "Borehamwood Shot Blasting Services | Commercial Shot Blasting",
+    title: "Borehamwood Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Borehamwood, Hertfordshire: reliable shot blasting for our structural steel services support Aerospace projects. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/borehamwood"
   },
   "boston": {
-    title: "Boston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Boston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Offering specialized rust removal shot blasting solutions in Boston. with proven results. Trusted by Lincolnshire's Construction sector. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/boston"
   },
   "bottisham": {
-    title: "Bottisham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bottisham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking reliable shot blasting in Bottisham? Specializing in shot blasting for structural steel. Serving Cambridgeshire Manufacturing & Constru Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bottisham"
   },
   "bourne": {
-    title: "Bourne Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bourne Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized surface preparation shot blasting solutions in Bourne. Catering to Lincolnshire's Agriculture and Construction sectors. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/bourne"
   },
   "bourton-on-the-water": {
-    title: "Bourton-on-the-Water Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bourton-on-the-Water Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Bourton-on-the-Water. Ideal for Manufacturing, Agriculture applications, including mobile. Covering Gloucestershire...",
     url: "https://commercialshotblasting.co.uk/service-areas/bourton-on-the-water"
   },
   "bovingdon": {
-    title: "Bovingdon Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bovingdon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Bovingdon, Hertfordshire: reliable shot blasting for offering surface preparation solutions for Manufacturing & Construction clients. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/bovingdon"
   },
   "brackley": {
-    title: "Brackley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Brackley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "From Brackley, we deliver professional shot blasting for rust removal. Offering rust removal and other shot blasting solutions for Construction, Logisti...",
     url: "https://commercialshotblasting.co.uk/service-areas/brackley"
   },
   "bradford-on-avon": {
-    title: "Bradford-on-Avon Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bradford-on-Avon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive shot blasting for Bradford-on-Avon businesses. We offer shot blasting, including structural steel. Serving Wiltshire construction sectors.",
     url: "https://commercialshotblasting.co.uk/service-areas/bradford-on-avon"
   },
   "brandon": {
-    title: "Brandon Shot Blasting Services | Commercial Shot Blasting",
+    title: "Brandon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Brandon, ideal for Agriculture sector. Our SA2.5 service ensures pristine surfaces. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/brandon"
   },
   "braunstone": {
-    title: "Braunstone Shot Blasting Services | Commercial Shot Blasting",
+    title: "Braunstone Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Manufacturing & Construction in Braunstone, our shot blasting delivers surface preparation results. Trusted in Leicestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/braunstone"
   },
   "braunton": {
-    title: "Braunton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Braunton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Braunton for Marine & Agriculture projects. We offer mobile and surface preparation services. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/braunton"
   },
   "brewood": {
-    title: "Brewood Shot Blasting Services | Commercial Shot Blasting",
+    title: "Brewood Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for top-tier shot blasting in Brewood? providing Construction for rust removal, SA3 projects. Serving Staffordshire industries. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/brewood"
   },
   "bridgnorth": {
-    title: "Bridgnorth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bridgnorth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Manufacturing, Construction businesses in Bridgnorth, we offer top-tier shot blasting including surface preparation. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bridgnorth"
   },
   "bridgwater": {
-    title: "Bridgwater Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bridgwater Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Bridgwater – mobile, SA2.5 for Agriculture & Construction sectors. Free quote. Advanced surface cleaning. Experienced team.",
     url: "https://commercialshotblasting.co.uk/service-areas/bridgwater"
   },
   "brierley-hill": {
-    title: "Brierley Hill Shot Blasting Services | Commercial Shot Blasting",
+    title: "Brierley Hill Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Leading shot blasting services available in Brierley Hill. Providing SA3, surface preparation solutions for Construction, Manufacturing comp... Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/brierley-hill"
   },
   "brigg": {
-    title: "Brigg Shot Blasting Services | Commercial Shot Blasting",
+    title: "Brigg Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Highly professional & efficient SA3 shot blasting for Brigg. for various applications. A key partner for Lincolnshire's Agriculture industry. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/brigg"
   },
   "brighouse": {
-    title: "Brighouse Shot Blasting Services | Commercial Shot Blasting",
+    title: "Brighouse Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Brighouse for Construction businesses. Our mobile solutions ensure optimal surface preparation. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/brighouse"
   },
   "brixworth": {
-    title: "Brixworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Brixworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "High-quality shot blasting in Brixworth for Manufacturing, Logistics projects. Our mobile shot blasting services are perfect for Manufacturing, Logistic...",
     url: "https://commercialshotblasting.co.uk/service-areas/brixworth"
   },
   "broadway": {
-    title: "Broadway Shot Blasting Services | Commercial Shot Blasting",
+    title: "Broadway Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Experience professional SA2.5 shot blasting in Broadway, perfect for Construction applications. We serve all of Worcestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/broadway"
   },
   "bromham": {
-    title: "Bromham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bromham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Bromham for Logistics projects. We handle everything from structural steel to factory cladding. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/bromham"
   },
   "bromsgrove": {
-    title: "Bromsgrove Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bromsgrove Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Bromsgrove with top-tier shot blasting for rust removal, trusted by local Construction companies. We serve all of Worcestershire. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bromsgrove"
   },
   "bromyard": {
-    title: "Bromyard Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bromyard Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Quality shot blasting in Bromyard, perfect for construction and construction applications. surface preparation available. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bromyard"
   },
   "broseley": {
-    title: "Broseley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Broseley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Broseley and Shropshire with professional shot blasting. Specializing in Manufacturing, Agriculture and rust removal. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/broseley"
   },
   "brownhills": {
-    title: "Brownhills Shot Blasting Services | Commercial Shot Blasting",
+    title: "Brownhills Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting solutions for Brownhills. We handle SA2.5, mobile projects for Construction, Engineering clients across West Midlands. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/brownhills"
   },
   "broxbourne": {
-    title: "Broxbourne Shot Blasting Services | Commercial Shot Blasting",
+    title: "Broxbourne Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Broxbourne businesses: professional shot blasting services – delivering SA3 for Construction & Manufacturing businesses. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/broxbourne"
   },
   "brundall": {
-    title: "Brundall Shot Blasting Services | Commercial Shot Blasting",
+    title: "Brundall Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting in Brundall: SA2.5 & SA3 for Norfolks Manufacturing sector. Quality results. Serving Norfolk with excellence. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/brundall"
   },
   "bruton": {
-    title: "Bruton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bruton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized rust removal shot blasting in Bruton for Agriculture & Manufacturing projects. Call today. Experienced team. Competitive pricing.",
     url: "https://commercialshotblasting.co.uk/service-areas/bruton"
   },
   "buckingham": {
-    title: "Buckingham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Buckingham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Buckingham for the Construction sector. Specializing in surface preparation. Achieving superior results. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/buckingham"
   },
   "buckley": {
-    title: "Buckley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Buckley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Buckley, East Wales. Serving agriculture sectors with SA2.5 shot blasting and rust removal. Free quote. We specialize in structu...",
     url: "https://commercialshotblasting.co.uk/service-areas/buckley"
   },
   "bulkington": {
-    title: "Bulkington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bulkington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services in Bulkington, Warwickshire. Specializing in surface preparation. Trusted by Warwickshire Manufacturing firms. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bulkington"
   },
   "bulwell": {
-    title: "Bulwell Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bulwell Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for shot blasting in Bulwell? We offer engineering projects. Our mobile shot blasting ensures top-quality results. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bulwell"
   },
   "bungay": {
-    title: "Bungay Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bungay Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Bungay for Manufacturing & Construction projects. Our rust removal service ensures pristine surfaces. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/bungay"
   },
   "buntingford": {
-    title: "Buntingford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Buntingford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Buntingford businesses: professional shot blasting services – specializing in surface preparation for the Aerospace sector. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/buntingford"
   },
   "burbage": {
-    title: "Burbage Shot Blasting Services | Commercial Shot Blasting",
+    title: "Burbage Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing structural steel shot blasting in Burbage for Engineering & Construction sectors. Covering all of Leicestershire. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/burbage"
   },
   "burnham-on-sea": {
-    title: "Burnham-on-Sea Shot Blasting Services | Commercial Shot Blasting",
+    title: "Burnham-on-Sea Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized rust removal shot blasting in Burnham-on-Sea for Agriculture & Manufacturing projects. Call today. We handle all project sizes.",
     url: "https://commercialshotblasting.co.uk/service-areas/burnham-on-sea"
   },
   "burntwood": {
-    title: "Burntwood Shot Blasting Services | Commercial Shot Blasting",
+    title: "Burntwood Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services available in Burntwood. providing Construction for SA2.5 projects. Trusted by Staffordshire businesses. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/burntwood"
   },
   "burton-latimer": {
-    title: "Burton Latimer Shot Blasting Services | Commercial Shot Blasting",
+    title: "Burton Latimer Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "High-quality shot blasting in Burton Latimer for Construction, Logistics projects. Offering SA2.5 and other shot blasting solutions for Construction, Lo...",
     url: "https://commercialshotblasting.co.uk/service-areas/burton-latimer"
   },
   "burton-upon-trent": {
-    title: "Burton upon Trent Shot Blasting Services | Commercial Shot Blasting",
+    title: "Burton upon Trent Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Burton upon Trent specialists in professional shot blasting. with expertise in Engineering and Manufacturing and SA3, surface preparation. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/burton-upon-trent"
   },
   "burwell": {
-    title: "Burwell Shot Blasting Services | Commercial Shot Blasting",
+    title: "Burwell Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "High-quality shot blasting in Burwell for Construction & Manufacturing needs. Specializing in shot blasting for rust removal, SA3. Serving Camb Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/burwell"
   },
   "bury-st-edmunds": {
-    title: "Bury St Edmunds Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bury St Edmunds Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Bury St Edmunds, ideal for Manufacturing sector. Our structural steel service ensures pristine surfaces. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bury-st-edmunds"
   },
   "bushey": {
-    title: "Bushey Shot Blasting Services | Commercial Shot Blasting",
+    title: "Bushey Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Bushey, Hertfordshire: reliable shot blasting for we provide rust removal for Construction & Manufacturing applications. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/bushey"
   },
   "buxton": {
-    title: "Buxton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Buxton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "On-site shot blasting in Buxton — structural steel treatment & SA2.5 finishing. Serving Derbyshire engineering & construction. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/buxton"
   },
   "caernarfon": {
-    title: "Caernarfon Shot Blasting Services | Commercial Shot Blasting",
+    title: "Caernarfon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Caernarfon businesses, professional shot blasting. Ideal for agriculture & manufacturing projects. We offer SA3 shot blasting for optimal results. C...",
     url: "https://commercialshotblasting.co.uk/service-areas/caernarfon"
   },
   "caister-on-sea": {
-    title: "Caister-on-Sea Shot Blasting Services | Commercial Shot Blasting",
+    title: "Caister-on-Sea Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Caister-on-Sea for Manufacturing and Agriculture applications. Featuring rust removal and SA3 solutions. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/caister-on-sea"
   },
   "caistor": {
-    title: "Caistor Shot Blasting Services | Commercial Shot Blasting",
+    title: "Caistor Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need SA2.5 shot blasting in Caistor? ensuring optimal results and durability. Ideal for Lincolnshire's Construction & Manufacturing firms. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/caistor"
   },
   "calne": {
-    title: "Calne Shot Blasting Services | Commercial Shot Blasting",
+    title: "Calne Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Agriculture & Manufacturing in Calne, rely on our shot blasting. We offer shot blasting, including SA2.5. Serving Wiltshire agriculture &...",
     url: "https://commercialshotblasting.co.uk/service-areas/calne"
   },
   "cambourne": {
-    title: "Cambourne Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cambourne Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting in Cambourne for Manufacturing & Construction projects. Specializing in shot blasting for structural steel, SA2.5. S Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/cambourne"
   },
   "cannock": {
-    title: "Cannock Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cannock Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Your go-to for shot blasting in Cannock and surrounding areas. with expertise in Manufacturing and mobile. Trusted by Staffordshire businesses. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/cannock"
   },
   "cannock-chase": {
-    title: "Cannock Chase Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cannock Chase Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services available in Cannock Chase. providing Manufacturing for SA3, SA2.5 projects. Serving Staffordshire industries. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/cannock-chase"
   },
   "castle-cary": {
-    title: "Castle Cary Shot Blasting Services | Commercial Shot Blasting",
+    title: "Castle Cary Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Castle Cary with structural steel & rust removal solutions for Agriculture industry. Call today. Fully insured & certified.",
     url: "https://commercialshotblasting.co.uk/service-areas/castle-cary"
   },
   "castle-donington": {
-    title: "Castle Donington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Castle Donington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Castle Donington for Construction projects. Expert rust removal services throughout Leicestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/castle-donington"
   },
   "castleford": {
-    title: "Castleford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Castleford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Castleford for Construction sectors. We offer structural steel services to prepare surfaces perfectly. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/castleford"
   },
   "chapel-en-le-frith": {
-    title: "Chapel-en-le-Frith Shot Blasting Services | Commercial Shot Blasting",
+    title: "Chapel-en-le-Frith Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Bespoke shot blasting in Chapel-en-le-Frith — structural steelwork & SA2.5 surface preparation. Assisting Derbyshire engineering professionals. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/chapel-en-le-frith"
   },
   "chapeltown": {
-    title: "Chapeltown Shot Blasting Services | Commercial Shot Blasting",
+    title: "Chapeltown Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Offering rust removal shot blasting services in Chapeltown for Manufacturing and Steel industries.  Enhance durability and finish. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/chapeltown"
   },
   "chard": {
-    title: "Chard Shot Blasting Services | Commercial Shot Blasting",
+    title: "Chard Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services for Chard, Somerset – specializing in mobile & surface preparation. Get a quote. Serving Somerset area with expertise.",
     url: "https://commercialshotblasting.co.uk/service-areas/chard"
   },
   "chatteris": {
-    title: "Chatteris Shot Blasting Services | Commercial Shot Blasting",
+    title: "Chatteris Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Construction in Chatteris, choose our shot blasting services. Specializing in shot blasting for SA2.5, rust removal. Serving Cambridgeshire Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/chatteris"
   },
   "cheadle": {
-    title: "Cheadle Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cheadle Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services available in Cheadle. with expertise in Manufacturing and Engineering and structural steel. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/cheadle"
   },
   "cheddar": {
-    title: "Cheddar Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cheddar Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services for Cheddar, Somerset – specializing in SA3 & rust removal. Free quote. Fully insured & certified.",
     url: "https://commercialshotblasting.co.uk/service-areas/cheddar"
   },
   "chelmsford": {
-    title: "Chelmsford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Chelmsford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Leading shot blasting solutions in Chelmsford, supporting local Logistics. Our shot blasting services offer SA2.5 for Logistics projects. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/chelmsford"
   },
   "cheltenham": {
-    title: "Cheltenham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cheltenham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Cheltenham for Construction, Manufacturing sectors. Specializing in SA2.5 & rust removal. Serving Gloucestershire businesses. Ge...",
     url: "https://commercialshotblasting.co.uk/service-areas/cheltenham"
   },
   "chesham": {
-    title: "Chesham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Chesham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Chesham businesses, our shot blasting for the Manufacturing sector. Specializing in SA2.5 and structural steel. Get your surfaces ready. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/chesham"
   },
   "cheshunt": {
-    title: "Cheshunt Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cheshunt Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Cheshunt businesses: professional shot blasting services – our mobile services support Construction & Manufacturing projects. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/cheshunt"
   },
   "chippenham": {
-    title: "Chippenham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Chippenham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized mobile shot blasting in Chippenham. We offer shot blasting, including SA3, structural steel. Serving Wiltshire agriculture sectors. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/chippenham"
   },
   "chipping-campden": {
-    title: "Chipping Campden Shot Blasting Services | Commercial Shot Blasting",
+    title: "Chipping Campden Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Chipping Campden. Ideal for Manufacturing applications, including structural steel & surface preparation. Covering ...",
     url: "https://commercialshotblasting.co.uk/service-areas/chipping-campden"
   },
   "chipping-sodbury": {
-    title: "Chipping Sodbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Chipping Sodbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Chipping Sodbury. Ideal for Construction, Manufacturing applications, including structural steel & SA3. Covering Gl...",
     url: "https://commercialshotblasting.co.uk/service-areas/chipping-sodbury"
   },
   "chorleywood": {
-    title: "Chorleywood Shot Blasting Services | Commercial Shot Blasting",
+    title: "Chorleywood Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Chorleywood, Hertfordshire: reliable shot blasting for specializing in mobile for the Aerospace & Construction sector. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/chorleywood"
   },
   "church-stretton": {
-    title: "Church Stretton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Church Stretton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Church Stretton and Shropshire with professional shot blasting. Specializing in Construction, Manufacturing and surface preparation. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/church-stretton"
   },
   "cinderford": {
-    title: "Cinderford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cinderford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Cinderford. Ideal for Manufacturing applications, including SA2.5 & surface preparation. Covering Gloucestershire. ...",
     url: "https://commercialshotblasting.co.uk/service-areas/cinderford"
   },
   "cirencester": {
-    title: "Cirencester Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cirencester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Cirencester. We offer rust removal for Manufacturing, Construction projects across Gloucestershire. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/cirencester"
   },
   "clapham-bedfordshire": {
-    title: "Clapham Bedfordshire Shot Blasting Services | Commercial Shot Blasting",
+    title: "Clapham Bedfordshire Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Clapham for Manufacturing projects. Your go-to for all Manufacturing and Construction shot blasting requirements. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/clapham-bedfordshire"
   },
   "clare": {
-    title: "Clare Shot Blasting Services | Commercial Shot Blasting",
+    title: "Clare Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Clare for Agriculture & Construction needs. Our SA2.5 service ensures pristine surfaces. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/clare"
   },
   "clay-cross": {
-    title: "Clay Cross Shot Blasting Services | Commercial Shot Blasting",
+    title: "Clay Cross Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Elite shot blasting in Clay Cross — comprehensive SA2.5 surface preparation. Assisting Derbyshire construction professionals. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/clay-cross"
   },
   "cleckheaton": {
-    title: "Cleckheaton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cleckheaton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive shot blasting in Cleckheaton, West Yorkshire. Trusted for Engineering applications, including SA2.5 and rust removal. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/cleckheaton"
   },
   "cleethorpes": {
-    title: "Cleethorpes Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cleethorpes Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need rust removal shot blasting in Cleethorpes? ensuring optimal results and durability. Serving Lincolnshire's Manufacturing businesses. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/cleethorpes"
   },
   "cleobury-mortimer": {
-    title: "Cleobury Mortimer Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cleobury Mortimer Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need surface preparation shot blasting in Cleobury Mortimer? We serve Shropshire industries like Construction, Agriculture. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/cleobury-mortimer"
   },
   "clevedon": {
-    title: "Clevedon Shot Blasting Services | Commercial Shot Blasting",
+    title: "Clevedon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Clevedon with surface preparation & structural steel solutions for Manufacturing industry. Call today. Advanced surface cleaning.",
     url: "https://commercialshotblasting.co.uk/service-areas/clevedon"
   },
   "clifton-bedfordshire": {
-    title: "Clifton Bedfordshire Shot Blasting Services | Commercial Shot Blasting",
+    title: "Clifton Bedfordshire Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Clifton businesses trust our mobile shot blasting. Your go-to for all Logistics and Manufacturing shot blasting requirements. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/clifton-bedfordshire"
   },
   "coalville": {
-    title: "Coalville Shot Blasting Services | Commercial Shot Blasting",
+    title: "Coalville Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting in Coalville for Construction clients. Offering surface preparation services across Leicestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/coalville"
   },
   "coleford": {
-    title: "Coleford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Coleford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Coleford. Ideal for Agriculture applications, including SA2.5. Covering Gloucestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/coleford"
   },
   "coleshill": {
-    title: "Coleshill Shot Blasting Services | Commercial Shot Blasting",
+    title: "Coleshill Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services in Coleshill, Warwickshire. Specializing in structural steel, SA3. Trusted by Warwickshire Construction firms. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/coleshill"
   },
   "colwyn-bay": {
-    title: "Colwyn Bay Shot Blasting Services | Commercial Shot Blasting",
+    title: "Colwyn Bay Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Colwyn Bay businesses, professional shot blasting. Ideal for construction projects. We offer surface preparation shot blasting for optimal results. ...",
     url: "https://commercialshotblasting.co.uk/service-areas/colwyn-bay"
   },
   "combe-martin": {
-    title: "Combe Martin Shot Blasting Services | Commercial Shot Blasting",
+    title: "Combe Martin Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Combe Martin for Agriculture & Marine projects. We offer surface preparation and structural steel services. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/combe-martin"
   },
   "comberton": {
-    title: "Comberton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Comberton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking reliable shot blasting in Comberton? Specializing in shot blasting for surface preparation. Serving Cambridgeshire Agriculture & Manuf Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/comberton"
   },
   "congleton": {
-    title: "Congleton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Congleton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Your trusted partner in Congleton for shot blasting. mobile, SA3. Serving Cheshire's Manufacturing, Construction sector. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/congleton"
   },
   "conisbrough": {
-    title: "Conisbrough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Conisbrough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Top-tier mobile shot blasting in Conisbrough for Steel and Construction projects. Get a fast quote.  Get a free consultation. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/conisbrough"
   },
   "connahs-quay": {
-    title: "Connahs Quay Shot Blasting Services | Commercial Shot Blasting",
+    title: "Connahs Quay Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Connah's Quay, East Wales. Serving construction sectors with structural steel shot blasting and rust removal. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/connahs-quay"
   },
   "conwy": {
-    title: "Conwy Shot Blasting Services | Commercial Shot Blasting",
+    title: "Conwy Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Conwy, East Wales. Ideal for agriculture projects. We offer SA3 shot blasting for optimal results. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/conwy"
   },
   "corby": {
-    title: "Corby Shot Blasting Services | Commercial Shot Blasting",
+    title: "Corby Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "High-quality shot blasting in Corby for Logistics projects. Offering structural steel and other shot blasting solutions for Logistics projects. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/corby"
   },
   "corsham": {
-    title: "Corsham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Corsham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized mobile shot blasting in Corsham. We offer shot blasting, including mobile. Serving Wiltshire construction & agriculture sectors. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/corsham"
   },
   "corwen": {
-    title: "Corwen Shot Blasting Services | Commercial Shot Blasting",
+    title: "Corwen Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting services for Corwen. Professional SA2.5 shot blasting for agriculture in East Wales. Call today. We specialize in mobile and su...",
     url: "https://commercialshotblasting.co.uk/service-areas/corwen"
   },
   "coseley": {
-    title: "Coseley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Coseley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need professional shot blasting in Coseley? Our team provides rust removal, mobile for Manufacturing, Engineering businesses in West Midlands. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/coseley"
   },
   "costessey": {
-    title: "Costessey Shot Blasting Services | Commercial Shot Blasting",
+    title: "Costessey Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Costessey for Agriculture and Manufacturing applications. Featuring rust removal and structural steel solutions. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/costessey"
   },
   "cottenham": {
-    title: "Cottenham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cottenham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Construction & Manufacturing in Cottenham, choose our shot blasting services. Specializing in shot blasting for SA3, rust removal. Serving Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/cottenham"
   },
   "countesthorpe": {
-    title: "Countesthorpe Shot Blasting Services | Commercial Shot Blasting",
+    title: "Countesthorpe Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Countesthorpe for Engineering & Construction projects. Expert rust removal services throughout Leicestershire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/countesthorpe"
   },
   "cranfield": {
-    title: "Cranfield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cranfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Cranfield businesses trust our mobile shot blasting. Your go-to for all Logistics and Manufacturing shot blasting requirements. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/cranfield"
   },
   "craven-arms": {
-    title: "Craven Arms Shot Blasting Services | Commercial Shot Blasting",
+    title: "Craven Arms Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Craven Arms and Shropshire with professional shot blasting. Specializing in Manufacturing, Agriculture and rust removal. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/craven-arms"
   },
   "crewe": {
-    title: "Crewe Shot Blasting Services | Commercial Shot Blasting",
+    title: "Crewe Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized shot blasting for Crewe's shot blasting. rust removal. Serving Cheshire's Manufacturing, Construction sector. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/crewe"
   },
   "crewkerne": {
-    title: "Crewkerne Shot Blasting Services | Commercial Shot Blasting",
+    title: "Crewkerne Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for shot blasting in Crewkerne? We offer SA2.5 & mobile services for Manufacturing businesses. Free quote. Advanced surface cleaning.",
     url: "https://commercialshotblasting.co.uk/service-areas/crewkerne"
   },
   "cricklade": {
-    title: "Cricklade Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cricklade Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services in Cricklade for Agriculture & Manufacturing. We offer shot blasting, including mobile. Serving Wiltshire agriculture &...",
     url: "https://commercialshotblasting.co.uk/service-areas/cricklade"
   },
   "cromer": {
-    title: "Cromer Shot Blasting Services | Commercial Shot Blasting",
+    title: "Cromer Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking shot blasting in Cromer? We offer rust removal & structural steel services for Norfolks Agriculture industry. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/cromer"
   },
   "crowland": {
-    title: "Crowland Shot Blasting Services | Commercial Shot Blasting",
+    title: "Crowland Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "We provide mobile shot blasting in Crowland. ensuring optimal results and durability. Serving Lincolnshire's Manufacturing businesses. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/crowland"
   },
   "croyde": {
-    title: "Croyde Shot Blasting Services | Commercial Shot Blasting",
+    title: "Croyde Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Croyde for Agriculture & Agriculture projects. We offer rust removal and surface preparation services. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/croyde"
   },
   "darlaston": {
-    title: "Darlaston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Darlaston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Leading shot blasting services available in Darlaston. Providing surface preparation solutions for Manufacturing companies in West Midlands. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/darlaston"
   },
   "daventry": {
-    title: "Daventry Shot Blasting Services | Commercial Shot Blasting",
+    title: "Daventry Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Daventry for Construction, Logistics. Our SA2.5 shot blasting services are perfect for Construction, Logistics businesses. Free ...",
     url: "https://commercialshotblasting.co.uk/service-areas/daventry"
   },
   "dawley": {
-    title: "Dawley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Dawley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Dawley and Shropshire with professional shot blasting. Specializing in Manufacturing, Construction and surface preparation. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/dawley"
   },
   "debenham": {
-    title: "Debenham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Debenham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Debenham for Agriculture projects. Our SA2.5 service ensures pristine surfaces for Agriculture clients. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/debenham"
   },
   "denbigh": {
-    title: "Denbigh Shot Blasting Services | Commercial Shot Blasting",
+    title: "Denbigh Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting services for Denbigh. Enhance your construction operations with our surface preparation shot blasting. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/denbigh"
   },
   "dereham": {
-    title: "Dereham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Dereham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking shot blasting in Dereham? We offer structural steel & SA2.5 comprehensive services for Norfolks Manufacturing industry. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/dereham"
   },
   "desborough": {
-    title: "Desborough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Desborough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "In Desborough, our shot blasting tackles SA3 needs. Our SA3 shot blasting services are perfect for Manufacturing, Logistics businesses. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/desborough"
   },
   "devizes": {
-    title: "Devizes Shot Blasting Services | Commercial Shot Blasting",
+    title: "Devizes Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Manufacturing & Agriculture in Devizes, rely on our shot blasting. We offer shot blasting, including SA2.5. Serving Wiltshire manufacturing &...",
     url: "https://commercialshotblasting.co.uk/service-areas/devizes"
   },
   "dewsbury": {
-    title: "Dewsbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Dewsbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Dewsbury for Manufacturing, Engineering sectors. We offer SA3 services to prepare surfaces perfectly. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/dewsbury"
   },
   "dinnington": {
-    title: "Dinnington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Dinnington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive rust removal shot blasting for Steel and Manufacturing projects in Dinnington.  Industry-leading standards. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/dinnington"
   },
   "diss": {
-    title: "Diss Shot Blasting Services | Commercial Shot Blasting",
+    title: "Diss Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting in Diss: surface preparation & rust removal for Norfolks Agriculture sector. Quality results. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/diss"
   },
   "dodworth": {
-    title: "Dodworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Dodworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Dedicated to Construction and Steel excellence, offering rust removal shot blasting in Dodworth.  Fast and efficient service. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/dodworth"
   },
   "dorridge": {
-    title: "Dorridge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Dorridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Dorridge, West Midlands. We offer comprehensive services including surface preparation, rust removal. Serving Engine... Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/dorridge"
   },
   "downham-market": {
-    title: "Downham Market Shot Blasting Services | Commercial Shot Blasting",
+    title: "Downham Market Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "In Downham Market, get top-tier shot blasting for Manufacturing & Construction needs. Our mobile & SA3 services deliver. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/downham-market"
   },
   "downton": {
-    title: "Downton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Downton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting solutions in Downton. We offer shot blasting, including mobile. Serving Wiltshire manufacturing sectors. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/downton"
   },
   "droitwich-spa": {
-    title: "Droitwich Spa Shot Blasting Services | Commercial Shot Blasting",
+    title: "Droitwich Spa Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specializing in shot blasting for rust removal in Droitwich Spa, we support Construction businesses. We serve all of Worcestershire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/droitwich-spa"
   },
   "dronfield": {
-    title: "Dronfield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Dronfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Quality shot blasting in Dronfield — expert rust removal & SA2.5 steel cleaning. For Derbyshire engineering & manufacturing sectors. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/dronfield"
   },
   "dunstable": {
-    title: "Dunstable Shot Blasting Services | Commercial Shot Blasting",
+    title: "Dunstable Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Dunstable businesses trust our mobile shot blasting. Trusted by Bedfordshire Construction and Manufacturing firms for superior finishes. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/dunstable"
   },
   "dursley": {
-    title: "Dursley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Dursley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Dursley. We offer surface preparation & mobile for Agriculture, Construction projects across Gloucestershire. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/dursley"
   },
   "duston": {
-    title: "Duston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Duston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing rust removal shot blasting services across Duston. Trusted for shot blasting in Construction, Logistics, focusing on rust removal standards. C...",
     url: "https://commercialshotblasting.co.uk/service-areas/duston"
   },
   "earl-shilton": {
-    title: "Earl Shilton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Earl Shilton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "In Earl Shilton, we offer professional shot blasting for Construction. Specializing in rust removal across Leicestershire. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/earl-shilton"
   },
   "earls-barton": {
-    title: "Earls Barton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Earls Barton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "From Earls Barton, we deliver professional shot blasting for rust removal. Our rust removal shot blasting services are perfect for Manufacturing, Constr...",
     url: "https://commercialshotblasting.co.uk/service-areas/earls-barton"
   },
   "eastwood": {
-    title: "Eastwood Shot Blasting Services | Commercial Shot Blasting",
+    title: "Eastwood Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized shot blasting services in Eastwood, including engineering projects. Our mobile shot blasting ensures top-quality results. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/eastwood"
   },
   "eaton-socon": {
-    title: "Eaton Socon Shot Blasting Services | Commercial Shot Blasting",
+    title: "Eaton Socon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting in Eaton Socon for Agriculture & Construction projects. Specializing in shot blasting for surface preparation, SA3. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/eaton-socon"
   },
   "eccleshall": {
-    title: "Eccleshall Shot Blasting Services | Commercial Shot Blasting",
+    title: "Eccleshall Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Your go-to for shot blasting in Eccleshall and surrounding areas. with expertise in Engineering and surface preparation. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/eccleshall"
   },
   "eckington": {
-    title: "Eckington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Eckington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Local shot blasting in Eckington — surface preparation for factory cladding. Tailored for Derbyshire engineering & manufacturing professionals. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/eckington"
   },
   "edlington": {
-    title: "Edlington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Edlington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Precision SA3 shot blasting for Construction and Steel applications across Edlington.  Enhance durability and finish.  Delivering excellence. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/edlington"
   },
   "elland": {
-    title: "Elland Shot Blasting Services | Commercial Shot Blasting",
+    title: "Elland Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Elland for Manufacturing businesses. Our SA3 solutions ensure optimal surface preparation. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/elland"
   },
   "ellesmere": {
-    title: "Ellesmere Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ellesmere Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Ellesmere and Shropshire with professional shot blasting. Specializing in Construction, Manufacturing and surface preparation. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ellesmere"
   },
   "ellesmere-port": {
-    title: "Ellesmere Port Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ellesmere Port Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Ellesmere Port businesses, reliable shot blasting. surface preparation. Serving Cheshire's Manufacturing, Construction sector. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ellesmere-port"
   },
   "ely": {
-    title: "Ely Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ely Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Ely for Manufacturing. Specializing in shot blasting for structural steel, rust removal. Serving Cambridgeshire Manufa Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ely"
   },
   "enderby": {
-    title: "Enderby Shot Blasting Services | Commercial Shot Blasting",
+    title: "Enderby Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Enderby for Manufacturing projects. Expert structural steel services throughout Leicestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/enderby"
   },
   "erdington": {
-    title: "Erdington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Erdington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting solutions for Erdington. We handle structural steel projects for Engineering clients across West Midlands. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/erdington"
   },
   "evesham": {
-    title: "Evesham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Evesham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Evesham with top-tier SA2.5 shot blasting, trusted by local Construction companies. Specializing in Worcestershire for all your needs. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/evesham"
   },
   "eye": {
-    title: "Eye Shot Blasting Services | Commercial Shot Blasting",
+    title: "Eye Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Eye for Manufacturing & Agriculture needs. Our structural steel service ensures pristine surfaces. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/eye"
   },
   "fairford": {
-    title: "Fairford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Fairford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Fairford. Ideal for Construction applications, including structural steel & SA2.5. Covering Gloucestershire. Call t...",
     url: "https://commercialshotblasting.co.uk/service-areas/fairford"
   },
   "fakenham": {
-    title: "Fakenham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Fakenham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Fakenham businesses: expert shot blasting for Agriculture & Construction sectors. Specializing in rust removal and SA3. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/fakenham"
   },
   "fazeley": {
-    title: "Fazeley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Fazeley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Fazeley specialists in professional shot blasting. specializing in Engineering and structural steel, surface preparation. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/fazeley"
   },
   "felixstowe": {
-    title: "Felixstowe Shot Blasting Services | Commercial Shot Blasting",
+    title: "Felixstowe Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Felixstowe for Manufacturing projects. Our structural steel service ensures pristine surfaces. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/felixstowe"
   },
   "flint": {
-    title: "Flint Shot Blasting Services | Commercial Shot Blasting",
+    title: "Flint Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting services for Flint. Enhance your manufacturing operations with our SA3 shot blasting. Free quote. We specialize in rust removal...",
     url: "https://commercialshotblasting.co.uk/service-areas/flint"
   },
   "flitwick": {
-    title: "Flitwick Shot Blasting Services | Commercial Shot Blasting",
+    title: "Flitwick Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Flitwick for Construction projects. Your go-to for all Construction and Manufacturing shot blasting requirements. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/flitwick"
   },
   "framlingham": {
-    title: "Framlingham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Framlingham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Framlingham, ideal for Manufacturing sector. Our structural steel service ensures pristine surfaces. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/framlingham"
   },
   "frodsham": {
-    title: "Frodsham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Frodsham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services in Frodsham for shot blasting. SA2.5. Serving Cheshire's Food Processing, Manufacturing sector. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/frodsham"
   },
   "frome": {
-    title: "Frome Shot Blasting Services | Commercial Shot Blasting",
+    title: "Frome Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Frome – SA2.5, surface preparation for Manufacturing & Agriculture sectors. Get a quote. Your local shot blasting specialists.",
     url: "https://commercialshotblasting.co.uk/service-areas/frome"
   },
   "gainsborough": {
-    title: "Gainsborough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Gainsborough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert rust removal shot blasting in Gainsborough. Supporting Lincolnshire's Manufacturing and Agriculture industries. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/gainsborough"
   },
   "garforth": {
-    title: "Garforth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Garforth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive shot blasting in Garforth, West Yorkshire. Trusted for Manufacturing applications, including structural steel and rust removal. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/garforth"
   },
   "gerrards-cross": {
-    title: "Gerrards Cross Shot Blasting Services | Commercial Shot Blasting",
+    title: "Gerrards Cross Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Gerrards Cross for Construction and Manufacturing industries. Specializing in structural steel and SA2.5. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/gerrards-cross"
   },
   "girton": {
-    title: "Girton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Girton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Girton for Construction. Specializing in shot blasting for mobile. Serving Cambridgeshire Construction sectors. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/girton"
   },
   "glastonbury": {
-    title: "Glastonbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Glastonbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Glastonbury with mobile & SA3 solutions for Manufacturing industry. Free quote. Environmentally friendly methods.",
     url: "https://commercialshotblasting.co.uk/service-areas/glastonbury"
   },
   "glossop": {
-    title: "Glossop Shot Blasting Services | Commercial Shot Blasting",
+    title: "Glossop Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Dynamic shot blasting in Glossop — dedicated expert rust removal & SA2.5 structural steel cleaning. Serving Derbyshire manufacturers. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/glossop"
   },
   "godmanchester": {
-    title: "Godmanchester Shot Blasting Services | Commercial Shot Blasting",
+    title: "Godmanchester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Construction in Godmanchester, choose our shot blasting services. Specializing in shot blasting for SA2.5, rust removal. Serving Cambridges Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/godmanchester"
   },
   "goldthorpe": {
-    title: "Goldthorpe Shot Blasting Services | Commercial Shot Blasting",
+    title: "Goldthorpe Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Delivering high-quality structural steel shot blasting to Goldthorpe. Essential for Steel and Manufacturing projects. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/goldthorpe"
   },
   "gorleston": {
-    title: "Gorleston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Gorleston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Gorleston for Manufacturing and Agriculture applications. Featuring surface preparation and rust removal solutions. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/gorleston"
   },
   "grantham": {
-    title: "Grantham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Grantham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional surface preparation shot blasting for Grantham. Ideal for Lincolnshire's Agriculture & Manufacturing firms. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/grantham"
   },
   "great-malvern": {
-    title: "Great Malvern Shot Blasting Services | Commercial Shot Blasting",
+    title: "Great Malvern Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Experience professional SA3 shot blasting in Great Malvern, perfect for Construction applications. We serve all of Worcestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/great-malvern"
   },
   "great-torrington": {
-    title: "Great Torrington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Great Torrington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Great Torrington for Agriculture & Marine projects. We offer surface preparation and rust removal services. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/great-torrington"
   },
   "great-yarmouth": {
-    title: "Great Yarmouth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Great Yarmouth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting in Great Yarmouth: structural steel & SA2.5 for Norfolks Construction sector. Quality results. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/great-yarmouth"
   },
   "grimsby": {
-    title: "Grimsby Shot Blasting Services | Commercial Shot Blasting",
+    title: "Grimsby Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Grimsby, our SA2.5 shot blasting services. ensuring optimal results and durability. Trusted by Lincolnshire's Agriculture sector. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/grimsby"
   },
   "groby": {
-    title: "Groby Shot Blasting Services | Commercial Shot Blasting",
+    title: "Groby Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting in Groby for Manufacturing & Engineering clients. Offering SA2.5 services across Leicestershire. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/groby"
   },
   "guildford": {
-    title: "Guildford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Guildford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Guildford businesses, our shot blasting includes structural steel, rust removal. Serving Surrey Manufacturing sector. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/guildford"
   },
   "guiseley": {
-    title: "Guiseley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Guiseley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Guiseley for Engineering businesses. Our surface preparation solutions ensure optimal surface preparation. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/guiseley"
   },
   "hadfield": {
-    title: "Hadfield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hadfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Premier shot blasting in Hadfield — surface preparation for factory cladding. Ideal for Derbyshire engineering businesses. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/hadfield"
   },
   "hadleigh": {
-    title: "Hadleigh Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hadleigh Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Hadleigh for Construction needs. Our rust removal service ensures pristine surfaces. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/hadleigh"
   },
   "hagley": {
-    title: "Hagley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hagley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Experience professional shot blasting for structural steel in Hagley, perfect for Agriculture and Construction applications. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/hagley"
   },
   "halesowen": {
-    title: "Halesowen Shot Blasting Services | Commercial Shot Blasting",
+    title: "Halesowen Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting solutions for Halesowen. We handle surface preparation, SA3 projects for Construction clients across West Midlands. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/halesowen"
   },
   "halesworth": {
-    title: "Halesworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Halesworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Halesworth for Agriculture projects. Our rust removal service ensures pristine surfaces for Agriculture clients. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/halesworth"
   },
   "halifax": {
-    title: "Halifax Shot Blasting Services | Commercial Shot Blasting",
+    title: "Halifax Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Halifax for Construction businesses. Our surface preparation solutions ensure optimal surface preparation. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/halifax"
   },
   "handforth": {
-    title: "Handforth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Handforth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need shot blasting in Handforth? Get quality shot blasting. SA3, SA2.5. Serving Cheshire's Construction, Manufacturing sector. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/handforth"
   },
   "harleston": {
-    title: "Harleston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Harleston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Harleston for Agriculture and Manufacturing applications. Featuring SA2.5 and SA3 solutions. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/harleston"
   },
   "harpenden": {
-    title: "Harpenden Shot Blasting Services | Commercial Shot Blasting",
+    title: "Harpenden Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Harpenden businesses: professional shot blasting services – delivering SA3 for Aerospace & Construction businesses. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/harpenden"
   },
   "hatfield": {
-    title: "Hatfield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hatfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Hatfield, Hertfordshire: reliable shot blasting for delivering surface preparation for Manufacturing businesses. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/hatfield"
   },
   "haverhill": {
-    title: "Haverhill Shot Blasting Services | Commercial Shot Blasting",
+    title: "Haverhill Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Haverhill for Construction needs. Our rust removal service ensures pristine surfaces. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/haverhill"
   },
   "haverhill-cambridgeshire": {
-    title: "Haverhill Cambridgeshire Shot Blasting Services | Commercial Shot Blasting",
+    title: "Haverhill Cambridgeshire Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking reliable shot blasting in Haverhill? Specializing in shot blasting for structural steel. Serving Cambridgeshire Manufacturing sectors. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/haverhill-cambridgeshire"
   },
   "hay-on-wye": {
-    title: "Hay On Wye Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hay On Wye Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Quality shot blasting in Hay-on-Wye, perfect for manufacturing and construction applications. structural steel available. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/hay-on-wye"
   },
   "heanor": {
-    title: "Heanor Shot Blasting Services | Commercial Shot Blasting",
+    title: "Heanor Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Superior shot blasting in Heanor — advanced rust removal & surface preparation. Trusted by the Derbyshire engineering sector. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/heanor"
   },
   "hebden-bridge": {
-    title: "Hebden Bridge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hebden Bridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need SA3 shot blasting in Hebden Bridge? Our team serves West Yorkshire industries like Construction. Efficient rust removal & surface prep. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/hebden-bridge"
   },
   "heckmondwike": {
-    title: "Heckmondwike Shot Blasting Services | Commercial Shot Blasting",
+    title: "Heckmondwike Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need SA3 shot blasting in Heckmondwike? Our team serves West Yorkshire industries like Construction. Efficient rust removal & surface prep. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/heckmondwike"
   },
   "hednesford": {
-    title: "Hednesford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hednesford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Hednesford specialists in professional shot blasting. with expertise in Engineering and mobile. Trusted by Staffordshire businesses. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/hednesford"
   },
   "hemel-hempstead": {
-    title: "Hemel Hempstead Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hemel Hempstead Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Hemel Hempstead, Hertfordshire – specializing in structural steel for the Manufacturing sector. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/hemel-hempstead"
   },
   "henley-in-arden": {
-    title: "Henley-in-Arden Shot Blasting Services | Commercial Shot Blasting",
+    title: "Henley-in-Arden Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Get superior shot blasting results in Henley-in-Arden. Specializing in SA3. Supporting Warwickshire Construction and Manufacturing sectors. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/henley-in-arden"
   },
   "henlow": {
-    title: "Henlow Shot Blasting Services | Commercial Shot Blasting",
+    title: "Henlow Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist structural steel services in Henlow. Enhancing durability and appearance for Construction and Manufacturing assets. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/henlow"
   },
   "hertford": {
-    title: "Hertford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hertford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Hertford, Hertfordshire: reliable shot blasting for delivering rust removal for Manufacturing & Aerospace businesses. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/hertford"
   },
   "hethersett": {
-    title: "Hethersett Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hethersett Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting in Hethersett: SA2.5 & structural steel for Norfolks Manufacturing sector. Quality results. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/hethersett"
   },
   "hexham": {
-    title: "Hexham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hexham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Construction and Agriculture in Hexham, choose us for structural steel shot blasting. Superior results guaranteed. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/hexham"
   },
   "high-wycombe": {
-    title: "High Wycombe Shot Blasting Services | Commercial Shot Blasting",
+    title: "High Wycombe Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in High Wycombe for Manufacturing and Logistics industries. Specializing in SA3 and SA2.5. Trusted by local businesses. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/high-wycombe"
   },
   "higham-ferrers": {
-    title: "Higham Ferrers Shot Blasting Services | Commercial Shot Blasting",
+    title: "Higham Ferrers Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Dedicated shot blasting solutions for Higham Ferrers's Manufacturing, Logistics. Offering SA3 and other shot blasting solutions for Manufacturing, Logis...",
     url: "https://commercialshotblasting.co.uk/service-areas/higham-ferrers"
   },
   "highbridge": {
-    title: "Highbridge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Highbridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for shot blasting in Highbridge? We offer SA3 & mobile services for Manufacturing businesses. Free quote. We handle all project sizes.",
     url: "https://commercialshotblasting.co.uk/service-areas/highbridge"
   },
   "highworth": {
-    title: "Highworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Highworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services in Highworth for Agriculture & Manufacturing. We offer shot blasting, including rust removal. Serving Wiltshire...",
     url: "https://commercialshotblasting.co.uk/service-areas/highworth"
   },
   "hinckley": {
-    title: "Hinckley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hinckley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting in Hinckley for Engineering & Manufacturing clients. Offering SA3 services across Leicestershire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/hinckley"
   },
   "histon": {
-    title: "Histon Shot Blasting Services | Commercial Shot Blasting",
+    title: "Histon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Histon for Construction. Specializing in shot blasting for structural steel. Serving Cambridgeshire Construction secto Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/histon"
   },
   "hitchin": {
-    title: "Hitchin Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hitchin Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Hitchin businesses: professional shot blasting services – delivering SA3 for Manufacturing & Aerospace businesses. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/hitchin"
   },
   "hoddesdon": {
-    title: "Hoddesdon Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hoddesdon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Hoddesdon, Hertfordshire: reliable shot blasting for offering structural steel solutions for Construction & Aerospace clients. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/hoddesdon"
   },
   "holbeach": {
-    title: "Holbeach Shot Blasting Services | Commercial Shot Blasting",
+    title: "Holbeach Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Holbeach, our surface preparation shot blasting services. Catering to Lincolnshire's Agriculture and Construction sectors. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/holbeach"
   },
   "holmes-chapel": {
-    title: "Holmes Chapel Shot Blasting Services | Commercial Shot Blasting",
+    title: "Holmes Chapel Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need shot blasting in Holmes Chapel? Get quality shot blasting. rust removal. Serving Cheshire's Manufacturing, Construction sector. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/holmes-chapel"
   },
   "holmfirth": {
-    title: "Holmfirth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Holmfirth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Holmfirth for Engineering, Construction sectors. We offer rust removal services to prepare surfaces perfectly. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/holmfirth"
   },
   "holt": {
-    title: "Holt Shot Blasting Services | Commercial Shot Blasting",
+    title: "Holt Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "In Holt, get top-tier shot blasting for Construction & Manufacturing needs. Our rust removal & surface preparation services deliver. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/holt"
   },
   "holyhead": {
-    title: "Holyhead Shot Blasting Services | Commercial Shot Blasting",
+    title: "Holyhead Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Holyhead businesses, professional shot blasting. Serving manufacturing sectors with surface preparation shot blasting and rust removal. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/holyhead"
   },
   "horncastle": {
-    title: "Horncastle Shot Blasting Services | Commercial Shot Blasting",
+    title: "Horncastle Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Our expert & reliable SA3 shot blasting in Horncastle. for all your industrial needs. A key partner for Lincolnshire's Construction industry. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/horncastle"
   },
   "horsforth": {
-    title: "Horsforth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Horsforth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Horsforth for Manufacturing businesses. Our structural steel solutions ensure optimal surface preparation. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/horsforth"
   },
   "houghton-regis": {
-    title: "Houghton Regis Shot Blasting Services | Commercial Shot Blasting",
+    title: "Houghton Regis Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Logistics and Manufacturing in Houghton Regis, choose our expert shot blasting. Our team ensures SA2.5/SA3 standards for durable finishes. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/houghton-regis"
   },
   "hoyland": {
-    title: "Hoyland Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hoyland Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing advanced structural steel shot blasting in Hoyland for Steel and Construction applications.  With years of experience. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/hoyland"
   },
   "hucknall": {
-    title: "Hucknall Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hucknall Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Hucknall for engineering, construction projects. Our surface preparation shot blasting ensures top-quality results. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/hucknall"
   },
   "hunstanton": {
-    title: "Hunstanton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Hunstanton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Hunstanton for Construction and Agriculture applications. Featuring SA2.5 and surface preparation solutions. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/hunstanton"
   },
   "huntingdon": {
-    title: "Huntingdon Shot Blasting Services | Commercial Shot Blasting",
+    title: "Huntingdon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Huntingdon for Construction. Specializing in shot blasting for mobile, structural steel. Serving Cambridgeshire Constru Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/huntingdon"
   },
   "ibstock": {
-    title: "Ibstock Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ibstock Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting in Ibstock for Engineering & Construction clients. Offering structural steel services across Leicestershire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/ibstock"
   },
   "ilfracombe": {
-    title: "Ilfracombe Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ilfracombe Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Ilfracombe for Construction & Construction projects. We offer SA2.5 and surface preparation services. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/ilfracombe"
   },
   "ilkeston": {
-    title: "Ilkeston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ilkeston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Efficient shot blasting in Ilkeston — comprehensive SA2.5 surface preparation. Supporting Derbyshire engineering projects. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ilkeston"
   },
   "ilkley": {
-    title: "Ilkley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ilkley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive shot blasting in Ilkley, West Yorkshire. Trusted for Construction, Manufacturing applications, including SA2.5 and rust removal. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ilkley"
   },
   "ilminster": {
-    title: "Ilminster Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ilminster Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Ilminster with rust removal & SA2.5 solutions for Construction industry. Get a quote. Environmentally friendly methods.",
     url: "https://commercialshotblasting.co.uk/service-areas/ilminster"
   },
   "immingham": {
-    title: "Immingham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Immingham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized SA3 shot blasting solutions in Immingham. Supporting Lincolnshire's Manufacturing and Agriculture industries. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/immingham"
   },
   "instow": {
-    title: "Instow Shot Blasting Services | Commercial Shot Blasting",
+    title: "Instow Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Instow for Marine & Construction projects. We offer structural steel and rust removal services. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/instow"
   },
   "irthlingborough": {
-    title: "Irthlingborough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Irthlingborough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "From Irthlingborough, we deliver professional shot blasting for rust removal. We provide comprehensive shot blasting, including rust removal, for Logist...",
     url: "https://commercialshotblasting.co.uk/service-areas/irthlingborough"
   },
   "kegworth": {
-    title: "Kegworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Kegworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing rust removal shot blasting in Kegworth for Construction & Manufacturing sectors. Covering all of Leicestershire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/kegworth"
   },
   "keighley": {
-    title: "Keighley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Keighley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Keighley for Construction sectors. We offer structural steel services to prepare surfaces perfectly. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/keighley"
   },
   "kempston": {
-    title: "Kempston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Kempston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist structural steel services in Kempston. Enhancing durability and appearance for Manufacturing and Construction assets. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/kempston"
   },
   "kenilworth": {
-    title: "Kenilworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Kenilworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting for Kenilworth projects. Specializing in rust removal. Trusted by Warwickshire Construction firms. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/kenilworth"
   },
   "kesgrave": {
-    title: "Kesgrave Shot Blasting Services | Commercial Shot Blasting",
+    title: "Kesgrave Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Kesgrave, ideal for Construction sector. Our rust removal service ensures pristine surfaces. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/kesgrave"
   },
   "kettering": {
-    title: "Kettering Shot Blasting Services | Commercial Shot Blasting",
+    title: "Kettering Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "High-quality shot blasting in Kettering for Logistics projects. Trusted for shot blasting in Logistics, focusing on SA3 standards. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/kettering"
   },
   "keynsham": {
-    title: "Keynsham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Keynsham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized rust removal shot blasting in Keynsham for Construction & Manufacturing projects. Get a quote. Trusted local experts for all your needs.",
     url: "https://commercialshotblasting.co.uk/service-areas/keynsham"
   },
   "kibworth": {
-    title: "Kibworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Kibworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Kibworth for Engineering projects. Expert surface preparation services throughout Leicestershire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/kibworth"
   },
   "kidderminster": {
-    title: "Kidderminster Shot Blasting Services | Commercial Shot Blasting",
+    title: "Kidderminster Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Kidderminster, our mobile shot blasting services are ideal for Manufacturing and Construction needs. We serve all of Worcestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/kidderminster"
   },
   "kidsgrove": {
-    title: "Kidsgrove Shot Blasting Services | Commercial Shot Blasting",
+    title: "Kidsgrove Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Your go-to for shot blasting in Kidsgrove and surrounding areas. offering Manufacturing and Engineering and SA3, rust removal solutions. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/kidsgrove"
   },
   "kimberley": {
-    title: "Kimberley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Kimberley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for shot blasting in Kimberley? We offer engineering projects. Our rust removal shot blasting ensures top-quality results. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/kimberley"
   },
   "kimbolton": {
-    title: "Kimbolton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Kimbolton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting in Kimbolton for Manufacturing & Agriculture projects. Specializing in shot blasting for SA2.5. Serving Cambridgeshi Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/kimbolton"
   },
   "kings-langley": {
-    title: "Kings Langley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Kings Langley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Kings Langley, Hertfordshire: reliable shot blasting for we provide mobile for Aerospace & Manufacturing applications. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/kings-langley"
   },
   "kings-lynn": {
-    title: "King Shot Blasting Services | Commercial Shot Blasting",
+    title: "King Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking shot blasting in Kings Lynn? We offer SA3 & structural steel comprehensive services for Norfolks Construction industry. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/kings-lynn"
   },
   "kingswinford": {
-    title: "Kingswinford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Kingswinford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Leading shot blasting services available in Kingswinford. Providing structural steel solutions for Construction, Engineering companies in We... Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/kingswinford"
   },
   "kington": {
-    title: "Kington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Kington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Top-tier shot blasting in Kington for manufacturing & manufacturing industries. Featuring surface preparation methods. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/kington"
   },
   "kinver": {
-    title: "Kinver Shot Blasting Services | Commercial Shot Blasting",
+    title: "Kinver Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Kinver specialists in professional shot blasting. providing Construction and Manufacturing for structural steel, mobile projects. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/kinver"
   },
   "knebworth": {
-    title: "Knebworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Knebworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting in Knebworth for offering surface preparation solutions for Construction & Manufacturing clients. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/knebworth"
   },
   "knottingley": {
-    title: "Knottingley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Knottingley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Knottingley for Manufacturing businesses. Our SA3 solutions ensure optimal surface preparation. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/knottingley"
   },
   "knowle": {
-    title: "Knowle Shot Blasting Services | Commercial Shot Blasting",
+    title: "Knowle Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Leading shot blasting services available in Knowle. Providing SA3 solutions for Construction companies in West Midlands. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/knowle"
   },
   "knutsford": {
-    title: "Knutsford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Knutsford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Delivering superior shot blasting to Knutsford's shot blasting. surface preparation. Serving Cheshire's Manufacturing, Food Processing sector. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/knutsford"
   },
   "langford-bedfordshire": {
-    title: "Langford Bedfordshire Shot Blasting Services | Commercial Shot Blasting",
+    title: "Langford Bedfordshire Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Langford for Construction projects. Effective rust removal and surface preparation for all projects. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/langford-bedfordshire"
   },
   "langport": {
-    title: "Langport Shot Blasting Services | Commercial Shot Blasting",
+    title: "Langport Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Langport with SA3 & surface preparation solutions for Agriculture industry. Call today. We handle all project sizes.",
     url: "https://commercialshotblasting.co.uk/service-areas/langport"
   },
   "leamington-spa": {
-    title: "Leamington Spa Shot Blasting Services | Commercial Shot Blasting",
+    title: "Leamington Spa Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Top-tier shot blasting services across Leamington Spa. Specializing in mobile, structural steel. Supporting Warwickshire Construction and. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/leamington-spa"
   },
   "lechlade": {
-    title: "Lechlade Shot Blasting Services | Commercial Shot Blasting",
+    title: "Lechlade Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Lechlade. Ideal for Construction, Agriculture applications, including structural steel. Covering Gloucestershire. C...",
     url: "https://commercialshotblasting.co.uk/service-areas/lechlade"
   },
   "ledbury": {
-    title: "Ledbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ledbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Top-tier shot blasting in Ledbury for manufacturing & manufacturing industries. Featuring surface preparation methods. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ledbury"
   },
   "leek": {
-    title: "Leek Shot Blasting Services | Commercial Shot Blasting",
+    title: "Leek Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting solutions for Leek businesses. specializing in Construction and Manufacturing and mobile, rust removal. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/leek"
   },
   "leighton-buzzard": {
-    title: "Leighton Buzzard Shot Blasting Services | Commercial Shot Blasting",
+    title: "Leighton Buzzard Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Leading shot blasting services in Leighton Buzzard. Delivering high-quality results for local Manufacturing and Construction businesses. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/leighton-buzzard"
   },
   "leiston": {
-    title: "Leiston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Leiston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Leiston, ideal for Construction sector. Our structural steel service ensures pristine surfaces. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/leiston"
   },
   "leominster": {
-    title: "Leominster Shot Blasting Services | Commercial Shot Blasting",
+    title: "Leominster Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Top-tier shot blasting in Leominster for manufacturing & manufacturing industries. Featuring surface preparation methods. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/leominster"
   },
   "letchworth": {
-    title: "Letchworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Letchworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Letchworth, Hertfordshire: reliable shot blasting for we provide SA3 for Manufacturing & Construction applications. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/letchworth"
   },
   "letchworth-bedfordshire": {
-    title: "Letchworth Bedfordshire Shot Blasting Services | Commercial Shot Blasting",
+    title: "Letchworth Bedfordshire Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Achieve pristine surfaces in Letchworth with our rust removal shot blasting. We handle everything from structural steel to factory cladding. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/letchworth-bedfordshire"
   },
   "lichfield": {
-    title: "Lichfield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Lichfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Your go-to for shot blasting in Lichfield and surrounding areas. providing Manufacturing and Construction for SA2.5 projects. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/lichfield"
   },
   "linton": {
-    title: "Linton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Linton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking reliable shot blasting in Linton? Specializing in shot blasting for rust removal, SA2.5. Serving Cambridgeshire Construction sectors. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/linton"
   },
   "littleport": {
-    title: "Littleport Shot Blasting Services | Commercial Shot Blasting",
+    title: "Littleport Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting in Littleport for Construction & Manufacturing projects. Specializing in shot blasting for mobile, structural steel. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/littleport"
   },
   "llandudno": {
-    title: "Llandudno Shot Blasting Services | Commercial Shot Blasting",
+    title: "Llandudno Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting services for Llandudno. Serving agriculture & manufacturing sectors with surface preparation shot blasting and rust removal. Ge...",
     url: "https://commercialshotblasting.co.uk/service-areas/llandudno"
   },
   "llangefni": {
-    title: "Llangefni Shot Blasting Services | Commercial Shot Blasting",
+    title: "Llangefni Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Llangefni, East Wales. Ideal for agriculture projects. We offer surface preparation shot blasting for optimal results. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/llangefni"
   },
   "llangollen": {
-    title: "Llangollen Shot Blasting Services | Commercial Shot Blasting",
+    title: "Llangollen Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Llangollen businesses, professional shot blasting. Serving construction sectors with mobile shot blasting and rust removal. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/llangollen"
   },
   "loddon": {
-    title: "Loddon Shot Blasting Services | Commercial Shot Blasting",
+    title: "Loddon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking shot blasting in Loddon? We offer SA2.5 & rust removal comprehensive services for Norfolks Construction industry. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/loddon"
   },
   "long-buckby": {
-    title: "Long Buckby Shot Blasting Services | Commercial Shot Blasting",
+    title: "Long Buckby Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "High-quality shot blasting in Long Buckby for Construction projects. We provide comprehensive shot blasting, including mobile, for Construction sectors....",
     url: "https://commercialshotblasting.co.uk/service-areas/long-buckby"
   },
   "long-eaton": {
-    title: "Long Eaton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Long Eaton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Top-tier shot blasting in Long Eaton — surface preparation for factory cladding. Ideal for Derbyshire engineering businesses. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/long-eaton"
   },
   "long-stratton": {
-    title: "Long Stratton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Long Stratton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting in Long Stratton: surface preparation & SA2.5 for Norfolks Construction sector. Quality results. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/long-stratton"
   },
   "longstanton": {
-    title: "Longstanton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Longstanton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "High-quality shot blasting in Longstanton for Agriculture & Manufacturing needs. Specializing in shot blasting for rust removal. Serving Cambr Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/longstanton"
   },
   "louth": {
-    title: "Louth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Louth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Highly professional & efficient SA3 shot blasting for Louth. for various applications. Trusted by Lincolnshire's Manufacturing sector. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/louth"
   },
   "lowestoft": {
-    title: "Lowestoft Shot Blasting Services | Commercial Shot Blasting",
+    title: "Lowestoft Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Lowestoft, ideal for Construction sector. Our SA2.5 service ensures pristine surfaces. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/lowestoft"
   },
   "ludgershall": {
-    title: "Ludgershall Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ludgershall Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized mobile shot blasting in Ludgershall. We offer shot blasting, including mobile, SA2.5. Serving Wiltshire agriculture sectors. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ludgershall"
   },
   "ludlow": {
-    title: "Ludlow Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ludlow Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Ludlow and Shropshire with professional shot blasting. Specializing in Construction, Agriculture and structural steel. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ludlow"
   },
   "lutterworth": {
-    title: "Lutterworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Lutterworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Lutterworth for Engineering & Construction projects. Expert SA3 services throughout Leicestershire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/lutterworth"
   },
   "lydney": {
-    title: "Lydney Shot Blasting Services | Commercial Shot Blasting",
+    title: "Lydney Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Lydney. Ideal for Construction applications, including structural steel & surface preparation. Covering Gloucesters...",
     url: "https://commercialshotblasting.co.uk/service-areas/lydney"
   },
   "lynmouth": {
-    title: "Lynmouth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Lynmouth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Lynmouth for Construction & Construction projects. We offer rust removal and surface preparation services. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/lynmouth"
   },
   "lynton": {
-    title: "Lynton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Lynton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting in Lynton for Construction & Agriculture sectors. Includes surface preparation & structural steel. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/lynton"
   },
   "mablethorpe": {
-    title: "Mablethorpe Shot Blasting Services | Commercial Shot Blasting",
+    title: "Mablethorpe Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Mablethorpe, our surface preparation shot blasting services. Supporting Lincolnshire's Construction and Manufacturing industries. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/mablethorpe"
   },
   "macclesfield": {
-    title: "Macclesfield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Macclesfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Macclesfield businesses, reliable shot blasting. mobile, SA2.5. Serving Cheshire's Manufacturing, Food Processing sector. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/macclesfield"
   },
   "madeley": {
-    title: "Madeley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Madeley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Madeley and Shropshire with professional shot blasting. Specializing in Agriculture, Manufacturing and surface preparation. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/madeley"
   },
   "malmesbury": {
-    title: "Malmesbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Malmesbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Agriculture in Malmesbury, rely on our shot blasting. We offer shot blasting, including mobile. Serving Wiltshire agriculture sectors. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/malmesbury"
   },
   "maltby": {
-    title: "Maltby Shot Blasting Services | Commercial Shot Blasting",
+    title: "Maltby Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For robust Manufacturing and Construction solutions in Maltby, trust our mobile shot blasting.  Exceeding expectations. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/maltby"
   },
   "malvern": {
-    title: "Malvern Shot Blasting Services | Commercial Shot Blasting",
+    title: "Malvern Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Malvern, our SA3 shot blasting services are ideal for Construction and Agriculture needs. We serve all of Worcestershire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/malvern"
   },
   "march": {
-    title: "March Shot Blasting Services | Commercial Shot Blasting",
+    title: "March Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "High-quality shot blasting in March for Agriculture needs. Specializing in shot blasting for SA2.5. Serving Cambridgeshire Agriculture sectors Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/march"
   },
   "market-bosworth": {
-    title: "Market Bosworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Market Bosworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Construction & Engineering in Market Bosworth, our shot blasting delivers rust removal results. Trusted in Leicestershire. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/market-bosworth"
   },
   "market-deeping": {
-    title: "Market Deeping Shot Blasting Services | Commercial Shot Blasting",
+    title: "Market Deeping Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Offering specialized SA2.5 shot blasting solutions in Market Deeping. with proven results. Serving Lincolnshire's Construction businesses. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/market-deeping"
   },
   "market-drayton": {
-    title: "Market Drayton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Market Drayton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Market Drayton and Shropshire with professional shot blasting. Specializing in Construction, Agriculture and SA2.5. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/market-drayton"
   },
   "market-harborough": {
-    title: "Market Harborough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Market Harborough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Market Harborough for Engineering & Construction projects. Expert mobile services throughout Leicestershire. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/market-harborough"
   },
   "market-rasen": {
-    title: "Market Rasen Shot Blasting Services | Commercial Shot Blasting",
+    title: "Market Rasen Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Market Rasen, our mobile shot blasting services. Supporting Lincolnshire's Manufacturing and Construction industries. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/market-rasen"
   },
   "marlborough": {
-    title: "Marlborough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Marlborough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Manufacturing & Construction in Marlborough, rely on our shot blasting. We offer shot blasting, including SA2.5. Serving Wiltshire manufacturing &...",
     url: "https://commercialshotblasting.co.uk/service-areas/marlborough"
   },
   "marlow": {
-    title: "Marlow Shot Blasting Services | Commercial Shot Blasting",
+    title: "Marlow Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting in Marlow for the Logistics sector. Specializing in rust removal. Serving Buckinghamshire clients. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/marlow"
   },
   "marston-moretaine": {
-    title: "Marston Moretaine Shot Blasting Services | Commercial Shot Blasting",
+    title: "Marston Moretaine Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist structural steel services in Marston Moretaine. Dedicated to supporting Bedfordshire's Logistics and Construction sectors. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/marston-moretaine"
   },
   "martock": {
-    title: "Martock Shot Blasting Services | Commercial Shot Blasting",
+    title: "Martock Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Martock with SA2.5 & structural steel solutions for Agriculture industry. Get a quote. Serving Somerset area with expertise.",
     url: "https://commercialshotblasting.co.uk/service-areas/martock"
   },
   "matlock": {
-    title: "Matlock Shot Blasting Services | Commercial Shot Blasting",
+    title: "Matlock Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Effective shot blasting in Matlock — SA3 mobile blasting for commercial steelwork. Supporting Derbyshire engineering projects. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/matlock"
   },
   "maulden": {
-    title: "Maulden Shot Blasting Services | Commercial Shot Blasting",
+    title: "Maulden Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Maulden with top-tier shot blasting for Construction and Manufacturing. Our team ensures SA2.5/SA3 standards for durable finishes. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/maulden"
   },
   "measham": {
-    title: "Measham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Measham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "In Measham, we offer professional shot blasting for Manufacturing & Engineering. Specializing in structural steel across Leicestershire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/measham"
   },
   "melbourn": {
-    title: "Melbourn Shot Blasting Services | Commercial Shot Blasting",
+    title: "Melbourn Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Melbourn for Construction. Specializing in shot blasting for SA2.5, surface preparation. Serving Cambridgeshire Constru Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/melbourn"
   },
   "melksham": {
-    title: "Melksham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Melksham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized mobile shot blasting in Melksham. We offer shot blasting, including rust removal. Serving Wiltshire agriculture & construction sectors....",
     url: "https://commercialshotblasting.co.uk/service-areas/melksham"
   },
   "melton-mowbray": {
-    title: "Melton Mowbray Shot Blasting Services | Commercial Shot Blasting",
+    title: "Melton Mowbray Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing rust removal shot blasting in Melton Mowbray for Engineering & Manufacturing sectors. Covering all of Leicestershire. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/melton-mowbray"
   },
   "menai-bridge": {
-    title: "Menai Bridge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Menai Bridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need shot blasting in Menai Bridge? Professional SA3 shot blasting for manufacturing in East Wales. Get a quote. We specialize in structural steel and s...",
     url: "https://commercialshotblasting.co.uk/service-areas/menai-bridge"
   },
   "mere": {
-    title: "Mere Shot Blasting Services | Commercial Shot Blasting",
+    title: "Mere Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting solutions in Mere. We offer shot blasting, including structural steel. Serving Wiltshire manufacturing sectors. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/mere"
   },
   "meriden": {
-    title: "Meriden Shot Blasting Services | Commercial Shot Blasting",
+    title: "Meriden Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Meriden businesses, top-tier shot blasting services. Specializing in surface preparation, SA3 for the Manufacturing industry. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/meriden"
   },
   "mexborough": {
-    title: "Mexborough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Mexborough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Custom rust removal shot blasting solutions in Mexborough for Construction and Manufacturing projects.  Environmentally friendly options. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/mexborough"
   },
   "middlewich": {
-    title: "Middlewich Shot Blasting Services | Commercial Shot Blasting",
+    title: "Middlewich Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need shot blasting in Middlewich? Get quality shot blasting. structural steel. Serving Cheshire's Manufacturing, Food Processing sector. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/middlewich"
   },
   "midsomer-norton": {
-    title: "Midsomer Norton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Midsomer Norton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services for Midsomer Norton, Somerset – specializing in mobile & structural steel. Free quote. We handle all project sizes.",
     url: "https://commercialshotblasting.co.uk/service-areas/midsomer-norton"
   },
   "mildenhall": {
-    title: "Mildenhall Shot Blasting Services | Commercial Shot Blasting",
+    title: "Mildenhall Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Mildenhall for Construction & Manufacturing projects. Our surface preparation service ensures pristine surfaces. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/mildenhall"
   },
   "minehead": {
-    title: "Minehead Shot Blasting Services | Commercial Shot Blasting",
+    title: "Minehead Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for shot blasting in Minehead? We offer rust removal & SA2.5 services for Agriculture businesses. Free quote. Environmentally friendly methods.",
     url: "https://commercialshotblasting.co.uk/service-areas/minehead"
   },
   "mirfield": {
-    title: "Mirfield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Mirfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Mirfield for Manufacturing businesses. Our rust removal solutions ensure optimal surface preparation. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/mirfield"
   },
   "mold": {
-    title: "Mold Shot Blasting Services | Commercial Shot Blasting",
+    title: "Mold Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Mold, East Wales. Professional surface preparation shot blasting for construction & agriculture in East Wales. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/mold"
   },
   "moreton-in-marsh": {
-    title: "Moreton-in-Marsh Shot Blasting Services | Commercial Shot Blasting",
+    title: "Moreton-in-Marsh Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need rust removal & SA3 in Moreton-in-Marsh? Our mobile shot blasting services cater to Manufacturing, Agriculture in Gloucestershire. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/moreton-in-marsh"
   },
   "morley": {
-    title: "Morley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Morley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need rust removal shot blasting in Morley? Our team serves West Yorkshire industries like Construction. Efficient rust removal & surface prep. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/morley"
   },
   "morpeth": {
-    title: "Morpeth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Morpeth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Get expert rust removal shot blasting in Morpeth. Ideal for Engineering and Construction projects needing rust removal. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/morpeth"
   },
   "mountsorrel": {
-    title: "Mountsorrel Shot Blasting Services | Commercial Shot Blasting",
+    title: "Mountsorrel Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "In Mountsorrel, we offer professional shot blasting for Engineering. Specializing in surface preparation across Leicestershire. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/mountsorrel"
   },
   "much-wenlock": {
-    title: "Much Wenlock Shot Blasting Services | Commercial Shot Blasting",
+    title: "Much Wenlock Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Much Wenlock and Shropshire with professional shot blasting. Specializing in Construction, Agriculture and surface preparation. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/much-wenlock"
   },
   "nailsea": {
-    title: "Nailsea Shot Blasting Services | Commercial Shot Blasting",
+    title: "Nailsea Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for shot blasting in Nailsea? We offer mobile & rust removal services for Agriculture businesses. Free quote. Serving Somerset area with expertise.",
     url: "https://commercialshotblasting.co.uk/service-areas/nailsea"
   },
   "nailsworth": {
-    title: "Nailsworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Nailsworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Nailsworth. Ideal for Construction applications, including rust removal. Covering Gloucestershire. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/nailsworth"
   },
   "nantwich": {
-    title: "Nantwich Shot Blasting Services | Commercial Shot Blasting",
+    title: "Nantwich Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized shot blasting for Nantwich's shot blasting. surface preparation, SA3. Serving Cheshire's Food Processing, Manufacturing sector. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/nantwich"
   },
   "narborough": {
-    title: "Narborough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Narborough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "In Narborough, we offer professional shot blasting for Manufacturing. Specializing in structural steel across Leicestershire. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/narborough"
   },
   "needham-market": {
-    title: "Needham Market Shot Blasting Services | Commercial Shot Blasting",
+    title: "Needham Market Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Needham Market for Manufacturing projects. Our structural steel service ensures pristine surfaces. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/needham-market"
   },
   "newark": {
-    title: "Newark Shot Blasting Services | Commercial Shot Blasting",
+    title: "Newark Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for shot blasting in Newark? We offer manufacturing projects. Our SA3 shot blasting ensures top-quality results. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/newark"
   },
   "newark-on-trent": {
-    title: "Newark-on-Trent Shot Blasting Services | Commercial Shot Blasting",
+    title: "Newark-on-Trent Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Leading shot blasting solutions in Newark-on-Trent for engineering, construction projects. Our SA2.5 shot blasting ensures top-quality results. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/newark-on-trent"
   },
   "newcastle-under-lyme": {
-    title: "Newcastle-under-Lyme Shot Blasting Services | Commercial Shot Blasting",
+    title: "Newcastle-under-Lyme Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Newcastle-under-Lyme specialists in professional shot blasting. providing Engineering and Manufacturing for mobile, SA2.5 projects. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/newcastle-under-lyme"
   },
   "newcastle-upon-tyne": {
-    title: "Newcastle upon Tyne Shot Blasting Services | Commercial Shot Blasting",
+    title: "Newcastle upon Tyne Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need shot blasting in Newcastle upon Tyne? We offer marine and engineering needs. Our shot blasting services feature SA2.5. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/newcastle-upon-tyne"
   },
   "newent": {
-    title: "Newent Shot Blasting Services | Commercial Shot Blasting",
+    title: "Newent Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Newent for Agriculture sectors. Specializing in rust removal. Serving Gloucestershire businesses. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/newent"
   },
   "newmarket": {
-    title: "Newmarket Shot Blasting Services | Commercial Shot Blasting",
+    title: "Newmarket Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Newmarket for Construction needs. Our mobile service ensures pristine surfaces for Construction clients. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/newmarket"
   },
   "newport-pagnell": {
-    title: "Newport Pagnell Shot Blasting Services | Commercial Shot Blasting",
+    title: "Newport Pagnell Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Newport Pagnell for Manufacturing and Construction industries. Specializing in structural steel and SA2.5. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/newport-pagnell"
   },
   "normanton": {
-    title: "Normanton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Normanton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive shot blasting in Normanton, West Yorkshire. Trusted for Engineering applications, including mobile and rust removal. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/normanton"
   },
   "north-walsham": {
-    title: "North Walsham Shot Blasting Services | Commercial Shot Blasting",
+    title: "North Walsham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking shot blasting in North Walsham? We offer structural steel & surface preparation services for Norfolks Construction industry. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/north-walsham"
   },
   "northleach": {
-    title: "Northleach Shot Blasting Services | Commercial Shot Blasting",
+    title: "Northleach Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Northleach for Construction, Manufacturing sectors. Specializing in mobile. Serving Gloucestershire businesses. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/northleach"
   },
   "northwich": {
-    title: "Northwich Shot Blasting Services | Commercial Shot Blasting",
+    title: "Northwich Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized shot blasting for Northwich's shot blasting. surface preparation, structural steel. Serving Cheshire's Manufacturing sector. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/northwich"
   },
   "nuneaton": {
-    title: "Nuneaton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Nuneaton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Nuneaton businesses, professional shot blasting. Specializing in structural steel, rust removal. Supporting Warwickshire Manufacturing. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/nuneaton"
   },
   "oadby": {
-    title: "Oadby Shot Blasting Services | Commercial Shot Blasting",
+    title: "Oadby Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Oadby for Construction & Manufacturing projects. Expert structural steel services throughout Leicestershire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/oadby"
   },
   "oakengates": {
-    title: "Oakengates Shot Blasting Services | Commercial Shot Blasting",
+    title: "Oakengates Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Oakengates and Shropshire with professional shot blasting. Specializing in Manufacturing and structural steel. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/oakengates"
   },
   "oldbury": {
-    title: "Oldbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Oldbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive shot blasting for Oldbury projects. From surface preparation to full surface prep for Construction, Engineering in West Midla... Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/oldbury"
   },
   "ollerton": {
-    title: "Ollerton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ollerton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Ollerton for construction projects. Our surface preparation shot blasting ensures top-quality results. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ollerton"
   },
   "olney": {
-    title: "Olney Shot Blasting Services | Commercial Shot Blasting",
+    title: "Olney Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services in Olney for the Logistics sector. Specializing in SA3 and SA2.5. Achieving superior results. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/olney"
   },
   "ossett": {
-    title: "Ossett Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ossett Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Ossett for Construction sectors. We offer structural steel services to prepare surfaces perfectly. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ossett"
   },
   "oswestry": {
-    title: "Oswestry Shot Blasting Services | Commercial Shot Blasting",
+    title: "Oswestry Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Oswestry and Shropshire with professional shot blasting. Specializing in Agriculture, Construction and rust removal. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/oswestry"
   },
   "otley": {
-    title: "Otley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Otley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive shot blasting in Otley, West Yorkshire. Trusted for Engineering applications, including rust removal and rust removal. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/otley"
   },
   "oundle": {
-    title: "Oundle Shot Blasting Services | Commercial Shot Blasting",
+    title: "Oundle Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "High-quality shot blasting in Oundle for Manufacturing, Logistics projects. We provide comprehensive shot blasting, including SA2.5, for Manufacturing, ...",
     url: "https://commercialshotblasting.co.uk/service-areas/oundle"
   },
   "painswick": {
-    title: "Painswick Shot Blasting Services | Commercial Shot Blasting",
+    title: "Painswick Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Painswick for Construction, Agriculture sectors. Specializing in SA3. Serving Gloucestershire businesses. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/painswick"
   },
   "penistone": {
-    title: "Penistone Shot Blasting Services | Commercial Shot Blasting",
+    title: "Penistone Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Custom structural steel shot blasting solutions in Penistone for Steel and Construction projects.  With years of experience. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/penistone"
   },
   "penkridge": {
-    title: "Penkridge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Penkridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services available in Penkridge. with expertise in Manufacturing and mobile. Trusted by Staffordshire businesses. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/penkridge"
   },
   "pershore": {
-    title: "Pershore Shot Blasting Services | Commercial Shot Blasting",
+    title: "Pershore Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specializing in shot blasting for rust removal in Pershore, we support Manufacturing businesses. We serve all of Worcestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/pershore"
   },
   "pewsey": {
-    title: "Pewsey Shot Blasting Services | Commercial Shot Blasting",
+    title: "Pewsey Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive shot blasting for Pewsey businesses. We offer shot blasting, including SA3. Serving Wiltshire agriculture & manufacturing sectors. Call...",
     url: "https://commercialshotblasting.co.uk/service-areas/pewsey"
   },
   "polesworth": {
-    title: "Polesworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Polesworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Polesworth with advanced shot blasting. Specializing in structural steel, SA2.5. Trusted by Warwickshire Construction firms. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/polesworth"
   },
   "pontefract": {
-    title: "Pontefract Shot Blasting Services | Commercial Shot Blasting",
+    title: "Pontefract Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Pontefract for Manufacturing businesses. Our SA2.5 solutions ensure optimal surface preparation. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/pontefract"
   },
   "pontrilas": {
-    title: "Pontrilas Shot Blasting Services | Commercial Shot Blasting",
+    title: "Pontrilas Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Quality shot blasting in Pontrilas, perfect for manufacturing and manufacturing applications. structural steel available. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/pontrilas"
   },
   "porthmadog": {
-    title: "Porthmadog Shot Blasting Services | Commercial Shot Blasting",
+    title: "Porthmadog Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need shot blasting in Porthmadog? Serving construction & manufacturing sectors with mobile shot blasting and rust removal. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/porthmadog"
   },
   "portishead": {
-    title: "Portishead Shot Blasting Services | Commercial Shot Blasting",
+    title: "Portishead Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services for Portishead, Somerset – specializing in SA2.5 & mobile. Free quote. Environmentally friendly methods.",
     url: "https://commercialshotblasting.co.uk/service-areas/portishead"
   },
   "potters-bar": {
-    title: "Potters Bar Shot Blasting Services | Commercial Shot Blasting",
+    title: "Potters Bar Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Potters Bar businesses: professional shot blasting services – offering structural steel solutions for Aerospace & Manufacturing clients. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/potters-bar"
   },
   "potton": {
-    title: "Potton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Potton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Potton for Construction projects. Providing essential surface solutions for Construction and Logistics operations. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/potton"
   },
   "poynton": {
-    title: "Poynton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Poynton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized shot blasting for Poynton's shot blasting. SA2.5, rust removal. Serving Cheshire's Food Processing, Manufacturing sector. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/poynton"
   },
   "prestatyn": {
-    title: "Prestatyn Shot Blasting Services | Commercial Shot Blasting",
+    title: "Prestatyn Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting services for Prestatyn. Enhance your agriculture operations with our surface preparation shot blasting. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/prestatyn"
   },
   "princes-risborough": {
-    title: "Princes Risborough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Princes Risborough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Princes Risborough businesses, our shot blasting for the Manufacturing and Construction sector. Specializing in mobile and SA3. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/princes-risborough"
   },
   "priory-country-park": {
-    title: "Priory Country Park Shot Blasting Services | Commercial Shot Blasting",
+    title: "Priory Country Park Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Achieve pristine surfaces in Priory Country Park with our SA2.5 shot blasting. We handle everything from structural steel to factory cladding. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/priory-country-park"
   },
   "pudsey": {
-    title: "Pudsey Shot Blasting Services | Commercial Shot Blasting",
+    title: "Pudsey Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Pudsey for Construction businesses. Our structural steel solutions ensure optimal surface preparation. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/pudsey"
   },
   "pwllheli": {
-    title: "Pwllheli Shot Blasting Services | Commercial Shot Blasting",
+    title: "Pwllheli Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Pwllheli, East Wales. Ideal for construction projects. We offer rust removal shot blasting for optimal results. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/pwllheli"
   },
   "quorn": {
-    title: "Quorn Shot Blasting Services | Commercial Shot Blasting",
+    title: "Quorn Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "In Quorn, we offer professional shot blasting for Engineering & Manufacturing. Specializing in rust removal across Leicestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/quorn"
   },
   "radlett": {
-    title: "Radlett Shot Blasting Services | Commercial Shot Blasting",
+    title: "Radlett Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Radlett businesses: professional shot blasting services – offering structural steel solutions for Aerospace & Construction clients. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/radlett"
   },
   "ramsey": {
-    title: "Ramsey Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ramsey Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Ramsey for Manufacturing & Construction. Specializing in shot blasting for rust removal, SA3. Serving Cambridgeshire M Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ramsey"
   },
   "raunds": {
-    title: "Raunds Shot Blasting Services | Commercial Shot Blasting",
+    title: "Raunds Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "From Raunds, we deliver professional shot blasting for SA3. Offering SA3 and other shot blasting solutions for Manufacturing projects. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/raunds"
   },
   "rawmarsh": {
-    title: "Rawmarsh Shot Blasting Services | Commercial Shot Blasting",
+    title: "Rawmarsh Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Leading mobile shot blasting solutions in Rawmarsh for Construction and Manufacturing applications.  Advanced techniques applied. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/rawmarsh"
   },
   "redditch": {
-    title: "Redditch Shot Blasting Services | Commercial Shot Blasting",
+    title: "Redditch Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specializing in shot blasting for rust removal in Redditch, we support Manufacturing businesses. We serve all of Worcestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/redditch"
   },
   "reepham": {
-    title: "Reepham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Reepham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Reepham businesses: expert shot blasting for Manufacturing & Agriculture sectors. Specializing in mobile and surface preparation. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/reepham"
   },
   "retford": {
-    title: "Retford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Retford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Retford for construction, engineering projects. Our SA2.5 shot blasting ensures top-quality results. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/retford"
   },
   "rhyl": {
-    title: "Rhyl Shot Blasting Services | Commercial Shot Blasting",
+    title: "Rhyl Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need shot blasting in Rhyl? Enhance your manufacturing & construction operations with our mobile shot blasting. Call today. We specialize in SA2.5 and s...",
     url: "https://commercialshotblasting.co.uk/service-areas/rhyl"
   },
   "rickmansworth": {
-    title: "Rickmansworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Rickmansworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Rickmansworth, Hertfordshire: reliable shot blasting for we provide surface preparation for Aerospace & Construction applications. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/rickmansworth"
   },
   "ripley": {
-    title: "Ripley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ripley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Skilled shot blasting in Ripley — SA2.5 structural steel cleaning & restoration. Serving Derbyshire engineering & construction. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ripley"
   },
   "riseley": {
-    title: "Riseley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Riseley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Riseley for Logistics projects. Your go-to for all Logistics and Manufacturing shot blasting requirements. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/riseley"
   },
   "ross-on-wye": {
-    title: "Ross-on-Wye Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ross-on-Wye Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Quality shot blasting in Ross-on-Wye, perfect for agriculture and agriculture applications. surface preparation available. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/ross-on-wye"
   },
   "rossington": {
-    title: "Rossington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Rossington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "In Rossington, we provide SA2.5 shot blasting for South Yorkshire Manufacturing businesses, ensuring quality Construction solutions. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/rossington"
   },
   "rothwell": {
-    title: "Rothwell Shot Blasting Services | Commercial Shot Blasting",
+    title: "Rothwell Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Dedicated shot blasting solutions for Rothwell's Logistics, Manufacturing. Our structural steel shot blasting services are perfect for Logistics, Manufa...",
     url: "https://commercialshotblasting.co.uk/service-areas/rothwell"
   },
   "rowley-regis": {
-    title: "Rowley Regis Shot Blasting Services | Commercial Shot Blasting",
+    title: "Rowley Regis Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need professional shot blasting in Rowley Regis? Our team provides rust removal, SA3 for Construction businesses in West Midlands. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/rowley-regis"
   },
   "royal-wootton-bassett": {
-    title: "Royal Wootton Bassett Shot Blasting Services | Commercial Shot Blasting",
+    title: "Royal Wootton Bassett Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting solutions in Royal Wootton Bassett. We offer shot blasting, including surface preparation. Serving Wiltshire manufacturing...",
     url: "https://commercialshotblasting.co.uk/service-areas/royal-wootton-bassett"
   },
   "royston": {
-    title: "Royston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Royston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Royston, Hertfordshire: reliable shot blasting for specializing in structural steel for the Construction & Manufacturing sector. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/royston"
   },
   "ruddington": {
-    title: "Ruddington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ruddington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for shot blasting in Ruddington? We offer engineering projects. Our structural steel shot blasting ensures top-quality results. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ruddington"
   },
   "rugby": {
-    title: "Rugby Shot Blasting Services | Commercial Shot Blasting",
+    title: "Rugby Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Get superior shot blasting results in Rugby. Specializing in structural steel. Trusted by Warwickshire Engineering firms. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/rugby"
   },
   "rugeley": {
-    title: "Rugeley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Rugeley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services available in Rugeley. providing Construction for structural steel projects. Trusted by Staffordshire businesses. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/rugeley"
   },
   "rushden": {
-    title: "Rushden Shot Blasting Services | Commercial Shot Blasting",
+    title: "Rushden Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "From Rushden, we deliver professional shot blasting for mobile. Specializing in shot blasting for Logistics, with mobile capabilities. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/rushden"
   },
   "ruthin": {
-    title: "Ruthin Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ruthin Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting services for Ruthin. Serving construction sectors with surface preparation shot blasting and rust removal. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/ruthin"
   },
   "salisbury": {
-    title: "Salisbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Salisbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Agriculture in Salisbury, rely on our shot blasting. We offer shot blasting, including mobile. Serving Wiltshire agriculture sectors. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/salisbury"
   },
   "sandbach": {
-    title: "Sandbach Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sandbach Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Quality surface preparation in Sandbach for shot blasting. surface preparation, SA3. Serving Cheshire's Construction sector. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/sandbach"
   },
   "sandy": {
-    title: "Sandy Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sandy Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Sandy for Manufacturing projects. We handle everything from structural steel to factory cladding. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/sandy"
   },
   "sawbridgeworth": {
-    title: "Sawbridgeworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sawbridgeworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Sawbridgeworth businesses: professional shot blasting services – our SA2.5 services support Manufacturing & Aerospace projects. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/sawbridgeworth"
   },
   "sawbridgeworth-herts": {
-    title: "Sawbridgeworth Herts Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sawbridgeworth Herts Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Sawbridgeworth, Hertfordshire – our rust removal services support Construction & Aerospace projects. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/sawbridgeworth-herts"
   },
   "sawston": {
-    title: "Sawston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sawston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting in Sawston for Agriculture & Construction projects. Specializing in shot blasting for mobile, rust removal. Serving Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/sawston"
   },
   "saxmundham": {
-    title: "Saxmundham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Saxmundham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Saxmundham, ideal for Construction & Agriculture sector. Our SA2.5 service ensures pristine surfaces. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/saxmundham"
   },
   "scunthorpe": {
-    title: "Scunthorpe Shot Blasting Services | Commercial Shot Blasting",
+    title: "Scunthorpe Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need surface preparation shot blasting in Scunthorpe? ensuring optimal results and durability. Serving Lincolnshire's Manufacturing businesses. Call today.\\\\",
     url: "https://commercialshotblasting.co.uk/service-areas/scunthorpe"
   },
   "sedgley": {
-    title: "Sedgley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sedgley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting solutions for Sedgley. We handle SA3 projects for Manufacturing clients across West Midlands. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/sedgley"
   },
   "sharnbrook": {
-    title: "Sharnbrook Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sharnbrook Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Sharnbrook businesses trust our mobile shot blasting. Trusted by Bedfordshire Construction and Logistics firms for superior finishes. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/sharnbrook"
   },
   "shefford": {
-    title: "Shefford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Shefford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist SA2.5 services in Shefford. Providing essential surface solutions for Manufacturing and Construction operations. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/shefford"
   },
   "shepshed": {
-    title: "Shepshed Shot Blasting Services | Commercial Shot Blasting",
+    title: "Shepshed Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting in Shepshed for Construction & Manufacturing clients. Offering mobile services across Leicestershire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/shepshed"
   },
   "shepton-mallet": {
-    title: "Shepton Mallet Shot Blasting Services | Commercial Shot Blasting",
+    title: "Shepton Mallet Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for shot blasting in Shepton Mallet? We offer mobile & SA3 services for Agriculture businesses. Get a quote. Experienced team.",
     url: "https://commercialshotblasting.co.uk/service-areas/shepton-mallet"
   },
   "sheringham": {
-    title: "Sheringham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sheringham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Sheringham for Construction and Manufacturing applications. Featuring mobile and structural steel solutions. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/sheringham"
   },
   "shipley": {
-    title: "Shipley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Shipley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Shipley for Manufacturing businesses. Our SA3 solutions ensure optimal surface preparation. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/shipley"
   },
   "shipston-on-stour": {
-    title: "Shipston-on-Stour Shot Blasting Services | Commercial Shot Blasting",
+    title: "Shipston-on-Stour Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting solutions for Shipston-on-Stour. Specializing in rust removal. Supporting Warwickshire Engineering and Construction. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/shipston-on-stour"
   },
   "shirebrook": {
-    title: "Shirebrook Shot Blasting Services | Commercial Shot Blasting",
+    title: "Shirebrook Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Prime shot blasting in Shirebrook — mobile rust removal for industrial equipment. Supporting Derbyshire engineering projects. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/shirebrook"
   },
   "sileby": {
-    title: "Sileby Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sileby Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Sileby for Construction & Engineering projects. Expert rust removal services throughout Leicestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/sileby"
   },
   "silsoe": {
-    title: "Silsoe Shot Blasting Services | Commercial Shot Blasting",
+    title: "Silsoe Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Achieve pristine surfaces in Silsoe with our SA3 shot blasting. Enhancing durability and appearance for Logistics and Manufacturing assets. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/silsoe"
   },
   "skegness": {
-    title: "Skegness Shot Blasting Services | Commercial Shot Blasting",
+    title: "Skegness Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "We provide SA2.5 shot blasting in Skegness. ensuring optimal results and durability. Trusted by Lincolnshire's Manufacturing sector. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/skegness"
   },
   "sleaford": {
-    title: "Sleaford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sleaford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need surface preparation shot blasting in Sleaford? Supporting Lincolnshire's Manufacturing and Construction industries. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/sleaford"
   },
   "slough": {
-    title: "Slough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Slough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Slough – surface preparation for Manufacturing & Aerospace. Our mobile services ensure pristine results for Berkshire businesses. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/slough"
   },
   "smethwick": {
-    title: "Smethwick Shot Blasting Services | Commercial Shot Blasting",
+    title: "Smethwick Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized shot blasting in Smethwick and surrounding areas. Our expertise includes surface preparation for Engineering, Construction appl... Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/smethwick"
   },
   "soham": {
-    title: "Soham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Soham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "High-quality shot blasting in Soham for Construction needs. Specializing in shot blasting for SA3, surface preparation. Serving Cambridgeshire Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/soham"
   },
   "south-molton": {
-    title: "South Molton Shot Blasting Services | Commercial Shot Blasting",
+    title: "South Molton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in South Molton for Marine & Agriculture projects. We offer rust removal and structural steel services. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/south-molton"
   },
   "south-petherton": {
-    title: "South Petherton Shot Blasting Services | Commercial Shot Blasting",
+    title: "South Petherton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in South Petherton with SA3 & surface preparation solutions for Construction industry. Call today. We handle all project sizes.",
     url: "https://commercialshotblasting.co.uk/service-areas/south-petherton"
   },
   "south-shields": {
-    title: "South Shields Shot Blasting Services | Commercial Shot Blasting",
+    title: "South Shields Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "High-quality shot blasting in South Shields for marine and manufacturing projects. We provide shot blasting, including rust removal. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/south-shields"
   },
   "southam": {
-    title: "Southam Shot Blasting Services | Commercial Shot Blasting",
+    title: "Southam Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Enhance surfaces in Southam with our shot blasting. Specializing in SA3, structural steel. Supporting Warwickshire Construction and. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/southam"
   },
   "southwell": {
-    title: "Southwell Shot Blasting Services | Commercial Shot Blasting",
+    title: "Southwell Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Leading shot blasting solutions in Southwell for engineering projects. Our SA3 shot blasting ensures top-quality results. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/southwell"
   },
   "southwold": {
-    title: "Southwold Shot Blasting Services | Commercial Shot Blasting",
+    title: "Southwold Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Southwold for Construction needs. Our rust removal service ensures pristine surfaces. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/southwold"
   },
   "sowerby-bridge": {
-    title: "Sowerby Bridge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sowerby Bridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Sowerby Bridge for Manufacturing sectors. We offer surface preparation services to prepare surfaces perfectly. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/sowerby-bridge"
   },
   "spalding": {
-    title: "Spalding Shot Blasting Services | Commercial Shot Blasting",
+    title: "Spalding Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "We provide structural steel shot blasting in Spalding. Supporting Lincolnshire's Manufacturing and Agriculture industries. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/spalding"
   },
   "spennymoor": {
-    title: "Spennymoor Shot Blasting Services | Commercial Shot Blasting",
+    title: "Spennymoor Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Spennymoor for the manufacturing and engineering sector. Our SA2.5 shot blasting ensures superior surface preparation. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/spennymoor"
   },
   "sprowston": {
-    title: "Sprowston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sprowston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Sprowston businesses: expert shot blasting for Manufacturing & Agriculture sectors. Specializing in mobile and structural steel. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/sprowston"
   },
   "st-albans": {
-    title: "St Albans Shot Blasting Services | Commercial Shot Blasting",
+    title: "St Albans Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting in St Albans for specializing in surface preparation for the Construction & Manufacturing sector. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/st-albans"
   },
   "st-ives": {
-    title: "St Ives Shot Blasting Services | Commercial Shot Blasting",
+    title: "St Ives Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking reliable shot blasting in St Ives? Specializing in shot blasting for mobile. Serving Cambridgeshire Manufacturing sectors. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/st-ives"
   },
   "st-neots": {
-    title: "St Neots Shot Blasting Services | Commercial Shot Blasting",
+    title: "St Neots Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking reliable shot blasting in St Neots? Specializing in shot blasting for rust removal, mobile. Serving Cambridgeshire Agriculture sectors. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/st-neots"
   },
   "stalham": {
-    title: "Stalham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stalham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Stalham for Manufacturing and Construction applications. Featuring SA3 and rust removal solutions. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/stalham"
   },
   "stamford": {
-    title: "Stamford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stamford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional structural steel shot blasting for Stamford. Supporting Lincolnshire's Agriculture and Construction industries. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/stamford"
   },
   "stapleford": {
-    title: "Stapleford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stapleford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive shot blasting in Stapleford for manufacturing projects. Our SA3 shot blasting ensures top-quality results. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/stapleford"
   },
   "staveley": {
-    title: "Staveley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Staveley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Trusted shot blasting in Staveley — SA3 surface preparation & structural steel care. Partnering with Derbyshire manufacturing experts. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/staveley"
   },
   "stocksbridge": {
-    title: "Stocksbridge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stocksbridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized rust removal shot blasting in Stocksbridge for Manufacturing and Construction industries. Contact us today. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/stocksbridge"
   },
   "stoke": {
-    title: "Stoke-on-Trent Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stoke-on-Trent Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Your go-to for shot blasting in Stoke-on-Trent and surrounding areas. providing Manufacturing and Construction for SA2.5 projects. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/stoke"
   },
   "stone": {
-    title: "Stone Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stone Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting solutions for Stone businesses. providing Engineering and Construction for SA3, surface preparation projects. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/stone"
   },
   "stony-stratford": {
-    title: "Stony Stratford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stony Stratford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting in Stony Stratford for Logistics and Manufacturing industries. Specializing in mobile and SA3. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/stony-stratford"
   },
   "stotfold": {
-    title: "Stotfold Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stotfold Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Achieve pristine surfaces in Stotfold with our SA2.5 shot blasting. Effective rust removal and surface preparation for all projects. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/stotfold"
   },
   "stourbridge": {
-    title: "Stourbridge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stourbridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized shot blasting in Stourbridge and surrounding areas. Our expertise includes mobile, rust removal for Engineering, Manufacturing a... Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/stourbridge"
   },
   "stourport-on-severn": {
-    title: "Stourport-on-Severn Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stourport-on-Severn Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Stourport-on-Severn with top-tier mobile shot blasting, trusted by local Agriculture companies. We serve all of Worcestershire. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/stourport-on-severn"
   },
   "stow-on-the-wold": {
-    title: "Stow-on-the-Wold Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stow-on-the-Wold Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Stow-on-the-Wold. We offer rust removal & surface preparation for Construction, Agriculture projects across Gloucestershire. F...",
     url: "https://commercialshotblasting.co.uk/service-areas/stow-on-the-wold"
   },
   "stowmarket": {
-    title: "Stowmarket Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stowmarket Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Stowmarket for Agriculture needs. Our SA3 service ensures pristine surfaces for Agriculture clients. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/stowmarket"
   },
   "street": {
-    title: "Street Shot Blasting Services | Commercial Shot Blasting",
+    title: "Street Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for shot blasting in Street? We offer surface preparation & SA2.5 services for Construction businesses. Free quote. Advanced surface cleaning.",
     url: "https://commercialshotblasting.co.uk/service-areas/street"
   },
   "stroud": {
-    title: "Stroud Shot Blasting Services | Commercial Shot Blasting",
+    title: "Stroud Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Stroud for Agriculture, Manufacturing sectors. Specializing in SA3 & surface preparation. Serving Gloucestershire businesses. Ca...",
     url: "https://commercialshotblasting.co.uk/service-areas/stroud"
   },
   "studley": {
-    title: "Studley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Studley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Top-tier shot blasting services across Studley. Specializing in surface preparation. Supporting Warwickshire Engineering and Construction. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/studley"
   },
   "sudbury": {
-    title: "Sudbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sudbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Sudbury for Manufacturing & Construction needs. Our structural steel service ensures pristine surfaces. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/sudbury"
   },
   "sutton-bridge": {
-    title: "Sutton Bridge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sutton Bridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "We provide rust removal shot blasting in Sutton Bridge. Supporting Lincolnshire's Manufacturing and Construction industries. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/sutton-bridge"
   },
   "sutton-in-ashfield": {
-    title: "Sutton-in-Ashfield Shot Blasting Services | Commercial Shot Blasting",
+    title: "Sutton-in-Ashfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Sutton-in-Ashfield for engineering, construction projects. Our rust removal shot blasting ensures top-quality results. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/sutton-in-ashfield"
   },
   "swadlincote": {
-    title: "Swadlincote Shot Blasting Services | Commercial Shot Blasting",
+    title: "Swadlincote Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Fast shot blasting in Swadlincote — industrial plant, containers & steelwork to SA3. Serving Derbyshire manufacturers. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/swadlincote"
   },
   "swaffham": {
-    title: "Swaffham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Swaffham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking shot blasting in Swaffham? We offer mobile & SA2.5 comprehensive services for Norfolks Manufacturing industry. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/swaffham"
   },
   "swavesey": {
-    title: "Swavesey Shot Blasting Services | Commercial Shot Blasting",
+    title: "Swavesey Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "High-quality shot blasting in Swavesey for Construction & Agriculture needs. Specializing in shot blasting for structural steel, rust removal. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/swavesey"
   },
   "swinton": {
-    title: "Swinton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Swinton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For unparalleled mobile shot blasting in Swinton, serving Manufacturing and Construction sectors.  Quality guaranteed. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/swinton"
   },
   "syston": {
-    title: "Syston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Syston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Mobile shot blasting in Syston for Construction & Manufacturing projects. Expert rust removal services throughout Leicestershire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/syston"
   },
   "taverham": {
-    title: "Taverham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Taverham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking shot blasting in Taverham? We offer mobile & SA2.5 services for Norfolks Agriculture industry. Contact us for a free consultation. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/taverham"
   },
   "tenbury-wells": {
-    title: "Tenbury Wells Shot Blasting Services | Commercial Shot Blasting",
+    title: "Tenbury Wells Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Tenbury Wells, our shot blasting for structural steel services are ideal for Construction and Manufacturing needs. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/tenbury-wells"
   },
   "tetbury": {
-    title: "Tetbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Tetbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Tetbury. Ideal for Construction, Manufacturing applications, including surface preparation & rust removal. Covering...",
     url: "https://commercialshotblasting.co.uk/service-areas/tetbury"
   },
   "tewkesbury": {
-    title: "Tewkesbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Tewkesbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Tewkesbury. Ideal for Agriculture, Manufacturing applications, including rust removal & structural steel. Covering ...",
     url: "https://commercialshotblasting.co.uk/service-areas/tewkesbury"
   },
   "thetford": {
-    title: "Thetford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Thetford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "In Thetford, get top-tier shot blasting for Manufacturing & Agriculture needs. Our SA2.5 & structural steel services deliver. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/thetford"
   },
   "thornbury": {
-    title: "Thornbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Thornbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Thornbury for Manufacturing sectors. Specializing in rust removal & mobile. Serving Gloucestershire businesses. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/thornbury"
   },
   "thorne": {
-    title: "Thorne Shot Blasting Services | Commercial Shot Blasting",
+    title: "Thorne Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "High-performance SA2.5 shot blasting in Thorne for demanding Construction and Manufacturing environments.  Dedicated to your satisfaction. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/thorne"
   },
   "thrapston": {
-    title: "Thrapston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Thrapston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing structural steel shot blasting services across Thrapston. We provide comprehensive shot blasting, including structural steel, for Manufacturin...",
     url: "https://commercialshotblasting.co.uk/service-areas/thrapston"
   },
   "tickhill": {
-    title: "Tickhill Shot Blasting Services | Commercial Shot Blasting",
+    title: "Tickhill Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable SA2.5 shot blasting services in Tickhill. Trusted by Manufacturing and Steel companies across South Yorkshire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/tickhill"
   },
   "tidworth": {
-    title: "Tidworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Tidworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting solutions in Tidworth. We offer shot blasting, including rust removal. Serving Wiltshire agriculture sectors. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/tidworth"
   },
   "tipton": {
-    title: "Tipton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Tipton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive shot blasting for Tipton projects. From surface preparation to full surface prep for Construction in West Midlands. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/tipton"
   },
   "tisbury": {
-    title: "Tisbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Tisbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services in Tisbury for Construction & Manufacturing. We offer shot blasting, including SA2.5. Serving Wiltshire construction &...",
     url: "https://commercialshotblasting.co.uk/service-areas/tisbury"
   },
   "toddington": {
-    title: "Toddington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Toddington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist rust removal services in Toddington. Enhancing durability and appearance for Construction and Logistics assets. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/toddington"
   },
   "todmorden": {
-    title: "Todmorden Shot Blasting Services | Commercial Shot Blasting",
+    title: "Todmorden Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Todmorden for Manufacturing, Construction sectors. We offer SA3 services to prepare surfaces perfectly. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/todmorden"
   },
   "towcester": {
-    title: "Towcester Shot Blasting Services | Commercial Shot Blasting",
+    title: "Towcester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Dedicated shot blasting solutions for Towcester's Manufacturing. Our surface preparation shot blasting services are perfect for Manufacturing businesses...",
     url: "https://commercialshotblasting.co.uk/service-areas/towcester"
   },
   "tring": {
-    title: "Tring Shot Blasting Services | Commercial Shot Blasting",
+    title: "Tring Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Tring businesses: professional shot blasting services – specializing in mobile for the Manufacturing & Aerospace sector. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/tring"
   },
   "trowbridge": {
-    title: "Trowbridge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Trowbridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Comprehensive shot blasting for Trowbridge businesses. We offer shot blasting, including SA2.5. Serving Wiltshire agriculture sectors. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/trowbridge"
   },
   "tutbury": {
-    title: "Tutbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Tutbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting solutions for Tutbury businesses. specializing in Manufacturing and surface preparation, mobile. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/tutbury"
   },
   "upton-upon-severn": {
-    title: "Upton-upon-Severn Shot Blasting Services | Commercial Shot Blasting",
+    title: "Upton-upon-Severn Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Need mobile shot blasting in Upton-upon-Severn? We provide expert solutions for Agriculture and Manufacturing sectors. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/upton-upon-severn"
   },
   "uttoxeter": {
-    title: "Uttoxeter Shot Blasting Services | Commercial Shot Blasting",
+    title: "Uttoxeter Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting solutions for Uttoxeter businesses. providing Engineering for SA2.5, structural steel projects. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/uttoxeter"
   },
   "wainfleet": {
-    title: "Wainfleet Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wainfleet Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized SA2.5 shot blasting solutions in Wainfleet. Supporting Lincolnshire's Construction and Agriculture industries. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/wainfleet"
   },
   "walgrave": {
-    title: "Walgrave Shot Blasting Services | Commercial Shot Blasting",
+    title: "Walgrave Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Dedicated shot blasting solutions for Walgrave's Construction. Specializing in shot blasting for Construction, with SA2.5 capabilities. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/walgrave"
   },
   "ware": {
-    title: "Ware Shot Blasting Services | Commercial Shot Blasting",
+    title: "Ware Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Ware, Hertfordshire: reliable shot blasting for offering SA2.5 solutions for Construction & Manufacturing clients. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/ware"
   },
   "warminster": {
-    title: "Warminster Shot Blasting Services | Commercial Shot Blasting",
+    title: "Warminster Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services in Warminster for Construction. We offer shot blasting, including SA3. Serving Wiltshire construction sectors. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/warminster"
   },
   "warwick": {
-    title: "Warwick Shot Blasting Services | Commercial Shot Blasting",
+    title: "Warwick Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Enhance surfaces in Warwick with our shot blasting. Specializing in structural steel. Trusted by Warwickshire Manufacturing firms. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/warwick"
   },
   "wath-upon-dearne": {
-    title: "Wath-upon-Dearne Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wath-upon-Dearne Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting in Wath-upon-Dearne for Construction projects. Specializing in SA3 and surface preparation.  Get a free consultation. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/wath-upon-dearne"
   },
   "watton": {
-    title: "Watton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Watton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Watton for Construction and Manufacturing applications. Featuring surface preparation and SA2.5 solutions. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/watton"
   },
   "wednesbury": {
-    title: "Wednesbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wednesbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Wednesbury businesses, top-tier shot blasting services. Specializing in structural steel for the Engineering, Manufacturing industry. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/wednesbury"
   },
   "wellesbourne": {
-    title: "Wellesbourne Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wellesbourne Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Enhance surfaces in Wellesbourne with our shot blasting. Specializing in SA2.5. Trusted by Warwickshire Construction firms. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/wellesbourne"
   },
   "wellingborough": {
-    title: "Wellingborough Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wellingborough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "High-quality shot blasting in Wellingborough for Construction projects. Our structural steel shot blasting services are perfect for Construction busines...",
     url: "https://commercialshotblasting.co.uk/service-areas/wellingborough"
   },
   "wellington": {
-    title: "Wellington Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wellington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Wellington and Shropshire with professional shot blasting. Specializing in Manufacturing and structural steel. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/wellington"
   },
   "wells": {
-    title: "Wells Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wells Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Wells – SA3, surface preparation for Agriculture & Construction sectors. Free quote. Your local shot blasting specialists.",
     url: "https://commercialshotblasting.co.uk/service-areas/wells"
   },
   "wells-next-the-sea": {
-    title: "Wells-next-the-Sea Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wells-next-the-Sea Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Wells-next-the-Sea businesses: expert shot blasting for Construction & Manufacturing sectors. Specializing in mobile and structural steel. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/wells-next-the-sea"
   },
   "welwyn": {
-    title: "Welwyn Shot Blasting Services | Commercial Shot Blasting",
+    title: "Welwyn Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Welwyn, Hertfordshire: reliable shot blasting for offering surface preparation solutions for Construction & Manufacturing clients. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/welwyn"
   },
   "welwyn-garden-city": {
-    title: "Welwyn Garden City Shot Blasting Services | Commercial Shot Blasting",
+    title: "Welwyn Garden City Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Welwyn Garden City, Hertfordshire – we provide structural steel for Manufacturing & Construction applications. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/welwyn-garden-city"
   },
   "wem": {
-    title: "Wem Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wem Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Wem and Shropshire with professional shot blasting. Specializing in Agriculture, Construction and rust removal. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/wem"
   },
   "wendover": {
-    title: "Wendover Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wendover Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Wendover businesses, our shot blasting for the Manufacturing sector. Specializing in rust removal. Ensuring optimal surface preparation. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/wendover"
   },
   "west-bridgford": {
-    title: "West Bridgford Shot Blasting Services | Commercial Shot Blasting",
+    title: "West Bridgford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for shot blasting in West Bridgford? We offer manufacturing projects. Our SA2.5 shot blasting ensures top-quality results. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/west-bridgford"
   },
   "westbury": {
-    title: "Westbury Shot Blasting Services | Commercial Shot Blasting",
+    title: "Westbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting solutions in Westbury. We offer shot blasting, including structural steel. Serving Wiltshire agriculture sectors. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/westbury"
   },
   "weston-super-mare": {
-    title: "Weston-super-Mare Shot Blasting Services | Commercial Shot Blasting",
+    title: "Weston-super-Mare Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Weston-super-Mare with surface preparation & SA3 solutions for Agriculture industry. Free quote. We handle all project sizes.",
     url: "https://commercialshotblasting.co.uk/service-areas/weston-super-mare"
   },
   "westward-ho": {
-    title: "Westward Ho! Shot Blasting Services | Commercial Shot Blasting",
+    title: "Westward Ho! Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Westward Ho! for Construction & Agriculture projects. We offer SA2.5 and rust removal services. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/westward-ho"
   },
   "wetherby": {
-    title: "Wetherby Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wetherby Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Providing top-tier shot blasting in Wetherby for Manufacturing businesses. Our mobile solutions ensure optimal surface preparation. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/wetherby"
   },
   "whitchurch": {
-    title: "Whitchurch Shot Blasting Services | Commercial Shot Blasting",
+    title: "Whitchurch Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Whitchurch and Shropshire with professional shot blasting. Specializing in Construction and surface preparation. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/whitchurch"
   },
   "whitnash": {
-    title: "Whitnash Shot Blasting Services | Commercial Shot Blasting",
+    title: "Whitnash Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services in Whitnash, Warwickshire. Specializing in structural steel, mobile. Supporting Warwickshire Engineering and. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/whitnash"
   },
   "whittlesey": {
-    title: "Whittlesey Shot Blasting Services | Commercial Shot Blasting",
+    title: "Whittlesey Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting in Whittlesey for Manufacturing projects. Specializing in shot blasting for SA2.5. Serving Cambridgeshire Manufactur Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/whittlesey"
   },
   "whittlesford": {
-    title: "Whittlesford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Whittlesford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking reliable shot blasting in Whittlesford? Specializing in shot blasting for rust removal. Serving Cambridgeshire Agriculture sectors. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/whittlesford"
   },
   "wickham-market": {
-    title: "Wickham Market Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wickham Market Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Wickham Market, ideal for Construction sector. Our structural steel service ensures pristine surfaces. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/wickham-market"
   },
   "wigston": {
-    title: "Wigston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wigston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "In Wigston, we offer professional shot blasting for Manufacturing & Construction. Specializing in structural steel across Leicestershire. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/wigston"
   },
   "willenhall": {
-    title: "Willenhall Shot Blasting Services | Commercial Shot Blasting",
+    title: "Willenhall Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting solutions for Willenhall. We handle surface preparation projects for Manufacturing, Engineering clients across West... Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/willenhall"
   },
   "willingham": {
-    title: "Willingham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Willingham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting in Willingham for Construction & Manufacturing projects. Specializing in shot blasting for structural steel. Serving Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/willingham"
   },
   "wilmslow": {
-    title: "Wilmslow Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wilmslow Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Quality surface preparation in Wilmslow for shot blasting. SA2.5, surface preparation. Serving Cheshire's Construction sector. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/wilmslow"
   },
   "wilton": {
-    title: "Wilton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wilton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting services in Wilton for Agriculture & Construction. We offer shot blasting, including SA3. Serving Wiltshire agriculture &...",
     url: "https://commercialshotblasting.co.uk/service-areas/wilton"
   },
   "wincanton": {
-    title: "Wincanton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wincanton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for shot blasting in Wincanton? We offer mobile & structural steel services for Construction businesses. Free quote. Experienced team.",
     url: "https://commercialshotblasting.co.uk/service-areas/wincanton"
   },
   "winchcombe": {
-    title: "Winchcombe Shot Blasting Services | Commercial Shot Blasting",
+    title: "Winchcombe Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Winchcombe for Manufacturing sectors. Specializing in rust removal & SA2.5. Serving Gloucestershire businesses. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/winchcombe"
   },
   "winsford": {
-    title: "Winsford Shot Blasting Services | Commercial Shot Blasting",
+    title: "Winsford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Winsford with professional shot blasting. SA3, structural steel. Serving Cheshire's Manufacturing, Construction sector. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/winsford"
   },
   "winslow": {
-    title: "Winslow Shot Blasting Services | Commercial Shot Blasting",
+    title: "Winslow Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Winslow for Construction and Logistics industries. Specializing in surface preparation. Achieving superior results. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/winslow"
   },
   "wirksworth": {
-    title: "Wirksworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wirksworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Proven shot blasting in Wirksworth — SA2.5 structural steel cleaning & restoration. Partnering with Derbyshire construction & engineering. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/wirksworth"
   },
   "wisbech": {
-    title: "Wisbech Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wisbech Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting in Wisbech for Construction projects. Specializing in shot blasting for rust removal, surface preparation. Serving C Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/wisbech"
   },
   "woburn": {
-    title: "Woburn Shot Blasting Services | Commercial Shot Blasting",
+    title: "Woburn Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Woburn for Construction projects. Dedicated to supporting Bedfordshire's Construction and Manufacturing sectors. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/woburn"
   },
   "woburn-sands": {
-    title: "Woburn Sands Shot Blasting Services | Commercial Shot Blasting",
+    title: "Woburn Sands Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Serving Woburn Sands with top-tier shot blasting for Logistics and Manufacturing. Specializing in industrial plant, containers, and steelwork. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/woburn-sands"
   },
   "wollaston": {
-    title: "Wollaston Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wollaston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialized shot blasting in Wollaston, including mobile. Specializing in shot blasting for Logistics, Manufacturing, with mobile capabilities. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/wollaston"
   },
   "wollaton": {
-    title: "Wollaton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wollaton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Wollaton for construction, engineering projects. Our SA2.5 shot blasting ensures top-quality results. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/wollaton"
   },
   "wolverton": {
-    title: "Wolverton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wolverton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting in Wolverton for the Manufacturing sector. Specializing in SA3. Serving Buckinghamshire clients. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/wolverton"
   },
   "wombourne": {
-    title: "Wombourne Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wombourne Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Wombourne specialists in professional shot blasting. offering Engineering and Manufacturing and structural steel solutions. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/wombourne"
   },
   "wombwell": {
-    title: "Wombwell Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wombwell Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Experience premium surface preparation shot blasting in Wombwell. Perfect for Construction and Steel industries in South Yorkshire. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/wombwell"
   },
   "wooburn": {
-    title: "Wooburn Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wooburn Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Wooburn businesses, our shot blasting for Construction and Manufacturing industries. Specializing in mobile and SA2.5. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/wooburn"
   },
   "wooburn-buckinghamshire": {
-    title: "Wooburn Buckinghamshire Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wooburn Buckinghamshire Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Woburn businesses, our shot blasting for Construction and Manufacturing industries. Specializing in SA2.5 and rust removal. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/wooburn-buckinghamshire"
   },
   "woodbridge": {
-    title: "Woodbridge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Woodbridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Manufacturing businesses in Woodbridge, professional shot blasting. Our structural steel service ensures pristine surfaces. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/woodbridge"
   },
   "woodhall-spa": {
-    title: "Woodhall Spa Shot Blasting Services | Commercial Shot Blasting",
+    title: "Woodhall Spa Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "For Woodhall Spa, our mobile shot blasting services. Supporting Lincolnshire's Construction and Manufacturing industries. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/woodhall-spa"
   },
   "woolacombe": {
-    title: "Woolacombe Shot Blasting Services | Commercial Shot Blasting",
+    title: "Woolacombe Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Professional shot blasting in Woolacombe for Construction & Agriculture sectors. Includes structural steel & surface preparation. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/woolacombe"
   },
   "wootton": {
-    title: "Wootton Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wootton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Achieve pristine surfaces in Wootton with our surface preparation shot blasting. Our team ensures SA2.5/SA3 standards for durable finishes. Free quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/wootton"
   },
   "worksop": {
-    title: "Worksop Shot Blasting Services | Commercial Shot Blasting",
+    title: "Worksop Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Looking for shot blasting in Worksop? We offer engineering, manufacturing projects. Our mobile shot blasting ensures top-quality results. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/worksop"
   },
   "wotton-under-edge": {
-    title: "Wotton Under Edge Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wotton Under Edge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Commercial shot blasting services in Wotton-under-Edge. Ideal for Construction applications, including SA3 & surface preparation. Covering Gloucestershi...",
     url: "https://commercialshotblasting.co.uk/service-areas/wotton-under-edge"
   },
   "wrestlingworth": {
-    title: "Wrestlingworth Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wrestlingworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Wrestlingworth businesses trust our mobile shot blasting. Providing essential surface solutions for Construction and Manufacturing operations. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/wrestlingworth"
   },
   "wycombe": {
-    title: "Wycombe Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wycombe Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Specialist shot blasting in Wycombe for the Manufacturing sector. Specializing in SA2.5. Serving Buckinghamshire clients. Call today.",
     url: "https://commercialshotblasting.co.uk/service-areas/wycombe"
   },
   "wymondham": {
-    title: "Wymondham Shot Blasting Services | Commercial Shot Blasting",
+    title: "Wymondham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Reliable shot blasting in Wymondham for Agriculture and Construction applications. Featuring structural steel and SA3 solutions. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/wymondham"
   },
   "yaxley": {
-    title: "Yaxley Shot Blasting Services | Commercial Shot Blasting",
+    title: "Yaxley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Seeking reliable shot blasting in Yaxley? Specializing in shot blasting for SA2.5. Serving Cambridgeshire Manufacturing & Construction sectors Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/yaxley"
   },
   "yeadon": {
-    title: "Yeadon Shot Blasting Services | Commercial Shot Blasting",
+    title: "Yeadon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
     description: "Expert shot blasting in Yeadon for Construction, Manufacturing sectors. We offer surface preparation services to prepare surfaces perfectly. Get a quote.",
     url: "https://commercialshotblasting.co.uk/service-areas/yeadon"
   }
@@ -5797,8 +5797,8 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
   </nav>
   <main itemscope itemtype="https://schema.org/WebPage">
     <header>
-      <h1>${escHtml(name)} Shot Blasting Services Near Me | ${escHtml(county)}</h1>
-      <p>Looking for shot blasting near me in ${escHtml(name)}? Our fully equipped mobile units come directly to your site across ${escHtml(county)}, delivering professional shot blasting for structural steelwork, factory and warehouse cladding, shipping containers, industrial floor preparation, fire escapes, staircases, warehouse racking, plant and machinery, and more.</p>
+      <h1>Shot Blasting Contractor ${escHtml(name)} | Mobile Services Near Me | ${escHtml(county)}</h1>
+      <p>Looking for a shot blasting contractor in ${escHtml(name)}? Our fully equipped mobile units come directly to your site across ${escHtml(county)}, delivering professional shot blasting for structural steelwork, factory and warehouse cladding, shipping containers, industrial floor preparation, fire escapes, staircases, warehouse racking, plant and machinery, and more. We are the specialist shot blasting contractor for commercial and industrial clients in ${escHtml(name)} and the surrounding ${escHtml(county)} area.</p>
       <p>Our shot blasting services in ${escHtml(name)} are carried out to SA2.5 (near white metal) and SA3 (white metal) standards, ensuring the correct surface profile for protective coating systems. We serve commercial, industrial, and agricultural clients across ${escHtml(county)} and the surrounding region.</p>
       <p>Call us for a free, no-obligation quote: <a href="tel:${PHONE.replace(/\s/g, "")}">${PHONE}</a></p>
       ${countyContext[countySlug] ? `<p><em>${escHtml(countyContext[countySlug])}</em></p>` : ""}
@@ -6402,7 +6402,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     const county: CountyData | undefined = countyData[countySlug];
     if (county) {
       const pageUrl = `${SITE_URL}/counties/${countySlug}`;
-      const pageTitle = `${county.name} Shot Blasting Services | Commercial Shot Blasting UK`;
+      const pageTitle = `${county.name} Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting UK`;
       const metaDesc = county.metaDescription || `${county.name} shot blasting services near me — mobile surface preparation for structural steelwork, factory cladding, containers, floor preparation, rust removal & more. SA2.5/SA3 standard. Free quote. Call ${PHONE}`;
 
       let modifiedHtml = html
@@ -6493,7 +6493,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
             .join('');
           return items ? `<section><h2>Related Industries We Serve in ${esc(county.name)}</h2><ul>${items}</ul></section>` : '';
         })();
-        const countyBodyHtml = `<div id="ssr-county-content" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;" itemscope itemtype="https://schema.org/WebPage"><nav aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><ol><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}/counties"><span itemprop="name">Counties</span></a><meta itemprop="position" content="2"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${pageUrl}"><span itemprop="name">${esc(county.name)}</span></a><meta itemprop="position" content="3"/></li></ol></nav><article><h1>${esc(county.name)} Shot Blasting Services | Commercial Shot Blasting UK</h1><p>Looking for shot blasting near me in ${esc(county.name)}? Our mobile units travel directly to your site across ${esc(county.name)}, delivering professional shot blasting for structural steelwork, factory cladding, shipping containers, industrial floor preparation, rust and mill scale removal, plant and machinery, fire escapes, and warehouse racking — all to SA2.5 and SA3 standards for commercial and industrial clients.</p>${countyContext[county.slug] ? `<p><em>${esc(countyContext[county.slug])}</em></p>` : ''}<section><h2>Shot Blasting Services Available in ${esc(county.name)}</h2><ul><li>Structural Steelwork Shot Blasting — beams, columns, trusses and fabrications</li><li>Factory and Warehouse Cladding — plastisol and paint removal</li><li>Container Shot Blasting — shipping containers and steel storage units</li><li>Industrial Floor Preparation — concrete and steel floor surface profiling</li><li>Rust Removal and Mill Scale — deep rust and scale removal to SA2.5/SA3</li><li>Plant and Machinery — industrial equipment, vehicles and pipework</li><li>Fire Escapes and Staircases — structural metalwork restoration</li><li>Warehouse Racking and Mezzanines — industrial storage structure preparation</li></ul></section><section><h2>Shot Blasting Services ${esc(county.name)} — Areas We Cover</h2><ul itemscope itemtype="https://schema.org/ItemList">${locLinksHtml}</ul></section><section><h2>Shot Blasting Services Available in ${esc(county.name)} — Full Range</h2><ul><li><a href="${SITE_URL}/services/structural-steel-frames">Structural Steel Frames Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-containers">Steel Container Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/factory-cladding">Factory &amp; Warehouse Cladding Restoration in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/fire-escapes">Fire Escapes &amp; External Stair Towers in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/staircases">Internal Steel Staircases &amp; Balustrades in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/bridge-steelwork">Bridge Steelwork Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/ladders">Fixed Ladders &amp; Step-Over Platforms in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/warehouse-racking">Warehouse Racking &amp; Pallet Rack Frames in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/pipework">Process Pipework, Spools &amp; Manifolds in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/telecom-towers">Telecom Masts &amp; Lattice Towers in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/floor-preparation">Floor Preparation &amp; Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/powder-coating">Shot Blasting &amp; Powder Coating in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/commercial-radiators">Commercial Radiators Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/commercial-vehicles">Commercial Vehicles Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-doors">Steel Doors &amp; Roller Shutters in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-sheeting">Steel Sheeting Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-gates">Steel Gates &amp; Railings in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/plant-machinery">Plant &amp; Machinery Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/intumescent-painting">Intumescent Painting in ${esc(county.name)}</a></li></ul><p><a href="${SITE_URL}/services">View all 19 shot blasting services</a></p></section><section><h2>Why Choose Our Shot Blasting Services in ${esc(county.name)}?</h2><p>We are the specialist choice for commercial and industrial shot blasting services across ${esc(county.name)} — mobile, fully equipped, and delivering SA2.5/SA3 results on-site. We offer 18 shot blasting services, free site surveys, and typically respond to quote requests within 24 hours.</p><ul><li><strong>SA2.5 &amp; SA3 Certified Results:</strong> All shot blasting services in ${esc(county.name)} are completed to SA2.5 near white metal or SA3 white metal standard — the correct surface profile for long-lasting protective coatings.</li><li><strong>Mobile Shot Blasting Across ${esc(county.name)}:</strong> Our fully equipped mobile units travel directly to your site anywhere in ${esc(county.name)}. No need to transport materials — we bring everything needed to complete the job on your premises.</li><li><strong>18 Shot Blasting Services Available:</strong> From structural steelwork and factory cladding to containers, floor preparation, and plant &amp; machinery — we offer the full range of commercial shot blasting services in ${esc(county.name)}.</li></ul></section><section><h2>Shot Blasting Services ${esc(county.name)} — What to Expect</h2><p>Our shot blasting services in ${esc(county.name)} are designed to be hassle-free from first contact to project completion. Here is what happens when you book with us:</p><ol><li><strong>Step 1 — Free Site Survey in ${esc(county.name)}:</strong> We visit your site at no charge, assess the surfaces to be blasted, and provide a detailed no-obligation quote. We advise on the correct blast standard (SA2.5 or SA3) and any preparation required.</li><li><strong>Step 2 — Mobile Unit Arrives On-Site:</strong> Our fully equipped mobile shot blasting unit travels directly to your location in ${esc(county.name)}. No need to transport your materials — we bring everything needed to carry out the work safely and efficiently on your premises.</li><li><strong>Step 3 — SA2.5 Finish &amp; Full Cleanup:</strong> We complete the shot blasting to your specified standard — typically SA2.5 near white metal — and carry out a full site cleanup before leaving. Your surfaces are ready for protective coating immediately after our visit.</li></ol></section><section><h2>Get a Quote for Shot Blasting Services in ${esc(county.name)}</h2><p>Free, no-obligation quotes for all shot blasting services across ${esc(county.name)}. We typically respond within 24 hours. Call <a href="tel:07970566409">07970 566409</a> or email <a href="mailto:info@commercialshotblasting.co.uk">info@commercialshotblasting.co.uk</a>.</p></section>${relatedIndustriesHtml}</article></div>`;
+        const countyBodyHtml = `<div id="ssr-county-content" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;" itemscope itemtype="https://schema.org/WebPage"><nav aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><ol><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}/counties"><span itemprop="name">Counties</span></a><meta itemprop="position" content="2"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${pageUrl}"><span itemprop="name">${esc(county.name)}</span></a><meta itemprop="position" content="3"/></li></ol></nav><article><h1>${esc(county.name)} Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting UK</h1><p>Looking for shot blasting near me in ${esc(county.name)}? Our mobile units travel directly to your site across ${esc(county.name)}, delivering professional shot blasting for structural steelwork, factory cladding, shipping containers, industrial floor preparation, rust and mill scale removal, plant and machinery, fire escapes, and warehouse racking — all to SA2.5 and SA3 standards for commercial and industrial clients.</p>${countyContext[county.slug] ? `<p><em>${esc(countyContext[county.slug])}</em></p>` : ''}<section><h2>Shot Blasting Services Available in ${esc(county.name)}</h2><ul><li>Structural Steelwork Shot Blasting — beams, columns, trusses and fabrications</li><li>Factory and Warehouse Cladding — plastisol and paint removal</li><li>Container Shot Blasting — shipping containers and steel storage units</li><li>Industrial Floor Preparation — concrete and steel floor surface profiling</li><li>Rust Removal and Mill Scale — deep rust and scale removal to SA2.5/SA3</li><li>Plant and Machinery — industrial equipment, vehicles and pipework</li><li>Fire Escapes and Staircases — structural metalwork restoration</li><li>Warehouse Racking and Mezzanines — industrial storage structure preparation</li></ul></section><section><h2>Shot Blasting Services ${esc(county.name)} — Areas We Cover</h2><ul itemscope itemtype="https://schema.org/ItemList">${locLinksHtml}</ul></section><section><h2>Shot Blasting Services Available in ${esc(county.name)} — Full Range</h2><ul><li><a href="${SITE_URL}/services/structural-steel-frames">Structural Steel Frames Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-containers">Steel Container Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/factory-cladding">Factory &amp; Warehouse Cladding Restoration in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/fire-escapes">Fire Escapes &amp; External Stair Towers in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/staircases">Internal Steel Staircases &amp; Balustrades in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/bridge-steelwork">Bridge Steelwork Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/ladders">Fixed Ladders &amp; Step-Over Platforms in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/warehouse-racking">Warehouse Racking &amp; Pallet Rack Frames in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/pipework">Process Pipework, Spools &amp; Manifolds in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/telecom-towers">Telecom Masts &amp; Lattice Towers in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/floor-preparation">Floor Preparation &amp; Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/powder-coating">Shot Blasting &amp; Powder Coating in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/commercial-radiators">Commercial Radiators Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/commercial-vehicles">Commercial Vehicles Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-doors">Steel Doors &amp; Roller Shutters in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-sheeting">Steel Sheeting Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-gates">Steel Gates &amp; Railings in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/plant-machinery">Plant &amp; Machinery Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/intumescent-painting">Intumescent Painting in ${esc(county.name)}</a></li></ul><p><a href="${SITE_URL}/services">View all 19 shot blasting services</a></p></section><section><h2>Why Choose Our Shot Blasting Services in ${esc(county.name)}?</h2><p>We are the specialist choice for commercial and industrial shot blasting services across ${esc(county.name)} — mobile, fully equipped, and delivering SA2.5/SA3 results on-site. We offer 18 shot blasting services, free site surveys, and typically respond to quote requests within 24 hours.</p><ul><li><strong>SA2.5 &amp; SA3 Certified Results:</strong> All shot blasting services in ${esc(county.name)} are completed to SA2.5 near white metal or SA3 white metal standard — the correct surface profile for long-lasting protective coatings.</li><li><strong>Mobile Shot Blasting Across ${esc(county.name)}:</strong> Our fully equipped mobile units travel directly to your site anywhere in ${esc(county.name)}. No need to transport materials — we bring everything needed to complete the job on your premises.</li><li><strong>18 Shot Blasting Services Available:</strong> From structural steelwork and factory cladding to containers, floor preparation, and plant &amp; machinery — we offer the full range of commercial shot blasting services in ${esc(county.name)}.</li></ul></section><section><h2>Shot Blasting Services ${esc(county.name)} — What to Expect</h2><p>Our shot blasting services in ${esc(county.name)} are designed to be hassle-free from first contact to project completion. Here is what happens when you book with us:</p><ol><li><strong>Step 1 — Free Site Survey in ${esc(county.name)}:</strong> We visit your site at no charge, assess the surfaces to be blasted, and provide a detailed no-obligation quote. We advise on the correct blast standard (SA2.5 or SA3) and any preparation required.</li><li><strong>Step 2 — Mobile Unit Arrives On-Site:</strong> Our fully equipped mobile shot blasting unit travels directly to your location in ${esc(county.name)}. No need to transport your materials — we bring everything needed to carry out the work safely and efficiently on your premises.</li><li><strong>Step 3 — SA2.5 Finish &amp; Full Cleanup:</strong> We complete the shot blasting to your specified standard — typically SA2.5 near white metal — and carry out a full site cleanup before leaving. Your surfaces are ready for protective coating immediately after our visit.</li></ol></section><section><h2>Get a Quote for Shot Blasting Services in ${esc(county.name)}</h2><p>Free, no-obligation quotes for all shot blasting services across ${esc(county.name)}. We typically respond within 24 hours. Call <a href="tel:07970566409">07970 566409</a> or email <a href="mailto:info@commercialshotblasting.co.uk">info@commercialshotblasting.co.uk</a>.</p></section>${relatedIndustriesHtml}</article></div>`;
         if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
           modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', countyBodyHtml);
         } else {
@@ -6791,12 +6791,12 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     modifiedHtml = modifiedHtml.replace(/<link\s+rel="canonical"[^>]*>/gi, '');
     
     const metaTags = `
-    <title>Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep</title>
+    <title>Shot Blasting ${locationName} | Mobile Contractor Near Me | Commercial Shot Blasting</title>
     <link rel="canonical" href="${fullUrl}" />
     <link rel="alternate" hreflang="en-gb" href="${fullUrl}" />
     <link rel="alternate" hreflang="en" href="${fullUrl}" />
-    <meta name="description" content="Shot blasting in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors &amp; more. Free quote: ${PHONE}" />
-    <meta property="og:title" content="Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep" />
+    <meta name="description" content="Shot blasting contractor in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors &amp; more. Free quote: ${PHONE}" />
+    <meta property="og:title" content="Shot Blasting ${locationName} | Mobile Contractor Near Me | Commercial Shot Blasting" />
     <meta property="og:description" content="Shot blasting in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard, same-week availability. Free quote: ${PHONE}" />
     <meta property="og:url" content="${fullUrl}" />
     <meta property="og:type" content="website" />
@@ -6807,7 +6807,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep" />
+    <meta name="twitter:title" content="Shot Blasting ${locationName} | Mobile Contractor Near Me | Commercial Shot Blasting" />
     <meta name="twitter:description" content="Shot blasting in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard. Free quote: ${PHONE}" />
     <meta name="twitter:image" content="${townOgImageUrl(locationName, countyName)}" />`;
     
@@ -6847,14 +6847,14 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     // Build meta tags and JSON-LD
     const countyStr = dynCountyName ? `, ${dynCountyName}` : '';
     const metaTags = `
-    <title>Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep</title>
+    <title>Shot Blasting ${locationName} | Mobile Contractor Near Me | Commercial Shot Blasting</title>
     <link rel="canonical" href="${fullUrl}" />
     <link rel="alternate" hreflang="en-gb" href="${fullUrl}" />
     <link rel="alternate" hreflang="en" href="${fullUrl}" />
-    <meta name="description" content="Shot blasting in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors &amp; more. Free quote: ${PHONE}" />
+    <meta name="description" content="Shot blasting contractor in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors &amp; more. Free quote: ${PHONE}" />
     <meta name="keywords" content="shot blasting ${locationName}, ${locationName} shot blasting, mobile shot blasting ${locationName}, rust removal ${locationName}, surface preparation ${locationName}${dynCountyName ? `, shot blasting ${dynCountyName}` : ''}" />
-    <meta property="og:title" content="Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep" />
-    <meta property="og:description" content="Shot blasting in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors &amp; more. Free quote: ${PHONE}" />
+    <meta property="og:title" content="Shot Blasting ${locationName} | Mobile Contractor Near Me | Commercial Shot Blasting" />
+    <meta property="og:description" content="Shot blasting contractor in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors &amp; more. Free quote: ${PHONE}" />
     <meta property="og:url" content="${fullUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${townOgImageUrl(locationName, dynCountyName || '')}" />
@@ -6865,7 +6865,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Shot Blasting ${locationName}${countyStr} | Mobile Rust Removal &amp; Surface Prep" />
+    <meta name="twitter:title" content="Shot Blasting ${locationName} | Mobile Contractor Near Me | Commercial Shot Blasting" />
     <meta name="twitter:description" content="Shot blasting in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard, same-week availability. Free quote: ${PHONE}" />
     <meta name="twitter:image" content="${townOgImageUrl(locationName, dynCountyName || '')}" />
     <meta name="twitter:image:alt" content="Shot Blasting in ${locationName}${countyStr} — Commercial Shot Blasting" />

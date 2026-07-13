@@ -1,4 +1,5 @@
 import "dotenv/config";
+import compression from "compression";
 import express from "express";
 import { createServer } from "http";
 import net from "net";
@@ -34,6 +35,8 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 async function startServer() {
   const app = express();
   const server = createServer(app);
+  // Enable gzip/deflate compression for all responses (improves TTFB and Core Web Vitals)
+  app.use(compression());
   // 301 redirect: www.commercialshotblasting.co.uk → commercialshotblasting.co.uk
   app.use((req, res, next) => {
     const host = req.headers.host || '';
