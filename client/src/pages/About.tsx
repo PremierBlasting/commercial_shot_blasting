@@ -47,6 +47,25 @@ export default function About() {
         </div>
       </section>
 
+      {/* Stats Strip */}
+      <section className="bg-[#1a3a4d] text-white py-8">
+        <div className="container">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { value: "12", label: "Mobile Teams" },
+              { value: "20+", label: "Years Experience" },
+              { value: "500+", label: "Projects Completed" },
+              { value: "2", label: "Countries Covered" },
+            ].map((stat, i) => (
+              <div key={i}>
+                <p className="text-3xl md:text-4xl font-bold text-[#E8B84A]" style={{ fontFamily: "'Playfair Display', serif" }}>{stat.value}</p>
+                <p className="text-sm text-white/70 mt-1">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Main About Content */}
       <section className="py-20 bg-white">
         <div className="container">
@@ -61,7 +80,7 @@ export default function About() {
                 <a href="https://premierblasting.co.uk" target="_blank" rel="noopener noreferrer" className="font-bold text-[#2C5F7F] underline decoration-[#2C5F7F]/40 hover:decoration-[#2C5F7F] transition-colors">Premier Blasting Ltd</a>. Operating under the Premier Blasting Ltd umbrella, we focus exclusively on large-scale commercial, industrial, and agricultural projects across England and Wales.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Our advanced shot blasting technology delivers exceptional results at competitive prices, with 9 fully equipped mobile units ready to attend your site anywhere in the UK.
+                Our advanced shot blasting technology delivers exceptional results at competitive prices, with 12 fully equipped mobile units ready to attend your site anywhere in England and Wales.
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 As part of our commitment, we employ an expert team dedicated to providing unparalleled services while maintaining high safety standards that protect your property and workforce.
