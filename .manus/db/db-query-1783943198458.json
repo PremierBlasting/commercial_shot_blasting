@@ -1,0 +1,18 @@
+{
+  "query": "SELECT slug, excerpt, category, tags, metaDescription, LEFT(content, 200) as content_preview FROM blog_posts WHERE slug = 'why-shot-blasting-essential-before-intumescent-painting' LIMIT 1;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway03.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uVdbzBSXVwdZjv.def3a11999fa --database CYVSNVCfCqJAX7JT23JqdG --execute SELECT slug, excerpt, category, tags, metaDescription, LEFT(content, 200) as content_preview FROM blog_posts WHERE slug = 'why-shot-blasting-essential-before-intumescent-painting' LIMIT 1;",
+  "rows": [
+    {
+      "slug": "why-shot-blasting-essential-before-intumescent-painting",
+      "excerpt": "Intumescent paint only performs correctly when applied to properly prepared steel. Discover why shot blasting to Sa 2.5 is the industry-standard first step — and what happens when it is skipped.",
+      "category": "Technical Guides",
+      "tags": "[\"intumescent painting\",\"shot blasting\",\"fire protection\",\"structural steel\",\"surface preparation\",\"Sa 2.5\"]",
+      "metaDescription": "Learn why shot blasting to Sa 2.5 is essential before applying intumescent paint to structural steel. Covers adhesion, DFT requirements, and fire resistance ratings R30–R120.",
+      "content_preview": "<p>Intumescent paint is one of the most effective passive fire protection systems available for structural steel. When exposed to heat, the coating expands to form an insulating char layer that mainta"
+    }
+  ],
+  "messages": [],
+  "stdout": "slug\texcerpt\tcategory\ttags\tmetaDescription\tcontent_preview\nwhy-shot-blasting-essential-before-intumescent-painting\tIntumescent paint only performs correctly when applied to properly prepared steel. Discover why shot blasting to Sa 2.5 is the industry-standard first step — and what happens when it is skipped.\tTechnical Guides\t[\"intumescent painting\",\"shot blasting\",\"fire protection\",\"structural steel\",\"surface preparation\",\"Sa 2.5\"]\tLearn why shot blasting to Sa 2.5 is essential before applying intumescent paint to structural steel. Covers adhesion, DFT requirements, and fire resistance ratings R30–R120.\t<p>Intumescent paint is one of the most effective passive fire protection systems available for structural steel. When exposed to heat, the coating expands to form an insulating char layer that mainta\n",
+  "stderr": "",
+  "execution_time_ms": 587
+}
