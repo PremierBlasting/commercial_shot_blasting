@@ -6809,7 +6809,8 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Shot Blasting ${locationName} | Mobile Contractor Near Me | Commercial Shot Blasting" />
     <meta name="twitter:description" content="Shot blasting in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard. Free quote: ${PHONE}" />
-    <meta name="twitter:image" content="${townOgImageUrl(locationName, countyName)}" />`;
+    <meta name="twitter:image" content="${townOgImageUrl(locationName, countyName)}" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />`;
     
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
     return modifiedHtml;
@@ -6869,6 +6870,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <meta name="twitter:description" content="Shot blasting in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard, same-week availability. Free quote: ${PHONE}" />
     <meta name="twitter:image" content="${townOgImageUrl(locationName, dynCountyName || '')}" />
     <meta name="twitter:image:alt" content="Shot Blasting in ${locationName}${countyStr} — Commercial Shot Blasting" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     ${generateLocationSchemas(locationSlug, locationName, fullUrl, dynCountyName, dynCountySlug)}
   `;
     
@@ -6930,6 +6932,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <meta name="twitter:description" content="${meta.description}" />
     <meta name="twitter:image" content="${townOgImageUrl(locationName, metaCountyName || '')}" />
     <meta name="twitter:image:alt" content="Shot Blasting in ${locationName}${metaCountyName ? ', ' + metaCountyName : ''} — Commercial Shot Blasting" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     ${generateLocationSchemas(locationSlug, locationName, meta.url, metaCountyName, metaCountySlug)}
   `;
   

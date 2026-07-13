@@ -20,7 +20,11 @@ function getOrganizationSchema() {
     "logo": LOGO_URL,
     "telephone": PHONE,
     "email": EMAIL,
-    "sameAs": [],
+    "sameAs": [
+      "https://www.facebook.com/commercialshotblasting",
+      "https://www.linkedin.com/company/commercial-shot-blasting",
+      "https://www.premierblasting.co.uk"
+    ],
     "address": {
       "@type": "PostalAddress",
       "addressRegion": "West Midlands",

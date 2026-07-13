@@ -152,7 +152,7 @@ export function LocationPage({ location }: LocationPageProps) {
           <div className="max-w-3xl">
             <p className="text-blue-200 font-medium mb-4">Shot Blasting Contractor — {location.county}</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Shot Blasting Contractor {location.name}
+              Shot Blasting Contractor {location.name} — Near Me
             </h1>
             {/* Item 7: Visible AggregateRating badge */}
             <div className="flex items-center gap-2 mb-4" aria-label="Customer rating: 4.9 out of 5 based on 127 reviews">
