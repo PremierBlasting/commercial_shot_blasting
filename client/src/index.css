@@ -411,3 +411,16 @@
 .blog-prose tr:nth-child(even) td {
   background: #f9fafb;
 }
+/* Glossary auto-links injected into blog content */
+.blog-prose .glossary-link {
+  color: #1a3a4d;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  text-decoration-color: #E8B84A;
+  font-weight: 500;
+  cursor: pointer;
+}
+.blog-prose .glossary-link:hover {
+  text-decoration-style: solid;
+  color: #E8B84A;
+}

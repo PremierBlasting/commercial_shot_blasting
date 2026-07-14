@@ -419,6 +419,12 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             onMouseEnter={() => prefetch('/blog')}
             onMouseLeave={cancelPrefetch}
           >Blog</Link>
+          <Link 
+            href="/glossary" 
+            className="hover:text-white/80 transition"
+            onMouseEnter={() => prefetch('/glossary')}
+            onMouseLeave={cancelPrefetch}
+          >Glossary</Link>
           
           {/* Areas Dropdown - Compact Design */}
           <div 
@@ -636,6 +642,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             <Link href="/our-work" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Our Work</Link>
             <Link href="/reviews" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Reviews</Link>
             <Link href="/blog" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Blog</Link>
+            <Link href="/glossary" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Glossary</Link>
             
             {/* Mobile Areas - Collapsible Regions with Search */}
             <div className="border-b border-white/10 py-3">

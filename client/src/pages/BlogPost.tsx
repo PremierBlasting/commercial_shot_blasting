@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { useMemo } from "react";
 import { Calendar, Tag, ArrowLeft, Clock, User } from "lucide-react";
 import { ShareButton } from "@/components/ShareButton";
 import { Link, useRoute } from "wouter";
@@ -9,6 +10,67 @@ import { useSEO } from "@/hooks/useSEO";
 import { trpc } from "@/lib/trpc";
 
 const SITE_URL = "https://commercialshotblasting.co.uk";
+
+// Glossary terms to auto-link in blog content (ordered longest-first to avoid partial matches)
+const GLOSSARY_TERMS: { term: string; id: string }[] = [
+  { term: "BS EN ISO 8501-1", id: "bs-en-iso-8501-1" },
+  { term: "DFT (Dry Film Thickness)", id: "dft" },
+  { term: "Dry Film Thickness", id: "dft" },
+  { term: "Intumescent Paint", id: "intumescent-paint" },
+  { term: "intumescent paint", id: "intumescent-paint" },
+  { term: "Intumescent paint", id: "intumescent-paint" },
+  { term: "Grit Blasting", id: "grit-blasting" },
+  { term: "grit blasting", id: "grit-blasting" },
+  { term: "Mill Scale", id: "mill-scale" },
+  { term: "mill scale", id: "mill-scale" },
+  { term: "Surface Profile", id: "surface-profile" },
+  { term: "surface profile", id: "surface-profile" },
+  { term: "Rust Grade", id: "rust-grade" },
+  { term: "rust grade", id: "rust-grade" },
+  { term: "Shot Blasting", id: "shot-blasting" },
+  { term: "shot blasting", id: "shot-blasting" },
+  { term: "Sa 2.5", id: "sa-2-5" },
+  { term: "SA 2.5", id: "sa-2-5" },
+  { term: "Sa 3", id: "sa-3" },
+  { term: "SA 3", id: "sa-3" },
+  { term: "SSPC", id: "sspc" },
+  { term: "NACE", id: "nace" },
+];
+
+/**
+ * Inject glossary links into blog HTML content.
+ * Only links the FIRST occurrence of each term to avoid over-linking.
+ * Skips terms that are already inside an <a> tag.
+ */
+function injectGlossaryLinks(html: string): string {
+  let result = html;
+  const linked = new Set<string>(); // track which glossary IDs have been linked
+
+  for (const { term, id } of GLOSSARY_TERMS) {
+    if (linked.has(id)) continue; // already linked this term's target
+    // Escape special regex chars in the term
+    const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    // Match the term only when NOT already inside an <a ...>...</a>
+    // Strategy: split on existing anchor tags, only replace in non-anchor segments
+    const anchorSplit = result.split(/(<a\b[^>]*>[\s\S]*?<\/a>)/i);
+    let replaced = false;
+    const parts = anchorSplit.map((part) => {
+      if (replaced) return part;
+      if (part.startsWith("<a")) return part; // inside existing anchor — skip
+      const regex = new RegExp(`(${escaped})`, "g");
+      let firstMatch = false;
+      return part.replace(regex, (_match, p1) => {
+        if (firstMatch || replaced) return p1;
+        firstMatch = true;
+        replaced = true;
+        return `<a href="/glossary#${id}" class="glossary-link" title="See definition: ${term}">${p1}</a>`;
+      });
+    });
+    result = parts.join("");
+    if (replaced) linked.add(id);
+  }
+  return result;
+}
 
 function estimateReadTime(content: string): number {
   const words = content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
@@ -83,6 +145,12 @@ export default function BlogPost() {
     keywords: (post?.tags ? (typeof post.tags === "string" ? JSON.parse(post.tags) : post.tags).join(", ") : undefined) || "shot blasting, surface preparation, industrial cleaning",
     canonical: slug ? `${SITE_URL}/blog/${slug}` : undefined,
   });
+
+  // Enrich blog content with glossary links (first occurrence of each term only)
+  const enrichedContent = useMemo(
+    () => (post?.content ? injectGlossaryLinks(post.content) : ""),
+    [post?.content]
+  );
 
   if (isLoading) {
     return (
@@ -198,7 +266,7 @@ export default function BlogPost() {
             {/* ── Prose content ── */}
             <div
               className="blog-prose"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: enrichedContent }}
             />
 
             {/* Tags */}

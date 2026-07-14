@@ -141,6 +141,7 @@ export function Footer() {
               <li><Link href="/our-work" className="hover:text-white">Our Work</Link></li>
               <li><Link href="/reviews" className="hover:text-white">Customer Reviews</Link></li>
               <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
+              <li><Link href="/glossary" className="hover:text-white">Glossary</Link></li>
               <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
               <li><Link href="/sitemap" className="hover:text-white">Site Map</Link></li>
             </ul>
