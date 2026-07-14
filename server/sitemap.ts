@@ -23,6 +23,7 @@ const STATIC_PAGES = [
   { loc: "/industries", changefreq: "weekly", priority: "0.9" },
   { loc: "/service-areas", changefreq: "weekly", priority: "0.9" },
   { loc: "/blog", changefreq: "weekly", priority: "0.7" },
+  { loc: "/glossary", changefreq: "monthly", priority: "0.7" },
   { loc: "/reviews", changefreq: "monthly", priority: "0.6" },
   { loc: "/prep-and-cleanup", changefreq: "monthly", priority: "0.6" },
   { loc: "/our-work", changefreq: "monthly", priority: "0.6" },
@@ -226,7 +227,31 @@ async function buildSitemap(): Promise<string> {
     console.error("[Sitemap] Failed to load blog posts:", err);
   }
 
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>`;
+  // Glossary term pages
+  const GLOSSARY_SLUGS = [
+    "bs-en-iso-8501-1",
+    "dft",
+    "grit-blasting",
+    "intumescent-paint",
+    "mill-scale",
+    "nace",
+    "rust-grade",
+    "sa-2-5",
+    "sa-3",
+    "shot-blasting",
+    "sspc",
+    "surface-profile",
+  ];
+  for (const slug of GLOSSARY_SLUGS) {
+    urls.push(
+      `  <url>\n    <loc>${escapeXml(`${SITE_URL}/glossary/${slug}`)}</loc>\n    <lastmod>2026-07-14</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`
+    );
+  }
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.join("\n")}
+</urlset>`;
 }
 
 export function registerSitemapRoute(app: Express): void {

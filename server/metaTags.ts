@@ -6070,6 +6070,62 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     return modifiedHtml;
   }
 
+  // ── Individual glossary term: /glossary/:slug ──────────────────────────────
+  const glossaryTermMatch = url.match(/^\/glossary\/([a-z0-9-]+)/);
+  if (glossaryTermMatch) {
+    const termSlug = glossaryTermMatch[1];
+    const termUrl = `${SITE_URL}/glossary/${termSlug}`;
+    // Term metadata map — mirrors client/src/data/glossaryData.ts
+    const TERM_META: Record<string, { title: string; description: string; term: string }> = {
+      'bs-en-iso-8501-1': { term: 'BS EN ISO 8501-1', title: 'BS EN ISO 8501-1 Explained | Shot Blasting Surface Preparation Standard', description: 'Complete guide to BS EN ISO 8501-1 — the UK standard for steel surface cleanliness. Covers rust grades A–D, blast grades Sa 1 to Sa 3, and how the standard is used in coating specifications.' },
+      'dft': { term: 'DFT (Dry Film Thickness)', title: 'DFT (Dry Film Thickness) Explained | Coating Thickness for Steel', description: 'What is DFT? Dry Film Thickness explained — how it is measured, why it matters for intumescent fire protection coatings, and how surface preparation affects DFT readings on structural steel.' },
+      'grit-blasting': { term: 'Grit Blasting', title: 'Grit Blasting Explained | What Is Grit Blasting & How Does It Work?', description: 'What is grit blasting? Learn how grit blasting works, the difference between grit and shot blasting, common media types, and the surface profiles achieved. Written by UK shot blasting contractors.' },
+      'intumescent-paint': { term: 'Intumescent Paint', title: 'Intumescent Paint Explained | Fire Protection Coating for Structural Steel', description: 'What is intumescent paint? How does it work, what fire ratings does it achieve, and what surface preparation is required? Complete guide from UK shot blasting and intumescent painting contractors.' },
+      'mill-scale': { term: 'Mill Scale', title: 'Mill Scale Explained | What Is Mill Scale & Why Must It Be Removed?', description: 'What is mill scale on steel? Why does it cause coating failure? How is it removed? Complete guide to mill scale, its composition, and why shot blasting to Sa 2.5 is the correct removal method.' },
+      'nace': { term: 'NACE / AMPP Standards', title: 'NACE Surface Preparation Standards Explained | NACE No. 1, 2, 3, 4', description: 'What are NACE surface preparation standards? NACE No. 1 (Sa 3), NACE No. 2 (Sa 2.5), and their ISO 8501-1 equivalents explained. Guide to NACE/AMPP blast cleaning grades for steel.' },
+      'rust-grade': { term: 'Rust Grade', title: 'Rust Grade Explained | Steel Rust Grades A, B, C, D (BS EN ISO 8501-1)', description: 'What are rust grades for steel? Grades A, B, C, and D explained — how they are assessed, how they affect shot blasting, and the difference between rust grade and blast cleanliness grade.' },
+      'sa-2-5': { term: 'Sa 2.5 (Near-White Metal)', title: 'Sa 2.5 (Near-White Metal) Explained | Shot Blasting Standard for Steel', description: 'What is Sa 2.5? Near-white metal blast cleaning explained — what it requires, why it is the standard for structural steelwork, NACE/SSPC equivalents, and how it differs from Sa 3.' },
+      'sa-3': { term: 'Sa 3 (White Metal)', title: 'Sa 3 (White Metal) Explained | Highest Blast Cleaning Standard for Steel', description: 'What is Sa 3 white metal blast cleaning? Complete guide to the Sa 3 standard — what it requires, when it is specified, how it differs from Sa 2.5, and NACE/SSPC equivalents.' },
+      'shot-blasting': { term: 'Shot Blasting', title: 'Shot Blasting Explained | What Is Shot Blasting & How Does It Work?', description: 'What is shot blasting? How does it work, what does it achieve, and what surfaces can be shot blasted? Complete guide to shot blasting from UK professional shot blasting contractors.' },
+      'sspc': { term: 'SSPC (Society for Protective Coatings)', title: 'SSPC Surface Preparation Standards Explained | SP 5, SP 10, SP 6', description: 'What are SSPC surface preparation standards? SSPC SP 5 (Sa 3), SP 10 (Sa 2.5), SP 6 (Sa 2) and their ISO 8501-1 equivalents explained. Guide to SSPC/AMPP blast cleaning grades for steel.' },
+      'surface-profile': { term: 'Surface Profile', title: 'Surface Profile Explained | Anchor Pattern for Shot Blasted Steel', description: 'What is surface profile in shot blasting? How is it measured, why does it matter for coating adhesion, and what profile is required for intumescent paint and structural steel coatings?' },
+    };
+    const meta = TERM_META[termSlug];
+    if (meta) {
+      let modifiedHtml = html
+        .replace(/<meta\s+name="description"[^>]*>/gi, '')
+        .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+        .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+        .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
+        .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+      const breadcrumb = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Glossary","item":`${SITE_URL}/glossary`},{"@type":"ListItem","position":3,"name":meta.term,"item":termUrl}]});
+      const definedTerm = JSON.stringify({"@context":"https://schema.org","@type":"DefinedTerm","@id":termUrl,"name":meta.term,"description":meta.description,"inDefinedTermSet":{"@type":"DefinedTermSet","name":"Shot Blasting & Surface Preparation Glossary","url":`${SITE_URL}/glossary`}});
+      const termMetaTags = `
+    <title>${meta.title}</title>
+    <link rel="canonical" href="${termUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${termUrl}" />
+    <link rel="alternate" hreflang="en" href="${termUrl}" />
+    <meta name="description" content="${meta.description}" />
+    <meta property="og:title" content="${meta.title}" />
+    <meta property="og:description" content="${meta.description}" />
+    <meta property="og:url" content="${termUrl}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="${LOGO}" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${meta.title}" />
+    <meta name="twitter:description" content="${meta.description}" />
+    <meta name="twitter:image" content="${LOGO}" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <script type="application/ld+json">${breadcrumb}</script>
+    <script type="application/ld+json">${definedTerm}</script>
+  `;
+      modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, termMetaTags);
+      return modifiedHtml;
+    }
+  }
+
   // ── Blog index page: /blog ─────────────────────────────────────────────────
   if (url === '/blog' || url === '/blog/') {
     const blogUrl = `${SITE_URL}/blog`;

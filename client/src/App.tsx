@@ -56,6 +56,7 @@ const ExternalStaircasesPage = lazy(() => import("./pages/ExternalStaircasesPage
 const CarParkPage = lazy(() => import("./pages/CarParkPage"));
 const IntumescentPaintingPage = lazy(() => import("./pages/IntumescentPaintingPage"));
 const Glossary = lazy(() => import("./pages/Glossary"));
+const GlossaryTerm = lazy(() => import("./pages/GlossaryTerm"));
 
 // Lazy-loaded service area pages
 const BirminghamServiceArea = lazy(() => import("./pages/BirminghamServiceArea"));
@@ -264,6 +265,7 @@ function Router() {
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/terms" component={Terms} />
         <Route path="/glossary" component={Glossary} />
+        <Route path="/glossary/:slug" component={GlossaryTerm} />
         <Route path="/blog" component={Blog} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/service-areas" component={Areas} />
