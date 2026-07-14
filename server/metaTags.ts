@@ -3405,7 +3405,7 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "127",
+      "reviewCount": "12",
       "bestRating": "5",
       "worstRating": "1"
     }
@@ -3657,7 +3657,7 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
       "areaServed": { "@type": "City", "name": locationName },
       "description": "From £500+ depending on project size and complexity"
     },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87" }
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "12", "bestRating": "5", "worstRating": "1" }
   });
 
   schemas.push({
@@ -3675,7 +3675,7 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
       "areaServed": { "@type": "City", "name": locationName },
       "description": "From £800+ per container depending on size and condition"
     },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "64" }
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12", "bestRating": "5", "worstRating": "1" }
   });
 
   schemas.push({
@@ -3693,7 +3693,7 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
       "areaServed": { "@type": "City", "name": locationName },
       "description": "From £1200+ depending on cladding area and accessibility"
     },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "52" }
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "12", "bestRating": "5", "worstRating": "1" }
   });
 
   schemas.push({
@@ -3711,21 +3711,7 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
       "areaServed": { "@type": "City", "name": locationName },
       "description": "From £600+ depending on floor area and surface condition"
     },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "43" }
-  });
-
-  // 9. VideoObject Schema
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": `Shot Blasting Services Demonstration - ${locationName}`,
-    "description": `Watch our professional shot blasting team in action in ${locationName}. See the complete process from setup to finished surface.`,
-    "thumbnailUrl": HERO_IMAGE,
-    "uploadDate": "2024-03-15",
-    "duration": "PT3M45S",
-    "contentUrl": `${SITE_URL}/videos/shot-blasting-demo.mp4`,
-    "embedUrl": `${SITE_URL}/videos/shot-blasting-demo`,
-    "publisher": { "@type": "Organization", "name": BUSINESS_NAME, "logo": { "@type": "ImageObject", "url": LOGO } }
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "12", "bestRating": "5", "worstRating": "1" }
   });
 
   // 10. HowTo Schema (6-step process)
@@ -5053,7 +5039,7 @@ function generateServiceSchemas(serviceId: string): string {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "127",
+      "reviewCount": "12",
       "bestRating": "5",
       "worstRating": "1"
     }
@@ -5152,19 +5138,6 @@ function generateServiceSchemas(serviceId: string): string {
     "telephone": PHONE,
     "email": EMAIL,
     "sameAs": [`${SITE_URL}/services/${serviceId}`]
-  });
-
-  // 7. VideoObject Schema
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": `${svc.title} — Shot Blasting Demonstration`,
-    "description": `Watch our professional ${svc.title.toLowerCase()} team in action. See the complete process from initial setup to finished surface preparation.`,
-    "thumbnailUrl": svc.heroImage,
-    "duration": "PT3M45S",
-    "contentUrl": `${SITE_URL}/videos/shot-blasting-demo.mp4`,
-    "embedUrl": `${SITE_URL}/videos/shot-blasting-demo`,
-    "publisher": { "@type": "Organization", "name": BUSINESS_NAME, "logo": { "@type": "ImageObject", "url": LOGO } }
   });
 
   // 8. HowTo Schema — customer preparation steps (distinct from process HowTo)
@@ -6031,6 +6004,72 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     return modifiedHtml;
   }
 
+  // ── Glossary page: /glossary ──────────────────────────────────────────────
+  if (url === '/glossary' || url === '/glossary/') {
+    const glossaryTitle = 'Shot Blasting Glossary | Industry Terms Explained | Commercial Shot Blasting';
+    const glossaryDesc = 'Comprehensive glossary of shot blasting and surface preparation terms: Sa 2.5, Sa 3, DFT, intumescent paint, mill scale, surface profile, BS EN ISO 8501-1, SSPC, NACE and more. Written by UK shot blasting contractors.';
+    const glossaryUrl = `${SITE_URL}/glossary`;
+    let modifiedHtml = html
+      .replace(/<meta\s+name="description"[^>]*>/gi, '')
+      .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+    const glossaryTerms = [
+      { id: 'sa-2-5', name: 'Sa 2.5', description: 'Sa 2.5 (near-white metal) is a surface cleanliness standard defined in BS EN ISO 8501-1 requiring removal of nearly all mill scale, rust, and coatings, leaving only faint staining on no more than 5% of the surface. It is the most commonly specified standard for structural steelwork receiving protective coatings.' },
+      { id: 'sa-3', name: 'Sa 3', description: 'Sa 3 (white metal) is the highest surface cleanliness standard in BS EN ISO 8501-1, requiring complete removal of all mill scale, rust, coatings, and foreign matter, leaving a uniformly grey-white metallic surface.' },
+      { id: 'dft', name: 'DFT (Dry Film Thickness)', description: 'Dry Film Thickness (DFT) is the thickness of a coating after full cure, measured in microns. DFT is critical for intumescent coatings, where the specified thickness determines the fire rating achieved (R30, R60, R90, or R120).' },
+      { id: 'intumescent-paint', name: 'Intumescent Paint', description: 'Intumescent paint is a passive fire protection coating applied to structural steel that expands when exposed to heat above approximately 200°C, forming an insulating char layer that protects the steel from reaching critical failure temperature.' },
+      { id: 'shot-blasting', name: 'Shot Blasting', description: 'Shot blasting is an abrasive surface preparation process in which steel shot or grit media is propelled at high velocity against a metal surface to remove rust, mill scale, old coatings, and contamination, and create a surface profile for coating adhesion.' },
+      { id: 'grit-blasting', name: 'Grit Blasting', description: 'Grit blasting uses angular steel grit as the abrasive media to create a sharper, more aggressive surface profile than spherical shot, making it particularly effective for high-build coatings and intumescent systems.' },
+      { id: 'mill-scale', name: 'Mill Scale', description: 'Mill scale is a thin blue-grey oxide layer that forms on hot-rolled steel during manufacture. It must be completely removed before protective coatings are applied, typically by shot blasting to Sa 2.5 or Sa 3 standard.' },
+      { id: 'rust-grade', name: 'Rust Grade', description: 'Rust grade describes the initial condition of uncoated steel before surface preparation, as defined in BS EN ISO 8501-1. Four grades are defined: Grade A (mill scale, little rust), Grade B (rust beginning), Grade C (mill scale rusted away), Grade D (general pitting).' },
+      { id: 'surface-profile', name: 'Surface Profile', description: 'Surface profile (anchor pattern) is the microscopic peak-and-valley texture created on steel by shot blasting, measured in microns Rz. A profile of 40–70 µm Rz is typically required for intumescent coatings and high-build protective systems.' },
+      { id: 'bs-en-iso-8501-1', name: 'BS EN ISO 8501-1', description: 'BS EN ISO 8501-1 is the British and European standard for visual assessment of steel surface cleanliness before paint application, defining four rust grades and seven blast-cleaned preparation grades including Sa 2.5 and Sa 3.' },
+      { id: 'sspc', name: 'SSPC (Society for Protective Coatings)', description: 'SSPC publishes North American surface preparation standards widely referenced internationally. SP 10 (Near-White Blast) is equivalent to Sa 2.5, and SP 5 (White Metal Blast) is equivalent to Sa 3.' },
+      { id: 'nace', name: 'NACE (National Association of Corrosion Engineers)', description: 'NACE International (now AMPP) published corrosion and surface preparation standards. NACE No. 2 (Near-White Blast) is equivalent to Sa 2.5, and NACE No. 1 (White Metal Blast) is equivalent to Sa 3.' },
+    ];
+    const definedTermSchemas = glossaryTerms.map(t => JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'DefinedTerm',
+      '@id': `${glossaryUrl}#${t.id}`,
+      'name': t.name,
+      'description': t.description,
+      'inDefinedTermSet': {
+        '@type': 'DefinedTermSet',
+        'name': 'Shot Blasting & Surface Preparation Glossary',
+        'url': glossaryUrl,
+        'publisher': { '@type': 'Organization', 'name': BUSINESS_NAME, 'url': SITE_URL }
+      }
+    })).join('\n    ');
+    const breadcrumbSchema = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Glossary","item":glossaryUrl}]});
+    const webPageSchema = JSON.stringify({"@context":"https://schema.org","@type":"DefinedTermSet","name":"Shot Blasting & Surface Preparation Glossary","description":glossaryDesc,"url":glossaryUrl,"inLanguage":"en-GB","publisher":{"@type":"Organization","name":BUSINESS_NAME,"url":SITE_URL}});
+    const glossaryMetaTags = `
+    <title>${glossaryTitle}</title>
+    <link rel="canonical" href="${glossaryUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${glossaryUrl}" />
+    <link rel="alternate" hreflang="en" href="${glossaryUrl}" />
+    <meta name="description" content="${glossaryDesc}" />
+    <meta property="og:title" content="${glossaryTitle}" />
+    <meta property="og:description" content="${glossaryDesc}" />
+    <meta property="og:url" content="${glossaryUrl}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="${LOGO}" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${glossaryTitle}" />
+    <meta name="twitter:description" content="${glossaryDesc}" />
+    <meta name="twitter:image" content="${LOGO}" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <script type="application/ld+json">${breadcrumbSchema}</script>
+    <script type="application/ld+json">${webPageSchema}</script>
+    ${definedTermSchemas.split('\n    ').map(s => `<script type="application/ld+json">${s}</script>`).join('\n    ')}
+  `;
+    modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, glossaryMetaTags);
+    return modifiedHtml;
+  }
+
   // ── Blog index page: /blog ─────────────────────────────────────────────────
   if (url === '/blog' || url === '/blog/') {
     const blogUrl = `${SITE_URL}/blog`;
@@ -6102,7 +6141,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       'description': postDesc,
       'author': postAuthor === BUSINESS_NAME
         ? { '@type': 'Organization', 'name': BUSINESS_NAME, 'url': SITE_URL }
-        : { '@type': 'Person', 'name': postAuthor, 'worksFor': { '@type': 'Organization', 'name': BUSINESS_NAME, 'url': SITE_URL } },
+        : { '@type': 'Person', 'name': postAuthor, 'url': `${SITE_URL}/about`, 'sameAs': ['https://www.linkedin.com/company/commercial-shot-blasting'], 'worksFor': { '@type': 'Organization', 'name': BUSINESS_NAME, 'url': SITE_URL } },
       'publisher': { '@type': 'Organization', 'name': BUSINESS_NAME, 'url': SITE_URL, 'logo': { '@type': 'ImageObject', 'url': LOGO } },
       'datePublished': postDatePublished,
       'dateModified': postDateModified,
@@ -6114,6 +6153,10 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       'articleSection': postCategory,
       'inLanguage': 'en-GB',
       'isPartOf': { '@type': 'Blog', 'name': 'Commercial Shot Blasting Blog', 'url': `${SITE_URL}/blog` },
+      'speakable': {
+        '@type': 'SpeakableSpecification',
+        'cssSelector': ['h1', '.blog-post-intro', 'article p:first-of-type'],
+      },
     };
 
     const breadcrumbSchema = {
@@ -6132,7 +6175,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <link rel="alternate" hreflang="en-gb" href="${postUrl}" />
     <link rel="alternate" hreflang="en" href="${postUrl}" />
     <meta name="description" content="${postDesc.replace(/"/g, '&quot;')}" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta property="og:title" content="${postTitle}" />
     <meta property="og:description" content="${postDesc.replace(/"/g, '&quot;')}" />
     <meta property="og:url" content="${postUrl}" />
@@ -6210,6 +6253,54 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     }
   }
 
+  // ── About page: /about ─────────────────────────────────────────────────
+  if (url === '/about' || url === '/about/') {
+    const aboutTitle = 'About Commercial Shot Blasting | UK Mobile Shot Blasting Contractor';
+    const aboutDesc = 'Commercial Shot Blasting is the UK\'s leading mobile shot blasting contractor — 12 mobile units, 20+ years experience, 500+ projects completed across England and Wales. Part of Premier Blasting Ltd. Free site surveys and fixed-price quotes.';
+    const aboutUrl = `${SITE_URL}/about`;
+    let modifiedHtml = html
+      .replace(/<meta\s+name="description"[^>]*>/gi, '')
+      .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+    const aboutMetaTags = `
+    <title>${aboutTitle}</title>
+    <link rel="canonical" href="${aboutUrl}" />
+    <link rel="alternate" hreflang="en-gb" href="${aboutUrl}" />
+    <link rel="alternate" hreflang="en" href="${aboutUrl}" />
+    <meta name="description" content="${aboutDesc}" />
+    <meta property="og:title" content="${aboutTitle}" />
+    <meta property="og:description" content="${aboutDesc}" />
+    <meta property="og:url" content="${aboutUrl}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="${LOGO}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="${BUSINESS_NAME}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${aboutTitle}" />
+    <meta name="twitter:description" content="${aboutDesc}" />
+    <meta name="twitter:image" content="${LOGO}" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <script type="application/ld+json">
+    ${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"About","item":aboutUrl}]})}
+    </script>
+    <script type="application/ld+json">
+    ${JSON.stringify({"@context":"https://schema.org","@type":"AboutPage","name":aboutTitle,"description":aboutDesc,"url":aboutUrl,"inLanguage":"en-GB","isPartOf":{"@type":"WebSite","name":BUSINESS_NAME,"url":SITE_URL},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"About","item":aboutUrl}]}})}
+    </script>
+    <script type="application/ld+json">
+    ${JSON.stringify({"@context":"https://schema.org","@type":"Organization","@id":`${SITE_URL}/#organization`,"name":BUSINESS_NAME,"url":SITE_URL,"logo":{"@type":"ImageObject","url":LOGO},"telephone":"07970566409","email":"info@commercialshotblasting.co.uk","address":{"@type":"PostalAddress","addressCountry":"GB","addressRegion":"England"},"areaServed":[{"@type":"Country","name":"England"},{"@type":"Country","name":"Wales"}],"sameAs":["https://www.facebook.com/commercialshotblasting","https://www.linkedin.com/company/commercial-shot-blasting","https://www.premierblasting.co.uk"],"parentOrganization":{"@type":"Organization","name":"Premier Blasting Ltd","url":"https://www.premierblasting.co.uk"},"numberOfEmployees":{"@type":"QuantitativeValue","minValue":12,"maxValue":50},"foundingDate":"2004","description":"Commercial Shot Blasting is the commercial and industrial division of Premier Blasting Ltd, providing mobile shot blasting services across England and Wales. Operating 12 mobile units with 20+ years of industry experience.","knowsAbout":["Shot Blasting","Surface Preparation","Sa 2.5 Standard","Sa 3 Standard","Intumescent Painting","Structural Steel Preparation","BS EN ISO 8501-1","Industrial Coating","Rust Removal","Grit Blasting"]})}
+    </script>
+    <script type="application/ld+json">
+    ${JSON.stringify({"@context":"https://schema.org","@type":"Person","@id":`${SITE_URL}/#founder`,"name":"Commercial Shot Blasting Team","jobTitle":"Managing Director","worksFor":{"@type":"Organization","@id":`${SITE_URL}/#organization`,"name":BUSINESS_NAME,"url":SITE_URL},"url":aboutUrl,"sameAs":["https://www.linkedin.com/company/commercial-shot-blasting"],"knowsAbout":["Shot Blasting","Surface Preparation","Sa 2.5","Intumescent Painting","Structural Steel","Industrial Coatings","BS EN ISO 8501-1"],"hasOccupation":{"@type":"Occupation","name":"Shot Blasting Contractor","occupationLocation":{"@type":"Country","name":"United Kingdom"},"description":"Professional mobile shot blasting contractor specialising in commercial and industrial surface preparation to Sa 2.5 and Sa 3 standards."}})}
+    </script>
+  `;
+    modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, aboutMetaTags);
+    return modifiedHtml;
+  }
+
   // ── Reviews page: /reviews ───────────────────────────────────────────────
   if (url === '/reviews' || url === '/reviews/') {
     const reviewsTitle = 'Customer Reviews | Commercial Shot Blasting';
@@ -6238,7 +6329,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
-        "reviewCount": "127",
+        "reviewCount": "12",
         "bestRating": "5",
         "worstRating": "1"
       },

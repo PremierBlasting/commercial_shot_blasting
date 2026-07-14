@@ -55,6 +55,7 @@ const SteelFabricationsPage = lazy(() => import("./pages/SteelFabricationsPage")
 const ExternalStaircasesPage = lazy(() => import("./pages/ExternalStaircasesPage"));
 const CarParkPage = lazy(() => import("./pages/CarParkPage"));
 const IntumescentPaintingPage = lazy(() => import("./pages/IntumescentPaintingPage"));
+const Glossary = lazy(() => import("./pages/Glossary"));
 
 // Lazy-loaded service area pages
 const BirminghamServiceArea = lazy(() => import("./pages/BirminghamServiceArea"));
@@ -262,6 +263,7 @@ function Router() {
         <Route path="/free-site-survey">{() => { window.location.replace("/site-survey"); return null; }}</Route>
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/terms" component={Terms} />
+        <Route path="/glossary" component={Glossary} />
         <Route path="/blog" component={Blog} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/service-areas" component={Areas} />
