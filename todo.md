@@ -1043,8 +1043,8 @@
 
 
 ## Extended Service & Glossary Improvements (2026-07-17)
-- [ ] Apply commercial keyword alignment pattern to remaining 20 service pages (update serviceMeta titles/descriptions)
-- [ ] Add Related Services internal linking blocks to all 12 glossary term pages
+- [x] Apply commercial keyword alignment pattern to remaining 20 service pages (update serviceMeta titles/descriptions) — all 25 services now have commercial keyword alignment
+- [x] Add Related Services internal linking blocks to all 12 glossary term pages
 
 ## Batch 5 SEO — Commercial Keyword Alignment for All 25 Services
 
