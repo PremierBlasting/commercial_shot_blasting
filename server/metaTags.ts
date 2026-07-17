@@ -4316,7 +4316,7 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "rust-removal": {
     id: "rust-removal",
-    title: "Rust Removal",
+    title: "Rust Removal Shot Blasting | Professional Rust Removal Service",
     description: "Professional rust removal by shot blasting for structural steel, plant, machinery, and fabrications. We remove all surface and deep-seated rust to achieve clean bare metal, ready for protective coating or galvanizing.",
     heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
     benefits: ["Complete removal of surface and deep-seated rust", "Achieves SA2.5 or SA3 cleanliness standard", "Creates correct surface profile for coating adhesion", "Extends the service life of steel structures and components", "Mobile service — we come to your site across England and Wales"],
@@ -4335,7 +4335,7 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "mill-scale-removal": {
     id: "mill-scale-removal",
-    title: "Mill Scale Removal",
+    title: "Mill Scale Removal | Shot Blasting for Steel Cleanliness",
     description: "Specialist mill scale removal by shot blasting for new steel fabrications, structural sections, and plate. Mill scale must be removed before coating or galvanizing to ensure adhesion and prevent premature coating failure.",
     heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80",
     benefits: ["Complete removal of mill scale from new and used steel", "Achieves SA2.5 or SA3 standard required by coating manufacturers", "Prevents premature coating failure caused by mill scale delamination", "Creates the correct surface profile for coating adhesion", "Essential pre-treatment before galvanizing, powder coating, or painting"],
