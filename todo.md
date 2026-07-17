@@ -1051,5 +1051,6 @@
 - [x] Update serviceMeta titles for all 25 services with commercial keyword pattern: "Service Name Shot Blasting | Descriptor | Commercial Shot Blasting"
 - [x] Update serviceMeta descriptions for all 25 services with commercial intent: "Professional shot blasting for [service]. [Problem removal]. [Benefit]." pattern
 - [x] Verify all 25 services now have consistent commercial keyword alignment in title/H1/intro
-- [ ] Add Related Services internal linking block to GlossaryTerm.tsx sidebar (3–4 relevant services per glossary term)
+- [x] Add Related Services internal linking block to GlossaryTerm.tsx sidebar (3–4 relevant services per glossary term)
+- [x] Add relatedServices data to all 12 glossary terms with 3 relevant services each
 - [ ] Submit all new/updated glossary and service URLs to Google Search Console for re-indexing

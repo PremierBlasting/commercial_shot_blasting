@@ -18,6 +18,7 @@ export interface GlossaryTerm {
   body: string;        // Extended HTML body content for individual page (paragraphs, lists)
   faqs: GlossaryFAQ[];
   relatedTerms: string[]; // term IDs of related glossary entries
+  relatedServices?: Array<{ id: string; name: string; description: string }>; // related service pages
   seeAlso?: string;    // URL to related service/blog page
   seeAlsoLabel?: string;
   metaTitle: string;
@@ -77,6 +78,11 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       }
     ],
     relatedTerms: ["sa-2-5", "sa-3", "rust-grade", "mill-scale", "sspc", "nace"],
+    relatedServices: [
+      { id: "structural-steel-frames", name: "Structural Steel Frames Shot Blasting", description: "Professional shot blasting for structural steelwork to Sa 2.5 and Sa 3 standards" },
+      { id: "factory-cladding", name: "Factory Cladding Shot Blasting", description: "Specialist cleaning of factory cladding panels and metal siding" },
+      { id: "container-shot-blasting", name: "Container Shot Blasting", description: "Professional blasting for shipping containers and storage tanks" }
+    ],
     seeAlso: "/services",
     seeAlsoLabel: "Our Shot Blasting Services",
     metaTitle: "BS EN ISO 8501-1 Explained | Shot Blasting Surface Preparation Standard",
@@ -125,6 +131,11 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       }
     ],
     relatedTerms: ["intumescent-paint", "surface-profile", "sa-2-5"],
+    relatedServices: [
+      { id: "intumescent-painting", name: "Intumescent Painting Service", description: "Complete fire-resistant coating service with certified DFT documentation" },
+      { id: "powder-coating", name: "Powder Coating Shot Blasting", description: "Combined shot blasting and durable powder coating finishing" },
+      { id: "structural-steel-frames", name: "Structural Steel Frames", description: "Professional surface preparation for protective coating systems" }
+    ],
     seeAlso: "/services/intumescent-painting",
     seeAlsoLabel: "Intumescent Painting Service",
     metaTitle: "DFT (Dry Film Thickness) Explained | Coating Thickness for Steel",
@@ -174,6 +185,11 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       }
     ],
     relatedTerms: ["shot-blasting", "surface-profile", "sa-2-5", "mill-scale"],
+    relatedServices: [
+      { id: "intumescent-painting", name: "Intumescent Painting", description: "Fire-resistant coatings applied to correctly prepared steel surfaces" },
+      { id: "powder-coating", name: "Powder Coating", description: "Durable protective finishing after shot blasting preparation" },
+      { id: "structural-steel-frames", name: "Structural Steel Frames", description: "Professional shot blasting to Sa 2.5 and Sa 3 standards" }
+    ],
     seeAlso: "/services",
     seeAlsoLabel: "Our Shot Blasting Services",
     metaTitle: "Grit Blasting Explained | What Is Grit Blasting & How Does It Work?",
@@ -239,6 +255,11 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       }
     ],
     relatedTerms: ["dft", "sa-2-5", "surface-profile", "bs-en-iso-8501-1"],
+    relatedServices: [
+      { id: "intumescent-painting", name: "Intumescent Painting Service", description: "Complete fire protection coating service with certified DFT documentation" },
+      { id: "structural-steel-frames", name: "Structural Steel Frames", description: "Professional shot blasting to Sa 2.5 for intumescent paint preparation" },
+      { id: "bridge-steelwork", name: "Bridge Steelwork", description: "Infrastructure shot blasting meeting highway specifications" }
+    ],
     seeAlso: "/services/intumescent-painting",
     seeAlsoLabel: "Intumescent Painting Service",
     metaTitle: "Intumescent Paint Explained | Fire Protection Coating for Structural Steel",
@@ -286,6 +307,11 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       }
     ],
     relatedTerms: ["sa-2-5", "sa-3", "shot-blasting", "rust-grade", "bs-en-iso-8501-1"],
+    relatedServices: [
+      { id: "rust-removal", name: "Rust Removal Shot Blasting", description: "Complete removal of rust and mill scale from all steel types" },
+      { id: "structural-steel-frames", name: "Structural Steel Frames", description: "Professional shot blasting to Sa 2.5 and Sa 3 standards" },
+      { id: "container-shot-blasting", name: "Container Shot Blasting", description: "Specialist cleaning of corroded shipping containers" }
+    ],
     seeAlso: "/services",
     seeAlsoLabel: "Our Shot Blasting Services",
     metaTitle: "Mill Scale Explained | What Is Mill Scale & Why Must It Be Removed?",
@@ -337,6 +363,11 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       }
     ],
     relatedTerms: ["sspc", "sa-2-5", "sa-3", "bs-en-iso-8501-1"],
+    relatedServices: [
+      { id: "structural-steel-frames", name: "Structural Steel Frames", description: "Professional shot blasting to NACE and ISO standards" },
+      { id: "bridge-steelwork", name: "Bridge Steelwork", description: "Infrastructure blasting meeting NACE/ISO specifications" },
+      { id: "pipework", name: "Pipework Shot Blasting", description: "Pipeline surface preparation to NACE standards" }
+    ],
     seeAlso: "/services",
     seeAlsoLabel: "Our Shot Blasting Services",
     metaTitle: "NACE Surface Preparation Standards Explained | NACE No. 1, 2, 3, 4",
@@ -388,6 +419,11 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       }
     ],
     relatedTerms: ["sa-2-5", "sa-3", "mill-scale", "bs-en-iso-8501-1", "shot-blasting"],
+    relatedServices: [
+      { id: "rust-removal", name: "Rust Removal", description: "Complete rust and corrosion removal from all steel types" },
+      { id: "structural-steel-frames", name: "Structural Steel Frames", description: "Professional shot blasting from any rust grade to Sa 2.5" },
+      { id: "commercial-vehicles", name: "Commercial Vehicle Blasting", description: "Rust removal and restoration of vehicles and machinery" }
+    ],
     seeAlso: "/services",
     seeAlsoLabel: "Our Shot Blasting Services",
     metaTitle: "Rust Grade Explained | Steel Rust Grades A, B, C, D (BS EN ISO 8501-1)",
@@ -449,6 +485,11 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       }
     ],
     relatedTerms: ["sa-3", "bs-en-iso-8501-1", "mill-scale", "surface-profile", "intumescent-paint", "nace", "sspc"],
+    relatedServices: [
+      { id: "structural-steel-frames", name: "Structural Steel Frames", description: "Professional shot blasting to Sa 2.5 standard" },
+      { id: "intumescent-painting", name: "Intumescent Painting", description: "Fire protection coatings applied to Sa 2.5 prepared steel" },
+      { id: "powder-coating", name: "Powder Coating", description: "Durable finishing on Sa 2.5 prepared surfaces" }
+    ],
     seeAlso: "/blog/how-to-prepare-structural-steel-for-intumescent-painting",
     seeAlsoLabel: "How to Prepare Structural Steel for Intumescent Painting",
     metaTitle: "Sa 2.5 (Near-White Metal) Explained | Shot Blasting Standard for Steel",
@@ -505,6 +546,11 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       }
     ],
     relatedTerms: ["sa-2-5", "bs-en-iso-8501-1", "mill-scale", "surface-profile", "nace", "sspc"],
+    relatedServices: [
+      { id: "bridge-steelwork", name: "Bridge Steelwork", description: "Infrastructure blasting to Sa 3 for highway applications" },
+      { id: "structural-steel-frames", name: "Structural Steel Frames", description: "Professional shot blasting to Sa 3 for demanding applications" },
+      { id: "pipework", name: "Pipework Shot Blasting", description: "Pipeline surface preparation to Sa 3 standards" }
+    ],
     seeAlso: "/services",
     seeAlsoLabel: "Our Shot Blasting Services",
     metaTitle: "Sa 3 (White Metal) Explained | Highest Blast Cleaning Standard for Steel",
@@ -560,7 +606,12 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
         answer: "Shot blasting is primarily used on steel and iron surfaces. It can be used on structural steel frames, factory cladding, shipping containers, fire escapes, staircases, bridge steelwork, floors, pipework, plant and machinery, and many other steel structures. It is not suitable for thin sheet metal, aluminium, or other soft metals without specialist media and equipment."
       }
     ],
-    relatedTerms: ["grit-blasting", "sa-2-5", "surface-profile", "mill-scale", "bs-en-iso-8501-1"],
+     relatedTerms: ["sa-2-5", "sa-3", "grit-blasting", "mill-scale", "surface-profile"],
+    relatedServices: [
+      { id: "structural-steel-frames", name: "Structural Steel Frames", description: "Professional shot blasting to Sa 2.5 and Sa 3 standards" },
+      { id: "factory-cladding", name: "Factory Cladding", description: "Specialist cleaning of cladding panels and metal siding" },
+      { id: "rust-removal", name: "Rust Removal", description: "Complete rust and corrosion removal from all steel types" }
+    ],
     seeAlso: "/services",
     seeAlsoLabel: "Our Shot Blasting Services",
     metaTitle: "Shot Blasting Explained | What Is Shot Blasting & How Does It Work?",
@@ -613,7 +664,12 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
         answer: "SSPC (now AMPP) is a North American standards body, while BS EN ISO 8501-1 is the British and European standard. Both describe the same levels of surface cleanliness but use different designations. SSPC SP 10 = Sa 2.5, SSPC SP 5 = Sa 3. Most UK coating specifications reference ISO 8501-1, but coating manufacturers' data sheets often cross-reference both."
       }
     ],
-    relatedTerms: ["nace", "sa-2-5", "sa-3", "bs-en-iso-8501-1"],
+    relatedTerms: ["rust-grade", "sa-2-5", "bs-en-iso-8501-1"],
+    relatedServices: [
+      { id: "structural-steel-frames", name: "Structural Steel Frames", description: "Professional shot blasting to SSPC and ISO standards" },
+      { id: "bridge-steelwork", name: "Bridge Steelwork", description: "Infrastructure blasting meeting SSPC/ISO specifications" },
+      { id: "pipework", name: "Pipework Shot Blasting", description: "Pipeline surface preparation to SSPC standards" }
+    ],
     seeAlso: "/services",
     seeAlsoLabel: "Our Shot Blasting Services",
     metaTitle: "SSPC Surface Preparation Standards Explained | SP 5, SP 10, SP 6",
@@ -677,6 +733,11 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       }
     ],
     relatedTerms: ["shot-blasting", "grit-blasting", "dft", "sa-2-5", "intumescent-paint"],
+    relatedServices: [
+      { id: "intumescent-painting", name: "Intumescent Painting", description: "Fire protection coatings requiring precise surface profile" },
+      { id: "powder-coating", name: "Powder Coating", description: "High-build coating systems applied to profiled surfaces" },
+      { id: "structural-steel-frames", name: "Structural Steel Frames", description: "Professional shot blasting achieving required surface profiles" }
+    ],
     seeAlso: "/services",
     seeAlsoLabel: "Our Shot Blasting Services",
     metaTitle: "Surface Profile Explained | Anchor Pattern for Shot Blasted Steel",

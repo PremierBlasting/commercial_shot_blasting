@@ -264,6 +264,28 @@ export default function GlossaryTerm() {
                 </div>
               )}
 
+              {/* Related Services */}
+              <div className="bg-blue-50 rounded-xl p-5 border border-blue-200">
+                <h3 className="font-bold text-[#1a3a4d] mb-3 flex items-center gap-2 text-sm uppercase tracking-wide">
+                  <span className="text-[#E8B84A]">⚙</span>
+                  Related Services
+                </h3>
+                <ul className="space-y-2">
+                  {term.relatedServices && term.relatedServices.map((service) => (
+                    <li key={service.id}>
+                      <Link
+                        href={`/services/${service.id}`}
+                        className="text-sm text-[#1a3a4d] hover:text-[#E8B84A] transition-colors font-medium flex items-center gap-1"
+                      >
+                        <ChevronRight className="w-3.5 h-3.5 text-[#E8B84A]" />
+                        {service.name}
+                      </Link>
+                      <p className="text-xs text-gray-600 ml-5 mt-0.5 line-clamp-2">{service.description}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               {/* See also service/blog link */}
               {term.seeAlso && (
                 <div className="bg-[#1a3a4d] text-white rounded-xl p-5">
