@@ -1040,3 +1040,16 @@
 
 ## Service Page SEO Improvements Batch 5 (2026-07-17)
 - [x] Optimisation 10: Create tighter title/H1/intro matching around commercial intent keywords on 5 key services
+
+
+## Extended Service & Glossary Improvements (2026-07-17)
+- [ ] Apply commercial keyword alignment pattern to remaining 20 service pages (update serviceMeta titles/descriptions)
+- [ ] Add Related Services internal linking blocks to all 12 glossary term pages
+
+## Batch 5 SEO — Commercial Keyword Alignment for All 25 Services
+
+- [x] Update serviceMeta titles for all 25 services with commercial keyword pattern: "Service Name Shot Blasting | Descriptor | Commercial Shot Blasting"
+- [x] Update serviceMeta descriptions for all 25 services with commercial intent: "Professional shot blasting for [service]. [Problem removal]. [Benefit]." pattern
+- [x] Verify all 25 services now have consistent commercial keyword alignment in title/H1/intro
+- [ ] Add Related Services internal linking block to GlossaryTerm.tsx sidebar (3–4 relevant services per glossary term)
+- [ ] Submit all new/updated glossary and service URLs to Google Search Console for re-indexing

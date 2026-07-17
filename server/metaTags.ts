@@ -3978,8 +3978,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "fire-escapes": {
     id: "fire-escapes",
-    title: "Fire Escapes & External Stair Towers Shot Blasting",
-    description: "Comprehensive shot blasting for fire escape structures and stair towers. We remove rust and corrosion from fire safety infrastructure, preparing surfaces...",
+    title: "Fire Escape Shot Blasting | External Stair Cleaning | Commercial Shot Blasting",
+    description: "Professional shot blasting for fire escapes and external stairs. Removes rust and restores safety compliance for protective coating and maintenance.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/CwpnAmaEraMSszIF.png",
     benefits: ["Removes rust and corrosion from safety-critical structures", "Prepares surfaces for protective coatings or galvanizing", "Extends the service life of fire escape systems", "Cost-effective alternative to replacement"],
     process: [
@@ -3997,8 +3997,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "staircases": {
     id: "staircases",
-    title: "Internal Steel Staircases, Balustrades & Handrails Shot Blasting",
-    description: "Meticulous shot blasting for internal steel staircases, balustrades, and handrails. We remove rust, old paint, and welding residue, preparing surfaces for...",
+    title: "Staircase Shot Blasting | Balustrade Cleaning | Commercial Shot Blasting",
+    description: "Professional shot blasting for steel staircases, balustrades, and handrails. Removes rust and welding residue for protective coating and restoration.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/jaElsgrlYUgbWwFe.png",
     benefits: ["Removes rust, old coatings, and welding discoloration", "Prepares surfaces for powder coating or painting", "Restores architectural metalwork to original condition", "Suitable for heritage restoration projects"],
     process: [
@@ -4016,8 +4016,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "bridge-steelwork": {
     id: "bridge-steelwork",
-    title: "Bridge Steelwork Shot Blasting | Girders, Crossmembers & Parapet Rails",
-    description: "Professional bridge steelwork shot blasting for girders, crossmembers, parapet rails, and bridge infrastructure. We prepare all bridge steel surfaces to SA2.5 or SA3 cleanliness standard with certified documentation for coating manufacturers.",
+    title: "Bridge Steelwork Shot Blasting | Infrastructure Cleaning | Commercial Shot Blasting",
+    description: "Professional shot blasting for bridge steelwork, girders, and infrastructure. Meets highway specifications and prepares surfaces for protective coating systems.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/SIvqwXQxxXKmsmDK.png",
     benefits: ["Meets highway and railway bridge coating specifications", "Removes rust, old coatings, and corrosion", "Extends bridge infrastructure lifespan", "Cost-effective alternative to bridge replacement"],
     process: [
@@ -4035,8 +4035,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "ladders": {
     id: "ladders",
-    title: "Fixed Ladders & Step-Over Platforms Shot Blasting",
-    description: "Comprehensive shot blasting for fixed ladders, caged ladder systems, and step-over platforms. We remove rust and corrosion from industrial access...",
+    title: "Ladder Shot Blasting | Access Platform Cleaning | Commercial Shot Blasting",
+    description: "Professional shot blasting for fixed ladders, caged systems, and access platforms. Removes rust and restores safety-critical access infrastructure.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/fjQLkvBCsjdFzSjo.png",
     benefits: ["Removes rust and corrosion from safety-critical access systems", "Prepares surfaces for protective coatings or galvanizing", "Extends the service life of access infrastructure", "Cost-effective alternative to replacement"],
     process: [
@@ -4054,8 +4054,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "warehouse-racking": {
     id: "warehouse-racking",
-    title: "Warehouse Racking & Pallet Rack Frames Shot Blasting",
-    description: "Specialist shot blasting for pallet racking systems, storage frames, and industrial shelving. We remove rust, old powder coating, and contaminants from...",
+    title: "Warehouse Racking Shot Blasting | Pallet Rack Cleaning | Commercial Shot Blasting",
+    description: "Professional shot blasting for warehouse racking, pallet racks, and storage frames. Removes rust and corrosion to restore racking systems and extend service life.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/iAwFyjcyrlabkDxc.png",
     benefits: ["Complete removal of rust, old coatings, and corrosion", "Extends the service life of warehouse racking systems", "Prepares surfaces for powder coating or galvanizing", "Cost-effective alternative to replacing entire racking systems"],
     process: [
@@ -4073,8 +4073,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "pipework": {
     id: "pipework",
-    title: "Process Pipework, Spools & Manifolds Shot Blasting",
-    description: "Professional shot blasting for process pipework, pipe spools, and manifolds. We prepare internal and external pipe surfaces to the required cleanliness...",
+    title: "Pipework Shot Blasting | Pipe Spool Cleaning | Commercial Shot Blasting",
+    description: "Professional shot blasting for process pipework, pipe spools, and manifolds. Prepares internal and external surfaces for coating and meets pipeline specifications.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
     benefits: ["Internal and external surface preparation", "Meets pipeline coating specifications", "Suitable for all pipe diameters and materials", "Extends pipeline service life"],
     process: [
@@ -4092,8 +4092,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "telecom-towers": {
     id: "telecom-towers",
-    title: "Telecom Masts & Lattice Towers Shot Blasting",
-    description: "Specialist shot blasting for telecom masts, lattice towers, and communication infrastructure. We remove corrosion and old coatings from tower steelwork,...",
+    title: "Telecom Tower Shot Blasting | Mast Cleaning | Commercial Shot Blasting",
+    description: "Professional shot blasting for telecom masts, lattice towers, and communication infrastructure. Removes corrosion and extends tower lifespan with protective coatings.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
     benefits: ["Removes corrosion from tower steelwork", "Extends telecom infrastructure lifespan", "Prepares surfaces for protective coating systems", "Reduces maintenance costs"],
     process: [
@@ -4111,8 +4111,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "floor-preparation": {
     id: "floor-preparation",
-    title: "Floor Preparation & Shot Blasting",
-    description: "Industrial floor shot blasting for concrete and steel floor surfaces. We prepare floors for resin coatings, epoxy systems, and protective treatments by...",
+    title: "Floor Shot Blasting | Concrete Floor Preparation | Commercial Shot Blasting",
+    description: "Professional shot blasting for concrete and steel floors. Removes coatings and prepares surfaces for epoxy, resin, and protective coating systems.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
     benefits: ["Creates ideal surface profile for coating adhesion", "Removes laitance, contamination, and old coatings", "Suitable for concrete and steel floors", "Prepares floors for resin, epoxy, and protective systems"],
     process: [
@@ -4130,8 +4130,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "powder-coating": {
     id: "powder-coating",
-    title: "Shot Blasting & Powder Coating",
-    description: "Combined shot blasting and powder coating service for steel components. We prepare surfaces by shot blasting then apply durable powder coating finishes in a...",
+    title: "Powder Coating Shot Blasting | Surface Preparation & Finishing | Commercial Shot Blasting",
+    description: "Professional combined shot blasting and powder coating service for steel components. Complete surface preparation and durable protective finishing.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
     benefits: ["Complete surface preparation and finishing service", "Wide range of colours and textures available", "Durable, long-lasting corrosion protection", "Environmentally friendly process"],
     process: [
@@ -4149,8 +4149,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "commercial-radiators": {
     id: "commercial-radiators",
-    title: "Commercial Radiators Shot Blasting",
-    description: "Specialist shot blasting for commercial and industrial radiators. We clean internal and external surfaces of cast iron, steel, and aluminium radiators,...",
+    title: "Commercial Radiator Shot Blasting | Heat Exchanger Cleaning | Commercial Shot Blasting",
+    description: "Professional shot blasting for commercial radiators and heat exchangers. Restores efficiency and removes internal scale and corrosion.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
     benefits: ["Restores heat transfer efficiency", "Removes internal scale and corrosion", "Prepares external surfaces for recoating", "Extends radiator service life"],
     process: [
@@ -4168,8 +4168,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "commercial-vehicles": {
     id: "commercial-vehicles",
-    title: "Commercial & Agricultural Vehicle Shot Blasting",
-    description: "Professional shot blasting for commercial vehicles, agricultural machinery, and heavy plant. We remove rust, old paint, and corrosion from vehicle bodywork,...",
+    title: "Commercial Vehicle Shot Blasting | Truck & Machinery Cleaning | Commercial Shot Blasting",
+    description: "Professional shot blasting for commercial vehicles, trucks, and agricultural machinery. Removes rust and corrosion for restoration and protective coating.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
     benefits: ["Complete rust and corrosion removal", "Prepares surfaces for protective coatings", "Extends vehicle and machinery service life", "Suitable for all vehicle types and sizes"],
     process: [
@@ -4187,8 +4187,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "steel-doors": {
     id: "steel-doors",
-    title: "Steel Doors & Roller Shutters Shot Blasting",
-    description: "Professional shot blasting for steel doors, roller shutters, and industrial door systems. We remove rust, old paint, and corrosion from door components,...",
+    title: "Steel Door Shot Blasting | Roller Shutter Cleaning | Commercial Shot Blasting",
+    description: "Professional shot blasting for steel doors, roller shutters, and industrial door systems. Removes rust and prepares surfaces for protective coatings.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
     benefits: ["Removes rust and corrosion from door components", "Prepares surfaces for protective coatings", "Extends door and shutter service life", "Cost-effective alternative to replacement"],
     process: [
@@ -4206,8 +4206,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "steel-sheeting": {
     id: "steel-sheeting",
-    title: "Steel Sheeting Shot Blasting",
-    description: "Specialist shot blasting for steel sheet, plate, and profiled sheeting. We prepare steel sheet surfaces for protective coatings, galvanizing, or further...",
+    title: "Steel Sheeting Shot Blasting | Metal Plate Cleaning | Commercial Shot Blasting",
+    description: "Professional shot blasting for steel sheet, plate, and profiled sheeting. Removes mill scale and prepares surfaces for galvanizing or protective coatings.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
     benefits: ["Removes mill scale, rust, and contamination", "Prepares surfaces for galvanizing or coating", "Suitable for all sheet thicknesses and profiles", "Achieves consistent surface cleanliness"],
     process: [
@@ -4225,8 +4225,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "steel-gates": {
     id: "steel-gates",
-    title: "Steel Gates & Railings Shot Blasting",
-    description: "Professional shot blasting for steel gates, railings, fencing, and ornamental ironwork. We remove rust, old paint, and corrosion from decorative and...",
+    title: "Steel Gate Shot Blasting | Railing Cleaning | Commercial Shot Blasting",
+    description: "Professional shot blasting for steel gates, railings, and ornamental ironwork. Removes rust and restores metalwork for protective coating or painting.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
     benefits: ["Removes rust and corrosion from metalwork", "Prepares surfaces for powder coating or painting", "Restores ornamental ironwork to original condition", "Cost-effective alternative to replacement"],
     process: [
@@ -4244,8 +4244,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "plant-machinery": {
     id: "plant-machinery",
-    title: "Plant & Machinery Shot Blasting",
-    description: "Comprehensive shot blasting for industrial plant, heavy machinery, and manufacturing equipment. We remove rust, old coatings, and contamination from...",
+    title: "Plant & Machinery Shot Blasting | Equipment Cleaning | Commercial Shot Blasting",
+    description: "Professional shot blasting for industrial plant, machinery, and manufacturing equipment. Removes rust and contamination for protective coating and restoration.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
     benefits: ["Complete rust and contamination removal", "Prepares surfaces for protective coatings", "Extends machinery service life", "Suitable for all types of industrial plant"],
     process: [
