@@ -1033,6 +1033,10 @@
 
 
 ## Service Page SEO Improvements Batch 4 (2026-07-17)
-- [ ] Optimisation 6: Add isRelatedTo schema links for all 25 services in generateServiceSchemas
+- [x] Optimisation 6: Add isRelatedTo schema links for all 25 services in generateServiceSchemas
 - [x] Optimisation 7: Add Review array to Service schema for top 5 highest-traffic services (structural-steel-frames, rust-removal, intumescent-painting, mill-scale-removal, bridge-steelwork)
 - [x] Optimisation 9: Tighten H1/title/intro alignment on 5 key commercial services
+
+
+## Service Page SEO Improvements Batch 5 (2026-07-17)
+- [x] Optimisation 10: Create tighter title/H1/intro matching around commercial intent keywords on 5 key services

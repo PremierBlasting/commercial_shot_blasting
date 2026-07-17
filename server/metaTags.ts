@@ -3922,8 +3922,8 @@ interface ServiceMeta {
 const serviceMeta: Record<string, ServiceMeta> = {
   "structural-steel-frames": {
     id: "structural-steel-frames",
-    title: "Structural Steel Frames Shot Blasting",
-    description: "Professional shot blasting for structural steel frames, roof trusses, and load-bearing structures. We remove mill scale, rust, and old coatings for...",
+    title: "Structural Steel Frames Shot Blasting | Professional Surface Preparation",
+    description: "Professional structural steel frames shot blasting for roof trusses, load-bearing structures, and fabrications. We remove mill scale, rust, and old coatings to achieve SA2.5 or SA3 cleanliness standard, ready for protective coating or galvanizing.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png",
     benefits: ["Complete removal of mill scale and rust", "Prepares surfaces for galvanizing or protective coatings", "Extends structural steel lifespan", "Suitable for new fabrications and refurbishment projects"],
     process: [
@@ -4016,8 +4016,8 @@ const serviceMeta: Record<string, ServiceMeta> = {
   },
   "bridge-steelwork": {
     id: "bridge-steelwork",
-    title: "Bridge Steelwork Shot Blasting",
-    description: "Comprehensive shot blasting for bridge steelwork including girders, crossmembers, and parapet rails. We prepare bridge steel surfaces to SA2.5 or SA3...",
+    title: "Bridge Steelwork Shot Blasting | Girders, Crossmembers & Parapet Rails",
+    description: "Professional bridge steelwork shot blasting for girders, crossmembers, parapet rails, and bridge infrastructure. We prepare all bridge steel surfaces to SA2.5 or SA3 cleanliness standard with certified documentation for coating manufacturers.",
     heroImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/SIvqwXQxxXKmsmDK.png",
     benefits: ["Meets highway and railway bridge coating specifications", "Removes rust, old coatings, and corrosion", "Extends bridge infrastructure lifespan", "Cost-effective alternative to bridge replacement"],
     process: [
