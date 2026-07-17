@@ -1025,3 +1025,8 @@
 - [x] Add max-snippet:-1 to service-page robots meta tag in metaTags.ts
 - [x] Replace generic keywords meta with service-specific head terms per service slug
 - [x] Strengthen Service schema: add alternateName, fix WebPage.about to reference #service entity, fix Organization.sameAs to real social URLs
+
+## Service Page SEO Improvements Batch 3 (2026-07-17)
+- [x] Optimisation 4: Fix Organization/LocalBusiness schema — add @id, address, parentOrganization to provider block
+- [x] Optimisation 5: Add Related Services internal linking map and inject into SSR body HTML for all 25 services
+- [x] Optimisation 8: Expand SSR body HTML with proof-heavy sections (use cases, applicable standards, industries, before/after criteria)

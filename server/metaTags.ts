@@ -4410,6 +4410,191 @@ const serviceMeta: Record<string, ServiceMeta> = {
     ]
   }
 };
+// Per-service proof data: standards, surface criteria, industries, decision note
+const SERVICE_PROOF_DATA: Record<string, {
+  standards: string[];
+  surfaceBefore: string;
+  surfaceAfter: string;
+  industries: string[];
+  decisionNote: string;
+}> = {
+  "structural-steel-frames": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5 (Near White Metal)", "Sa 3 (White Metal) where specified", "BS EN ISO 8503-2 (surface profile)"],
+    surfaceBefore: "Mill scale, rust grade A–D, old primer, weld spatter, oil contamination",
+    surfaceAfter: "Sa 2.5 or Sa 3 cleanliness; 40–75 µm anchor profile for coating adhesion",
+    industries: ["Structural steel fabricators", "Main contractors", "Steelwork erectors", "Building developers"],
+    decisionNote: "Shot blasting is required before hot-dip galvanising and before intumescent fire protection coatings. Wire brushing or power tool cleaning cannot achieve the anchor profile needed for long-term coating adhesion on structural steelwork.",
+  },
+  "steel-containers": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5 minimum", "SSPC-SP 10 (Near White Blast)"],
+    surfaceBefore: "Heavy rust (grade C–D), old paint, contamination, scale",
+    surfaceAfter: "Sa 2.5 cleanliness; uniform anchor profile for epoxy or polyurethane topcoat",
+    industries: ["Shipping and logistics", "Storage and warehousing", "Food and agriculture", "Oil and gas"],
+    decisionNote: "Containers with grade C or D rust require abrasive blasting — chemical treatments and hand tools cannot remove deep pitting corrosion. Shot blasting is the only method that achieves the profile needed for a 10+ year coating lifespan.",
+  },
+  "factory-cladding": {
+    standards: ["BS EN ISO 8501-1", "Sa 2 minimum", "BS EN ISO 12944 (corrosivity category C3–C5)"],
+    surfaceBefore: "Failed plastisol, multiple paint layers, surface rust, chalking coatings",
+    surfaceAfter: "Sa 2 or Sa 2.5 cleanliness; clean metal profile ready for direct-to-metal primer",
+    industries: ["Industrial property owners", "Facilities managers", "Roofing and cladding contractors"],
+    decisionNote: "Cladding replacement costs 5–10× more than shot blasting and repainting. For panels with sound substrate, blasting and recoating extends service life by 15–25 years and avoids the waste and disruption of full replacement.",
+  },
+  "fire-escapes": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5", "BS EN ISO 12944 (C3 exterior corrosivity)"],
+    surfaceBefore: "Surface rust, flaking paint, mill scale, corrosion at welds and fixings",
+    surfaceAfter: "Sa 2.5 clean metal; 40–70 µm profile for zinc-rich primer adhesion",
+    industries: ["Building owners and managers", "Housing associations", "Commercial property", "Local authorities"],
+    decisionNote: "Fire escapes are a life-safety asset. Corrosion that compromises structural integrity is a legal liability. Shot blasting removes all corrosion products and provides the profile needed for a long-life zinc-rich primer system.",
+  },
+  "staircases": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5", "BS EN ISO 12944"],
+    surfaceBefore: "Rust, old paint, mill scale, contamination at welds",
+    surfaceAfter: "Sa 2.5 clean metal; uniform profile for primer and topcoat",
+    industries: ["Steel fabricators", "Fit-out contractors", "Building developers", "Facilities managers"],
+    decisionNote: "For new-build staircases, shot blasting before primer application is the most cost-effective way to ensure the coating system meets BS EN ISO 12944 C3 or C4 durability requirements.",
+  },
+  "bridge-steelwork": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5 or Sa 3", "Network Rail NR/SP/CIV/017", "Highways England standards"],
+    surfaceBefore: "Heavy corrosion, failed paint, mill scale, weld spatter, contamination",
+    surfaceAfter: "Sa 2.5 or Sa 3 cleanliness; 50–100 µm profile for high-build epoxy systems",
+    industries: ["Civil engineering contractors", "Network Rail supply chain", "Local authority highways", "Structural engineers"],
+    decisionNote: "Bridge steelwork is exposed to C4–C5 corrosivity environments. Only abrasive blasting to Sa 2.5 or Sa 3 achieves the cleanliness and profile needed for high-build epoxy and zinc-rich primer systems with 15–25 year maintenance intervals.",
+  },
+  "ladders": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5", "BS EN ISO 12944 C3"],
+    surfaceBefore: "Surface rust, old paint, mill scale",
+    surfaceAfter: "Sa 2.5 clean metal; 40–60 µm profile",
+    industries: ["Industrial facilities", "Utilities", "Telecoms", "Building owners"],
+    decisionNote: "Ladders and access equipment in industrial environments require a robust primer system. Shot blasting is the only preparation method that guarantees the adhesion needed for a 10-year coating life in C3 environments.",
+  },
+  "warehouse-racking": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5", "BS EN ISO 12944 C2–C3"],
+    surfaceBefore: "Rust, old powder coat, mill scale, impact damage",
+    surfaceAfter: "Sa 2.5 clean metal; uniform profile for powder coat adhesion",
+    industries: ["Logistics and distribution", "Retail", "Manufacturing", "Cold storage"],
+    decisionNote: "Racking with failed powder coat or surface rust cannot be safely recoated without abrasive preparation. Shot blasting removes all contamination and provides the profile needed for a new powder coat or liquid coating system.",
+  },
+  "pipework": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5 or Sa 3", "NACE SP0169 (external corrosion)", "BS EN 10290"],
+    surfaceBefore: "Mill scale, rust, old coatings, weld seam contamination",
+    surfaceAfter: "Sa 2.5 or Sa 3 cleanliness; 50–75 µm profile for fusion-bonded epoxy or polyurethane",
+    industries: ["Oil and gas", "Water utilities", "Chemical processing", "District heating"],
+    decisionNote: "External pipe corrosion is the leading cause of pipeline failure. Shot blasting to Sa 2.5 or Sa 3 before fusion-bonded epoxy or polyurethane coating is the industry standard for pipelines in buried and immersed environments.",
+  },
+  "telecom-towers": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5", "BS EN ISO 12944 C4–C5"],
+    surfaceBefore: "Heavy corrosion, failed galvanising, old paint, weld spatter",
+    surfaceAfter: "Sa 2.5 clean metal; 50–80 µm profile for high-build zinc-rich primer",
+    industries: ["Telecoms operators", "Tower owners", "Infrastructure contractors"],
+    decisionNote: "Telecom towers in exposed locations are subject to C4–C5 corrosivity. Shot blasting is required to remove failed galvanising and prepare the substrate for a new high-build zinc-rich primer system with a 20-year design life.",
+  },
+  "floor-preparation": {
+    standards: ["BS EN 13892-6 (floor profile)", "SSPC-SP 13 (concrete surface preparation)", "ICRI Guideline No. 310.2"],
+    surfaceBefore: "Laitance, old coatings, oil contamination, smooth concrete, failed paint",
+    surfaceAfter: "CSP 3–5 profile; clean, open substrate for epoxy or polyurethane floor coating",
+    industries: ["Food and beverage", "Pharmaceutical", "Automotive", "Warehousing and logistics"],
+    decisionNote: "Floor coating failures are almost always caused by inadequate surface preparation. Shot blasting to CSP 3–5 is the only method that consistently achieves the profile and cleanliness needed for a floor coating with a 10+ year service life.",
+  },
+  "powder-coating": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5", "BS EN 13438 (powder coating on steel)"],
+    surfaceBefore: "Mill scale, rust, old coatings, oil, weld spatter",
+    surfaceAfter: "Sa 2.5 clean metal; 40–60 µm profile for powder coat adhesion",
+    industries: ["Metal fabricators", "Architectural metalwork", "Automotive components", "Garden and street furniture"],
+    decisionNote: "Powder coat adhesion failures are almost always caused by inadequate substrate preparation. Shot blasting to Sa 2.5 before powder coating is the industry standard for components requiring a 10+ year coating life.",
+  },
+  "commercial-radiators": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5", "BS EN ISO 12944 C2"],
+    surfaceBefore: "Rust, old paint, scale, corrosion at welds",
+    surfaceAfter: "Sa 2.5 clean metal; 40–60 µm profile for primer and topcoat",
+    industries: ["Building services contractors", "Facilities managers", "Social housing", "Commercial property"],
+    decisionNote: "Radiators with surface rust or failed paint cannot be recoated without abrasive preparation. Shot blasting removes all corrosion products and provides the profile needed for a long-life primer and topcoat system.",
+  },
+  "commercial-vehicles": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5", "BS EN ISO 12944 C3"],
+    surfaceBefore: "Rust, old paint, underseal, road salt contamination",
+    surfaceAfter: "Sa 2.5 clean metal; 40–70 µm profile for zinc-rich primer",
+    industries: ["Fleet operators", "Haulage and logistics", "Agricultural contractors", "Plant hire"],
+    decisionNote: "Vehicle chassis corrosion is accelerated by road salt and moisture. Shot blasting to Sa 2.5 removes all corrosion products and provides the profile needed for a zinc-rich primer system that resists further corrosion for 5–10 years.",
+  },
+  "steel-doors": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5", "BS EN ISO 12944 C3"],
+    surfaceBefore: "Rust, old paint, mill scale, weld spatter",
+    surfaceAfter: "Sa 2.5 clean metal; 40–60 µm profile for primer and topcoat",
+    industries: ["Industrial property", "Logistics", "Retail", "Building owners"],
+    decisionNote: "Steel doors and roller shutters in industrial environments are subject to C3 corrosivity. Shot blasting before repainting is the only preparation method that guarantees adhesion and a 10-year coating life.",
+  },
+  "steel-sheeting": {
+    standards: ["BS EN ISO 8501-1", "Sa 2", "BS EN ISO 12944 C3–C4"],
+    surfaceBefore: "Failed plastisol, rust, old paint, chalking coatings",
+    surfaceAfter: "Sa 2 clean metal; uniform profile for direct-to-metal primer",
+    industries: ["Roofing contractors", "Industrial property owners", "Agricultural buildings"],
+    decisionNote: "Profiled steel sheeting with failed coatings can be restored by shot blasting and recoating at a fraction of the cost of replacement. The process removes all failed coating and rust without damaging the substrate profile.",
+  },
+  "steel-gates": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5", "BS EN ISO 12944 C3"],
+    surfaceBefore: "Rust, old paint, mill scale, weld spatter",
+    surfaceAfter: "Sa 2.5 clean metal; 40–60 µm profile for zinc-rich primer or powder coat",
+    industries: ["Agricultural", "Industrial", "Commercial property", "Local authorities"],
+    decisionNote: "Gates and railings in outdoor environments require a robust primer system. Shot blasting to Sa 2.5 is the only preparation method that guarantees the adhesion needed for a 10-year coating life in C3 environments.",
+  },
+  "plant-machinery": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5", "BS EN ISO 12944 C3"],
+    surfaceBefore: "Heavy rust, old paint, grease, hydraulic fluid contamination",
+    surfaceAfter: "Sa 2.5 clean metal; 40–70 µm profile for primer and topcoat",
+    industries: ["Plant hire", "Agricultural contractors", "Mining and quarrying", "Construction"],
+    decisionNote: "Plant and machinery in outdoor environments accumulate heavy corrosion and contamination. Shot blasting is the only preparation method that removes all corrosion products and contamination to achieve the profile needed for a long-life coating system.",
+  },
+  "intumescent-painting": {
+    standards: ["BS EN ISO 8501-1 Sa 2.5", "BS EN 13381-8 (fire protection)", "BS 476 Part 20–22", "ASFP guidance"],
+    surfaceBefore: "Mill scale, rust, weld spatter — all must be removed before intumescent application",
+    surfaceAfter: "Sa 2.5 clean metal; 40–75 µm profile for intumescent primer adhesion",
+    industries: ["Structural steel fabricators", "Main contractors", "Fire protection engineers", "Building control"],
+    decisionNote: "Intumescent coatings require Sa 2.5 surface preparation as a minimum. Any mill scale or rust beneath the intumescent layer will cause delamination during a fire event, rendering the fire protection ineffective. Shot blasting is mandatory before intumescent application on structural steelwork.",
+  },
+  "marine-shot-blasting": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5 or Sa 3", "NACE No. 2 / SSPC-SP 10", "IMO PSPC (ballast tanks)"],
+    surfaceBefore: "Heavy marine corrosion, biofouling, old antifouling, mill scale",
+    surfaceAfter: "Sa 2.5 or Sa 3 cleanliness; 60–100 µm profile for epoxy or antifouling systems",
+    industries: ["Shipyards", "Offshore operators", "Port authorities", "Marine engineers"],
+    decisionNote: "Marine environments are the most corrosive (C5-M). Only abrasive blasting to Sa 2.5 or Sa 3 achieves the cleanliness and profile needed for high-build epoxy and antifouling systems with 5–10 year dry-dock intervals.",
+  },
+  "rust-removal": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5 minimum", "Rust grades A–D (ISO 8501-1)"],
+    surfaceBefore: "Rust grades B, C, or D — surface rust to deep pitting corrosion",
+    surfaceAfter: "Sa 2.5 clean metal; all rust products removed; anchor profile for coating",
+    industries: ["Steel fabricators", "Building owners", "Infrastructure", "Plant and equipment"],
+    decisionNote: "Wire brushing and needle guns can only achieve St 2 or St 3 cleanliness — insufficient for long-life coatings. Shot blasting to Sa 2.5 removes all rust products including sub-surface corrosion that hand tools cannot reach.",
+  },
+  "mill-scale-removal": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5 (mill scale must be fully removed)", "BS EN ISO 8503-2"],
+    surfaceBefore: "Mill scale (rust grade A) — intact or partially intact scale on hot-rolled steel",
+    surfaceAfter: "Sa 2.5 or Sa 3 — all mill scale removed; 40–75 µm anchor profile",
+    industries: ["Steel fabricators", "Structural steel", "Pipework", "Pressure vessels"],
+    decisionNote: "Mill scale is cathodic to steel — it accelerates corrosion of the underlying metal once it breaks down. Shot blasting is the only reliable method to remove intact mill scale and achieve the Sa 2.5 standard required before primer application.",
+  },
+  "paint-stripping": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5", "BS EN ISO 12944"],
+    surfaceBefore: "Multiple paint layers, failed coatings, lead paint (with appropriate controls), bitumen",
+    surfaceAfter: "Sa 2.5 clean metal; all old coatings removed; uniform anchor profile",
+    industries: ["Building owners", "Infrastructure", "Industrial plant", "Heritage and restoration"],
+    decisionNote: "Chemical stripping is slow, produces hazardous waste, and cannot achieve the anchor profile needed for new coatings. Shot blasting removes all old coatings in a single pass and simultaneously prepares the surface for recoating.",
+  },
+  "coating-removal": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5", "SSPC-SP 10"],
+    surfaceBefore: "Failed epoxy, polyurethane, bitumen, zinc-rich primer, thermal spray coatings",
+    surfaceAfter: "Sa 2.5 clean metal; all old coatings removed; uniform anchor profile",
+    industries: ["Oil and gas", "Water utilities", "Infrastructure", "Industrial plant"],
+    decisionNote: "Hard coatings such as epoxy and thermal spray zinc cannot be removed by chemical stripping or hand tools. Shot blasting is the only method that reliably removes these coatings without damaging the substrate.",
+  },
+  "agricultural-shot-blasting": {
+    standards: ["BS EN ISO 8501-1", "Sa 2.5", "BS EN ISO 12944 C3–C4"],
+    surfaceBefore: "Heavy rust, old paint, soil contamination, hydraulic fluid, agricultural chemical residues",
+    surfaceAfter: "Sa 2.5 clean metal; 40–70 µm profile for primer and topcoat",
+    industries: ["Arable and livestock farmers", "Agricultural contractors", "Farm machinery dealers"],
+    decisionNote: "Agricultural machinery is subject to C3–C4 corrosivity from soil, fertilisers, and moisture. Shot blasting to Sa 2.5 removes all corrosion products and contamination, providing the profile needed for a 5–10 year coating life.",
+  },
+};
+
 /**
  * Generate SSR body HTML for service pages so crawlers see full content
  */
@@ -4804,6 +4989,23 @@ function generateServiceBodyHTML(serviceId: string): string {
   <p>${escHtml(d.description)}</p>
   <section class="ssr-process"><h2>Our Process</h2>${stepsHtml}</section>
   <section class="ssr-applications"><h2>Applications</h2><ul>${appsHtml}</ul></section>
+  ${(() => {
+    const proof = SERVICE_PROOF_DATA[serviceId];
+    if (!proof) return '';
+    const stdItems = proof.standards.map((s: string) => `<li>${escHtml(s)}</li>`).join('');
+    const indItems = proof.industries.map((i: string) => `<li>${escHtml(i)}</li>`).join('');
+    return `<section class="ssr-proof">
+    <h2>Applicable Standards &amp; Specifications</h2>
+    <ul>${stdItems}</ul>
+    <h2>Surface Condition</h2>
+    <p><strong>Before blasting:</strong> ${escHtml(proof.surfaceBefore)}</p>
+    <p><strong>After blasting:</strong> ${escHtml(proof.surfaceAfter)}</p>
+    <h2>Industries We Serve</h2>
+    <ul>${indItems}</ul>
+    <h2>When to Choose Shot Blasting</h2>
+    <p>${escHtml(proof.decisionNote)}</p>
+  </section>`;
+  })()}
   <section class="ssr-faqs" itemscope itemtype="https://schema.org/FAQPage"><h2>Frequently Asked Questions</h2>${faqsHtml}</section>
   <section class="ssr-coverage" id="service-coverage">
     <h2>Where We Offer ${escHtml(d.title)}</h2>
@@ -4937,6 +5139,166 @@ function generateServiceBodyHTML(serviceId: string): string {
     const items = relatedPosts.map((p: {slug: string; title: string}) => `<li><a href="${SITE_URL}/blog/${p.slug}">${escHtml(p.title)}</a></li>`).join('\n        ');
     return `<section aria-label="Related Guides">\n    <h2>Related Guides</h2>\n    <ul>\n        ${items}\n    </ul>\n  </section>`;
   })()}
+  ${(() => {
+    const SERVICE_RELATED_MAP: Record<string, Array<{slug: string; title: string}>> = {
+      "structural-steel-frames": [
+        {slug: "bridge-steelwork", title: "Bridge Steelwork Shot Blasting"},
+        {slug: "warehouse-racking", title: "Warehouse Racking Shot Blasting"},
+        {slug: "intumescent-painting", title: "Intumescent Painting"},
+        {slug: "mill-scale-removal", title: "Mill Scale Removal"},
+      ],
+      "steel-containers": [
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "paint-stripping", title: "Paint Stripping"},
+        {slug: "marine-shot-blasting", title: "Marine Shot Blasting"},
+        {slug: "coating-removal", title: "Coating Removal"},
+      ],
+      "factory-cladding": [
+        {slug: "steel-sheeting", title: "Steel Sheeting Blasting"},
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "paint-stripping", title: "Paint Stripping"},
+        {slug: "powder-coating", title: "Powder Coating Preparation"},
+      ],
+      "fire-escapes": [
+        {slug: "staircases", title: "Staircase Shot Blasting"},
+        {slug: "steel-gates", title: "Steel Gates & Railings"},
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "ladders", title: "Ladder Shot Blasting"},
+      ],
+      "staircases": [
+        {slug: "fire-escapes", title: "Fire Escape Shot Blasting"},
+        {slug: "ladders", title: "Ladder Shot Blasting"},
+        {slug: "steel-gates", title: "Steel Gates & Railings"},
+        {slug: "powder-coating", title: "Powder Coating Preparation"},
+      ],
+      "bridge-steelwork": [
+        {slug: "structural-steel-frames", title: "Structural Steel Frames"},
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "mill-scale-removal", title: "Mill Scale Removal"},
+        {slug: "pipework", title: "Pipework Shot Blasting"},
+      ],
+      "ladders": [
+        {slug: "fire-escapes", title: "Fire Escape Shot Blasting"},
+        {slug: "staircases", title: "Staircase Shot Blasting"},
+        {slug: "steel-gates", title: "Steel Gates & Railings"},
+        {slug: "rust-removal", title: "Rust Removal"},
+      ],
+      "warehouse-racking": [
+        {slug: "structural-steel-frames", title: "Structural Steel Frames"},
+        {slug: "floor-preparation", title: "Floor Preparation"},
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "powder-coating", title: "Powder Coating Preparation"},
+      ],
+      "pipework": [
+        {slug: "bridge-steelwork", title: "Bridge Steelwork Shot Blasting"},
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "mill-scale-removal", title: "Mill Scale Removal"},
+        {slug: "coating-removal", title: "Coating Removal"},
+      ],
+      "telecom-towers": [
+        {slug: "bridge-steelwork", title: "Bridge Steelwork Shot Blasting"},
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "structural-steel-frames", title: "Structural Steel Frames"},
+        {slug: "mill-scale-removal", title: "Mill Scale Removal"},
+      ],
+      "floor-preparation": [
+        {slug: "warehouse-racking", title: "Warehouse Racking Shot Blasting"},
+        {slug: "factory-cladding", title: "Factory & Warehouse Cladding"},
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "paint-stripping", title: "Paint Stripping"},
+      ],
+      "powder-coating": [
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "mill-scale-removal", title: "Mill Scale Removal"},
+        {slug: "paint-stripping", title: "Paint Stripping"},
+        {slug: "steel-gates", title: "Steel Gates & Railings"},
+      ],
+      "commercial-radiators": [
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "paint-stripping", title: "Paint Stripping"},
+        {slug: "powder-coating", title: "Powder Coating Preparation"},
+        {slug: "commercial-vehicles", title: "Commercial Vehicles"},
+      ],
+      "commercial-vehicles": [
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "paint-stripping", title: "Paint Stripping"},
+        {slug: "agricultural-shot-blasting", title: "Agricultural Shot Blasting"},
+        {slug: "plant-machinery", title: "Plant & Machinery"},
+      ],
+      "steel-doors": [
+        {slug: "steel-gates", title: "Steel Gates & Railings"},
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "powder-coating", title: "Powder Coating Preparation"},
+        {slug: "paint-stripping", title: "Paint Stripping"},
+      ],
+      "steel-sheeting": [
+        {slug: "factory-cladding", title: "Factory & Warehouse Cladding"},
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "paint-stripping", title: "Paint Stripping"},
+        {slug: "mill-scale-removal", title: "Mill Scale Removal"},
+      ],
+      "steel-gates": [
+        {slug: "steel-doors", title: "Steel Doors & Shutters"},
+        {slug: "fire-escapes", title: "Fire Escape Shot Blasting"},
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "powder-coating", title: "Powder Coating Preparation"},
+      ],
+      "plant-machinery": [
+        {slug: "commercial-vehicles", title: "Commercial Vehicles"},
+        {slug: "agricultural-shot-blasting", title: "Agricultural Shot Blasting"},
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "paint-stripping", title: "Paint Stripping"},
+      ],
+      "intumescent-painting": [
+        {slug: "structural-steel-frames", title: "Structural Steel Frames"},
+        {slug: "bridge-steelwork", title: "Bridge Steelwork Shot Blasting"},
+        {slug: "mill-scale-removal", title: "Mill Scale Removal"},
+        {slug: "rust-removal", title: "Rust Removal"},
+      ],
+      "marine-shot-blasting": [
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "coating-removal", title: "Coating Removal"},
+        {slug: "paint-stripping", title: "Paint Stripping"},
+        {slug: "mill-scale-removal", title: "Mill Scale Removal"},
+      ],
+      "rust-removal": [
+        {slug: "mill-scale-removal", title: "Mill Scale Removal"},
+        {slug: "paint-stripping", title: "Paint Stripping"},
+        {slug: "coating-removal", title: "Coating Removal"},
+        {slug: "structural-steel-frames", title: "Structural Steel Frames"},
+      ],
+      "mill-scale-removal": [
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "structural-steel-frames", title: "Structural Steel Frames"},
+        {slug: "intumescent-painting", title: "Intumescent Painting"},
+        {slug: "bridge-steelwork", title: "Bridge Steelwork Shot Blasting"},
+      ],
+      "paint-stripping": [
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "coating-removal", title: "Coating Removal"},
+        {slug: "powder-coating", title: "Powder Coating Preparation"},
+        {slug: "factory-cladding", title: "Factory & Warehouse Cladding"},
+      ],
+      "coating-removal": [
+        {slug: "paint-stripping", title: "Paint Stripping"},
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "mill-scale-removal", title: "Mill Scale Removal"},
+        {slug: "marine-shot-blasting", title: "Marine Shot Blasting"},
+      ],
+      "agricultural-shot-blasting": [
+        {slug: "plant-machinery", title: "Plant & Machinery"},
+        {slug: "commercial-vehicles", title: "Commercial Vehicles"},
+        {slug: "rust-removal", title: "Rust Removal"},
+        {slug: "paint-stripping", title: "Paint Stripping"},
+      ],
+    };
+    const related = SERVICE_RELATED_MAP[serviceId] || [];
+    if (!related.length) return '';
+    const items = related.map((r: {slug: string; title: string}) =>
+      `<li><a href="${SITE_URL}/services/${r.slug}">${escHtml(r.title)}</a></li>`
+    ).join('\n        ');
+    return `<section aria-label="Related Services">\n    <h2>Related Services</h2>\n    <ul>\n        ${items}\n    </ul>\n  </section>`;
+  })()}
   <section class="ssr-contact">
     <h2>Get a Free Quote for ${escHtml(d.title)}</h2>
     <p>Contact Commercial Shot Blasting for professional ${escHtml(d.title.toLowerCase())} services across the UK.</p>
@@ -5027,12 +5389,29 @@ function generateServiceSchemas(serviceId: string): string {
     "url": url,
     "image": svc.heroImage,
     "provider": {
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": `${SITE_URL}/#organization`,
       "name": BUSINESS_NAME,
       "telephone": PHONE,
       "email": EMAIL,
       "url": SITE_URL,
-      "logo": { "@type": "ImageObject", "url": LOGO }
+      "logo": { "@type": "ImageObject", "url": LOGO },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB",
+        "addressRegion": "England"
+      },
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Premier Blasting Ltd",
+        "url": "https://www.premierblasting.co.uk"
+      },
+      "foundingDate": "2004",
+      "sameAs": [
+        "https://www.facebook.com/commercialshotblasting",
+        "https://www.linkedin.com/company/commercial-shot-blasting",
+        "https://www.premierblasting.co.uk"
+      ]
     },
     "areaServed": [
       { "@type": "Country", "name": "United Kingdom" },
