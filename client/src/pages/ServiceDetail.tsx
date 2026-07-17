@@ -2035,11 +2035,11 @@ export default function ServiceDetail() {
       </footer>
 
       {/* Item 10: Sticky mobile Get a Quote / Call Now bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#2C5F7F] shadow-[0_-2px_12px_rgba(0,0,0,0.15)]">
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#2C5F7F] shadow-[0_-2px_12px_rgba(0,0,0,0.15)] animate-in slide-in-from-bottom-4 duration-300">
         <div className="flex items-stretch">
           <button
             type="button"
-            className="flex-1 flex items-center justify-center gap-2 py-3.5 text-white font-semibold text-sm"
+            className="flex-1 flex items-center justify-center gap-2 py-3.5 text-white font-semibold text-sm hover:bg-[#234a63] transition-colors duration-200"
             onClick={() => setQuotePopupOpen(true)}
           >
             <ArrowRight className="w-4 h-4" />
@@ -2047,7 +2047,7 @@ export default function ServiceDetail() {
           </button>
           <a
             href="tel:07970566409"
-            className="flex items-center justify-center gap-2 px-5 py-3.5 bg-[#1a3a4d] text-white font-semibold text-sm border-l border-white/20"
+            className="flex items-center justify-center gap-2 px-5 py-3.5 bg-[#1a3a4d] text-white font-semibold text-sm border-l border-white/20 hover:bg-[#0f2635] transition-colors duration-200"
             onClick={() => trackPhoneCall('07970566409', 'Service Page Sticky Bar')}
             aria-label="Call 07970 566409"
           >

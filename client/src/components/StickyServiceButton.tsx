@@ -9,6 +9,7 @@ interface StickyServiceButtonProps {
 
 export function StickyServiceButton({ onOpenQuotePopup, serviceTitle }: StickyServiceButtonProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,9 +24,13 @@ export function StickyServiceButton({ onOpenQuotePopup, serviceTitle }: StickySe
   if (!isVisible) return null;
 
   return (
-    <div className="hidden md:fixed md:bottom-8 md:right-8 md:z-40 md:flex md:flex-col md:gap-3 md:max-w-xs animate-in fade-in slide-in-from-bottom-4 duration-300">
+    <div className="hidden md:fixed md:bottom-8 md:right-8 md:z-40 md:flex md:flex-col md:gap-3 md:max-w-xs animate-in fade-in slide-in-from-bottom-8 duration-500">
       {/* Desktop Sticky Button Group */}
-      <div className="bg-white rounded-xl shadow-2xl overflow-hidden border border-[#2C5F7F]/10">
+      <div 
+        className="bg-white rounded-xl shadow-2xl overflow-hidden border border-[#2C5F7F]/10 transition-all duration-300 hover:shadow-[0_20px_40px_rgba(44,95,127,0.2)] hover:scale-105 origin-bottom-right"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         {/* Header */}
         <div className="bg-gradient-to-r from-[#2C5F7F] to-[#1a3a4d] px-4 py-3">
           <p className="text-white text-sm font-semibold">Need a Quote?</p>
@@ -36,15 +41,15 @@ export function StickyServiceButton({ onOpenQuotePopup, serviceTitle }: StickySe
         <div className="p-4 flex flex-col gap-3">
           <button
             onClick={onOpenQuotePopup}
-            className="flex items-center justify-center gap-2 bg-[#2C5F7F] hover:bg-[#234a63] text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 text-sm shadow-md hover:shadow-lg"
+            className="flex items-center justify-center gap-2 bg-[#2C5F7F] hover:bg-[#234a63] text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 text-sm shadow-md hover:shadow-lg hover:scale-105 active:scale-95"
           >
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className={`w-4 h-4 transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`} />
             Request a Site Survey
           </button>
           <a
             href="tel:07970566409"
             onClick={() => trackPhoneCall('07970566409', 'Service Page Sticky Button')}
-            className="flex items-center justify-center gap-2 border-2 border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 text-sm"
+            className="flex items-center justify-center gap-2 border-2 border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 text-sm hover:scale-105 active:scale-95"
           >
             <Phone className="w-4 h-4" />
             Call: 07970 566409
@@ -62,7 +67,7 @@ export function StickyServiceButton({ onOpenQuotePopup, serviceTitle }: StickySe
       {/* Scroll-to-top indicator */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="bg-white hover:bg-[#F5F1E8] border border-[#2C5F7F]/20 text-[#2C5F7F] font-semibold py-2 px-4 rounded-lg transition-all duration-200 text-xs shadow-md hover:shadow-lg"
+        className="bg-white hover:bg-[#F5F1E8] border border-[#2C5F7F]/20 text-[#2C5F7F] font-semibold py-2 px-4 rounded-lg transition-all duration-200 text-xs shadow-md hover:shadow-lg hover:scale-105 active:scale-95"
       >
         ↑ Back to Top
       </button>

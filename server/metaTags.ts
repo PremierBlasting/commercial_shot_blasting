@@ -4387,7 +4387,10 @@ const serviceMeta: Record<string, ServiceMeta> = {
     applications: ["Factory cladding re-coating", "Structural steel refurbishment", "Plant and machinery", "Pipework and vessels", "Bridge steelwork", "Industrial equipment"],
     faqs: [
       { question: "Can you remove galvanizing?", answer: "Yes. Shot blasting can remove galvanized coatings from steel to prepare surfaces for re-galvanizing or alternative coating systems. The process creates the correct surface profile for the new coating." },
-      { question: "Can you remove plastisol from cladding?", answer: "Yes. We regularly remove plastisol coatings from factory and warehouse cladding panels as part of refurbishment projects. Shot blasting removes the coating without damaging the underlying steel profile." }
+      { question: "Can you remove plastisol from cladding?", answer: "Yes. We regularly remove plastisol coatings from factory and warehouse cladding panels as part of refurbishment projects. Shot blasting removes the coating without damaging the underlying steel profile." },
+      { question: "Is coating removal faster than manual stripping?", answer: "Shot blasting is significantly faster than manual methods like scraping or grinding. We can remove multiple coating layers in a fraction of the time, reducing project duration and labor costs substantially." },
+      { question: "Will shot blasting damage the substrate?", answer: "No. Our experienced technicians use controlled pressure and appropriate blast media to remove coatings without damaging the underlying substrate. We can work on delicate surfaces when required." },
+      { question: "What happens after coating removal?", answer: "After removal, surfaces are clean and ready for new coatings. We coordinate timing with your coating contractor to apply new finishes within 24-48 hours to prevent surface oxidation and flash rusting." }
     ]
   },
   "agricultural-shot-blasting": {
@@ -4406,7 +4409,10 @@ const serviceMeta: Record<string, ServiceMeta> = {
     applications: ["Tractors and agricultural vehicles", "Farm implements and attachments", "Grain stores and hoppers", "Steel farm buildings and structures", "Irrigation equipment", "Livestock handling equipment"],
     faqs: [
       { question: "Can you blast tractors and farm machinery on-site?", answer: "Yes. Our mobile units come directly to your farm or agricultural site. We can blast tractors, implements, and other machinery on-site, minimising downtime and transport costs." },
-      { question: "What coating is recommended after blasting agricultural equipment?", answer: "For agricultural machinery, we recommend a zinc-rich primer followed by a two-pack epoxy or polyurethane topcoat for maximum durability in the harsh agricultural environment. We can advise on the most suitable coating system for your specific equipment." }
+      { question: "What coating is recommended after blasting agricultural equipment?", answer: "For agricultural machinery, we recommend a zinc-rich primer followed by a two-pack epoxy or polyurethane topcoat for maximum durability in the harsh agricultural environment. We can advise on the most suitable coating system for your specific equipment." },
+      { question: "How do you protect engines and mechanical components during blasting?", answer: "We carefully mask or protect engines, hydraulic systems, electrical components, and other sensitive areas. Our technicians ensure these components remain protected and functional after the blasting process." },
+      { question: "What's the best time to have agricultural equipment blasted?", answer: "Off-season is ideal to minimize disruption to your operations. We can schedule work around your farming calendar to ensure equipment is ready when you need it for the next season." },
+      { question: "Can blasting extend the life of agricultural equipment?", answer: "Yes, removing rust and applying protective coatings can significantly extend equipment life. Regular maintenance blasting can prevent corrosion and costly repairs, protecting your investment." }
     ]
   }
 };
