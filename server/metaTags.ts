@@ -4949,8 +4949,66 @@ function generateServiceBodyHTML(serviceId: string): string {
 /**
  * Generate comprehensive JSON-LD schemas for service pages
  */
-// servicePreparationSteps is now imported from @shared/servicePreparationSteps
 
+// Service-specific keywords for meta keywords tag (replaces generic site-wide keywords)
+const SERVICE_KEYWORDS: Record<string, string> = {
+  "structural-steel-frames": "structural steel shot blasting, steel frame surface preparation, mill scale removal steel, SA2.5 steel frames, shot blasting structural steel UK",
+  "steel-containers": "steel container shot blasting, shipping container blasting, storage tank rust removal, container surface preparation UK",
+  "factory-cladding": "factory cladding shot blasting, cladding rust removal, industrial cladding surface preparation, steel cladding blasting UK",
+  "fire-escapes": "fire escape shot blasting, fire escape rust removal, fire escape surface preparation, metal fire escape blasting UK",
+  "staircases": "staircase shot blasting, steel staircase rust removal, staircase surface preparation, industrial staircase blasting UK",
+  "bridge-steelwork": "bridge steelwork shot blasting, bridge steel rust removal, bridge surface preparation, infrastructure shot blasting UK",
+  "ladders": "steel ladder shot blasting, ladder rust removal, industrial ladder surface preparation, metal ladder blasting UK",
+  "warehouse-racking": "warehouse racking shot blasting, racking rust removal, mezzanine floor blasting, industrial racking surface preparation UK",
+  "pipework": "pipework shot blasting, pipe rust removal, industrial pipework surface preparation, steel pipe blasting UK",
+  "telecom-towers": "telecom tower shot blasting, telecoms mast rust removal, tower surface preparation, steel mast blasting UK",
+  "floor-preparation": "floor shot blasting, concrete floor preparation, floor surface profiling, industrial floor blasting UK",
+  "powder-coating": "powder coating preparation, shot blasting before powder coat, metal surface preparation powder coating UK",
+  "commercial-radiators": "commercial radiator shot blasting, radiator rust removal, radiator surface preparation, heating system blasting UK",
+  "commercial-vehicles": "commercial vehicle shot blasting, truck chassis rust removal, van body surface preparation, vehicle blasting UK",
+  "steel-doors": "steel door shot blasting, steel door rust removal, roller shutter surface preparation, industrial door blasting UK",
+  "steel-sheeting": "steel sheeting shot blasting, profiled sheet rust removal, steel sheet surface preparation, cladding sheet blasting UK",
+  "steel-gates": "steel gate shot blasting, gate rust removal, metal gate surface preparation, steel railings blasting UK",
+  "plant-machinery": "plant machinery shot blasting, machinery rust removal, industrial equipment surface preparation, agricultural machinery blasting UK",
+  "intumescent-painting": "intumescent painting structural steel, fire protection coating steel, R30 R60 R90 intumescent paint UK, steel fire protection painting",
+  "marine-shot-blasting": "marine shot blasting, boat hull rust removal, marine surface preparation, offshore structure blasting UK",
+  "rust-removal": "rust removal shot blasting, steel rust removal UK, corrosion removal surface preparation, industrial rust removal service",
+  "mill-scale-removal": "mill scale removal shot blasting, mill scale steel surface preparation, SA2.5 mill scale removal UK",
+  "paint-stripping": "paint stripping shot blasting, old paint removal steel, industrial paint stripping UK, coating removal service",
+  "coating-removal": "coating removal shot blasting, old coating removal steel, industrial coating stripping UK, surface preparation coating removal",
+  "agricultural-shot-blasting": "agricultural machinery shot blasting, farm equipment rust removal, agricultural surface preparation UK, tractor chassis blasting",
+};
+
+// Service-specific alternateName synonyms for Service schema (improves semantic entity matching)
+const SERVICE_ALTERNATE_NAMES: Record<string, string[]> = {
+  "structural-steel-frames": ["Steel Frame Shot Blasting", "Structural Steel Surface Preparation", "Steel Frame Rust Removal", "Abrasive Blasting Structural Steel"],
+  "steel-containers": ["Container Shot Blasting", "Shipping Container Rust Removal", "Storage Tank Blasting", "Container Surface Preparation"],
+  "factory-cladding": ["Cladding Shot Blasting", "Factory Cladding Rust Removal", "Industrial Cladding Surface Preparation", "Steel Cladding Blasting"],
+  "fire-escapes": ["Fire Escape Rust Removal", "Fire Escape Surface Preparation", "Metal Fire Escape Blasting"],
+  "staircases": ["Staircase Rust Removal", "Steel Staircase Blasting", "Industrial Staircase Surface Preparation"],
+  "bridge-steelwork": ["Bridge Steel Shot Blasting", "Bridge Rust Removal", "Infrastructure Surface Preparation", "Bridge Steelwork Blasting"],
+  "ladders": ["Steel Ladder Rust Removal", "Industrial Ladder Blasting", "Metal Ladder Surface Preparation"],
+  "warehouse-racking": ["Racking Shot Blasting", "Mezzanine Floor Blasting", "Warehouse Racking Rust Removal", "Industrial Racking Surface Preparation"],
+  "pipework": ["Pipework Rust Removal", "Industrial Pipe Blasting", "Steel Pipe Surface Preparation", "Pipe Shot Blasting"],
+  "telecom-towers": ["Telecoms Mast Blasting", "Tower Rust Removal", "Steel Mast Surface Preparation"],
+  "floor-preparation": ["Floor Shot Blasting", "Concrete Floor Preparation", "Floor Surface Profiling", "Industrial Floor Blasting"],
+  "powder-coating": ["Pre-Powder Coat Blasting", "Powder Coat Surface Preparation", "Metal Blasting Before Powder Coating"],
+  "commercial-radiators": ["Radiator Rust Removal", "Commercial Radiator Blasting", "Heating System Surface Preparation"],
+  "commercial-vehicles": ["Vehicle Chassis Shot Blasting", "Truck Rust Removal", "Commercial Vehicle Surface Preparation"],
+  "steel-doors": ["Steel Door Rust Removal", "Roller Shutter Blasting", "Industrial Door Surface Preparation"],
+  "steel-sheeting": ["Profiled Sheet Blasting", "Steel Sheet Rust Removal", "Cladding Sheet Surface Preparation"],
+  "steel-gates": ["Gate Rust Removal", "Metal Gate Blasting", "Steel Railings Surface Preparation"],
+  "plant-machinery": ["Machinery Rust Removal", "Industrial Equipment Blasting", "Agricultural Machinery Surface Preparation", "Plant Equipment Shot Blasting"],
+  "intumescent-painting": ["Intumescent Coating Application", "Fire Protection Painting Steel", "Intumescent Paint Spraying UK", "Structural Steel Fire Protection", "R30 R60 R90 R120 Intumescent Coating"],
+  "marine-shot-blasting": ["Marine Surface Preparation", "Boat Hull Blasting", "Offshore Structure Shot Blasting", "Marine Rust Removal"],
+  "rust-removal": ["Corrosion Removal Shot Blasting", "Steel Rust Removal Service", "Industrial Rust Removal", "Abrasive Blasting Rust Removal"],
+  "mill-scale-removal": ["Mill Scale Shot Blasting", "Steel Mill Scale Removal", "SA2.5 Mill Scale Preparation"],
+  "paint-stripping": ["Old Paint Removal", "Industrial Paint Stripping", "Coating Removal Shot Blasting", "Paint Removal Service UK"],
+  "coating-removal": ["Old Coating Removal", "Industrial Coating Stripping", "Surface Preparation Coating Removal"],
+  "agricultural-shot-blasting": ["Farm Equipment Shot Blasting", "Agricultural Machinery Rust Removal", "Tractor Chassis Blasting", "Farm Machinery Surface Preparation"],
+};
+
+// servicePreparationSteps is now imported from @shared/servicePreparationSteps
 function generateServiceSchemas(serviceId: string): string {
   const svc = serviceMeta[serviceId];
   if (!svc) return "";
@@ -4964,6 +5022,7 @@ function generateServiceSchemas(serviceId: string): string {
     "@type": "Service",
     "@id": `${url}#service`,
     "name": svc.title,
+    ...(SERVICE_ALTERNATE_NAMES[serviceId] ? { "alternateName": SERVICE_ALTERNATE_NAMES[serviceId] } : {}),
     "description": svc.description,
     "url": url,
     "image": svc.heroImage,
@@ -5109,7 +5168,7 @@ function generateServiceSchemas(serviceId: string): string {
     "name": `${svc.title} | ${BUSINESS_NAME}`,
     "description": svc.description,
     "isPartOf": { "@type": "WebSite", "@id": `${SITE_URL}/#website`, "name": BUSINESS_NAME, "url": SITE_URL },
-    "about": { "@type": "Service", "name": svc.title },
+    "about": { "@type": "Service", "@id": `${url}#service`, "name": svc.title },
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -5137,7 +5196,11 @@ function generateServiceSchemas(serviceId: string): string {
     "logo": { "@type": "ImageObject", "url": LOGO },
     "telephone": PHONE,
     "email": EMAIL,
-    "sameAs": [`${SITE_URL}/services/${serviceId}`]
+    "sameAs": [
+      "https://premierblasting.co.uk",
+      "https://www.facebook.com/commercialshotblasting",
+      "https://www.linkedin.com/company/commercial-shot-blasting"
+    ]
   });
 
   // 8. HowTo Schema — customer preparation steps (distinct from process HowTo)
@@ -6266,11 +6329,11 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       const pageUrl = `${SITE_URL}/services/${serviceId}`;
       let modifiedHtml = html
         .replace(/<meta\s+name="description"[^>]*>/gi, '')
+        .replace(/<meta\s+name="keywords"[^>]*>/gi, '')
         .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
         .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
         .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
         .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
-
       const metaTags = `
     <title>${svc.title} | ${BUSINESS_NAME}</title>
     <link rel="preload" as="image" href="${svc.heroImage}" />
@@ -6278,7 +6341,8 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <link rel="alternate" hreflang="en-gb" href="${pageUrl}" />
     <link rel="alternate" hreflang="en" href="${pageUrl}" />
     <meta name="description" content="${svc.description.replace(/"/g, '&quot;')}" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="keywords" content="${SERVICE_KEYWORDS[serviceId] || `${svc.title.toLowerCase()}, shot blasting, surface preparation UK`}" />
     <meta property="og:title" content="${svc.title} | ${BUSINESS_NAME}" />
     <meta property="og:description" content="${svc.description.replace(/"/g, '&quot;')}" />
     <meta property="og:url" content="${pageUrl}" />
