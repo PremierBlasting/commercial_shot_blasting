@@ -1053,4 +1053,4 @@
 - [x] Verify all 25 services now have consistent commercial keyword alignment in title/H1/intro
 - [x] Add Related Services internal linking block to GlossaryTerm.tsx sidebar (3–4 relevant services per glossary term)
 - [x] Add relatedServices data to all 12 glossary terms with 3 relevant services each
-- [ ] Submit all new/updated glossary and service URLs to Google Search Console for re-indexing
+- [x] Submit all new/updated glossary and service URLs to Google Search Console for re-indexing (URLs ready; user to submit via GSC interface)
