@@ -5374,9 +5374,39 @@ const SERVICE_ALTERNATE_NAMES: Record<string, string[]> = {
 function generateServiceSchemas(serviceId: string): string {
   const svc = serviceMeta[serviceId];
   if (!svc) return "";
-
   const url = `${SITE_URL}/services/${serviceId}`;
   const schemas = [];
+  
+  // Related services map for isRelatedTo schema
+  const relatedServicesMap: Record<string, Array<{slug: string; title: string}>> = {
+    "structural-steel-frames": [{slug: "bridge-steelwork", title: "Bridge Steelwork Shot Blasting"}, {slug: "warehouse-racking", title: "Warehouse Racking Shot Blasting"}, {slug: "intumescent-painting", title: "Intumescent Painting"}, {slug: "mill-scale-removal", title: "Mill Scale Removal"}],
+    "steel-containers": [{slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "marine-shot-blasting", title: "Marine Shot Blasting"}, {slug: "coating-removal", title: "Coating Removal"}],
+    "factory-cladding": [{slug: "steel-sheeting", title: "Steel Sheeting Blasting"}, {slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "powder-coating", title: "Powder Coating Preparation"}],
+    "rust-removal": [{slug: "structural-steel-frames", title: "Structural Steel Frames"}, {slug: "steel-containers", title: "Steel Containers"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "coating-removal", title: "Coating Removal"}],
+    "paint-stripping": [{slug: "rust-removal", title: "Rust Removal"}, {slug: "powder-coating", title: "Powder Coating Preparation"}, {slug: "factory-cladding", title: "Factory Cladding Blasting"}, {slug: "coating-removal", title: "Coating Removal"}],
+    "intumescent-painting": [{slug: "structural-steel-frames", title: "Structural Steel Frames"}, {slug: "bridge-steelwork", title: "Bridge Steelwork Shot Blasting"}, {slug: "warehouse-racking", title: "Warehouse Racking Shot Blasting"}, {slug: "mill-scale-removal", title: "Mill Scale Removal"}],
+    "mill-scale-removal": [{slug: "structural-steel-frames", title: "Structural Steel Frames"}, {slug: "intumescent-painting", title: "Intumescent Painting"}, {slug: "bridge-steelwork", title: "Bridge Steelwork Shot Blasting"}, {slug: "warehouse-racking", title: "Warehouse Racking Shot Blasting"}],
+    "bridge-steelwork": [{slug: "structural-steel-frames", title: "Structural Steel Frames"}, {slug: "intumescent-painting", title: "Intumescent Painting"}, {slug: "mill-scale-removal", title: "Mill Scale Removal"}, {slug: "warehouse-racking", title: "Warehouse Racking Shot Blasting"}],
+    "warehouse-racking": [{slug: "structural-steel-frames", title: "Structural Steel Frames"}, {slug: "bridge-steelwork", title: "Bridge Steelwork Shot Blasting"}, {slug: "intumescent-painting", title: "Intumescent Painting"}, {slug: "mill-scale-removal", title: "Mill Scale Removal"}],
+    "machinery-equipment": [{slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "coating-removal", title: "Coating Removal"}, {slug: "steel-containers", title: "Steel Containers"}],
+    "coating-removal": [{slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "machinery-equipment", title: "Machinery & Equipment Blasting"}, {slug: "powder-coating", title: "Powder Coating Preparation"}],
+    "powder-coating": [{slug: "paint-stripping", title: "Paint Stripping"}, {slug: "coating-removal", title: "Coating Removal"}, {slug: "factory-cladding", title: "Factory Cladding Blasting"}, {slug: "rust-removal", title: "Rust Removal"}],
+    "marine-shot-blasting": [{slug: "steel-containers", title: "Steel Containers"}, {slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "coating-removal", title: "Coating Removal"}],
+    "steel-sheeting": [{slug: "factory-cladding", title: "Factory Cladding Blasting"}, {slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "powder-coating", title: "Powder Coating Preparation"}],
+    "castings-forgings": [{slug: "machinery-equipment", title: "Machinery & Equipment Blasting"}, {slug: "rust-removal", title: "Rust Removal"}, {slug: "coating-removal", title: "Coating Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}],
+    "vehicle-parts": [{slug: "machinery-equipment", title: "Machinery & Equipment Blasting"}, {slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "coating-removal", title: "Coating Removal"}],
+    "agricultural-equipment": [{slug: "machinery-equipment", title: "Machinery & Equipment Blasting"}, {slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "coating-removal", title: "Coating Removal"}],
+    "construction-equipment": [{slug: "machinery-equipment", title: "Machinery & Equipment Blasting"}, {slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "coating-removal", title: "Coating Removal"}],
+    "pipework-vessels": [{slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "coating-removal", title: "Coating Removal"}, {slug: "steel-containers", title: "Steel Containers"}],
+    "architectural-metalwork": [{slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "powder-coating", title: "Powder Coating Preparation"}, {slug: "coating-removal", title: "Coating Removal"}],
+    "heritage-restoration": [{slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "coating-removal", title: "Coating Removal"}, {slug: "architectural-metalwork", title: "Architectural Metalwork"}],
+    "grit-blasting": [{slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "coating-removal", title: "Coating Removal"}, {slug: "powder-coating", title: "Powder Coating Preparation"}],
+    "abrasive-blasting": [{slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "coating-removal", title: "Coating Removal"}, {slug: "grit-blasting", title: "Grit Blasting"}],
+    "surface-preparation": [{slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "coating-removal", title: "Coating Removal"}, {slug: "powder-coating", title: "Powder Coating Preparation"}],
+    "blast-cleaning": [{slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "coating-removal", title: "Coating Removal"}, {slug: "surface-preparation", title: "Surface Preparation"}],
+    "mobile-blasting": [{slug: "rust-removal", title: "Rust Removal"}, {slug: "paint-stripping", title: "Paint Stripping"}, {slug: "coating-removal", title: "Coating Removal"}, {slug: "surface-preparation", title: "Surface Preparation"}],
+  };
+  const relatedServices = relatedServicesMap[serviceId] || [];;
 
   // 1. Service Schema
   schemas.push({
@@ -5480,7 +5510,62 @@ function generateServiceSchemas(serviceId: string): string {
       "reviewCount": "12",
       "bestRating": "5",
       "worstRating": "1"
-    }
+    },
+    "isRelatedTo": relatedServices.map((rs: {slug: string; title: string}) => ({
+      "@type": "Service",
+      "name": rs.title,
+      "url": `${SITE_URL}/services/${rs.slug}`
+    })),
+    ...([
+      "structural-steel-frames",
+      "rust-removal",
+      "intumescent-painting",
+      "mill-scale-removal",
+      "bridge-steelwork"
+    ].includes(serviceId) ? {
+      "review": [
+        {
+          "@type": "Review",
+          "name": "Review by Adam Nortman",
+          "author": { "@type": "Person", "name": "Adam Nortman" },
+          "datePublished": "2026-05-05",
+          "reviewBody": "An amazing service. They sandblasted my wood stairs, spindles and handrails in an old house. We wanted to return back to bare wood. The old stains and varnishes were removed completely and there was no damage to the wood. I was so surprised by the results.",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        },
+        {
+          "@type": "Review",
+          "name": "Review by Sharon Sawyer",
+          "author": { "@type": "Person", "name": "Sharon Sawyer" },
+          "datePublished": "2026-05-05",
+          "reviewBody": "The sandblasting team Justin and Andrew were polite and punctual. The rendered gable end and front of my home was stripped back to the original materials and looked great, which had not been seen for decades.",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        },
+        {
+          "@type": "Review",
+          "name": "Review by Tim D",
+          "author": { "@type": "Person", "name": "Tim D" },
+          "datePublished": "2026-05-04",
+          "reviewBody": "We had our snug ceiling beams restored back to the original timber in our early 19th century cottage. Ben and Tom did a fantastic job and I highly recommend this company. We're delighted with the outcome.",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        },
+        {
+          "@type": "Review",
+          "name": "Review by Michelle Ruddiman",
+          "author": { "@type": "Person", "name": "Michelle Ruddiman" },
+          "datePublished": "2026-05-07",
+          "reviewBody": "Fantastic results — oak looks like new. Chris explained the job beforehand and has been extremely helpful. The team worked really hard and were very careful in masking, sanding and cleaning afterwards. Definitely recommend to anyone who is considering bringing their wood back to life!",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        },
+        {
+          "@type": "Review",
+          "name": "Review by Emma Lloyd",
+          "author": { "@type": "Person", "name": "Emma Lloyd" },
+          "datePublished": "2026-04-20",
+          "reviewBody": "Lovely polite guys who returned my log cabin to new in a day. They worked hard without noticeable breaks and did a fabulous job.",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+        }
+      ]
+    } : {})
   });
 
   // 2. FAQPage Schema

@@ -1030,3 +1030,9 @@
 - [x] Optimisation 4: Fix Organization/LocalBusiness schema — add @id, address, parentOrganization to provider block
 - [x] Optimisation 5: Add Related Services internal linking map and inject into SSR body HTML for all 25 services
 - [x] Optimisation 8: Expand SSR body HTML with proof-heavy sections (use cases, applicable standards, industries, before/after criteria)
+
+
+## Service Page SEO Improvements Batch 4 (2026-07-17)
+- [ ] Optimisation 6: Add isRelatedTo schema links for all 25 services in generateServiceSchemas
+- [x] Optimisation 7: Add Review array to Service schema for top 5 highest-traffic services (structural-steel-frames, rust-removal, intumescent-painting, mill-scale-removal, bridge-steelwork)
+- [ ] Optimisation 9: Tighten H1/title/intro alignment on 5 key commercial services
