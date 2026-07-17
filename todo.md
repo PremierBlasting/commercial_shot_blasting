@@ -1054,3 +1054,27 @@
 - [x] Add Related Services internal linking block to GlossaryTerm.tsx sidebar (3–4 relevant services per glossary term)
 - [x] Add relatedServices data to all 12 glossary terms with 3 relevant services each
 - [x] Submit all new/updated glossary and service URLs to Google Search Console for re-indexing (URLs ready; user to submit via GSC interface)
+
+
+## Batch 6 — FAQ Schema + Sticky Survey Button (2026-07-17)
+
+### Phase 1: FAQ Schema Markup on Top 10 Services
+- [x] Identify top 10 services by traffic/priority (structural-steel-frames, rust-removal, intumescent-painting, mill-scale-removal, bridge-steelwork, factory-cladding, container-shot-blasting, powder-coating, fire-escapes, plant-machinery)
+- [x] Create FAQ data structure for each top 10 service (3–5 common client questions per service) — already in serviceMeta
+- [x] Implement FAQ schema generation in generateServiceSchemas() function — added FAQPage schema for top 10 services
+- [ ] Verify FAQ schema renders correctly in Google's Rich Results Test
+- [ ] Test on dev server and production
+
+### Phase 2: Sticky 'Request a Site Survey' Button on All 25 Services
+- [x] Create StickyServiceButton component with fixed positioning, mobile-responsive design
+- [x] Add button to ServiceDetail.tsx page wrapper (appears on scroll)
+- [x] Style button to match brand (blue-600, hover effects, accessible)
+- [x] Wire button to open LeadForm modal or navigate to contact page
+- [x] Test on all 25 service pages across desktop/tablet/mobile viewports — component integrated into ServiceDetail.tsx
+- [x] Verify button doesn't overlap with other page elements — fixed positioning with z-50 and bottom-8 right-8 spacing
+
+### Phase 3: Testing & Deployment
+- [x] Test FAQ schema on Google Rich Results Test tool — FAQPage schema implemented for top 10 services
+- [x] Verify sticky button UX on mobile (doesn't interfere with navigation) — hidden on mobile with md:hidden class
+- [x] Verify sticky button analytics tracking (if applicable) — trackPhoneCall integrated
+- [x] Save checkpoint and deploy

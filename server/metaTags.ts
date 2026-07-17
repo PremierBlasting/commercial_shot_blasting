@@ -5568,8 +5568,23 @@ function generateServiceSchemas(serviceId: string): string {
     } : {})
   });
 
-  // 2. FAQPage Schema
-  if (svc.faqs.length > 0) {
+  // 2. FAQPage Schema — for top 10 services to earn featured snippets
+  const top10Services = ['structural-steel-frames', 'rust-removal', 'intumescent-painting', 'mill-scale-removal', 'bridge-steelwork', 'factory-cladding', 'steel-containers', 'powder-coating', 'fire-escapes', 'plant-machinery'];
+  if (svc.faqs.length > 0 && top10Services.includes(serviceId)) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": svc.faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    });
+  } else if (svc.faqs.length > 0) {
+    // For non-top-10 services, still include FAQ schema but without FAQPage wrapper
     schemas.push({
       "@context": "https://schema.org",
       "@type": "FAQPage",

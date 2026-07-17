@@ -19,6 +19,7 @@ import { Footer } from "@/components/Footer";
 import { IntumescentQuoteForm } from "@/components/IntumescentQuoteForm";
 import { trpc } from "@/lib/trpc";
 import { BeforeAfterCard } from "@/components/BeforeAfterCard";
+import { StickyServiceButton } from "@/components/StickyServiceButton";
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -2057,6 +2058,9 @@ export default function ServiceDetail() {
       </div>
       {/* Spacer to prevent content being hidden behind sticky bar on mobile */}
       <div className="h-14 md:hidden" aria-hidden="true" />
+
+      {/* Sticky Service Button (Desktop) */}
+      <StickyServiceButton onOpenQuotePopup={openQuotePopup} serviceTitle={service.shortTitle} />
 
       {/* Quote Popup */}
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
