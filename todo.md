@@ -1164,3 +1164,12 @@
 ### Testing & Deployment
 - [x] 87/91 tests passing (4 pre-existing HSTS failures unrelated to Phase 3)
 - [x] Save checkpoint and deploy
+
+## Tier-2 Spotlight Expansion (2026-07-19)
+- [x] Identify 100 tier-two towns not yet covered in townSpotlight.ts
+- [x] Write bespoke Local Industry Spotlight paragraphs for 100 tier-two towns across 20 counties (Staffordshire, West Midlands, Worcestershire, Warwickshire, Northamptonshire, Leicestershire, Nottinghamshire, Derbyshire, Lincolnshire, Shropshire, Herefordshire, Cheshire, West/South Yorkshire, Buckinghamshire, Hertfordshire, Bedfordshire, Cambridgeshire, Norfolk, Suffolk, Essex, Kent, East/West Sussex, Gloucestershire, Somerset, Wiltshire, Devon, Dorset, Wales, Berkshire, Oxfordshire, Hampshire, Surrey, Lancashire, Cumbria)
+- [x] Merge tier-2 data into townSpotlight.ts using Python merge script
+- [x] Deduplicate 3 keys (northampton, guildford, loughborough) — 164 total bespoke entries
+- [x] TypeScript: 0 errors after deduplication
+- [x] 87/91 tests passing (4 pre-existing HSTS failures unrelated to this work)
+- [x] Save checkpoint and deploy
