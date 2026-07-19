@@ -12,10 +12,11 @@
  * Also captures: source page URL, location name, UTM attribution data
  */
 
-import { useState } from "react";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { useState, useCallback } from "react";
+import { CheckCircle, ArrowRight, AlertCircle } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { formatUTMForSubmission } from "@/lib/utm";
+import { validateLeadEmailClient } from "@shared/emailValidation";
 
 export interface LeadFormProps {
   /** Visual variant — 'dark' for location page dark bg, 'light' for contact/popup */
@@ -70,6 +71,25 @@ export function LeadForm({
   const [visitDate, setVisitDate] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [emailError, setEmailError] = useState("");
+
+  const handleEmailChange = useCallback((value: string) => {
+    setEmail(value);
+    // Show inline error once the user has typed something meaningful
+    if (value.trim().length > 5) {
+      const result = validateLeadEmailClient(value);
+      setEmailError(result.valid ? "" : (result.reason ?? ""));
+    } else {
+      setEmailError("");
+    }
+  }, []);
+
+  const handleEmailBlur = useCallback(() => {
+    if (email.trim()) {
+      const result = validateLeadEmailClient(email);
+      setEmailError(result.valid ? "" : (result.reason ?? ""));
+    }
+  }, [email]);
 
   const isDark = variant === "dark";
 
@@ -212,9 +232,22 @@ export function LeadForm({
           type="email"
           placeholder="e.g. john@company.co.uk"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={inputClass}
+          onChange={(e) => handleEmailChange(e.target.value)}
+          onBlur={handleEmailBlur}
+          aria-describedby={emailError ? "lf-email-error" : undefined}
+          aria-invalid={!!emailError}
+          className={`${inputClass} ${emailError ? "border-red-400 focus:border-red-400 focus:ring-red-400/20" : ""}`}
         />
+        {emailError && (
+          <p
+            id="lf-email-error"
+            role="alert"
+            className="flex items-start gap-1.5 mt-1.5 text-xs text-red-400"
+          >
+            <AlertCircle className="w-3.5 h-3.5 mt-0.5 shrink-0" />
+            {emailError}
+          </p>
+        )}
       </div>
 
       {/* Phone */}

@@ -1195,3 +1195,13 @@
 - [x] Fixed contact.test.ts to use valid emails (gmail.com/outlook.com) instead of example.com
 - [x] 121/121 tests passing (all tests green)
 - [x] Save checkpoint and deploy
+
+## Rate Limiting + Real-Time Email Validation — 2026-07-19
+
+- [x] Install express-rate-limit v8.6.0
+- [x] Add contact form rate limiter: 5 submissions per IP per hour, Cloudflare CF-Connecting-IP aware, IPv6 normalised via ipKeyGenerator
+- [x] Create shared/emailValidation.ts with client-side validation (disposable domains, role-based prefixes, junk patterns)
+- [x] Wire real-time email validation into LeadForm.tsx with inline error display (AlertCircle icon, red border, aria-invalid)
+- [x] Add rateLimit.test.ts with 27 tests covering shared email validation and rate limiter configuration
+- [x] All 147 tests passing
+- [ ] Expand townSpotlight.ts with 200 tier-3 UK towns (Claude generation in progress on cloud computer)

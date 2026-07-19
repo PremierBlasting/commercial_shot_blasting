@@ -1,6 +1,7 @@
 import "dotenv/config";
 import compression from "compression";
 import helmet from "helmet";
+import { rateLimit, ipKeyGenerator } from "express-rate-limit";
 import express from "express";
 import { createServer } from "http";
 import net from "net";
@@ -111,6 +112,37 @@ async function startServer() {
   registerScheduledRoutes(app);
   // OAuth callback under /api/oauth/callback
   registerOAuthRoutes(app);
+
+  // Rate limiter for the contact form endpoint — 5 submissions per IP per hour.
+  // Prevents automated spam bots from exhausting HubSpot API quota while still
+  // allowing genuine users to resubmit after fixing a validation error.
+  const contactRateLimiter = rateLimit({
+    windowMs: 60 * 60 * 1000, // 1 hour rolling window
+    limit: 5,
+    standardHeaders: "draft-8",
+    legacyHeaders: false,
+    keyGenerator: (req) => {
+      // Respect Cloudflare's CF-Connecting-IP header in production;
+      // ipKeyGenerator normalises IPv6 addresses to /56 subnets to prevent bypass.
+      const cfIp = req.headers["cf-connecting-ip"];
+      const rawIp = (typeof cfIp === "string" && cfIp)
+        ? cfIp.trim()
+        : (req.ip ?? "unknown");
+      return ipKeyGenerator(rawIp);
+    },
+    message: JSON.stringify({
+      error: {
+        message: "Too many form submissions from this IP address. Please try again in an hour.",
+        code: "TOO_MANY_REQUESTS",
+      },
+    }),
+    skip: (req) => {
+      // Only rate-limit the contact.submit mutation path
+      return !req.path.includes("contact.submit");
+    },
+  });
+  app.use("/api/trpc/contact.submit", contactRateLimiter);
+
   // tRPC API
   app.use(
     "/api/trpc",
