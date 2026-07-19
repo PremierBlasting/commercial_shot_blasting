@@ -46,7 +46,7 @@ export function CountyMap({ countyName, latitude, longitude, majorTowns, townsAn
         const slug = toSlug(name);
         const hasPage = !!locationData[slug];
         const serviceLink = hasPage
-          ? `<br/><a href="/areas/${slug}" style="color:#2C5F7F;font-weight:600;font-size:12px;">View service area →</a>`
+          ? `<br/><a href="/service-areas/${slug}" style="color:#2C5F7F;font-weight:600;font-size:12px;">View service area →</a>`
           : "";
 
         const marker = new google.maps.Marker({

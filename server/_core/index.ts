@@ -71,6 +71,18 @@ async function startServer() {
     res.redirect(301, "/counties/gloucestershire");
   });
 
+  // 301 redirects: /areas/:slug and /locations/:slug → canonical /service-areas/:slug
+  // These legacy URL patterns were crawled by Google but served blank SPA shells
+  // (no SSR content, no location-specific meta). Consolidating to /service-areas/
+  // eliminates duplicate content, passes link equity to indexed pages, and
+  // ensures Googlebot always receives the full SSR-rendered location page.
+  app.get("/areas/:slug", (req, res) => {
+    res.redirect(301, `/service-areas/${req.params.slug}`);
+  });
+  app.get("/locations/:slug", (req, res) => {
+    res.redirect(301, `/service-areas/${req.params.slug}`);
+  });
+
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));

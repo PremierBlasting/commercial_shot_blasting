@@ -140,15 +140,20 @@ describe('Security and SEO Features', () => {
       expect(fs.existsSync(sitemapPath)).toBe(true);
     });
 
-    it('should have updated main sitemap with image sitemap reference', () => {
+    it('should have updated main sitemap with correct sub-sitemap references', () => {
       const mainSitemapPath = path.join(__dirname, '../client/public/sitemap.xml');
       const mainSitemapContent = fs.readFileSync(mainSitemapPath, 'utf-8');
       
+      // Phase 1 GSC fix: legacy sitemap-locations-1.xml and sitemap-locations-2.xml
+      // were removed because they contained /locations/ URLs that served blank SPA shells.
+      // All location pages now redirect 301 to /service-areas/:slug.
       expect(mainSitemapContent).toContain('sitemap-main.xml');
       expect(mainSitemapContent).toContain('sitemap-counties.xml');
-      expect(mainSitemapContent).toContain('sitemap-locations-1.xml');
-      expect(mainSitemapContent).toContain('sitemap-locations-2.xml');
+      expect(mainSitemapContent).toContain('sitemap-service-areas.xml');
       expect(mainSitemapContent).toContain('sitemap-images.xml');
+      // Legacy location sitemaps must NOT be in the index (they caused indexing issues)
+      expect(mainSitemapContent).not.toContain('sitemap-locations-1.xml');
+      expect(mainSitemapContent).not.toContain('sitemap-locations-2.xml');
     });
   });
 });

@@ -1113,3 +1113,14 @@
 ### Phase 6: Save Checkpoint and Deploy
 - [x] Save final checkpoint with all FAQ, CTA, and animation enhancements
 - [x] Verify live deployment
+
+## Phase 1 GSC Indexing Recovery (2026-07-19)
+- [x] Add 301 redirects: /areas/:slug → /service-areas/:slug in server/_core/index.ts
+- [x] Add 301 redirects: /locations/:slug → /service-areas/:slug in server/_core/index.ts
+- [x] agricultural-shot-blasting already in sitemap-services.xml (confirmed at line 145)
+- [x] Fix CountyMap.tsx: /areas/${slug} link updated to /service-areas/${slug}
+- [x] Remove legacy sitemap-locations-1.xml and sitemap-locations-2.xml (605 /locations/ URLs not in sitemap index)
+- [x] Update sitemap index lastmod dates to 2026-07-19 to signal changes to Google
+- [x] Verify robots.txt allows all paths (Allow: / already present)
+- [x] Test all redirects: /areas/evesham → 301 → /service-areas/evesham (200), /locations/aylesbury → 301 → /service-areas/aylesbury (200)
+- [x] Save checkpoint and deploy
