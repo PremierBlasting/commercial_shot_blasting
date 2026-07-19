@@ -1124,3 +1124,23 @@
 - [x] Verify robots.txt allows all paths (Allow: / already present)
 - [x] Test all redirects: /areas/evesham → 301 → /service-areas/evesham (200), /locations/aylesbury → 301 → /service-areas/aylesbury (200)
 - [x] Save checkpoint and deploy
+
+## Phase 2 GSC Indexing Recovery (2026-07-19)
+
+### Internal Link Audit
+- [x] Scan all source files for /areas/ and /locations/ URL references
+- [x] Fix CountyPage.tsx: /areas/${slug} → /service-areas/${slug}
+- [x] Fix LocationRouter.tsx: client-side redirect /locations/:slug → /service-areas/:slug
+- [x] Fix jsonLd.ts: /locations/:slug handler updated to use /service-areas/ canonical URL
+
+### Content Differentiation for Service-Area Pages
+- [x] LocalBusiness schema with areaServed, geo coords, FAQPage schema already in generateLocationSchemas()
+- [x] County-specific industry context already in countyContext.ts (consumed by SSR body generator)
+- [x] Add 4 missing county contexts: bristol, merseyside, oxfordshire, surrey — all 37 counties now covered
+- [x] Nearby Areas internal linking block already in generateServiceAreaBodyHTML() (up to 12 nearby towns)
+- [x] Verified schema renders correctly on /service-areas/birmingham (200 OK, full SSR content)
+
+### Testing & Deployment
+- [x] Updated faq-schema.test.ts to match expanded 12-FAQ generator
+- [x] 87/91 tests passing (4 pre-existing HSTS failures unrelated to this work)
+- [x] Save checkpoint and deploy

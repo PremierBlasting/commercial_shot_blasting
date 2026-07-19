@@ -1160,7 +1160,7 @@ export function CountyPage({ county }: CountyPageProps) {
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-3">
                 {nearbyTowns.map((loc) => (
-                  <Link key={loc.slug} href={`/areas/${loc.slug}`}>
+                  <Link key={loc.slug} href={`/service-areas/${loc.slug}`}>
                     <div className="bg-gray-50 rounded-lg p-3 text-center hover:bg-[#2C5F7F] hover:text-white transition-all duration-200 cursor-pointer group border border-gray-100 hover:border-[#2C5F7F]">
                       <MapPin className="w-4 h-4 mx-auto mb-1 text-[#2C5F7F] group-hover:text-white" />
                       <p className="text-xs font-semibold text-[#2C2C2C] group-hover:text-white leading-tight">{loc.name}</p>

@@ -513,15 +513,17 @@ export function generateJsonLd(url: string): string {
     ]));
   }
 
-  // === LOCATION PAGES (dynamic /locations/:slug) ===
+  // === LOCATION PAGES (legacy /locations/:slug — now 301 redirected to /service-areas/:slug) ===
+  // This branch is kept as a fallback in case the server-side redirect is bypassed.
+  // The canonical URL in breadcrumbs points to /service-areas/ to avoid duplicate schema.
   else if (path.match(/^\/locations\/([a-z-]+)$/)) {
     const locationSlug = path.match(/^\/locations\/([a-z-]+)$/)![1];
     const locationName = serviceAreaNames[locationSlug] || locationSlug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
     schemas.push(getServiceAreaSchema(locationSlug, locationName));
     schemas.push(getBreadcrumbSchema([
       { name: "Home", url: SITE_URL },
-      { name: "Locations", url: `${SITE_URL}/service-areas` },
-      { name: locationName, url: `${SITE_URL}${path}` }
+      { name: "Service Areas", url: `${SITE_URL}/service-areas` },
+      { name: locationName, url: `${SITE_URL}/service-areas/${locationSlug}` }
     ]));
   }
 
