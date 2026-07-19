@@ -12,11 +12,13 @@ import { HeroCarousel } from "@/components/HeroCarousel";
 import { Footer } from "@/components/Footer";
 import { ShareButton } from "@/components/ShareButton";
 import { ServiceRadiusMap } from "@/components/ServiceRadiusMap";
+import { LocalIndustryMap } from "@/components/LocalIndustryMap";
 import { trackPhoneCall } from "@/lib/analytics";
 import { FAQSchema, generateLocationFAQs } from "@/components/FAQSchema";
 import { LocationData, locationData } from '@shared/locationData';
 import { countyData } from '@/data/countyData';
 import { countyContext } from '@shared/countyContext';
+import { townSpotlight } from '@shared/townSpotlight';
 import { services } from '@/data/services';
 import { getProjectsForCounty } from '@/data/recentProjects';
 import { trpc } from "@/lib/trpc";
@@ -271,7 +273,38 @@ export function LocationPage({ location }: LocationPageProps) {
                   {countyContext[location.countySlug]}
                 </p>
               )}
+              {townSpotlight[location.slug] && (
+                <div className="mt-6 p-5 bg-blue-50 rounded-xl border border-blue-100">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Factory className="w-4 h-4 text-blue-600" />
+                    <span className="text-sm font-semibold text-blue-700 uppercase tracking-wide">Local Industry Spotlight</span>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">{townSpotlight[location.slug]}</p>
+                </div>
+              )}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Local Industry Map — shown for all town pages */}
+      <section className="py-12 bg-white">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <p className="text-[#2C5F7F] font-medium mb-2">Industrial Coverage</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Industrial Areas We Serve Near {location.name}
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto text-sm">
+                Our mobile shot blasting units serve all industrial estates, business parks, and manufacturing sites in and around {location.name}.
+              </p>
+            </div>
+            <LocalIndustryMap
+              townName={location.name}
+              county={location.county}
+              className="max-w-2xl mx-auto"
+            />
           </div>
         </div>
       </section>

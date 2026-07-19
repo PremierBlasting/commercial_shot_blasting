@@ -1144,3 +1144,23 @@
 - [x] Updated faq-schema.test.ts to match expanded 12-FAQ generator
 - [x] 87/91 tests passing (4 pre-existing HSTS failures unrelated to this work)
 - [x] Save checkpoint and deploy
+
+## Phase 3 GSC Indexing Recovery — Local Industry Spotlight + Map (2026-07-19)
+
+### Local Industry Spotlight Paragraphs
+- [x] Created townSpotlight.ts with unique industry paragraphs for top 80 UK towns (Birmingham, Manchester, Leeds, Sheffield, Bristol, Liverpool, etc.)
+- [x] Added getTownSpotlight() function with fallback template for remaining 570 towns
+- [x] Added spotlight paragraph to SSR body generator in metaTags.ts (server-side for Googlebot)
+- [x] Added spotlight card (blue-50 bg, Factory icon) to LocationPage.tsx client-side render
+
+### Dynamic Local Map + Nearby Landmarks
+- [x] Built LocalIndustryMap.tsx component using Google Maps Geocoder + Places API
+- [x] Geocodes town name dynamically (no lat/lng required in LocationData)
+- [x] Searches for industrial estates, business parks, trading estates within 10km
+- [x] Adds colour-coded markers (blue=industrial estate, purple=business park, red=factory, amber=warehouse)
+- [x] Integrated into LocationPage.tsx for all 650 town pages
+- [x] TypeScript: 0 errors
+
+### Testing & Deployment
+- [x] 87/91 tests passing (4 pre-existing HSTS failures unrelated to Phase 3)
+- [x] Save checkpoint and deploy

@@ -5,6 +5,7 @@ import { locationData } from "@shared/locationData";
 import { countyData, CountyData } from "@shared/countyData";
 import { servicePreparationSteps } from "@shared/servicePreparationSteps";
 import { countyContext } from "@shared/countyContext";
+import { getTownSpotlight } from "@shared/townSpotlight";
 import { countyOgImageUrl, townOgImageUrl } from "./ogImage";
 
 interface LocationMeta {
@@ -6324,6 +6325,14 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
       <p>Call us for a free, no-obligation quote: <a href="tel:${PHONE.replace(/\s/g, "")}">${PHONE}</a></p>
       ${countyContext[countySlug] ? `<p><em>${escHtml(countyContext[countySlug])}</em></p>` : ""}
     </header>
+    ${(() => {
+      const spotlight = getTownSpotlight(locationSlug, name, county, countySlug, region);
+      if (!spotlight) return "";
+      return `<section aria-label="Local Industry Spotlight">
+      <h2>Local Industry Spotlight — Shot Blasting Services in ${escHtml(name)}</h2>
+      <p>${escHtml(spotlight)}</p>
+    </section>`;
+    })()}
     <section aria-label="Why Choose Us">
       <h2>Why Choose Our Shot Blasting Services in ${escHtml(name)}?</h2>
       <p>We are the specialist choice for commercial and industrial shot blasting services in ${escHtml(name)} — mobile, SA2.5/SA3 certified, and free to quote. We offer 18 shot blasting services, free site surveys, and typically respond within 24 hours.</p>
