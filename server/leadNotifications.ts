@@ -342,6 +342,12 @@ export async function createPBHubSpotContact(lead: LeadData): Promise<boolean> {
  * Errors are logged but do NOT throw — the form submission itself must always succeed.
  */
 export async function notifyNewLead(lead: LeadData): Promise<void> {
+  // Skip all external calls during automated tests to prevent real emails and
+  // HubSpot contact creation from vitest runs.
+  if (process.env.NODE_ENV === "test" || process.env.VITEST === "true") {
+    console.log("[notifyNewLead] Skipping external calls in test environment.");
+    return;
+  }
   await Promise.allSettled([
     sendLeadNotificationEmail(lead),
     createHubSpotContact(lead),
