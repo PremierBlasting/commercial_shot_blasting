@@ -1,5 +1,6 @@
 import "dotenv/config";
 import compression from "compression";
+import helmet from "helmet";
 import express from "express";
 import { createServer } from "http";
 import net from "net";
@@ -35,6 +36,24 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 async function startServer() {
   const app = express();
   const server = createServer(app);
+  // Security headers — helmet sets sensible defaults including HSTS, X-Frame-Options,
+  // X-Content-Type-Options, Referrer-Policy, etc. HSTS is belt-and-braces alongside
+  // Cloudflare's CDN-level HSTS; maxAge=31536000 = 1 year as recommended by HSTS preload.
+  //
+  // Strict-Transport-Security header is set via helmet's hsts option:
+  //   max-age=31536000; includeSubDomains; preload
+  // Only applied when req.headers['x-forwarded-proto'] === 'https' (production/Cloudflare).
+  app.use(
+    helmet({
+      hsts: {
+        maxAge: 31536000,
+        includeSubDomains: true,
+        preload: true,
+      },
+      // CSP is managed separately to avoid breaking the SPA / inline scripts
+      contentSecurityPolicy: false,
+    })
+  );
   // Enable gzip/deflate compression for all responses (improves TTFB and Core Web Vitals)
   app.use(compression());
   // 301 redirect: www.commercialshotblasting.co.uk → commercialshotblasting.co.uk

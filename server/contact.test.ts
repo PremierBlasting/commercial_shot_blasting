@@ -46,7 +46,7 @@ describe("contact.submit", () => {
 
     const result = await caller.contact.submit({
       name: "John Doe",
-      email: "john@example.com",
+      email: "john.doe@gmail.com",
       phone: "07970566409",
       message: "I need a quote for shot blasting services.",
     });
@@ -60,7 +60,7 @@ describe("contact.submit", () => {
 
     const result = await caller.contact.submit({
       name: "Jane Smith",
-      email: "jane@example.com",
+      email: "jane.smith@outlook.com",
       message: "Please contact me about your services.",
     });
 

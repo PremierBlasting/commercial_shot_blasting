@@ -37,6 +37,7 @@ import {
 } from "./db";
 import { storagePut } from "./storage";
 import { notifyNewLead } from "./leadNotifications";
+import { validateLeadEmail } from "./emailValidation";
 import { generateAndUploadBlogOgImage } from "./ogImage";
 import { nanoid } from "nanoid";
 
@@ -265,15 +266,24 @@ export const appRouter = router({
     // Public: Submit contact form
     submit: publicProcedure
       .input(z.object({
-        name: z.string().min(1),
-        email: z.string().email(),
-        phone: z.string().optional(),
-        message: z.string().min(1),
+        name: z.string().min(1).max(200),
+        email: z.string().email().max(320),
+        phone: z.string().max(30).optional(),
+        message: z.string().min(1).max(5000),
         sourcePage: z.string().optional(),
         locationName: z.string().optional(),
         utmData: z.record(z.string(), z.string()).optional(),
       }))
       .mutation(async ({ input }) => {
+        // Multi-layer email quality check — blocks disposable domains, role-based
+        // addresses, and obvious junk patterns before they reach HubSpot CRM.
+        const emailCheck = validateLeadEmail(input.email);
+        if (!emailCheck.valid) {
+          throw new TRPCError({
+            code: "BAD_REQUEST",
+            message: emailCheck.reason ?? "Please enter a valid email address.",
+          });
+        }
         await createContactSubmission({
           name: input.name,
           email: input.email,
