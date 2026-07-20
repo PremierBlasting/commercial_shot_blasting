@@ -1214,3 +1214,10 @@
 - [x] Add scroll depth tracking at 25%/50%/75%/90% thresholds — each scroll event fires an engagement event preventing false bounce classification
 - [x] Add staleTime (5min) and gcTime (10min) to QueryClient to reduce cold-start API latency impact on page load
 - [x] 146/147 tests passing (1 transient HubSpot network timeout in sandbox, not a code regression)
+
+## Engagement Heartbeat + SSR Homepage Preload (2026-07-20)
+- [x] Add user_engagement heartbeat event every 30 seconds to GoogleAnalytics.tsx (fires while page is visible, stops on hidden)
+- [x] Add SSR preload endpoint GET /api/preload/homepage returning testimonials + gallery JSON
+- [x] Inject preloaded data as window.__PRELOAD__ JSON script tag in homepage HTML
+- [x] Wire Home.tsx to use window.__PRELOAD__ data as initial QueryClient cache (eliminates cold-start API calls)
+- [x] Write vitest tests for the preload endpoint

@@ -9,6 +9,7 @@ import { Footer } from "@/components/Footer";
 import { StaticServiceAreasMap } from "@/components/StaticServiceAreasMap";
 import { ResponsiveHeroBackground } from "@/components/ResponsiveHeroBackground";
 import { trpc } from "@/lib/trpc";
+import { useHomepagePreload } from "@/hooks/useHomepagePreload";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { ProjectDetailModal, type ProjectDetailItem } from "@/components/ProjectDetailModal";
 import { BeforeAfterCard } from "@/components/BeforeAfterCard";
@@ -206,6 +207,10 @@ export default function Home() {
   }, []);
 
   const openQuotePopup = () => setQuotePopupOpen(true);
+
+  // Seed QueryClient cache from /api/preload/homepage before tRPC queries fire
+  // This eliminates cold-start latency — data is available instantly on first render
+  useHomepagePreload();
 
   // Fetch testimonials from database
   const { data: dbTestimonials } = trpc.testimonials.list.useQuery();

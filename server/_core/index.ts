@@ -14,6 +14,7 @@ import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { registerSitemapRoute } from "../sitemap";
 import { registerOgImageRoute } from "../ogImage";
+import { getActiveTestimonials, getActiveGalleryItems } from "../db";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -142,6 +143,32 @@ async function startServer() {
     },
   });
   app.use("/api/trpc/contact.submit", contactRateLimiter);
+
+  // ── Homepage SSR Preload ─────────────────────────────────────────────────────
+  // Returns testimonials + gallery as JSON with a 5-minute server-side cache.
+  // The homepage seeds the React Query cache from this response, eliminating
+  // the cold-start latency of the batched tRPC calls on first page load.
+  let preloadCache: { data: unknown; expiresAt: number } | null = null;
+  app.get("/api/preload/homepage", async (_req, res) => {
+    try {
+      const now = Date.now();
+      if (!preloadCache || now > preloadCache.expiresAt) {
+        const [testimonials, gallery] = await Promise.all([
+          getActiveTestimonials(),
+          getActiveGalleryItems(),
+        ]);
+        preloadCache = {
+          data: { testimonials, gallery },
+          expiresAt: now + 5 * 60 * 1000, // 5 minutes
+        };
+      }
+      res.set("Cache-Control", "public, max-age=300, stale-while-revalidate=60");
+      res.json(preloadCache.data);
+    } catch (err) {
+      console.error("[preload/homepage] Error:", err);
+      res.status(500).json({ testimonials: [], gallery: [] });
+    }
+  });
 
   // tRPC API
   app.use(

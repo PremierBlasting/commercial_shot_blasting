@@ -97,5 +97,55 @@ export function GoogleAnalytics() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location, GA_MEASUREMENT_ID]);
 
+  // user_engagement heartbeat — fires every 30 seconds while the page is visible.
+  // GA4 uses this event to confirm ongoing engagement, which prevents sessions from
+  // being classified as bounces when users spend time reading without scrolling or clicking.
+  useEffect(() => {
+    if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') {
+      return;
+    }
+
+    let intervalId: ReturnType<typeof setInterval> | null = null;
+
+    const startHeartbeat = () => {
+      if (intervalId) return; // already running
+      intervalId = setInterval(() => {
+        if (document.visibilityState === 'visible' && window.gtag) {
+          window.gtag('event', 'user_engagement', {
+            engagement_time_msec: Date.now() - pageEnterTime.current,
+            page_path: location,
+          });
+        }
+      }, 30_000);
+    };
+
+    const stopHeartbeat = () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        startHeartbeat();
+      } else {
+        stopHeartbeat();
+      }
+    };
+
+    // Start immediately if page is already visible
+    if (document.visibilityState === 'visible') {
+      startHeartbeat();
+    }
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      stopHeartbeat();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [location, GA_MEASUREMENT_ID]);
+
   return null;
 }
