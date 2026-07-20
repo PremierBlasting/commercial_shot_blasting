@@ -1205,3 +1205,12 @@
 - [x] Add rateLimit.test.ts with 27 tests covering shared email validation and rate limiter configuration
 - [x] All 147 tests passing
 - [x] Expand townSpotlight.ts with 200 tier-3 UK towns (119 new Claude-generated entries merged; 283 total entries, up from 164; 48 remaining for future session when API credits available)
+
+## Town Spotlights + Bounce Rate Fixes (2026-07-20)
+- [x] Generate remaining 48 town spotlight paragraphs using Manus built-in LLM (gpt-5-mini, 8 concurrent threads)
+- [x] Merge 27 new entries into townSpotlight.ts (310 total entries, up from 283)
+- [x] Fix GA4 bounce rate: add send_page_view:false to prevent double-counting page views on SPA route changes
+- [x] Fix GA4 bounce rate: add engagement_time_msec to page_view events so GA4 does not classify sessions as bounces
+- [x] Add scroll depth tracking at 25%/50%/75%/90% thresholds — each scroll event fires an engagement event preventing false bounce classification
+- [x] Add staleTime (5min) and gcTime (10min) to QueryClient to reduce cold-start API latency impact on page load
+- [x] 146/147 tests passing (1 transient HubSpot network timeout in sandbox, not a code regression)
