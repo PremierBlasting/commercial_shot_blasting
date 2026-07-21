@@ -1221,3 +1221,8 @@
 - [x] Inject preloaded data as window.__PRELOAD__ JSON script tag in homepage HTML
 - [x] Wire Home.tsx to use window.__PRELOAD__ data as initial QueryClient cache (eliminates cold-start API calls)
 - [x] Write vitest tests for the preload endpoint
+
+## Blog Preload Extension (2026-07-21)
+- [x] Add getPublishedBlogPosts() to /api/preload/homepage endpoint (parallel with testimonials + gallery)
+- [x] Update useHomepagePreload hook to seed the blog.list tRPC query cache
+- [x] Update preload.test.ts to cover blog posts in the preload response

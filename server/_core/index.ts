@@ -14,7 +14,7 @@ import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { registerSitemapRoute } from "../sitemap";
 import { registerOgImageRoute } from "../ogImage";
-import { getActiveTestimonials, getActiveGalleryItems } from "../db";
+import { getActiveTestimonials, getActiveGalleryItems, getPublishedBlogPosts } from "../db";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -153,12 +153,13 @@ async function startServer() {
     try {
       const now = Date.now();
       if (!preloadCache || now > preloadCache.expiresAt) {
-        const [testimonials, gallery] = await Promise.all([
+        const [testimonials, gallery, blogPosts] = await Promise.all([
           getActiveTestimonials(),
           getActiveGalleryItems(),
+          getPublishedBlogPosts(),
         ]);
         preloadCache = {
-          data: { testimonials, gallery },
+          data: { testimonials, gallery, blogPosts },
           expiresAt: now + 5 * 60 * 1000, // 5 minutes
         };
       }
