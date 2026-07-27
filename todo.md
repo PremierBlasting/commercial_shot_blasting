@@ -1244,3 +1244,14 @@
 - [x] Add cloud computer JSON lead log to leadNotifications.ts (POST to cloud API endpoint port 8767, csb_lead_logger systemd service)
 - [x] Update leadNotifications.test.ts to cover all five channels, source tags, and Google Sheets labels (162 tests passing)
 - [x] Submit live test lead — email + CSB HubSpot (ID: 831774870733) + PB HubSpot confirmed working
+
+## Google Ads Conversion Tracking (2026-07-27)
+- [x] Add Google Ads tag AW-16481669131 to GoogleAnalytics.tsx (gtag('config', 'AW-16481669131') alongside GA4)
+- [x] Export GOOGLE_ADS_ID and GOOGLE_ADS_LEAD_LABEL constants from GoogleAnalytics.tsx
+- [x] Import GOOGLE_ADS_ID and GOOGLE_ADS_LEAD_LABEL in analytics.ts
+- [x] Add fireGoogleAdsConversion() helper in analytics.ts (sends conversion event with send_to, value: 1.0, currency: GBP)
+- [x] Call fireGoogleAdsConversion() inside trackFormSubmission() — fires on contact form submit
+- [x] Call fireGoogleAdsConversion() inside trackPhoneCall() — fires on phone number click
+- [x] Call fireGoogleAdsConversion() inside trackQuoteFormSubmission() — fires on quote form submit
+- [x] Update ga4-conversion-tracking.test.ts with 5 new tests: Google Ads conversion on phone call, form submission, quote form submission, correct tag ID, correct label
+- [x] All 167 tests passing (was 162)

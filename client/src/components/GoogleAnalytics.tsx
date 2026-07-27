@@ -1,6 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'wouter';
 
+// Google Ads conversion constants — used by analytics.ts to fire conversions
+export const GOOGLE_ADS_ID = 'AW-16481669131';
+// Single conversion label covers both form submissions and phone calls.
+// If separate phone-call conversion labels are created in Google Ads later,
+// update trackPhoneCall in analytics.ts to use a different label.
+export const GOOGLE_ADS_LEAD_LABEL = 'oybmCJWpkdYaEIugibM9';
+
 export function GoogleAnalytics() {
   const [location] = useLocation();
   const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
@@ -13,7 +20,8 @@ export function GoogleAnalytics() {
       return;
     }
 
-    // Load Google Analytics script
+    // Load Google Analytics + Google Ads tags.
+    // A single gtag.js request can serve multiple tag IDs — use GA4 ID as the primary loader.
     const script1 = document.createElement('script');
     script1.async = true;
     script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
@@ -28,6 +36,7 @@ export function GoogleAnalytics() {
         page_path: window.location.pathname,
         send_page_view: false,
       });
+      gtag('config', '${GOOGLE_ADS_ID}');
     `;
     document.head.appendChild(script2);
 

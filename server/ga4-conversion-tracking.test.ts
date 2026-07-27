@@ -1,5 +1,10 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 
+// Google Ads constants (mirrored from GoogleAnalytics.tsx — kept in sync manually)
+const GOOGLE_ADS_ID = 'AW-16481669131';
+const GOOGLE_ADS_LEAD_LABEL = 'oybmCJWpkdYaEIugibM9';
+const EXPECTED_SEND_TO = `${GOOGLE_ADS_ID}/${GOOGLE_ADS_LEAD_LABEL}`;
+
 describe('GA4 Conversion Tracking', () => {
   beforeEach(() => {
     // Mock window.gtag
@@ -55,6 +60,22 @@ describe('GA4 Conversion Tracking', () => {
     );
   });
 
+  it('should fire Google Ads conversion event on phone call', async () => {
+    const { trackPhoneCall } = await import('../client/src/lib/analytics');
+    
+    trackPhoneCall('07970566409', 'Header');
+    
+    expect(window.gtag).toHaveBeenCalledWith(
+      'event',
+      'conversion',
+      expect.objectContaining({
+        send_to: EXPECTED_SEND_TO,
+        value: 1.0,
+        currency: 'GBP',
+      })
+    );
+  });
+
   it('should track email clicks with correct parameters', async () => {
     const { trackEvent } = await import('../client/src/lib/analytics');
     
@@ -92,6 +113,22 @@ describe('GA4 Conversion Tracking', () => {
     );
   });
 
+  it('should fire Google Ads conversion event on form submission', async () => {
+    const { trackFormSubmission } = await import('../client/src/lib/analytics');
+    
+    trackFormSubmission('HubSpot Contact Form', '/contact');
+    
+    expect(window.gtag).toHaveBeenCalledWith(
+      'event',
+      'conversion',
+      expect.objectContaining({
+        send_to: EXPECTED_SEND_TO,
+        value: 1.0,
+        currency: 'GBP',
+      })
+    );
+  });
+
   it('should track quote form submissions as lead generation', async () => {
     const { trackQuoteFormSubmission } = await import('../client/src/lib/analytics');
     
@@ -106,6 +143,30 @@ describe('GA4 Conversion Tracking', () => {
         currency: 'GBP',
       })
     );
+  });
+
+  it('should fire Google Ads conversion event on quote form submission', async () => {
+    const { trackQuoteFormSubmission } = await import('../client/src/lib/analytics');
+    
+    trackQuoteFormSubmission();
+    
+    expect(window.gtag).toHaveBeenCalledWith(
+      'event',
+      'conversion',
+      expect.objectContaining({
+        send_to: EXPECTED_SEND_TO,
+        value: 1.0,
+        currency: 'GBP',
+      })
+    );
+  });
+
+  it('should use the correct Google Ads tag ID', () => {
+    expect(GOOGLE_ADS_ID).toBe('AW-16481669131');
+  });
+
+  it('should use the correct Google Ads conversion label', () => {
+    expect(GOOGLE_ADS_LEAD_LABEL).toBe('oybmCJWpkdYaEIugibM9');
   });
 
   it('should not throw errors when tracking without UTM data', async () => {

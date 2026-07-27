@@ -4,6 +4,7 @@
  */
 
 import { getUTMData, getFirstTouchUTM, type UTMData } from './utm';
+import { GOOGLE_ADS_ID, GOOGLE_ADS_LEAD_LABEL } from '../components/GoogleAnalytics';
 
 // Declare gtag as a global function
 declare global {
@@ -68,6 +69,21 @@ export function trackEvent(
 }
 
 /**
+ * Fire a Google Ads conversion event.
+ * Uses the "Website Lead Form" conversion action (label: oybmCJWpkdYaEIugibM9)
+ * which covers both contact form submissions and phone call clicks.
+ */
+function fireGoogleAdsConversion() {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'conversion', {
+      send_to: `${GOOGLE_ADS_ID}/${GOOGLE_ADS_LEAD_LABEL}`,
+      value: 1.0,
+      currency: 'GBP',
+    });
+  }
+}
+
+/**
  * Track form submission
  */
 export function trackFormSubmission(formName: string, formLocation?: string) {
@@ -77,6 +93,8 @@ export function trackFormSubmission(formName: string, formLocation?: string) {
     form_name: formName,
     form_location: formLocation || window.location.pathname,
   });
+  // Fire Google Ads conversion event — counts as a Website Lead Form conversion
+  fireGoogleAdsConversion();
 }
 
 /**
@@ -89,6 +107,8 @@ export function trackPhoneCall(phoneNumber: string, location?: string) {
     phone_number: phoneNumber,
     click_location: location || window.location.pathname,
   });
+  // Fire Google Ads conversion event — same label as form submission (Website Lead Form)
+  fireGoogleAdsConversion();
 }
 
 /**
@@ -111,6 +131,8 @@ export function trackQuoteFormSubmission() {
     event_label: 'Quote Form Submitted',
     currency: 'GBP',
   });
+  // Fire Google Ads conversion event — counts as a Website Lead Form conversion
+  fireGoogleAdsConversion();
 }
 
 /**
