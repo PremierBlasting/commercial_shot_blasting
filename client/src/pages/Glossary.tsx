@@ -1,8 +1,10 @@
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, lazy, Suspense } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import { Search, X, ChevronRight } from "lucide-react";
 import { GLOSSARY_TERMS, GLOSSARY_LETTERS } from "@/data/glossaryData";
+
+const LeadFormLazy = lazy(() => import("@/components/LeadForm").then(m => ({ default: m.LeadForm })));
 
 export default function Glossary() {
   useSEO({
@@ -208,28 +210,16 @@ export default function Glossary() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-[#1a3a4d] text-white py-12 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-3">Need Shot Blasting Services?</h2>
-          <p className="text-gray-300 mb-6 max-w-xl mx-auto">
-            Our team of professional shot blasting contractors operates 12 mobile units across
-            England and Wales. Free site surveys and fixed-price quotes.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-[#E8B84A] text-[#1a3a4d] font-bold px-6 py-3 rounded hover:bg-yellow-400 transition-colors"
-            >
-              Get a Free Quote
-            </Link>
-            <a
-              href="tel:07970566409"
-              className="border border-white text-white font-bold px-6 py-3 rounded hover:bg-white hover:text-[#1a3a4d] transition-colors"
-            >
-              Call 07970 566409
-            </a>
+      {/* CTA — native LeadForm */}
+      <section className="py-16 bg-[#1a3a4d]">
+        <div className="max-w-3xl mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Request a Free Site Survey</h2>
+            <p className="text-white/70">12 mobile units across England &amp; Wales. Fixed-price quotes, no obligation.</p>
           </div>
+          <Suspense fallback={<div className="h-64 flex items-center justify-center text-white/40">Loading form…</div>}>
+            <LeadFormLazy variant="dark" heading="" showWhatsApp={true} />
+          </Suspense>
         </div>
       </section>
     </main>

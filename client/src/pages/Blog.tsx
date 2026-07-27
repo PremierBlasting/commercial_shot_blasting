@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, lazy, Suspense } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Tag, Clock } from "lucide-react";
 import { Link } from "wouter";
@@ -7,6 +7,8 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { Footer } from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
 import { trpc } from "@/lib/trpc";
+
+const LeadFormLazy = lazy(() => import("@/components/LeadForm").then(m => ({ default: m.LeadForm })));
 
 function estimateReadTime(content: string): number {
   const words = content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
@@ -221,6 +223,19 @@ export default function Blog() {
               )}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Get a Quote Section */}
+      <section className="py-16 bg-[#1a3a4d]">
+        <div className="max-w-3xl mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Request a Free Site Survey</h2>
+            <p className="text-white/70">Our team covers England &amp; Wales. We'll get back to you within 24 hours.</p>
+          </div>
+          <Suspense fallback={<div className="h-64 flex items-center justify-center text-white/40">Loading form…</div>}>
+            <LeadFormLazy variant="dark" heading="" showWhatsApp={true} />
+          </Suspense>
         </div>
       </section>
 

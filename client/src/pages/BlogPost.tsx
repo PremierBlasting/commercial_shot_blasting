@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { useMemo } from "react";
+import { useMemo, lazy, Suspense } from "react";
 import { Calendar, Tag, ArrowLeft, Clock, User } from "lucide-react";
 import { ShareButton } from "@/components/ShareButton";
 import { Link, useRoute } from "wouter";
@@ -8,6 +8,8 @@ import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { useSEO } from "@/hooks/useSEO";
 import { trpc } from "@/lib/trpc";
+
+const LeadFormLazy = lazy(() => import("@/components/LeadForm").then(m => ({ default: m.LeadForm })));
 
 const SITE_URL = "https://commercialshotblasting.co.uk";
 
@@ -283,26 +285,11 @@ export default function BlogPost() {
               </div>
             )}
 
-            {/* CTA */}
-            <div className="mt-14 bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] rounded-2xl p-8 md:p-10 text-white text-center shadow-xl">
-              <h3 className="text-2xl md:text-3xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Need Professional Shot Blasting?
-              </h3>
-              <p className="text-white/80 text-lg mb-6 max-w-xl mx-auto">
-                Our expert team covers Birmingham, the West Midlands, and the whole of the UK. Get a no-obligation quote today.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Link href="/contact">
-                  <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-gray-100 font-semibold px-8">
-                    Request A Site Visit
-                  </Button>
-                </Link>
-                <a href="tel:07970566409">
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8">
-                    Call 07970 566409
-                  </Button>
-                </a>
-              </div>
+            {/* CTA — native LeadForm */}
+            <div className="mt-14">
+              <Suspense fallback={<div className="h-64 flex items-center justify-center text-gray-400">Loading form…</div>}>
+                <LeadFormLazy variant="light" heading="Request a Free Site Survey" subheading="Our expert team covers England &amp; Wales. We'll get back to you within 24 hours." showWhatsApp={true} />
+              </Suspense>
             </div>
 
           </div>

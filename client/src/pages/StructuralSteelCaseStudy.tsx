@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { Link } from "wouter";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -6,6 +6,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { useSEO } from "@/hooks/useSEO";
 import { Volume2, VolumeX, Play, Pause, X, PlayCircle } from "lucide-react";
+
+const LeadFormLazy = lazy(() => import("@/components/LeadForm").then(m => ({ default: m.LeadForm })));
 
 const images = {
   hero: "/manus-storage/IMG_3365_56728af1.webp",
@@ -760,27 +762,18 @@ export default function StructuralSteelCaseStudy() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="bg-slate-900 rounded-2xl p-8 md:p-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-            Have a Similar Structural Steel Project?
-          </h2>
-          <p className="text-white/70 mb-6 max-w-xl mx-auto">
-            We provide mobile shot blasting for structural steel across commercial and industrial buildings throughout England and Wales. Contact us for a site survey and quote.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/contact">
-              <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-white border-0 font-semibold">
-                Request A Site Visit
-              </Button>
-            </Link>
-            <Link href="/our-work">
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 bg-transparent">
-                View More Projects
-              </Button>
-            </Link>
+        {/* CTA — native LeadForm */}
+        <section className="bg-slate-900 rounded-2xl p-8 md:p-12">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Have a Similar Structural Steel Project?</h2>
+            <p className="text-white/70 max-w-xl mx-auto">We provide mobile shot blasting for structural steel across England and Wales. Request a free site survey below.</p>
           </div>
-          <p className="text-white/40 text-sm mt-4">Call us on <a href="tel:07970566409" className="text-white/60 hover:text-white">07970 566409</a> — site surveys available</p>
+          <Suspense fallback={<div className="h-64 flex items-center justify-center text-white/40">Loading form…</div>}>
+            <LeadFormLazy variant="dark" heading="" showWhatsApp={true} />
+          </Suspense>
+          <p className="text-center mt-4">
+            <Link href="/our-work" className="text-white/50 hover:text-white text-sm underline">View more projects</Link>
+          </p>
         </section>
       </div>
 

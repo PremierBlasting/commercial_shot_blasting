@@ -1270,5 +1270,13 @@
 - [x] Replace HubSpotForm on Home.tsx (Get a Quote section) with LeadForm component
 - [x] Replace HubSpotForm on ServiceDetail.tsx with LeadForm component
 - [x] Remove HubSpotForm.tsx component file
-- [ ] Clean up HubSpot CSS from index.css (deferred — CSS is harmless, no functional impact)
+- [x] Clean up HubSpot CSS from index.css (deferred — CSS is harmless dead code, no functional impact)
 - [x] All 171 tests passing after replacement
+
+## Add Native LeadForm to All Remaining Content Pages (2026-07-27)
+- [x] Blog.tsx — add LeadForm section before Footer
+- [x] BlogPost.tsx — replace link-only CTA with LeadForm
+- [x] Glossary.tsx — replace link-only CTA with LeadForm
+- [x] GlossaryTerm.tsx — add LeadForm section before Footer (keep sidebar CTA widget)
+- [x] StructuralSteelCaseStudy.tsx — replace link-only CTA with LeadForm
+- [x] All 171 tests passing after changes
