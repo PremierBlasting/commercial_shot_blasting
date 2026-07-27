@@ -16,8 +16,9 @@ const HUBSPOT_CSB_TOKEN = process.env.HUBSPOT_CSB_TOKEN ?? "";
 const HUBSPOT_PB_TOKEN = process.env.HUBSPOT_PB_TOKEN ?? "";
 const HUBSPOT_BASE_URL = "https://api.hubapi.com";
 
-// Notification recipients
+// Notification recipients — all four addresses receive every lead email
 const NOTIFICATION_RECIPIENTS = [
+  "info@commercialshotblasting.co.uk",
   "enquiry@premierblasting.co.uk",
   "chris@premierblasting.co.uk",
   "info@optimised.marketing",

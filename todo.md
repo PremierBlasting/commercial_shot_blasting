@@ -1226,3 +1226,11 @@
 - [x] Add getPublishedBlogPosts() to /api/preload/homepage endpoint (parallel with testimonials + gallery)
 - [x] Update useHomepagePreload hook to seed the blog.list tRPC query cache
 - [x] Update preload.test.ts to cover blog posts in the preload response
+
+## Lead Notification Fix (2026-07-27)
+- [x] Add info@commercialshotblasting.co.uk to NOTIFICATION_RECIPIENTS in leadNotifications.ts (was missing)
+- [x] Update HUBSPOT_CSB_TOKEN secret with new Private App token (pat-eu1-8653b760...)
+- [x] Update HUBSPOT_PB_TOKEN secret with new Private App token (pat-eu1-76169751...)
+- [x] Store both HubSpot tokens in cloud computer ~/.bashrc and document in AGENTS.md
+- [x] Add NOTIFICATION_RECIPIENTS test to leadNotifications.test.ts verifying all four addresses
+- [x] Validate both tokens live — CSB HTTP 200, PB HTTP 200

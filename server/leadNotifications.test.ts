@@ -1,15 +1,19 @@
 /**
  * Lead Notifications Integration Tests
  *
- * Validates that all three notification channels work:
+ * Validates that all four notification channels work:
  *  1. RESEND_API_KEY is set and accepted by the Resend API
  *  2. HUBSPOT_CSB_TOKEN is set and accepted by the HubSpot API
  *  3. HUBSPOT_PB_TOKEN is set and accepted by the HubSpot API
  *  4. notifyNewLead() runs without throwing (with source page + UTM data)
+ *  5. All four email recipients are present in the NOTIFICATION_RECIPIENTS list
  */
 
 import { describe, it, expect } from "vitest";
 import { Resend } from "resend";
+import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import { join, dirname } from "path";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY ?? "";
 const HUBSPOT_CSB_TOKEN = process.env.HUBSPOT_CSB_TOKEN ?? "";
@@ -67,6 +71,18 @@ describe("Lead Notification Credentials", () => {
     console.log("[HubSpot PB] API response status:", resp.status);
     expect(data.results).toBeDefined();
   }, 15000);
+});
+
+describe("NOTIFICATION_RECIPIENTS", () => {
+  it("includes all four required email addresses", () => {
+    // Read the source file directly to verify the recipients list without needing to export it.
+    const __filename = fileURLToPath(import.meta.url);
+    const src = readFileSync(join(dirname(__filename), "leadNotifications.ts"), "utf-8");
+    expect(src).toContain("info@commercialshotblasting.co.uk");
+    expect(src).toContain("enquiry@premierblasting.co.uk");
+    expect(src).toContain("chris@premierblasting.co.uk");
+    expect(src).toContain("info@optimised.marketing");
+  });
 });
 
 describe("notifyNewLead()", () => {
