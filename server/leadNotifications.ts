@@ -1,10 +1,12 @@
 /**
  * Lead Notifications
  *
- * Handles three actions when a new contact form submission arrives:
- *  1. Send an email notification to the three CSB notification addresses via Resend
- *  2. Create a contact in the CSB HubSpot account (so lead_sync_v2.py picks it up for Google Sheet)
- *  3. Create a contact in the Premier Blasting HubSpot account, tagged as a CSB lead
+ * Handles five actions when a new contact form submission arrives:
+ *  1. Send an email notification to all four CSB/PB notification addresses via Resend
+ *  2. Create a contact in the CSB HubSpot account (tagged "CSB Website")
+ *  3. Create a contact in the Premier Blasting HubSpot account (tagged "CSB Website")
+ *  4. Append the lead directly to the Google Sheets "2026 Leads" and "COMMERCIAL SHOT BLASTING LEADS 26" tabs
+ *  5. POST the lead as JSON to the cloud computer lead log endpoint
  */
 
 import { Resend } from "resend";
@@ -26,6 +28,17 @@ const NOTIFICATION_RECIPIENTS = [
 
 // From address — must be a verified Resend domain sender
 const FROM_ADDRESS = "leads@commercialshotblasting.co.uk";
+
+// Google Sheets configuration (same spreadsheet as lead_sync_v2.py)
+const GOOGLE_CLIENT_ID = "708251633389-bfhjsi8bgolunbaf73q2741qi8fq5kek.apps.googleusercontent.com";
+const GOOGLE_CLIENT_SECRET = "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";
+const GOOGLE_REFRESH_TOKEN = "1//056-2TSxPrIVCCgYIARAAGAUSNwF-L9IrvoWwc8tfVbVJ35RnLi2nfC46qT0GIyGUCJVr9IrWM5C9-XROGOP-yh5HEvPt9BKoEq8";
+const SPREADSHEET_ID = "147rTC7zNoZ3fP4eDR6D_HcPNRo203pzG7htsagjDBec";
+const SHEET_NAME_MAIN = "2026 Leads";
+const SHEET_NAME_CSB = "COMMERCIAL SHOT BLASTING LEADS 26";
+
+// Cloud computer lead log endpoint (port 8767 — CSB lead logger)
+const CLOUD_LEAD_LOG_URL = "http://34.77.164.2:8767/csb-lead";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -113,7 +126,7 @@ export async function sendLeadNotificationEmail(lead: LeadData): Promise<boolean
     </div>` : ""}
 
     <div style="margin-top: 20px; padding: 12px; background: #e8f0f8; border-radius: 6px; font-size: 13px; color: #555;">
-      This lead was submitted via <strong>commercialshotblasting.co.uk</strong> and has been added to both CSB and Premier Blasting HubSpot accounts.
+      This lead was submitted via <strong>commercialshotblasting.co.uk</strong> and has been added to both CSB and Premier Blasting HubSpot accounts and the Google Leads Sheet.
     </div>
 
     <div style="margin-top: 16px; text-align: center;">
@@ -221,7 +234,7 @@ export async function createHubSpotContact(lead: LeadData): Promise<boolean> {
   const { firstname, lastname } = parseNameParts(lead.name);
 
   const messageBody = [
-    "COMMERCIAL SHOT BLASTING WEBSITE LEAD",
+    "*** CSB LEAD — COMMERCIAL SHOT BLASTING WEBSITE ***",
     lead.sourcePage ? `Source: ${lead.sourcePage}` : "",
     lead.locationName ? `Location: ${lead.locationName}` : "",
     "",
@@ -235,6 +248,9 @@ export async function createHubSpotContact(lead: LeadData): Promise<boolean> {
     ...(lead.phone && { phone: lead.phone }),
     lifecyclestage: "lead",
     hs_lead_status: "NEW",
+    // Source tags — clearly marks this as a CSB website lead in HubSpot reports and filters
+    hs_analytics_source: "ORGANIC_SEARCH",
+    lead_source: "CSB Website",
     message: messageBody,
     // Maps to column J "Notes" in Google Sheet (read by lead_sync_v2.py)
     could_you_please_provide_a_brief_summary_of_your_project: lead.message,
@@ -284,7 +300,7 @@ export async function createPBHubSpotContact(lead: LeadData): Promise<boolean> {
   const { firstname, lastname } = parseNameParts(lead.name);
 
   const noteLines = [
-    "*** COMMERCIAL SHOT BLASTING LEAD ***",
+    "*** CSB LEAD — COMMERCIAL SHOT BLASTING WEBSITE ***",
     `Submitted via: commercialshotblasting.co.uk`,
     lead.sourcePage ? `Page: ${lead.sourcePage}` : "",
     lead.locationName ? `Location: ${lead.locationName}` : "",
@@ -298,8 +314,11 @@ export async function createPBHubSpotContact(lead: LeadData): Promise<boolean> {
     ...(lastname && { lastname }),
     ...(lead.phone && { phone: lead.phone }),
     lifecyclestage: "lead",
+    // Source tags — clearly marks this as a CSB website lead in PB HubSpot reports and filters
+    hs_analytics_source: "ORGANIC_SEARCH",
+    lead_source: "CSB Website",
     // Note: PB HubSpot uses custom hs_lead_status values — do not set it here
-    // The CSB tag is in the message field, matching what lead_sync_v2.py sets
+    // The CSB tag is in the message field and lead_source property
     message: noteLines,
   };
 
@@ -336,10 +355,133 @@ export async function createPBHubSpotContact(lead: LeadData): Promise<boolean> {
   }
 }
 
+// ─── Google Sheets Direct Append ─────────────────────────────────────────────
+
+async function getGoogleAccessToken(): Promise<string | null> {
+  try {
+    const resp = await fetch("https://oauth2.googleapis.com/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        client_id: GOOGLE_CLIENT_ID,
+        client_secret: GOOGLE_CLIENT_SECRET,
+        refresh_token: GOOGLE_REFRESH_TOKEN,
+        grant_type: "refresh_token",
+      }),
+    });
+    if (!resp.ok) {
+      const err = await resp.text();
+      console.error(`[LeadNotifications] Google token refresh failed: ${err.slice(0, 200)}`);
+      return null;
+    }
+    const data = await resp.json() as { access_token?: string };
+    return data.access_token ?? null;
+  } catch (err) {
+    console.error("[LeadNotifications] Failed to refresh Google token:", err);
+    return null;
+  }
+}
+
+async function appendToSheet(token: string, sheetName: string, row: string[]): Promise<boolean> {
+  const encodedSheet = encodeURIComponent(sheetName);
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${encodedSheet}!A:S:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
+  try {
+    const resp = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ values: [row] }),
+    });
+    if (!resp.ok) {
+      const err = await resp.text();
+      console.error(`[LeadNotifications] Google Sheets append failed for "${sheetName}": ${err.slice(0, 200)}`);
+      return false;
+    }
+    console.log(`[LeadNotifications] Appended lead to Google Sheet tab: "${sheetName}"`);
+    return true;
+  } catch (err) {
+    console.error(`[LeadNotifications] Failed to append to Google Sheet "${sheetName}":`, err);
+    return false;
+  }
+}
+
+export async function appendLeadToGoogleSheets(lead: LeadData): Promise<boolean> {
+  const token = await getGoogleAccessToken();
+  if (!token) return false;
+
+  const { firstname, lastname } = parseNameParts(lead.name);
+  const dateStr = new Date().toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+
+  // Build row matching the sheet column structure (A–S) from lead_sync_v2.py
+  const row: string[] = [
+    lead.email,                          // A: Unique Key (email)
+    dateStr,                             // B: Date (DD/MM/YYYY)
+    firstname,                           // C: First Name
+    lastname,                            // D: Last Name
+    lead.email,                          // E: Email
+    lead.phone ?? "",                    // F: Phone number
+    "",                                  // G: Postal code (not collected in form)
+    "COMMERCIAL SHOT BLASTING LEAD",     // H: Method To Contact — clearly labelled
+    "",                                  // I: Quoted Amount
+    lead.message,                        // J: Notes (project summary)
+    "",                                  // K: Service Required
+    "",                                  // L: Completion Date
+    "",                                  // M: Timeframe
+    "",                                  // N: (blank)
+    "COMMERCIAL SHOT BLASTING - Website",// O: Traffic Source Drill Down 1
+    lead.sourcePage ?? "",               // P: Traffic Source Drill Down 2 (source page)
+    "ORGANIC_SEARCH",                    // Q: Web Analytics Source
+    "",                                  // R: Listed Building?
+    lead.message,                        // S: Project Summary
+  ];
+
+  const [mainResult, csbResult] = await Promise.allSettled([
+    appendToSheet(token, SHEET_NAME_MAIN, row),
+    appendToSheet(token, SHEET_NAME_CSB, row),
+  ]);
+
+  const mainOk = mainResult.status === "fulfilled" && mainResult.value;
+  const csbOk = csbResult.status === "fulfilled" && csbResult.value;
+  return mainOk && csbOk;
+}
+
+// ─── Cloud Computer Lead Log ──────────────────────────────────────────────────
+
+export async function logLeadToCloud(lead: LeadData): Promise<boolean> {
+  try {
+    const resp = await fetch(CLOUD_LEAD_LOG_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...lead,
+        source: "CSB Website",
+        submittedAt: new Date().toISOString(),
+      }),
+      signal: AbortSignal.timeout(5000), // 5-second timeout — non-blocking
+    });
+    if (!resp.ok) {
+      console.warn(`[LeadNotifications] Cloud lead log returned ${resp.status}`);
+      return false;
+    }
+    console.log(`[LeadNotifications] Lead logged to cloud computer: ${lead.email}`);
+    return true;
+  } catch (err) {
+    // Non-critical — log but do not fail the submission
+    console.warn("[LeadNotifications] Cloud lead log unavailable (non-critical):", (err as Error).message);
+    return false;
+  }
+}
+
 // ─── Combined Handler ──────────────────────────────────────────────────────────
 
 /**
- * Fire-and-forget: send email notification + create contacts in both HubSpot accounts.
+ * Fire-and-forget: send email + create HubSpot contacts + append to Google Sheets + log to cloud.
  * Errors are logged but do NOT throw — the form submission itself must always succeed.
  */
 export async function notifyNewLead(lead: LeadData): Promise<void> {
@@ -353,6 +495,8 @@ export async function notifyNewLead(lead: LeadData): Promise<void> {
     sendLeadNotificationEmail(lead),
     createHubSpotContact(lead),
     createPBHubSpotContact(lead),
+    appendLeadToGoogleSheets(lead),
+    logLeadToCloud(lead),
   ]);
 }
 

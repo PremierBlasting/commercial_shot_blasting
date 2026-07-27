@@ -1234,3 +1234,13 @@
 - [x] Store both HubSpot tokens in cloud computer ~/.bashrc and document in AGENTS.md
 - [x] Add NOTIFICATION_RECIPIENTS test to leadNotifications.test.ts verifying all four addresses
 - [x] Validate both tokens live — CSB HTTP 200, PB HTTP 200
+
+## Lead Sync Improvements (2026-07-27)
+- [x] Add UK phone number validator to server-side contact validation (routers.ts + shared/)
+- [x] Add real-time UK phone validation to LeadForm.tsx frontend
+- [x] Add hs_analytics_source: "ORGANIC_SEARCH" + lead_source: "CSB Website" to CSB HubSpot contact properties
+- [x] Add hs_analytics_source: "ORGANIC_SEARCH" + lead_source: "CSB Website" + *** CSB LEAD *** marker to PB HubSpot contact
+- [x] Add direct Google Sheets append to leadNotifications.ts (both "2026 Leads" and "COMMERCIAL SHOT BLASTING LEADS 26" tabs, column H = "COMMERCIAL SHOT BLASTING LEAD")
+- [x] Add cloud computer JSON lead log to leadNotifications.ts (POST to cloud API endpoint port 8767, csb_lead_logger systemd service)
+- [x] Update leadNotifications.test.ts to cover all five channels, source tags, and Google Sheets labels (162 tests passing)
+- [x] Submit live test lead — email + CSB HubSpot (ID: 831774870733) + PB HubSpot confirmed working

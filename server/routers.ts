@@ -38,6 +38,7 @@ import {
 import { storagePut } from "./storage";
 import { notifyNewLead } from "./leadNotifications";
 import { validateLeadEmail } from "./emailValidation";
+import { validateUKPhone } from "../shared/emailValidation";
 import { generateAndUploadBlogOgImage } from "./ogImage";
 import { nanoid } from "nanoid";
 
@@ -284,6 +285,18 @@ export const appRouter = router({
             message: emailCheck.reason ?? "Please enter a valid email address.",
           });
         }
+
+        // UK phone number validation — blocks US/international numbers (e.g. spam bots)
+        if (input.phone) {
+          const phoneCheck = validateUKPhone(input.phone);
+          if (!phoneCheck.valid) {
+            throw new TRPCError({
+              code: "BAD_REQUEST",
+              message: phoneCheck.reason ?? "Please enter a valid UK phone number.",
+            });
+          }
+        }
+
         await createContactSubmission({
           name: input.name,
           email: input.email,

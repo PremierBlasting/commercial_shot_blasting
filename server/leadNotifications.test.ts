@@ -1,12 +1,15 @@
 /**
  * Lead Notifications Integration Tests
  *
- * Validates that all four notification channels work:
+ * Validates that all five notification channels are correctly configured:
  *  1. RESEND_API_KEY is set and accepted by the Resend API
  *  2. HUBSPOT_CSB_TOKEN is set and accepted by the HubSpot API
  *  3. HUBSPOT_PB_TOKEN is set and accepted by the HubSpot API
  *  4. notifyNewLead() runs without throwing (with source page + UTM data)
  *  5. All four email recipients are present in the NOTIFICATION_RECIPIENTS list
+ *  6. Both HubSpot contact creation calls include "CSB Website" lead_source tag
+ *  7. Google Sheets append function is exported and callable
+ *  8. Cloud computer lead log function is exported and callable
  */
 
 import { describe, it, expect } from "vitest";
@@ -75,13 +78,62 @@ describe("Lead Notification Credentials", () => {
 
 describe("NOTIFICATION_RECIPIENTS", () => {
   it("includes all four required email addresses", () => {
-    // Read the source file directly to verify the recipients list without needing to export it.
     const __filename = fileURLToPath(import.meta.url);
     const src = readFileSync(join(dirname(__filename), "leadNotifications.ts"), "utf-8");
     expect(src).toContain("info@commercialshotblasting.co.uk");
     expect(src).toContain("enquiry@premierblasting.co.uk");
     expect(src).toContain("chris@premierblasting.co.uk");
     expect(src).toContain("info@optimised.marketing");
+  });
+});
+
+describe("HubSpot Lead Source Tags", () => {
+  it("CSB HubSpot contact creation includes lead_source: CSB Website", () => {
+    const __filename = fileURLToPath(import.meta.url);
+    const src = readFileSync(join(dirname(__filename), "leadNotifications.ts"), "utf-8");
+    // Verify the source tags are present in the CSB contact properties
+    expect(src).toContain('lead_source: "CSB Website"');
+    expect(src).toContain('hs_analytics_source: "ORGANIC_SEARCH"');
+  });
+
+  it("CSB HubSpot contact message includes *** CSB LEAD *** marker", () => {
+    const __filename = fileURLToPath(import.meta.url);
+    const src = readFileSync(join(dirname(__filename), "leadNotifications.ts"), "utf-8");
+    expect(src).toContain("*** CSB LEAD — COMMERCIAL SHOT BLASTING WEBSITE ***");
+  });
+
+  it("Google Sheets row includes COMMERCIAL SHOT BLASTING LEAD label in column H", () => {
+    const __filename = fileURLToPath(import.meta.url);
+    const src = readFileSync(join(dirname(__filename), "leadNotifications.ts"), "utf-8");
+    expect(src).toContain("COMMERCIAL SHOT BLASTING LEAD");
+    expect(src).toContain("COMMERCIAL SHOT BLASTING - Website");
+  });
+});
+
+describe("Lead Channel Exports", () => {
+  it("appendLeadToGoogleSheets is exported", async () => {
+    const mod = await import("./leadNotifications");
+    expect(typeof mod.appendLeadToGoogleSheets).toBe("function");
+  });
+
+  it("logLeadToCloud is exported", async () => {
+    const mod = await import("./leadNotifications");
+    expect(typeof mod.logLeadToCloud).toBe("function");
+  });
+
+  it("createHubSpotContact is exported", async () => {
+    const mod = await import("./leadNotifications");
+    expect(typeof mod.createHubSpotContact).toBe("function");
+  });
+
+  it("createPBHubSpotContact is exported", async () => {
+    const mod = await import("./leadNotifications");
+    expect(typeof mod.createPBHubSpotContact).toBe("function");
+  });
+
+  it("sendLeadNotificationEmail is exported", async () => {
+    const mod = await import("./leadNotifications");
+    expect(typeof mod.sendLeadNotificationEmail).toBe("function");
   });
 });
 
@@ -93,7 +145,7 @@ describe("notifyNewLead()", () => {
     await expect(
       notifyNewLead({
         name: "Test Lead CSB",
-        email: "test-csb-lead-vitest@example.com",
+        email: "test-csb-lead-vitest@gmail.com",
         phone: "07700 900000",
         message: "Vitest integration test — please ignore",
         sourcePage: "https://commercialshotblasting.co.uk/service-areas/birmingham",

@@ -89,6 +89,40 @@ const JUNK_PATTERNS = [
   /^(user\d+|admin\d+|test\d+|demo\d+|sample\d+)$/i,
 ];
 
+// ─── UK Phone Number Validation ─────────────────────────────────────────────
+/**
+ * Validates a UK phone number.
+ * Accepts:
+ *   - 07xxx xxxxxx (UK mobile)
+ *   - 01xxx xxxxxx / 02x xxxx xxxx (UK landline)
+ *   - +44 7xxx xxxxxx / +44 1xxx xxxxxx (international format)
+ *   - Allows spaces, hyphens, and parentheses as separators
+ * Rejects:
+ *   - US/international numbers not starting with 0 or +44
+ *   - Numbers shorter than 10 digits or longer than 13 digits
+ */
+export interface PhoneValidationResult {
+  valid: boolean;
+  reason?: string;
+}
+
+export function validateUKPhone(phone: string): PhoneValidationResult {
+  if (!phone || !phone.trim()) {
+    return { valid: true }; // Phone is optional
+  }
+  // Strip all formatting characters (spaces, hyphens, parentheses, dots)
+  const stripped = phone.trim().replace(/[\s\-().]/g, "");
+  // Must start with 0 or +44, followed by 9-10 digits
+  const ukPattern = /^(\+44|0)[0-9]{9,10}$/;
+  if (!ukPattern.test(stripped)) {
+    return {
+      valid: false,
+      reason: "Please enter a valid UK phone number (e.g. 07700 900000 or 01234 567890).",
+    };
+  }
+  return { valid: true };
+}
+
 // ─── Main Validation Function ─────────────────────────────────────────────────
 export interface EmailValidationResult {
   valid: boolean;
