@@ -274,6 +274,7 @@ export const appRouter = router({
         sourcePage: z.string().optional(),
         locationName: z.string().optional(),
         utmData: z.record(z.string(), z.string()).optional(),
+        marketingConsent: z.boolean().optional(),
       }))
       .mutation(async ({ input }) => {
         // Multi-layer email quality check — blocks disposable domains, role-based
@@ -317,6 +318,7 @@ export const appRouter = router({
           sourcePage: input.sourcePage,
           locationName: input.locationName,
           utmData: input.utmData as Record<string, string> | undefined,
+          marketingConsent: input.marketingConsent ?? false,
         }).catch((err) => console.error('[contact.submit] notifyNewLead error:', err));
         return { success: true };
       }),

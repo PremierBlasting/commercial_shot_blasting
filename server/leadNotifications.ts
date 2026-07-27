@@ -50,6 +50,8 @@ export interface LeadData {
   sourcePage?: string;
   locationName?: string;
   utmData?: Record<string, string>;
+  /** Whether the contact ticked the marketing consent checkbox */
+  marketingConsent?: boolean;
 }
 
 // ─── Email Notification ────────────────────────────────────────────────────────
@@ -451,6 +453,55 @@ export async function appendLeadToGoogleSheets(lead: LeadData): Promise<boolean>
   return mainOk && csbOk;
 }
 
+// ─── HubSpot Workflow Enrolment ─────────────────────────────────────────────
+
+/**
+ * Enrol a PB HubSpot contact into the "January 26" workflow (ID: 3647837418).
+ * Only called when the contact ticked the marketing consent checkbox.
+ * Uses the automation v4 API — requires the `automation` scope on HUBSPOT_PB_TOKEN.
+ */
+export async function enrollInJanuary26Workflow(email: string): Promise<boolean> {
+  if (!HUBSPOT_PB_TOKEN) {
+    console.warn("[LeadNotifications] HUBSPOT_PB_TOKEN not set — skipping workflow enrolment");
+    return false;
+  }
+
+  const WORKFLOW_ID = "3647837418";
+
+  try {
+    // First look up the contact ID in PB HubSpot by email
+    const contactId = await findContactIdByEmail(email, HUBSPOT_PB_TOKEN);
+    if (!contactId) {
+      console.warn(`[LeadNotifications] Could not find PB HubSpot contact for ${email} — skipping workflow enrolment`);
+      return false;
+    }
+
+    // Enrol via the automation/v3 workflows API
+    const resp = await fetch(
+      `https://api.hubapi.com/automation/v3/workflows/${WORKFLOW_ID}/enrollments/contacts/${contactId}`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${HUBSPOT_PB_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (resp.ok || resp.status === 204) {
+      console.log(`[LeadNotifications] Enrolled ${email} (ID: ${contactId}) in January 26 workflow`);
+      return true;
+    } else {
+      const body = await resp.text();
+      console.warn(`[LeadNotifications] Workflow enrolment returned ${resp.status}: ${body.slice(0, 200)}`);
+      return false;
+    }
+  } catch (err) {
+    console.warn("[LeadNotifications] Workflow enrolment failed (non-critical):", (err as Error).message);
+    return false;
+  }
+}
+
 // ─── Cloud Computer Lead Log ──────────────────────────────────────────────────
 
 export async function logLeadToCloud(lead: LeadData): Promise<boolean> {
@@ -491,6 +542,8 @@ export async function notifyNewLead(lead: LeadData): Promise<void> {
     console.log("[notifyNewLead] Skipping external calls in test environment.");
     return;
   }
+
+  // Run all five core channels in parallel
   await Promise.allSettled([
     sendLeadNotificationEmail(lead),
     createHubSpotContact(lead),
@@ -498,6 +551,13 @@ export async function notifyNewLead(lead: LeadData): Promise<void> {
     appendLeadToGoogleSheets(lead),
     logLeadToCloud(lead),
   ]);
+
+  // Enrol in the Premier Blasting "January 26" workflow only if the contact
+  // explicitly ticked the marketing consent checkbox.
+  // Runs after the core channels so the PB HubSpot contact already exists.
+  if (lead.marketingConsent) {
+    await enrollInJanuary26Workflow(lead.email);
+  }
 }
 
 // ─── Utility ──────────────────────────────────────────────────────────────────

@@ -135,6 +135,11 @@ describe("Lead Channel Exports", () => {
     const mod = await import("./leadNotifications");
     expect(typeof mod.sendLeadNotificationEmail).toBe("function");
   });
+
+  it("enrollInJanuary26Workflow is exported", async () => {
+    const mod = await import("./leadNotifications");
+    expect(typeof mod.enrollInJanuary26Workflow).toBe("function");
+  });
 });
 
 describe("notifyNewLead()", () => {
@@ -159,4 +164,30 @@ describe("notifyNewLead()", () => {
       })
     ).resolves.toBeUndefined(); // Guard returns early (undefined) without throwing
   }, 5000); // Fast — no real network calls made
+
+  it("accepts marketingConsent: true without throwing in test environment", async () => {
+    const { notifyNewLead } = await import("./leadNotifications");
+    await expect(
+      notifyNewLead({
+        name: "Consent Test Lead",
+        email: "consent-test@gmail.com",
+        phone: "07700 900001",
+        message: "Consent test — please ignore",
+        marketingConsent: true,
+      })
+    ).resolves.toBeUndefined();
+  }, 5000);
+
+  it("accepts marketingConsent: false without throwing in test environment", async () => {
+    const { notifyNewLead } = await import("./leadNotifications");
+    await expect(
+      notifyNewLead({
+        name: "No Consent Test Lead",
+        email: "no-consent-test@gmail.com",
+        phone: "07700 900002",
+        message: "No consent test — please ignore",
+        marketingConsent: false,
+      })
+    ).resolves.toBeUndefined();
+  }, 5000);
 });

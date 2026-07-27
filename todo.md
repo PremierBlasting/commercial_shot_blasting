@@ -1280,3 +1280,10 @@
 - [x] GlossaryTerm.tsx — add LeadForm section before Footer (keep sidebar CTA widget)
 - [x] StructuralSteelCaseStudy.tsx — replace link-only CTA with LeadForm
 - [x] All 171 tests passing after changes
+
+## GDPR Consent Checkbox & HubSpot Workflow Enrolment (2026-07-27)
+- [x] Add `marketingConsent` boolean to LeadForm state and render GDPR checkbox before submit button
+- [x] Pass `marketingConsent` through tRPC contact.submit input schema
+- [x] Add `enrollInJanuary26Workflow()` function to leadNotifications.ts (workflow ID: 3647837418)
+- [x] Call enrolment only when `marketingConsent === true` in notifyNewLead()
+- [x] Update tests for new consent field and workflow enrolment (174 tests passing)

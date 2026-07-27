@@ -69,6 +69,7 @@ export function LeadForm({
   const [completionDate, setCompletionDate] = useState("");
   const [projectSummary, setProjectSummary] = useState("");
   const [visitDate, setVisitDate] = useState("");
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -138,6 +139,7 @@ export function LeadForm({
       sourcePage: typeof window !== "undefined" ? window.location.href : undefined,
       locationName: locationName,
       utmData: Object.keys(utmData).length > 0 ? utmData : undefined,
+      marketingConsent,
     });
   };
 
@@ -364,6 +366,20 @@ export function LeadForm({
       </div>
 
       {error && <p className="text-red-400 text-xs">{error}</p>}
+
+      {/* GDPR Consent Checkbox */}
+      <div className={`flex items-start gap-2.5 p-3 rounded-lg border ${isDark ? "border-white/10 bg-white/5" : "border-gray-100 bg-gray-50"}`}>
+        <input
+          id="lf-consent"
+          type="checkbox"
+          checked={marketingConsent}
+          onChange={(e) => setMarketingConsent(e.target.checked)}
+          className="mt-0.5 w-4 h-4 rounded border-gray-300 accent-[#2C5F7F] cursor-pointer shrink-0"
+        />
+        <label htmlFor="lf-consent" className={`text-xs leading-relaxed cursor-pointer ${isDark ? "text-blue-100/80" : "text-gray-500"}`}>
+          I agree to receive communications from <strong>Premier Blasting</strong> (the commercial surface preparation arm of which is Commercial Shot Blasting). This may include updates, promotions, and service-related messages via email and WhatsApp. Your details will only be used to respond to your enquiry and, if you consent, to keep you informed of relevant services.
+        </label>
+      </div>
 
       {/* Submit */}
       <button
