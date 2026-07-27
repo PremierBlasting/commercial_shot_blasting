@@ -1,12 +1,15 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'wouter';
 
-// Google Ads conversion constants — used by analytics.ts to fire conversions
+// Google Ads tag — Premier Blasting account (236-156-1845), which also serves CSB campaigns.
+// Tag ID confirmed via Google Ads API: AW-16481669131 is the correct tag for this account.
 export const GOOGLE_ADS_ID = 'AW-16481669131';
-// Single conversion label covers both form submissions and phone calls.
-// If separate phone-call conversion labels are created in Google Ads later,
-// update trackPhoneCall in analytics.ts to use a different label.
-export const GOOGLE_ADS_LEAD_LABEL = 'oybmCJWpkdYaEIugibM9';
+
+// CSB conversion action labels — created 2026-07-27 via Google Ads API (additive only, no PB changes).
+// Lead Form label: fires on contact form submission and quote form submission.
+export const GOOGLE_ADS_LEAD_LABEL = 'nOlECJeFnNccEIugibM9'; // CSB - Website Lead Form (ID: 7699104407)
+// Phone call label: fires on phone number click only.
+export const GOOGLE_ADS_PHONE_LABEL = 'UPr1CIvfr9ccEIugibM9'; // CSB - Phone Call Click (ID: 7699427211)
 
 export function GoogleAnalytics() {
   const [location] = useLocation();

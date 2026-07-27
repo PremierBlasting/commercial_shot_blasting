@@ -1255,3 +1255,13 @@
 - [x] Call fireGoogleAdsConversion() inside trackQuoteFormSubmission() — fires on quote form submit
 - [x] Update ga4-conversion-tracking.test.ts with 5 new tests: Google Ads conversion on phone call, form submission, quote form submission, correct tag ID, correct label
 - [x] All 167 tests passing (was 162)
+
+## Google Ads — Separate Phone-Call Conversion (2026-07-27)
+- [x] Confirm Premier Blasting account 236-156-1845 = tag AW-16481669131 (same account, verified via API)
+- [x] Create "CSB - Website Lead Form" conversion action via Google Ads API (ID: 7699104407, label: nOlECJeFnNccEIugibM9)
+- [x] Create "CSB - Phone Call Click" conversion action via Google Ads API (ID: 7699427211, label: UPr1CIvfr9ccEIugibM9)
+- [x] Export GOOGLE_ADS_PHONE_LABEL from GoogleAnalytics.tsx
+- [x] Add fireGoogleAdsPhoneConversion() helper in analytics.ts using GOOGLE_ADS_PHONE_LABEL
+- [x] Update trackPhoneCall() to call fireGoogleAdsPhoneConversion() (not the lead-form label)
+- [x] Update ga4-conversion-tracking.test.ts: 4 new tests (phone label distinct, lead label distinct, correct phone label, correct lead label)
+- [x] All 171 tests passing (was 167)

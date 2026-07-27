@@ -1,9 +1,12 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 
 // Google Ads constants (mirrored from GoogleAnalytics.tsx — kept in sync manually)
+// Conversion actions created 2026-07-27 via Google Ads API in account 236-156-1845.
 const GOOGLE_ADS_ID = 'AW-16481669131';
-const GOOGLE_ADS_LEAD_LABEL = 'oybmCJWpkdYaEIugibM9';
-const EXPECTED_SEND_TO = `${GOOGLE_ADS_ID}/${GOOGLE_ADS_LEAD_LABEL}`;
+const GOOGLE_ADS_LEAD_LABEL = 'nOlECJeFnNccEIugibM9';   // CSB - Website Lead Form (ID: 7699104407)
+const GOOGLE_ADS_PHONE_LABEL = 'UPr1CIvfr9ccEIugibM9';  // CSB - Phone Call Click (ID: 7699427211)
+const EXPECTED_LEAD_SEND_TO = `${GOOGLE_ADS_ID}/${GOOGLE_ADS_LEAD_LABEL}`;
+const EXPECTED_PHONE_SEND_TO = `${GOOGLE_ADS_ID}/${GOOGLE_ADS_PHONE_LABEL}`;
 
 describe('GA4 Conversion Tracking', () => {
   beforeEach(() => {
@@ -60,7 +63,7 @@ describe('GA4 Conversion Tracking', () => {
     );
   });
 
-  it('should fire Google Ads conversion event on phone call', async () => {
+  it('should fire Google Ads phone-call conversion event on phone click (separate label from form)', async () => {
     const { trackPhoneCall } = await import('../client/src/lib/analytics');
     
     trackPhoneCall('07970566409', 'Header');
@@ -69,11 +72,27 @@ describe('GA4 Conversion Tracking', () => {
       'event',
       'conversion',
       expect.objectContaining({
-        send_to: EXPECTED_SEND_TO,
+        send_to: EXPECTED_PHONE_SEND_TO,
         value: 1.0,
         currency: 'GBP',
       })
     );
+  });
+
+  it('should NOT fire the lead-form label on phone call (labels must be distinct)', async () => {
+    const { trackPhoneCall } = await import('../client/src/lib/analytics');
+    
+    trackPhoneCall('07970566409', 'Header');
+    
+    const calls = (window.gtag as ReturnType<typeof vi.fn>).mock.calls;
+    const conversionCalls = calls.filter(
+      (c: any[]) => c[0] === 'event' && c[1] === 'conversion'
+    );
+    // Every conversion call must use the phone label, not the lead-form label
+    for (const call of conversionCalls) {
+      expect(call[2].send_to).toBe(EXPECTED_PHONE_SEND_TO);
+      expect(call[2].send_to).not.toBe(EXPECTED_LEAD_SEND_TO);
+    }
   });
 
   it('should track email clicks with correct parameters', async () => {
@@ -113,7 +132,7 @@ describe('GA4 Conversion Tracking', () => {
     );
   });
 
-  it('should fire Google Ads conversion event on form submission', async () => {
+  it('should fire Google Ads lead-form conversion event on form submission', async () => {
     const { trackFormSubmission } = await import('../client/src/lib/analytics');
     
     trackFormSubmission('HubSpot Contact Form', '/contact');
@@ -122,11 +141,26 @@ describe('GA4 Conversion Tracking', () => {
       'event',
       'conversion',
       expect.objectContaining({
-        send_to: EXPECTED_SEND_TO,
+        send_to: EXPECTED_LEAD_SEND_TO,
         value: 1.0,
         currency: 'GBP',
       })
     );
+  });
+
+  it('should NOT fire the phone-call label on form submission (labels must be distinct)', async () => {
+    const { trackFormSubmission } = await import('../client/src/lib/analytics');
+    
+    trackFormSubmission('HubSpot Contact Form', '/contact');
+    
+    const calls = (window.gtag as ReturnType<typeof vi.fn>).mock.calls;
+    const conversionCalls = calls.filter(
+      (c: any[]) => c[0] === 'event' && c[1] === 'conversion'
+    );
+    for (const call of conversionCalls) {
+      expect(call[2].send_to).toBe(EXPECTED_LEAD_SEND_TO);
+      expect(call[2].send_to).not.toBe(EXPECTED_PHONE_SEND_TO);
+    }
   });
 
   it('should track quote form submissions as lead generation', async () => {
@@ -145,7 +179,7 @@ describe('GA4 Conversion Tracking', () => {
     );
   });
 
-  it('should fire Google Ads conversion event on quote form submission', async () => {
+  it('should fire Google Ads lead-form conversion event on quote form submission', async () => {
     const { trackQuoteFormSubmission } = await import('../client/src/lib/analytics');
     
     trackQuoteFormSubmission();
@@ -154,7 +188,7 @@ describe('GA4 Conversion Tracking', () => {
       'event',
       'conversion',
       expect.objectContaining({
-        send_to: EXPECTED_SEND_TO,
+        send_to: EXPECTED_LEAD_SEND_TO,
         value: 1.0,
         currency: 'GBP',
       })
@@ -165,8 +199,17 @@ describe('GA4 Conversion Tracking', () => {
     expect(GOOGLE_ADS_ID).toBe('AW-16481669131');
   });
 
-  it('should use the correct Google Ads conversion label', () => {
-    expect(GOOGLE_ADS_LEAD_LABEL).toBe('oybmCJWpkdYaEIugibM9');
+  it('should use the correct Google Ads lead-form conversion label', () => {
+    expect(GOOGLE_ADS_LEAD_LABEL).toBe('nOlECJeFnNccEIugibM9');
+  });
+
+  it('should use the correct Google Ads phone-call conversion label', () => {
+    expect(GOOGLE_ADS_PHONE_LABEL).toBe('UPr1CIvfr9ccEIugibM9');
+  });
+
+  it('should use distinct labels for phone calls vs form submissions', () => {
+    expect(GOOGLE_ADS_PHONE_LABEL).not.toBe(GOOGLE_ADS_LEAD_LABEL);
+    expect(EXPECTED_PHONE_SEND_TO).not.toBe(EXPECTED_LEAD_SEND_TO);
   });
 
   it('should not throw errors when tracking without UTM data', async () => {

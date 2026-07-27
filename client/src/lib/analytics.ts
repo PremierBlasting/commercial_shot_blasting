@@ -4,7 +4,7 @@
  */
 
 import { getUTMData, getFirstTouchUTM, type UTMData } from './utm';
-import { GOOGLE_ADS_ID, GOOGLE_ADS_LEAD_LABEL } from '../components/GoogleAnalytics';
+import { GOOGLE_ADS_ID, GOOGLE_ADS_LEAD_LABEL, GOOGLE_ADS_PHONE_LABEL } from '../components/GoogleAnalytics';
 
 // Declare gtag as a global function
 declare global {
@@ -69,14 +69,28 @@ export function trackEvent(
 }
 
 /**
- * Fire a Google Ads conversion event.
- * Uses the "Website Lead Form" conversion action (label: oybmCJWpkdYaEIugibM9)
- * which covers both contact form submissions and phone call clicks.
+ * Fire a Google Ads conversion event for form submissions.
+ * Uses the "CSB - Website Lead Form" conversion action (ID: 7699104407).
  */
-function fireGoogleAdsConversion() {
+function fireGoogleAdsLeadConversion() {
   if (typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', 'conversion', {
       send_to: `${GOOGLE_ADS_ID}/${GOOGLE_ADS_LEAD_LABEL}`,
+      value: 1.0,
+      currency: 'GBP',
+    });
+  }
+}
+
+/**
+ * Fire a Google Ads conversion event for phone call clicks.
+ * Uses the "CSB - Phone Call Click" conversion action (ID: 7699427211).
+ * Reported separately from form submissions in Google Ads.
+ */
+function fireGoogleAdsPhoneConversion() {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'conversion', {
+      send_to: `${GOOGLE_ADS_ID}/${GOOGLE_ADS_PHONE_LABEL}`,
       value: 1.0,
       currency: 'GBP',
     });
@@ -93,8 +107,8 @@ export function trackFormSubmission(formName: string, formLocation?: string) {
     form_name: formName,
     form_location: formLocation || window.location.pathname,
   });
-  // Fire Google Ads conversion event — counts as a Website Lead Form conversion
-  fireGoogleAdsConversion();
+  // Fire Google Ads conversion event — CSB - Website Lead Form
+  fireGoogleAdsLeadConversion();
 }
 
 /**
@@ -107,8 +121,8 @@ export function trackPhoneCall(phoneNumber: string, location?: string) {
     phone_number: phoneNumber,
     click_location: location || window.location.pathname,
   });
-  // Fire Google Ads conversion event — same label as form submission (Website Lead Form)
-  fireGoogleAdsConversion();
+  // Fire Google Ads conversion event — CSB - Phone Call Click (separate from form submissions)
+  fireGoogleAdsPhoneConversion();
 }
 
 /**
@@ -131,8 +145,8 @@ export function trackQuoteFormSubmission() {
     event_label: 'Quote Form Submitted',
     currency: 'GBP',
   });
-  // Fire Google Ads conversion event — counts as a Website Lead Form conversion
-  fireGoogleAdsConversion();
+  // Fire Google Ads conversion event — CSB - Website Lead Form
+  fireGoogleAdsLeadConversion();
 }
 
 /**
