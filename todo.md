@@ -1265,3 +1265,10 @@
 - [x] Update trackPhoneCall() to call fireGoogleAdsPhoneConversion() (not the lead-form label)
 - [x] Update ga4-conversion-tracking.test.ts: 4 new tests (phone label distinct, lead label distinct, correct phone label, correct lead label)
 - [x] All 171 tests passing (was 167)
+
+## Replace HubSpot Embedded Form with Native LeadForm (2026-07-27)
+- [x] Replace HubSpotForm on Home.tsx (Get a Quote section) with LeadForm component
+- [x] Replace HubSpotForm on ServiceDetail.tsx with LeadForm component
+- [x] Remove HubSpotForm.tsx component file
+- [ ] Clean up HubSpot CSS from index.css (deferred — CSS is harmless, no functional impact)
+- [x] All 171 tests passing after replacement

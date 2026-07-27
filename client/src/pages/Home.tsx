@@ -15,7 +15,7 @@ import { ProjectDetailModal, type ProjectDetailItem } from "@/components/Project
 import { BeforeAfterCard } from "@/components/BeforeAfterCard";
 
 // Below-the-fold components: lazy-loaded to reduce initial JS bundle and improve LCP
-const HubSpotForm = lazy(() => import("@/components/HubSpotForm").then(m => ({ default: m.HubSpotForm })));
+const LeadFormLazy = lazy(() => import("@/components/LeadForm").then(m => ({ default: m.LeadForm })));
 const BlogPreview = lazy(() => import("@/components/BlogPreview").then(m => ({ default: m.BlogPreview })));
 const BeforeAfterSlider = lazy(() => import("@/components/BeforeAfterSlider").then(m => ({ default: m.BeforeAfterSlider })));
 const ServiceSelector = lazy(() => import("@/components/ServiceSelector"));
@@ -1145,7 +1145,9 @@ export default function Home() {
               </div>
             </div>
             <Card className="p-6">
-              <Suspense fallback={<div className="h-64 flex items-center justify-center text-gray-400">Loading form…</div>}><HubSpotForm /></Suspense>
+              <Suspense fallback={<div className="h-64 flex items-center justify-center text-gray-400">Loading form…</div>}>
+                <LeadFormLazy variant="light" heading="Request A Site Visit" subheading="We'll get back to you within 24 hours with a detailed quote." showWhatsApp={true} />
+              </Suspense>
             </Card>
           </div>
         </div>

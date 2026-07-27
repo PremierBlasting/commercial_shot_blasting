@@ -8,7 +8,7 @@ import { trackPhoneCall } from "@/lib/analytics";
 import { getServiceById, services } from "@/data/services";
 import { getServiceGallery, getServiceGalleries } from "@/data/serviceGalleries";
 import { QuotePopup } from "@/components/QuotePopup";
-import { HubSpotForm } from "@/components/HubSpotForm";
+import { LeadForm } from "@/components/LeadForm";
 import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -1936,13 +1936,14 @@ export default function ServiceDetail() {
                 <p className="text-xs text-gray-400 mt-1">Mon–Sat 7am–6pm</p>
               </div>
             </div>
-            {/* Right: HubSpot form */}
+            {/* Right: Native lead form — wired to all five notification channels */}
             <div className="bg-white rounded-2xl shadow-md p-6 lg:p-8">
-              <h3 className="text-xl font-bold text-[#2C5F7F] mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Request A Site Visit
-              </h3>
-              <p className="text-sm text-gray-500 mb-4">We respond within 24 hours</p>
-              <HubSpotForm className="hubspot-service-inline-form" />
+              <LeadForm
+                variant="light"
+                heading="Request A Site Visit"
+                subheading="We respond within 24 hours"
+                showWhatsApp={true}
+              />
             </div>
           </div>
         </div>
