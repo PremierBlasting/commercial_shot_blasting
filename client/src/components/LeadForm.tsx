@@ -377,7 +377,8 @@ export function LeadForm({
           className="mt-0.5 w-4 h-4 rounded border-gray-300 accent-[#2C5F7F] cursor-pointer shrink-0"
         />
         <label htmlFor="lf-consent" className={`text-xs leading-relaxed cursor-pointer ${isDark ? "text-blue-100/80" : "text-gray-500"}`}>
-          I agree to receive communications from <strong>Premier Blasting</strong> (the commercial surface preparation arm of which is Commercial Shot Blasting). This may include updates, promotions, and service-related messages via email and WhatsApp. Your details will only be used to respond to your enquiry and, if you consent, to keep you informed of relevant services.
+          I agree to receive communications from <strong>Premier Blasting</strong> (the commercial surface preparation arm of which is Commercial Shot Blasting). This may include updates, promotions, and service-related messages via email and WhatsApp. Your details will only be used to respond to your enquiry and, if you consent, to keep you informed of relevant services. See our{" "}
+          <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className={`underline ${isDark ? "text-blue-200 hover:text-white" : "text-[#2C5F7F] hover:text-[#1a3d52]"}`}>Privacy Policy</a>.
         </label>
       </div>
 

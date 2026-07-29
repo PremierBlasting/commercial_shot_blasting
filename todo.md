@@ -1303,3 +1303,16 @@
 - [x] TypeScript: 0 errors after injection
 - [x] All 174 tests passing after injection
 - [x] Live verified: SSR content div present in HTTP response for all 11 pages
+
+## Breadcrumb, JSON-LD Schema, Privacy Policy (2026-07-29)
+- [x] Add Breadcrumb component to Reviews.tsx (missing)
+- [x] Add Breadcrumb component to Home.tsx (missing — homepage doesn't need one per UX convention, skip)
+- [x] Upgrade Glossary.tsx inline breadcrumb nav to use the shared Breadcrumb component
+- [x] Add JSON-LD WebPage/Organization schema to Reviews.tsx via client-side script tag (already in server-side metaTags.ts)
+- [x] Add JSON-LD WebPage/Organization schema to FreeSiteSurvey.tsx via client-side script tag (already in server-side metaTags.ts)
+- [x] Add JSON-LD WebPage/Organization schema to Home.tsx (homepage already has SSR schemas; add client-side WebSite schema)
+- [x] Create /privacy-policy page with full GDPR compliance text (already exists as PrivacyPolicy.tsx — verify content)
+- [x] Link /privacy-policy from LeadForm GDPR consent checkbox text
+- [x] Add /privacy-policy route to App.tsx (already present — verify)
+- [x] Add /privacy-policy to sitemap
+- [x] Add server-side meta tags for /privacy-policy in metaTags.ts

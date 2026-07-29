@@ -7018,6 +7018,19 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     return modifiedHtml;
   }
 
+  // ── Privacy Policy page ────────────────────────────────────────────────────
+  if (url === '/privacy-policy' || url === '/privacy-policy/') {
+    let modifiedHtml = html;
+    const ppTitle = 'Privacy Policy | Commercial Shot Blasting';
+    const ppDesc = 'Privacy policy for commercialshotblasting.co.uk — how we collect, use, and protect your personal data under UK GDPR. Data controller: Commercial Shot Blasting.';
+    const ppUrl = `${SITE_URL}/privacy-policy`;
+    const breadcrumbSchema = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Privacy Policy","item":ppUrl}]});
+    const webPageSchema = JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":ppTitle,"description":ppDesc,"url":ppUrl,"inLanguage":"en-GB","publisher":{"@type":"Organization","name":BUSINESS_NAME,"url":SITE_URL}});
+    modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, `<title>${ppTitle}</title>\n    <link rel="canonical" href="${ppUrl}" />\n    <meta name="description" content="${ppDesc}" />\n    <meta property="og:title" content="${ppTitle}" />\n    <meta property="og:description" content="${ppDesc}" />\n    <meta property="og:url" content="${ppUrl}" />\n    <meta name="robots" content="noindex, follow" />`);
+    modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n</head>`);
+    return modifiedHtml;
+  }
+
   // ── Car Park Paint Removal page ────────────────────────────────────────────
   if (url === '/services/car-park-paint-removal' || url === '/services/car-park-paint-removal/') {
     const cpTitle = 'Car Park Paint & Line Marking Removal | Shot Blasting UK | Commercial Shot Blasting';

@@ -3,6 +3,7 @@ import { useSEO } from "@/hooks/useSEO";
 import { Link } from "wouter";
 import { Search, X, ChevronRight } from "lucide-react";
 import { GLOSSARY_TERMS, GLOSSARY_LETTERS } from "@/data/glossaryData";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 const LeadFormLazy = lazy(() => import("@/components/LeadForm").then(m => ({ default: m.LeadForm })));
 
@@ -42,20 +43,18 @@ export default function Glossary() {
 
   return (
     <main className="min-h-screen bg-white">
+      {/* Breadcrumb */}
+      <section className="py-3 bg-gray-50 border-b border-gray-200">
+        <div className="container">
+          <Breadcrumb items={[
+            { label: "Home", href: "/" },
+            { label: "Glossary", href: "/glossary", isCurrentPage: true }
+          ]} />
+        </div>
+      </section>
       {/* Hero */}
       <section className="bg-[#1a3a4d] text-white py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <nav className="text-sm text-gray-300 mb-4" aria-label="Breadcrumb">
-            <ol className="flex flex-wrap gap-1 items-center">
-              <li>
-                <Link href="/" className="hover:text-[#E8B84A] transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li className="text-gray-500 mx-1">/</li>
-              <li className="text-[#E8B84A]">Glossary</li>
-            </ol>
-          </nav>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             Shot Blasting &amp; Surface Preparation Glossary
           </h1>

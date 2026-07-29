@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
 import { QuotePopup } from "@/components/QuotePopup";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 // Reviewer profile photos from Google Business Profile (hosted via webdev static assets)
 const REVIEWER_PHOTOS: Record<string, string> = {
@@ -192,7 +193,15 @@ export default function Reviews() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-
+      {/* Breadcrumb */}
+      <section className="py-3 bg-gray-50 border-b border-gray-200">
+        <div className="container">
+          <Breadcrumb items={[
+            { label: "Home", href: "/" },
+            { label: "Reviews", href: "/reviews", isCurrentPage: true }
+          ]} />
+        </div>
+      </section>
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#1a3d52] to-[#2C5F7F] text-white py-20">
         <div className="container text-center">
