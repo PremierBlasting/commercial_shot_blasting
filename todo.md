@@ -1287,3 +1287,19 @@
 - [x] Add `enrollInJanuary26Workflow()` function to leadNotifications.ts (workflow ID: 3647837418)
 - [x] Call enrolment only when `marketingConsent === true` in notifyNewLead()
 - [x] Update tests for new consent field and workflow enrolment (174 tests passing)
+
+## SSR Body HTML Injection for Priority Pages (2026-07-29)
+- [x] Add SSR body HTML injection to homepage (/) — H1, description, service links, area links
+- [x] Add SSR body HTML injection to /services index — H1, description, all 18 service links
+- [x] Add SSR body HTML injection to /service-areas index — H1, description, 20 city links
+- [x] Add SSR body HTML injection to /glossary index — H1, description, all 12 glossary term links
+- [x] Add SSR body HTML injection to /glossary/:slug — H1, description, glossary term links
+- [x] Add SSR body HTML injection to /blog index — H1, description, blog CTA links
+- [x] Add SSR body HTML injection to /blog/:slug — H1, description, back to blog link
+- [x] Add SSR body HTML injection to /about — H1, description, contact/reviews links
+- [x] Add SSR body HTML injection to /reviews — H1, description, quote/about links
+- [x] Add SSR body HTML injection to /site-survey — H1, description, contact/services links
+- [x] Add SSR body HTML injection to /industries — H1, description, all 8 industry links
+- [x] TypeScript: 0 errors after injection
+- [x] All 174 tests passing after injection
+- [x] Live verified: SSR content div present in HTTP response for all 11 pages
