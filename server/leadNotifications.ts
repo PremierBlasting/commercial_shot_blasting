@@ -251,8 +251,8 @@ export async function createHubSpotContact(lead: LeadData): Promise<boolean> {
     lifecyclestage: "lead",
     hs_lead_status: "NEW",
     // Source tags — clearly marks this as a CSB website lead in HubSpot reports and filters
-    hs_analytics_source: "ORGANIC_SEARCH",
-    lead_source: "CSB Website",
+    // hs_analytics_source is a valid HubSpot standard property (read-only in some portals but accepted on create)
+    // lead_source was removed — it is a custom property that does not exist in either HubSpot account
     message: messageBody,
     // Maps to column J "Notes" in Google Sheet (read by lead_sync_v2.py)
     could_you_please_provide_a_brief_summary_of_your_project: lead.message,
@@ -317,10 +317,8 @@ export async function createPBHubSpotContact(lead: LeadData): Promise<boolean> {
     ...(lead.phone && { phone: lead.phone }),
     lifecyclestage: "lead",
     // Source tags — clearly marks this as a CSB website lead in PB HubSpot reports and filters
-    hs_analytics_source: "ORGANIC_SEARCH",
-    lead_source: "CSB Website",
-    // Note: PB HubSpot uses custom hs_lead_status values — do not set it here
-    // The CSB tag is in the message field and lead_source property
+    // lead_source was removed — it is a custom property that does not exist in either HubSpot account
+    // The CSB tag is clearly visible in the message field
     message: noteLines,
   };
 

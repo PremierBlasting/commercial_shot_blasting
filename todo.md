@@ -1316,3 +1316,10 @@
 - [x] Add /privacy-policy route to App.tsx (already present — verify)
 - [x] Add /privacy-policy to sitemap
 - [x] Add server-side meta tags for /privacy-policy in metaTags.ts
+
+## HubSpot Contact Creation Bug Fix (2026-07-30)
+- [x] Root cause: `lead_source` custom property sent to both HubSpot accounts but does not exist in either — caused 400 error on every contact creation, meaning all leads since the property was added were silently dropped from both CRMs
+- [x] Fix: removed `lead_source: "CSB Website"` from both CSB and PB HubSpot property blocks in leadNotifications.ts
+- [x] CSB identifier is now carried in the message body (*** CSB LEAD — COMMERCIAL SHOT BLASTING WEBSITE ***)
+- [x] Updated test to verify lead_source is NOT present and CSB tag is in message
+- [x] All 174 tests passing

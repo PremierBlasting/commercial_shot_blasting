@@ -88,12 +88,14 @@ describe("NOTIFICATION_RECIPIENTS", () => {
 });
 
 describe("HubSpot Lead Source Tags", () => {
-  it("CSB HubSpot contact creation includes lead_source: CSB Website", () => {
+  it("CSB HubSpot contact creation does NOT include lead_source (non-existent property) and CSB tag is in message", () => {
     const __filename = fileURLToPath(import.meta.url);
     const src = readFileSync(join(dirname(__filename), "leadNotifications.ts"), "utf-8");
-    // Verify the source tags are present in the CSB contact properties
-    expect(src).toContain('lead_source: "CSB Website"');
-    expect(src).toContain('hs_analytics_source: "ORGANIC_SEARCH"');
+    // lead_source was removed — it is a custom property that does not exist in either HubSpot account
+    // and caused 400 errors on every contact creation attempt
+    expect(src).not.toContain('lead_source: "CSB Website"');
+    // The CSB identifier is now carried in the message body
+    expect(src).toContain("*** CSB LEAD — COMMERCIAL SHOT BLASTING WEBSITE ***");
   });
 
   it("CSB HubSpot contact message includes *** CSB LEAD *** marker", () => {
