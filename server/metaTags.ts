@@ -3427,11 +3427,17 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
     "areaServed": { "@type": "City", "name": locationName }
   });
 
-  // 3. FAQPage Schema (8 questions)
+  // 3. FAQPage Schema — unique FAQs first (if any), then 8 templated questions
+  const locUniqueQs: Array<{question: string; answer: string}> = (locationData[locationSlug] as any)?.uniqueFaqs || [];
+  const uniqueFaqSchemaItems = locUniqueQs.slice(0, 3).map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+  }));
   schemas.push({
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": [
+    "mainEntity": [...uniqueFaqSchemaItems,
       {
         "@type": "Question",
         "name": `Do you provide shot blasting in ${locationName}?`,

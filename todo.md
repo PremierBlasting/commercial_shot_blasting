@@ -1344,3 +1344,12 @@
 - [x] Verify breadcrumb coverage — all priority pages already have breadcrumbs, no gaps found
 - [x] Verify SSR output for Birmingham: unique FAQ "Do you blast structural steel for automotive suppliers near Birmingham?" appears as first FAQ item
 - [x] TypeScript: 0 errors, 174 tests passing
+
+## Remaining Location FAQs + Nearby Areas + FAQ JSON-LD (Aug 2026)
+
+- [x] Identify all locations still missing uniqueFaqs (target: all 638) — found 588 missing
+- [x] Generate unique FAQ sets for all remaining 588 locations using LLM (588/588 successful, 0 failed)
+- [x] Inject all 559 new uniqueFaqs into locationData.ts (total: 609 locations with uniqueFaqs)
+- [x] Add Nearby Areas section to generateServiceAreaBodyHTML — already fully implemented (12 same-county towns + county hub link)
+- [x] Implement FAQ JSON-LD schema markup — uniqueFaqs prepended into FAQPage schema in generateLocationSchemas (verified live on Birmingham)
+- [x] TypeScript: 0 errors, 174 tests passing
