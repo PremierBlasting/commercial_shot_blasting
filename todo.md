@@ -1362,3 +1362,11 @@
 - [x] Updated LocationPage.tsx to prepend uniqueFaqs (first 3) into both FAQSchema head tag and accordion UI
 - [x] Verified live: Birmingham FAQPage JSON-LD now has 11 questions, first 3 are unique (automotive/HS2/Solihull)
 - [x] TypeScript: 0 errors, 174 tests passing
+
+## Sticky Quick-Nav + Nearby Areas + Section IDs (Aug 2026)
+- [x] Audit LocationPage.tsx — Nearby Areas already fully implemented (mid-page card grid + bottom dense link mesh)
+- [x] Add section IDs to Services (#loc-services), FAQs (#loc-faqs), Contact (#loc-contact), Nearby Areas (#loc-nearby)
+- [x] Add sticky quick-navigation bar (slides down from top after 400px scroll, highlights active section)
+- [x] Quick-nav links: Services, FAQs, Get a Quote, Nearby Areas — all smooth-scroll to section
+- [x] Phone number shortcut in quick-nav (desktop only, hidden on mobile to save space)
+- [x] TypeScript: 0 errors, 174 tests passing

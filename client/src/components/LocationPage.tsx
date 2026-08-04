@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2, Star, Factory, ClipboardList, ChevronDown, ChevronUp } from "lucide-react";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { getLocationSEO, useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { QuotePopup } from "@/components/QuotePopup";
@@ -67,6 +67,31 @@ interface LocationPageProps {
 export function LocationPage({ location }: LocationPageProps) {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [showQuickNav, setShowQuickNav] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  // Show quick-nav after user scrolls past the hero
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowQuickNav(window.scrollY > 400);
+      // Highlight active section
+      const sections = ['loc-services', 'loc-faqs', 'loc-contact', 'loc-nearby'];
+      for (const id of [...sections].reverse()) {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 120) {
+          setActiveSection(id);
+          break;
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
   const [formName, setFormName] = useState('');
   const [formPhone, setFormPhone] = useState('');
   const [formEmail, setFormEmail] = useState('');
@@ -401,8 +426,49 @@ export function LocationPage({ location }: LocationPageProps) {
         </div>
       </section>
 
+      {/* Sticky Quick-Navigation Menu */}
+      <div
+        className={`fixed top-0 left-0 right-0 z-40 transition-transform duration-300 ${showQuickNav ? 'translate-y-0' : '-translate-y-full'}`}
+        aria-label="Quick navigation"
+      >
+        <nav className="bg-[#2C5F7F] shadow-lg">
+          <div className="container">
+            <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide py-2">
+              <span className="text-white/60 text-xs font-medium uppercase tracking-wide shrink-0 pr-2 hidden sm:block">Jump to:</span>
+              {[
+                { id: 'loc-services', label: 'Services' },
+                { id: 'loc-faqs', label: 'FAQs' },
+                { id: 'loc-contact', label: 'Get a Quote' },
+                { id: 'loc-nearby', label: 'Nearby Areas' },
+              ].map(({ id, label }) => (
+                <button
+                  key={id}
+                  onClick={() => scrollTo(id)}
+                  className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-150 ${
+                    activeSection === id
+                      ? 'bg-white text-[#2C5F7F]'
+                      : 'text-white/90 hover:bg-white/15 hover:text-white'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+              <div className="ml-auto shrink-0 hidden sm:block">
+                <button
+                  onClick={() => { trackPhoneCall('07970566409', 'Quick Nav'); window.location.href = 'tel:07970566409'; }}
+                  className="flex items-center gap-1.5 bg-white/15 hover:bg-white/25 text-white text-sm font-medium px-3 py-1.5 rounded-full transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  07970 566409
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
       {/* Services Section */}
-      <section className="py-16 bg-white">
+      <section id="loc-services" className="py-16 bg-white">
         <div className="container">
           <div className="text-center mb-12">
             <p className="text-[#2C5F7F] font-medium mb-2">Our Services</p>
@@ -509,7 +575,7 @@ export function LocationPage({ location }: LocationPageProps) {
       <LocationCustomContent slug={location.slug} locationName={location.name} />
 
       {/* FAQ Section */}
-      <section className="py-16 bg-white">
+      <section id="loc-faqs" className="py-16 bg-white">
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
@@ -964,7 +1030,7 @@ export function LocationPage({ location }: LocationPageProps) {
       </section>
 
       {/* Request A Site Visit — embedded inline contact form */}
-      <section className="py-14 bg-[#1a3a52] text-white">
+      <section id="loc-contact" className="py-14 bg-[#1a3a52] text-white">
         <div className="container">
           <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
             {/* Left: copy + service links */}
@@ -1111,7 +1177,7 @@ export function LocationPage({ location }: LocationPageProps) {
 
       {/* Nearby towns — dense internal link mesh between same-county town pages */}
       {nearbyTowns.length > 0 && (
-        <section className="py-10 bg-white border-t border-gray-100">
+        <section id="loc-nearby" className="py-10 bg-white border-t border-gray-100">
           <div className="container">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
               <div>
