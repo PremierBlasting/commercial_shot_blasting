@@ -6267,7 +6267,10 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
     { question: `Do you provide intumescent painting after shot blasting in ${name}?`, answer: `Yes — we now offer intumescent painting in ${name} as a combined blast-and-coat solution. Intumescent paint provides fire protection for structural steel to R30, R60, R90, or R120 ratings. Contact us on 07970 566409 for a combined quote.` },
     { question: `What areas near ${name} do you cover for shot blasting?`, answer: `Our shot blasting services cover ${name} and all surrounding towns and villages throughout ${county}. We operate a fleet of 12 mobile units and regularly serve clients within a 50-mile radius of ${name}. Call 07970 566409 to confirm availability for your specific location.` }
   ];
-  const faqHtml = generatedFaqs.map((faq) => `
+  // Prepend any location-specific unique FAQs (up to 3) before the templated FAQs
+  const uniqueFaqs: Array<{question: string; answer: string}> = (loc as any).uniqueFaqs || [];
+  const allFaqs = [...uniqueFaqs.slice(0, 3), ...generatedFaqs];
+  const faqHtml = allFaqs.map((faq) => `
     <div class="ssr-faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
       <h3 itemprop="name"><span class="ssr-q">Q:</span> ${escHtml(faq.question)}</h3>
       <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
