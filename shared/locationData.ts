@@ -7,6 +7,7 @@ export interface LocationData {
   description: string;
   industries?: string[];
   nearbyAreas?: string[];
+    spotlightText?: string;
   faqs: { question: string; answer: string; }[];
 }
 
@@ -19,6 +20,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "bedfordshire",
     region: "East of England",
     description: "Shot Blasting in Luton, Bedfordshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Luton’s industrial landscape is anchored by aerospace maintenance and automotive supply chains alongside a large logistics and construction base, with major clusters at Sundon Park Industrial Estate and Butterfield Business Park supporting manufacturers and distribution centres. The town’s proximity to London Luton Airport, the Midland Main Line and immediate access to the M1 (close to Junctions 10 and 11) makes it a routing hub for heavy goods and off‑site fabricated steel. Commercial shot blasting work commonly commissioned here includes structural steel refurbishment for warehouse frames, floor preparation for high‑wear distribution floors and machinery/component descaling for plant and aircraft‑maintenance workshops.",
     faqs: [
       { question: "Do you provide shot blasting services in Luton?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Luton and the surrounding Bedfordshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Luton?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Luton within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -33,6 +35,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "bedfordshire",
     region: "East of England",
     description: "Shot Blasting in Bedford, Bedfordshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Bedford’s industrial catchment is anchored by Cardington Airfield and Bedford Business Park, supporting steel fabrication, light manufacturing and regional logistics operations along the River Great Ouse corridor. With quick access to the A421 and M1 J13, local contractors and fabricators on estates such as Cardington and enterprises at Bedford Business Park regularly require blast cleaning for structural steelwork, heavy machinery refurbishment and concrete floor preparation ahead of industrial coatings or galvanizing. Our site-mobile shot blasting teams understand the local supply chain demands, coordinating with fabricators, civils contractors and logistics hubs across Bedfordshire to minimise downtime on large structural and plant refurbishment projects.",
     faqs: [
       { question: "Do you provide shot blasting services in Bedford?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Bedford and the surrounding Bedfordshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Bedford?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Bedford within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -481,6 +484,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "cambridgeshire",
     region: "East of England",
     description: "Shot Blasting in Cambridge, Cambridgeshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Cambridge’s commercial and industrial belt — anchored by Cambridge Business Park and Cambridge Science Park — supports advanced manufacturing, aerospace and defence subcontractors, precision engineering and construction firms, plus logistics operators serving the wider East of England. Located on the A14 corridor with quick access to the M11 and Cambridge North rail, the area regularly requires shot blasting for structural steelwork on research and lab buildings, refurbishment and grit blasting of precision machinery for Marshall Aerospace contractors, and heavy-duty floor preparation for industrial unit fit-outs.",
     faqs: [
       { question: "Do you provide shot blasting services in Cambridge?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Cambridge and the surrounding Cambridgeshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Cambridge?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Cambridge within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -495,6 +499,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "cambridgeshire",
     region: "East of England",
     description: "Shot Blasting in Peterborough, Cambridgeshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Peterborough’s industrial corridor, centred on Fengate Industrial Estate and Lynch Wood Business Park, supports dominant logistics, steel fabrication and general manufacturing sectors that serve East Anglia and the Midlands. With direct access to the A1 and A47 trunk roads and rail freight handling at Peterborough Rail Freight Terminal, site operators routinely require shot blasting for structural steelwork on warehouse frames, heavy machinery refurbishment and concrete floor preparation for new and refurbished distribution and manufacturing facilities.",
     faqs: [
       { question: "Do you provide shot blasting services in Peterborough?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Peterborough and the surrounding Cambridgeshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Peterborough?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Peterborough within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -957,6 +962,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "hertfordshire",
     region: "East of England",
     description: "Shot Blasting in Watford, Hertfordshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Watford’s industrial corridor around Watford Business Park and Garston Industrial Estate hosts a concentrated mix of logistics operators, light engineering firms and steel fabrication workshops supplying Greater London and the Midlands. With rapid access to the A41 and the M25 (J20 for Kings Langley), contractors on local warehouse fit-outs, distribution centre refurbishments and commercial construction projects commonly require shot blasting for structural steel preparation, heavy-duty concrete floor profiling and machinery refurbishment. Our teams are experienced delivering on the short lead-times and high-throughput demands typical of Watford’s business parks and industrial estates.",
     faqs: [
       { question: "Do you provide shot blasting services in Watford?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Watford and the surrounding Hertfordshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Watford?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Watford within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -971,6 +977,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "hertfordshire",
     region: "East of England",
     description: "Shot Blasting in Stevenage, Hertfordshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Stevenage's industrial corridor is dominated by advanced manufacturing, aerospace/defence supply chains and pharmaceuticals, anchored by the GlaxoSmithKline campus and a concentration of engineering firms across Gunnels Wood Industrial Estate and Stevenage Business Park. With direct links to the A1(M) and A602 for rapid access to the M25 and regional ports, local contractors routinely require abrasive shot blasting for structural steelwork, heavy machinery refurbishment and specialist floor preparation on new warehouse and factory fit-outs.",
     faqs: [
       { question: "Do you provide shot blasting services in Stevenage?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Stevenage and the surrounding Hertfordshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Stevenage?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Stevenage within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -1391,6 +1398,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "norfolk",
     region: "East of England",
     description: "Shot Blasting in Norwich, Norfolk. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Norwich’s industrial cluster around Colney Business Park and the Norwich Airport Industrial Estate supports dominant sectors including food processing, logistics/distribution and structural steel fabrication serving regional construction and offshore maintenance. With direct links to the A47, A11 and the Norwich Northern Distributor Road (A1270), and easy access to Great Yarmouth’s port and regional rail freight routes, manufacturers and civils contractors routinely specify shot blasting for structural steelwork, heavy machinery refurbishment and concrete floor preparation on-site and in workshop.",
     faqs: [
       { question: "Do you provide shot blasting services in Norwich?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Norwich and the surrounding Norfolk area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Norwich?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Norwich within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -1839,6 +1847,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "suffolk",
     region: "East of England",
     description: "Shot Blasting in Ipswich, Suffolk. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Within Ipswich, business parks such as Ransomes Europark and the Copdock industrial area underpin a mix of steel fabrication, heavy engineering, food-processing packers and logistics operators serving the Port of Felixstowe and regional manufacturing supply chains. The borough’s industrial corridors have direct access to the A14 and the A14/A12 Copdock interchange, with short links to rail freight routes and the Port of Felixstowe (approximately 13 miles east), making rapid mobilisation for on-site works straightforward. Typical shot blasting work here includes abrasive grit blasting of structural steel and fabricated components, machinery refurbishment and concrete floor preparation for warehouse fit-outs and bridge or factory maintenance.",
     faqs: [
       { question: "Do you provide shot blasting services in Ipswich?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Ipswich and the surrounding Suffolk area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Ipswich?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Ipswich within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -2203,6 +2212,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "derbyshire",
     region: "East Midlands",
     description: "Shot Blasting in Derby, Derbyshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Derby’s industrial heartland—anchored by Pride Park and Raynesway Industrial Estate and extending to Sinfin and nearby Burnaston—is dominated by advanced engineering and aerospace (Rolls‑Royce), automotive supply‑chain activity (Toyota) and a strong logistics/construction presence. Local fabricators and OEMs routinely require shot blasting for large structural steelwork, heavy machinery refurbishment and industrial floor preparation across steel‑frame warehouses and manufacturing plants. With fast access to the A50 trunk route and A38 linking into the M1 corridor, our Derby teams mobilise quickly to deliver on‑site abrasive blasting, grit and media blasting for commercial construction and plant maintenance projects.",
     faqs: [
       { question: "Do you provide shot blasting services in Derby?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Derby and the surrounding Derbyshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Derby?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Derby within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -2217,6 +2227,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "derbyshire",
     region: "East Midlands",
     description: "Shot Blasting in Chesterfield, Derbyshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Chesterfield’s industrial catchment is dominated by steel fabrication, engineering and logistics operations clustered around Markham Vale Business Park and the Staveley Industrial Estate — Markham Vale sits directly off the M1 at J29 providing rapid motorway access. Local clients include structural steelwork fabricators, plant hire and distribution contractors; our mobile shot blasting teams frequently handle structural steel preparation, heavy machinery refurbishment and concrete floor preparation for new-build warehouses and yard surfacing, supporting ongoing industrial expansion and M1 junction improvement works along the A619 corridor.",
     faqs: [
       { question: "Do you provide shot blasting services in Chesterfield?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Chesterfield and the surrounding Derbyshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Chesterfield?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Chesterfield within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -2525,6 +2536,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "leicestershire",
     region: "East Midlands",
     description: "Shot Blasting in Leicester, Leicestershire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Leicester’s industrial belt around Enderby Industrial Estate and Thurmaston Industrial Estate supports a dense cluster of manufacturing, logistics and food-processing firms, plus metalworking and automotive component suppliers serving the East Midlands and national distribution networks. Located close to the M1 (J21) and the M69 corridor with rapid rail freight access via the East Midlands Gateway, local contractors frequently require shot blasting for structural steelwork, heavy machinery refurbishment and concrete floor preparation for new warehousing and process-plant installations across these business parks.",
     faqs: [
       { question: "Do you provide shot blasting services in Leicester?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Leicester and the surrounding Leicestershire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Leicester?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Leicester within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -2539,6 +2551,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "leicestershire",
     region: "East Midlands",
     description: "Shot Blasting in Loughborough, Leicestershire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Loughborough is a long-established hub for engineering, advanced manufacturing and logistics in the East Midlands, supporting automotive suppliers, steel fabrication firms and construction contractors. Local industrial activity is centred on Thorpe Hill Industrial Estate and Loughborough Business Park, with ongoing commercial construction and warehouse fit-out projects requiring metalwork and surface preparation. With Loughborough railway station on the Midland Main Line and convenient links onto the M1 corridor, common local shot blasting work includes structural steel grit blasting and corrosion removal, heavy machinery refurbishment and concrete floor preparation for new industrial units.",
     faqs: [
       { question: "Do you provide shot blasting services in Loughborough?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Loughborough and the surrounding Leicestershire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Loughborough?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Loughborough within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -2945,6 +2958,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "lincolnshire",
     region: "East Midlands",
     description: "Shot Blasting in Lincoln, Lincolnshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Lincoln’s industrial corridor centred on Tritton Road Industrial Estate supports a strong mix of steel fabrication, food processing and national distribution, with ongoing commercial construction for warehousing and bespoke manufacturing units. Local engineering firms and plant operators frequently schedule preventative maintenance and refurbishment, driving demand for on‑site shot blasting for structural steelwork, heavy machinery components and concrete floor preparation. With direct access to the A46 and A15 trunk roads (linking through to the A1), operators on Tritton Road benefit from quick transport links to ports and regional supply chains, making efficient surface preparation services essential for project turnarounds.",
     faqs: [
       { question: "Do you provide shot blasting services in Lincoln?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Lincoln and the surrounding Lincolnshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Lincoln?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Lincoln within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -2959,6 +2973,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "lincolnshire",
     region: "East Midlands",
     description: "Shot Blasting in Grantham, Lincolnshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Grantham's industrial activity is concentrated around Gonerby Moor Industrial Estate and nearby business units, with dominant sectors including steel fabrication, food processing, logistics and commercial construction. Located beside the A1 at Gonerby Moor and served by the East Coast Main Line, the town supports ongoing warehouse and factory build-outs and highways work such as the Southern Relief Road improvements; common shot blasting requirements here are heavy structural steel preparation for warehouse frames, machinery and plant refurbishment for food processors, and industrial concrete floor preparation prior to specialist coatings.",
     faqs: [
       { question: "Do you provide shot blasting services in Grantham?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Grantham and the surrounding Lincolnshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Grantham?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Grantham within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -2973,6 +2988,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "lincolnshire",
     region: "East Midlands",
     description: "Shot Blasting in Boston, Lincolnshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Boston's industrial hinterland is dominated by food processing, agricultural engineering and logistics operators clustered around Skirbeck Industrial Estate and the Quadrant Industrial Estate, supporting packing plants, cold stores and component fabrication for regional contractors. With direct A16/A52 road links giving rapid access north to the M180, plus the nearby Port of Boston and rail freight options, onsite shot blasting for structural steelwork, heavy machinery refurbishment and hygienic concrete floor preparation for food processing facilities is routinely required across the town's trading estates.",
     faqs: [
       { question: "Do you provide shot blasting services in Boston?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Boston and the surrounding Lincolnshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Boston?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Boston within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -2987,6 +3003,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "lincolnshire",
     region: "East Midlands",
     description: "Shot Blasting in Spalding, Lincolnshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Spalding is a manufacturing and logistics hub in South Holland, centred on Spalding Business Park and the Fulney Road Industrial Estate, where food processing, agricultural machinery, logistics and commercial construction dominate. Local packers, cold‑store operators and steel fabricators generate steady demand for on‑site shot blasting of structural steelwork, agricultural and processing machinery components, and heavy concrete floor preparation for production lines and cold‑store refurbishments. The town sits on the A16 corridor with direct A17 links to the A1(M), giving contractors rapid access to East Coast ports and regional distribution routes.",
     faqs: [
       { question: "Do you provide shot blasting services in Spalding?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Spalding and the surrounding Lincolnshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Spalding?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Spalding within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -3057,6 +3074,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "lincolnshire",
     region: "East Midlands",
     description: "Shot Blasting in Cleethorpes, Lincolnshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Cleethorpes and the adjoining Grimsby/Immingham corridor support a strong mix of port-led logistics, fish and food processing, and steel fabrication serving the Humber ports; key industrial concentrations sit on Pyewipe Industrial Estate in Grimsby and the South Humber Bank complex at Immingham, both within a short drive of Cleethorpes. Local contractors regularly require abrasive shot blasting for structural steelwork on quay cranes and bridges, marine component refurbishment and heavy machinery strip-and-repair, plus abrasive floor preparation for food-processing plant refits, all supported by fast access to regional freight links.",
     faqs: [
       { question: "Do you provide shot blasting services in Cleethorpes?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Cleethorpes and the surrounding Lincolnshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Cleethorpes?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Cleethorpes within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -3099,6 +3117,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "lincolnshire",
     region: "East Midlands",
     description: "Shot Blasting in Grimsby, Lincolnshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Grimsby and neighbouring Immingham form a concentrated industrial corridor centred on seafood and food processing, port logistics and growing offshore wind support services, with significant operations on the East Marsh Industrial Estate and Pyewipe Industrial Estate adjacent to ABP Immingham. With direct access to the A180 and the M180 (M180 J5 connection into the M18/M62 corridor) and heavy quay-side plant and fabrication yards, typical local shot blasting work includes structural steel refurbishment for quay cranes and offshore components, turbine and machinery blasting, and specialist floor preparation for food processing and logistics facilities.",
     faqs: [
       { question: "Do you provide shot blasting services in Grimsby?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Grimsby and the surrounding Lincolnshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Grimsby?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Grimsby within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -3141,6 +3160,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "lincolnshire",
     region: "East Midlands",
     description: "Shot Blasting in Immingham, Lincolnshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Immingham is anchored by the Port of Immingham and surrounding heavy-industrial zones such as Immingham Dock Estate and the Humber International Enterprise Park, supporting large-scale bulk handling, petrochemical processing and logistics operations. The area's dominant sectors—port logistics, steel fabrication and heavy engineering—drive steady demand for industrial surface preparation and component refurbishment. Local clients commonly commission shot blasting for structural steelwork, heavy machinery reconditioning and concrete floor preparation on quayside facilities and fabrication yards, with direct freight links via the A180 to the M180/M18 network and connections to other Humber ports.",
     faqs: [
       { question: "Do you provide shot blasting services in Immingham?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Immingham and the surrounding Lincolnshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Immingham?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Immingham within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -3295,6 +3315,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "northamptonshire",
     region: "East Midlands",
     description: "Shot Blasting in Northampton, Northamptonshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Northampton’s industrial belt — centred on Brackmills Industrial Estate and the Northampton Gateway intermodal/warehousing park — underpins a strong mix of logistics, steel fabrication and general manufacturing driven by continuous warehouse and industrial frame development with fast access via J15 of the M1. Local contractors regularly require on-site shot blasting for structural steelwork, heavy machinery refurbishment and concrete floor preparation to support new distribution builds, plant maintenance and ongoing commercial construction programmes across Round Spinney and Brackmills.",
     faqs: [
       { question: "Do you provide shot blasting services in Northampton?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Northampton and the surrounding Northamptonshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Northampton?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Northampton within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -3309,6 +3330,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "northamptonshire",
     region: "East Midlands",
     description: "Shot Blasting in Kettering, Northamptonshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Kettering is a long-established manufacturing and logistics centre in Northamptonshire, with concentrations of metalworking and food-processing firms clustered around Kettering Business Park and the Burton Latimer industrial area; local operations include steel fabrication, plant engineering and palletised logistics serving regional supply chains. With the Midland Main Line at Kettering station and quick access to the A14 and the M1, onsite and workshop shot blasting for structural steel, heavy machinery refurbishment and industrial floor preparation is routinely specified by steelwork contractors, plant hire yards and construction firms supporting projects across the East Midlands.",
     faqs: [
       { question: "Do you provide shot blasting services in Kettering?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Kettering and the surrounding Northamptonshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Kettering?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Kettering within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -3323,6 +3345,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "northamptonshire",
     region: "East Midlands",
     description: "Shot Blasting in Wellingborough, Northamptonshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Wellingborough is a regional logistics and light-manufacturing hub with concentrations of activity around Finedon Road Industrial Estate and the Stanton Cross business/employment area, supporting distribution, metal fabrication and construction contractors. Located just off the A45 and roughly 12 miles from M1 J15, the town feeds national supply chains and sees frequent commercial construction on new-build distribution units and refurbishment projects where on-site shot blasting of structural steelwork and plant/machinery for coating or repair is regularly required.",
     faqs: [
       { question: "Do you provide shot blasting services in Wellingborough?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Wellingborough and the surrounding Northamptonshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Wellingborough?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Wellingborough within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -3337,6 +3360,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "northamptonshire",
     region: "East Midlands",
     description: "Shot Blasting in Corby, Northamptonshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Corby remains a centre for heavy manufacturing and steel fabrication, supported by precision engineering and logistics activity across Earlstrees Industrial Estate and Rockingham Road Industrial Estate. With direct A43 links to the A14 and M1 the town handles regular inbound steel deliveries and outsize loads for local commercial construction; common shot blasting work here includes structural steel preparation, blast‑cleaning of fabrication machinery and heavy plant, and industrial floor preparation for new warehouse and factory fit‑outs. Contractors and OEMs in the area routinely specify abrasive blasting to achieve specified surface profiles ahead of protective coating application.",
     faqs: [
       { question: "Do you provide shot blasting services in Corby?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Corby and the surrounding Northamptonshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Corby?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Corby within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -3603,6 +3627,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "nottinghamshire",
     region: "East Midlands",
     description: "Shot Blasting in Nottingham, Nottinghamshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Nottingham's industrial heart covers Colwick Industrial Estate and Castle Marina Business Park, underpinning dominant sectors such as logistics, advanced engineering/steel fabrication, food processing and commercial construction. With direct links to the M1 via the A52 and A453 and rail freight routes through Nottingham station and the East Midlands Gateway logistics hub, commercial clients regularly require shot blasting for structural steelwork, heavy machinery refurbishment and concrete floor preparation on warehouse fit-outs. Ongoing warehouse expansions and plant maintenance programmes across these estates—plus routine refurbishment of process vessels and conveyor systems at local food and pharmaceutical plants—create steady demand for mobile shot blasting and on-site blast-and-coating services.",
     faqs: [
       { question: "Do you provide shot blasting services in Nottingham?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Nottingham and the surrounding Nottinghamshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Nottingham?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Nottingham within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -3617,6 +3642,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "nottinghamshire",
     region: "East Midlands",
     description: "Shot Blasting in Mansfield, Nottinghamshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Mansfield is a Midlands manufacturing and logistics hub with a strong presence of steel fabrication, precision engineering and food-processing support industries; local contractors regularly specify shot blasting for structural steelwork, heavy machinery refurbishment and industrial floor preparation. Key employment locations such as Ransom Wood Business Park and Mansfield Business Park concentrate warehousing, fabrication shops and plant yards, with frequent commercial construction and refurbishment on industrial units and distribution fit-outs. The town sits on the A617/A60 corridor and is within easy reach of the M1, making on-site shot blasting and mobile blast cleaning practical for regional OEMs and logistics operators.",
     faqs: [
       { question: "Do you provide shot blasting services in Mansfield?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Mansfield and the surrounding Nottinghamshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Mansfield?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Mansfield within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -3631,6 +3657,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "nottinghamshire",
     region: "East Midlands",
     description: "Shot Blasting in Worksop, Nottinghamshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Worksop's industrial base is centred on manufacturing and steel fabrication, with strong engineering and logistics activity across Worksop Industrial Estate and the nearby Manton Industrial Estate. Local fabricators, plant hirers and depot operators regularly need shot blasting for structural steel refurbishment, heavy machinery reconditioning and industrial floor preparation. With direct rail links via Worksop railway station on the Robin Hood Line and easy access to the A57/A60 corridors into the East Midlands and South Yorkshire, our mobile shot blasting teams routinely support commercial construction, fabrication shops and maintenance yards across the Worksop area.",
     faqs: [
       { question: "Do you provide shot blasting services in Worksop?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Worksop and the surrounding Nottinghamshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Worksop?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Worksop within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -3757,6 +3784,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "nottinghamshire",
     region: "East Midlands",
     description: "Shot Blasting in Newark-on-Trent, Nottinghamshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Newark-on-Trent sits at the heart of a busy East Midlands industrial cluster centred on Farndon Road Industrial Estate and the business parks clustered around the A1/A46 junction, with a strong presence of logistics operators, steel fabrication and heavy engineering contractors supporting regional construction projects. With direct access to the A1 and A46 and rail links via the East Coast Main Line at Newark North Gate, manufacturers and maintenance yards frequently require abrasive preparation services — particularly structural steel shot blasting for bridges and warehouse frameworks, heavy machinery refurbishment and industrial concrete floor preparation for new distribution units.",
     faqs: [
       { question: "Do you provide shot blasting services in Newark-on-Trent?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Newark-on-Trent and the surrounding Nottinghamshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Newark-on-Trent?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Newark-on-Trent within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -3785,6 +3813,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "nottinghamshire",
     region: "East Midlands",
     description: "Shot Blasting in Retford, Nottinghamshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Retford and the wider Bassetlaw area support a strong mix of engineering, logistics and food-processing activity, with industrial concentrations at Harworth Industrial Estate and the Manton Wood Business Park (Worksop) serving local fabricators, haulage operators and processors. The town’s location on the A1 trunk road and Retford railway station on the East Coast Main Line makes it a convenient hub for distribution and heavy plant movements. Typical shot blasting work in the area includes abrasive cleaning and coating preparation for structural steelwork, refurbishment of agricultural and construction plant, and concrete floor preparation for warehouse and manufacturing units.",
     faqs: [
       { question: "Do you provide shot blasting services in Retford?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Retford and the surrounding Nottinghamshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Retford?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Retford within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -3883,6 +3912,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "herefordshire",
     region: "West Midlands",
     description: "Shot Blasting in Hereford, Herefordshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Hereford’s industrial profile is anchored by Rotherwas Industrial Estate and Kings Acre Industrial Estate, supporting engineering, steel fabrication, food processing and logistics firms that serve the West Midlands and Wales. With strong road links via the A49 and A465 to the M50/M5 corridor and rail connections at Hereford station (Welsh Marches Line), local sites regularly require shot blasting for structural steelwork on warehouse frames, heavy machinery refurbishment and concrete floor preparation for new-build industrial units and maintenance yards.",
     faqs: [
       { question: "Do you provide shot blasting services in Hereford?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Hereford and the surrounding Herefordshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Hereford?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Hereford within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -3995,6 +4025,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "shropshire",
     region: "West Midlands",
     description: "Shot Blasting in Shrewsbury, Shropshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Shrewsbury’s industrial profile is dominated by manufacturing, engineering and logistics, centred on Battlefield Enterprise Park and the Emstrey Trading Estate where steel fabricators, plant maintenance firms and regional distribution operators are concentrated. We regularly support commercial contractors and on-site workshops across these estates with industrial shot blasting services — from structural steel preparation and heavy machinery refurbishment to concrete floor preparation for warehouse fit-outs — delivering abrasive blasting for fabrication yards, plant overhaul shops and food-processing equipment along the A5/A49 transport corridor with direct access to regional rail and freight links at Shrewsbury station.",
     faqs: [
       { question: "Do you provide shot blasting services in Shrewsbury?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Shrewsbury and the surrounding Shropshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Shrewsbury?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Shrewsbury within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -4009,6 +4040,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "shropshire",
     region: "West Midlands",
     description: "Shot Blasting in Telford, Shropshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Telford's industrial heart is concentrated around Stafford Park and Hortonwood industrial estates, home to precision engineering and heavy fabrication firms alongside large logistics operators. Dominant sectors include steel fabrication and metalworking, automotive supply-chain components and distribution-led logistics, with ongoing commercial construction supporting new warehousing and plant installations. With easy access to the M54 (J4) and Telford Central rail freight links, site operators commonly require on-site structural steel shot blasting for new build and maintenance, abrasive floor preparation for heavy-duty concrete slabs, and blast cleaning of industrial machinery and conveyor assemblies.",
     faqs: [
       { question: "Do you provide shot blasting services in Telford?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Telford and the surrounding Shropshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Telford?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Telford within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -4023,6 +4055,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "shropshire",
     region: "West Midlands",
     description: "Shot Blasting in Oswestry, Shropshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Oswestry and its surrounding industrial clusters — notably Gobowen Industrial Estate and Morda Industrial Estate — support a concentration of steel fabrication, light engineering, construction subcontractors and regional logistics operators serving Shropshire and mid‑Wales. Common commercial shot blasting requirements here include grit blasting and priming of structural steelwork, refurbishment blasting for agricultural and process machinery, and abrasive floor preparation for new industrial unit fit‑outs. Located on the A5 with Gobowen rail station providing rail access and the M54 motorway corridor to the east, Oswestry offers straightforward access for mobile shot blasting teams and transport of large fabricated components.",
     faqs: [
       { question: "Do you provide shot blasting services in Oswestry?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Oswestry and the surrounding Shropshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Oswestry?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Oswestry within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -4037,6 +4070,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "shropshire",
     region: "West Midlands",
     description: "Shot Blasting in Bridgnorth, Shropshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Bridgnorth and its immediate light industrial areas, anchored by Bridgnorth Industrial Estate and with fast links to Telford’s Hortonwood, host a strong mix of engineering, steel fabrication and light manufacturing firms supplying regional construction and agricultural equipment markets. Our shot blasting services are routinely specified for structural steelwork, machinery refurbishment and concrete floor preparation for fabrication workshops and civils contractors, with rapid mobilisation via the A442/A458 and M54 access at Telford (J3/J4) to support projects across the Severn Valley and the wider Shropshire industrial corridor.",
     faqs: [
       { question: "Do you provide shot blasting services in Bridgnorth?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Bridgnorth and the surrounding Shropshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Bridgnorth?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Bridgnorth within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -4219,6 +4253,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "shropshire",
     region: "West Midlands",
     description: "Shot Blasting in Newport, Shropshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Newport and the nearby Donnington and Pave Lane industrial estates support a concentrated engineering and manufacturing base, with specialist steel fabrication, plant assembly and light engineering firms alongside logistics operators and commercial contractors. Positioned on the A41/A518 junction and within easy reach of the M54, local projects regularly require heavy-duty shot blasting for structural steelwork, refurbishment of industrial machinery and tankwork, plus abrasive floor preparation for new warehouse and factory fit-outs on estates such as Newport Industrial Estate and Donnington Industrial Estate (Telford).",
     faqs: [
       { question: "Do you provide shot blasting services in Newport?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Newport and the surrounding Shropshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Newport?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Newport within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -4289,6 +4324,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "staffordshire",
     region: "West Midlands",
     description: "Shot Blasting in Stoke-on-Trent, Staffordshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Stoke-on-Trent’s industrial core remains focused on ceramics manufacturing, heavy engineering and logistics, centred around long-established parks such as Etruria Industrial Estate and Basford Industrial Estate near the city’s canal and rail corridors. With direct access to the A500 and M6 (J15), local contractors regularly require abrasive blast cleaning for structural steelwork on bridge and mill expansions, heavy machinery refurbishment, and concrete floor preparation for production lines — services we routinely deliver for engineering firms, potteries and warehousing operators across the Potteries.",
     faqs: [
       { question: "Do you provide shot blasting services in Stoke-on-Trent?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Stoke-on-Trent and the surrounding Staffordshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Stoke-on-Trent?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Stoke-on-Trent within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -4303,6 +4339,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "staffordshire",
     region: "West Midlands",
     description: "Shot Blasting in Stafford, Staffordshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Stafford is a regional engineering and logistics hub with concentrated manufacturing firms on Staffordshire Technology Park and heavy engineering and distribution operations at Doxey Road Industrial Estate, benefitting from direct access to the M6 (J14) and the West Coast Main Line at Stafford station. Local activity includes steel fabrication, plant refurbishment and warehouse construction for third‑party logistics operators; our typical shot blasting work in the area covers structural steel blast cleaning, machinery and gearbox refurbishment and heavy‑duty floor preparation for new industrial slab pours and refurbishment projects.",
     faqs: [
       { question: "Do you provide shot blasting services in Stafford?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Stafford and the surrounding Staffordshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Stafford?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Stafford within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -4317,6 +4354,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "staffordshire",
     region: "West Midlands",
     description: "Shot Blasting in Tamworth, Staffordshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Tamworth's industrial hinterland, centred on Birch Coppice Business Park and Amington Industrial Estate, is dominated by manufacturing, logistics and heavy engineering—particularly steel fabrication and automotive supply-chain workshops—supported by ongoing distribution warehouse and commercial construction activity. With direct access to Junction 10 of the M42 and the Birch Coppice rail freight terminal, the area generates regular demand for shot blasting services—serving large fabrication yards and onsite coating contractors—for structural steelwork, plant and machinery refurbishment, and industrial concrete floor preparation on new-build and refurbishment projects.",
     faqs: [
       { question: "Do you provide shot blasting services in Tamworth?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Tamworth and the surrounding Staffordshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Tamworth?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Tamworth within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -4597,6 +4635,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "warwickshire",
     region: "West Midlands",
     description: "Shot Blasting in Rugby, Warwickshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Rugby's industrial catchment is dominated by logistics and manufacturing — notably steel fabrication and construction support services that feed the area's warehousing and rail‑freight operations at Swift Valley Industrial Estate and the nearby Daventry International Rail Freight Terminal (DIRFT). Sitting close to the M6 junction 1 (Catthorpe Interchange) and the A5 corridor, local operators routinely call for abrasive shot blasting for structural steel refurbishment, heavy machinery and plant components, and concrete floor preparation for high‑bay racking and mezzanine installations.",
     faqs: [
       { question: "Do you provide shot blasting services in Rugby?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Rugby and the surrounding Warwickshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Rugby?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Rugby within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -4625,6 +4664,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "warwickshire",
     region: "West Midlands",
     description: "Shot Blasting in Nuneaton, Warwickshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Nuneaton is a Midlands manufacturing and logistics hub centred on Attleborough Fields Industrial Estate and Bermuda Park, where steel fabrication, automotive supply‑chain companies and large distribution operators predominate. Its proximity to the M6 at J3 and the A5/A444 freight corridors makes the town a frequent location for industrial refurbishment and new‑build warehousing, with recent unit reclads and warehouse extensions at Bermuda Park and ongoing works across Attleborough Fields. Local clients typically require shot blasting for structural steelwork, heavy machinery refurbishment and concrete floor preparation to support fabrication shops and logistics fit‑outs.",
     faqs: [
       { question: "Do you provide shot blasting services in Nuneaton?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Nuneaton and the surrounding Warwickshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Nuneaton?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Nuneaton within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -4821,6 +4861,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "west-midlands",
     region: "West Midlands",
     description: "Shot Blasting in Birmingham, West Midlands. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Birmingham’s industrial corridor around Gravelly Industrial Estate and Tyseley Industrial Estate remains a hub for steel fabrication, automotive supply (servicing nearby Castle Bromwich assembly), logistics and commercial construction, driving continuous demand for surface-preparation services. Located adjacent to Junction 6 of the M6 (Spaghetti Junction) with fast links to the M5 and M42, local contractors routinely specify abrasive shot blasting for structural steelwork, heavy-duty floor preparation and machinery refurbishment on fabrication shops, bridgework and large plant maintenance across the city’s business parks and trading estates.",
     faqs: [
       { question: "Do you provide shot blasting services in Birmingham?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Birmingham and the surrounding West Midlands area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Birmingham?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Birmingham within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -4835,6 +4876,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "west-midlands",
     region: "West Midlands",
     description: "Shot Blasting in Wolverhampton, West Midlands. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Wolverhampton's industrial core is dominated by advanced manufacturing, steel fabrication and logistics, with concentrated activity at i54 Business Park and the Wednesfield Trading Estate where component suppliers and steelwork contractors support regional automotive and aerospace supply chains. Major commercial construction and refurbishment projects — from new warehouse floor slabs to bespoke structural steel frames — keep demand high for on-site and in-yard shot blasting services for structural steel, machinery refurbishment and heavy floor preparation. The i54 sits adjacent to J2 of the M54 and is under 5 miles from M6 J10, providing immediate access for oversize loads and logistics.",
     faqs: [
       { question: "Do you provide shot blasting services in Wolverhampton?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Wolverhampton and the surrounding West Midlands area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Wolverhampton?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Wolverhampton within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -4849,6 +4891,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "west-midlands",
     region: "West Midlands",
     description: "Shot Blasting in Coventry, West Midlands. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Coventry remains a manufacturing and logistics hub dominated by automotive engineering, precision engineering, steel fabrication and large-scale warehousing, with major concentrations at Foleshill Trading Estate and Whitley Business Park supporting the Jaguar Land Rover supply chain. With quick access to the M6 (adjacent to J3) and the A46/A45 corridors, local contractors regularly require shot blasting for structural steelwork on factory extensions, heavy machinery refurbishment for engine and transmission suppliers, and abrasive floor preparation for new logistics sheds and other commercial construction programmes across the city.",
     faqs: [
       { question: "Do you provide shot blasting services in Coventry?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Coventry and the surrounding West Midlands area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Coventry?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Coventry within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -4863,6 +4906,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "west-midlands",
     region: "West Midlands",
     description: "Shot Blasting in Solihull, West Midlands. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Solihull's industrial corridor is dominated by automotive suppliers, logistics and commercial construction firms supporting Birmingham Airport, the NEC and the UK Central/HS2 growth zone, with concentrated activity around Blythe Valley Business Park and the Elmdon Trading Estate. Given the close links to M42 Junction 6 and the wider M6/M40 corridor, common site requirements include shot blasting of structural steelwork for fabrication and site erection, plant and machinery descaling during maintenance shutdowns, and abrasive floor preparation for heavy-duty warehouse and factory fit-outs.",
     faqs: [
       { question: "Do you provide shot blasting services in Solihull?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Solihull and the surrounding West Midlands area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Solihull?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Solihull within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -5157,6 +5201,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "west-midlands",
     region: "West Midlands",
     description: "Shot Blasting in West Bromwich, West Midlands. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "West Bromwich sits at the heart of Sandwell’s manufacturing corridor, home to heavy engineering and steel fabrication yards and logistics hubs clustered around Greets Green Industrial Estate and the Dudley Port industrial area. Local activity centres on structural steel for commercial frames, plant and machinery refurbishment, and repair work for automotive suppliers and construction contractors servicing nearby projects. With immediate access to the M5 (J1) and rail freight links via Sandwell & Dudley, on-site shot blasting for structural steelwork, abrasive floor preparation and heavy machinery descaling is routinely required by fabricators and logistics operators across the town.",
     faqs: [
       { question: "Do you provide shot blasting services in West Bromwich?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout West Bromwich and the surrounding West Midlands area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach West Bromwich?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in West Bromwich within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -5185,6 +5230,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "worcestershire",
     region: "West Midlands",
     description: "Shot Blasting in Worcester, Worcestershire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Worcester's industrial activity centres on Warndon Business Park and Blackpole Trading Estate, hosting precision engineering shops, steel fabrication firms, food processing suppliers and logistics operators serving the Midlands. With direct access to the A38 and quick links onto the M5 via the A4440, our onsite shot blasting work commonly includes structural steel preparation for new factory frames, refurbishment of plant and heavy machinery, and industrial floor preparation to accept protective coatings. Nearby commercial construction programmes—particularly warehouse extensions and steel-framed distribution developments at Warndon and Blackpole—generate regular contracts for blast-cleaning, metallurgical inspection and pre-coating surface preparation.",
     faqs: [
       { question: "Do you provide shot blasting services in Worcester?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Worcester and the surrounding Worcestershire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Worcester?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Worcester within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -5199,6 +5245,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "worcestershire",
     region: "West Midlands",
     description: "Shot Blasting in Kidderminster, Worcestershire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Kidderminster supports a strong light engineering and fabrication cluster — notably steel fabrication, industrial machinery refurbishment and logistics — centred on Hartlebury Trading Estate and Wyre Forest Business Park. The town sits on the A456 with direct A449 links to the wider motorway network and is served by Kidderminster railway station on the West Midlands network for regional industrial access. Local industrial clients commonly specify abrasive shot blasting for structural steelwork, heavy machinery refurbishment and warehouse floor preparation prior to protective coatings.",
     faqs: [
       { question: "Do you provide shot blasting services in Kidderminster?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Kidderminster and the surrounding Worcestershire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Kidderminster?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Kidderminster within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -5213,6 +5260,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "worcestershire",
     region: "West Midlands",
     description: "Shot Blasting in Redditch, Worcestershire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Redditch’s industrial catchment is focused on engineering and precision manufacturing, automotive supply chain firms and light logistics, concentrated around Winyates Industrial Estate and Batchley Industrial Estate where machine shops and steel fabricators are common. With direct rail access via Redditch station on the Cross-City line to Birmingham New Street and good road links along the A441/A448 corridor, the town supports ongoing commercial construction and warehouse expansion; typical shot blasting work we undertake locally includes structural steelwork preparation, heavy machinery refurbishment and concrete floor profile blasting for new industrial units.",
     faqs: [
       { question: "Do you provide shot blasting services in Redditch?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Redditch and the surrounding Worcestershire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Redditch?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Redditch within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -5409,6 +5457,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "south-yorkshire",
     region: "Yorkshire",
     description: "Shot Blasting in Sheffield, South Yorkshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Sheffield remains a national centre for steel fabrication and heavy engineering, with concentrated industrial activity in the Kelham Island Industrial Quarter and the Tinsley Industrial Estate where fabricators, plant rebuilders and structural steel contractors operate. With direct access via the Sheffield Parkway to M1 junction 33 and close rail freight routes serving the Don Valley corridors, clients in these parks commonly require shot blasting for structural steelwork, heavy machinery refurbishment and industrial floor preparation ahead of coatings and concrete overlays. Our local teams routinely support commercial construction and plant refurbishment projects across Sheffield’s fabrication and logistics clusters.",
     faqs: [
       { question: "Do you provide shot blasting services in Sheffield?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Sheffield and the surrounding South Yorkshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Sheffield?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Sheffield within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -5423,6 +5472,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "south-yorkshire",
     region: "Yorkshire",
     description: "Shot Blasting in Rotherham, South Yorkshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Rotherham's industrial core — anchored by the Advanced Manufacturing Park (AMP) at Catcliffe and the Aldwarke Industrial Estate along the River Don — supports heavy steel fabrication, automotive supply-chain manufacturing, logistics and commercial construction contractors. With direct access via the M1 (J33) and nearby rail freight connections to Sheffield and Doncaster, onsite shot blasting for structural steel refurbishment and heavy machinery reconditioning is routinely specified for fabrication yards and site erections across these estates. We commonly carry out blast cleaning and coating preparatory work on large-section beams, platework and industrial floor preparation for new warehouse and production fit-outs.",
     faqs: [
       { question: "Do you provide shot blasting services in Rotherham?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Rotherham and the surrounding South Yorkshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Rotherham?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Rotherham within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -5437,6 +5487,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "south-yorkshire",
     region: "Yorkshire",
     description: "Shot Blasting in Doncaster, South Yorkshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Doncaster's industrial profile is dominated by logistics and heavy engineering, anchored by distribution and rail-support facilities at iPort Doncaster (Rossington) and manufacturing activity around Armthorpe Industrial Estate that supports steel fabrication, rail engineering and construction contractors. Its proximity to J3 of the M18 with fast links onto the A1(M) and the Humber ports makes Doncaster a regional hub for plant refurbishment and large-scale warehousing, generating steady demand for structural steel shot blasting, machinery blast‑cleaning and concrete floor preparation on new-build and maintenance projects. Ongoing commercial construction and enterprise‑zone activity keep repeat contractor blast work regular across the borough.",
     faqs: [
       { question: "Do you provide shot blasting services in Doncaster?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Doncaster and the surrounding South Yorkshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Doncaster?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Doncaster within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -5451,6 +5502,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "south-yorkshire",
     region: "Yorkshire",
     description: "Shot Blasting in Barnsley, South Yorkshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Barnsley is a longstanding centre for steel fabrication, heavy manufacturing and logistics, with significant industrial activity across Cortonwood Industrial Estate and the Dearne Valley area and nearby Manvers Business Park. With rapid access to the M1 (J37) and Barnsley’s rail links, local fabricators, plant hire yards and civil contractors frequently require specialist shot blasting for structural steelwork, heavy machinery refurbishment and concrete floor preparation on large commercial sites. Our teams know the local contracts and yard workflows, supporting fabrication yards, distribution facilities and construction contractors undertaking structural steel and plant refurbishment projects throughout South Yorkshire.",
     faqs: [
       { question: "Do you provide shot blasting services in Barnsley?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Barnsley and the surrounding South Yorkshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Barnsley?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Barnsley within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -5787,6 +5839,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "west-yorkshire",
     region: "Yorkshire",
     description: "Shot Blasting in Leeds, West Yorkshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Leeds’ east and south‑east industrial corridor, anchored by Cross Green Industrial Estate and Thorpe Park Leeds, supports a strong mix of steel fabrication, logistics and heavy civil construction firms serving regional infrastructure and warehousing projects. With direct access to the M1 (Junction 45) and the M621/A63 freight corridor, fabrication yards and plant hire companies in the area routinely require abrasive blasting for structural steelwork, heavy machinery refurbishment and concrete floor preparation. We routinely mobilise to these estates to provide on‑site shot blasting, grit blasting and surface preparation for contractors and fabricators working on bridge components, warehouse fit‑outs and large civil steel frames.",
     faqs: [
       { question: "Do you provide shot blasting services in Leeds?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Leeds and the surrounding West Yorkshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Leeds?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Leeds within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -5801,6 +5854,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "west-yorkshire",
     region: "Yorkshire",
     description: "Shot Blasting in Bradford, West Yorkshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Bradford’s industrial zones around Low Moor Industrial Estate and Greengates Industrial Estate support a dense mix of steel fabrication and heavy engineering alongside food processing, distribution and commercial construction contractors. Local manufacturers and logistics operators frequently require shot blasting for structural steelwork, plant and machinery refurbishment and heavy-duty concrete floor preparation for warehouse fit-outs and bridge/plant foundations. With direct access to the M606 and the M62 at Junction 26 (Chain Bar), contractors can schedule on-site or workshop blasting to meet tight maintenance windows and pre-coating specifications across the city’s industrial supply chain.",
     faqs: [
       { question: "Do you provide shot blasting services in Bradford?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Bradford and the surrounding West Yorkshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Bradford?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Bradford within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -5815,6 +5869,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "west-yorkshire",
     region: "Yorkshire",
     description: "Shot Blasting in Wakefield, West Yorkshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Wakefield's industrial corridor around Wakefield 41 Business Park and Wakefield Europort supports heavy logistics, steel fabrication and food processing operations, with large distribution centres and manufacturers taking advantage of proximity to J41 of the M1 and A642 freight routes. Local plant maintenance yards and fabrication shops in Normanton and Ferrybridge see regular demand for abrasive shot blasting of structural steelwork, heavy machinery refurbishment and concrete floor preparation. Ongoing warehouse expansions on Newmarket Lane and routine maintenance at nearby industrial sites keep requirement for on‑site shot blasting and protective coatings consistently high.",
     faqs: [
       { question: "Do you provide shot blasting services in Wakefield?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Wakefield and the surrounding West Yorkshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Wakefield?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Wakefield within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -5829,6 +5884,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "west-yorkshire",
     region: "Yorkshire",
     description: "Shot Blasting in Huddersfield, West Yorkshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Huddersfield and the wider Kirklees manufacturing belt remain strong in steel fabrication, heavy engineering and logistics, with notable concentrations around Longroyd Bridge Industrial Estate and Bradley Business Park. Located off the A629 and immediately accessible via Ainley Top (J24 of the M62), the town supports ongoing commercial construction, warehouse refurbishments and rail-linked freight activity at Healey Mills, driving demand for structural steel shot blasting, machinery refurbishment and ongoing plant upgrades, plus industrial concrete floor preparation across local fabrication yards and distribution units.",
     faqs: [
       { question: "Do you provide shot blasting services in Huddersfield?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Huddersfield and the surrounding West Yorkshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Huddersfield?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Huddersfield within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -6263,6 +6319,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "cheshire",
     region: "North West",
     description: "Shot Blasting in Chester, Cheshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Chester sits at the heart of a busy manufacturing and logistics corridor, with large employers clustered on Deeside Industrial Park and Prologis Park Ellesmere Port supplying automotive, steel fabrication and food processing clients. Our shot blasting teams frequently undertake structural steel preparation, heavy machinery refurbishment and floor preparation for new warehouse slabs across these estates, supporting ongoing commercial construction and heavy engineering projects. The area is well connected to the North West via the M56 and A55 corridors (within a short drive of the A55/M56 interchange), making on-site mobilisation for large-scale blast and coating contracts straightforward.",
     faqs: [
       { question: "Do you provide shot blasting services in Chester?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Chester and the surrounding Cheshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Chester?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Chester within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -6277,6 +6334,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "cheshire",
     region: "North West",
     description: "Shot Blasting in Crewe, Cheshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Crewe's industrial profile is dominated by rail engineering, logistics and precision manufacturing centred around Basford Hall Freight Terminal and Leighton Business Park. The town's ongoing depot refurbishments and freight handling growth drive demand for specialist shot blasting — particularly structural steel preparation for bridge and depot steelwork, shot blasting of rolling‑stock components during machinery overhaul, and heavy‑duty floor preparation for new warehouse fit-outs. With direct rail connections at Crewe Works and convenient road access via M6 J16 and the A500, contractors can schedule on-site or workshop blasting to support turnarounds and large-scale commercial construction programmes.",
     faqs: [
       { question: "Do you provide shot blasting services in Crewe?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Crewe and the surrounding Cheshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Crewe?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Crewe within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -6291,6 +6349,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "cheshire",
     region: "North West",
     description: "Shot Blasting in Warrington, Cheshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Warrington's industrial belt, anchored by Omega Business Park and Birchwood Park, supports large-scale logistics, advanced manufacturing—particularly steel fabrication and automotive supply chains—plus food processing and construction firms; recent commercial growth is driven by the Warrington Western Link and ongoing expansion at Omega. With immediate access to the M6 (J21), the M62 corridor and rail freight at Warrington Bank Quay, typical shot blasting work here includes heavy structural-steel blast cleaning for fabrication yards, refurbishment of industrial machinery and gantries, and abrasive floor preparation for high-wear warehouse and manufacturing floors.",
     faqs: [
       { question: "Do you provide shot blasting services in Warrington?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Warrington and the surrounding Cheshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Warrington?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Warrington within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -6571,6 +6630,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "gloucestershire",
     region: "South West",
     description: "Shot Blasting in Gloucester, Gloucestershire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Gloucester is a regional hub for steel fabrication, construction and logistics, with heavy industrial activity concentrated on Quedgeley Trading Estate and Gloucester Business Park and equipment-heavy operators serving Gloucester Docks and the Port of Sharpness. Located just off the M5 (J11) with direct A38 links and rail freight access, local contractors routinely require shot blasting for structural steelwork on warehouse and bridge components, on-site machinery refurbishment and abrasive floor preparation for industrial units and new-build distribution facilities.",
     faqs: [
       { question: "Do you provide shot blasting services in Gloucester?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Gloucester and the surrounding Gloucestershire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Gloucester?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Gloucester within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -6585,6 +6645,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "gloucestershire",
     region: "South West",
     description: "Shot Blasting in Cheltenham, Gloucestershire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Cheltenham’s light industrial corridor around Hatherley Industrial Estate and the Arle Court area supports a strong mix of steel fabrication, construction contractors and regional logistics operators, with fabrication yards, plant hire depots and maintenance workshops regularly commissioning protective surface treatments. With rapid access to the A40 and the M5 at J11, commercial clients in Cheltenham commonly require on-site shot blasting for structural steelwork, heavy machinery refurbishment and concrete floor preparation for new warehouse and portal-frame fit-outs serving the wider Gloucestershire supply chain.",
     faqs: [
       { question: "Do you provide shot blasting services in Cheltenham?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Cheltenham and the surrounding Gloucestershire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Cheltenham?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Cheltenham within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -6599,6 +6660,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "gloucestershire",
     region: "South West",
     description: "Shot Blasting in Stroud, Gloucestershire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Stroud and the adjoining Stonehouse/Cainscross industrial corridor support a strong concentration of precision engineering, steel fabrication and construction sub‑contractors centred on Cainscross Industrial Estate and Stonehouse Trading Estate. Our shot blasting crews regularly undertake structural steel preparation, machinery refurbishment and concrete floor preparation for new-build industrial units and civil engineering contracts, with yards and fabrication shops benefitting from easy access to the M5 via the A419 for regional distribution and site delivery.",
     faqs: [
       { question: "Do you provide shot blasting services in Stroud?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Stroud and the surrounding Gloucestershire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Stroud?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Stroud within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -6613,6 +6675,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "gloucestershire",
     region: "South West",
     description: "Shot Blasting in Cirencester, Gloucestershire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Cirencester and the surrounding Cotswolds support a concentration of construction contractors, agricultural engineering firms and light manufacturers clustered around Cirencester Industrial Estate (Tetbury Road) and the Cotswold Airport / Kemble Airfield business park. Local commercial work often calls for on-site shot blasting of structural steel, heavy machinery refurbishment and warehouse floor preparation, reflecting steady demand from commercial construction, plant maintenance and small-scale logistics operators. The town’s position on the A419 gives direct freight access to the M4 at Junction 15 (Swindon) and onward links to the M5, allowing rapid mobilisation to larger regional projects.",
     faqs: [
       { question: "Do you provide shot blasting services in Cirencester?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Cirencester and the surrounding Gloucestershire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Cirencester?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Cirencester within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -7481,6 +7544,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "wiltshire",
     region: "South West",
     description: "Shot Blasting in Swindon, Wiltshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Swindon’s industrial footprint is centred on North Star Business Park and the Westmead Industrial Estate, hosting a mix of advanced manufacturing, engineering subcontractors, logistics operators and construction supply firms. The town’s long rail-engineering heritage around the former Swindon Works supports specialist plant refurbishment alongside fabrication shops producing structural steel for warehouse frames and on-site construction projects. With immediate access to the M4 (Junctions 15 and 16) and the A419 trunk route, common local shot blasting scopes include structural steel preparation, heavy machinery and component refurbishment, and abrasive floor preparation for large distribution and industrial slabs.",
     faqs: [
       { question: "Do you provide shot blasting services in Swindon?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Swindon and the surrounding Wiltshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Swindon?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Swindon within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -7817,6 +7881,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "buckinghamshire",
     region: "Wales Borders",
     description: "Shot Blasting in Milton Keynes, Buckinghamshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "In Milton Keynes we regularly support logistics and light-manufacturing firms clustered around Kiln Farm Industrial Estate and Stonebridge Park, providing shot blasting for structural steelwork on racking towers, heavy concrete floor preparation in distribution hubs, and plant and machinery refurbishment. The town’s role as a major distribution and fabrication node — close to J14 of the M1 and Milton Keynes Central on the West Coast Main Line — drives steady demand from logistics, construction and steelwork contractors. Our on-site blast teams are familiar with the high-volume steel and concrete preparation tasks typical across the MK industrial corridor.",
     faqs: [
       { question: "Do you provide shot blasting services in Milton Keynes?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Milton Keynes and the surrounding Buckinghamshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Milton Keynes?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Milton Keynes within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8111,6 +8176,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "east-wales",
     region: "Wales Borders",
     description: "Shot Blasting in Cardiff, East Wales. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Operating across Cardiff Gate Business Park and Wentloog Industrial Estate, our shot blasting services support the strong local steel fabrication, logistics, manufacturing and construction sectors in east Cardiff. Cardiff Gate sits adjacent to J30 of the M4 and Wentloog offers direct access to Cardiff Docks and regional rail freight routes, making the area a hub for heavy fabrication and distribution works. Typical contracts here include blast-and-prime programmes for structural steel and bridgework, abrasive floor preparation for new warehouse and distribution fit-outs, and machinery refurbishment for plant and fabrication workshops on the M4 corridor.",
     faqs: [
       { question: "Do you provide shot blasting services in Cardiff?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Cardiff and the surrounding East Wales area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Cardiff?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Cardiff within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8125,6 +8191,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "east-wales",
     region: "Wales Borders",
     description: "Shot Blasting in Wrexham, East Wales. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Wrexham's industrial heart is centred on the Wrexham Industrial Estate and nearby Bersham Industrial Estate, where heavy manufacturing, steel fabrication, food processing and logistics operations drive steady demand for specialist surface preparation. With direct access to the A483 trunk route (linking north to the A55 and south towards the M54/M6 corridors), local sites frequently require shot blasting for structural steel refurbishment, heavy machinery descaling and concrete warehouse floor preparation ahead of protective coatings and resurfacing across fabrication shops and distribution hubs.",
     faqs: [
       { question: "Do you provide shot blasting services in Wrexham?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Wrexham and the surrounding East Wales area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Wrexham?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Wrexham within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8139,6 +8206,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "east-wales",
     region: "Wales Borders",
     description: "Shot Blasting in Merthyr Tydfil, East Wales. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Merthyr Tydfil’s industrial cluster around Dowlais Industrial Estate and Pentrebach Industrial Estate is anchored in steel fabrication, engineering and construction support services, supplying structural steel and heavy fabrication into the South Wales supply chain. Sitting on the A470 trunk road with direct routes into the M4 corridor and Cardiff docks, local contractors regularly require shot blasting for structural steel refurbishment, heavy machinery and plant components, concrete floor preparation for new industrial units, and remedial blast work on bridge and overpass steelwork.",
     faqs: [
       { question: "Do you provide shot blasting services in Merthyr Tydfil?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Merthyr Tydfil and the surrounding East Wales area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Merthyr Tydfil?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Merthyr Tydfil within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8405,6 +8473,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "east-wales",
     region: "Wales Borders",
     description: "Shot Blasting in Pontypridd, East Wales. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Pontypridd sits at the heart of the Taff Valley industrial corridor, with Treforest Industrial Estate and Rhydyfelin Industrial Estate hosting clusters of steel fabrication, heavy manufacturing, automotive supply and logistics firms that support regional construction and utilities projects. With direct access to the A470 and mainline rail services at Pontypridd station and practical onward freight connections to the Port of Cardiff, contractors in the area regularly require shot blasting for structural steelwork refurbishment, plant and machinery overhaul and concrete floor preparation on industrial unit refits and civil engineering contracts across the estates.",
     faqs: [
       { question: "Do you provide shot blasting services in Pontypridd?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Pontypridd and the surrounding East Wales area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Pontypridd?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Pontypridd within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8489,6 +8558,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "oxfordshire",
     region: "South East England",
     description: "Shot Blasting in Banbury, Oxfordshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Banbury's industrial catchment around Banbury Business Park and the Hardwick Industrial Estate supports a strong mix of light and heavy manufacturing, steel fabrication, logistics and construction contractors. Located adjacent to M40 Junction 11 with rail access at Banbury station, the area is a regional hub for fabrication yards and distribution centres where shot blasting of structural steelwork, machinery refurbishment and concrete floor preparation are frequently required. Ongoing commercial construction and new warehouse schemes along the A422 generate steady demand for abrasive blast cleaning to prepare steel sections and trade-level floors for protective coatings and repair works.",
     faqs: [
       { question: "Do you provide shot blasting services in Banbury?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Banbury and the surrounding Oxfordshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Banbury?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Banbury within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8545,6 +8615,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "greater-manchester",
     region: "North West England",
     description: "Shot Blasting in Bolton, Greater Manchester. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Bolton’s industrial heart around Middlebrook Business Park (Horwich) and Lostock Industrial Estate supports a high concentration of steel fabrication, engineering and logistics firms, with frequent warehouse fit-outs and commercial construction projects located adjacent to J6 of the M61 and with easy access onto the M60/M62 corridor. Local manufacturers and contractors commonly specify shot blasting for heavy structural steelwork, machinery refurbishment and abrasive floor preparation on large warehouse slabs and fabrication shop floors during plant refits, new-build industrial shells and ongoing maintenance across the borough.",
     faqs: [
       { question: "Do you provide shot blasting services in Bolton?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Bolton and the surrounding Greater Manchester area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Bolton?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Bolton within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8559,6 +8630,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "bristol",
     region: "South West England",
     description: "Shot Blasting in Bristol, Bristol. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Bristol's industrial corridor from Avonmouth to Filton supports strong aerospace and advanced manufacturing clusters alongside logistics, steel fabrication and heavy construction suppliers, with major operations located around Avonmouth and the Filton Enterprise Area. With direct access via M5 J18 and the M49 link to the M4 and the Port of Bristol at Avonmouth, clients in these estates commonly commission shot blasting for structural steelwork, heavy machinery refurbishment and concrete floor preparation in fabrication yards and distribution warehouses. Recent local work often involves blast-cleaning large platework for dockside fabricators and surface preparation for hangar and bridge steel in the Filton aerospace supply chain.",
     faqs: [
       { question: "Do you provide shot blasting services in Bristol?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Bristol and the surrounding Bristol area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Bristol?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Bristol within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8573,6 +8645,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "staffordshire",
     region: "West Midlands",
     description: "Shot Blasting in Burton upon Trent, Staffordshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Burton upon Trent’s industrial profile is dominated by large-scale brewing (notably the Molson Coors complex) alongside a strong engineering and metal fabrication base serving plant maintenance and construction contractors. Local manufacturing and service firms concentrated on Shobnall Industrial Estate and nearby Tatenhill Industrial Estate routinely specify shot blasting for corrosion control and surface preparation, with excellent road links via the A38 (linking to the M1/M6 corridors) and direct rail access at Burton-on-Trent. Typical onsite work includes structural steel grit blasting for tanks and pipework, heavy machinery refurbishment and industrial concrete floor preparation ahead of protective coatings.",
     faqs: [
       { question: "Do you provide shot blasting services in Burton upon Trent?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Burton upon Trent and the surrounding Staffordshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Burton upon Trent?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Burton upon Trent within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8643,6 +8716,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "essex",
     region: "East of England",
     description: "Shot Blasting in Colchester, Essex. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Colchester’s industrial landscape is concentrated around Severalls Business Park and Netherhouse Industrial Estate, home to structural steel fabricators, plant engineers and regional logistics operators that supply the local construction and manufacturing sectors. With immediate access to the A12 and A120 trunk roads, plus rail links via Colchester station and quick freight routes to Harwich International Port, clients commonly specify shot blasting for structural steelwork, heavy machinery refurbishment and concrete floor preparation for new warehouse fit-outs and infrastructure projects in the area.",
     faqs: [
       { question: "Do you provide shot blasting services in Colchester?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Colchester and the surrounding Essex area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Colchester?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Colchester within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8671,6 +8745,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "west-midlands",
     region: "West Midlands",
     description: "Shot Blasting in Dudley, West Midlands. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Dudley and the surrounding Black Country support a concentration of heavy industry and logistics, with firms clustered around Pensnett Trading Estate and the Brierley Hill industrial estate serving steel fabrication, automotive supply-chain engineering and construction contractors. With direct access to the M5 at Junction 2 and proximity to Midlands rail freight corridors, our on-site shot blasting services are routinely specified for structural steelwork, machinery refurbishment and concrete floor preparation during warehouse and factory refurbishments. We regularly partner with commercial contractors on industrial re-coating and corrosion-remediation packages for plant and sectional steel across the area.",
     faqs: [
       { question: "Do you provide shot blasting services in Dudley?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Dudley and the surrounding West Midlands area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Dudley?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Dudley within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8685,6 +8760,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "surrey",
     region: "South East England",
     description: "Shot Blasting in Guildford, Surrey. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Guildford's industrial catchment—anchored by Slyfield Industrial Estate and Guildford Business Park—supports a dense cluster of precision engineering, steel fabrication and construction contractors alongside logistics operators serving the wider Surrey and South East markets. With direct frontage to the A3 and quick access to the M25 (J10 Wisley), local site teams routinely require onsite shot blasting for structural steelwork, concrete floor preparation and heavy plant and machinery refurbishment as part of ongoing commercial construction, warehouse fit-outs and industrial unit refurbishments.",
     faqs: [
       { question: "Do you provide shot blasting services in Guildford?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Guildford and the surrounding Surrey area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Guildford?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Guildford within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8713,6 +8789,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "staffordshire",
     region: "West Midlands",
     description: "Shot Blasting in Lichfield, Staffordshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Lichfield and neighbouring Fradley Park form a concentrated industrial corridor in north Staffordshire, dominated by logistics, engineering and steel fabrication firms based on sites such as Fradley Park and Lichfield Business Park. The area’s steady commercial construction and large-scale warehouse development keep demand high for shot blasting on structural steelwork, heavy machinery refurbishment and concrete floor preparation. With direct frontage to the A38 and quick links onto the M6 Toll and wider M6/M42 corridors, local fabricators, civils contractors and warehousing operators rely on on-site and workshop shot blasting to meet coating and refurbishment programmes.",
     faqs: [
       { question: "Do you provide shot blasting services in Lichfield?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Lichfield and the surrounding Staffordshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Lichfield?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Lichfield within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8727,6 +8804,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "merseyside",
     region: "North West England",
     description: "Shot Blasting in Liverpool, Merseyside. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "In Liverpool’s Speke Garston Industrial Estate and nearby Knowsley Industrial Park the local economy is dominated by port-focused logistics, automotive assembly and heavy steel fabrication that support quayside, warehousing and distribution operations. With direct access to the Port of Liverpool (Seaforth/Liverpool2) and the A5036 port arteries, contractors frequently require shot blasting for structural steelwork, crane booms, quay-edge machinery and warehouse floor preparation as part of ongoing commercial construction and dock renewal programmes.",
     faqs: [
       { question: "Do you provide shot blasting services in Liverpool?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Liverpool and the surrounding Merseyside area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Liverpool?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Liverpool within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8741,6 +8819,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "greater-manchester",
     region: "North West England",
     description: "Shot Blasting in Manchester, Greater Manchester. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Manchester's industrial heartland around Trafford Park and Port Salford supports heavy engineering, steel fabrication, automotive suppliers, large-scale logistics and food-processing operations, driving steady demand for industrial surface preparation. With major freight infrastructure including the Trafford Park Euroterminal, the Manchester Ship Canal and easy access to the M60 orbital, our site teams regularly undertake structural steel grit blasting and refurbishment, heavy machinery surface cleaning and concrete floor preparation for warehouse and manufacturing fit-outs across Trafford Park and the Port Salford corridor.",
     faqs: [
       { question: "Do you provide shot blasting services in Manchester?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Manchester and the surrounding Greater Manchester area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Manchester?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Manchester within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8755,6 +8834,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "greater-manchester",
     region: "North West England",
     description: "Shot Blasting in Oldham, Greater Manchester. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Oldham’s industrial districts around Foxdenton Business Park and Hollinwood Industrial Estate host a strong cluster of steel fabrication, engineering and logistics firms supporting regional construction and manufacturing projects. With direct access via M60 Junction 23 (Hollinwood) onto the M62 freight corridor and fast routes to Trafford Park and the Port of Liverpool, clients routinely require on-site shot blasting for structural steelwork, heavy machinery refurbishment and industrial floor preparation in fabrication yards and workshop refurbishments. Our local experience aligns with the borough’s ongoing commercial construction and warehouse refit activity.",
     faqs: [
       { question: "Do you provide shot blasting services in Oldham?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Oldham and the surrounding Greater Manchester area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Oldham?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Oldham within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8769,6 +8849,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "oxfordshire",
     region: "South East England",
     description: "Shot Blasting in Oxford, Oxfordshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Oxford's industrial base is concentrated around Osney Mead Industrial Estate and Oxford Business Park (Marston), supporting precision engineering, automotive supply to the BMW MINI plant in Cowley, steel fabrication and logistics serving the Thames Valley. With direct access to the A34 (linking to the M4 and M40) and rail connections via Oxford and Didcot, local contractors routinely specify shot blasting for structural steelwork, heavy machinery refurbishment and concrete floor preparation on new-build warehouse fit-outs and ongoing industrial refurbishments across Cowley and Oxford North sites.",
     faqs: [
       { question: "Do you provide shot blasting services in Oxford?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Oxford and the surrounding Oxfordshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Oxford?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Oxford within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8797,6 +8878,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "berkshire",
     region: "South East England",
     description: "Shot Blasting in Reading, Berkshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Reading's industrial cluster around Green Park and Smallmead Industrial Estate supports a strong mix of logistics, light engineering and commercial construction—home to distribution operators, fabrication workshops and contractors serving the Thames Valley. Sitting on the A33 corridor adjacent to M4 Junction 11, this area generates frequent demand for industrial shot blasting services such as structural steel refurbishment for warehouse frames, heavy machinery descaling and concrete floor preparation prior to new mezzanine and pallet-racking installations. Local civil and fit-out contractors routinely specify abrasive blasting to achieve the required surface profile ahead of protective coatings and anti-corrosion systems.",
     faqs: [
       { question: "Do you provide shot blasting services in Reading?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Reading and the surrounding Berkshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Reading?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Reading within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8811,6 +8893,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "greater-manchester",
     region: "North West England",
     description: "Shot Blasting in Rochdale, Greater Manchester. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Rochdale’s industrial hinterland around Kingsway Business Park and the Pilsworth Industrial Estate supports a dense manufacturing, steel fabrication and logistics cluster serving construction and plant-hire clients across the borough. With direct links onto the A627(M) for fast access to the M62 corridor, we regularly provide shot blasting for structural steelwork, heavy machinery refurbishment and industrial concrete floor preparation for new-build units, maintenance yards and canal-side engineering workshops across local estates such as Kingsway and Pilsworth.",
     faqs: [
       { question: "Do you provide shot blasting services in Rochdale?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Rochdale and the surrounding Greater Manchester area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Rochdale?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Rochdale within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8825,6 +8908,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "greater-manchester",
     region: "North West England",
     description: "Shot Blasting in Salford, Greater Manchester. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Salford’s industrial corridor—from Trafford Park through the Port Salford logistics hub on the Manchester Ship Canal—supports a dense cluster of logistics, steel fabrication and heavy engineering firms, with continuous commercial construction programmes for new warehouses, distribution centres and manufacturing units on estates such as Trafford Park and Port Salford. Our shot blasting teams commonly undertake structural steel preparation for warehouse frames and bridges, heavy plant and port-crane refurbishment, plus floor preparation for high-throughput loading bays and cladding fixings. The area’s strong rail freight connections and direct access to the M60 and M602 make rapid on-site mobilisation across Greater Manchester straightforward.",
     faqs: [
       { question: "Do you provide shot blasting services in Salford?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Salford and the surrounding Greater Manchester area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Salford?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Salford within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8839,6 +8923,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "lincolnshire",
     region: "East Midlands",
     description: "Shot Blasting in Scunthorpe, Lincolnshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Scunthorpe remains a centre for heavy industry, anchored by the British Steel Scunthorpe works and supported by engineering and logistics firms across Bottesford Industrial Estate and Frodingham Industrial Estate. Local operators routinely call for large‑format shot blasting for structural steelwork and machinery refurbishment at the steelworks, alongside abrasive floor preparation and coating removal for warehouses and fabricated components serving regional logistics and commercial construction projects. With direct road access via the M180 (served by the M181 spur into Scunthorpe) and rail freight links at Scunthorpe rail junction, rapid site mobilisation and transport of blasted components across Humberside and the East Midlands is straightforward.",
     faqs: [
       { question: "Do you provide shot blasting services in Scunthorpe?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Scunthorpe and the surrounding Lincolnshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Scunthorpe?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Scunthorpe within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8853,6 +8938,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "berkshire",
     region: "South East England",
     description: "Shot Blasting in Slough, Berkshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Slough, centred on the historic Slough Trading Estate and neighbouring Poyle Trading Estate, is a major South East industrial hub underpinning logistics, advanced manufacturing and engineering firms. With intensive commercial construction and fit-outs for new warehouses and fabrication yards across the estates, demand is strong for specialist shot blasting—particularly structural steel refurbishment for portal frames, heavy machinery and concrete floor preparation for distribution centre slabs. Located within easy reach of M4 Junction 6 and close to Heathrow and the Great Western freight rail corridor, local contractors routinely require site-mobile blast cleaning to meet tight programme and HSE standards.",
     faqs: [
       { question: "Do you provide shot blasting services in Slough?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Slough and the surrounding Berkshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Slough?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Slough within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8881,6 +8967,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "greater-manchester",
     region: "North West England",
     description: "Shot Blasting in Stockport, Greater Manchester. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Stockport's industrial belt, centred on Bredbury Industrial Estate and Cheadle Royal Business Park, supports a strong mix of steel fabrication, automotive supply, precision engineering and logistics operations, with continuous commercial construction and factory refurbishment activity across the borough. Proximity to the M60 (Manchester Outer Ring Road) and the A560 provides fast trunk‑road access to Trafford Park and Manchester Airport, with rail connections via Stockport keeping inbound and outbound heavy goods movement efficient for manufacturers and distributors. Typical shot blasting work in the area includes structural steel preparation for new‑build and refurbishment projects, heavy machinery and plant descaling, and abrasive floor preparation for large warehouse and production floors.",
     faqs: [
       { question: "Do you provide shot blasting services in Stockport?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Stockport and the surrounding Greater Manchester area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Stockport?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Stockport within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8909,6 +8996,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "warwickshire",
     region: "West Midlands",
     description: "Shot Blasting in Stratford-upon-Avon, Warwickshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "Stratford-upon-Avon’s industrial catchment, centred on sites such as Tiddington Industrial Estate, supports a strong base of engineering and light manufacturing firms alongside construction contractors and regional logistics operators. With direct access to the A46 and easy onward connections to the M40, local commercial projects routinely require abrasive cleaning and surface preparation — most commonly shot blasting of structural steelwork for new industrial unit frames, refurbishment of plant and machinery, and heavy-duty floor preparation in warehousing and fabrication halls. Our mobile and in-factory services are regularly deployed on steel erection contracts and plant overhauls across the Stratford area.",
     faqs: [
       { question: "Do you provide shot blasting services in Stratford-upon-Avon?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Stratford-upon-Avon and the surrounding Warwickshire area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Stratford-upon-Avon?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Stratford-upon-Avon within 2-5 working days. For urgent projects, we can often accommodate faster response times." },
@@ -8937,6 +9025,7 @@ export const locationData: Record<string, LocationData> = {
     countySlug: "west-midlands",
     region: "West Midlands",
     description: "Shot Blasting in Walsall, West Midlands. Professional surface preparation & rust removal. Expert commercial blasting. Call 07970 566409",
+    spotlightText: "From the heavy engineering clusters around Bescot Industrial Estate to the specialist metalworking units in Willenhall Industrial Estate, Walsall's industrial base remains dominated by steel fabrication, automotive supply and logistics serving the Black Country. The borough benefits from direct rail freight handling at Bescot yard and good links onto the Birmingham-Walsall rail corridor and nearby A454 distributor routes, making it a frequent hub for returned plant and fabricated steelwork. Common local shot blasting requirements include structural steel preparation for site erection, heavy machinery refurbishment and specialist concrete/industrial floor preparation for warehouses and manufacturing premises.",
     faqs: [
       { question: "Do you provide shot blasting services in Walsall?", answer: "Yes, we provide comprehensive mobile shot blasting services throughout Walsall and the surrounding West Midlands area. Our fully equipped units can reach any location." },
       { question: "How quickly can you reach Walsall?", answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Walsall within 2-5 working days. For urgent projects, we can often accommodate faster response times." },

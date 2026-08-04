@@ -1323,3 +1323,12 @@
 - [x] CSB identifier is now carried in the message body (*** CSB LEAD — COMMERCIAL SHOT BLASTING WEBSITE ***)
 - [x] Updated test to verify lead_source is NOT present and CSB tag is in message
 - [x] All 174 tests passing
+
+## Local Industry Spotlight Content — SEO Recommendation #1 (Aug 2026)
+
+- [x] Select top 88 priority locations (major cities, county towns, industrial centres)
+- [x] Generate unique localIndustrySpotlight content for all 88 locations using LLM (specific industrial estates, sectors, motorway refs)
+- [x] Add 8 missing spotlight entries to townSpotlight.ts (pontypridd, lichfield, stratford-upon-avon, oswestry, retford, newark-on-trent, cleethorpes, immingham)
+- [x] Verify SSR output shows "Local Industry Spotlight" section for all 88 priority locations
+- [x] Total townSpotlight.ts entries: 318 of 638 locations now have unique content
+- [x] TypeScript: 0 errors, 174 tests passing
