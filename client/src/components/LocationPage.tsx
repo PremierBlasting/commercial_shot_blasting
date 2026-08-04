@@ -134,7 +134,7 @@ export function LocationPage({ location }: LocationPageProps) {
         nearbyAreas={location.nearbyAreas}
       />
       <ReviewSchema locationName={location.name} county={location.county} />
-      <FAQSchema faqs={generateLocationFAQs(location.name, location.county)} locationName={location.name} />
+      <FAQSchema faqs={[...(location.uniqueFaqs || []).slice(0, 3).map(f => ({ question: f.question, answer: f.answer })), ...generateLocationFAQs(location.name, location.county)]} locationName={location.name} />
       
       <Header />
 
@@ -520,7 +520,7 @@ export function LocationPage({ location }: LocationPageProps) {
             </div>
 
             <div className="space-y-3" itemScope itemType="https://schema.org/FAQPage">
-              {generateLocationFAQs(location.name, location.county).map((faq, index) => (
+              {[...(location.uniqueFaqs || []).slice(0, 3).map(f => ({ question: f.question, answer: f.answer })), ...generateLocationFAQs(location.name, location.county)].map((faq, index) => (
                 <div key={index} className="bg-gray-50 rounded-lg overflow-hidden" itemScope itemType="https://schema.org/Question">
                   <button
                     type="button"

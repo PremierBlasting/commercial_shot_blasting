@@ -1353,3 +1353,12 @@
 - [x] Add Nearby Areas section to generateServiceAreaBodyHTML — already fully implemented (12 same-county towns + county hub link)
 - [x] Implement FAQ JSON-LD schema markup — uniqueFaqs prepended into FAQPage schema in generateLocationSchemas (verified live on Birmingham)
 - [x] TypeScript: 0 errors, 174 tests passing
+
+## Accordion FAQ + BreadcrumbList + 100% Coverage (Aug 2026)
+
+- [x] Confirmed 100% uniqueFaqs coverage — all 638 locations already had uniqueFaqs from previous session
+- [x] Confirmed BreadcrumbList JSON-LD already fully implemented in generateLocationSchemas (4-level with county)
+- [x] Confirmed accordion FAQ UI already implemented in LocationPage.tsx (ChevronDown/Up, aria-expanded, max-h transition)
+- [x] Updated LocationPage.tsx to prepend uniqueFaqs (first 3) into both FAQSchema head tag and accordion UI
+- [x] Verified live: Birmingham FAQPage JSON-LD now has 11 questions, first 3 are unique (automotive/HS2/Solihull)
+- [x] TypeScript: 0 errors, 174 tests passing
