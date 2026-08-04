@@ -1370,3 +1370,11 @@
 - [x] Quick-nav links: Services, FAQs, Get a Quote, Nearby Areas — all smooth-scroll to section
 - [x] Phone number shortcut in quick-nav (desktop only, hidden on mobile to save space)
 - [x] TypeScript: 0 errors, 174 tests passing
+
+## County Sticky Nav + Back to Top (Aug 2026)
+- [x] Add sticky quick-nav to CountyPage.tsx (Towns, FAQs, Get a Quote, Services) with active section highlighting
+- [x] Add section IDs to CountyPage.tsx: county-towns, county-faqs, county-contact, county-services
+- [x] Add Back to Top button inside the location page sticky nav bar (right side, all screen sizes)
+- [x] Add Back to Top button inside the county page sticky nav bar (right side, all screen sizes)
+- [x] County floating Back to Top button already existed — preserved alongside new sticky nav Back to Top
+- [x] TypeScript: 0 errors, 174 tests passing

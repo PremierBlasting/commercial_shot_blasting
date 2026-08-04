@@ -274,13 +274,31 @@ export function CountyPage({ county }: CountyPageProps) {
   const [townSearchLoading, setTownSearchLoading] = useState(false);
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [showCountyNav, setShowCountyNav] = useState(false);
+  const [activeCountySection, setActiveCountySection] = useState<string | null>(null);
 
-  // Show Back to Top button after scrolling 400px
+  // Show sticky nav + Back to Top after scrolling 400px; track active section
   useEffect(() => {
-    const onScroll = () => setShowBackToTop(window.scrollY > 400);
+    const countySections = ['county-towns', 'county-faqs', 'county-contact', 'county-services'];
+    const onScroll = () => {
+      const y = window.scrollY;
+      setShowBackToTop(y > 400);
+      setShowCountyNav(y > 400);
+      let active: string | null = null;
+      for (const id of [...countySections].reverse()) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) { active = id; break; }
+      }
+      setActiveCountySection(active);
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const scrollToCounty = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 60; window.scrollTo({ top: y, behavior: 'smooth' }); }
+  };
 
   // Debounce town search to show skeleton while user types
   useEffect(() => {
@@ -432,8 +450,56 @@ export function CountyPage({ county }: CountyPageProps) {
         </div>
       </section>
 
+      {/* Sticky Quick-Navigation Menu */}
+      <div
+        className={`fixed top-0 left-0 right-0 z-40 transition-transform duration-300 ${showCountyNav ? 'translate-y-0' : '-translate-y-full'}`}
+        aria-label="County quick navigation"
+      >
+        <nav className="bg-[#2C5F7F] shadow-lg">
+          <div className="container">
+            <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide py-2">
+              <span className="text-white/60 text-xs font-medium uppercase tracking-wide shrink-0 pr-2 hidden sm:block">Jump to:</span>
+              {[
+                { id: 'county-towns', label: 'Towns' },
+                { id: 'county-faqs', label: 'FAQs' },
+                { id: 'county-contact', label: 'Get a Quote' },
+                { id: 'county-services', label: 'Services' },
+              ].map(({ id, label }) => (
+                <button
+                  key={id}
+                  onClick={() => scrollToCounty(id)}
+                  className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-150 ${
+                    activeCountySection === id
+                      ? 'bg-white text-[#2C5F7F]'
+                      : 'text-white/90 hover:bg-white/15 hover:text-white'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+              <div className="ml-auto shrink-0 flex items-center gap-2">
+                <button
+                  onClick={() => { trackPhoneCall('07970566409', 'County Quick Nav'); window.location.href = 'tel:07970566409'; }}
+                  className="hidden sm:flex items-center gap-1.5 bg-white/15 hover:bg-white/25 text-white text-sm font-medium px-3 py-1.5 rounded-full transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  07970 566409
+                </button>
+                <button
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  aria-label="Back to top"
+                  className="flex items-center justify-center w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 text-white transition-colors"
+                >
+                  <ChevronUp className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
       {/* Major Towns Served */}
-      <section className="py-16 bg-white">
+      <section id="county-towns" className="py-16 bg-white">
         <div className="container">
           <div className="text-center mb-12">
             <p className="text-[#2C5F7F] font-medium mb-2">Service Coverage</p>
@@ -677,7 +743,7 @@ export function CountyPage({ county }: CountyPageProps) {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-gray-50">
+      <section id="county-faqs" className="py-16 bg-gray-50">
         <div className="container max-w-4xl">
           <div className="text-center mb-12">
             <p className="text-[#2C5F7F] font-medium mb-2">Frequently Asked Questions</p>
@@ -897,7 +963,7 @@ export function CountyPage({ county }: CountyPageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white">
+      <section id="county-contact" className="py-16 bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] text-white">
         <div className="container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
             Request A Site Visit for Shot Blasting Services in {county.name}
@@ -920,7 +986,7 @@ export function CountyPage({ county }: CountyPageProps) {
       </section>
 
       {/* Services Available in County — full 19-service grid with localized anchor text */}
-      <section className="py-14 bg-[#f0f6fb]" id="services">
+      <section id="county-services" className="py-14 bg-[#f0f6fb]">
         <div className="container">
           <div className="text-center mb-8">
             <p className="text-[#2C5F7F] font-medium mb-2">Our Services</p>

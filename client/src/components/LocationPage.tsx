@@ -453,13 +453,20 @@ export function LocationPage({ location }: LocationPageProps) {
                   {label}
                 </button>
               ))}
-              <div className="ml-auto shrink-0 hidden sm:block">
+              <div className="ml-auto shrink-0 flex items-center gap-2">
                 <button
                   onClick={() => { trackPhoneCall('07970566409', 'Quick Nav'); window.location.href = 'tel:07970566409'; }}
-                  className="flex items-center gap-1.5 bg-white/15 hover:bg-white/25 text-white text-sm font-medium px-3 py-1.5 rounded-full transition-colors"
+                  className="hidden sm:flex items-center gap-1.5 bg-white/15 hover:bg-white/25 text-white text-sm font-medium px-3 py-1.5 rounded-full transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   07970 566409
+                </button>
+                <button
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  aria-label="Back to top"
+                  className="flex items-center justify-center w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 text-white transition-colors"
+                >
+                  <ChevronUp className="w-4 h-4" />
                 </button>
               </div>
             </div>
