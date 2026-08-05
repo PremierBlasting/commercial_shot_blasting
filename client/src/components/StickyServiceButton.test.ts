@@ -87,8 +87,8 @@ describe('StickyServiceButton', () => {
     );
     fireEvent.scroll(window);
 
-    const phoneLink = screen.getByText(/07970 566409/i).closest('a');
-    expect(phoneLink).toHaveAttribute('href', 'tel:07970566409');
+    const phoneLink = screen.getByText(/07721 375756/i).closest('a');
+    expect(phoneLink).toHaveAttribute('href', 'tel:07721375756');
   });
 
   it('should have back to top button that scrolls to top', () => {

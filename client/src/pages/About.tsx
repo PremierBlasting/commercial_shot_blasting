@@ -246,12 +246,12 @@ export default function About() {
               Request A Site Visit
             </button>
             <a
-              href="tel:07970566409"
-              onClick={() => trackPhoneCall('07970566409', 'About Page')}
+              href="tel:07721375756"
+              onClick={() => trackPhoneCall('07721375756', 'About Page')}
               className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2"
             >
               <Phone className="w-5 h-5" />
-              Call Now: 07970 566409
+              Call Now: 07721 375756
             </a>
           </div>
         </div>

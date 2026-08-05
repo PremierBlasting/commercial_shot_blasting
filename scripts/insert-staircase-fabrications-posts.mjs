@@ -47,7 +47,7 @@ const posts = [
 </figure>
 <p>We do not apply coatings ourselves, but we work closely with your painting contractor to ensure the surface is handed over in the correct condition. We can advise on primer selection and application windows based on the blast standard achieved.</p>
 <h2>Get a Quote for Shot Blasting Your External Staircase</h2>
-<p>If you have an external steel staircase that needs rust removal and surface preparation, we offer a free no-obligation site visit across England and Wales. Call us on <strong>07970 566409</strong> or use the <a href="/external-staircases">External Staircases Shot Blasting</a> page to request a site visit.</p>
+<p>If you have an external steel staircase that needs rust removal and surface preparation, we offer a free no-obligation site visit across England and Wales. Call us on <strong>07721 375756</strong> or use the <a href="/external-staircases">External Staircases Shot Blasting</a> page to request a site visit.</p>
 <p>You can also see our work in action on the <a href="/external-staircases">External Staircases page</a>, where we have embedded two videos showing the blasting process and the finished Sa 2.5 surface.</p>`,
     featuredImage: "https://commercialshotblasting.co.uk/manus-storage/staircase_during1_e3065e80.jpg",
     author: "Commercial Shot Blasting",
@@ -58,7 +58,7 @@ const posts = [
       { question: "What standard do you blast external staircases to?", answer: "We blast to Sa 2.5 near-white metal standard with an Rz 50–75 μm anchor profile, as defined in ISO 8501-1." },
       { question: "How quickly can you start?", answer: "We typically offer same-week availability. Contact us for current lead times in your area." }
     ]),
-    metaDescription: "Learn how shot blasting external staircases removes rust and old paint to Sa 2.5 near-white metal standard. Mobile on-site service across England and Wales. No dismantling required. Call 07970 566409.",
+    metaDescription: "Learn how shot blasting external staircases removes rust and old paint to Sa 2.5 near-white metal standard. Mobile on-site service across England and Wales. No dismantling required. Call 07721 375756.",
     isPublished: true,
   },
   {
@@ -117,7 +117,7 @@ const posts = [
 </figure>
 <h2>Get a Quote for Shot Blasting Your Steel Fabrications</h2>
 <p>If you have fabricated steelwork that needs surface preparation before coating, we offer a free no-obligation site visit and quotation. We cover all of England and Wales and can typically mobilise within the same week.</p>
-<p>Call us on <strong>07970 566409</strong> or visit our <a href="/steel-fabrications">Steel Fabrications Shot Blasting</a> page to request a site visit and see more project photos including before, during, and after images from all five projects.</p>`,
+<p>Call us on <strong>07721 375756</strong> or visit our <a href="/steel-fabrications">Steel Fabrications Shot Blasting</a> page to request a site visit and see more project photos including before, during, and after images from all five projects.</p>`,
     featuredImage: "https://commercialshotblasting.co.uk/manus-storage/SteelFabrications1before_090ae51a.jpg",
     author: "Commercial Shot Blasting",
     category: "Surface Preparation",
@@ -127,7 +127,7 @@ const posts = [
       { question: "What surface standard do you achieve on fabricated steel?", answer: "We blast to Sa 2.5 near-white metal standard with an Rz 50–75 μm anchor profile, as defined in ISO 8501-1." },
       { question: "How soon after blasting should primer be applied?", answer: "We recommend applying the first primer coat within four hours of blasting to prevent flash rusting, particularly in humid conditions." }
     ]),
-    metaDescription: "See real before and after photos of shot blasting steel fabrications UK. Mobile on-site service to Sa 2.5 near-white metal standard. Covers England and Wales. Call 07970 566409 for a free quote.",
+    metaDescription: "See real before and after photos of shot blasting steel fabrications UK. Mobile on-site service to Sa 2.5 near-white metal standard. Covers England and Wales. Call 07721 375756 for a free quote.",
     isPublished: true,
   }
 ];

@@ -21,7 +21,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Bedfordshire",
     slug: "bedfordshire",
     region: "East of England",
-    description: "Professional shot blasting services in Bedfordshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Bedfordshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting services across Bedfordshire — structural steel, warehouse racking, factory cladding & automotive components. SA2.5/SA3 standard. Serving Luton, Bedford & Dunstable. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/bedfordshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UjSNpyqCeEUxElPP.webp",
@@ -50,7 +50,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Bedfordshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Bedfordshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -58,7 +58,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Cambridgeshire",
     slug: "cambridgeshire",
     region: "East of England",
-    description: "Professional shot blasting services in Cambridgeshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Cambridgeshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting services in Cambridgeshire — agricultural machinery, construction steelwork & manufacturing plant. SA2.5/SA3 standard. Covering Cambridge, Peterborough & Ely.",
     url: "https://commercialshotblasting.co.uk/counties/cambridgeshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
@@ -87,7 +87,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Cambridgeshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Cambridgeshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -95,7 +95,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Hertfordshire",
     slug: "hertfordshire",
     region: "East of England",
-    description: "Professional shot blasting services in Hertfordshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Hertfordshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting services in Hertfordshire — logistics warehouse racking, retail steelwork & factory cladding. SA2.5/SA3 standard. Serving St Albans, Watford & Stevenage. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/hertfordshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UhOtVLOfPobtqyhi.webp",
@@ -124,7 +124,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Hertfordshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Hertfordshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -132,7 +132,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Norfolk",
     slug: "norfolk",
     region: "East of England",
-    description: "Professional shot blasting services in Norfolk. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Norfolk. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Norfolk — agricultural machinery, marine & offshore structures, energy sector plant. SA2.5/SA3 standard. Covering Norwich, Great Yarmouth & King's Lynn.",
     url: "https://commercialshotblasting.co.uk/counties/norfolk",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
@@ -161,7 +161,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Norfolk to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Norfolk to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -169,7 +169,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Suffolk",
     slug: "suffolk",
     region: "East of England",
-    description: "Professional shot blasting services in Suffolk. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Suffolk. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Suffolk — port & logistics infrastructure, agricultural equipment & marine vessels. SA2.5/SA3 standard. Serving Ipswich, Felixstowe & Lowestoft. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/suffolk",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp",
@@ -198,7 +198,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Suffolk to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Suffolk to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -208,7 +208,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Derbyshire",
     slug: "derbyshire",
     region: "East Midlands",
-    description: "Professional shot blasting services in Derbyshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Derbyshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Derbyshire — aerospace components, manufacturing plant & construction steelwork. SA2.5/SA3 to BS EN ISO 8501-1. Serving Derby, Chesterfield & Ilkeston.",
     url: "https://commercialshotblasting.co.uk/counties/derbyshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp",
@@ -237,7 +237,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Derbyshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Derbyshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -245,7 +245,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Leicestershire",
     slug: "leicestershire",
     region: "East Midlands",
-    description: "Professional shot blasting services in Leicestershire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Leicestershire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Leicestershire — logistics warehouse structures, engineering fabrications & manufacturing plant. SA2.5/SA3 standard. Covering Leicester, Loughborough & Hinckley. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/leicestershire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp",
@@ -274,7 +274,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Leicestershire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Leicestershire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -282,7 +282,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Lincolnshire",
     slug: "lincolnshire",
     region: "East Midlands",
-    description: "Professional shot blasting services in Lincolnshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Lincolnshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Lincolnshire — agricultural machinery, food processing plant & port infrastructure. SA2.5/SA3 standard. Serving Lincoln, Grimsby & Boston.",
     url: "https://commercialshotblasting.co.uk/counties/lincolnshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/okcUjGBJyNattGJb.webp",
@@ -311,7 +311,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Lincolnshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Lincolnshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -319,7 +319,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Northamptonshire",
     slug: "northamptonshire",
     region: "East Midlands",
-    description: "Professional shot blasting services in Northamptonshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Northamptonshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Northamptonshire — steel fabrications, logistics warehouse structures & automotive plant. SA2.5/SA3 standard. Serving Northampton, Corby & Kettering. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/northamptonshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UjSNpyqCeEUxElPP.webp",
@@ -348,7 +348,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Northamptonshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Northamptonshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -356,7 +356,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Nottinghamshire",
     slug: "nottinghamshire",
     region: "East Midlands",
-    description: "Professional shot blasting services in Nottinghamshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Nottinghamshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Nottinghamshire — structural steelwork, manufacturing plant & fire escapes. SA2.5/SA3 standard. Covering Nottingham, Mansfield & Newark-on-Trent.",
     url: "https://commercialshotblasting.co.uk/counties/nottinghamshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
@@ -385,7 +385,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Nottinghamshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Nottinghamshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -395,7 +395,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Herefordshire",
     slug: "herefordshire",
     region: "West Midlands",
-    description: "Professional shot blasting services in Herefordshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Herefordshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Herefordshire — agricultural machinery, food processing plant & heritage structures. SA2.5/SA3 standard. Serving Hereford, Leominster & Ross-on-Wye. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/herefordshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/UhOtVLOfPobtqyhi.webp",
@@ -424,7 +424,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Herefordshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Herefordshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -432,7 +432,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Shropshire",
     slug: "shropshire",
     region: "West Midlands",
-    description: "Professional shot blasting services in Shropshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Shropshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Shropshire — manufacturing plant, engineering fabrications & agricultural equipment. SA2.5/SA3 standard. Covering Shrewsbury, Telford & Oswestry.",
     url: "https://commercialshotblasting.co.uk/counties/shropshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
@@ -461,7 +461,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Shropshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Shropshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -469,7 +469,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Staffordshire",
     slug: "staffordshire",
     region: "West Midlands",
-    description: "Professional shot blasting services in Staffordshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Staffordshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Staffordshire — ceramics plant, automotive components & factory cladding. SA2.5/SA3 standard. Serving Stoke-on-Trent, Stafford & Tamworth. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/staffordshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp",
@@ -498,7 +498,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Staffordshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Staffordshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -506,7 +506,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Warwickshire",
     slug: "warwickshire",
     region: "West Midlands",
-    description: "Professional shot blasting services in Warwickshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Warwickshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Warwickshire — automotive & aerospace fabrications, structural steelwork & manufacturing plant. SA2.5/SA3 standard. Serving Leamington Spa, Rugby & Nuneaton. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/warwickshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp",
@@ -535,7 +535,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Warwickshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Warwickshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -543,7 +543,7 @@ export const countyData: Record<string, CountyData> = {
     name: "West Midlands",
     slug: "west-midlands",
     region: "West Midlands",
-    description: "Professional shot blasting services in West Midlands. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in West Midlands. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in the West Midlands — automotive production tooling, aerospace fabrications & factory cladding. SA2.5/SA3 standard. Serving Birmingham, Wolverhampton & Coventry. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/west-midlands",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp",
@@ -572,7 +572,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in West Midlands to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in West Midlands to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -580,7 +580,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Worcestershire",
     slug: "worcestershire",
     region: "West Midlands",
-    description: "Professional shot blasting services in Worcestershire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Worcestershire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Worcestershire — manufacturing plant, agricultural equipment & food processing structures. SA2.5/SA3 standard. Serving Worcester, Kidderminster & Redditch. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/worcestershire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/okcUjGBJyNattGJb.webp",
@@ -609,7 +609,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Worcestershire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Worcestershire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -648,7 +648,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in South Yorkshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in South Yorkshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -685,7 +685,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in West Yorkshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in West Yorkshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -722,7 +722,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in North Yorkshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in North Yorkshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -761,7 +761,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Cheshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Cheshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -771,7 +771,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Gloucestershire",
     slug: "gloucestershire",
     region: "South West",
-    description: "Professional shot blasting services in Gloucestershire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Gloucestershire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Gloucestershire — aerospace fabrications, agricultural equipment & heritage structures. SA2.5/SA3 standard. Serving Gloucester, Cheltenham & Stroud. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/gloucestershire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
@@ -800,7 +800,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Gloucestershire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Gloucestershire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -837,7 +837,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in North Devon to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in North Devon to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -845,7 +845,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Somerset",
     slug: "somerset",
     region: "South West",
-    description: "Professional shot blasting services in Somerset. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Somerset. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Somerset — agricultural machinery, food processing plant & heritage structures. SA2.5/SA3 standard. Serving Taunton, Yeovil & Bridgwater. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/somerset",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp",
@@ -874,7 +874,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Somerset to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Somerset to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -882,7 +882,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Wiltshire",
     slug: "wiltshire",
     region: "South West",
-    description: "Professional shot blasting services in Wiltshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Wiltshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Wiltshire — defence & aerospace components, manufacturing plant & agricultural equipment. SA2.5/SA3 standard. Serving Swindon, Salisbury & Chippenham. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/wiltshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp",
@@ -911,7 +911,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Wiltshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Wiltshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -921,7 +921,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Buckinghamshire",
     slug: "buckinghamshire",
     region: "Wales Borders",
-    description: "Professional shot blasting services in Buckinghamshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Buckinghamshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Buckinghamshire — logistics warehouse structures, manufacturing plant & technology sector steelwork. SA2.5/SA3 standard. Serving Milton Keynes, Aylesbury & High Wycombe. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/buckinghamshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/okcUjGBJyNattGJb.webp",
@@ -950,7 +950,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Buckinghamshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Buckinghamshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -958,7 +958,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Greater Manchester",
     slug: "greater-manchester",
     region: "North West",
-    description: "Professional shot blasting services in Greater Manchester. Rust removal, surface prep & industrial blasting across Manchester, Bolton, Oldham, Rochdale, Salford and Stockport. Call 07970 566409",
+    description: "Professional shot blasting services in Greater Manchester. Rust removal, surface prep & industrial blasting across Manchester, Bolton, Oldham, Rochdale, Salford and Stockport. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Greater Manchester — engineering plant, chemical processing structures & construction steelwork. SA2.5/SA3 standard. Serving Manchester, Bolton & Stockport. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/greater-manchester",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp",
@@ -986,7 +986,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Greater Manchester to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Greater Manchester to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -994,7 +994,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Essex",
     slug: "essex",
     region: "East of England",
-    description: "Professional shot blasting services in Essex. Rust removal, surface prep & industrial blasting across Colchester, Chelmsford, Basildon and Southend-on-Sea. Call 07970 566409",
+    description: "Professional shot blasting services in Essex. Rust removal, surface prep & industrial blasting across Colchester, Chelmsford, Basildon and Southend-on-Sea. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Essex — logistics & distribution structures, agricultural plant & manufacturing steelwork. SA2.5/SA3 standard. Serving Colchester, Chelmsford & Basildon. Site visit.",
     url: "https://commercialshotblasting.co.uk/counties/essex",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/okcUjGBJyNattGJb.webp",
@@ -1022,7 +1022,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Essex to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Essex to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -1058,7 +1058,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services in Berkshire?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Berkshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Berkshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -1094,7 +1094,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services in Hampshire?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Hampshire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Hampshire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -1130,7 +1130,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services in Lancashire?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Lancashire to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Lancashire to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -1167,7 +1167,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in East Wales to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in East Wales to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -1204,7 +1204,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services in Cumbria?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Cumbria to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Cumbria to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -1240,7 +1240,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services in County Durham?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in County Durham to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in County Durham to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -1276,7 +1276,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services in Tyne & Wear?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Tyne & Wear to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Tyne & Wear to provide an accurate, no-obligation quotation."
       }
     ]
   },
@@ -1312,7 +1312,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I request a site visit for shot blasting services in Northumberland?",
-        answer: "Simply call us on 07970 566409 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Northumberland to provide an accurate, no-obligation quotation."
+        answer: "Simply call us on 07721 375756 or request a site visit through our website. We'll discuss your project requirements and can arrange a site visit in Northumberland to provide an accurate, no-obligation quotation."
       }
     ]
   },

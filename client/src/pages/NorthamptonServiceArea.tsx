@@ -148,9 +148,9 @@ export default function NorthamptonServiceArea() {
               Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <a href="tel:07970566409" className="flex items-center gap-2">
+              <a href="tel:07721375756" className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                Call Now: 07970 566409
+                Call Now: 07721 375756
               </a>
             </Button>
           </div>
@@ -367,8 +367,8 @@ export default function NorthamptonServiceArea() {
                   <Phone className="w-5 h-5" />
                   <div>
                     <p className="text-sm text-white/70">Call us</p>
-                    <a href="tel:07970566409" className="font-semibold hover:text-[#F5F1E8]">
-                      07970 566409
+                    <a href="tel:07721375756" className="font-semibold hover:text-[#F5F1E8]">
+                      07721 375756
                     </a>
                   </div>
                 </div>
@@ -421,7 +421,7 @@ export default function NorthamptonServiceArea() {
             </Button>
             <TrackedPhoneButton
               location="Northampton"
-              phoneNumber="07970566409"
+              phoneNumber="07721375756"
               variant="outline"
               size="lg"
               className="border-[#2C5F7F] text-[#2C5F7F]"
@@ -589,7 +589,7 @@ export default function NorthamptonServiceArea() {
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
               <Phone className="w-4 h-4 mr-2" />
-              Call: 07970 566409
+              Call: 07721 375756
             </Button>
           </div>
         </div>
@@ -628,9 +628,9 @@ export default function NorthamptonServiceArea() {
               <h4 className="font-semibold mb-4">Contact</h4>
               <ul className="space-y-2 text-white/70 text-sm">
                 <li>
-                  <a href="tel:07970566409" className="hover:text-white flex items-center gap-2">
+                  <a href="tel:07721375756" className="hover:text-white flex items-center gap-2">
                     <Phone className="w-4 h-4" />
-                    07970 566409
+                    07721 375756
                   </a>
                 </li>
                 <li>

@@ -12,7 +12,7 @@ import { BackToTop } from "@/components/BackToTop";
 import { Footer } from "@/components/Footer";
 export default function Contact() {
   // Set SEO metadata
-  useSEO({ title: "Contact Us | Commercial Shot Blasting", description: "Get in touch with Commercial Shot Blasting for a site visit. Call 07970 566409 or fill out our contact form for expert surface preparation services.", canonical: "https://commercialshotblasting.co.uk/contact" });
+  useSEO({ title: "Contact Us | Commercial Shot Blasting", description: "Get in touch with Commercial Shot Blasting for a site visit. Call 07721 375756 or fill out our contact form for expert surface preparation services.", canonical: "https://commercialshotblasting.co.uk/contact" });
 
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
@@ -66,7 +66,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Phone</p>
-                    <a href="tel:07970566409" className="font-medium hover:text-[#2C5F7F] transition-colors">07970 566409</a>
+                    <a href="tel:07721375756" className="font-medium hover:text-[#2C5F7F] transition-colors">07721 375756</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -170,7 +170,7 @@ export default function Contact() {
             <div>
               <h4 className="font-semibold mb-4">Get In Touch</h4>
               <ul className="space-y-2 text-white/70 text-sm">
-                <li><a href="tel:07970566409" className="hover:text-white">07970 566409</a></li>
+                <li><a href="tel:07721375756" className="hover:text-white">07721 375756</a></li>
                 <li><a href="mailto:info@commercialshotblasting.co.uk" className="hover:text-white">info@commercialshotblasting.co.uk</a></li>
               </ul>
             </div>

@@ -33,439 +33,439 @@ const locationMeta: Record<string, LocationMeta> = {
   // West Midlands
   "birmingham": {
     title: "Birmingham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Birmingham — structural steelwork, factory cladding & industrial plant. SA2.5/SA3 standard. Serving the West Midlands — shot blasting near me. Free site survey. Call 07970 566409",
+    description: "Mobile shot blasting in Birmingham — structural steelwork, factory cladding & industrial plant. SA2.5/SA3 standard. Serving the West Midlands — shot blasting near me. Free site survey. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/birmingham"
   },
   "wolverhampton": {
     title: "Wolverhampton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Wolverhampton — manufacturing plant, automotive components & structural steel. SA2.5/SA3 standard. West Midlands coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Wolverhampton — manufacturing plant, automotive components & structural steel. SA2.5/SA3 standard. West Midlands coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/wolverhampton"
   },
   "coventry": {
     title: "Coventry Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Coventry — automotive & aerospace surface preparation to SA2.5/SA3 standard. Structural steel, containers & cladding — shot blasting near me. Free site survey. Call 07970 566409",
+    description: "Mobile shot blasting in Coventry — automotive & aerospace surface preparation to SA2.5/SA3 standard. Structural steel, containers & cladding — shot blasting near me. Free site survey. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/coventry"
   },
   // East Midlands
   "leicester": {
     title: "Leicester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Leicester — manufacturing plant, logistics structures & engineering steelwork. SA2.5/SA3 standard. East Midlands coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Leicester — manufacturing plant, logistics structures & engineering steelwork. SA2.5/SA3 standard. East Midlands coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/leicester"
   },
   "derby": {
     title: "Derby Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Derby — rail engineering, aerospace fabrications & manufacturing plant. SA2.5/SA3 standard. Derbyshire coverage — shot blasting near me. Free site survey. Call 07970 566409",
+    description: "Mobile shot blasting in Derby — rail engineering, aerospace fabrications & manufacturing plant. SA2.5/SA3 standard. Derbyshire coverage — shot blasting near me. Free site survey. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/derby"
   },
   "nottingham": {
     title: "Nottingham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Nottingham — pharmaceutical plant, construction steelwork & industrial equipment. SA2.5/SA3 standard. Nottinghamshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Nottingham — pharmaceutical plant, construction steelwork & industrial equipment. SA2.5/SA3 standard. Nottinghamshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/nottingham"
   },
   // Yorkshire
   "sheffield": {
     title: "Sheffield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Sheffield — structural steel fabrications, manufacturing plant & engineering components. SA2.5/SA3 standard. South Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Sheffield — structural steel fabrications, manufacturing plant & engineering components. SA2.5/SA3 standard. South Yorkshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/sheffield"
   },
   "leeds": {
     title: "Leeds Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Leeds — manufacturing plant, logistics warehouse structures & construction steelwork. SA2.5/SA3 standard. West Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Leeds — manufacturing plant, logistics warehouse structures & construction steelwork. SA2.5/SA3 standard. West Yorkshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/leeds"
   },
   // North West
   "manchester": {
     title: "Manchester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Manchester — engineering plant, chemical processing structures & commercial construction. SA2.5/SA3 standard. Greater Manchester coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Manchester — engineering plant, chemical processing structures & commercial construction. SA2.5/SA3 standard. Greater Manchester coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/manchester"
   },
   "liverpool": {
     title: "Liverpool Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Liverpool — marine & port structures, logistics plant & industrial steelwork. SA2.5/SA3 standard. Merseyside coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Liverpool — marine & port structures, logistics plant & industrial steelwork. SA2.5/SA3 standard. Merseyside coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/liverpool"
   },
   "chester": {
     title: "Chester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Chester — heritage structures, manufacturing plant & commercial construction steelwork. SA2.5/SA3 standard. Cheshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Chester — heritage structures, manufacturing plant & commercial construction steelwork. SA2.5/SA3 standard. Cheshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/chester"
   },
   // Staffordshire
   "stoke-on-trent": {
     title: "Stoke-on-Trent Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Stoke-on-Trent — ceramics industry plant, manufacturing structures & construction steelwork. SA2.5/SA3 standard. Staffordshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Stoke-on-Trent — ceramics industry plant, manufacturing structures & construction steelwork. SA2.5/SA3 standard. Staffordshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/stoke-on-trent"
   },
   // Shropshire
   "shrewsbury": {
     title: "Shrewsbury Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Shrewsbury — agricultural machinery, manufacturing plant & heritage structures. SA2.5/SA3 standard. Shropshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Shrewsbury — agricultural machinery, manufacturing plant & heritage structures. SA2.5/SA3 standard. Shropshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/shrewsbury"
   },
   // Worcestershire
   "worcester": {
     title: "Worcester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Worcester — manufacturing plant, agricultural equipment & commercial construction. SA2.5/SA3 standard. Worcestershire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Worcester — manufacturing plant, agricultural equipment & commercial construction. SA2.5/SA3 standard. Worcestershire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/worcester"
   },
   // Herefordshire
   "hereford": {
     title: "Hereford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Hereford — agricultural machinery, food processing plant & construction steelwork. SA2.5/SA3 standard. Herefordshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Hereford — agricultural machinery, food processing plant & construction steelwork. SA2.5/SA3 standard. Herefordshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/hereford"
   },
   // Gloucestershire
   "gloucester": {
     title: "Gloucester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Gloucester — aerospace fabrications, manufacturing plant & heritage structures. SA2.5/SA3 standard. Gloucestershire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Gloucester — aerospace fabrications, manufacturing plant & heritage structures. SA2.5/SA3 standard. Gloucestershire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/gloucester"
   },
   // South West
   "bristol": {
     title: "Bristol Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Bristol — aerospace & defence plant, marine structures & commercial construction. SA2.5/SA3 standard. Bristol & Bath coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Bristol — aerospace & defence plant, marine structures & commercial construction. SA2.5/SA3 standard. Bristol & Bath coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/bristol"
   },
   // Wales
   "cardiff": {
     title: "Cardiff Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Cardiff — steel fabrications, port infrastructure & manufacturing plant. SA2.5/SA3 standard. South Wales coverage — shot blasting near me. Free site survey. Call 07970 566409",
+    description: "Mobile shot blasting in Cardiff — steel fabrications, port infrastructure & manufacturing plant. SA2.5/SA3 standard. South Wales coverage — shot blasting near me. Free site survey. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/cardiff"
   },
   "wrexham": {
     title: "Wrexham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Wrexham — manufacturing plant, automotive components & industrial steelwork. SA2.5/SA3 standard. North Wales coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Wrexham — manufacturing plant, automotive components & industrial steelwork. SA2.5/SA3 standard. North Wales coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/wrexham"
   },
   // Oxfordshire
   "oxford": {
     title: "Oxford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Oxford — heritage restoration, research facility plant & construction steelwork. SA2.5/SA3 standard. Oxfordshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Oxford — heritage restoration, research facility plant & construction steelwork. SA2.5/SA3 standard. Oxfordshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/oxford"
   },
   // Wiltshire
   "swindon": {
     title: "Swindon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Swindon — automotive & logistics plant, manufacturing structures & construction steelwork. SA2.5/SA3 standard. Wiltshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Swindon — automotive & logistics plant, manufacturing structures & construction steelwork. SA2.5/SA3 standard. Wiltshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/swindon"
   },
   // Buckinghamshire
   "milton-keynes": {
     title: "Milton Keynes Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Milton Keynes — logistics warehouse structures, manufacturing plant & technology sector steelwork. SA2.5/SA3 standard — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Milton Keynes — logistics warehouse structures, manufacturing plant & technology sector steelwork. SA2.5/SA3 standard — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/milton-keynes"
   },
   // Northamptonshire
   "northampton": {
     title: "Northampton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Northampton — logistics & distribution structures, manufacturing plant & construction steelwork. SA2.5/SA3 standard — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Northampton — logistics & distribution structures, manufacturing plant & construction steelwork. SA2.5/SA3 standard — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/northampton"
   },
   // Cambridgeshire
   "peterborough": {
     title: "Peterborough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Peterborough — logistics & distribution plant, agricultural equipment & construction steelwork. SA2.5/SA3 standard — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Peterborough — logistics & distribution plant, agricultural equipment & construction steelwork. SA2.5/SA3 standard — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/peterborough"
   },
   "cambridge": {
     title: "Cambridge Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Cambridge — research & technology plant, heritage structures & construction steelwork. SA2.5/SA3 standard. Cambridgeshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Cambridge — research & technology plant, heritage structures & construction steelwork. SA2.5/SA3 standard. Cambridgeshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/cambridge"
   },
   // Norfolk
   "norwich": {
     title: "Norwich Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Norwich — agricultural machinery, food processing plant & construction steelwork. SA2.5/SA3 standard. Norfolk coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Norwich — agricultural machinery, food processing plant & construction steelwork. SA2.5/SA3 standard. Norfolk coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/norwich"
   },
   // Suffolk
   "ipswich": {
     title: "Ipswich Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Ipswich — marine & port structures, agricultural equipment & manufacturing plant. SA2.5/SA3 standard. Suffolk coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Ipswich — marine & port structures, agricultural equipment & manufacturing plant. SA2.5/SA3 standard. Suffolk coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/ipswich"
   },
   // Lincolnshire
   "lincoln": {
     title: "Lincoln Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Lincoln — agricultural machinery, food processing plant & heritage structures. SA2.5/SA3 standard. Lincolnshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Lincoln — agricultural machinery, food processing plant & heritage structures. SA2.5/SA3 standard. Lincolnshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/lincoln"
   },
   "chesterfield": {
     title: "Chesterfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Chesterfield — manufacturing plant, construction steelwork & industrial equipment. SA2.5/SA3 standard. Derbyshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Chesterfield — manufacturing plant, construction steelwork & industrial equipment. SA2.5/SA3 standard. Derbyshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/chesterfield"
   },
   // Warwickshire
   "stratford-upon-avon": {
     title: "Stratford-upon-Avon Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Stratford-upon-Avon — heritage restoration, agricultural equipment & construction steelwork. SA2.5/SA3 standard. Warwickshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Stratford-upon-Avon — heritage restoration, agricultural equipment & construction steelwork. SA2.5/SA3 standard. Warwickshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/stratford-upon-avon"
   },
   // North East England
   "newcastle": {
     title: "Newcastle Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Newcastle upon Tyne — shipbuilding & marine structures, automotive plant & construction steelwork. SA2.5/SA3 standard. Tyne & Wear coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Newcastle upon Tyne — shipbuilding & marine structures, automotive plant & construction steelwork. SA2.5/SA3 standard. Tyne & Wear coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/newcastle"
   },
   "sunderland": {
     title: "Sunderland Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Sunderland — automotive & manufacturing plant, marine structures & construction steelwork. SA2.5/SA3 standard. Tyne & Wear coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Sunderland — automotive & manufacturing plant, marine structures & construction steelwork. SA2.5/SA3 standard. Tyne & Wear coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/sunderland"
   },
   "darlington": {
     title: "Darlington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Darlington — manufacturing plant, engineering components & construction steelwork. SA2.5/SA3 standard. County Durham coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Darlington — manufacturing plant, engineering components & construction steelwork. SA2.5/SA3 standard. County Durham coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/darlington"
   },
   "carlisle": {
     title: "Carlisle Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Carlisle — manufacturing plant, agricultural equipment & construction steelwork. SA2.5/SA3 standard. Cumbria coverage — shot blasting near me. Free site survey. Call 07970 566409",
+    description: "Mobile shot blasting in Carlisle — manufacturing plant, agricultural equipment & construction steelwork. SA2.5/SA3 standard. Cumbria coverage — shot blasting near me. Free site survey. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/carlisle"
   },
   "gateshead": {
     title: "Gateshead Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Gateshead — structural steelwork, manufacturing plant & commercial construction. SA2.5/SA3 standard. Tyne & Wear coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Gateshead — structural steelwork, manufacturing plant & commercial construction. SA2.5/SA3 standard. Tyne & Wear coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/gateshead"
   },
   "middlesbrough": {
     title: "Middlesbrough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Middlesbrough — chemical & petrochemical plant, steel fabrications & port infrastructure. SA2.5/SA3 standard. Teesside coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Middlesbrough — chemical & petrochemical plant, steel fabrications & port infrastructure. SA2.5/SA3 standard. Teesside coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/middlesbrough"
   },
   "hartlepool": {
     title: "Hartlepool Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Hartlepool — marine & port structures, manufacturing plant & construction steelwork. SA2.5/SA3 standard. County Durham coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Hartlepool — marine & port structures, manufacturing plant & construction steelwork. SA2.5/SA3 standard. County Durham coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/hartlepool"
   },
   // North West England
   "preston": {
     title: "Preston Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Preston — manufacturing & textile engineering plant, energy sector structures & construction steelwork. SA2.5/SA3 standard. Lancashire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Preston — manufacturing & textile engineering plant, energy sector structures & construction steelwork. SA2.5/SA3 standard. Lancashire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/preston"
   },
   "blackburn": {
     title: "Blackburn Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Blackburn — manufacturing plant, engineering structures & construction steelwork. SA2.5/SA3 standard. Lancashire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Blackburn — manufacturing plant, engineering structures & construction steelwork. SA2.5/SA3 standard. Lancashire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/blackburn"
   },
   // South England
   "southampton": {
     title: "Southampton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Southampton — marine & shipyard structures, port infrastructure & commercial construction. SA2.5/SA3 standard. Hampshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Southampton — marine & shipyard structures, port infrastructure & commercial construction. SA2.5/SA3 standard. Hampshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/southampton"
   },
   "portsmouth": {
     title: "Portsmouth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Portsmouth — naval & marine structures, aerospace & defence plant, commercial construction. SA2.5/SA3 standard. Hampshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Portsmouth — naval & marine structures, aerospace & defence plant, commercial construction. SA2.5/SA3 standard. Hampshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/portsmouth"
   },
   "reading": {
     title: "Reading Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Reading — commercial construction steelwork, logistics plant & manufacturing structures. SA2.5/SA3 standard. Berkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Reading — commercial construction steelwork, logistics plant & manufacturing structures. SA2.5/SA3 standard. Berkshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/reading"
   },
   // Essex
   "colchester": {
     title: "Colchester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Colchester — logistics & distribution structures, agricultural plant & manufacturing steelwork. SA2.5/SA3 standard. Essex coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Colchester — logistics & distribution structures, agricultural plant & manufacturing steelwork. SA2.5/SA3 standard. Essex coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/colchester"
   },
   // Taunton / Somerset
   "taunton": {
     title: "Taunton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Taunton — agricultural machinery, food processing plant & construction steelwork. SA2.5/SA3 standard. Somerset coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Taunton — agricultural machinery, food processing plant & construction steelwork. SA2.5/SA3 standard. Somerset coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/taunton"
   },
   // Yorkshire — additional towns
   "barnsley": {
     title: "Barnsley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Barnsley — structural steelwork, mining & engineering plant, industrial cladding. SA2.5/SA3 standard. South Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Barnsley — structural steelwork, mining & engineering plant, industrial cladding. SA2.5/SA3 standard. South Yorkshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/barnsley"
   },
   "rotherham": {
     title: "Rotherham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Rotherham — steel & engineering structures, manufacturing plant & industrial containers. SA2.5/SA3 standard. South Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Rotherham — steel & engineering structures, manufacturing plant & industrial containers. SA2.5/SA3 standard. South Yorkshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/rotherham"
   },
   "doncaster": {
     title: "Doncaster Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Doncaster — logistics & distribution structures, rail & transport plant, agricultural machinery. SA2.5/SA3 standard. South Yorkshire — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Doncaster — logistics & distribution structures, rail & transport plant, agricultural machinery. SA2.5/SA3 standard. South Yorkshire — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/doncaster"
   },
   "wakefield": {
     title: "Wakefield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Wakefield — manufacturing & logistics structures, structural steelwork & industrial plant. SA2.5/SA3 standard. West Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Wakefield — manufacturing & logistics structures, structural steelwork & industrial plant. SA2.5/SA3 standard. West Yorkshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/wakefield"
   },
   "bradford": {
     title: "Bradford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Bradford — textile & manufacturing plant, structural steelwork & commercial construction. SA2.5/SA3 standard. West Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Bradford — textile & manufacturing plant, structural steelwork & commercial construction. SA2.5/SA3 standard. West Yorkshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/bradford"
   },
   "huddersfield": {
     title: "Huddersfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Huddersfield — engineering & manufacturing plant, industrial cladding & structural steel. SA2.5/SA3 standard. West Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Huddersfield — engineering & manufacturing plant, industrial cladding & structural steel. SA2.5/SA3 standard. West Yorkshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/huddersfield"
   },
   "york": {
     title: "York Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in York — heritage & restoration steelwork, rail & transport structures, commercial construction. SA2.5/SA3 standard. North Yorkshire — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in York — heritage & restoration steelwork, rail & transport structures, commercial construction. SA2.5/SA3 standard. North Yorkshire — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/york"
   },
   "harrogate": {
     title: "Harrogate Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Harrogate — commercial construction steelwork, agricultural plant & industrial structures. SA2.5/SA3 standard. North Yorkshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Harrogate — commercial construction steelwork, agricultural plant & industrial structures. SA2.5/SA3 standard. North Yorkshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/harrogate"
   },
   // Greater Manchester — additional towns
   "salford": {
     title: "Salford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Salford — media & commercial construction steelwork, logistics plant & industrial structures. SA2.5/SA3 standard. Greater Manchester — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Salford — media & commercial construction steelwork, logistics plant & industrial structures. SA2.5/SA3 standard. Greater Manchester — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/salford"
   },
   "stockport": {
     title: "Stockport Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Stockport — manufacturing & engineering plant, commercial construction steelwork & industrial cladding. SA2.5/SA3 standard. Greater Manchester — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Stockport — manufacturing & engineering plant, commercial construction steelwork & industrial cladding. SA2.5/SA3 standard. Greater Manchester — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/stockport"
   },
   "bolton": {
     title: "Bolton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Bolton — engineering & manufacturing structures, industrial plant & commercial steelwork. SA2.5/SA3 standard. Greater Manchester coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Bolton — engineering & manufacturing structures, industrial plant & commercial steelwork. SA2.5/SA3 standard. Greater Manchester coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/bolton"
   },
   "rochdale": {
     title: "Rochdale Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Rochdale — textile & manufacturing plant, industrial cladding & structural steelwork. SA2.5/SA3 standard. Greater Manchester coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Rochdale — textile & manufacturing plant, industrial cladding & structural steelwork. SA2.5/SA3 standard. Greater Manchester coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/rochdale"
   },
   "oldham": {
     title: "Oldham Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Oldham — engineering & manufacturing plant, commercial construction & industrial structures. SA2.5/SA3 standard. Greater Manchester — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Oldham — engineering & manufacturing plant, commercial construction & industrial structures. SA2.5/SA3 standard. Greater Manchester — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/oldham"
   },
   // West Midlands — additional towns
   "walsall": {
     title: "Walsall Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Walsall — manufacturing & engineering plant, structural steelwork & industrial cladding. SA2.5/SA3 standard. West Midlands coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Walsall — manufacturing & engineering plant, structural steelwork & industrial cladding. SA2.5/SA3 standard. West Midlands coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/walsall"
   },
   "west-bromwich": {
     title: "West Bromwich Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in West Bromwich — automotive & manufacturing plant, structural steelwork & industrial containers. SA2.5/SA3 standard. West Midlands — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in West Bromwich — automotive & manufacturing plant, structural steelwork & industrial containers. SA2.5/SA3 standard. West Midlands — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/west-bromwich"
   },
   "solihull": {
     title: "Solihull Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Solihull — automotive & aerospace plant, commercial construction steelwork & industrial structures. SA2.5/SA3 standard. West Midlands — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Solihull — automotive & aerospace plant, commercial construction steelwork & industrial structures. SA2.5/SA3 standard. West Midlands — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/solihull"
   },
   "sutton-coldfield": {
     title: "Sutton Coldfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Sutton Coldfield — commercial construction steelwork, manufacturing plant & industrial structures. SA2.5/SA3 standard. West Midlands — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Sutton Coldfield — commercial construction steelwork, manufacturing plant & industrial structures. SA2.5/SA3 standard. West Midlands — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/sutton-coldfield"
   },
   "dudley": {
     title: "Dudley Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Dudley — engineering & manufacturing plant, structural steelwork & industrial cladding. SA2.5/SA3 standard. West Midlands coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Dudley — engineering & manufacturing plant, structural steelwork & industrial cladding. SA2.5/SA3 standard. West Midlands coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/dudley"
   },
   // East Midlands — additional towns
   "loughborough": {
     title: "Loughborough Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Loughborough — engineering & manufacturing plant, logistics structures & commercial steelwork. SA2.5/SA3 standard. Leicestershire — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Loughborough — engineering & manufacturing plant, logistics structures & commercial steelwork. SA2.5/SA3 standard. Leicestershire — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/loughborough"
   },
   "mansfield": {
     title: "Mansfield Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Mansfield — manufacturing & engineering plant, structural steelwork & industrial containers. SA2.5/SA3 standard. Nottinghamshire — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Mansfield — manufacturing & engineering plant, structural steelwork & industrial containers. SA2.5/SA3 standard. Nottinghamshire — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/mansfield"
   },
   "tamworth": {
     title: "Tamworth Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Tamworth — logistics & distribution structures, manufacturing plant & commercial steelwork. SA2.5/SA3 standard. Staffordshire — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Tamworth — logistics & distribution structures, manufacturing plant & commercial steelwork. SA2.5/SA3 standard. Staffordshire — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/tamworth"
   },
   "burton-on-trent": {
     title: "Burton-on-Trent Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Burton-on-Trent — brewing & food processing plant, logistics structures & manufacturing steelwork. SA2.5/SA3 standard. Staffordshire — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Burton-on-Trent — brewing & food processing plant, logistics structures & manufacturing steelwork. SA2.5/SA3 standard. Staffordshire — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/burton-on-trent"
   },
   "stafford": {
     title: "Stafford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Stafford — engineering & manufacturing plant, commercial construction steelwork & industrial structures. SA2.5/SA3 standard. Staffordshire — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Stafford — engineering & manufacturing plant, commercial construction steelwork & industrial structures. SA2.5/SA3 standard. Staffordshire — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/stafford"
   },
   "telford": {
     title: "Telford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Telford — manufacturing & engineering plant, structural steelwork & industrial cladding. SA2.5/SA3 standard. Shropshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Telford — manufacturing & engineering plant, structural steelwork & industrial cladding. SA2.5/SA3 standard. Shropshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/telford"
   },
   // East of England — additional towns
   "luton": {
     title: "Luton Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Luton — aerospace & aviation plant, logistics structures & commercial construction steelwork. SA2.5/SA3 standard. Bedfordshire — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Luton — aerospace & aviation plant, logistics structures & commercial construction steelwork. SA2.5/SA3 standard. Bedfordshire — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/luton"
   },
   "stevenage": {
     title: "Stevenage Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Stevenage — aerospace & defence plant, manufacturing structures & commercial steelwork. SA2.5/SA3 standard. Hertfordshire — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Stevenage — aerospace & defence plant, manufacturing structures & commercial steelwork. SA2.5/SA3 standard. Hertfordshire — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/stevenage"
   },
   "watford": {
     title: "Watford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Watford — commercial construction steelwork, logistics plant & manufacturing structures. SA2.5/SA3 standard. Hertfordshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Watford — commercial construction steelwork, logistics plant & manufacturing structures. SA2.5/SA3 standard. Hertfordshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/watford"
   },
   "southend-on-sea": {
     title: "Southend-on-Sea Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Southend-on-Sea — marine & coastal structures, commercial construction & logistics plant. SA2.5/SA3 standard. Essex coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Southend-on-Sea — marine & coastal structures, commercial construction & logistics plant. SA2.5/SA3 standard. Essex coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/southend-on-sea"
   },
   // South West — additional towns
   "bath": {
     title: "Bath Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Bath — heritage & restoration steelwork, commercial construction & industrial structures. SA2.5/SA3 standard. Somerset/Wiltshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Bath — heritage & restoration steelwork, commercial construction & industrial structures. SA2.5/SA3 standard. Somerset/Wiltshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/bath"
   },
   "exeter": {
     title: "Exeter Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Exeter — commercial construction steelwork, agricultural plant & industrial structures. SA2.5/SA3 standard. Devon coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Exeter — commercial construction steelwork, agricultural plant & industrial structures. SA2.5/SA3 standard. Devon coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/exeter"
   },
   "yeovil": {
     title: "Yeovil Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Yeovil — aerospace & defence plant, agricultural machinery & commercial construction steelwork. SA2.5/SA3 standard. Somerset — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Yeovil — aerospace & defence plant, agricultural machinery & commercial construction steelwork. SA2.5/SA3 standard. Somerset — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/yeovil"
   },
   // Wales — additional towns
   "swansea": {
     title: "Swansea Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Swansea — marine & port structures, steel & manufacturing plant, commercial construction. SA2.5/SA3 standard. South Wales coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Swansea — marine & port structures, steel & manufacturing plant, commercial construction. SA2.5/SA3 standard. South Wales coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/swansea"
   },
   "newport": {
     title: "Newport Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Newport — steel & manufacturing plant, port infrastructure & commercial construction steelwork. SA2.5/SA3 standard. South Wales coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Newport — steel & manufacturing plant, port infrastructure & commercial construction steelwork. SA2.5/SA3 standard. South Wales coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/newport"
   },
   "merthyr-tydfil": {
     title: "Merthyr Tydfil Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Merthyr Tydfil — engineering & manufacturing plant, structural steelwork & industrial structures. SA2.5/SA3 standard. South Wales coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Merthyr Tydfil — engineering & manufacturing plant, structural steelwork & industrial structures. SA2.5/SA3 standard. South Wales coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/merthyr-tydfil"
   },
   // North West — additional towns
   "warrington": {
     title: "Warrington Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Warrington — chemical & process plant, logistics structures & manufacturing steelwork. SA2.5/SA3 standard. Cheshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Warrington — chemical & process plant, logistics structures & manufacturing steelwork. SA2.5/SA3 standard. Cheshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/warrington"
   },
   "runcorn": {
     title: "Runcorn Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Runcorn — chemical & process plant, industrial structures & commercial construction steelwork. SA2.5/SA3 standard. Cheshire coverage — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Runcorn — chemical & process plant, industrial structures & commercial construction steelwork. SA2.5/SA3 standard. Cheshire coverage — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/runcorn"
   },
   "widnes": {
     title: "Widnes Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Widnes — chemical & industrial plant, logistics structures & commercial steelwork. SA2.5/SA3 standard. Cheshire/Merseyside — shot blasting near me. Free quote. Call 07970 566409",
+    description: "Mobile shot blasting in Widnes — chemical & industrial plant, logistics structures & commercial steelwork. SA2.5/SA3 standard. Cheshire/Merseyside — shot blasting near me. Free quote. Call 07721 375756",
     url: "https://commercialshotblasting.co.uk/service-areas/widnes"
   },
   "abbots-bromley": {
@@ -3318,7 +3318,7 @@ const locationMeta: Record<string, LocationMeta> = {
 // Constants
 const SITE_URL = "https://commercialshotblasting.co.uk";
 const BUSINESS_NAME = "Commercial Shot Blasting";
-const PHONE = "07970 566409";
+const PHONE = "07721 375756";
 const EMAIL = "info@commercialshotblasting.co.uk";
 const LOGO = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ATzSAikYtVvYiYkQ.svg";
 const HERO_IMAGE = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png";
@@ -6162,7 +6162,7 @@ function generateHomepageSchemas(): string {
         {
           "@type": "Question",
           "name": "How much does shot blasting cost?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The cost of shot blasting depends on the surface area, material type, blast standard required (SA2.5 or SA3), and site location. We provide free, no-obligation quotes for all projects. Call 07970 566409 or use our online quote form to get a price tailored to your job." }
+          "acceptedAnswer": { "@type": "Answer", "text": "The cost of shot blasting depends on the surface area, material type, blast standard required (SA2.5 or SA3), and site location. We provide free, no-obligation quotes for all projects. Call 07721 375756 or use our online quote form to get a price tailored to your job." }
         },
         {
           "@type": "Question",
@@ -6192,7 +6192,7 @@ function generateHomepageSchemas(): string {
         {
           "@type": "Question",
           "name": "Which areas of the UK do you cover?",
-          "acceptedAnswer": { "@type": "Answer", "text": "We cover the whole of England and Wales, including the Midlands, Yorkshire, the North West, the North East, the South East, the South West, East Anglia, and Wales. We regularly work in Birmingham, Sheffield, Manchester, Leeds, Liverpool, Coventry, Nottingham, Bristol, Cardiff, and hundreds of other locations. Call 07970 566409 to check availability in your area." }
+          "acceptedAnswer": { "@type": "Answer", "text": "We cover the whole of England and Wales, including the Midlands, Yorkshire, the North West, the North East, the South East, the South West, East Anglia, and Wales. We regularly work in Birmingham, Sheffield, Manchester, Leeds, Liverpool, Coventry, Nottingham, Bristol, Cardiff, and hundreds of other locations. Call 07721 375756 to check availability in your area." }
         }
       ]
     }
@@ -6260,18 +6260,18 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
 
   // Use keyword-rich generated FAQs instead of the per-location generic ones
   const generatedFaqs = [
-    { question: `What shot blasting services do you offer in ${name}?`, answer: `We offer a comprehensive range of shot blasting services in ${name}, including structural steelwork blasting, factory and warehouse cladding restoration, container shot blasting, industrial floor preparation, rust and mill scale removal, plant and machinery blasting, fire escape and staircase restoration, and warehouse racking preparation. All services are delivered by our mobile units directly to your site in ${county}. Call 07970 566409 for a free quote.` },
-    { question: `Do you provide mobile shot blasting services in ${name}?`, answer: `Yes — all our shot blasting services in ${name} are fully mobile. Our equipped units travel directly to your site, eliminating the need to transport your materials or equipment. We cover ${name} and the surrounding ${county} area, serving commercial, industrial, and agricultural clients. Call 07970 566409 to book.` },
-    { question: `How much do shot blasting services cost in ${name}?`, answer: `The cost of shot blasting services in ${name} depends on the size of the project, the surface type, and site accessibility. We provide free, no-obligation quotes for all projects in ${county}. Contact us on 07970 566409 or request a quote online to get an accurate price for your specific requirements.` },
+    { question: `What shot blasting services do you offer in ${name}?`, answer: `We offer a comprehensive range of shot blasting services in ${name}, including structural steelwork blasting, factory and warehouse cladding restoration, container shot blasting, industrial floor preparation, rust and mill scale removal, plant and machinery blasting, fire escape and staircase restoration, and warehouse racking preparation. All services are delivered by our mobile units directly to your site in ${county}. Call 07721 375756 for a free quote.` },
+    { question: `Do you provide mobile shot blasting services in ${name}?`, answer: `Yes — all our shot blasting services in ${name} are fully mobile. Our equipped units travel directly to your site, eliminating the need to transport your materials or equipment. We cover ${name} and the surrounding ${county} area, serving commercial, industrial, and agricultural clients. Call 07721 375756 to book.` },
+    { question: `How much do shot blasting services cost in ${name}?`, answer: `The cost of shot blasting services in ${name} depends on the size of the project, the surface type, and site accessibility. We provide free, no-obligation quotes for all projects in ${county}. Contact us on 07721 375756 or request a quote online to get an accurate price for your specific requirements.` },
     { question: `What surfaces can be shot blasted in ${name}?`, answer: `Our shot blasting services in ${name} cover all types of metal surfaces — structural steel frames, factory cladding, warehouse racking, fire escapes, staircases, bridge steelwork, steel containers, pipework, plant and machinery, and more. We also carry out concrete floor preparation. Our mobile service can handle projects of any size across ${county}.` },
     { question: `What standard do you blast to for shot blasting services in ${name}?`, answer: `We blast to SA2.5 (near white metal) and SA3 (white metal) standards as required by your coating specification. SA2.5 is the most commonly specified standard for protective coating systems and is the default for most commercial and industrial projects in ${county}. We can advise on the correct standard for your project.` },
     { question: `How long does a shot blasting project take in ${name}?`, answer: `Project duration for shot blasting services in ${name} depends on the size and complexity of the work. Small items like gates or railings can be completed in a few hours, while larger industrial projects such as factory cladding or structural steelwork may take several days. We provide estimated timelines with every quote and work efficiently to minimise disruption to your operations in ${county}.` },
     { question: `Is shot blasting better than other surface preparation methods in ${name}?`, answer: `Shot blasting is the most effective surface preparation method for metal surfaces in ${name}. It removes rust, mill scale, and old coatings more thoroughly than manual or chemical methods, creates the correct surface profile for new protective coatings, and is faster and more cost-effective for large-scale projects in ${county}. We can advise on the best method for your specific needs.` },
     { question: `Do I need to prepare the site before your shot blasting services arrive in ${name}?`, answer: `Minimal site preparation is required before our shot blasting services arrive in ${name}. We recommend clearing the immediate work area of loose items and ensuring vehicle access for our mobile unit. Our team will protect surrounding areas with sheeting and handle all cleanup after completion. We will provide specific preparation instructions when booking your project in ${county}.` },
-    { question: `Do you offer same-week shot blasting in ${name}?`, answer: `Yes — we operate 12 mobile shot blasting units across the UK, which means we can often offer same-week availability for projects in ${name}, ${county}. For urgent requirements, call 07970 566409 directly and we will do our best to accommodate your schedule.` },
+    { question: `Do you offer same-week shot blasting in ${name}?`, answer: `Yes — we operate 12 mobile shot blasting units across the UK, which means we can often offer same-week availability for projects in ${name}, ${county}. For urgent requirements, call 07721 375756 directly and we will do our best to accommodate your schedule.` },
     { question: `Can you blast structural steel for construction projects in ${name}?`, answer: `Yes — structural steel shot blasting is one of our core services in ${name}. We blast beams, columns, trusses, and fabricated steelwork to SA2.5 or SA3 standard, ready for primer and protective coating. Our mobile units can work on-site at fabrication yards and construction sites across ${county}.` },
-    { question: `Do you provide intumescent painting after shot blasting in ${name}?`, answer: `Yes — we now offer intumescent painting in ${name} as a combined blast-and-coat solution. Intumescent paint provides fire protection for structural steel to R30, R60, R90, or R120 ratings. Contact us on 07970 566409 for a combined quote.` },
-    { question: `What areas near ${name} do you cover for shot blasting?`, answer: `Our shot blasting services cover ${name} and all surrounding towns and villages throughout ${county}. We operate a fleet of 12 mobile units and regularly serve clients within a 50-mile radius of ${name}. Call 07970 566409 to confirm availability for your specific location.` }
+    { question: `Do you provide intumescent painting after shot blasting in ${name}?`, answer: `Yes — we now offer intumescent painting in ${name} as a combined blast-and-coat solution. Intumescent paint provides fire protection for structural steel to R30, R60, R90, or R120 ratings. Contact us on 07721 375756 for a combined quote.` },
+    { question: `What areas near ${name} do you cover for shot blasting?`, answer: `Our shot blasting services cover ${name} and all surrounding towns and villages throughout ${county}. We operate a fleet of 12 mobile units and regularly serve clients within a 50-mile radius of ${name}. Call 07721 375756 to confirm availability for your specific location.` }
   ];
   // Prepend any location-specific unique FAQs (up to 3) before the templated FAQs
   const uniqueFaqs: Array<{question: string; answer: string}> = (loc as any).uniqueFaqs || [];
@@ -6453,7 +6453,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <link rel="canonical" href="${SITE_URL}/" />
     <link rel="alternate" hreflang="en-gb" href="${SITE_URL}/" />
     <link rel="alternate" hreflang="en" href="${SITE_URL}/" />
-    <meta name="description" content="UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Free quote. Call 07970 566409." />
+    <meta name="description" content="UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Free quote. Call 07721 375756." />
     <meta property="og:title" content="Shot Blasting Services UK | Commercial & Industrial | ${BUSINESS_NAME}" />
     <meta property="og:description" content="UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Free quote." />
     <meta property="og:url" content="${SITE_URL}/" />
@@ -6471,7 +6471,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     ${generateHomepageSchemas()}
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, homeMetaTags);
-    modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', `<div id="ssr-content" aria-hidden="false" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;"><nav aria-label="Site Navigation"><a href="https://commercialshotblasting.co.uk/">Home</a> | <a href="https://commercialshotblasting.co.uk/services">Services</a> | <a href="https://commercialshotblasting.co.uk/service-areas">Service Areas</a> | <a href="https://commercialshotblasting.co.uk/about">About</a> | <a href="https://commercialshotblasting.co.uk/contact">Contact</a> | <a href="https://commercialshotblasting.co.uk/blog">Blog</a> | <a href="https://commercialshotblasting.co.uk/industries">Industries</a> | <a href="https://commercialshotblasting.co.uk/glossary">Glossary</a> | <a href="https://commercialshotblasting.co.uk/site-survey">Free Site Survey</a></nav><main><h1>Commercial Shot Blasting Services UK</h1><p>UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep and more. Free quote. Call 07970 566409.</p><ul><li><a href="https://commercialshotblasting.co.uk/services/structural-steel-frames">Structural Steel Frames Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/steel-containers">Steel Container Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/factory-cladding">Factory &amp; Warehouse Cladding Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/fire-escapes">Fire Escape Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/staircases">Staircase Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/bridge-steelwork">Bridge Steelwork Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/ladders">Ladder Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/warehouse-racking">Warehouse Racking Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/pipework">Pipework Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/floor-preparation">Floor Preparation Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/rust-removal">Rust Removal Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/mill-scale-removal">Mill Scale Removal</a></li><li><a href="https://commercialshotblasting.co.uk/services/paint-stripping">Paint Stripping Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/coating-removal">Coating Removal Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/marine-shot-blasting">Marine Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/intumescent-painting">Intumescent Painting</a></li><li><a href="https://commercialshotblasting.co.uk/services/commercial-vehicles">Commercial Vehicle Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/agricultural-shot-blasting">Agricultural Shot Blasting</a></li></ul><ul><li><a href="https://commercialshotblasting.co.uk/service-areas/birmingham">Shot Blasting Birmingham</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/manchester">Shot Blasting Manchester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/sheffield">Shot Blasting Sheffield</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/leeds">Shot Blasting Leeds</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/nottingham">Shot Blasting Nottingham</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/leicester">Shot Blasting Leicester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/derby">Shot Blasting Derby</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/coventry">Shot Blasting Coventry</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/bristol">Shot Blasting Bristol</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/cardiff">Shot Blasting Cardiff</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/liverpool">Shot Blasting Liverpool</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/wolverhampton">Shot Blasting Wolverhampton</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/stoke-on-trent">Shot Blasting Stoke-on-Trent</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/oxford">Shot Blasting Oxford</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/cambridge">Shot Blasting Cambridge</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/northampton">Shot Blasting Northampton</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/peterborough">Shot Blasting Peterborough</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/worcester">Shot Blasting Worcester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/gloucester">Shot Blasting Gloucester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/shrewsbury">Shot Blasting Shrewsbury</a></li></ul></main></div>`);
+    modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', `<div id="ssr-content" aria-hidden="false" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;"><nav aria-label="Site Navigation"><a href="https://commercialshotblasting.co.uk/">Home</a> | <a href="https://commercialshotblasting.co.uk/services">Services</a> | <a href="https://commercialshotblasting.co.uk/service-areas">Service Areas</a> | <a href="https://commercialshotblasting.co.uk/about">About</a> | <a href="https://commercialshotblasting.co.uk/contact">Contact</a> | <a href="https://commercialshotblasting.co.uk/blog">Blog</a> | <a href="https://commercialshotblasting.co.uk/industries">Industries</a> | <a href="https://commercialshotblasting.co.uk/glossary">Glossary</a> | <a href="https://commercialshotblasting.co.uk/site-survey">Free Site Survey</a></nav><main><h1>Commercial Shot Blasting Services UK</h1><p>UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep and more. Free quote. Call 07721 375756.</p><ul><li><a href="https://commercialshotblasting.co.uk/services/structural-steel-frames">Structural Steel Frames Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/steel-containers">Steel Container Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/factory-cladding">Factory &amp; Warehouse Cladding Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/fire-escapes">Fire Escape Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/staircases">Staircase Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/bridge-steelwork">Bridge Steelwork Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/ladders">Ladder Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/warehouse-racking">Warehouse Racking Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/pipework">Pipework Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/floor-preparation">Floor Preparation Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/rust-removal">Rust Removal Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/mill-scale-removal">Mill Scale Removal</a></li><li><a href="https://commercialshotblasting.co.uk/services/paint-stripping">Paint Stripping Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/coating-removal">Coating Removal Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/marine-shot-blasting">Marine Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/intumescent-painting">Intumescent Painting</a></li><li><a href="https://commercialshotblasting.co.uk/services/commercial-vehicles">Commercial Vehicle Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/agricultural-shot-blasting">Agricultural Shot Blasting</a></li></ul><ul><li><a href="https://commercialshotblasting.co.uk/service-areas/birmingham">Shot Blasting Birmingham</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/manchester">Shot Blasting Manchester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/sheffield">Shot Blasting Sheffield</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/leeds">Shot Blasting Leeds</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/nottingham">Shot Blasting Nottingham</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/leicester">Shot Blasting Leicester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/derby">Shot Blasting Derby</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/coventry">Shot Blasting Coventry</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/bristol">Shot Blasting Bristol</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/cardiff">Shot Blasting Cardiff</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/liverpool">Shot Blasting Liverpool</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/wolverhampton">Shot Blasting Wolverhampton</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/stoke-on-trent">Shot Blasting Stoke-on-Trent</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/oxford">Shot Blasting Oxford</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/cambridge">Shot Blasting Cambridge</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/northampton">Shot Blasting Northampton</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/peterborough">Shot Blasting Peterborough</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/worcester">Shot Blasting Worcester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/gloucester">Shot Blasting Gloucester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/shrewsbury">Shot Blasting Shrewsbury</a></li></ul></main></div>`);
     return modifiedHtml;
   }
 
@@ -6510,13 +6510,13 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       {"@type":"Question","name":"What shot blasting services do you offer?","acceptedAnswer":{"@type":"Answer","text":"We offer 18 specialist shot blasting services including structural steel frames, factory and warehouse cladding, steel containers, floor preparation, fire escapes, staircases, bridge steelwork, warehouse racking, process pipework, telecom masts, commercial radiators, commercial vehicles, steel doors, steel sheeting, steel gates, plant and machinery, and combined shot blasting and powder coating."}},
       {"@type":"Question","name":"Do you offer shot blasting services across the whole of the UK?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our mobile shot blasting services cover England and Wales. We travel directly to your site, so there is no need to transport your materials. We regularly work across the Midlands, North West, Yorkshire, South East, South West, and Wales."}},
       {"@type":"Question","name":"What blast standard do your shot blasting services achieve?","acceptedAnswer":{"@type":"Answer","text":"All our shot blasting services are carried out to SA2.5 near white metal or SA3 white metal as specified. These are internationally recognised standards (ISO 8501-1) that define the cleanliness of the blasted surface and are required by most protective coating manufacturers."}},
-      {"@type":"Question","name":"How much do shot blasting services cost?","acceptedAnswer":{"@type":"Answer","text":"The cost of shot blasting services depends on the surface area, material type, blast standard required, and site location. We provide free, no-obligation quotes for all projects. Call 07970 566409 or use our online quote form to get a price."}},
-      {"@type":"Question","name":"How quickly can you carry out shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"We aim to respond to all enquiries within 24 hours and can typically schedule a site visit within a few days. For urgent projects, call us directly on 07970 566409 to discuss availability."}}
+      {"@type":"Question","name":"How much do shot blasting services cost?","acceptedAnswer":{"@type":"Answer","text":"The cost of shot blasting services depends on the surface area, material type, blast standard required, and site location. We provide free, no-obligation quotes for all projects. Call 07721 375756 or use our online quote form to get a price."}},
+      {"@type":"Question","name":"How quickly can you carry out shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"We aim to respond to all enquiries within 24 hours and can typically schedule a site visit within a few days. For urgent projects, call us directly on 07721 375756 to discuss availability."}}
     ]}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"HowTo","name":"How to Get a Shot Blasting Services Quote","description":"Getting a quote for shot blasting services from Commercial Shot Blasting is straightforward. Follow these four steps to book your mobile shot blasting service anywhere in the UK.","totalTime":"P1D","supply":[{"@type":"HowToSupply","name":"Site access for survey"},{"@type":"HowToSupply","name":"Details of surfaces to be blasted"}],"step":[
-      {"@type":"HowToStep","position":1,"name":"Call or Submit an Online Quote Request","text":"Contact us by calling 07970 566409 or by completing the online quote form on our website. Describe the surfaces you need blasting, the location, and your preferred timescale. We respond to all enquiries within 24 hours.","url":"${SITE_URL}/contact"},
+      {"@type":"HowToStep","position":1,"name":"Call or Submit an Online Quote Request","text":"Contact us by calling 07721 375756 or by completing the online quote form on our website. Describe the surfaces you need blasting, the location, and your preferred timescale. We respond to all enquiries within 24 hours.","url":"${SITE_URL}/contact"},
       {"@type":"HowToStep","position":2,"name":"Receive a Free Site Survey","text":"We arrange a free, no-obligation site visit to assess the surfaces, confirm the blast standard required (SA2.5 or SA3), and provide an accurate written quote. There is no charge for the site survey.","url":"${SITE_URL}/free-site-survey"},
       {"@type":"HowToStep","position":3,"name":"Mobile Unit Arrives On-Site","text":"Our fully equipped mobile shot blasting unit travels directly to your site on the agreed date. We bring all equipment, abrasive media, and containment — no need to transport your materials or hire additional equipment.","url":"${SITE_URL}/services"},
       {"@type":"HowToStep","position":4,"name":"SA2.5/SA3 Finish Delivered and Site Cleared","text":"We complete the shot blasting to your specified standard — typically SA2.5 near white metal — and carry out a full site cleanup before leaving. Your surfaces are ready for protective coating immediately after our visit.","url":"${SITE_URL}/services"}
@@ -6544,7 +6544,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <link rel="alternate" hreflang="en" href="${serviceAreasUrl}" />
     <meta name="description" content="Looking for a shot blasting contractor near you? Commercial Shot Blasting operates 12 mobile units across England and Wales — covering the Midlands, North West, Yorkshire, South West, Wales, and more. Same-week availability. Free quote." />
     <meta property="og:title" content="Shot Blasting Services Near Me | Mobile Contractor All Areas | ${BUSINESS_NAME}" />
-    <meta property="og:description" content="Looking for a shot blasting contractor near you? 12 mobile units covering England and Wales — Midlands, North West, Yorkshire, South West, Wales, and more. Free quote: 07970 566409." />
+    <meta property="og:description" content="Looking for a shot blasting contractor near you? 12 mobile units covering England and Wales — Midlands, North West, Yorkshire, South West, Wales, and more. Free quote: 07721 375756." />
     <meta property="og:url" content="${serviceAreasUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${LOGO}" />
@@ -6554,7 +6554,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Shot Blasting Services Near Me | Mobile Contractor All Areas | ${BUSINESS_NAME}" />
-    <meta name="twitter:description" content="Looking for a shot blasting contractor near you? 12 mobile units covering England and Wales. Same-week availability. Free quote: 07970 566409." />
+    <meta name="twitter:description" content="Looking for a shot blasting contractor near you? 12 mobile units covering England and Wales. Same-week availability. Free quote: 07721 375756." />
     <meta name="twitter:image" content="${LOGO}" />
     <meta name="twitter:image:alt" content="Commercial Shot Blasting service areas across the UK Midlands, North West, Yorkshire and more" />
     ${generateServiceAreasIndexSchemas()}
@@ -6562,9 +6562,9 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
       {"@type":"Question","name":"Do you offer mobile shot blasting services near me?","acceptedAnswer":{"@type":"Answer","text":"Yes — our shot blasting services are fully mobile. We travel directly to your site anywhere in England and Wales. We cover the Midlands, North West, Yorkshire, South East, South West, East Anglia, Wales, and the North East. There is no need to transport your materials — we bring all equipment to you."}},
       {"@type":"Question","name":"Which areas do you cover for shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"We provide shot blasting services across the whole of England and Wales, including Birmingham, Manchester, Leeds, Sheffield, Bristol, Cardiff, Liverpool, Nottingham, Leicester, Derby, Coventry, and hundreds of towns and cities. Browse our service areas page to find your nearest location."}},
-      {"@type":"Question","name":"How far do you travel for shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"We travel throughout England and Wales for shot blasting services. Our mobile units are based in the Midlands and regularly cover a radius of 150+ miles, reaching locations from Cornwall to Northumberland and from East Anglia to West Wales. Call 07970 566409 to confirm coverage for your specific location."}},
+      {"@type":"Question","name":"How far do you travel for shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"We travel throughout England and Wales for shot blasting services. Our mobile units are based in the Midlands and regularly cover a radius of 150+ miles, reaching locations from Cornwall to Northumberland and from East Anglia to West Wales. Call 07721 375756 to confirm coverage for your specific location."}},
       {"@type":"Question","name":"Can you carry out shot blasting services on-site at my premises?","acceptedAnswer":{"@type":"Answer","text":"Yes — all our shot blasting services are carried out on-site at your premises. Our mobile units are fully self-contained with all equipment, abrasive media, and containment. We do not require you to transport materials to a workshop."}},
-      {"@type":"Question","name":"How do I find out if you cover my area for shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"Browse our service areas page to find your town or county, or call us directly on 07970 566409. We cover 600+ towns and cities across England and Wales and can usually confirm coverage within minutes."}}
+      {"@type":"Question","name":"How do I find out if you cover my area for shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"Browse our service areas page to find your town or county, or call us directly on 07721 375756. We cover 600+ towns and cities across England and Wales and can usually confirm coverage within minutes."}}
     ]}
     </script>
   `;
@@ -6921,7 +6921,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     ${JSON.stringify({"@context":"https://schema.org","@type":"AboutPage","name":aboutTitle,"description":aboutDesc,"url":aboutUrl,"inLanguage":"en-GB","isPartOf":{"@type":"WebSite","name":BUSINESS_NAME,"url":SITE_URL},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"About","item":aboutUrl}]}})}
     </script>
     <script type="application/ld+json">
-    ${JSON.stringify({"@context":"https://schema.org","@type":"Organization","@id":`${SITE_URL}/#organization`,"name":BUSINESS_NAME,"url":SITE_URL,"logo":{"@type":"ImageObject","url":LOGO},"telephone":"07970566409","email":"info@commercialshotblasting.co.uk","address":{"@type":"PostalAddress","addressCountry":"GB","addressRegion":"England"},"areaServed":[{"@type":"Country","name":"England"},{"@type":"Country","name":"Wales"}],"sameAs":["https://www.facebook.com/commercialshotblasting","https://www.linkedin.com/company/commercial-shot-blasting","https://www.premierblasting.co.uk"],"parentOrganization":{"@type":"Organization","name":"Premier Blasting Ltd","url":"https://www.premierblasting.co.uk"},"numberOfEmployees":{"@type":"QuantitativeValue","minValue":12,"maxValue":50},"foundingDate":"2004","description":"Commercial Shot Blasting is the commercial and industrial division of Premier Blasting Ltd, providing mobile shot blasting services across England and Wales. Operating 12 mobile units with 20+ years of industry experience.","knowsAbout":["Shot Blasting","Surface Preparation","Sa 2.5 Standard","Sa 3 Standard","Intumescent Painting","Structural Steel Preparation","BS EN ISO 8501-1","Industrial Coating","Rust Removal","Grit Blasting"]})}
+    ${JSON.stringify({"@context":"https://schema.org","@type":"Organization","@id":`${SITE_URL}/#organization`,"name":BUSINESS_NAME,"url":SITE_URL,"logo":{"@type":"ImageObject","url":LOGO},"telephone":"07721375756","email":"info@commercialshotblasting.co.uk","address":{"@type":"PostalAddress","addressCountry":"GB","addressRegion":"England"},"areaServed":[{"@type":"Country","name":"England"},{"@type":"Country","name":"Wales"}],"sameAs":["https://www.facebook.com/commercialshotblasting","https://www.linkedin.com/company/commercial-shot-blasting","https://www.premierblasting.co.uk"],"parentOrganization":{"@type":"Organization","name":"Premier Blasting Ltd","url":"https://www.premierblasting.co.uk"},"numberOfEmployees":{"@type":"QuantitativeValue","minValue":12,"maxValue":50},"foundingDate":"2004","description":"Commercial Shot Blasting is the commercial and industrial division of Premier Blasting Ltd, providing mobile shot blasting services across England and Wales. Operating 12 mobile units with 20+ years of industry experience.","knowsAbout":["Shot Blasting","Surface Preparation","Sa 2.5 Standard","Sa 3 Standard","Intumescent Painting","Structural Steel Preparation","BS EN ISO 8501-1","Industrial Coating","Rust Removal","Grit Blasting"]})}
     </script>
     <script type="application/ld+json">
     ${JSON.stringify({"@context":"https://schema.org","@type":"Person","@id":`${SITE_URL}/#founder`,"name":"Commercial Shot Blasting Team","jobTitle":"Managing Director","worksFor":{"@type":"Organization","@id":`${SITE_URL}/#organization`,"name":BUSINESS_NAME,"url":SITE_URL},"url":aboutUrl,"sameAs":["https://www.linkedin.com/company/commercial-shot-blasting"],"knowsAbout":["Shot Blasting","Surface Preparation","Sa 2.5","Intumescent Painting","Structural Steel","Industrial Coatings","BS EN ISO 8501-1"],"hasOccupation":{"@type":"Occupation","name":"Shot Blasting Contractor","occupationLocation":{"@type":"Country","name":"United Kingdom"},"description":"Professional mobile shot blasting contractor specialising in commercial and industrial surface preparation to Sa 2.5 and Sa 3 standards."}})}
@@ -6955,7 +6955,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       "@type": "LocalBusiness",
       "name": BUSINESS_NAME,
       "url": SITE_URL,
-      "telephone": "07970566409",
+      "telephone": "07721375756",
       "address": {"@type": "PostalAddress", "addressCountry": "GB"},
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -6987,7 +6987,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
   // ── Site Survey page: /site-survey ─────────────────────────────────────────
   if (url === '/site-survey' || url === '/site-survey/') {
     const surveyTitle = 'Free Site Survey for Shot Blasting | No-Obligation Quote | Commercial Shot Blasting';
-    const surveyDesc = 'Request a free, no-obligation site survey for your shot blasting project. We visit your site, assess the surfaces, confirm the blast standard required, and provide a detailed written quote — at no charge. Call 07970 566409.';
+    const surveyDesc = 'Request a free, no-obligation site survey for your shot blasting project. We visit your site, assess the surfaces, confirm the blast standard required, and provide a detailed written quote — at no charge. Call 07721 375756.';
     const surveyUrl = `${SITE_URL}/site-survey`;
     let modifiedHtml = html;
     modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${surveyTitle}</title>`);
@@ -7008,7 +7008,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       "name": "Free Site Survey for Shot Blasting",
       "description": "A free, no-obligation site visit to assess your surfaces, confirm the blast standard required (SA2.5 or SA3), and provide a detailed written quotation.",
       "url": surveyUrl,
-      "provider": {"@type": "LocalBusiness", "name": BUSINESS_NAME, "url": SITE_URL, "telephone": "07970566409"},
+      "provider": {"@type": "LocalBusiness", "name": BUSINESS_NAME, "url": SITE_URL, "telephone": "07721375756"},
       "areaServed": {"@type": "Country", "name": "United Kingdom"},
       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP", "description": "Free, no-obligation site survey and written quotation"}
     });
@@ -7017,13 +7017,13 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       "@type": "FAQPage",
       "mainEntity": [
         {"@type":"Question","name":"Is the site survey really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our site surveys are completely free and carry no obligation. We visit your site, assess the surfaces, and provide a detailed written quote — at no charge, regardless of whether you proceed with the work."}},
-        {"@type":"Question","name":"How quickly can you carry out a site survey?","acceptedAnswer":{"@type":"Answer","text":"We typically arrange site surveys within 2–5 working days of your enquiry. For urgent projects, call us directly on 07970 566409 and we will do our best to accommodate a faster visit."}},
+        {"@type":"Question","name":"How quickly can you carry out a site survey?","acceptedAnswer":{"@type":"Answer","text":"We typically arrange site surveys within 2–5 working days of your enquiry. For urgent projects, call us directly on 07721 375756 and we will do our best to accommodate a faster visit."}},
         {"@type":"Question","name":"What does the site survey involve?","acceptedAnswer":{"@type":"Answer","text":"Our surveyor will inspect the surfaces to be blasted, assess the level of corrosion or coating to be removed, confirm the blast standard required (SA2.5 or SA3), measure the surface area, and discuss your coating specification. You will receive a detailed written quote within 24 hours of the visit."}},
-        {"@type":"Question","name":"Do you cover my area for a site survey?","acceptedAnswer":{"@type":"Answer","text":"We cover 35 counties across England and Wales. Call 07970 566409 or use our online form to check availability in your area."}}
+        {"@type":"Question","name":"Do you cover my area for a site survey?","acceptedAnswer":{"@type":"Answer","text":"We cover 35 counties across England and Wales. Call 07721 375756 or use our online form to check availability in your area."}}
       ]
     });
     modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n<script type="application/ld+json">${serviceSchema}</script>\n<script type="application/ld+json">${faqSchema}</script>\n</head>`);
-    modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', `<div id="ssr-content" aria-hidden="false" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;"><nav aria-label="Site Navigation"><a href="https://commercialshotblasting.co.uk/">Home</a> | <a href="https://commercialshotblasting.co.uk/services">Services</a> | <a href="https://commercialshotblasting.co.uk/service-areas">Service Areas</a> | <a href="https://commercialshotblasting.co.uk/about">About</a> | <a href="https://commercialshotblasting.co.uk/contact">Contact</a> | <a href="https://commercialshotblasting.co.uk/blog">Blog</a> | <a href="https://commercialshotblasting.co.uk/industries">Industries</a> | <a href="https://commercialshotblasting.co.uk/glossary">Glossary</a> | <a href="https://commercialshotblasting.co.uk/site-survey">Free Site Survey</a></nav><main><h1>Free Site Survey for Shot Blasting</h1><p>Book a free, no-obligation site survey for shot blasting. Our surveyor will assess your surfaces, confirm the blast standard required, and provide a detailed written quote at no charge. Call 07970 566409.</p><p><a href="https://commercialshotblasting.co.uk/contact">Request a site survey online</a> | <a href="https://commercialshotblasting.co.uk/services">View all services</a></p></main></div>`);
+    modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', `<div id="ssr-content" aria-hidden="false" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;"><nav aria-label="Site Navigation"><a href="https://commercialshotblasting.co.uk/">Home</a> | <a href="https://commercialshotblasting.co.uk/services">Services</a> | <a href="https://commercialshotblasting.co.uk/service-areas">Service Areas</a> | <a href="https://commercialshotblasting.co.uk/about">About</a> | <a href="https://commercialshotblasting.co.uk/contact">Contact</a> | <a href="https://commercialshotblasting.co.uk/blog">Blog</a> | <a href="https://commercialshotblasting.co.uk/industries">Industries</a> | <a href="https://commercialshotblasting.co.uk/glossary">Glossary</a> | <a href="https://commercialshotblasting.co.uk/site-survey">Free Site Survey</a></nav><main><h1>Free Site Survey for Shot Blasting</h1><p>Book a free, no-obligation site survey for shot blasting. Our surveyor will assess your surfaces, confirm the blast standard required, and provide a detailed written quote at no charge. Call 07721 375756.</p><p><a href="https://commercialshotblasting.co.uk/contact">Request a site survey online</a> | <a href="https://commercialshotblasting.co.uk/services">View all services</a></p></main></div>`);
     return modifiedHtml;
   }
 
@@ -7058,7 +7058,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     modifiedHtml = modifiedHtml.replace(/<meta name="twitter:description"[^>]*>/, `<meta name="twitter:description" content="${cpDesc}" />`);
     const cpBreadcrumb = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Services","item":`${SITE_URL}/services`},{"@type":"ListItem","position":3,"name":"Car Park Paint & Line Marking Removal","item":cpUrl}]});
     const cpWebPage = JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":cpTitle,"description":cpDesc,"url":cpUrl,"inLanguage":"en-GB"});
-    const cpService = JSON.stringify({"@context":"https://schema.org","@type":"Service","name":"Car Park Paint & Line Marking Removal","alternateName":["Car Park Line Marking Removal","Car Park Shot Blasting","Road Paint Removal UK","Thermoplastic Road Marking Removal","Parking Bay Paint Removal"],"description":cpDesc,"url":cpUrl,"serviceType":"Shot Blasting","provider":{"@type":"LocalBusiness","name":BUSINESS_NAME,"url":SITE_URL,"telephone":"07970566409","email":"info@commercialshotblasting.co.uk","areaServed":["England","Wales"]},"areaServed":{"@type":"Country","name":"United Kingdom"}});
+    const cpService = JSON.stringify({"@context":"https://schema.org","@type":"Service","name":"Car Park Paint & Line Marking Removal","alternateName":["Car Park Line Marking Removal","Car Park Shot Blasting","Road Paint Removal UK","Thermoplastic Road Marking Removal","Parking Bay Paint Removal"],"description":cpDesc,"url":cpUrl,"serviceType":"Shot Blasting","provider":{"@type":"LocalBusiness","name":BUSINESS_NAME,"url":SITE_URL,"telephone":"07721375756","email":"info@commercialshotblasting.co.uk","areaServed":["England","Wales"]},"areaServed":{"@type":"Country","name":"United Kingdom"}});
     const cpFaq = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can you remove car park line markings without damaging the tarmac?","acceptedAnswer":{"@type":"Answer","text":"Yes. We use calibrated shot blasting equipment that removes paint and thermoplastic markings from the surface without cutting into the tarmac or concrete substrate. The result is a clean surface with no visible scarring, ready for re-marking."}},{"@type":"Question","name":"Do you work on-site at the car park?","acceptedAnswer":{"@type":"Answer","text":"Yes — we bring all our mobile shot blasting equipment to your site. There is no need to close the entire car park; we can work bay by bay or section by section, allowing you to keep part of the facility operational during the works."}},{"@type":"Question","name":"What types of car park markings can you remove?","acceptedAnswer":{"@type":"Answer","text":"We can remove all types of car park and road markings including painted bay lines, thermoplastic markings, bay numbers, disabled bay symbols, directional arrows, hatching, yellow lines, and road paint from both tarmac and concrete surfaces."}},{"@type":"Question","name":"How long does car park line marking removal take?","acceptedAnswer":{"@type":"Answer","text":"Timescales depend on the size of the car park and the number of bays. As a guide, a standard 100-bay car park can typically be completed in one to two days. We will provide an accurate programme when you enquire."}},{"@type":"Question","name":"Do you remove thermoplastic road markings?","acceptedAnswer":{"@type":"Answer","text":"Yes. Thermoplastic markings are thicker and more durable than paint, but shot blasting removes them effectively without the heat or chemicals required by other methods. The surface is left clean and ready for new markings to be applied."}},{"@type":"Question","name":"What areas do you cover for car park paint removal?","acceptedAnswer":{"@type":"Answer","text":"We cover the whole of England and Wales from our bases in the Midlands. We regularly work in Nottingham, Birmingham, Manchester, Leeds, London, Bristol, and across our 35-county service area. Travel is included in our quotation."}}]});
     modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${cpBreadcrumb}</script>\n<script type="application/ld+json">${cpWebPage}</script>\n<script type="application/ld+json">${cpService}</script>\n<script type="application/ld+json">${cpFaq}</script>\n</head>`);
     return modifiedHtml;
@@ -7085,7 +7085,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     modifiedHtml = modifiedHtml.replace(/<meta name="twitter:image"[^>]*>/, `<meta name="twitter:image" content="${ipImage}" />`);
     const ipBreadcrumb = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Services","item":`${SITE_URL}/services`},{"@type":"ListItem","position":3,"name":"Intumescent Painting","item":ipUrl}]});
     const ipWebPage = JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":ipTitle,"description":ipDesc,"url":ipUrl,"inLanguage":"en-GB","primaryImageOfPage":{"@type":"ImageObject","url":ipImage}});
-    const ipService = JSON.stringify({"@context":"https://schema.org","@type":"Service","name":"Intumescent Painting on Structural Steel","alternateName":["Intumescent Coating Application","Fire Protection Painting Steel","Intumescent Paint Spraying UK","Structural Steel Fire Protection","R30 R60 R90 R120 Intumescent Coating"],"description":ipDesc,"url":ipUrl,"serviceType":"Intumescent Painting","provider":{"@type":"LocalBusiness","name":BUSINESS_NAME,"url":SITE_URL,"telephone":"07970566409","email":"info@commercialshotblasting.co.uk","areaServed":["England","Wales"]},"areaServed":{"@type":"Country","name":"United Kingdom"}});
+    const ipService = JSON.stringify({"@context":"https://schema.org","@type":"Service","name":"Intumescent Painting on Structural Steel","alternateName":["Intumescent Coating Application","Fire Protection Painting Steel","Intumescent Paint Spraying UK","Structural Steel Fire Protection","R30 R60 R90 R120 Intumescent Coating"],"description":ipDesc,"url":ipUrl,"serviceType":"Intumescent Painting","provider":{"@type":"LocalBusiness","name":BUSINESS_NAME,"url":SITE_URL,"telephone":"07721375756","email":"info@commercialshotblasting.co.uk","areaServed":["England","Wales"]},"areaServed":{"@type":"Country","name":"United Kingdom"}});
     const ipFaq = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is intumescent paint and how does it work?","acceptedAnswer":{"@type":"Answer","text":"Intumescent paint is a fire-resistant coating applied to structural steel. In the event of a fire, it expands to form a thick insulating char layer that protects the steel from heat, delaying structural failure and giving occupants more time to evacuate. It is specified to fire ratings of R30, R60, R90, or R120 (minutes of fire resistance)."}},{"@type":"Question","name":"Why does steel need to be shot blasted before intumescent painting?","acceptedAnswer":{"@type":"Answer","text":"Intumescent coatings require a clean, profiled steel surface to bond correctly. Shot blasting removes mill scale, rust, old coatings, and contamination, and creates a surface profile (typically 40–70 microns) that gives the coating mechanical adhesion. Without proper surface preparation, the coating can delaminate and will fail to provide the specified fire rating."}},{"@type":"Question","name":"What fire ratings can you achieve?","acceptedAnswer":{"@type":"Answer","text":"We apply intumescent coatings to achieve R30, R60, R90, and R120 fire ratings. The required dry film thickness (DFT) depends on the steel section factor, the fire rating required, and the coating product used. We work to the coating manufacturer's specification and can provide full application records."}},{"@type":"Question","name":"Do you work on-site or in a workshop?","acceptedAnswer":{"@type":"Answer","text":"We work both on-site and in workshops. For new-build structural steel, we typically blast and prime in a workshop before the steel is erected, then apply the intumescent topcoat on-site after erection. For existing structures, we carry out all works on-site using mobile equipment and cherry pickers or scissor lifts."}},{"@type":"Question","name":"What areas do you cover for intumescent painting?","acceptedAnswer":{"@type":"Answer","text":"We cover the whole of England and Wales. We regularly work in South Yorkshire, West Yorkshire, the East Midlands, West Midlands, Greater Manchester, and London. Travel is included in our fixed-price quotation."}},{"@type":"Question","name":"Can you provide a combined shot blasting and intumescent painting service?","acceptedAnswer":{"@type":"Answer","text":"Yes — this is our most common scope. We provide a single-contract service covering surface preparation (shot blasting to Sa 2.5), primer application, and intumescent topcoat. Using one contractor for both operations eliminates interface risk and simplifies programme management for the main contractor."}}]});
     modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${ipBreadcrumb}</script>\n<script type="application/ld+json">${ipWebPage}</script>\n<script type="application/ld+json">${ipService}</script>\n<script type="application/ld+json">${ipFaq}</script>\n</head>`);
     return modifiedHtml;
@@ -7136,7 +7136,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       {"@type":"Question","name":"Do you offer shot blasting services for the construction industry?","acceptedAnswer":{"@type":"Answer","text":"Yes — we specialise in shot blasting for structural steelwork including beams, columns, RSJs, fabricated frames, staircases, and fire escapes. We achieve SA2.5 and SA3 surface standards and travel directly to construction sites across the UK."}},
       {"@type":"Question","name":"Can you carry out shot blasting for the marine and offshore industry?","acceptedAnswer":{"@type":"Answer","text":"Yes — we shot blast vessel hulls, offshore platforms, dock gates, pontoons, and marine pipework to SA2.5 and SA3 standards. Our mobile units travel to ports, dockyards, and offshore facilities across the UK."}},
       {"@type":"Question","name":"What surface preparation standard do you achieve for industrial shot blasting?","acceptedAnswer":{"@type":"Answer","text":"We achieve SA2.5 (near white metal) and SA3 (white metal) surface cleanliness standards as defined by ISO 8501-1. These are the correct preparation levels for industrial protective coating systems across all sectors."}},
-      {"@type":"Question","name":"How do I get a quote for shot blasting services for my industry?","acceptedAnswer":{"@type":"Answer","text":"Call us on 07970 566409 or use our online quote form. We offer free site surveys and no-obligation quotes for all industries. We typically respond within 24 hours."}}
+      {"@type":"Question","name":"How do I get a quote for shot blasting services for my industry?","acceptedAnswer":{"@type":"Answer","text":"Call us on 07721 375756 or use our online quote form. We offer free site surveys and no-obligation quotes for all industries. We typically respond within 24 hours."}}
     ]});
     modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n<script type="application/ld+json">${industriesFAQSchema}</script>\n</head>`);
     modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', `<div id="ssr-content" aria-hidden="false" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;"><nav aria-label="Site Navigation"><a href="https://commercialshotblasting.co.uk/">Home</a> | <a href="https://commercialshotblasting.co.uk/services">Services</a> | <a href="https://commercialshotblasting.co.uk/service-areas">Service Areas</a> | <a href="https://commercialshotblasting.co.uk/about">About</a> | <a href="https://commercialshotblasting.co.uk/contact">Contact</a> | <a href="https://commercialshotblasting.co.uk/blog">Blog</a> | <a href="https://commercialshotblasting.co.uk/industries">Industries</a> | <a href="https://commercialshotblasting.co.uk/glossary">Glossary</a> | <a href="https://commercialshotblasting.co.uk/site-survey">Free Site Survey</a></nav><main><h1>Shot Blasting Services by Industry UK</h1><p>Professional shot blasting services for construction, manufacturing, aerospace, marine, agriculture, retail, transport, and heritage restoration across the UK. Mobile, SA2.5/SA3 standard. Free quotes.</p><ul><li><a href="https://commercialshotblasting.co.uk/industries">Construction &amp; Structural Steel Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/industries">Manufacturing &amp; Engineering Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/industries">Marine &amp; Offshore Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/industries">Agriculture &amp; Farming Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/industries">Aerospace Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/industries">Retail &amp; Commercial Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/industries">Transport &amp; Logistics Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/industries">Heritage Restoration Shot Blasting</a></li></ul></main></div>`);
@@ -7241,7 +7241,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
             .join('');
           return items ? `<section><h2>Related Industries We Serve in ${esc(county.name)}</h2><ul>${items}</ul></section>` : '';
         })();
-        const countyBodyHtml = `<div id="ssr-county-content" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;" itemscope itemtype="https://schema.org/WebPage"><nav aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><ol><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}/counties"><span itemprop="name">Counties</span></a><meta itemprop="position" content="2"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${pageUrl}"><span itemprop="name">${esc(county.name)}</span></a><meta itemprop="position" content="3"/></li></ol></nav><article><h1>${esc(county.name)} Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting UK</h1><p>Looking for shot blasting near me in ${esc(county.name)}? Our mobile units travel directly to your site across ${esc(county.name)}, delivering professional shot blasting for structural steelwork, factory cladding, shipping containers, industrial floor preparation, rust and mill scale removal, plant and machinery, fire escapes, and warehouse racking — all to SA2.5 and SA3 standards for commercial and industrial clients.</p>${countyContext[county.slug] ? `<p><em>${esc(countyContext[county.slug])}</em></p>` : ''}<section><h2>Shot Blasting Services Available in ${esc(county.name)}</h2><ul><li>Structural Steelwork Shot Blasting — beams, columns, trusses and fabrications</li><li>Factory and Warehouse Cladding — plastisol and paint removal</li><li>Container Shot Blasting — shipping containers and steel storage units</li><li>Industrial Floor Preparation — concrete and steel floor surface profiling</li><li>Rust Removal and Mill Scale — deep rust and scale removal to SA2.5/SA3</li><li>Plant and Machinery — industrial equipment, vehicles and pipework</li><li>Fire Escapes and Staircases — structural metalwork restoration</li><li>Warehouse Racking and Mezzanines — industrial storage structure preparation</li></ul></section><section><h2>Shot Blasting Services ${esc(county.name)} — Areas We Cover</h2><ul itemscope itemtype="https://schema.org/ItemList">${locLinksHtml}</ul></section><section><h2>Shot Blasting Services Available in ${esc(county.name)} — Full Range</h2><ul><li><a href="${SITE_URL}/services/structural-steel-frames">Structural Steel Frames Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-containers">Steel Container Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/factory-cladding">Factory &amp; Warehouse Cladding Restoration in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/fire-escapes">Fire Escapes &amp; External Stair Towers in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/staircases">Internal Steel Staircases &amp; Balustrades in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/bridge-steelwork">Bridge Steelwork Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/ladders">Fixed Ladders &amp; Step-Over Platforms in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/warehouse-racking">Warehouse Racking &amp; Pallet Rack Frames in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/pipework">Process Pipework, Spools &amp; Manifolds in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/telecom-towers">Telecom Masts &amp; Lattice Towers in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/floor-preparation">Floor Preparation &amp; Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/powder-coating">Shot Blasting &amp; Powder Coating in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/commercial-radiators">Commercial Radiators Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/commercial-vehicles">Commercial Vehicles Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-doors">Steel Doors &amp; Roller Shutters in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-sheeting">Steel Sheeting Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-gates">Steel Gates &amp; Railings in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/plant-machinery">Plant &amp; Machinery Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/intumescent-painting">Intumescent Painting in ${esc(county.name)}</a></li></ul><p><a href="${SITE_URL}/services">View all 19 shot blasting services</a></p></section><section><h2>Why Choose Our Shot Blasting Services in ${esc(county.name)}?</h2><p>We are the specialist choice for commercial and industrial shot blasting services across ${esc(county.name)} — mobile, fully equipped, and delivering SA2.5/SA3 results on-site. We offer 18 shot blasting services, free site surveys, and typically respond to quote requests within 24 hours.</p><ul><li><strong>SA2.5 &amp; SA3 Certified Results:</strong> All shot blasting services in ${esc(county.name)} are completed to SA2.5 near white metal or SA3 white metal standard — the correct surface profile for long-lasting protective coatings.</li><li><strong>Mobile Shot Blasting Across ${esc(county.name)}:</strong> Our fully equipped mobile units travel directly to your site anywhere in ${esc(county.name)}. No need to transport materials — we bring everything needed to complete the job on your premises.</li><li><strong>18 Shot Blasting Services Available:</strong> From structural steelwork and factory cladding to containers, floor preparation, and plant &amp; machinery — we offer the full range of commercial shot blasting services in ${esc(county.name)}.</li></ul></section><section><h2>Shot Blasting Services ${esc(county.name)} — What to Expect</h2><p>Our shot blasting services in ${esc(county.name)} are designed to be hassle-free from first contact to project completion. Here is what happens when you book with us:</p><ol><li><strong>Step 1 — Free Site Survey in ${esc(county.name)}:</strong> We visit your site at no charge, assess the surfaces to be blasted, and provide a detailed no-obligation quote. We advise on the correct blast standard (SA2.5 or SA3) and any preparation required.</li><li><strong>Step 2 — Mobile Unit Arrives On-Site:</strong> Our fully equipped mobile shot blasting unit travels directly to your location in ${esc(county.name)}. No need to transport your materials — we bring everything needed to carry out the work safely and efficiently on your premises.</li><li><strong>Step 3 — SA2.5 Finish &amp; Full Cleanup:</strong> We complete the shot blasting to your specified standard — typically SA2.5 near white metal — and carry out a full site cleanup before leaving. Your surfaces are ready for protective coating immediately after our visit.</li></ol></section><section><h2>Get a Quote for Shot Blasting Services in ${esc(county.name)}</h2><p>Free, no-obligation quotes for all shot blasting services across ${esc(county.name)}. We typically respond within 24 hours. Call <a href="tel:07970566409">07970 566409</a> or email <a href="mailto:info@commercialshotblasting.co.uk">info@commercialshotblasting.co.uk</a>.</p></section>${relatedIndustriesHtml}</article></div>`;
+        const countyBodyHtml = `<div id="ssr-county-content" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;" itemscope itemtype="https://schema.org/WebPage"><nav aria-label="Breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><ol><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}/counties"><span itemprop="name">Counties</span></a><meta itemprop="position" content="2"/></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${pageUrl}"><span itemprop="name">${esc(county.name)}</span></a><meta itemprop="position" content="3"/></li></ol></nav><article><h1>${esc(county.name)} Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting UK</h1><p>Looking for shot blasting near me in ${esc(county.name)}? Our mobile units travel directly to your site across ${esc(county.name)}, delivering professional shot blasting for structural steelwork, factory cladding, shipping containers, industrial floor preparation, rust and mill scale removal, plant and machinery, fire escapes, and warehouse racking — all to SA2.5 and SA3 standards for commercial and industrial clients.</p>${countyContext[county.slug] ? `<p><em>${esc(countyContext[county.slug])}</em></p>` : ''}<section><h2>Shot Blasting Services Available in ${esc(county.name)}</h2><ul><li>Structural Steelwork Shot Blasting — beams, columns, trusses and fabrications</li><li>Factory and Warehouse Cladding — plastisol and paint removal</li><li>Container Shot Blasting — shipping containers and steel storage units</li><li>Industrial Floor Preparation — concrete and steel floor surface profiling</li><li>Rust Removal and Mill Scale — deep rust and scale removal to SA2.5/SA3</li><li>Plant and Machinery — industrial equipment, vehicles and pipework</li><li>Fire Escapes and Staircases — structural metalwork restoration</li><li>Warehouse Racking and Mezzanines — industrial storage structure preparation</li></ul></section><section><h2>Shot Blasting Services ${esc(county.name)} — Areas We Cover</h2><ul itemscope itemtype="https://schema.org/ItemList">${locLinksHtml}</ul></section><section><h2>Shot Blasting Services Available in ${esc(county.name)} — Full Range</h2><ul><li><a href="${SITE_URL}/services/structural-steel-frames">Structural Steel Frames Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-containers">Steel Container Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/factory-cladding">Factory &amp; Warehouse Cladding Restoration in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/fire-escapes">Fire Escapes &amp; External Stair Towers in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/staircases">Internal Steel Staircases &amp; Balustrades in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/bridge-steelwork">Bridge Steelwork Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/ladders">Fixed Ladders &amp; Step-Over Platforms in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/warehouse-racking">Warehouse Racking &amp; Pallet Rack Frames in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/pipework">Process Pipework, Spools &amp; Manifolds in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/telecom-towers">Telecom Masts &amp; Lattice Towers in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/floor-preparation">Floor Preparation &amp; Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/powder-coating">Shot Blasting &amp; Powder Coating in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/commercial-radiators">Commercial Radiators Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/commercial-vehicles">Commercial Vehicles Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-doors">Steel Doors &amp; Roller Shutters in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-sheeting">Steel Sheeting Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/steel-gates">Steel Gates &amp; Railings in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/plant-machinery">Plant &amp; Machinery Shot Blasting in ${esc(county.name)}</a></li><li><a href="${SITE_URL}/services/intumescent-painting">Intumescent Painting in ${esc(county.name)}</a></li></ul><p><a href="${SITE_URL}/services">View all 19 shot blasting services</a></p></section><section><h2>Why Choose Our Shot Blasting Services in ${esc(county.name)}?</h2><p>We are the specialist choice for commercial and industrial shot blasting services across ${esc(county.name)} — mobile, fully equipped, and delivering SA2.5/SA3 results on-site. We offer 18 shot blasting services, free site surveys, and typically respond to quote requests within 24 hours.</p><ul><li><strong>SA2.5 &amp; SA3 Certified Results:</strong> All shot blasting services in ${esc(county.name)} are completed to SA2.5 near white metal or SA3 white metal standard — the correct surface profile for long-lasting protective coatings.</li><li><strong>Mobile Shot Blasting Across ${esc(county.name)}:</strong> Our fully equipped mobile units travel directly to your site anywhere in ${esc(county.name)}. No need to transport materials — we bring everything needed to complete the job on your premises.</li><li><strong>18 Shot Blasting Services Available:</strong> From structural steelwork and factory cladding to containers, floor preparation, and plant &amp; machinery — we offer the full range of commercial shot blasting services in ${esc(county.name)}.</li></ul></section><section><h2>Shot Blasting Services ${esc(county.name)} — What to Expect</h2><p>Our shot blasting services in ${esc(county.name)} are designed to be hassle-free from first contact to project completion. Here is what happens when you book with us:</p><ol><li><strong>Step 1 — Free Site Survey in ${esc(county.name)}:</strong> We visit your site at no charge, assess the surfaces to be blasted, and provide a detailed no-obligation quote. We advise on the correct blast standard (SA2.5 or SA3) and any preparation required.</li><li><strong>Step 2 — Mobile Unit Arrives On-Site:</strong> Our fully equipped mobile shot blasting unit travels directly to your location in ${esc(county.name)}. No need to transport your materials — we bring everything needed to carry out the work safely and efficiently on your premises.</li><li><strong>Step 3 — SA2.5 Finish &amp; Full Cleanup:</strong> We complete the shot blasting to your specified standard — typically SA2.5 near white metal — and carry out a full site cleanup before leaving. Your surfaces are ready for protective coating immediately after our visit.</li></ol></section><section><h2>Get a Quote for Shot Blasting Services in ${esc(county.name)}</h2><p>Free, no-obligation quotes for all shot blasting services across ${esc(county.name)}. We typically respond within 24 hours. Call <a href="tel:07721375756">07721 375756</a> or email <a href="mailto:info@commercialshotblasting.co.uk">info@commercialshotblasting.co.uk</a>.</p></section>${relatedIndustriesHtml}</article></div>`;
         if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
           modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', countyBodyHtml);
         } else {
@@ -7260,49 +7260,49 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       { q: 'What shot blasting services do you offer for the aerospace industry?', a: 'We provide precision shot blasting services for aerospace components including structural frames, engine housings, landing gear, and ground support equipment. All work is carried out to the required surface cleanliness standard.' },
       { q: 'Do you meet aerospace surface preparation standards?', a: 'Yes — we achieve SA2.5 and SA3 surface cleanliness standards and can provide documentation and certification as required for aerospace applications.' },
       { q: 'Can you carry out shot blasting on-site at aerospace facilities?', a: 'Yes — our mobile shot blasting units travel directly to your facility anywhere in the UK, eliminating the need to transport components off-site.' },
-      { q: 'How do I get a quote for aerospace shot blasting services?', a: 'Call us on 07970 566409 or use our online quote form. We offer free site surveys and no-obligation quotes for all aerospace shot blasting projects.' },
+      { q: 'How do I get a quote for aerospace shot blasting services?', a: 'Call us on 07721 375756 or use our online quote form. We offer free site surveys and no-obligation quotes for all aerospace shot blasting projects.' },
     ],
     'agriculture': [
       { q: 'What agricultural equipment can you shot blast?', a: 'We shot blast tractors, combine harvesters, ploughs, trailers, grain dryers, irrigation equipment, and all types of farm machinery and implements.' },
       { q: 'Do you offer mobile shot blasting for agricultural equipment?', a: 'Yes — our mobile units travel directly to your farm or agricultural site anywhere in the UK, so you do not need to transport heavy machinery.' },
       { q: 'What surface standard do you achieve for agricultural shot blasting?', a: 'We typically achieve SA2.5 near white metal, which provides the correct surface profile for protective coatings that extend the life of agricultural equipment.' },
-      { q: 'How much does agricultural shot blasting cost?', a: 'Pricing depends on the size and condition of the equipment. We offer free, no-obligation quotes — call 07970 566409 or request a quote online.' },
+      { q: 'How much does agricultural shot blasting cost?', a: 'Pricing depends on the size and condition of the equipment. We offer free, no-obligation quotes — call 07721 375756 or request a quote online.' },
     ],
     'construction': [
       { q: 'What construction steelwork can you shot blast?', a: 'We shot blast structural steel beams, columns, RSJs, fabricated frames, staircases, fire escapes, mezzanine floors, and all types of structural metalwork for the construction industry.' },
       { q: 'Do you carry out shot blasting on construction sites?', a: 'Yes — our mobile shot blasting units travel directly to construction sites across the UK, completing work on-site without the need to transport steelwork.' },
       { q: 'What surface preparation standard do you achieve for structural steel?', a: 'We achieve SA2.5 (near white metal) and SA3 (white metal) standards, which are the correct preparation levels for structural steel before protective coating application.' },
-      { q: 'How do I get a quote for construction shot blasting services?', a: 'Call 07970 566409 or use our online quote form. We offer free site surveys and typically respond to quote requests within 24 hours.' },
+      { q: 'How do I get a quote for construction shot blasting services?', a: 'Call 07721 375756 or use our online quote form. We offer free site surveys and typically respond to quote requests within 24 hours.' },
     ],
     'heritage-restoration': [
       { q: 'Can you shot blast historic or listed metalwork?', a: 'Yes — we have extensive experience with heritage and restoration projects, including listed buildings, historic bridges, ornamental ironwork, and period architectural metalwork. We use appropriate blast media and pressures to preserve detail.' },
       { q: 'What blast media do you use for heritage restoration?', a: 'We select blast media appropriate to the substrate and level of detail required — including fine glass bead and low-pressure techniques for delicate heritage metalwork.' },
       { q: 'Do you work with conservation architects and heritage contractors?', a: 'Yes — we regularly work alongside conservation architects, heritage contractors, and local authorities on restoration projects across the UK.' },
-      { q: 'How do I get a quote for heritage shot blasting?', a: 'Call 07970 566409 or use our online quote form. We offer free site surveys and no-obligation quotes for all heritage and restoration projects.' },
+      { q: 'How do I get a quote for heritage shot blasting?', a: 'Call 07721 375756 or use our online quote form. We offer free site surveys and no-obligation quotes for all heritage and restoration projects.' },
     ],
     'manufacturing': [
       { q: 'What manufacturing equipment can you shot blast?', a: 'We shot blast production machinery, CNC equipment, press tools, conveyor systems, warehouse racking, mezzanine floors, and all types of manufacturing plant and equipment.' },
       { q: 'Can you carry out shot blasting inside our manufacturing facility?', a: 'Yes — our mobile units can operate within factory and warehouse environments, subject to site access and safety requirements. We carry out full containment and cleanup.' },
       { q: 'What surface preparation standard do you achieve for manufacturing equipment?', a: 'We achieve SA2.5 near white metal as standard, providing the correct surface profile for industrial protective coatings on manufacturing equipment.' },
-      { q: 'How do I get a quote for manufacturing shot blasting services?', a: 'Call 07970 566409 or use our online quote form. We offer free site surveys and typically respond within 24 hours.' },
+      { q: 'How do I get a quote for manufacturing shot blasting services?', a: 'Call 07721 375756 or use our online quote form. We offer free site surveys and typically respond within 24 hours.' },
     ],
     'marine': [
       { q: 'What marine structures can you shot blast?', a: 'We shot blast vessel hulls, offshore platforms, marine pipework, dock gates, pontoons, jetty structures, and all types of marine and offshore metalwork.' },
       { q: 'Do you achieve the correct surface standard for marine coatings?', a: 'Yes — we achieve SA2.5 and SA3 surface cleanliness standards, which are required for marine-grade protective coating systems in salt water environments.' },
       { q: 'Can you carry out shot blasting at ports and dockyards?', a: 'Yes — our mobile units travel to ports, dockyards, and offshore facilities across the UK. We carry out full containment to prevent blast media entering waterways.' },
-      { q: 'How do I get a quote for marine shot blasting services?', a: 'Call 07970 566409 or use our online quote form. We offer free site surveys and no-obligation quotes for all marine and offshore shot blasting projects.' },
+      { q: 'How do I get a quote for marine shot blasting services?', a: 'Call 07721 375756 or use our online quote form. We offer free site surveys and no-obligation quotes for all marine and offshore shot blasting projects.' },
     ],
     'retail': [
       { q: 'What retail and commercial metalwork can you shot blast?', a: 'We shot blast shopfronts, commercial signage frames, retail fixtures, security shutters, balustrades, and all types of commercial metalwork for the retail and hospitality sectors.' },
       { q: 'Can you carry out shot blasting at retail premises?', a: 'Yes — our mobile units can operate at retail and commercial premises, typically out of hours to minimise disruption to trading.' },
       { q: 'What surface standard do you achieve for commercial metalwork?', a: 'We achieve SA2.5 near white metal, providing the correct surface profile for decorative and protective coatings on commercial metalwork.' },
-      { q: 'How do I get a quote for retail shot blasting services?', a: 'Call 07970 566409 or use our online quote form. We offer free site surveys and no-obligation quotes for all commercial shot blasting projects.' },
+      { q: 'How do I get a quote for retail shot blasting services?', a: 'Call 07721 375756 or use our online quote form. We offer free site surveys and no-obligation quotes for all commercial shot blasting projects.' },
     ],
     'transport-logistics': [
       { q: 'What transport and logistics equipment can you shot blast?', a: 'We shot blast trailers, flatbeds, curtainsiders, shipping containers, tankers, chassis frames, and all types of road transport and logistics equipment.' },
       { q: 'Do you offer mobile shot blasting for transport fleets?', a: 'Yes — our mobile units travel to your depot or yard anywhere in the UK, so you do not need to transport vehicles to a fixed facility.' },
       { q: 'What surface standard do you achieve for transport equipment?', a: 'We achieve SA2.5 near white metal as standard, which provides the correct surface profile for heavy-duty protective coatings on transport equipment.' },
-      { q: 'How do I get a quote for transport shot blasting services?', a: 'Call 07970 566409 or use our online quote form. We offer free site surveys and typically respond to quote requests within 24 hours.' },
+      { q: 'How do I get a quote for transport shot blasting services?', a: 'Call 07721 375756 or use our online quote form. We offer free site surveys and typically respond to quote requests within 24 hours.' },
     ],
   };
 

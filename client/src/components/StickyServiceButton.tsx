@@ -47,12 +47,12 @@ export function StickyServiceButton({ onOpenQuotePopup, serviceTitle }: StickySe
             Request a Site Survey
           </button>
           <a
-            href="tel:07970566409"
-            onClick={() => trackPhoneCall('07970566409', 'Service Page Sticky Button')}
+            href="tel:07721375756"
+            onClick={() => trackPhoneCall('07721375756', 'Service Page Sticky Button')}
             className="flex items-center justify-center gap-2 border-2 border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 text-sm hover:scale-105 active:scale-95"
           >
             <Phone className="w-4 h-4" />
-            Call: 07970 566409
+            Call: 07721 375756
           </a>
         </div>
 

@@ -5,7 +5,7 @@ import { trackEvent } from "@/lib/analytics";
 export function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [showPulse, setShowPulse] = useState(true);
-  const phoneNumber = "447970566409"; // 07970 566409 in international format
+  const phoneNumber = "447970566409"; // 07721 375756 in international format
   const message = encodeURIComponent(
     "Hello, I'm interested in your shot blasting services. Please send me a quote."
   );

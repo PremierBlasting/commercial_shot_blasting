@@ -35,7 +35,7 @@ export default function StratfordUponAvonServiceArea() {
 
   useEffect(() => {
     const locationInfo = locationData["stratford-upon-avon"];
-    const description = locationInfo?.description || "Professional shot blasting services. Expert surface preparation & rust removal. Call 07970 566409";
+    const description = locationInfo?.description || "Professional shot blasting services. Expert surface preparation & rust removal. Call 07721 375756";
     
     // Set meta description
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -105,7 +105,7 @@ export default function StratfordUponAvonServiceArea() {
     const faqSchema = document.createElement('script');
     faqSchema.type = 'application/ld+json';
     faqSchema.id = 'faq-schema';
-    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can you complete a shot blasting project in Stratford Upon Avon?","acceptedAnswer":{"@type":"Answer","text":"Project timelines vary based on scope and complexity. Most projects are completed within 1-3 weeks. We'll provide a detailed timeline during the initial consultation."}},{"@type":"Question","name":"Do you have experience with heritage building restoration?","acceptedAnswer":{"@type":"Answer","text":"Yes, we specialize in heritage restoration with non-destructive blasting techniques that preserve the integrity of historic structures."}},{"@type":"Question","name":"Can you handle large-scale industrial projects?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We have the equipment and expertise to handle projects of any size, from small components to large structural elements."}},{"@type":"Question","name":"Do you provide waste management documentation?","acceptedAnswer":{"@type":"Answer","text":"Yes, we maintain full compliance with waste management practices and provide all necessary documentation for your records."}},{"@type":"Question","name":"How do I get started with a quote?","acceptedAnswer":{"@type":"Answer","text":"Simply click 'Request A Site Visit' above or call us at 07970 566409. We'll arrange a site visit to assess your requirements."}}]}`;
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can you complete a shot blasting project in Stratford Upon Avon?","acceptedAnswer":{"@type":"Answer","text":"Project timelines vary based on scope and complexity. Most projects are completed within 1-3 weeks. We'll provide a detailed timeline during the initial consultation."}},{"@type":"Question","name":"Do you have experience with heritage building restoration?","acceptedAnswer":{"@type":"Answer","text":"Yes, we specialize in heritage restoration with non-destructive blasting techniques that preserve the integrity of historic structures."}},{"@type":"Question","name":"Can you handle large-scale industrial projects?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. We have the equipment and expertise to handle projects of any size, from small components to large structural elements."}},{"@type":"Question","name":"Do you provide waste management documentation?","acceptedAnswer":{"@type":"Answer","text":"Yes, we maintain full compliance with waste management practices and provide all necessary documentation for your records."}},{"@type":"Question","name":"How do I get started with a quote?","acceptedAnswer":{"@type":"Answer","text":"Simply click 'Request A Site Visit' above or call us at 07721 375756. We'll arrange a site visit to assess your requirements."}}]}`;
     document.head.appendChild(faqSchema);
     return () => {
       const el = document.getElementById('faq-schema');
@@ -147,9 +147,9 @@ export default function StratfordUponAvonServiceArea() {
               Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <a href="tel:07970566409" className="flex items-center gap-2">
+              <a href="tel:07721375756" className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                Call Now: 07970 566409
+                Call Now: 07721 375756
               </a>
             </Button>
           </div>
@@ -234,7 +234,7 @@ export default function StratfordUponAvonServiceArea() {
             </Button>
             <TrackedPhoneButton
               location="Stratford-upon-Avon"
-              phoneNumber="07970566409"
+              phoneNumber="07721375756"
               variant="outline"
               size="lg"
               className="border-[#2C5F7F] text-[#2C5F7F]"
@@ -465,7 +465,7 @@ export default function StratfordUponAvonServiceArea() {
               },
               {
                 q: "How do I get started with a quote?",
-                a: "Simply click 'Request A Site Visit' above or call us at 07970 566409. We'll arrange a site visit to assess your requirements."
+                a: "Simply click 'Request A Site Visit' above or call us at 07721 375756. We'll arrange a site visit to assess your requirements."
               }
             ].map((faq, index) => (
               <details key={index} className="bg-white p-6 rounded-lg border border-gray-200 cursor-pointer group">
@@ -511,7 +511,7 @@ export default function StratfordUponAvonServiceArea() {
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
               <Phone className="w-4 h-4 mr-2" />
-              Call: 07970 566409
+              Call: 07721 375756
             </Button>
           </div>
         </div>
@@ -524,7 +524,7 @@ export default function StratfordUponAvonServiceArea() {
             <div>
               <Phone className="w-8 h-8 text-[#2C5F7F] mx-auto mb-3" />
               <h3 className="font-bold mb-2">Call Us</h3>
-              <a href="tel:07970566409" className="text-[#2C5F7F] hover:underline">07970 566409</a>
+              <a href="tel:07721375756" className="text-[#2C5F7F] hover:underline">07721 375756</a>
             </div>
             <div>
               <Mail className="w-8 h-8 text-[#2C5F7F] mx-auto mb-3" />

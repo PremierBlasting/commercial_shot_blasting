@@ -6,7 +6,7 @@ export interface PreparationStep {
 
 export const servicePreparationSteps: Record<string, PreparationStep[]> = {
   'default': [
-    { title: 'Request a Free Site Survey', text: 'Contact us to arrange a free, no-obligation site visit. Our team will assess the surfaces, confirm the blast standard required, and provide a written quote. Call 07970 566409 or use our online form.' },
+    { title: 'Request a Free Site Survey', text: 'Contact us to arrange a free, no-obligation site visit. Our team will assess the surfaces, confirm the blast standard required, and provide a written quote. Call 07721 375756 or use our online form.' },
     { title: 'Clear the Work Area', text: 'Ensure the surfaces to be blasted are accessible. Remove vehicles, equipment, or materials stored directly adjacent to the work area. A clear 2–3 metre perimeter around the blast zone is ideal.' },
     { title: 'Arrange Site Access', text: 'Confirm access for our mobile unit — typically a van or small lorry. Advise us of any height restrictions, locked gates, or site induction requirements so we can plan accordingly.' },
     { title: 'Notify Relevant Personnel', text: 'Inform your site supervisor, facilities manager, or health and safety officer that shot blasting work is scheduled. Ensure any affected staff are briefed on the work area and any temporary access restrictions.' },

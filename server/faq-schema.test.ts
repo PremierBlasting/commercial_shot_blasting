@@ -28,7 +28,7 @@ describe('FAQ Schema Generation', () => {
     
     // At least one FAQ should mention the phone number
     const hasPhoneNumber = faqs.some(faq => 
-      faq.answer.includes('07970 566409')
+      faq.answer.includes('07721 375756')
     );
     
     expect(hasPhoneNumber).toBe(true);

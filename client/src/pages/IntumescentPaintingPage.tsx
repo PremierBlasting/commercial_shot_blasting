@@ -271,8 +271,8 @@ export default function IntumescentPaintingPage() {
               >
                 Request a Quote
               </Button>
-              <a href="tel:07970566409" className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white font-semibold px-7 py-3 text-base rounded-lg border border-white/30 transition-colors">
-                <Phone className="w-4 h-4" /> 07970 566409
+              <a href="tel:07721375756" className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white font-semibold px-7 py-3 text-base rounded-lg border border-white/30 transition-colors">
+                <Phone className="w-4 h-4" /> 07721 375756
               </a>
             </div>
           </div>
@@ -712,8 +712,8 @@ export default function IntumescentPaintingPage() {
             >
               Request a Free Quote
             </Button>
-            <a href="tel:07970566409" className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white font-semibold px-8 py-3 text-base rounded-lg border border-white/30 transition-colors">
-              <Phone className="w-4 h-4" /> 07970 566409
+            <a href="tel:07721375756" className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white font-semibold px-8 py-3 text-base rounded-lg border border-white/30 transition-colors">
+              <Phone className="w-4 h-4" /> 07721 375756
             </a>
           </div>
         </div>
@@ -907,8 +907,8 @@ export default function IntumescentPaintingPage() {
               </div>
               <div className="mt-8 pt-6 border-t border-gray-100">
                 <p className="text-sm text-gray-500 mb-2">Prefer to call?</p>
-                <a href="tel:07970566409" className="inline-flex items-center gap-2 text-[#2C5F7F] font-bold text-lg hover:text-orange-600 transition-colors">
-                  <Phone className="w-5 h-5" /> 07970 566409
+                <a href="tel:07721375756" className="inline-flex items-center gap-2 text-[#2C5F7F] font-bold text-lg hover:text-orange-600 transition-colors">
+                  <Phone className="w-5 h-5" /> 07721 375756
                 </a>
               </div>
             </div>

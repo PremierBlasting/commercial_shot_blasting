@@ -513,10 +513,10 @@ export default function Areas() {
               >
                 Request A Site Visit
               </Button>
-              <a href="tel:07970566409">
+              <a href="tel:07721375756">
                 <Button variant="outline" className="border-white text-white hover:bg-white hover:text-[#1a3d52] px-8 py-6 text-lg w-full sm:w-auto">
                   <Phone className="w-5 h-5 mr-2" />
-                  07970 566409
+                  07721 375756
                 </Button>
               </a>
             </div>

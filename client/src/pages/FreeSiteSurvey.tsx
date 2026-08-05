@@ -10,7 +10,7 @@ import { BackToTop } from "@/components/BackToTop";
 
 export default function FreeSiteSurvey() {
   // Set SEO metadata
-  useSEO({ title: "Site Survey | Commercial Shot Blasting", description: "Book your site survey today. Expert assessment of your shot blasting requirements with no obligation quote. Call 07970 566409.", canonical: "https://commercialshotblasting.co.uk/site-survey" });
+  useSEO({ title: "Site Survey | Commercial Shot Blasting", description: "Book your site survey today. Expert assessment of your shot blasting requirements with no obligation quote. Call 07721 375756.", canonical: "https://commercialshotblasting.co.uk/site-survey" });
 
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
@@ -172,11 +172,11 @@ export default function FreeSiteSurvey() {
                 Book Your Site Survey
               </button>
               <a
-                href="tel:07970566409"
+                href="tel:07721375756"
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors flex items-center gap-2"
               >
                 <Phone className="w-5 h-5" />
-                07970 566409
+                07721 375756
               </a>
             </div>
           </div>
@@ -364,11 +364,11 @@ export default function FreeSiteSurvey() {
                 Book Site Survey
               </button>
               <a
-                href="tel:07970566409"
+                href="tel:07721375756"
                 className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors flex items-center gap-2 text-lg"
               >
                 <Phone className="w-5 h-5" />
-                Call 07970 566409
+                Call 07721 375756
               </a>
             </div>
             <p className="text-white/70 mt-6 text-sm">

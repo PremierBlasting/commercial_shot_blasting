@@ -128,11 +128,11 @@ export default function HeritageRestorationIndustry() {
                 Request Heritage Quote
               </button>
               <a 
-                href="tel:07970566409"
+                href="tel:07721375756"
                 className="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors flex items-center gap-2"
               >
                 <Phone className="w-5 h-5" />
-                07970 566409
+                07721 375756
               </a>
             </div>
           </div>
@@ -285,7 +285,7 @@ export default function HeritageRestorationIndustry() {
               Request A Site Visit
             </button>
             <a 
-              href="tel:07970566409"
+              href="tel:07721375756"
               className="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors flex items-center gap-2"
             >
               <Phone className="w-5 h-5" />

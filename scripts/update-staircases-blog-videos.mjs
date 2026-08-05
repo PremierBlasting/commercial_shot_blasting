@@ -75,7 +75,7 @@ const newContent = `<h2>Why External Staircases Rust So Quickly</h2>
 <p>Most external staircases and single-flight fire escapes can be completed in one to two days. Multi-level fire escapes or larger structures may take longer. We carry out a site survey before starting and give you an accurate programme so you can plan around the work and ensure your painting contractor is available immediately afterwards.</p>
 
 <h2>Get a Quote for Shot Blasting Your External Staircase or Fire Escape</h2>
-<p>If you have an external steel staircase or fire escape that needs rust removal and surface preparation, we offer a free no-obligation site visit across England and Wales. Call us on <strong>07970 566409</strong> or visit our <a href="/external-staircases">External Staircases Shot Blasting</a> page to request a site visit and watch the videos showing our work in action.</p>`;
+<p>If you have an external steel staircase or fire escape that needs rust removal and surface preparation, we offer a free no-obligation site visit across England and Wales. Call us on <strong>07721 375756</strong> or visit our <a href="/external-staircases">External Staircases Shot Blasting</a> page to request a site visit and watch the videos showing our work in action.</p>`;
 
 const conn = await mysql.createConnection(process.env.DATABASE_URL);
 try {

@@ -6,7 +6,7 @@
 
 const SITE_URL = "https://commercialshotblasting.co.uk";
 const BUSINESS_NAME = "Commercial Shot Blasting";
-const PHONE = "07970 566409";
+const PHONE = "07721 375756";
 const EMAIL = "info@commercialshotblasting.co.uk";
 const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ATzSAikYtVvYiYkQ.svg";
 const HERO_IMAGE = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/ZGMUvDqgYwboovEM.png";
@@ -352,7 +352,7 @@ function getContactPageSchema() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Contact Commercial Shot Blasting",
-    "description": "Get in touch with Commercial Shot Blasting for a free quote. Call 07970 566409 or use our contact form.",
+    "description": "Get in touch with Commercial Shot Blasting for a free quote. Call 07721 375756 or use our contact form.",
     "mainEntity": getLocalBusinessSchema()
   };
 }
@@ -370,7 +370,7 @@ function getHomeFAQSchema() {
     },
     {
       question: "How much does shot blasting cost?",
-      answer: "Shot blasting costs vary depending on the project size, surface type, and accessibility. We provide free, no-obligation quotes for all projects. Contact us on 07970 566409 or request a quote online for accurate pricing."
+      answer: "Shot blasting costs vary depending on the project size, surface type, and accessibility. We provide free, no-obligation quotes for all projects. Contact us on 07721 375756 or request a quote online for accurate pricing."
     },
     {
       question: "What surfaces can be shot blasted?",

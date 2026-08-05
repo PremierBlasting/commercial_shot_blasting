@@ -641,7 +641,7 @@ export const appRouter = router({
               ctaButtons: [
                 { text: "Get a Free Quote Today", type: "primary", action: "openQuote" },
                 { text: "View Our Work", type: "outline", link: "/our-work" },
-                { text: "Call Now", type: "outline", link: "tel:07970566409", icon: "phone" }
+                { text: "Call Now", type: "outline", link: "tel:07721375756", icon: "phone" }
               ]
             })
           },
@@ -774,7 +774,7 @@ export const appRouter = router({
                 ]
               },
               contactInfo: [
-                { icon: "Phone", label: "Phone", value: "07970 566409", link: "tel:07970566409" },
+                { icon: "Phone", label: "Phone", value: "07721 375756", link: "tel:07721375756" },
                 { icon: "Mail", label: "Email", value: "info@commercialshotblasting.co.uk", link: "mailto:info@commercialshotblasting.co.uk" },
                 { icon: "MapPin", label: "Service Area", value: "Nationwide UK Coverage" }
               ]

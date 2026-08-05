@@ -429,7 +429,7 @@ export default function ServiceAreas() {
   const serviceAreaFaqs = [
     {
       question: "Do you offer mobile shot blasting near me across the UK?",
-      answer: "Yes — we operate a fully mobile shot blasting service and travel to sites across England and Wales. Our mobile unit brings the equipment directly to your location, so there is no need to transport your steelwork or structures to a fixed facility. We regularly cover the Midlands, North West, Yorkshire, East Midlands, East Anglia, South West, and Welsh Borders. Call 07970 566409 to confirm coverage for your specific location."
+      answer: "Yes — we operate a fully mobile shot blasting service and travel to sites across England and Wales. Our mobile unit brings the equipment directly to your location, so there is no need to transport your steelwork or structures to a fixed facility. We regularly cover the Midlands, North West, Yorkshire, East Midlands, East Anglia, South West, and Welsh Borders. Call 07721 375756 to confirm coverage for your specific location."
     },
     {
       question: "What areas do you cover for shot blasting services?",
@@ -437,7 +437,7 @@ export default function ServiceAreas() {
     },
     {
       question: "How far will you travel for a shot blasting job?",
-      answer: "We regularly travel up to 150 miles from our West Midlands base for commercial shot blasting projects. For larger contracts or ongoing work, we can travel further. Travel costs are included in our quotation, so there are no hidden charges. Call 07970 566409 or use our online form to get a quote for your location."
+      answer: "We regularly travel up to 150 miles from our West Midlands base for commercial shot blasting projects. For larger contracts or ongoing work, we can travel further. Travel costs are included in our quotation, so there are no hidden charges. Call 07721 375756 or use our online form to get a quote for your location."
     },
     {
       question: "Can you carry out shot blasting on-site without me transporting my equipment?",
@@ -445,7 +445,7 @@ export default function ServiceAreas() {
     },
     {
       question: "How quickly can you attend site for a shot blasting quote?",
-      answer: "We aim to arrange a site survey within 3-5 working days of your enquiry, depending on location and current workload. For urgent projects, call us directly on 07970 566409 and we will do our best to accommodate your timeline. Written quotes are typically provided within 24 hours of the site visit."
+      answer: "We aim to arrange a site survey within 3-5 working days of your enquiry, depending on location and current workload. For urgent projects, call us directly on 07721 375756 and we will do our best to accommodate your timeline. Written quotes are typically provided within 24 hours of the site visit."
     }
   ];
 
@@ -493,9 +493,9 @@ export default function ServiceAreas() {
                 className="border-white/30 text-white hover:bg-white/10"
                 asChild
               >
-                <a href="tel:07970566409">
+                <a href="tel:07721375756">
                   <Phone className="w-4 h-4 mr-2" />
-                  Call 07970 566409
+                  Call 07721 375756
                 </a>
               </Button>
             </div>
@@ -725,7 +725,7 @@ export default function ServiceAreas() {
               className="bg-[#d4a853] hover:bg-[#c49843] text-[#1a3d52] font-semibold"
               asChild
             >
-              <a href="tel:07970566409">
+              <a href="tel:07721375756">
                 <Phone className="w-4 h-4 mr-2" />
                 Call to Discuss Your Location
               </a>
@@ -796,9 +796,9 @@ export default function ServiceAreas() {
               className="border-white/30 text-white hover:bg-white/10"
               asChild
             >
-              <a href="tel:07970566409">
+              <a href="tel:07721375756">
                 <Phone className="w-4 h-4 mr-2" />
-                07970 566409
+                07721 375756
               </a>
             </Button>
             <Button 
@@ -1012,9 +1012,9 @@ export default function ServiceAreas() {
                 className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F]/10"
                 asChild
               >
-                <a href="tel:07970566409">
+                <a href="tel:07721375756">
                   <Phone className="w-4 h-4 mr-2" />
-                  Call 07970 566409
+                  Call 07721 375756
                 </a>
               </Button>
             </div>
@@ -1119,7 +1119,7 @@ export default function ServiceAreas() {
               <ul className="space-y-3 text-white/70">
                 <li className="flex items-center gap-2 hover:text-white transition">
                   <Phone className="w-4 h-4" />
-                  <a href="tel:07970566409">07970 566409</a>
+                  <a href="tel:07721375756">07721 375756</a>
                 </li>
                 <li className="flex items-center gap-2 hover:text-white transition">
                   <Mail className="w-4 h-4" />

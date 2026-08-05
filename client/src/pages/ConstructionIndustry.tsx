@@ -135,11 +135,11 @@ export default function ConstructionIndustry() {
                 Request A Site Visit
               </button>
               <a
-                href="tel:07970566409"
+                href="tel:07721375756"
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors flex items-center gap-2"
               >
                 <Phone className="w-5 h-5" />
-                07970 566409
+                07721 375756
               </a>
             </div>
           </div>
@@ -357,11 +357,11 @@ export default function ConstructionIndustry() {
               Request A Site Visit
             </button>
             <a
-              href="tel:07970566409"
+              href="tel:07721375756"
               className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors flex items-center gap-2 text-lg"
             >
               <Phone className="w-5 h-5" />
-              Call 07970 566409
+              Call 07721 375756
             </a>
           </div>
         </div>

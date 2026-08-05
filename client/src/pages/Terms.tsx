@@ -160,7 +160,7 @@ export default function Terms() {
                 For questions about these Terms and Conditions, please contact us:
               </p>
               <div className="bg-[#F5F1E8] p-6 rounded-lg">
-                <p className="text-gray-700 mb-2"><strong>Phone:</strong> 07970 566409</p>
+                <p className="text-gray-700 mb-2"><strong>Phone:</strong> 07721 375756</p>
                 <p className="text-gray-700 mb-2"><strong>Email:</strong> info@commercialshotblasting.co.uk</p>
                 <p className="text-gray-700"><strong>Service Area:</strong> Professional service across England & Wales</p>
               </div>

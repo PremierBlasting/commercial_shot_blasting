@@ -115,7 +115,7 @@ Our [container shot blasting service](/services/container-shot-blasting) covers 
 
 For projects requiring [surface preparation](/services/surface-preparation) documentation — blast standard achieved, profile measurements, ambient conditions — we provide full written records suitable for inclusion in project quality files or O&M manuals.
 
-To discuss your container project, call **07970 566409** or use our [online quote form](/contact).`;
+To discuss your container project, call **07721 375756** or use our [online quote form](/contact).`;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // POST 200002 — Shot Blasting vs Wire Brushing
@@ -222,7 +222,7 @@ Shot blasting is required — not just recommended — in the following situatio
 
 Wire brushing appears cheaper upfront. But the total cost of ownership tells a different story. A coating applied over a wire-brushed surface typically lasts 3–7 years before failure. The same coating applied over a shot-blasted surface typically lasts 15–25 years. The cost of recoating — including access, labour, and materials — is almost always higher than the cost of doing the job properly the first time.
 
-Commercial Shot Blasting provides free, no-obligation quotes for all projects. Our mobile units cover all 35 counties in England and Wales, including [West Midlands](/counties/west-midlands), [Yorkshire](/counties/south-yorkshire), [Lancashire](/counties/lancashire), [Staffordshire](/counties/staffordshire), and [Greater Manchester](/counties/greater-manchester). To discuss your project, call **07970 566409** or use our [online quote form](/contact).
+Commercial Shot Blasting provides free, no-obligation quotes for all projects. Our mobile units cover all 35 counties in England and Wales, including [West Midlands](/counties/west-midlands), [Yorkshire](/counties/south-yorkshire), [Lancashire](/counties/lancashire), [Staffordshire](/counties/staffordshire), and [Greater Manchester](/counties/greater-manchester). To discuss your project, call **07721 375756** or use our [online quote form](/contact).
 
 We also offer [rust removal](/services/rust-removal), [paint stripping](/services/paint-stripping), [mill scale removal](/services/mill-scale-removal), and [surface preparation](/services/surface-preparation) services across all industries and surface types. Explore our full [service areas](/service-areas) to find coverage near you.
 
@@ -362,7 +362,7 @@ Commercial Shot Blasting works to this specification on every project. Our mobil
 
 We provide full documentation on every project: blast standard achieved, surface profile measurements, ambient conditions, and operator details. This documentation is available for inclusion in your project quality file or O&M manual.
 
-For complex projects, we are happy to review your specification before work begins and advise on any areas where clarification or amendment would be beneficial. Call **07970 566409** or use our [online quote form](/contact) to discuss your project.
+For complex projects, we are happy to review your specification before work begins and advise on any areas where clarification or amendment would be beneficial. Call **07721 375756** or use our [online quote form](/contact) to discuss your project.
 
 For container refurbishment projects, the same specification principles apply — see our guide on [shot blasting for shipping containers](/blog/shot-blasting-for-shipping-containers) for container-specific guidance including blast standards, cost ranges, and the coating application window.
 

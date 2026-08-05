@@ -138,7 +138,7 @@ export default function ServiceDetail() {
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>
               Request A Site Visit
             </Button>
-            <a href="tel:07970566409">
+            <a href="tel:07721375756">
               <Button variant="outline" className="border-white text-white hover:bg-white/10">
                 <Phone className="w-4 h-4 mr-2" />
                 Call Us Now
@@ -174,7 +174,7 @@ export default function ServiceDetail() {
                         Request a Quote
                       </Button>
                       <Button asChild variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
-                        <a href="tel:07970566409" className="flex items-center gap-2">
+                        <a href="tel:07721375756" className="flex items-center gap-2">
                           <Phone className="w-4 h-4" />
                           Call Now
                         </a>
@@ -204,7 +204,7 @@ export default function ServiceDetail() {
                         Request a Quote
                       </Button>
                       <Button asChild variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
-                        <a href="tel:07970566409" className="flex items-center gap-2">
+                        <a href="tel:07721375756" className="flex items-center gap-2">
                           <Phone className="w-4 h-4" />
                           Call Now
                         </a>
@@ -234,7 +234,7 @@ export default function ServiceDetail() {
                         Request a Quote
                       </Button>
                       <Button asChild variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
-                        <a href="tel:07970566409" className="flex items-center gap-2">
+                        <a href="tel:07721375756" className="flex items-center gap-2">
                           <Phone className="w-4 h-4" />
                           Call Now
                         </a>
@@ -264,7 +264,7 @@ export default function ServiceDetail() {
                         Request a Quote
                       </Button>
                       <Button asChild variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
-                        <a href="tel:07970566409" className="flex items-center gap-2">
+                        <a href="tel:07721375756" className="flex items-center gap-2">
                           <Phone className="w-4 h-4" />
                           Call Now
                         </a>
@@ -294,7 +294,7 @@ export default function ServiceDetail() {
                         Request a Quote
                       </Button>
                       <Button asChild variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
-                        <a href="tel:07970566409" className="flex items-center gap-2">
+                        <a href="tel:07721375756" className="flex items-center gap-2">
                           <Phone className="w-4 h-4" />
                           Call Now
                         </a>
@@ -324,7 +324,7 @@ export default function ServiceDetail() {
                         Request a Quote
                       </Button>
                       <Button asChild variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
-                        <a href="tel:07970566409" className="flex items-center gap-2">
+                        <a href="tel:07721375756" className="flex items-center gap-2">
                           <Phone className="w-4 h-4" />
                           Call Now
                         </a>
@@ -354,7 +354,7 @@ export default function ServiceDetail() {
                         Request a Quote
                       </Button>
                       <Button asChild variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
-                        <a href="tel:07970566409" className="flex items-center gap-2">
+                        <a href="tel:07721375756" className="flex items-center gap-2">
                           <Phone className="w-4 h-4" />
                           Call Now
                         </a>
@@ -1503,11 +1503,11 @@ export default function ServiceDetail() {
                         Request A Site Survey
                       </button>
                       <a
-                        href="tel:07970566409"
+                        href="tel:07721375756"
                         className="flex-1 flex items-center justify-center gap-2 border-2 border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white font-semibold py-3 px-6 rounded-lg transition-colors text-sm"
                       >
                         <Phone className="w-4 h-4" />
-                        Call 07970 566409
+                        Call 07721 375756
                       </a>
                     </div>
                   </div>
@@ -1773,10 +1773,10 @@ export default function ServiceDetail() {
                     <Button className="w-full bg-[#2C5F7F] hover:bg-[#234a63]" onClick={openQuotePopup}>
                       Request Site Visit
                     </Button>
-                    <a href="tel:07970566409" className="block">
+                    <a href="tel:07721375756" className="block">
                       <Button variant="outline" className="w-full border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F]/10">
                         <Phone className="w-4 h-4 mr-2" />
-                        07970 566409
+                        07721 375756
                       </Button>
                     </a>
                     <a href="mailto:info@commercialshotblasting.co.uk" className="block">
@@ -1926,12 +1926,12 @@ export default function ServiceDetail() {
               <div className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
                 <p className="text-sm text-gray-500 mb-1">Prefer to call?</p>
                 <a
-                  href="tel:07970566409"
+                  href="tel:07721375756"
                   className="flex items-center gap-2 text-[#2C5F7F] font-bold text-xl hover:underline"
                   onClick={() => trackPhoneCall('service-page-inline-form')}
                 >
                   <Phone className="w-5 h-5" />
-                  07970 566409
+                  07721 375756
                 </a>
                 <p className="text-xs text-gray-400 mt-1">Mon–Sat 7am–6pm</p>
               </div>
@@ -1962,10 +1962,10 @@ export default function ServiceDetail() {
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 text-lg px-8 py-6" onClick={openQuotePopup}>
               Request A Site Visit
             </Button>
-            <a href="tel:07970566409">
+            <a href="tel:07721375756">
               <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6">
                 <Phone className="w-5 h-5 mr-2" />
-                07970 566409
+                07721 375756
               </Button>
             </a>
           </div>
@@ -2011,9 +2011,9 @@ export default function ServiceDetail() {
               <h4 className="font-semibold mb-4">Contact</h4>
               <ul className="space-y-3 text-white/70 text-sm">
                 <li>
-                  <a href="tel:07970566409" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <a href="tel:07721375756" className="flex items-center gap-2 hover:text-white transition-colors">
                     <Phone className="w-4 h-4" />
-                    07970 566409
+                    07721 375756
                   </a>
                 </li>
                 <li>
@@ -2047,10 +2047,10 @@ export default function ServiceDetail() {
             Request A Site Visit
           </button>
           <a
-            href="tel:07970566409"
+            href="tel:07721375756"
             className="flex items-center justify-center gap-2 px-5 py-3.5 bg-[#1a3a4d] text-white font-semibold text-sm border-l border-white/20 hover:bg-[#0f2635] transition-colors duration-200"
-            onClick={() => trackPhoneCall('07970566409', 'Service Page Sticky Bar')}
-            aria-label="Call 07970 566409"
+            onClick={() => trackPhoneCall('07721375756', 'Service Page Sticky Bar')}
+            aria-label="Call 07721 375756"
           >
             <Phone className="w-4 h-4" />
             Call Now

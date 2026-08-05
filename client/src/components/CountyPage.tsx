@@ -355,9 +355,9 @@ export function CountyPage({ county }: CountyPageProps) {
               Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <a href="tel:07970566409" className="flex items-center gap-2" onClick={() => trackPhoneCall('07970566409', 'County Page')}>
+              <a href="tel:07721375756" className="flex items-center gap-2" onClick={() => trackPhoneCall('07721375756', 'County Page')}>
                 <Phone className="w-4 h-4" />
-                Call Now: 07970 566409
+                Call Now: 07721 375756
               </a>
             </Button>
           </div>
@@ -479,11 +479,11 @@ export function CountyPage({ county }: CountyPageProps) {
               ))}
               <div className="ml-auto shrink-0 flex items-center gap-2">
                 <button
-                  onClick={() => { trackPhoneCall('07970566409', 'County Quick Nav'); window.location.href = 'tel:07970566409'; }}
+                  onClick={() => { trackPhoneCall('07721375756', 'County Quick Nav'); window.location.href = 'tel:07721375756'; }}
                   className="hidden sm:flex items-center gap-1.5 bg-white/15 hover:bg-white/25 text-white text-sm font-medium px-3 py-1.5 rounded-full transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  07970 566409
+                  07721 375756
                 </button>
                 <button
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -670,9 +670,9 @@ export function CountyPage({ county }: CountyPageProps) {
               We provide mobile shot blasting services throughout {county.name} and surrounding areas. Our fully equipped mobile units can reach any location in the region.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a href="tel:07970566409" className="inline-flex items-center gap-2 text-[#2C5F7F] hover:text-[#1a3d52] font-semibold" onClick={() => trackPhoneCall('07970566409', 'County Page CTA')}>
+              <a href="tel:07721375756" className="inline-flex items-center gap-2 text-[#2C5F7F] hover:text-[#1a3d52] font-semibold" onClick={() => trackPhoneCall('07721375756', 'County Page CTA')}>
                 <Phone className="w-5 h-5" />
-                07970 566409
+                07721 375756
               </a>
               <Button onClick={() => setQuotePopupOpen(true)} className="bg-[#E8B84A] hover:bg-[#d4a63d] text-[#1a3d52]">
                 Request A Site Visit
@@ -798,9 +798,9 @@ export function CountyPage({ county }: CountyPageProps) {
           <div className="mt-10 text-center">
             <p className="text-gray-600 mb-4">Still have questions?</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:07970566409" className="inline-flex items-center gap-2 text-[#2C5F7F] hover:text-[#1a3d52] font-semibold" onClick={() => trackPhoneCall('07970566409', 'County Page CTA')}>
+              <a href="tel:07721375756" className="inline-flex items-center gap-2 text-[#2C5F7F] hover:text-[#1a3d52] font-semibold" onClick={() => trackPhoneCall('07721375756', 'County Page CTA')}>
                 <Phone className="w-5 h-5" />
-                Call us: 07970 566409
+                Call us: 07721 375756
               </a>
               <Button onClick={() => setQuotePopupOpen(true)} className="bg-[#E8B84A] hover:bg-[#d4a63d] text-[#1a3d52]">
                 Request A Site Visit
@@ -976,9 +976,9 @@ export function CountyPage({ county }: CountyPageProps) {
               Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <a href="tel:07970566409" className="flex items-center gap-2" onClick={() => trackPhoneCall('07970566409', 'County Page')}>
+              <a href="tel:07721375756" className="flex items-center gap-2" onClick={() => trackPhoneCall('07721375756', 'County Page')}>
                 <Phone className="w-4 h-4" />
-                Call: 07970 566409
+                Call: 07721 375756
               </a>
             </Button>
           </div>
@@ -1061,7 +1061,7 @@ export function CountyPage({ county }: CountyPageProps) {
               {
                 step: 1,
                 title: "Request A Site Survey",
-                text: `Call 07970 566409 or use our online form to arrange a no-obligation site visit across ${county.name}. We will assess the surfaces, confirm the blast standard required (SA2.5 or SA3), and provide a written quote — typically within 24 hours of the visit.`
+                text: `Call 07721 375756 or use our online form to arrange a no-obligation site visit across ${county.name}. We will assess the surfaces, confirm the blast standard required (SA2.5 or SA3), and provide a written quote — typically within 24 hours of the visit.`
               },
               {
                 step: 2,

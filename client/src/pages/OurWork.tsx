@@ -860,7 +860,7 @@ export default function OurWork() {
           </p>
           <div className="flex justify-center gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>Request A Site Visit</Button>
-            <a href="tel:07970566409">
+            <a href="tel:07721375756">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 <Phone className="w-4 h-4 mr-2" /> Call Us
               </Button>
@@ -904,9 +904,9 @@ export default function OurWork() {
               <h4 className="font-semibold mb-4">Contact</h4>
               <ul className="space-y-3 text-white/70 text-sm">
                 <li>
-                  <a href="tel:07970566409" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <a href="tel:07721375756" className="flex items-center gap-2 hover:text-white transition-colors">
                     <Phone className="w-4 h-4" />
-                    07970 566409
+                    07721 375756
                   </a>
                 </li>
                 <li>

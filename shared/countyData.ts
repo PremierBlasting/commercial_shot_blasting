@@ -21,7 +21,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Bedfordshire",
     slug: "bedfordshire",
     region: "East of England",
-    description: "Professional shot blasting services in Bedfordshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Bedfordshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting services across Bedfordshire — structural steel, warehouse racking, factory cladding & automotive components. SA2.5/SA3 standard. Serving Luton, Bedford & Dunstable. Free quote.",
     url: "https://commercialshotblasting.co.uk/counties/bedfordshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VlcajxKFizWfRmvv.webp",
@@ -49,7 +49,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Bedfordshire?",
-        answer: "Call us on 07970 566409 or submit a quote request on our website. We offer free site surveys across Bedfordshire and typically respond to enquiries within 24 hours."
+        answer: "Call us on 07721 375756 or submit a quote request on our website. We offer free site surveys across Bedfordshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -57,7 +57,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Cambridgeshire",
     slug: "cambridgeshire",
     region: "East of England",
-    description: "Professional shot blasting services in Cambridgeshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Cambridgeshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting services in Cambridgeshire — agricultural machinery, construction steelwork & manufacturing plant. SA2.5/SA3 standard. Covering Cambridge, Peterborough & Ely. Free site survey.",
     url: "https://commercialshotblasting.co.uk/counties/cambridgeshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
@@ -85,7 +85,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I arrange a site visit for shot blasting in Cambridgeshire?",
-        answer: "Call 07970 566409 or use our online quote form. We offer free site surveys across Cambridgeshire and can usually arrange a visit within 2–5 working days of your enquiry."
+        answer: "Call 07721 375756 or use our online quote form. We offer free site surveys across Cambridgeshire and can usually arrange a visit within 2–5 working days of your enquiry."
       }
     ]
   },
@@ -93,7 +93,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Hertfordshire",
     slug: "hertfordshire",
     region: "East of England",
-    description: "Professional shot blasting services in Hertfordshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Hertfordshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting services in Hertfordshire — logistics warehouse racking, retail steelwork & factory cladding. SA2.5/SA3 standard. Serving St Albans, Watford & Stevenage. Free quote.",
     url: "https://commercialshotblasting.co.uk/counties/hertfordshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YBedohTImNkgXOlG.webp",
@@ -121,7 +121,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a quote for shot blasting in Hertfordshire?",
-        answer: "Call us on 07970 566409 or request a free quote through our website. We offer no-obligation site surveys and will provide a detailed written quotation for your Hertfordshire project."
+        answer: "Call us on 07721 375756 or request a free quote through our website. We offer no-obligation site surveys and will provide a detailed written quotation for your Hertfordshire project."
       }
     ]
   },
@@ -129,7 +129,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Norfolk",
     slug: "norfolk",
     region: "East of England",
-    description: "Professional shot blasting services in Norfolk. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Norfolk. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Norfolk — agricultural machinery, marine & offshore structures, energy sector plant. SA2.5/SA3 standard. Covering Norwich, Great Yarmouth & King's Lynn. Free site survey.",
     url: "https://commercialshotblasting.co.uk/counties/norfolk",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wNJxNfMjngkYNOyk.webp",
@@ -157,7 +157,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Norfolk?",
-        answer: "Call 07970 566409 or submit a quote request on our website. We offer free site surveys across Norfolk and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or submit a quote request on our website. We offer free site surveys across Norfolk and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -165,7 +165,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Suffolk",
     slug: "suffolk",
     region: "East of England",
-    description: "Professional shot blasting services in Suffolk. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Suffolk. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Suffolk — port & logistics infrastructure, agricultural equipment & marine vessels. SA2.5/SA3 standard. Serving Ipswich, Felixstowe & Lowestoft. Free quote.",
     url: "https://commercialshotblasting.co.uk/counties/suffolk",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp",
@@ -193,7 +193,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a quote for shot blasting in Suffolk?",
-        answer: "Call 07970 566409 or use our online quote form. We offer free site surveys across Suffolk and respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or use our online quote form. We offer free site surveys across Suffolk and respond to enquiries within 24 hours."
       }
     ]
   },
@@ -203,7 +203,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Derbyshire",
     slug: "derbyshire",
     region: "East Midlands",
-    description: "Professional shot blasting services in Derbyshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Derbyshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Derbyshire — aerospace components, manufacturing plant & construction steelwork. SA2.5/SA3 to BS EN ISO 8501-1. Serving Derby, Chesterfield & Ilkeston. Free site survey.",
     url: "https://commercialshotblasting.co.uk/counties/derbyshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp",
@@ -231,7 +231,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Derbyshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Derbyshire and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Derbyshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -239,7 +239,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Leicestershire",
     slug: "leicestershire",
     region: "East Midlands",
-    description: "Professional shot blasting services in Leicestershire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Leicestershire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Leicestershire — logistics warehouse structures, engineering fabrications & manufacturing plant. SA2.5/SA3 standard. Covering Leicester, Loughborough & Hinckley. Free quote.",
     url: "https://commercialshotblasting.co.uk/counties/leicestershire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp",
@@ -267,7 +267,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a quote for shot blasting in Leicestershire?",
-        answer: "Call 07970 566409 or submit a quote request on our website. We offer free site surveys across Leicestershire and respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or submit a quote request on our website. We offer free site surveys across Leicestershire and respond to enquiries within 24 hours."
       }
     ]
   },
@@ -275,7 +275,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Lincolnshire",
     slug: "lincolnshire",
     region: "East Midlands",
-    description: "Professional shot blasting services in Lincolnshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Lincolnshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Lincolnshire — agricultural machinery, food processing plant & port infrastructure. SA2.5/SA3 standard. Serving Lincoln, Grimsby & Boston. Free site survey.",
     url: "https://commercialshotblasting.co.uk/counties/lincolnshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp",
@@ -303,7 +303,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Lincolnshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Lincolnshire and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Lincolnshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -311,7 +311,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Northamptonshire",
     slug: "northamptonshire",
     region: "East Midlands",
-    description: "Professional shot blasting services in Northamptonshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Northamptonshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Northamptonshire — steel fabrications, logistics warehouse structures & automotive plant. SA2.5/SA3 standard. Serving Northampton, Corby & Kettering. Free quote.",
     url: "https://commercialshotblasting.co.uk/counties/northamptonshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VlcajxKFizWfRmvv.webp",
@@ -339,7 +339,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a quote for shot blasting in Northamptonshire?",
-        answer: "Call 07970 566409 or submit a quote request on our website. We offer free site surveys across Northamptonshire and respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or submit a quote request on our website. We offer free site surveys across Northamptonshire and respond to enquiries within 24 hours."
       }
     ]
   },
@@ -347,7 +347,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Nottinghamshire",
     slug: "nottinghamshire",
     region: "East Midlands",
-    description: "Professional shot blasting services in Nottinghamshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Nottinghamshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Nottinghamshire — structural steelwork, manufacturing plant & fire escapes. SA2.5/SA3 standard. Covering Nottingham, Mansfield & Newark-on-Trent. Free site survey.",
     url: "https://commercialshotblasting.co.uk/counties/nottinghamshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
@@ -375,7 +375,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Nottinghamshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Nottinghamshire and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Nottinghamshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -385,7 +385,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Herefordshire",
     slug: "herefordshire",
     region: "West Midlands",
-    description: "Professional shot blasting services in Herefordshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Herefordshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Herefordshire — agricultural machinery, food processing plant & heritage structures. SA2.5/SA3 standard. Serving Hereford, Leominster & Ross-on-Wye. Free quote.",
     url: "https://commercialshotblasting.co.uk/counties/herefordshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YBedohTImNkgXOlG.webp",
@@ -413,7 +413,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Herefordshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Herefordshire and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Herefordshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -421,7 +421,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Shropshire",
     slug: "shropshire",
     region: "West Midlands",
-    description: "Professional shot blasting services in Shropshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Shropshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Shropshire — manufacturing plant, engineering fabrications & agricultural equipment. SA2.5/SA3 standard. Covering Shrewsbury, Telford & Oswestry. Free site survey.",
     url: "https://commercialshotblasting.co.uk/counties/shropshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wNJxNfMjngkYNOyk.webp",
@@ -449,7 +449,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Shropshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Shropshire and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Shropshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -457,7 +457,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Staffordshire",
     slug: "staffordshire",
     region: "West Midlands",
-    description: "Professional shot blasting services in Staffordshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Staffordshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Staffordshire — ceramics plant, automotive components & factory cladding. SA2.5/SA3 standard. Serving Stoke-on-Trent, Stafford & Tamworth. Free quote.",
     url: "https://commercialshotblasting.co.uk/counties/staffordshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp",
@@ -485,7 +485,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Staffordshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Staffordshire and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Staffordshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -493,7 +493,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Warwickshire",
     slug: "warwickshire",
     region: "West Midlands",
-    description: "Professional shot blasting services in Warwickshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Warwickshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Warwickshire — automotive & aerospace fabrications, structural steelwork & manufacturing plant. SA2.5/SA3 standard. Serving Leamington Spa, Rugby & Nuneaton. Free quote.",
     url: "https://commercialshotblasting.co.uk/counties/warwickshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp",
@@ -521,7 +521,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Warwickshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Warwickshire and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Warwickshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -529,7 +529,7 @@ export const countyData: Record<string, CountyData> = {
     name: "West Midlands",
     slug: "west-midlands",
     region: "West Midlands",
-    description: "Professional shot blasting services in West Midlands. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in West Midlands. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in the West Midlands — automotive production tooling, aerospace fabrications & factory cladding. SA2.5/SA3 standard. Serving Birmingham, Wolverhampton & Coventry. Free quote.",
     url: "https://commercialshotblasting.co.uk/counties/west-midlands",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp",
@@ -557,7 +557,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in the West Midlands?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across the West Midlands and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across the West Midlands and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -565,7 +565,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Worcestershire",
     slug: "worcestershire",
     region: "West Midlands",
-    description: "Professional shot blasting services in Worcestershire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Worcestershire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Worcestershire — manufacturing plant, agricultural equipment & food processing structures. SA2.5/SA3 standard. Serving Worcester, Kidderminster & Redditch. Free quote.",
     url: "https://commercialshotblasting.co.uk/counties/worcestershire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp",
@@ -593,7 +593,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Worcestershire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Worcestershire and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Worcestershire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -631,7 +631,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in South Yorkshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across South Yorkshire and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across South Yorkshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -667,7 +667,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in West Yorkshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across West Yorkshire and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across West Yorkshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -705,7 +705,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Cheshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Cheshire and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Cheshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -715,7 +715,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Gloucestershire",
     slug: "gloucestershire",
     region: "South West",
-    description: "Professional shot blasting services in Gloucestershire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Gloucestershire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Gloucestershire — aerospace fabrications, agricultural equipment & heritage structures. SA2.5/SA3 standard. Serving Gloucester, Cheltenham & Stroud. Free quote.",
     url: "https://commercialshotblasting.co.uk/counties/gloucestershire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/wNJxNfMjngkYNOyk.webp",
@@ -743,7 +743,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Gloucestershire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Gloucestershire and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Gloucestershire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -779,7 +779,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in North Devon?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across North Devon and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across North Devon and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -787,7 +787,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Somerset",
     slug: "somerset",
     region: "South West",
-    description: "Professional shot blasting services in Somerset. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Somerset. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Somerset — agricultural machinery, food processing plant & heritage structures. SA2.5/SA3 standard. Serving Taunton, Yeovil & Bridgwater. Free quote.",
     url: "https://commercialshotblasting.co.uk/counties/somerset",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp",
@@ -815,7 +815,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Somerset?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Somerset and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Somerset and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -823,7 +823,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Wiltshire",
     slug: "wiltshire",
     region: "South West",
-    description: "Professional shot blasting services in Wiltshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Wiltshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Wiltshire — defence & aerospace components, manufacturing plant & agricultural equipment. SA2.5/SA3 standard. Serving Swindon, Salisbury & Chippenham. Free quote.",
     url: "https://commercialshotblasting.co.uk/counties/wiltshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oIKBPlRyGOSKXcAl.webp",
@@ -851,7 +851,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Wiltshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Wiltshire and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Wiltshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -861,7 +861,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Buckinghamshire",
     slug: "buckinghamshire",
     region: "Wales Borders",
-    description: "Professional shot blasting services in Buckinghamshire. Rust removal, surface prep & industrial blasting. Call 07970 566409",
+    description: "Professional shot blasting services in Buckinghamshire. Rust removal, surface prep & industrial blasting. Call 07721 375756",
     metaDescription: "Mobile shot blasting in Buckinghamshire — logistics warehouse structures, manufacturing plant & technology sector steelwork. SA2.5/SA3 standard. Serving Milton Keynes, Aylesbury & High Wycombe. Free quote.",
     url: "https://commercialshotblasting.co.uk/counties/buckinghamshire",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/WozicopVSALZJtEo.webp",
@@ -889,7 +889,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Buckinghamshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Buckinghamshire and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Buckinghamshire and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -925,7 +925,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in East Wales?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across East Wales and typically respond to enquiries within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across East Wales and typically respond to enquiries within 24 hours."
       }
     ]
   },
@@ -962,7 +962,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in North Yorkshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across North Yorkshire and typically respond within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across North Yorkshire and typically respond within 24 hours."
       }
     ]
   },
@@ -999,7 +999,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Greater Manchester?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Greater Manchester and typically respond within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Greater Manchester and typically respond within 24 hours."
       }
     ]
   },
@@ -1036,7 +1036,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Essex?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Essex and typically respond within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Essex and typically respond within 24 hours."
       }
     ]
   },
@@ -1073,7 +1073,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Berkshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Berkshire and typically respond within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Berkshire and typically respond within 24 hours."
       }
     ]
   },
@@ -1110,7 +1110,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Hampshire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Hampshire and typically respond within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Hampshire and typically respond within 24 hours."
       }
     ]
   },
@@ -1147,7 +1147,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Lancashire?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Lancashire and typically respond within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Lancashire and typically respond within 24 hours."
       }
     ]
   },
@@ -1184,7 +1184,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Cumbria?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Cumbria and typically respond within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Cumbria and typically respond within 24 hours."
       }
     ]
   },
@@ -1221,7 +1221,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in County Durham?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across County Durham and typically respond within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across County Durham and typically respond within 24 hours."
       }
     ]
   },
@@ -1258,7 +1258,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Tyne & Wear?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Tyne & Wear and typically respond within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Tyne & Wear and typically respond within 24 hours."
       }
     ]
   },
@@ -1295,7 +1295,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How do I get a free quote for shot blasting in Northumberland?",
-        answer: "Call 07970 566409 or request a quote online. We offer free site surveys across Northumberland and typically respond within 24 hours."
+        answer: "Call 07721 375756 or request a quote online. We offer free site surveys across Northumberland and typically respond within 24 hours."
       }
     ]
   },

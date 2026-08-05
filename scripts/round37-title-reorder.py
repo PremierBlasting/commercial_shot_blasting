@@ -57,8 +57,8 @@ print("County page title reordered: done")
 #   "Shot blasting near me in {Area} — mobile service, "
 # But that changes the sentence structure too much.
 # Better: append "near me" to the end before the phone number.
-# Pattern: "... Free (site survey|quote). Call 07970 566409"
-# Target:  "... Free (site survey|quote) — shot blasting near me. Call 07970 566409"
+# Pattern: "... Free (site survey|quote). Call 07721 375756"
+# Target:  "... Free (site survey|quote) — shot blasting near me. Call 07721 375756"
 
 def add_near_me_to_desc(m):
     before = m.group(1)
@@ -66,7 +66,7 @@ def add_near_me_to_desc(m):
     return f'{before} — shot blasting near me. {cta}'
 
 content = re.sub(
-    r'(description: "Mobile shot blasting in [^"]+?)\. (Free (?:site survey|quote)\. Call 07970 566409")',
+    r'(description: "Mobile shot blasting in [^"]+?)\. (Free (?:site survey|quote)\. Call 07721 375756")',
     add_near_me_to_desc,
     content
 )

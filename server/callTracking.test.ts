@@ -35,7 +35,7 @@ describe("Call Tracking", () => {
   it("should log a call tracking event", async () => {
     const result = await caller.callTracking.logCall({
       location: "Birmingham",
-      phoneNumber: "07970566409",
+      phoneNumber: "07721375756",
       userAgent: "Mozilla/5.0 Test Browser",
       referrer: "https://example.com",
     });
@@ -48,7 +48,7 @@ describe("Call Tracking", () => {
       const events = await db.select().from(callTrackingEvents);
       expect(events.length).toBe(1);
       expect(events[0].location).toBe("Birmingham");
-      expect(events[0].phoneNumber).toBe("07970566409");
+      expect(events[0].phoneNumber).toBe("07721375756");
       expect(events[0].userAgent).toBe("Mozilla/5.0 Test Browser");
     }
   });
@@ -57,15 +57,15 @@ describe("Call Tracking", () => {
     // Log some test calls
     await caller.callTracking.logCall({
       location: "Birmingham",
-      phoneNumber: "07970566409",
+      phoneNumber: "07721375756",
     });
     await caller.callTracking.logCall({
       location: "Leicester",
-      phoneNumber: "07970566409",
+      phoneNumber: "07721375756",
     });
     await caller.callTracking.logCall({
       location: "Birmingham",
-      phoneNumber: "07970566409",
+      phoneNumber: "07721375756",
     });
 
     // Retrieve analytics as admin
@@ -77,15 +77,15 @@ describe("Call Tracking", () => {
     // Log test calls from different locations
     await caller.callTracking.logCall({
       location: "Birmingham",
-      phoneNumber: "07970566409",
+      phoneNumber: "07721375756",
     });
     await caller.callTracking.logCall({
       location: "Birmingham",
-      phoneNumber: "07970566409",
+      phoneNumber: "07721375756",
     });
     await caller.callTracking.logCall({
       location: "Leicester",
-      phoneNumber: "07970566409",
+      phoneNumber: "07721375756",
     });
 
     // Get location stats as admin

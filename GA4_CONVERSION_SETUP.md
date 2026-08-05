@@ -12,7 +12,7 @@ Fired when a user clicks the floating "Call Now" button on mobile.
 **Event Parameters:**
 - `event_category`: "Contact"
 - `event_label`: "Floating Call Button"
-- `phone_number`: "07970566409"
+- `phone_number`: "07721375756"
 - `click_location`: Current page path
 
 ### 2. `whatsapp_button_click`

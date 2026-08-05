@@ -101,7 +101,7 @@ export default function SteelFabricationsPage() {
 
   useSEO({
     title: "Shot Blasting Steel Fabrications UK | On-Site Service | Sa 2.5 Standard | Commercial Shot Blasting",
-    description: "Mobile on-site shot blasting for steel fabrications across England and Wales. Frames, base plates, arch sections, channels, and brackets blasted to Sa 2.5 near-white metal standard. No transport required — we come to you. Call 07970 566409.",
+    description: "Mobile on-site shot blasting for steel fabrications across England and Wales. Frames, base plates, arch sections, channels, and brackets blasted to Sa 2.5 near-white metal standard. No transport required — we come to you. Call 07721 375756.",
     keywords: "shot blasting steel fabrications, fabricated steel shot blasting, shot blasting fabricated steelwork, mobile shot blasting fabrications, Sa 2.5 steel fabrications, rust removal fabricated steel, mill scale removal fabrications, shot blasting fabricated steel frames, steel fabrications surface preparation UK",
     image: images.p1After,
     canonical: "https://commercialshotblasting.co.uk/steel-fabrications",
@@ -166,7 +166,7 @@ export default function SteelFabricationsPage() {
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
               Request A Site Visit
             </Button>
-            <a href="tel:07970566409">
+            <a href="tel:07721375756">
               <Button variant="outline" className="border-white text-white hover:bg-white/10">
                 <Phone className="w-4 h-4 mr-2" />
                 Call Us Now
@@ -507,10 +507,10 @@ export default function SteelFabricationsPage() {
                     <Button className="w-full bg-[#2C5F7F] hover:bg-[#234a63]" onClick={() => setQuotePopupOpen(true)}>
                       Request Site Visit
                     </Button>
-                    <a href="tel:07970566409" className="block">
+                    <a href="tel:07721375756" className="block">
                       <Button variant="outline" className="w-full border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F]/10">
                         <Phone className="w-4 h-4 mr-2" />
-                        07970 566409
+                        07721 375756
                       </Button>
                     </a>
                     <a href="mailto:info@commercialshotblasting.co.uk" className="block">

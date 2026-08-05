@@ -49,15 +49,15 @@ describe('GA4 Conversion Tracking', () => {
   it('should track phone calls with correct parameters', async () => {
     const { trackPhoneCall } = await import('../client/src/lib/analytics');
     
-    trackPhoneCall('07970566409', 'Header');
+    trackPhoneCall('07721375756', 'Header');
     
     expect(window.gtag).toHaveBeenCalledWith(
       'event',
       'phone_call',
       expect.objectContaining({
         event_category: 'Contact',
-        event_label: '07970566409',
-        phone_number: '07970566409',
+        event_label: '07721375756',
+        phone_number: '07721375756',
         click_location: 'Header',
       })
     );
@@ -66,7 +66,7 @@ describe('GA4 Conversion Tracking', () => {
   it('should fire Google Ads phone-call conversion event on phone click (separate label from form)', async () => {
     const { trackPhoneCall } = await import('../client/src/lib/analytics');
     
-    trackPhoneCall('07970566409', 'Header');
+    trackPhoneCall('07721375756', 'Header');
     
     expect(window.gtag).toHaveBeenCalledWith(
       'event',
@@ -82,7 +82,7 @@ describe('GA4 Conversion Tracking', () => {
   it('should NOT fire the lead-form label on phone call (labels must be distinct)', async () => {
     const { trackPhoneCall } = await import('../client/src/lib/analytics');
     
-    trackPhoneCall('07970566409', 'Header');
+    trackPhoneCall('07721375756', 'Header');
     
     const calls = (window.gtag as ReturnType<typeof vi.fn>).mock.calls;
     const conversionCalls = calls.filter(
@@ -217,7 +217,7 @@ describe('GA4 Conversion Tracking', () => {
     
     // Should work fine even without UTM data
     expect(() => {
-      trackPhoneCall('07970566409', 'Footer');
+      trackPhoneCall('07721375756', 'Footer');
     }).not.toThrow();
     
     expect(window.gtag).toHaveBeenCalled();

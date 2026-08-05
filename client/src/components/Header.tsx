@@ -554,12 +554,12 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
 
         <div className="flex items-center gap-4">
           <a 
-            href="tel:07970566409" 
+            href="tel:07721375756" 
             className="hidden lg:flex items-center gap-2 text-sm"
-            onClick={() => trackPhoneCall('07970566409', 'Header')}
+            onClick={() => trackPhoneCall('07721375756', 'Header')}
           >
             <Phone className="w-4 h-4" />
-            07970 566409
+            07721 375756
           </a>
           <Button 
             className="hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90" 
@@ -735,12 +735,12 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             
             <div className="flex flex-col gap-3 pt-4">
               <a 
-                href="tel:07970566409" 
+                href="tel:07721375756" 
                 className="flex items-center gap-2 text-sm"
-                onClick={() => trackPhoneCall('07970566409', 'Mobile Menu')}
+                onClick={() => trackPhoneCall('07721375756', 'Mobile Menu')}
               >
                 <Phone className="w-4 h-4" />
-                07970 566409
+                07721 375756
               </a>
               <Button 
                 className="bg-white text-[#2C5F7F] hover:bg-white/90 w-full" 

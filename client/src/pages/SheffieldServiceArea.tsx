@@ -146,9 +146,9 @@ export default function SheffieldServiceArea() {
               Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <a href="tel:07970566409" className="flex items-center gap-2">
+              <a href="tel:07721375756" className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                Call Now: 07970 566409
+                Call Now: 07721 375756
               </a>
             </Button>
           </div>
@@ -384,7 +384,7 @@ export default function SheffieldServiceArea() {
             </Button>
             <TrackedPhoneButton
               location="Sheffield"
-              phoneNumber="07970566409"
+              phoneNumber="07721375756"
               variant="outline"
               size="lg"
               className="border-[#2C5F7F] text-[#2C5F7F]"
@@ -559,7 +559,7 @@ export default function SheffieldServiceArea() {
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
               <Phone className="w-4 h-4 mr-2" />
-              Call Now: 07970 566409
+              Call Now: 07721 375756
             </Button>
           </div>
         </div>

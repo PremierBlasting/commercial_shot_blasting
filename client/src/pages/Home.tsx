@@ -122,7 +122,7 @@ export default function Home() {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', 'UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Site visit. Call 07970 566409.');
+    metaDescription.setAttribute('content', 'UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Site visit. Call 07721 375756.');
 
     // Update or create meta keywords
     let metaKeywords = document.querySelector('meta[name="keywords"]');
@@ -391,7 +391,7 @@ export default function Home() {
                 </Button>
               </Link>
               <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                <a href="tel:07970566409" className="flex items-center gap-2">
+                <a href="tel:07721375756" className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />
                   Call Now
                 </a>
@@ -942,7 +942,7 @@ export default function Home() {
             </div>
             <div className="flex gap-4">
               <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>Request A Site Visit</Button>
-              <a href="tel:07970566409">
+              <a href="tel:07721375756">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                   <Phone className="w-4 h-4 mr-2" /> Call Us
                 </Button>
@@ -1070,7 +1070,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Phone</p>
-                    <a href="tel:07970566409" className="font-medium hover:text-[#2C5F7F] transition-colors">07970 566409</a>
+                    <a href="tel:07721375756" className="font-medium hover:text-[#2C5F7F] transition-colors">07721 375756</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">

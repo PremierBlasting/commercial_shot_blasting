@@ -105,7 +105,7 @@ const content = `<p>The terms "shot blasting" and "sandblasting" are often used 
 
 <p>We offer both shot blasting and abrasive blasting services across our <a href="/service-areas" style="color:#2C5F7F; font-weight:600;">35-county service area</a>, from <a href="/counties/yorkshire" style="color:#2C5F7F; font-weight:600;">Yorkshire</a> and <a href="/counties/greater-manchester" style="color:#2C5F7F; font-weight:600;">Greater Manchester</a> in the north to <a href="/counties/kent" style="color:#2C5F7F; font-weight:600;">Kent</a> and <a href="/counties/hampshire" style="color:#2C5F7F; font-weight:600;">Hampshire</a> in the south. Our <a href="/counties/west-midlands" style="color:#2C5F7F; font-weight:600;">West Midlands</a> and <a href="/counties/staffordshire" style="color:#2C5F7F; font-weight:600;">Staffordshire</a> base allows rapid response across the Midlands.</p>
 
-<p>To discuss your project and arrange a site visit, call <strong>07970 566409</strong> or use our <a href="/contact" style="color:#2C5F7F; font-weight:600;">online contact form</a>.</p>`;
+<p>To discuss your project and arrange a site visit, call <strong>07721 375756</strong> or use our <a href="/contact" style="color:#2C5F7F; font-weight:600;">online contact form</a>.</p>`;
 
 try {
   const [rows] = await db.execute(

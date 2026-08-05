@@ -55,11 +55,11 @@ export const NearbyTowns: React.FC<NearbyTownsProps> = ({ locationName, towns })
                     Request A Site Visit
                   </a>
                   <a
-                    href="tel:07970566409"
-                    onClick={() => trackPhoneCall('07970566409', 'Nearby Towns Section')}
+                    href="tel:07721375756"
+                    onClick={() => trackPhoneCall('07721375756', 'Nearby Towns Section')}
                     className="inline-flex items-center justify-center px-6 py-3 border-2 border-[#2C5F7F] text-[#2C5F7F] font-semibold rounded-lg hover:bg-[#2C5F7F] hover:text-white transition-colors duration-200"
                   >
-                    Call 07970 566409
+                    Call 07721 375756
                   </a>
                 </div>
               </div>

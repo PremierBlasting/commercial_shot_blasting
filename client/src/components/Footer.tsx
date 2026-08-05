@@ -72,9 +72,9 @@ export function Footer() {
             <p className="text-white/70 text-sm mb-4">Professional shot blasting services across the UK.</p>
             <ul className="space-y-2 text-white/70 text-sm">
               <li>
-                <a href="tel:07970566409" className="hover:text-white flex items-center gap-2" onClick={() => trackPhoneCall('07970566409', 'Footer')}>
+                <a href="tel:07721375756" className="hover:text-white flex items-center gap-2" onClick={() => trackPhoneCall('07721375756', 'Footer')}>
                   <Phone className="w-4 h-4" />
-                  07970 566409
+                  07721 375756
                 </a>
               </li>
               <li>

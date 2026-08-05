@@ -100,7 +100,7 @@ export function LeadForm({
       onSuccess?.();
     },
     onError: (err) => {
-      setError(err.message || "Something went wrong. Please call us directly on 07970 566409.");
+      setError(err.message || "Something went wrong. Please call us directly on 07721 375756.");
     },
   });
 
@@ -171,8 +171,8 @@ export function LeadForm({
         <p className={`text-sm ${subColor}`}>
           Thanks, {firstName}. We'll be in touch within 24 hours to confirm your site visit.
           {" "}For urgent jobs, call us directly on{" "}
-          <a href="tel:07970566409" className={`font-semibold ${isDark ? "text-[#7ec8e3]" : "text-[#2C5F7F]"} hover:underline`}>
-            07970 566409
+          <a href="tel:07721375756" className={`font-semibold ${isDark ? "text-[#7ec8e3]" : "text-[#2C5F7F]"} hover:underline`}>
+            07721 375756
           </a>.
         </p>
       </div>

@@ -207,10 +207,10 @@ export function LocationPage({ location }: LocationPageProps) {
                 size="lg" 
                 variant="outline" 
                 className="border-white text-white hover:bg-white/10"
-                onClick={() => { trackPhoneCall('07970566409', 'Location Page'); window.location.href = 'tel:07970566409'; }}
+                onClick={() => { trackPhoneCall('07721375756', 'Location Page'); window.location.href = 'tel:07721375756'; }}
               >
                 <Phone className="w-5 h-5 mr-2" />
-                07970 566409
+                07721 375756
               </Button>
             </div>
           </div>
@@ -291,7 +291,7 @@ export function LocationPage({ location }: LocationPageProps) {
                 )}
               </p>
               <p>
-                Whether you need a single component blasted or a full factory cladding programme, our mobile shot blasting service in {location.name} delivers consistent, high-quality results with minimal disruption to your operations. Call <a href="tel:07970566409" className="text-[#2C5F7F] hover:underline font-medium">07970 566409</a> to arrange a no-obligation site visit.
+                Whether you need a single component blasted or a full factory cladding programme, our mobile shot blasting service in {location.name} delivers consistent, high-quality results with minimal disruption to your operations. Call <a href="tel:07721375756" className="text-[#2C5F7F] hover:underline font-medium">07721 375756</a> to arrange a no-obligation site visit.
               </p>
               {countyContext[location.countySlug] && (
                 <p className="mt-4 text-gray-600 border-l-4 border-[#2C5F7F] pl-4 italic">
@@ -455,11 +455,11 @@ export function LocationPage({ location }: LocationPageProps) {
               ))}
               <div className="ml-auto shrink-0 flex items-center gap-2">
                 <button
-                  onClick={() => { trackPhoneCall('07970566409', 'Quick Nav'); window.location.href = 'tel:07970566409'; }}
+                  onClick={() => { trackPhoneCall('07721375756', 'Quick Nav'); window.location.href = 'tel:07721375756'; }}
                   className="hidden sm:flex items-center gap-1.5 bg-white/15 hover:bg-white/25 text-white text-sm font-medium px-3 py-1.5 rounded-full transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  07970 566409
+                  07721 375756
                 </button>
                 <button
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -854,10 +854,10 @@ export function LocationPage({ location }: LocationPageProps) {
                 size="lg" 
                 variant="outline" 
                 className="border-white text-white hover:bg-white/10"
-                onClick={() => { trackPhoneCall('07970566409', 'Location Page'); window.location.href = 'tel:07970566409'; }}
+                onClick={() => { trackPhoneCall('07721375756', 'Location Page'); window.location.href = 'tel:07721375756'; }}
               >
                 <Phone className="w-5 h-5 mr-2" />
-                Call 07970 566409
+                Call 07721 375756
               </Button>
             </div>
           </div>
@@ -879,7 +879,7 @@ export function LocationPage({ location }: LocationPageProps) {
               {
                 step: 1,
                 title: "Request A Site Survey",
-                text: `Call 07970 566409 or use our online form to arrange a no-obligation site visit in ${location.name}. We will assess the surfaces, confirm the blast standard required (SA2.5 or SA3), and provide a written quote — typically within 24 hours of the visit.`
+                text: `Call 07721 375756 or use our online form to arrange a no-obligation site visit in ${location.name}. We will assess the surfaces, confirm the blast standard required (SA2.5 or SA3), and provide a written quote — typically within 24 hours of the visit.`
               },
               {
                 step: 2,
@@ -1073,12 +1073,12 @@ export function LocationPage({ location }: LocationPageProps) {
                 </div>
               </div>
               <a
-                href="tel:07970566409"
+                href="tel:07721375756"
                 className="inline-flex items-center gap-2 mt-6 text-white font-semibold text-sm hover:text-[#7ec8e3] transition-colors"
-                onClick={() => trackPhoneCall('07970566409', 'Location Page Inline CTA')}
+                onClick={() => trackPhoneCall('07721375756', 'Location Page Inline CTA')}
               >
                 <Phone className="w-4 h-4" />
-                Or call us: 07970 566409
+                Or call us: 07721 375756
               </a>
             </div>
 
@@ -1088,7 +1088,7 @@ export function LocationPage({ location }: LocationPageProps) {
                 <div className="bg-white/10 rounded-xl p-6 text-center">
                   <CheckCircle className="w-10 h-10 text-[#7ec8e3] mx-auto mb-3" />
                   <h3 className="font-bold text-lg mb-1">Site visit requested!</h3>
-                  <p className="text-blue-100 text-sm">We'll be in touch within 24 hours to confirm your site visit. For urgent jobs, call us directly on 07970 566409.</p>
+                  <p className="text-blue-100 text-sm">We'll be in touch within 24 hours to confirm your site visit. For urgent jobs, call us directly on 07721 375756.</p>
                 </div>
               ) : (
                 <form onSubmit={handleInlineFormSubmit} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 flex flex-col gap-4">
@@ -1245,10 +1245,10 @@ export function LocationPage({ location }: LocationPageProps) {
             Request A Site Visit
           </button>
           <a
-            href="tel:07970566409"
+            href="tel:07721375756"
             className="flex items-center justify-center gap-2 px-5 py-3.5 bg-[#1a3a4d] text-white font-semibold text-sm border-l border-white/20"
-            onClick={() => trackPhoneCall('07970566409', 'Location Page Sticky Bar')}
-            aria-label="Call 07970 566409"
+            onClick={() => trackPhoneCall('07721375756', 'Location Page Sticky Bar')}
+            aria-label="Call 07721 375756"
           >
             <Phone className="w-4 h-4" />
             Call Now

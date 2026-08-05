@@ -137,11 +137,11 @@ export default function ManufacturingIndustry() {
                 Request A Site Visit
               </button>
               <a
-                href="tel:07970566409"
+                href="tel:07721375756"
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors flex items-center gap-2"
               >
                 <Phone className="w-5 h-5" />
-                07970 566409
+                07721 375756
               </a>
             </div>
           </div>
@@ -415,11 +415,11 @@ export default function ManufacturingIndustry() {
               Request A Site Visit
             </button>
             <a
-              href="tel:07970566409"
+              href="tel:07721375756"
               className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors flex items-center gap-2 text-lg"
             >
               <Phone className="w-5 h-5" />
-              Call 07970 566409
+              Call 07721 375756
             </a>
           </div>
         </div>
@@ -458,7 +458,7 @@ export default function ManufacturingIndustry() {
               <ul className="space-y-2 text-white/70 text-sm">
                 <li className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <a href="tel:07970566409" className="hover:text-white">07970 566409</a>
+                  <a href="tel:07721375756" className="hover:text-white">07721 375756</a>
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />

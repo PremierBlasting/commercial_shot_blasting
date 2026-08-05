@@ -27,7 +27,7 @@ function GlossaryTermSchema({ term }: { term: typeof GLOSSARY_TERMS[number] }) {
         "@type": "Organization",
         "name": "Commercial Shot Blasting",
         "url": SITE_URL,
-        "telephone": "07970566409",
+        "telephone": "07721375756",
         "areaServed": "GB"
       }
     }
@@ -336,11 +336,11 @@ export default function GlossaryTerm() {
                   Get a Free Quote
                 </Link>
                 <a
-                  href="tel:07970566409"
+                  href="tel:07721375756"
                   className="flex items-center justify-center gap-2 text-[#1a3a4d] font-semibold text-sm hover:underline"
                 >
                   <Phone className="w-4 h-4" />
-                  07970 566409
+                  07721 375756
                 </a>
               </div>
             </aside>

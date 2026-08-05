@@ -192,7 +192,7 @@ export default function CoventryServiceArea() {
               Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <a href="tel:07970566409" className="flex items-center gap-2">
+              <a href="tel:07721375756" className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
                 Call Now
               </a>
@@ -320,7 +320,7 @@ export default function CoventryServiceArea() {
             </Button>
             <TrackedPhoneButton
               location="Coventry"
-              phoneNumber="07970566409"
+              phoneNumber="07721375756"
               variant="outline"
               size="lg"
               className="border-[#2C5F7F] text-[#2C5F7F]"
@@ -508,7 +508,7 @@ export default function CoventryServiceArea() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Phone</p>
-                    <p className="font-medium">07970 566409</p>
+                    <p className="font-medium">07721 375756</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -589,7 +589,7 @@ export default function CoventryServiceArea() {
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
               <ul className="space-y-2 text-white/70 text-sm">
-                <li>07970 566409</li>
+                <li>07721 375756</li>
                 <li>info@shotblasting.co.uk</li>
                 <li>Coventry & West Midlands Service</li>
               </ul>

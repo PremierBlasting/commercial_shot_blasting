@@ -57,7 +57,7 @@ export default function WolverhamptonServiceArea() {
 
   useEffect(() => {
     const locationInfo = locationData["wolverhamton"];
-    const description = locationInfo?.description || "Professional shot blasting services. Expert surface preparation & rust removal. Call 07970 566409";
+    const description = locationInfo?.description || "Professional shot blasting services. Expert surface preparation & rust removal. Call 07721 375756";
     
     // Set meta description
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -176,7 +176,7 @@ export default function WolverhamptonServiceArea() {
               Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <a href="tel:07970566409" className="flex items-center gap-2">
+              <a href="tel:07721375756" className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
                 Call Now
               </a>
@@ -266,7 +266,7 @@ export default function WolverhamptonServiceArea() {
             </Button>
             <TrackedPhoneButton
               location="Wolverhampton"
-              phoneNumber="07970566409"
+              phoneNumber="07721375756"
               variant="outline"
               size="lg"
               className="border-[#2C5F7F] text-[#2C5F7F]"
@@ -493,7 +493,7 @@ export default function WolverhamptonServiceArea() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-6 h-6 text-[#2C5F7F]" />
-                  <p className="text-gray-700">07970 566409 (Local Wolverhampton Contact)</p>
+                  <p className="text-gray-700">07721 375756 (Local Wolverhampton Contact)</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mail className="w-6 h-6 text-[#2C5F7F]" />

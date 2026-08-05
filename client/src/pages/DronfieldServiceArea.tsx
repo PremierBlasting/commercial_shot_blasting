@@ -38,7 +38,7 @@ export default function DronfieldServiceArea() {
   }, []);
 
   useEffect(() => {
-    const description = locationData["dronfield"]?.description || "Professional shot blasting services in Dronfield. Call 07970 566409";
+    const description = locationData["dronfield"]?.description || "Professional shot blasting services in Dronfield. Call 07721 375756";
     
     // Set meta description
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -137,9 +137,9 @@ export default function DronfieldServiceArea() {
               Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <a href="tel:07970566409" className="flex items-center gap-2">
+              <a href="tel:07721375756" className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                Call Now: 07970 566409
+                Call Now: 07721 375756
               </a>
             </Button>
           </div>
@@ -337,9 +337,9 @@ export default function DronfieldServiceArea() {
               Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <a href="tel:07970566409" className="flex items-center gap-2">
+              <a href="tel:07721375756" className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                Call: 07970 566409
+                Call: 07721 375756
               </a>
             </Button>
           </div>

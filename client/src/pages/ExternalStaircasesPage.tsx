@@ -130,7 +130,7 @@ export default function ExternalStaircasesPage() {
 
   useSEO({
     title: "Shot Blasting External Staircases & Fire Escapes UK | On-Site Rust Removal | Sa 2.5 | Commercial Shot Blasting",
-    description: "Mobile on-site shot blasting for external steel staircases and fire escapes across England and Wales. Rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required — we come to you. Call 07970 566409.",
+    description: "Mobile on-site shot blasting for external steel staircases and fire escapes across England and Wales. Rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required — we come to you. Call 07721 375756.",
     keywords: "shot blasting external staircases, shot blasting fire escapes, fire escape shot blasting UK, external staircase shot blasting, external staircase rust removal, steel staircase shot blasting UK, mobile shot blasting staircases, shot blasting fire escapes UK, fire escape rust removal, external staircase surface preparation, shot blast external steps UK, staircase rust and paint removal UK",
     image: "/manus-storage/staircase_thumb_d419ab8f.jpg",
     canonical: "https://commercialshotblasting.co.uk/external-staircases",
@@ -188,7 +188,7 @@ export default function ExternalStaircasesPage() {
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 font-semibold" onClick={() => setQuotePopupOpen(true)}>
               Request A Site Visit
             </Button>
-            <a href="tel:07970566409">
+            <a href="tel:07721375756">
               <Button variant="outline" className="border-white text-white hover:bg-white/10">
                 <Phone className="w-4 h-4 mr-2" />
                 Call Us Now
@@ -447,10 +447,10 @@ export default function ExternalStaircasesPage() {
                     <Button className="w-full bg-[#2C5F7F] hover:bg-[#234a63]" onClick={() => setQuotePopupOpen(true)}>
                       Request Site Visit
                     </Button>
-                    <a href="tel:07970566409" className="block">
+                    <a href="tel:07721375756" className="block">
                       <Button variant="outline" className="w-full border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F]/10">
                         <Phone className="w-4 h-4 mr-2" />
-                        07970 566409
+                        07721 375756
                       </Button>
                     </a>
                     <a href="mailto:info@commercialshotblasting.co.uk" className="block">

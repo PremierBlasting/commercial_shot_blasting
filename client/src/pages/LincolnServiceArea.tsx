@@ -22,7 +22,7 @@ import { LeadForm } from "@/components/LeadForm";
 // --- Location-Specific Data ---
 const LOCATION_NAME = "Lincoln";
 const REGION_NAME = "Lincolnshire";
-const CONTACT_PHONE = "07970 566409"; // Using the same number as Home.tsx for consistency
+const CONTACT_PHONE = "07721 375756"; // Using the same number as Home.tsx for consistency
 
 const INDUSTRIES_SERVED = [
   { name: "Advanced Manufacturing", icon: Factory, desc: "Precision surface preparation for Lincoln's engineering and manufacturing sector." },
@@ -226,7 +226,7 @@ export default function LincolnServiceArea() {
               Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <a href="tel:07970566409" className="flex items-center gap-2">
+              <a href="tel:07721375756" className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
                 Call Now
               </a>
@@ -316,7 +316,7 @@ export default function LincolnServiceArea() {
             </Button>
             <TrackedPhoneButton
               location="Lincoln"
-              phoneNumber="07970566409"
+              phoneNumber="07721375756"
               variant="outline"
               size="lg"
               className="border-[#2C5F7F] text-[#2C5F7F]"

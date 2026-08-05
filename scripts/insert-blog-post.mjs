@@ -50,7 +50,7 @@ const content = `<h2>Why Birmingham Businesses Choose Professional Shot Blasting
 <p>We cover Birmingham, Wolverhampton, Coventry, Derby, Leicester, and all surrounding areas across the West Midlands and East Midlands. Our team is experienced, fully insured, and committed to delivering work on time and to specification.</p>
 
 <h2>Get a Free Quote Today</h2>
-<p>Ready to discuss your project? Call us on <strong>07970 566409</strong> or use our contact form to send us your details. We look forward to helping you achieve the surface finish your project demands.</p>`;
+<p>Ready to discuss your project? Call us on <strong>07721 375756</strong> or use our contact form to send us your details. We look forward to helping you achieve the surface finish your project demands.</p>`;
 
 const post = {
   slug: "shot-blasting-birmingham-west-midlands-2026",
@@ -61,7 +61,7 @@ const post = {
   author: "Commercial Shot Blasting",
   category: "Service Areas",
   tags: JSON.stringify(["Birmingham", "West Midlands", "shot blasting", "surface preparation", "industrial"]),
-  metaDescription: "Professional shot blasting services in Birmingham and the West Midlands. Mobile grit blasting for steel, cladding, machinery and more. BS EN ISO 8501 compliant. Call 07970 566409.",
+  metaDescription: "Professional shot blasting services in Birmingham and the West Midlands. Mobile grit blasting for steel, cladding, machinery and more. BS EN ISO 8501 compliant. Call 07721 375756.",
   isPublished: true,
 };
 

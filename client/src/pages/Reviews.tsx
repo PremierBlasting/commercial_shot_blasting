@@ -399,9 +399,9 @@ export default function Reviews() {
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
               Request A Site Visit
             </Button>
-            <a href="tel:07970566409">
+            <a href="tel:07721375756">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                Call 07970 566409
+                Call 07721 375756
               </Button>
             </a>
           </div>

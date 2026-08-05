@@ -123,7 +123,7 @@ export default function PreparationCleanup() {
               className="border-white text-white hover:bg-white/10"
               asChild
             >
-              <a href="tel:07970566409">
+              <a href="tel:07721375756">
                 <Phone className="w-4 h-4 mr-2" />
                 Call Us Now
               </a>
@@ -306,9 +306,9 @@ export default function PreparationCleanup() {
               className="border-white text-white hover:bg-white/10"
               asChild
             >
-              <a href="tel:07970566409">
+              <a href="tel:07721375756">
                 <Phone className="w-4 h-4 mr-2" />
-                07970 566409
+                07721 375756
               </a>
             </Button>
             <Button 

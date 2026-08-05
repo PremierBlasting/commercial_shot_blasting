@@ -683,9 +683,9 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
           className="bg-[#d4a853] hover:bg-[#c49843] text-[#1a3d52] font-semibold"
           asChild
         >
-          <a href="tel:07970566409" onClick={() => trackPhoneCall('07970566409', 'Service Areas Map')}>
+          <a href="tel:07721375756" onClick={() => trackPhoneCall('07721375756', 'Service Areas Map')}>
             <Phone className="w-4 h-4 mr-2" />
-            Call 07970 566409
+            Call 07721 375756
           </a>
         </Button>
       </div>

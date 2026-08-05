@@ -186,7 +186,7 @@ export default function SwindonServiceArea() {
               Request A Site Visit
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <a href="tel:07970566409" className="flex items-center gap-2">
+              <a href="tel:07721375756" className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
                 Call Now
               </a>
@@ -276,7 +276,7 @@ export default function SwindonServiceArea() {
             </Button>
             <TrackedPhoneButton
               location="Swindon"
-              phoneNumber="07970566409"
+              phoneNumber="07721375756"
               variant="outline"
               size="lg"
               className="border-[#2C5F7F] text-[#2C5F7F]"
@@ -521,7 +521,7 @@ export default function SwindonServiceArea() {
                   <Phone className="w-6 h-6 text-[#2C5F7F] flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold text-[#2C2C2C]">Call Us</h3>
-                    <p className="text-gray-600">07970 566409 (Direct Line)</p>
+                    <p className="text-gray-600">07721 375756 (Direct Line)</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">

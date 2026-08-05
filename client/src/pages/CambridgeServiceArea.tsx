@@ -93,7 +93,7 @@ const HeroSection = ({ setQuotePopupOpen }: { setQuotePopupOpen: (open: boolean)
           Request A Site Visit
         </Button>
         <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-          <a href="tel:07970566409" className="flex items-center gap-2">
+          <a href="tel:07721375756" className="flex items-center gap-2">
             <Phone className="w-5 h-5" />
             Call Now
           </a>
@@ -270,7 +270,7 @@ const CTASection = () => (
         <div className="flex gap-4">
           <Button size="lg" className="bg-[#2C5F7F] text-white hover:bg-[#1a3d52]">Request A Site Visit</Button>
           <Button size="lg" variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F]/10">
-            <Phone className="w-4 h-4 mr-2" /> 07970 566409
+            <Phone className="w-4 h-4 mr-2" /> 07721 375756
           </Button>
         </div>
       </div>

@@ -257,7 +257,7 @@ export default function PrivacyPolicy() {
               <div className="bg-gray-50 rounded-lg p-4 text-gray-700">
                 <p className="mb-1"><strong>Business Name:</strong> Commercial Shot Blasting</p>
                 <p className="mb-1"><strong>Email:</strong> info@commercialshotblasting.co.uk</p>
-                <p className="mb-1"><strong>Phone:</strong> 07970 566409</p>
+                <p className="mb-1"><strong>Phone:</strong> 07721 375756</p>
                 <p><strong>Website:</strong> commercialshotblasting.co.uk</p>
               </div>
             </div>
@@ -308,7 +308,7 @@ export default function PrivacyPolicy() {
               </p>
               <div className="space-y-2 text-gray-700">
                 <p><strong>Email:</strong> info@commercialshotblasting.co.uk</p>
-                <p><strong>Phone:</strong> 07970 566409</p>
+                <p><strong>Phone:</strong> 07721 375756</p>
                 <p><strong>Address:</strong> Commercial Shot Blasting, United Kingdom</p>
               </div>
             </div>
@@ -365,9 +365,9 @@ export default function PrivacyPolicy() {
               <h4 className="font-semibold mb-4">Contact</h4>
               <ul className="space-y-3 text-white/70 text-sm">
                 <li>
-                  <a href="tel:07970566409" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <a href="tel:07721375756" className="flex items-center gap-2 hover:text-white transition-colors">
                     <Phone className="w-4 h-4" />
-                    07970 566409
+                    07721 375756
                   </a>
                 </li>
                 <li>

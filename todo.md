@@ -1378,3 +1378,8 @@
 - [x] Add Back to Top button inside the county page sticky nav bar (right side, all screen sizes)
 - [x] County floating Back to Top button already existed — preserved alongside new sticky nav Back to Top
 - [x] TypeScript: 0 errors, 174 tests passing
+
+## Phone Number Update (Aug 2026)
+- [x] Replace all instances of 07970 566409 with 07721 375756 across all 832 files (source code, pre-rendered HTML, scripts, JSON-LD schemas, meta descriptions, tel: links, trackPhoneCall() calls)
+- [x] Zero remaining instances of old number anywhere in the project
+- [x] TypeScript: 0 errors, 174 tests passing

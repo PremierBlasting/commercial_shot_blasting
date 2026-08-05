@@ -132,7 +132,7 @@ export async function sendLeadNotificationEmail(lead: LeadData): Promise<boolean
     </div>
 
     <div style="margin-top: 16px; text-align: center;">
-      <a href="tel:${lead.phone ? escapeHtml(lead.phone) : '07970566409'}" style="display:inline-block;background:#1a3a5c;color:#fff;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;font-size:14px;">
+      <a href="tel:${lead.phone ? escapeHtml(lead.phone) : '07721375756'}" style="display:inline-block;background:#1a3a5c;color:#fff;padding:10px 24px;border-radius:6px;text-decoration:none;font-weight:bold;font-size:14px;">
         Call ${lead.phone ? escapeHtml(lead.phone) : 'Lead Now'}
       </a>
     </div>
