@@ -7037,6 +7037,12 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     const webPageSchema = JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":ppTitle,"description":ppDesc,"url":ppUrl,"inLanguage":"en-GB","publisher":{"@type":"Organization","name":BUSINESS_NAME,"url":SITE_URL}});
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, `<title>${ppTitle}</title>\n    <link rel="canonical" href="${ppUrl}" />\n    <meta name="description" content="${ppDesc}" />\n    <meta property="og:title" content="${ppTitle}" />\n    <meta property="og:description" content="${ppDesc}" />\n    <meta property="og:url" content="${ppUrl}" />\n    <meta name="robots" content="noindex, follow" />`);
     modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n</head>`);
+    const _ppSsr = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/services">Services</a> | <a href="${SITE_URL}/service-areas">Service Areas</a> | <a href="${SITE_URL}/about">About</a> | <a href="${SITE_URL}/contact">Contact</a> | <a href="${SITE_URL}/blog">Blog</a> | <a href="${SITE_URL}/industries">Industries</a> | <a href="${SITE_URL}/glossary">Glossary</a></nav><main><h1>Privacy Policy — Commercial Shot Blasting</h1><p>This privacy policy explains how Commercial Shot Blasting (commercialshotblasting.co.uk) collects, uses, and protects your personal data under UK GDPR and the Data Protection Act 2018. Data controller: Commercial Shot Blasting, part of Premier Blasting Ltd.</p><p>Contact: <a href="mailto:info@commercialshotblasting.co.uk">info@commercialshotblasting.co.uk</a> | <a href="tel:07721375756">07721 375756</a></p><p><a href="${SITE_URL}/contact">Contact us</a> | <a href="${SITE_URL}/">Home</a></p></main></div>`;
+    if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
+      modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', _ppSsr);
+    } else {
+      modifiedHtml = modifiedHtml.replace(/<body[^>]*>/, (match) => `${match}\n${_ppSsr}`);
+    }
     return modifiedHtml;
   }
 
@@ -7061,6 +7067,12 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     const cpService = JSON.stringify({"@context":"https://schema.org","@type":"Service","name":"Car Park Paint & Line Marking Removal","alternateName":["Car Park Line Marking Removal","Car Park Shot Blasting","Road Paint Removal UK","Thermoplastic Road Marking Removal","Parking Bay Paint Removal"],"description":cpDesc,"url":cpUrl,"serviceType":"Shot Blasting","provider":{"@type":"LocalBusiness","name":BUSINESS_NAME,"url":SITE_URL,"telephone":"07721375756","email":"info@commercialshotblasting.co.uk","areaServed":["England","Wales"]},"areaServed":{"@type":"Country","name":"United Kingdom"}});
     const cpFaq = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can you remove car park line markings without damaging the tarmac?","acceptedAnswer":{"@type":"Answer","text":"Yes. We use calibrated shot blasting equipment that removes paint and thermoplastic markings from the surface without cutting into the tarmac or concrete substrate. The result is a clean surface with no visible scarring, ready for re-marking."}},{"@type":"Question","name":"Do you work on-site at the car park?","acceptedAnswer":{"@type":"Answer","text":"Yes — we bring all our mobile shot blasting equipment to your site. There is no need to close the entire car park; we can work bay by bay or section by section, allowing you to keep part of the facility operational during the works."}},{"@type":"Question","name":"What types of car park markings can you remove?","acceptedAnswer":{"@type":"Answer","text":"We can remove all types of car park and road markings including painted bay lines, thermoplastic markings, bay numbers, disabled bay symbols, directional arrows, hatching, yellow lines, and road paint from both tarmac and concrete surfaces."}},{"@type":"Question","name":"How long does car park line marking removal take?","acceptedAnswer":{"@type":"Answer","text":"Timescales depend on the size of the car park and the number of bays. As a guide, a standard 100-bay car park can typically be completed in one to two days. We will provide an accurate programme when you enquire."}},{"@type":"Question","name":"Do you remove thermoplastic road markings?","acceptedAnswer":{"@type":"Answer","text":"Yes. Thermoplastic markings are thicker and more durable than paint, but shot blasting removes them effectively without the heat or chemicals required by other methods. The surface is left clean and ready for new markings to be applied."}},{"@type":"Question","name":"What areas do you cover for car park paint removal?","acceptedAnswer":{"@type":"Answer","text":"We cover the whole of England and Wales from our bases in the Midlands. We regularly work in Nottingham, Birmingham, Manchester, Leeds, London, Bristol, and across our 35-county service area. Travel is included in our quotation."}}]});
     modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${cpBreadcrumb}</script>\n<script type="application/ld+json">${cpWebPage}</script>\n<script type="application/ld+json">${cpService}</script>\n<script type="application/ld+json">${cpFaq}</script>\n</head>`);
+    const _ssr_car_park = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/services">Services</a> | <a href="${SITE_URL}/service-areas">Service Areas</a> | <a href="${SITE_URL}/contact">Contact</a></nav><main><h1>Car Park Paint &amp; Line Marking Removal | Commercial Shot Blasting</h1><p>Professional car park paint and line marking removal using shot blasting. We remove old road markings, anti-slip coatings, and failed paint from concrete and tarmac surfaces. Mobile service across England and Wales. Free site surveys.</p><ul><li>Car park line marking removal</li><li>Thermoplastic road marking removal</li><li>Anti-slip coating removal</li><li>Concrete and tarmac surface preparation</li></ul><p><a href="${SITE_URL}/contact">Request a free site survey</a> | Call <a href="tel:07721375756">07721 375756</a></p></main></div>`;
+    if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
+      modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', _ssr_car_park);
+    } else {
+      modifiedHtml = modifiedHtml.replace(/<body[^>]*>/, (match) => `${match}\n${_ssr_car_park}`);
+    }
     return modifiedHtml;
   }
 
@@ -7088,6 +7100,12 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     const ipService = JSON.stringify({"@context":"https://schema.org","@type":"Service","name":"Intumescent Painting on Structural Steel","alternateName":["Intumescent Coating Application","Fire Protection Painting Steel","Intumescent Paint Spraying UK","Structural Steel Fire Protection","R30 R60 R90 R120 Intumescent Coating"],"description":ipDesc,"url":ipUrl,"serviceType":"Intumescent Painting","provider":{"@type":"LocalBusiness","name":BUSINESS_NAME,"url":SITE_URL,"telephone":"07721375756","email":"info@commercialshotblasting.co.uk","areaServed":["England","Wales"]},"areaServed":{"@type":"Country","name":"United Kingdom"}});
     const ipFaq = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is intumescent paint and how does it work?","acceptedAnswer":{"@type":"Answer","text":"Intumescent paint is a fire-resistant coating applied to structural steel. In the event of a fire, it expands to form a thick insulating char layer that protects the steel from heat, delaying structural failure and giving occupants more time to evacuate. It is specified to fire ratings of R30, R60, R90, or R120 (minutes of fire resistance)."}},{"@type":"Question","name":"Why does steel need to be shot blasted before intumescent painting?","acceptedAnswer":{"@type":"Answer","text":"Intumescent coatings require a clean, profiled steel surface to bond correctly. Shot blasting removes mill scale, rust, old coatings, and contamination, and creates a surface profile (typically 40–70 microns) that gives the coating mechanical adhesion. Without proper surface preparation, the coating can delaminate and will fail to provide the specified fire rating."}},{"@type":"Question","name":"What fire ratings can you achieve?","acceptedAnswer":{"@type":"Answer","text":"We apply intumescent coatings to achieve R30, R60, R90, and R120 fire ratings. The required dry film thickness (DFT) depends on the steel section factor, the fire rating required, and the coating product used. We work to the coating manufacturer's specification and can provide full application records."}},{"@type":"Question","name":"Do you work on-site or in a workshop?","acceptedAnswer":{"@type":"Answer","text":"We work both on-site and in workshops. For new-build structural steel, we typically blast and prime in a workshop before the steel is erected, then apply the intumescent topcoat on-site after erection. For existing structures, we carry out all works on-site using mobile equipment and cherry pickers or scissor lifts."}},{"@type":"Question","name":"What areas do you cover for intumescent painting?","acceptedAnswer":{"@type":"Answer","text":"We cover the whole of England and Wales. We regularly work in South Yorkshire, West Yorkshire, the East Midlands, West Midlands, Greater Manchester, and London. Travel is included in our fixed-price quotation."}},{"@type":"Question","name":"Can you provide a combined shot blasting and intumescent painting service?","acceptedAnswer":{"@type":"Answer","text":"Yes — this is our most common scope. We provide a single-contract service covering surface preparation (shot blasting to Sa 2.5), primer application, and intumescent topcoat. Using one contractor for both operations eliminates interface risk and simplifies programme management for the main contractor."}}]});
     modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${ipBreadcrumb}</script>\n<script type="application/ld+json">${ipWebPage}</script>\n<script type="application/ld+json">${ipService}</script>\n<script type="application/ld+json">${ipFaq}</script>\n</head>`);
+    const _ssr_intumescent = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/services">Services</a> | <a href="${SITE_URL}/service-areas">Service Areas</a> | <a href="${SITE_URL}/about">About</a> | <a href="${SITE_URL}/contact">Contact</a> | <a href="${SITE_URL}/blog">Blog</a> | <a href="${SITE_URL}/industries">Industries</a> | <a href="${SITE_URL}/glossary">Glossary</a></nav><main><h1>Intumescent Painting on Structural Steel | Commercial Shot Blasting</h1><p>Professional intumescent painting service for structural steel. We shot blast steel to SA2.5, apply primer, and apply intumescent topcoat to achieve R30, R60, R90, or R120 fire ratings. Mobile service across England and Wales. Single-contract shot blasting and intumescent painting. Free site surveys.</p><ul><li>Shot blasting to SA2.5 before intumescent coating</li><li>R30, R60, R90, R120 fire ratings achievable</li><li>On-site and workshop application</li><li>Full application records provided</li></ul><p><a href="${SITE_URL}/contact">Request a free site survey</a> | <a href="${SITE_URL}/services">View all services</a> | Call <a href="tel:07721375756">07721 375756</a></p></main></div>`;
+    if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
+      modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', _ssr_intumescent);
+    } else {
+      modifiedHtml = modifiedHtml.replace(/<body[^>]*>/, (match) => `${match}\n${_ssr_intumescent}`);
+    }
     return modifiedHtml;
   }
 
@@ -7110,6 +7128,12 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     const breadcrumbSchema = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Counties","item":countiesUrl}]});
     const webPageSchema = JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":countiesTitle,"description":countiesDesc,"url":countiesUrl});
     modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n</head>`);
+    const _ssrCounties = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/service-areas">Service Areas</a> | <a href="${SITE_URL}/contact">Contact</a></nav><main><h1>Shot Blasting Services by County — England &amp; Wales</h1><p>Mobile shot blasting services across 25 counties. Free site surveys and quotes.</p><ul><li><a href="${SITE_URL}/counties/shropshire">Shropshire</a></li><li><a href="${SITE_URL}/counties/west-midlands">West Midlands</a></li><li><a href="${SITE_URL}/counties/south-yorkshire">South Yorkshire</a></li><li><a href="${SITE_URL}/counties/greater-manchester">Greater Manchester</a></li></ul><p><a href="${SITE_URL}/service-areas">All service areas</a> | <a href="${SITE_URL}/contact">Get a quote</a></p></main></div>`;
+    if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
+      modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', _ssrCounties);
+    } else {
+      modifiedHtml = modifiedHtml.replace(/<body[^>]*>/, (match) => `${match}\n${_ssrCounties}`);
+    }
     return modifiedHtml;
   }
 
@@ -7507,6 +7531,75 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
   }
 
   // ── HTML Sitemap page: /sitemap ─────────────────────────────────────────────
+  // ── Contact page: /contact ────────────────────────────────────────────────
+  if (url === '/contact' || url === '/contact/') {
+    const contactTitle = 'Contact Commercial Shot Blasting | Free Site Survey | 07721 375756';
+    const contactDesc = 'Contact Commercial Shot Blasting for a free, no-obligation site survey and quote. Call 07721 375756 or complete our online form. We respond within 24 hours. Covering England and Wales.';
+    const contactUrl = `${SITE_URL}/contact`;
+    let modifiedHtml = html
+      .replace(/<meta\s+name="description"[^>]*>/gi, '')
+      .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+    modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, `<title>${contactTitle}</title>\n    <link rel="canonical" href="${contactUrl}" />\n    <link rel="alternate" hreflang="en-gb" href="${contactUrl}" />\n    <meta name="description" content="${contactDesc}" />\n    <meta name="robots" content="index, follow" />\n    <meta property="og:title" content="${contactTitle}" />\n    <meta property="og:description" content="${contactDesc}" />\n    <meta property="og:url" content="${contactUrl}" />\n    <meta property="og:type" content="website" />\n    <meta property="og:image" content="${LOGO}" />\n    <meta property="og:locale" content="en_GB" />\n    <meta property="og:site_name" content="${BUSINESS_NAME}" />\n    <meta name="twitter:card" content="summary" />\n    <meta name="twitter:title" content="${contactTitle}" />\n    <meta name="twitter:description" content="${contactDesc}" />`);
+    const contactBreadcrumb = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Contact","item":contactUrl}]});
+    const contactWebPage = JSON.stringify({"@context":"https://schema.org","@type":"ContactPage","name":contactTitle,"description":contactDesc,"url":contactUrl,"inLanguage":"en-GB"});
+    modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${contactBreadcrumb}</script>\n<script type="application/ld+json">${contactWebPage}</script>\n</head>`);
+    const _ssrContact = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/services">Services</a> | <a href="${SITE_URL}/service-areas">Service Areas</a> | <a href="${SITE_URL}/about">About</a></nav><main><h1>Contact Commercial Shot Blasting</h1><p>Get a free, no-obligation site survey and quote for your shot blasting project. We cover the whole of England and Wales. Call <a href="tel:07721375756">07721 375756</a> or email <a href="mailto:info@commercialshotblasting.co.uk">info@commercialshotblasting.co.uk</a>. We respond within 24 hours.</p><ul><li>Free site surveys across England and Wales</li><li>No-obligation quotes — typically within 24 hours</li><li>Mobile shot blasting — we come to you</li><li>SA2.5 and SA3 certified results</li></ul><p><a href="${SITE_URL}/site-survey">Book a free site survey</a> | <a href="${SITE_URL}/services">View all services</a></p></main></div>`;
+    if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
+      modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', _ssrContact);
+    } else {
+      modifiedHtml = modifiedHtml.replace(/<body[^>]*>/, (match) => `${match}\n${_ssrContact}`);
+    }
+    return modifiedHtml;
+  }
+
+  // ── Our Work page: /our-work ──────────────────────────────────────────────
+  if (url === '/our-work' || url === '/our-work/') {
+    const owTitle = 'Our Work — Shot Blasting Projects | Commercial Shot Blasting';
+    const owDesc = 'See examples of our commercial and industrial shot blasting work across the UK. Structural steel, factory cladding, containers, bridges, and more. SA2.5 and SA3 standard.';
+    const owUrl = `${SITE_URL}/our-work`;
+    let modifiedHtml = html
+      .replace(/<meta\s+name="description"[^>]*>/gi, '')
+      .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+    modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, `<title>${owTitle}</title>\n    <link rel="canonical" href="${owUrl}" />\n    <link rel="alternate" hreflang="en-gb" href="${owUrl}" />\n    <meta name="description" content="${owDesc}" />\n    <meta name="robots" content="index, follow" />\n    <meta property="og:title" content="${owTitle}" />\n    <meta property="og:description" content="${owDesc}" />\n    <meta property="og:url" content="${owUrl}" />\n    <meta property="og:type" content="website" />\n    <meta property="og:image" content="${LOGO}" />\n    <meta property="og:locale" content="en_GB" />\n    <meta property="og:site_name" content="${BUSINESS_NAME}" />\n    <meta name="twitter:card" content="summary_large_image" />\n    <meta name="twitter:title" content="${owTitle}" />\n    <meta name="twitter:description" content="${owDesc}" />`);
+    const owBreadcrumb = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Our Work","item":owUrl}]});
+    const owWebPage = JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":owTitle,"description":owDesc,"url":owUrl,"inLanguage":"en-GB"});
+    modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${owBreadcrumb}</script>\n<script type="application/ld+json">${owWebPage}</script>\n</head>`);
+    const _ssrOurWork = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/services">Services</a> | <a href="${SITE_URL}/about">About</a> | <a href="${SITE_URL}/contact">Contact</a></nav><main><h1>Our Shot Blasting Work</h1><p>Examples of commercial and industrial shot blasting projects completed by Commercial Shot Blasting across England and Wales. Structural steel frames, factory cladding, shipping containers, bridge steelwork, fire escapes, and more — all completed to SA2.5 or SA3 standard.</p><ul><li><a href="${SITE_URL}/services/structural-steel-frames">Structural Steel Shot Blasting</a></li><li><a href="${SITE_URL}/services/factory-cladding">Factory Cladding Shot Blasting</a></li><li><a href="${SITE_URL}/services/bridge-steelwork">Bridge Steelwork Shot Blasting</a></li><li><a href="${SITE_URL}/services/steel-containers">Steel Container Shot Blasting</a></li></ul><p><a href="${SITE_URL}/contact">Get a free quote</a> | Call <a href="tel:07721375756">07721 375756</a></p></main></div>`;
+    if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
+      modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', _ssrOurWork);
+    } else {
+      modifiedHtml = modifiedHtml.replace(/<body[^>]*>/, (match) => `${match}\n${_ssrOurWork}`);
+    }
+    return modifiedHtml;
+  }
+
+  // ── Preparation & Cleanup page: /preparation-and-cleanup ─────────────────
+  if (url === '/preparation-and-cleanup' || url === '/preparation-and-cleanup/') {
+    const pcTitle = 'Preparation & Cleanup for Shot Blasting | Commercial Shot Blasting';
+    const pcDesc = 'Full site preparation and cleanup services for shot blasting projects. We protect surrounding areas, contain abrasive media, and leave your site clean after every job. England and Wales.';
+    const pcUrl = `${SITE_URL}/preparation-and-cleanup`;
+    let modifiedHtml = html
+      .replace(/<meta\s+name="description"[^>]*>/gi, '')
+      .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, '')
+      .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, '')
+      .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
+    modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, `<title>${pcTitle}</title>\n    <link rel="canonical" href="${pcUrl}" />\n    <link rel="alternate" hreflang="en-gb" href="${pcUrl}" />\n    <meta name="description" content="${pcDesc}" />\n    <meta name="robots" content="index, follow" />\n    <meta property="og:title" content="${pcTitle}" />\n    <meta property="og:description" content="${pcDesc}" />\n    <meta property="og:url" content="${pcUrl}" />\n    <meta property="og:type" content="website" />\n    <meta property="og:image" content="${LOGO}" />\n    <meta property="og:locale" content="en_GB" />\n    <meta property="og:site_name" content="${BUSINESS_NAME}" />\n    <meta name="twitter:card" content="summary" />\n    <meta name="twitter:title" content="${pcTitle}" />\n    <meta name="twitter:description" content="${pcDesc}" />`);
+    const pcBreadcrumb = JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE_URL},{"@type":"ListItem","position":2,"name":"Preparation & Cleanup","item":pcUrl}]});
+    const pcWebPage = JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":pcTitle,"description":pcDesc,"url":pcUrl,"inLanguage":"en-GB"});
+    modifiedHtml = modifiedHtml.replace('</head>', `<script type="application/ld+json">${pcBreadcrumb}</script>\n<script type="application/ld+json">${pcWebPage}</script>\n</head>`);
+    const _ssrPrepCleanup = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/services">Services</a> | <a href="${SITE_URL}/contact">Contact</a></nav><main><h1>Preparation &amp; Cleanup for Shot Blasting</h1><p>We provide full site preparation and cleanup for every shot blasting project. Surrounding areas are masked and protected, abrasive media is fully contained, and the site is left clean after every job. No additional cleanup required from you.</p><ul><li>Full site masking and protection</li><li>Abrasive media containment and recovery</li><li>Full site cleanup included in every quote</li><li>Dust suppression and environmental controls</li></ul><p><a href="${SITE_URL}/contact">Request a free site survey</a> | <a href="${SITE_URL}/services">View all services</a> | Call <a href="tel:07721375756">07721 375756</a></p></main></div>`;
+    if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
+      modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', _ssrPrepCleanup);
+    } else {
+      modifiedHtml = modifiedHtml.replace(/<body[^>]*>/, (match) => `${match}\n${_ssrPrepCleanup}`);
+    }
+    return modifiedHtml;
+  }
+
   if (url === '/sitemap' || url === '/sitemap/') {
     const sitemapTitle = `Site Map — Commercial Shot Blasting`;
     const sitemapDesc = `Complete directory of all service areas, counties, services and industries covered by Commercial Shot Blasting across the UK. Find shot blasting services near you.`;
@@ -7536,6 +7629,12 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <meta name="twitter:description" content="${sitemapDesc}" />
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, sitemapMetaTags);
+    const _ssr_sitemap = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/services">Services</a> | <a href="${SITE_URL}/service-areas">Service Areas</a> | <a href="${SITE_URL}/about">About</a> | <a href="${SITE_URL}/contact">Contact</a> | <a href="${SITE_URL}/blog">Blog</a> | <a href="${SITE_URL}/industries">Industries</a> | <a href="${SITE_URL}/glossary">Glossary</a></nav><main><h1>Site Map — Commercial Shot Blasting</h1><p>Complete directory of all service areas, counties, services and industries covered by Commercial Shot Blasting across England and Wales.</p><ul><li><a href="${SITE_URL}/">Home</a></li><li><a href="${SITE_URL}/services">All Shot Blasting Services</a></li><li><a href="${SITE_URL}/service-areas">Service Areas — 638 UK Towns</a></li><li><a href="${SITE_URL}/counties">Counties</a></li><li><a href="${SITE_URL}/industries">Industries</a></li><li><a href="${SITE_URL}/blog">Blog</a></li><li><a href="${SITE_URL}/glossary">Shot Blasting Glossary</a></li><li><a href="${SITE_URL}/about">About Us</a></li><li><a href="${SITE_URL}/contact">Contact</a></li></ul></main></div>`;
+    if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
+      modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', _ssr_sitemap);
+    } else {
+      modifiedHtml = modifiedHtml.replace(/<body[^>]*>/, (match) => `${match}\n${_ssr_sitemap}`);
+    }
     return modifiedHtml;
   }
 

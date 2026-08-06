@@ -1390,3 +1390,16 @@
 - [x] Replace left:-9999px hidden content styling with .sr-only clip-path:inset(50%) pattern across all 14 SSR injection points
 - [x] Generate and inject spotlight content for remaining locations — already 100% complete from previous session
 - [x] TypeScript: 0 errors, 174 tests passing
+
+## Full SSR Body Coverage (Aug 2026)
+- [x] Audit all routes — identified /contact, /our-work, /preparation-and-cleanup, /counties, /sitemap, /privacy-policy, /services/car-park-paint-removal, /services/intumescent-painting as missing SSR body
+- [x] Add SSR body HTML to /contact (H1, description, bullet points, internal links)
+- [x] Add SSR body HTML to /our-work (H1, description, service links)
+- [x] Add SSR body HTML to /preparation-and-cleanup (H1, description, bullet points)
+- [x] Add SSR body HTML to /counties index (H1, county links, service area link)
+- [x] Add SSR body HTML to /sitemap (H1, directory links)
+- [x] Add SSR body HTML to /privacy-policy (H1, data controller info, contact links)
+- [x] Add SSR body HTML to /services/car-park-paint-removal (H1, service list, CTA)
+- [x] Add SSR body HTML to /services/intumescent-painting (H1, fire ratings, CTA)
+- [x] County pages confirmed to have SSR body via id="ssr-county" (different ID, same function)
+- [x] TypeScript: 0 errors, 174 tests passing
