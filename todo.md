@@ -1383,3 +1383,10 @@
 - [x] Replace all instances of 07970 566409 with 07721 375756 across all 832 files (source code, pre-rendered HTML, scripts, JSON-LD schemas, meta descriptions, tel: links, trackPhoneCall() calls)
 - [x] Zero remaining instances of old number anywhere in the project
 - [x] TypeScript: 0 errors, 174 tests passing
+
+## SEO Fixes Batch 2 (Aug 2026)
+- [x] Fix sitemap-main.xml: remove 12 fake service URLs, replace with 25 real service IDs matching actual data layer
+- [x] Add SSR body content injection to all 8 industry pages in metaTags.ts (H1, description, service list, county links)
+- [x] Replace left:-9999px hidden content styling with .sr-only clip-path:inset(50%) pattern across all 14 SSR injection points
+- [x] Generate and inject spotlight content for remaining locations — already 100% complete from previous session
+- [x] TypeScript: 0 errors, 174 tests passing
