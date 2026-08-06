@@ -1403,3 +1403,11 @@
 - [x] Add SSR body HTML to /services/intumescent-painting (H1, fire ratings, CTA)
 - [x] County pages confirmed to have SSR body via id="ssr-county" (different ID, same function)
 - [x] TypeScript: 0 errors, 174 tests passing
+
+## Blog Post + Sitemap + Blog Index (Aug 2026)
+- [x] Add /contact to sitemap-main.xml (updated lastmod to 2026-08-06)
+- [x] Generate 800-word blog post: "How to Prepare Structural Steel for Shot Blasting" (7,154 chars, 3 FAQs, 5 tags)
+- [x] Publish blog post to the database (id: 380002, 17 total posts now live)
+- [x] Verify blog index component displays the new post (blog.list returns 17 posts, new post appears first)
+- [x] Create sitemap-blog.xml with all 17 blog posts and add to sitemap index
+- [x] TypeScript: 0 errors, 174 tests passing
