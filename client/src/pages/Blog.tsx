@@ -1,6 +1,6 @@
 import { useState, useMemo, lazy, Suspense } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, Tag, Clock } from "lucide-react";
+import { Calendar, Tag, Clock, Search, X } from "lucide-react";
 import { Link } from "wouter";
 import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -25,6 +25,7 @@ export default function Blog() {
 
   const { data: posts, isLoading } = trpc.blog.list.useQuery();
   const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   // Derive unique categories from posts
   const categories = useMemo(() => {
@@ -38,9 +39,23 @@ export default function Blog() {
   // Filter posts by selected category
   const filteredPosts = useMemo(() => {
     if (!posts) return [];
-    if (activeCategory === "All") return posts;
-    return posts.filter((p) => p.category === activeCategory);
-  }, [posts, activeCategory]);
+    let result = posts;
+    if (activeCategory !== "All") {
+      result = result.filter((p) => p.category === activeCategory);
+    }
+    if (searchQuery.trim()) {
+      const q = searchQuery.trim().toLowerCase();
+      result = result.filter((p) => {
+        const tags: string[] = (() => { try { return typeof p.tags === "string" ? JSON.parse(p.tags) : (p.tags || []); } catch { return []; } })();
+        return (
+          p.title.toLowerCase().includes(q) ||
+          p.excerpt.toLowerCase().includes(q) ||
+          tags.some((t) => t.toLowerCase().includes(q))
+        );
+      });
+    }
+    return result;
+  }, [posts, activeCategory, searchQuery]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -69,9 +84,31 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* Blog Posts Grid */}
+  {/* Blog Posts Grid */}
       <section className="py-16 flex-grow">
         <div className="container">
+          {/* ── Search Bar ── */}
+          <div className="relative mb-6 max-w-xl">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+            <input
+              type="search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search articles…"
+              aria-label="Search blog articles"
+              className="w-full pl-10 pr-10 py-2.5 rounded-full border border-gray-300 bg-white text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F] focus:border-transparent transition"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                aria-label="Clear search"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+
           {/* ── Category Filter Pills ── */}
           {!isLoading && categories.length > 1 && (
             <div className="flex flex-wrap gap-2 mb-10">

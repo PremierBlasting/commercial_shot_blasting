@@ -1411,3 +1411,14 @@
 - [x] Verify blog index component displays the new post (blog.list returns 17 posts, new post appears first)
 - [x] Create sitemap-blog.xml with all 17 blog posts and add to sitemap index
 - [x] TypeScript: 0 errors, 174 tests passing
+
+## Blog Posts + Internal Links + Blog Search (Aug 2026)
+- [x] Add Related Reading internal link block to 5 structural steel service pages (structural-steel-frames, fire-escapes, bridge-steelwork, steel-containers, steel-sheeting)
+- [x] Generate blog post: "Shot Blasting Cost Per Square Metre UK (2026 Pricing Guide)"
+- [x] Generate blog post: "SA 2.5 vs SA 3: Which Surface Preparation Standard Do You Need?"
+- [x] Generate blog post: "How Long Does Shot Blasting Take? A Realistic Project Timeline"
+- [x] Publish all 3 new blog posts to the database (total: 20 live posts)
+- [x] Update sitemap-blog.xml with 3 new posts (21 URLs total)
+- [x] Category filter tabs already implemented — confirmed working
+- [x] Implement search bar on the blog index page (filters by title, excerpt, tags)
+- [x] TypeScript: 0 errors, 174 tests passing
