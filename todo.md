@@ -1439,3 +1439,10 @@
 - [x] Reading time indicator already at top of blog post pages (Clock icon, estimateReadTime function)
 - [x] Social sharing buttons already at top of blog post pages (ShareButton component)
 - [x] TypeScript: 0 errors, 174 tests passing
+
+## Author Bio + Featured Images + Blog Nav Dropdown (Aug 2026)
+- [x] Add author bio section to BlogPost.tsx (E-E-A-T signals) — CSB company bio with About/Reviews/Our Work links
+- [x] Generate distinct featured images for 6 new blog posts (vs chemical, specifying, mill scale, costs, SA standards, timeline)
+- [x] Update featuredImage in database for all 6 new posts with /manus-storage/ URLs
+- [x] Add Blog dropdown to site navigation with category links (Surface Preparation, Technical Guides, Project Planning, Pricing & Costs) — desktop + mobile
+- [x] TypeScript: 0 errors, 174 tests passing

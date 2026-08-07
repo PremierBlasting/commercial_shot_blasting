@@ -16,6 +16,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [areasOpen, setAreasOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
+  const [blogOpen, setBlogOpen] = useState(false);
   const [mobileAreasSearch, setMobileAreasSearch] = useState("");
   const [expandedRegions, setExpandedRegions] = useState<string[]>([]);
   const [headerData, setHeaderData] = useState<HeaderData | null>(null);
@@ -36,6 +37,8 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const areasTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const industriesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const blogDropdownRef = useRef<HTMLDivElement>(null);
+  const blogTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   // Prefetch hook for preloading pages on hover
   const { prefetch, cancelPrefetch } = usePrefetch();
@@ -85,10 +88,13 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
       if (areasDropdownRef.current && !areasDropdownRef.current.contains(event.target as Node)) {
         setAreasOpen(false);
       }
-      if (industriesDropdownRef.current && !industriesDropdownRef.current.contains(event.target as Node)) {
-        setIndustriesOpen(false);
-      }
-    };
+        if (industriesDropdownRef.current && !industriesDropdownRef.current.contains(event.target as Node)) {
+          setIndustriesOpen(false);
+        }
+        if (blogDropdownRef.current && !blogDropdownRef.current.contains(event.target as Node)) {
+          setBlogOpen(false);
+        }
+      };
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
@@ -413,14 +419,55 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             onMouseEnter={() => prefetch('/reviews')}
             onMouseLeave={cancelPrefetch}
           >Reviews</Link>
+          {/* Blog Dropdown */}
+          <div
+            ref={blogDropdownRef}
+            className="relative"
+            onMouseEnter={() => {
+              if (blogTimeoutRef.current) { clearTimeout(blogTimeoutRef.current); blogTimeoutRef.current = null; }
+              setBlogOpen(true);
+            }}
+            onMouseLeave={() => {
+              blogTimeoutRef.current = setTimeout(() => setBlogOpen(false), 180);
+            }}
+          >
+            <button
+              className="flex items-center gap-1 hover:text-white/80 transition text-white"
+              onClick={() => setBlogOpen(o => !o)}
+              aria-expanded={blogOpen}
+            >
+              Blog
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${blogOpen ? 'rotate-180' : ''}`} />
+            </button>
+            <div
+              className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-200 ${blogOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2 pointer-events-none'}`}
+              style={{ zIndex: 99999 }}
+            >
+              <div className="w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-1.5 overflow-hidden">
+                <Link href="/blog" className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-[#2C5F7F]/5 text-gray-800 font-semibold text-sm border-b border-gray-100" onClick={() => setBlogOpen(false)}>
+                  All Articles
+                </Link>
+                {[
+                  { label: 'Surface Preparation', cat: 'Surface Preparation' },
+                  { label: 'Technical Guides', cat: 'Technical Guides' },
+                  { label: 'Project Planning', cat: 'Project Planning' },
+                  { label: 'Pricing & Costs', cat: 'Pricing & Costs' },
+                ].map(({ label, cat }) => (
+                  <Link
+                    key={cat}
+                    href={`/blog?category=${encodeURIComponent(cat)}`}
+                    className="flex items-center justify-between px-4 py-2.5 hover:bg-[#2C5F7F]/5 text-gray-700 text-sm border-t border-gray-100 group"
+                    onClick={() => setBlogOpen(false)}
+                  >
+                    <span>{label}</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-[#2C5F7F] transition" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
           <Link 
-            href="/blog" 
-            className="hover:text-white/80 transition"
-            onMouseEnter={() => prefetch('/blog')}
-            onMouseLeave={cancelPrefetch}
-          >Blog</Link>
-          <Link 
-            href="/glossary" 
+            href="/glossary"
             className="hover:text-white/80 transition"
             onMouseEnter={() => prefetch('/glossary')}
             onMouseLeave={cancelPrefetch}
@@ -641,7 +688,15 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             <Link href="/preparation-cleanup" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Prep & Cleanup</Link>
             <Link href="/our-work" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Our Work</Link>
             <Link href="/reviews" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Reviews</Link>
-            <Link href="/blog" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Blog</Link>
+            {/* Mobile Blog with category links */}
+            <div className="border-b border-white/10 py-3">
+              <Link href="/blog" onClick={closeMobileMenu} className="block font-semibold hover:text-white/80 transition mb-2">Blog</Link>
+              <div className="flex flex-wrap gap-2 pl-1">
+                {['Surface Preparation','Technical Guides','Project Planning','Pricing & Costs'].map(cat => (
+                  <Link key={cat} href={`/blog?category=${encodeURIComponent(cat)}`} onClick={closeMobileMenu} className="text-xs bg-white/10 hover:bg-white/20 px-2.5 py-1 rounded-full transition">{cat}</Link>
+                ))}
+              </div>
+            </div>
             <Link href="/glossary" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Glossary</Link>
             
             {/* Mobile Areas - Collapsible Regions with Search */}

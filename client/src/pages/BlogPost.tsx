@@ -285,6 +285,27 @@ export default function BlogPost() {
               </div>
             )}
 
+            {/* ── Author Bio ── */}
+            <div className="mt-10 p-6 bg-[#F8F6F1] border border-gray-200 rounded-xl flex flex-col sm:flex-row gap-5 items-start">
+              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#2C5F7F] flex items-center justify-center text-white font-bold text-xl select-none">
+                CSB
+              </div>
+              <div>
+                <p className="font-bold text-[#2C2C2C] text-base mb-1">Commercial Shot Blasting</p>
+                <p className="text-xs text-gray-500 mb-2 uppercase tracking-widest">UK Commercial Shot Blasting Contractor</p>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  Commercial Shot Blasting is the commercial and industrial arm of Premier Blasting, operating across England and Wales. Our team has over 15 years of hands-on experience in abrasive blast cleaning, surface preparation to ISO 8501-1 standards, and specialist coatings removal for structural steel, concrete, and industrial plant. We work directly with contractors, fabricators, and project managers to deliver measurable, specification-compliant results on site.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  <a href="/about" className="text-xs font-semibold text-[#2C5F7F] hover:underline">About Us</a>
+                  <span className="text-gray-300">|</span>
+                  <a href="/reviews" className="text-xs font-semibold text-[#2C5F7F] hover:underline">Client Reviews</a>
+                  <span className="text-gray-300">|</span>
+                  <a href="/our-work" className="text-xs font-semibold text-[#2C5F7F] hover:underline">Our Work</a>
+                </div>
+              </div>
+            </div>
+
             {/* CTA — native LeadForm */}
             <div className="mt-14">
               <Suspense fallback={<div className="h-64 flex items-center justify-center text-gray-400">Loading form…</div>}>
