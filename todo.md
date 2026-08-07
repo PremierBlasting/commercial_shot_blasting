@@ -1428,3 +1428,14 @@
 - [x] Update costs blog post content to include /site-survey link (CTA now: call / book site survey / send message)
 - [x] Update timeline blog post content to include /site-survey link (CTA now: call / book site survey / send message)
 - [x] TypeScript: 0 errors, 174 tests passing
+
+## Blog Posts + CTA Banner + Reading Time (Aug 2026)
+- [x] Generate blog post: "Shot Blasting vs Chemical Stripping: Which Method Is Right for Your Project?"
+- [x] Generate blog post: "How to Specify Shot Blasting in a Construction Contract"
+- [x] Generate blog post: "What Is Mill Scale and Why Does It Need to Be Removed?"
+- [x] Publish all 3 new blog posts to the database (total: 23 live posts)
+- [x] Update sitemap-blog.xml with 3 new posts (24 URLs total)
+- [x] Add high-contrast Book a Site Survey CTA banner between article body and Related Articles in BlogPost.tsx
+- [x] Reading time indicator already at top of blog post pages (Clock icon, estimateReadTime function)
+- [x] Social sharing buttons already at top of blog post pages (ShareButton component)
+- [x] TypeScript: 0 errors, 174 tests passing

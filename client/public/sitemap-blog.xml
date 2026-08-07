@@ -119,9 +119,27 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://commercialshotblasting.co.uk/blog</loc>
-    <lastmod>2026-08-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://commercialshotblasting.co.uk/blog/how-long-does-shot-blasting-take-project-timeline</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://commercialshotblasting.co.uk/blog/shot-blasting-vs-chemical-stripping</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://commercialshotblasting.co.uk/blog/how-to-specify-shot-blasting-construction-contract</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://commercialshotblasting.co.uk/blog/what-is-mill-scale-and-why-remove-it</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
