@@ -1422,3 +1422,9 @@
 - [x] Category filter tabs already implemented — confirmed working
 - [x] Implement search bar on the blog index page (filters by title, excerpt, tags)
 - [x] TypeScript: 0 errors, 174 tests passing
+
+## Related Articles + Site Survey Links (Aug 2026)
+- [x] Add Related Articles section to BlogPost.tsx — already fully implemented (trpc.blog.getRelated, 3-card grid, category-matched)
+- [x] Update costs blog post content to include /site-survey link (CTA now: call / book site survey / send message)
+- [x] Update timeline blog post content to include /site-survey link (CTA now: call / book site survey / send message)
+- [x] TypeScript: 0 errors, 174 tests passing
