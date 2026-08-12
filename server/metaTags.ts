@@ -6335,7 +6335,7 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
       ${countyContext[countySlug] ? `<p><em>${escHtml(countyContext[countySlug])}</em></p>` : ""}
     </header>
     ${(() => {
-      const spotlight = getTownSpotlight(locationSlug, name, county, countySlug, region);
+      const spotlight = loc.spotlightText || getTownSpotlight(locationSlug, name, county, countySlug, region);
       if (!spotlight) return "";
       return `<section aria-label="Local Industry Spotlight">
       <h2>Local Industry Spotlight — Shot Blasting Services in ${escHtml(name)}</h2>

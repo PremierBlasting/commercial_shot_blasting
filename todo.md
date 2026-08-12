@@ -1456,3 +1456,10 @@
 - [x] Add compact above-the-fold quote entry forms to the homepage, core service pages, and priority location pages
 - [x] Standardise primary customer CTA labels as Book a Free Site Survey
 - [x] Validate form submission, upload, responsiveness, TypeScript, and automated tests (176 tests passing)
+
+## High-Population Service-Area Expansion (12 August 2026)
+- [x] Reconcile official ONS 2021 built-up-area populations against existing location coverage
+- [x] Research and publish the first batch of 40 missing high-population England and Wales service-area pages
+- [x] Add local industry spotlights and three locally relevant FAQs to each new high-priority area page
+- [x] Add eligible new URLs to sitemap-service-areas.xml and prefer researched local spotlights in SSR output
+- [x] Validate complete regression suite, live SSR output, and release checkpoint (178 tests passing)
