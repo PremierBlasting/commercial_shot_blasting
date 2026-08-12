@@ -187,7 +187,7 @@ export function LeadForm({
       {(heading || locationName) && (
         <div className="mb-1">
           <h3 className={`font-semibold text-base ${headingColor}`}>
-            {heading ?? `Request a site visit${locationName ? ` in ${locationName}` : ""}`}
+            {heading ?? `Book a Free Site Survey${locationName ? ` in ${locationName}` : ""}`}
           </h3>
           {subheading && <p className={`text-xs mt-0.5 ${subColor}`}>{subheading}</p>}
         </div>
@@ -391,7 +391,7 @@ export function LeadForm({
         {contactMutation.isPending ? (
           <span>Sending…</span>
         ) : (
-          <><ArrowRight className="w-4 h-4" /> Submit</>
+          <><ArrowRight className="w-4 h-4" /> Book a Free Site Survey</>
         )}
       </button>
 
@@ -408,7 +408,7 @@ export function LeadForm({
             <div className={`flex-1 h-px ${isDark ? "bg-white/10" : "bg-gray-200"}`} />
           </div>
           <a
-            href={`https://wa.me/447970566409?text=${encodeURIComponent(
+            href={`https://wa.me/447721375756?text=${encodeURIComponent(
               `Hi, I'd like a quote for shot blasting${locationName ? ` in ${locationName}` : ""}. Could you help?`
             )}`}
             target="_blank"

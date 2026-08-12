@@ -2,6 +2,15 @@ import { describe, expect, it, vi, beforeEach } from "vitest";
 import { appRouter } from "./routers";
 import type { TrpcContext } from "./_core/context";
 
+const { storagePutMock } = vi.hoisted(() => ({
+  storagePutMock: vi.fn().mockResolvedValue({
+    key: "survey-attachments/test-file.png",
+    url: "/manus-storage/survey-attachments/test-file.png",
+  }),
+}));
+
+vi.mock("./storage", () => ({ storagePut: storagePutMock }));
+
 // Mock the database functions
 vi.mock("./db", () => ({
   createContactSubmission: vi.fn().mockResolvedValue(undefined),
@@ -104,6 +113,50 @@ describe("contact.submit", () => {
         message: "",
       })
     ).rejects.toThrow();
+  });
+});
+
+describe("contact.uploadAttachments", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it("uploads an allowed survey image and returns a storage URL", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+
+    const result = await caller.contact.uploadAttachments({
+      attachments: [{
+        fileName: "steel-frame-plan.png",
+        contentType: "image/png",
+        fileData: Buffer.from("sample image bytes").toString("base64"),
+      }],
+    });
+
+    expect(storagePutMock).toHaveBeenCalledWith(
+      expect.stringMatching(/^survey-attachments\/.+\.png$/),
+      expect.any(Buffer),
+      "image/png",
+    );
+    expect(result).toEqual([
+      expect.objectContaining({
+        fileName: "steel-frame-plan.png",
+        url: "/manus-storage/survey-attachments/test-file.png",
+      }),
+    ]);
+  });
+
+  it("rejects file types outside the public survey attachment allow-list", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+
+    await expect(caller.contact.uploadAttachments({
+      attachments: [{
+        fileName: "site-model.exe",
+        contentType: "application/octet-stream" as never,
+        fileData: Buffer.from("not an image").toString("base64"),
+      }],
+    })).rejects.toThrow();
+
+    expect(storagePutMock).not.toHaveBeenCalled();
   });
 });
 

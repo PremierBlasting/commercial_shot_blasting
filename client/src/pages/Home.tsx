@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Star, Quote, X, Volume2, VolumeX, Play, Pause } from "lucide-react";
 import { useState, useMemo, useEffect, useRef, lazy, Suspense } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
+import { CompactSurveyCapture } from "@/components/CompactSurveyCapture";
+import type { SurveyBookingDefaults } from "@/components/SurveyBookingFlow";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { StaticServiceAreasMap } from "@/components/StaticServiceAreasMap";
@@ -41,6 +43,7 @@ const testimonials = [
 
 export default function Home() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+  const [surveyDefaults, setSurveyDefaults] = useState<SurveyBookingDefaults | undefined>();
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxImages, setLightboxImages] = useState<string[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
@@ -206,7 +209,15 @@ export default function Home() {
     };
   }, []);
 
-  const openQuotePopup = () => setQuotePopupOpen(true);
+  const openQuotePopup = () => {
+    setSurveyDefaults(undefined);
+    setQuotePopupOpen(true);
+  };
+
+  const openSurveyWithDefaults = (defaults: SurveyBookingDefaults) => {
+    setSurveyDefaults(defaults);
+    setQuotePopupOpen(true);
+  };
 
   // Seed QueryClient cache from /api/preload/homepage before tRPC queries fire
   // This eliminates cold-start latency — data is available instantly on first render
@@ -383,7 +394,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>
-                Request A Site Visit
+                Book a Free Site Survey
               </Button>
               <Link href="/our-work">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
@@ -397,6 +408,7 @@ export default function Home() {
                 </a>
               </Button>
             </div>
+            <CompactSurveyCapture onStart={openSurveyWithDefaults} className="mt-7 max-w-3xl" />
           </div>
         </div>
         {/* Video Progress Bar — seekable with tooltip */}
@@ -1189,7 +1201,7 @@ export default function Home() {
       <Footer />
 
       {/* Quote Popup Modal */}
-      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} defaults={surveyDefaults} />
 
       {/* Project Detail Modal */}
       <ProjectDetailModal

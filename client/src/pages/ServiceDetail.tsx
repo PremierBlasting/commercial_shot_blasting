@@ -8,6 +8,8 @@ import { trackPhoneCall } from "@/lib/analytics";
 import { getServiceById, services } from "@/data/services";
 import { getServiceGallery, getServiceGalleries } from "@/data/serviceGalleries";
 import { QuotePopup } from "@/components/QuotePopup";
+import { CompactSurveyCapture } from "@/components/CompactSurveyCapture";
+import type { SurveyBookingDefaults } from "@/components/SurveyBookingFlow";
 import { LeadForm } from "@/components/LeadForm";
 import { Header } from "@/components/Header";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
@@ -23,12 +25,21 @@ import { StickyServiceButton } from "@/components/StickyServiceButton";
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+  const [surveyDefaults, setSurveyDefaults] = useState<SurveyBookingDefaults | undefined>();
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 
   const service = getServiceById(params.id || "");
   const { data: galleryItems } = trpc.gallery.list.useQuery();
 
-  const openQuotePopup = () => setQuotePopupOpen(true);
+  const openQuotePopup = () => {
+    setSurveyDefaults(undefined);
+    setQuotePopupOpen(true);
+  };
+
+  const openSurveyWithDefaults = (defaults: SurveyBookingDefaults) => {
+    setSurveyDefaults(defaults);
+    setQuotePopupOpen(true);
+  };
 
   // Build a keyword map from service ID to gallery category keywords
   const serviceKeywords: Record<string, string[]> = {
@@ -136,7 +147,7 @@ export default function ServiceDetail() {
           <p className="text-xl text-white/90 mb-6 max-w-2xl">{service.tagline}</p>
           <div className="flex flex-wrap gap-4">
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>
-              Request A Site Visit
+              Book a Free Site Survey
             </Button>
             <a href="tel:07721375756">
               <Button variant="outline" className="border-white text-white hover:bg-white/10">
@@ -145,6 +156,7 @@ export default function ServiceDetail() {
               </Button>
             </a>
           </div>
+          <CompactSurveyCapture onStart={openSurveyWithDefaults} className="mt-7 max-w-3xl" />
         </div>
       </section>
 
@@ -1984,7 +1996,7 @@ export default function ServiceDetail() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 text-lg px-8 py-6" onClick={openQuotePopup}>
-              Request A Site Visit
+              Book a Free Site Survey
             </Button>
             <a href="tel:07721375756">
               <Button variant="outline" className="border-white text-white hover:bg-white/10 text-lg px-8 py-6">
@@ -2068,7 +2080,7 @@ export default function ServiceDetail() {
             onClick={() => setQuotePopupOpen(true)}
           >
             <ArrowRight className="w-4 h-4" />
-            Request A Site Visit
+            Book a Free Site Survey
           </button>
           <a
             href="tel:07721375756"
@@ -2088,7 +2100,7 @@ export default function ServiceDetail() {
       <StickyServiceButton onOpenQuotePopup={openQuotePopup} serviceTitle={service.shortTitle} />
 
       {/* Quote Popup */}
-      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
+      <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} defaults={surveyDefaults} />
       
       {/* Back to Top Button */}
       <BackToTop />

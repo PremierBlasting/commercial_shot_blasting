@@ -264,6 +264,32 @@ export const appRouter = router({
 
   // Contact Form Submissions
   contact: router({
+    uploadAttachments: publicProcedure
+      .input(z.object({
+        attachments: z.array(z.object({
+          fileName: z.string().min(1).max(160),
+          fileData: z.string().min(1).max(12 * 1024 * 1024),
+          contentType: z.enum(["image/jpeg", "image/png", "image/webp", "application/pdf"]),
+        })).min(1).max(3),
+      }))
+      .mutation(async ({ input }) => {
+        const MAX_ATTACHMENT_BYTES = 8 * 1024 * 1024;
+        return Promise.all(input.attachments.map(async (attachment) => {
+          const buffer = Buffer.from(attachment.fileData, "base64");
+          if (!buffer.length || buffer.length > MAX_ATTACHMENT_BYTES) {
+            throw new TRPCError({
+              code: "BAD_REQUEST",
+              message: "Each attachment must be no larger than 8 MB.",
+            });
+          }
+          const safeName = attachment.fileName.replace(/[^a-zA-Z0-9._-]/g, "-");
+          const extension = safeName.split(".").pop() || "file";
+          const key = `survey-attachments/${nanoid(14)}.${extension}`;
+          const { url } = await storagePut(key, buffer, attachment.contentType);
+          return { fileName: safeName, url, key };
+        }));
+      }),
+
     // Public: Submit contact form
     submit: publicProcedure
       .input(z.object({

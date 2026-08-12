@@ -1446,3 +1446,13 @@
 - [x] Update featuredImage in database for all 6 new posts with /manus-storage/ URLs
 - [x] Add Blog dropdown to site navigation with category links (Surface Preparation, Technical Guides, Project Planning, Pricing & Costs) — desktop + mobile
 - [x] TypeScript: 0 errors, 174 tests passing
+
+## Usability Review (8 August 2026)
+- [x] Audit the live customer journey and prioritise ten user-centred usability improvements
+
+## Unified Survey Flow + Compact Quote Forms (12 August 2026)
+- [x] Audit existing form submission, media upload, modal, and landing-page patterns
+- [x] Build reusable three-step Book a Free Site Survey flow with optional photos/drawings and preferred contact method
+- [x] Add compact above-the-fold quote entry forms to the homepage, core service pages, and priority location pages
+- [x] Standardise primary customer CTA labels as Book a Free Site Survey
+- [x] Validate form submission, upload, responsiveness, TypeScript, and automated tests (176 tests passing)

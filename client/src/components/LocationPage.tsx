@@ -4,6 +4,8 @@ import { useState, useMemo, useEffect } from "react";
 import { getLocationSEO, useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { QuotePopup } from "@/components/QuotePopup";
+import { CompactSurveyCapture } from "@/components/CompactSurveyCapture";
+import type { SurveyBookingDefaults } from "@/components/SurveyBookingFlow";
 import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
@@ -66,6 +68,7 @@ interface LocationPageProps {
 
 export function LocationPage({ location }: LocationPageProps) {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+  const [surveyDefaults, setSurveyDefaults] = useState<SurveyBookingDefaults | undefined>();
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [showQuickNav, setShowQuickNav] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -161,7 +164,7 @@ export function LocationPage({ location }: LocationPageProps) {
       <ReviewSchema locationName={location.name} county={location.county} />
       <FAQSchema faqs={[...(location.uniqueFaqs || []).slice(0, 3).map(f => ({ question: f.question, answer: f.answer })), ...generateLocationFAQs(location.name, location.county)]} locationName={location.name} />
       
-      <Header />
+      <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
 
       {/* Breadcrumb Navigation */}
       <section className="py-4 bg-gray-50 border-b border-gray-200">
@@ -200,7 +203,7 @@ export function LocationPage({ location }: LocationPageProps) {
                 className="bg-white text-[#2C5F7F] hover:bg-gray-100"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Request A Site Visit
+                Book a Free Site Survey
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               <Button 
@@ -213,6 +216,14 @@ export function LocationPage({ location }: LocationPageProps) {
                 07721 375756
               </Button>
             </div>
+            <CompactSurveyCapture
+              defaults={{ locationName: location.name }}
+              onStart={(defaults) => {
+                setSurveyDefaults(defaults);
+                setQuotePopupOpen(true);
+              }}
+              className="mt-7 max-w-3xl"
+            />
           </div>
         </div>
       </section>
@@ -1272,6 +1283,7 @@ export function LocationPage({ location }: LocationPageProps) {
         open={quotePopupOpen} 
         onOpenChange={setQuotePopupOpen}
         locationName={location.name}
+        defaults={surveyDefaults}
       />
     </>
   );

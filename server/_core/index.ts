@@ -114,7 +114,7 @@ async function startServer() {
   // OAuth callback under /api/oauth/callback
   registerOAuthRoutes(app);
 
-  // Rate limiter for the contact form endpoint — 5 submissions per IP per hour.
+  // Rate limiter for public lead submission and attachment upload endpoints.
   // Prevents automated spam bots from exhausting HubSpot API quota while still
   // allowing genuine users to resubmit after fixing a validation error.
   const contactRateLimiter = rateLimit({
@@ -138,11 +138,11 @@ async function startServer() {
       },
     }),
     skip: (req) => {
-      // Only rate-limit the contact.submit mutation path
-      return !req.path.includes("contact.submit");
+      // Limit both the lead mutation and optional public attachment uploads.
+      return !req.path.includes("contact.submit") && !req.path.includes("contact.uploadAttachments");
     },
   });
-  app.use("/api/trpc/contact.submit", contactRateLimiter);
+  app.use("/api/trpc/contact", contactRateLimiter);
 
   // ── Homepage SSR Preload ─────────────────────────────────────────────────────
   // Returns testimonials + gallery as JSON with a 5-minute server-side cache.
