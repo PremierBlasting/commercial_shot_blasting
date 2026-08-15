@@ -1428,7 +1428,7 @@ export const countyData: Record<string, CountyData> = {
     name: "Merseyside",
     slug: "merseyside",
     region: "North West England",
-    description: "Professional shot blasting services throughout Merseyside. Serving Liverpool, Birkenhead, St Helens, Southport, and Wirral with expert surface preparation for port infrastructure, industrial steelwork, and heritage buildings.",
+    description: "Professional shot blasting services throughout Merseyside. Serving Liverpool, Birkenhead, St Helens, Southport, and Wirral with expert surface preparation for port infrastructure, industrial steelwork, and heritage buildings.",    
     metaDescription: "Mobile shot blasting in Merseyside — port infrastructure, shipbuilding, industrial estates & heritage buildings. SA2.5/SA3 standard. Serving Liverpool, Birkenhead & St Helens.",
     url: "https://commercialshotblasting.co.uk/counties/merseyside",
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
@@ -1457,6 +1457,42 @@ export const countyData: Record<string, CountyData> = {
       {
         question: "What types of industrial projects do you handle in Merseyside?",
         answer: "We handle port infrastructure, shipyard steelwork, factory cladding, warehouse floors, structural steel for new builds, bridge maintenance, and industrial estate refurbishment across Merseyside."
+      }
+    ]
+  },
+  "oxfordshire": {
+    name: "Oxfordshire",
+    slug: "oxfordshire",
+    region: "South East England",
+    description: "Professional shot blasting services throughout Oxfordshire. Serving Oxford, Banbury, Bicester, Didcot, Witney, and Abingdon with expert surface preparation for university buildings, automotive manufacturing, and commercial construction.",
+    metaDescription: "Mobile shot blasting in Oxfordshire — automotive manufacturing, university buildings, logistics warehouses & commercial steelwork. SA2.5/SA3 standard. Serving Oxford, Banbury & Bicester.",
+    url: "https://commercialshotblasting.co.uk/counties/oxfordshire",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
+    latitude: 51.7520,
+    longitude: -1.2577,
+    majorTowns: ["Oxford", "Banbury", "Bicester", "Didcot", "Witney", "Abingdon"],
+    industries: ["Automotive Manufacturing", "Education & Research", "Logistics", "Construction", "Heritage"],
+    townsAndVillages: ["Abingdon", "Banbury", "Bicester", "Burford", "Carterton", "Chipping Norton", "Didcot", "Faringdon", "Grove", "Henley-on-Thames", "Kidlington", "Oxford", "Thame", "Wallingford", "Wantage", "Witney", "Woodstock"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Oxfordshire?",
+        answer: "Yes, we provide mobile shot blasting services across all of Oxfordshire. Our fully equipped mobile units can reach any location in the county, including Oxford, Banbury, Bicester, Didcot, Witney, and all surrounding areas."
+      },
+      {
+        question: "Can you work on automotive manufacturing facilities in Oxfordshire?",
+        answer: "Absolutely. We regularly blast structural steelwork, production line equipment, and factory cladding at automotive and manufacturing plants along the M40 corridor including the BMW Mini plant area and logistics hubs near Bicester."
+      },
+      {
+        question: "Do you handle heritage building restoration in Oxfordshire?",
+        answer: "Yes, we have extensive experience with heritage structures across Oxfordshire including university college buildings, listed properties, and historic industrial buildings. We use appropriate abrasive media to clean surfaces without causing damage."
+      },
+      {
+        question: "How quickly can you reach my location in Oxfordshire?",
+        answer: "We can typically schedule site visits in Oxfordshire within 3-5 working days. For urgent projects near the M40 or A34 corridors, we can often respond faster. Call us on 07721 375756."
+      },
+      {
+        question: "What types of projects do you handle in Oxfordshire?",
+        answer: "We handle automotive manufacturing steelwork, university and college building restoration, logistics warehouse floors, structural steel for new construction, bridge maintenance on the A34/M40, and commercial building refurbishment across Oxfordshire."
       }
     ]
   },

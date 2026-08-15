@@ -2,11 +2,39 @@
 // This ensures OG tags and structured data are in the initial HTML for crawlers
 import { getBlogPostBySlug } from "./db";
 import { locationData } from "@shared/locationData";
+import * as fs from "fs";
+import * as path from "path";
 import { countyData, CountyData } from "@shared/countyData";
 import { servicePreparationSteps } from "@shared/servicePreparationSteps";
 import { countyContext } from "@shared/countyContext";
 import { getTownSpotlight } from "@shared/townSpotlight";
 import { countyOgImageUrl, townOgImageUrl } from "./ogImage";
+
+// County chunk preload manifest (loaded once at startup in production)
+let countyChunkManifest: Record<string, string> | null = null;
+function getCountyChunkPath(countySlug: string): string | null {
+  if (!countyChunkManifest) {
+    try {
+      const manifestPath = path.resolve(process.cwd(), 'dist/public/county-chunk-manifest.json');
+      if (fs.existsSync(manifestPath)) {
+        countyChunkManifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+      } else {
+        countyChunkManifest = {};
+      }
+    } catch {
+      countyChunkManifest = {};
+    }
+  }
+  return countyChunkManifest?.[countySlug] || null;
+}
+
+/** Inject a <link rel="modulepreload"> for the county chunk into the HTML head */
+function injectCountyChunkPreload(html: string, countySlug: string): string {
+  const chunkPath = getCountyChunkPath(countySlug);
+  if (!chunkPath) return html;
+  const preloadTag = `<link rel="modulepreload" href="${chunkPath}" />`;
+  return html.replace('</head>', `  ${preloadTag}\n  </head>`);
+}
 
 interface LocationMeta {
   title: string;
@@ -7770,6 +7798,11 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       }
     }
     
+    // Inject modulepreload hint for the county chunk to eliminate dynamic import waterfall
+    const dynPreloadSlug = locDataEntry?.countySlug || dynCountySlug;
+    if (dynPreloadSlug) {
+      modifiedHtml = injectCountyChunkPreload(modifiedHtml, dynPreloadSlug);
+    }
     return modifiedHtml;
   }
   
@@ -7830,6 +7863,11 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     } else {
       modifiedHtml = modifiedHtml.replace(/<body[^>]*>/, (match) => `${match}\n${bodyHtml}`);
     }
+  }
+  
+  // Inject modulepreload hint for the county chunk to eliminate dynamic import waterfall
+  if (metaCountySlug) {
+    modifiedHtml = injectCountyChunkPreload(modifiedHtml, metaCountySlug);
   }
   
   return modifiedHtml;

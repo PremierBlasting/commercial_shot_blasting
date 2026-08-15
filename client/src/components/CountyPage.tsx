@@ -1363,13 +1363,13 @@ export function CountyPage({ county }: CountyPageProps) {
                 </button>
               )}
               {/* Autocomplete dropdown */}
-              {townSearch.length >= 1 && filteredTowns.length > 0 && filteredTowns.length <= 8 && (
+              {townSearch.length >= 1 && filteredTowns.length <= 8 && (
                 <ul
                   id="town-autocomplete-list"
                   role="listbox"
                   className="absolute z-50 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden max-h-64 overflow-y-auto"
                 >
-                  {filteredTowns.slice(0, 5).map((town) => (
+                  {filteredTowns.length > 0 ? filteredTowns.slice(0, 5).map((town) => (
                     <li key={town.slug} role="option">
                       <Link href={`/service-areas/${town.slug}`}>
                         <div className="flex items-center gap-2 px-4 py-2.5 hover:bg-[#f0f6fb] cursor-pointer transition-colors border-b border-gray-50 last:border-0">
@@ -1379,7 +1379,15 @@ export function CountyPage({ county }: CountyPageProps) {
                         </div>
                       </Link>
                     </li>
-                  ))}
+                  )) : (
+                    <li className="px-4 py-3 text-center">
+                      <p className="text-sm text-gray-500 mb-1">No towns found for &ldquo;{townSearch}&rdquo;</p>
+                      <p className="text-xs text-gray-400 mb-2">We may still cover your area.</p>
+                      <Link href="/contact">
+                        <span className="text-xs font-medium text-[#2C5F7F] hover:underline">Contact us to check availability →</span>
+                      </Link>
+                    </li>
+                  )}
                 </ul>
               )}
             </div>

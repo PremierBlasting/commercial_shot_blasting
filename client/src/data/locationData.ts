@@ -8475,7 +8475,7 @@ export const locationData: Record<string, LocationData> = {
     name: "Banbury",
     slug: "banbury",
     county: "Oxfordshire",
-    countySlug: "berkshire",
+    countySlug: "oxfordshire",
     region: "South East England",
     description: "Shot Blasting in Banbury, Oxfordshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07721 375756",
     faqs: [
@@ -8755,7 +8755,7 @@ export const locationData: Record<string, LocationData> = {
     name: "Oxford",
     slug: "oxford",
     county: "Oxfordshire",
-    countySlug: "berkshire",
+    countySlug: "oxfordshire",
     region: "South East England",
     description: "Shot Blasting in Oxford, Oxfordshire. Professional surface preparation & rust removal. Expert commercial blasting. Call 07721 375756",
     faqs: [

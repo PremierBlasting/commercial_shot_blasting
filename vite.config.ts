@@ -181,7 +181,38 @@ function vitePluginPreloadMainCss(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginPreloadMainCss()];
+/**
+ * Vite plugin to generate a county→chunk filename manifest at build time.
+ * The server uses this to inject <link rel="modulepreload"> for the correct
+ * county chunk when serving location pages, eliminating the dynamic import waterfall.
+ */
+function vitePluginCountyChunkManifest(): Plugin {
+  return {
+    name: 'county-chunk-manifest',
+    apply: 'build',
+    generateBundle(_options, bundle) {
+      // Build a map of county slug → hashed chunk filename
+      const manifest: Record<string, string> = {};
+      for (const [fileName, chunk] of Object.entries(bundle)) {
+        if (chunk.type === 'chunk' && fileName.startsWith('assets/loc-')) {
+          // Extract county slug from chunk name: assets/loc-{county}-{hash}.js
+          const match = fileName.match(/assets\/loc-([a-z-]+)-/);
+          if (match) {
+            manifest[match[1]] = `/${fileName}`;
+          }
+        }
+      }
+      // Emit the manifest as a JSON asset
+      this.emitFile({
+        type: 'asset',
+        fileName: 'county-chunk-manifest.json',
+        source: JSON.stringify(manifest),
+      });
+    },
+  };
+}
+
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginPreloadMainCss(), vitePluginCountyChunkManifest()];
 
 export default defineConfig({
   plugins,
@@ -201,10 +232,16 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          // Keep large location/county data in its own chunk so service/area pages
-          // only load it when needed, not on every page.
-          if (id.includes('locationData') || id.includes('countyData')) {
-            return 'location-data';
+          // County-based code-splitting: each locationChunks/*.ts file becomes
+          // its own chunk, loaded on demand when a user visits a town in that county.
+          // The lightweight locationSlugIndex stays in the main bundle (~24KB).
+          if (id.includes('locationChunks/')) {
+            const match = id.match(/locationChunks\/([a-z-]+)\.ts/);
+            if (match) return `loc-${match[1]}`;
+          }
+          // countyData used by county hub pages (shared chunk)
+          if (id.includes('countyData')) {
+            return 'county-data';
           }
           // React core + DOM in one stable vendor chunk (long-term cacheable)
           if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
