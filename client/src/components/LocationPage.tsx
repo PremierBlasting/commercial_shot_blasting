@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2, Star, Factory, ClipboardList, ChevronDown, ChevronUp } from "lucide-react";
+import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2, Star, Factory, ClipboardList, ChevronDown, ChevronUp, CalendarCheck } from "lucide-react";
 import { useState, useMemo, useEffect } from "react";
 import { getLocationSEO, useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
@@ -346,34 +346,71 @@ export function LocationPage({ location }: LocationPageProps) {
         </div>
       </section>
 
-      {/* Transparent placeholder until a verified location-specific project record is published. */}
-      <section className="py-12 bg-[#f0f6fb] border-y border-blue-100">
-        <div className="container">
-          <div className="max-w-4xl mx-auto rounded-2xl bg-white border border-blue-100 p-7 md:p-9 text-center shadow-sm">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#2C5F7F]/10">
-              <ClipboardList className="h-6 w-6 text-[#2C5F7F]" />
-            </div>
-            <p className="text-[#2C5F7F] font-medium mb-2">Local Case Studies</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Commercial Project Records for {location.name}
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We are building a library of verified, location-specific project records for {location.name}. In the meantime, explore our documented commercial work or book a free survey to discuss a comparable project.
-            </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <Link href="/our-work">
-                <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
-                  View Our Work
-                  <ArrowRight className="w-4 h-4 ml-2" />
+      {/* Typical Commercial Projects in {location.name} — industry-specific examples */}
+      {(() => {
+        const typicalProjects = getProjectsForCounty(location.countySlug || '', 3);
+        return (
+          <section className="py-12 bg-[#f0f6fb] border-y border-blue-100">
+            <div className="container">
+              <div className="text-center mb-8">
+                <p className="text-[#2C5F7F] font-medium mb-1 uppercase tracking-wide text-xs">Typical Projects</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  Commercial Shot Blasting Projects in {location.name}
+                </h2>
+                <p className="text-gray-600 max-w-2xl mx-auto text-sm">
+                  Examples of the type of commercial and industrial shot blasting work we carry out in {location.county} and surrounding areas.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+                {typicalProjects.map(project => (
+                  <a
+                    key={project.id}
+                    href={`/services/${project.serviceSlug}`}
+                    title={`${project.title} — ${project.serviceLabel} in ${location.name}`}
+                    className="group bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md hover:border-[#2C5F7F] transition-all duration-200 flex flex-col"
+                  >
+                    <div className="relative overflow-hidden h-40">
+                      <img
+                        src={project.afterImage}
+                        alt={`${project.title} — shot blasting result`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      <span className="absolute top-2 left-2 bg-[#2C5F7F] text-white text-xs font-semibold px-2 py-1 rounded">
+                        {project.serviceLabel}
+                      </span>
+                    </div>
+                    <div className="p-4 flex flex-col flex-1">
+                      <h3 className="font-semibold text-[#2C2C2C] text-sm leading-snug mb-1 group-hover:text-[#2C5F7F] transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-500 text-xs leading-relaxed flex-1">{project.description}</p>
+                      <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
+                        <span className="text-xs text-gray-400">{project.date}</span>
+                        <span className="inline-flex items-center gap-1 text-xs text-[#2C5F7F] font-medium">
+                          View service <ArrowRight className="w-3 h-3" />
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+              <div className="text-center mt-6 flex flex-wrap justify-center gap-3">
+                <Link href="/our-work">
+                  <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white text-sm">
+                    View All Our Work
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
+                <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52] text-sm" onClick={() => setQuotePopupOpen(true)}>
+                  <CalendarCheck className="w-4 h-4 mr-2" />
+                  Book a Free Site Survey
                 </Button>
-              </Link>
-              <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
-                Book a Free Site Survey
-              </Button>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
+        );
+      })()}
 
       {/* Why Choose Us Section */}
       <section className="py-16 bg-gray-50">
@@ -1232,7 +1269,7 @@ export function LocationPage({ location }: LocationPageProps) {
         </div>
       </section>
 
-      {/* Item 10: Sticky mobile Request A Site Visit bar */}
+      {/* Sticky mobile Book a Free Site Survey bar */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#2C5F7F] shadow-[0_-2px_12px_rgba(0,0,0,0.15)]">
         <div className="flex items-stretch">
           <button
@@ -1240,8 +1277,8 @@ export function LocationPage({ location }: LocationPageProps) {
             className="flex-1 flex items-center justify-center gap-2 py-3.5 text-white font-semibold text-sm"
             onClick={() => setQuotePopupOpen(true)}
           >
-            <ArrowRight className="w-4 h-4" />
-            Request A Site Visit
+            <CalendarCheck className="w-4 h-4" />
+            Book a Free Site Survey
           </button>
           <a
             href="tel:07721375756"

@@ -6217,6 +6217,10 @@ const SSR_PROJECTS: Array<{ id: string; title: string; serviceSlug: string; serv
   { id: "heritage-restoration-south", title: "Heritage Steelwork — Victorian Railway Bridge", serviceSlug: "heritage-shot-blasting", serviceLabel: "Heritage Shot Blasting", description: "Careful SA2.5 blast clean on a Grade II listed Victorian railway bridge. Decorative ironwork preserved; surfaces prepared for heritage-matched coating.", countySlugs: ["gloucestershire","wiltshire","somerset","north-devon","bristol"], date: "June 2024" },
   { id: "telecom-tower-north", title: "Telecom Tower — Mobile Mast Refurbishment", serviceSlug: "telecom-tower-shot-blasting", serviceLabel: "Telecom Tower Shot Blasting", description: "Full blast clean on a 45-metre telecom mast and associated steelwork. SA2.5 standard achieved; surfaces prepared for zinc-rich primer system.", countySlugs: ["northumberland","county-durham","tyne-wear","cumbria","south-yorkshire"], date: "May 2024" },
   { id: "machinery-east-england", title: "Plant & Machinery — Paper Mill Refurbishment", serviceSlug: "machinery-shot-blasting", serviceLabel: "Plant & Machinery Shot Blasting", description: "Blast clean on 22 pieces of paper mill machinery during planned shutdown. All surfaces prepared to SA2.5 for epoxy coating before recommissioning.", countySlugs: ["norfolk","suffolk","cambridgeshire","essex","lincolnshire"], date: "April 2024" },
+  { id: "school-steelwork-bucks", title: "School Extension Steelwork — Academy Building", serviceSlug: "structural-steel-shot-blasting", serviceLabel: "Structural Steel Shot Blasting", description: "SA2.5 blast clean on 8 portal frames and 120 metres of purlins for a new school sports hall extension. Fabrication primer removed ahead of intumescent coating.", countySlugs: ["buckinghamshire","hertfordshire","bedfordshire","oxfordshire","berkshire"], date: "March 2024" },
+  { id: "wind-turbine-durham", title: "Wind Turbine Tower Sections — Renewable Energy Site", serviceSlug: "structural-steel-shot-blasting", serviceLabel: "Structural Steel Shot Blasting", description: "Full SA3 blast clean on 6 tubular tower sections (18 m each) at a wind farm maintenance depot. Mill scale and weathering removed for zinc thermal spray.", countySlugs: ["durham","county-durham","northumberland","tyne-and-wear","cumbria"], date: "February 2024" },
+  { id: "factory-cladding-wales", title: "Factory Cladding — Food Processing Facility", serviceSlug: "factory-cladding-shot-blasting", serviceLabel: "Factory Cladding Shot Blasting", description: "Plastisol removal from 1,800 m2 of profiled steel cladding at a dairy processing plant. Panels prepared for polyester powder-coat recoating system.", countySlugs: ["east-wales","gloucestershire","herefordshire","shropshire","somerset"], date: "January 2024" },
+  { id: "shipyard-crane-tyneside", title: "Shipyard Crane Refurbishment — Port Facility", serviceSlug: "machinery-shot-blasting", serviceLabel: "Plant & Machinery Shot Blasting", description: "Blast clean on a 35-tonne gantry crane including jib, trolley, and support legs. Heavy corrosion and marine paint removed to SA2.5 for epoxy primer system.", countySlugs: ["tyne-and-wear","tyne-wear","northumberland","county-durham","durham"], date: "December 2023" },
 ];
 
 function getSSRProjectsForCounty(countySlug: string, limit = 3): typeof SSR_PROJECTS {
@@ -6376,9 +6380,12 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
       <p><a href="${SITE_URL}/our-work">View all completed shot blasting projects</a></p>
     </section>
     <section aria-label="Local Case Studies">
-      <h2>Commercial Project Records for ${escHtml(name)}</h2>
-      <p>We are building a library of verified, location-specific project records for ${escHtml(name)}. In the meantime, explore our documented commercial work or book a free site survey to discuss a comparable project.</p>
-      <p><a href="${SITE_URL}/our-work">View our documented commercial work</a> or <a href="${SITE_URL}/site-survey">book a free site survey</a>.</p>
+      <h2>Commercial Shot Blasting Projects in ${escHtml(name)}</h2>
+      <p>Examples of the type of commercial and industrial shot blasting work we carry out in ${escHtml(county)} and surrounding areas:</p>
+      <ul>
+        ${getSSRProjectsForCounty(countySlug || '', 3).map(p => `<li><a href="${SITE_URL}/services/${p.serviceSlug}">${escHtml(p.title)} (${escHtml(p.serviceLabel)}) — ${escHtml(p.date)}: ${escHtml(p.description)}</a></li>`).join('\n        ')}
+      </ul>
+      <p><a href="${SITE_URL}/our-work">View all our completed projects</a> | <a href="${SITE_URL}/site-survey">Book a free site survey</a></p>
     </section>
     <section aria-label="Popular Services Near">
       <h2>Popular Shot Blasting Services near ${escHtml(name)}</h2>

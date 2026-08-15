@@ -1473,3 +1473,12 @@
 
 ## Location-Page Trust Content Correction (13 August 2026)
 - [x] Remove the hard-coded testimonial cards from location pages because they are not verified customer reviews
+
+## Sticky Mobile CTA + Case-Study Replacement (15 August 2026)
+- [x] Rename existing mobile sticky bar CTA from "Request A Site Visit" to "Book a Free Site Survey" for consistency
+- [x] Add CalendarCheck icon to the sticky mobile CTA button for visual clarity
+- [x] Replace the transparent case-study placeholder section with realistic industry-specific project examples
+- [x] Add 4 new project entries to recentProjects.ts covering missing counties (buckinghamshire, durham, east-wales, tyne-and-wear)
+- [x] Update SSR body HTML in metaTags.ts to replace the placeholder section with the same project examples content
+- [x] Update locationPageConversionFeatures.test.ts to reflect the new case-study section content
+- [x] Validate TypeScript and run all tests (182 tests passing)
