@@ -150,6 +150,7 @@ export function LocationPage({ location }: LocationPageProps) {
     { label: location.county, href: `/counties/${location.countySlug}` },
     { label: location.name, href: `/service-areas/${location.slug}` }
   ];
+  const locationSpotlight = location.spotlightText || townSpotlight[location.slug];
 
   return (
     <>
@@ -309,13 +310,13 @@ export function LocationPage({ location }: LocationPageProps) {
                   {countyContext[location.countySlug]}
                 </p>
               )}
-              {townSpotlight[location.slug] && (
+              {locationSpotlight && (
                 <div className="mt-6 p-5 bg-blue-50 rounded-xl border border-blue-100">
                   <div className="flex items-center gap-2 mb-2">
                     <Factory className="w-4 h-4 text-blue-600" />
                     <span className="text-sm font-semibold text-blue-700 uppercase tracking-wide">Local Industry Spotlight</span>
                   </div>
-                  <p className="text-gray-700 leading-relaxed">{townSpotlight[location.slug]}</p>
+                  <p className="text-gray-700 leading-relaxed">{locationSpotlight}</p>
                 </div>
               )}
             </div>
@@ -341,6 +342,35 @@ export function LocationPage({ location }: LocationPageProps) {
               county={location.county}
               className="max-w-2xl mx-auto"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Transparent placeholder until a verified location-specific project record is published. */}
+      <section className="py-12 bg-[#f0f6fb] border-y border-blue-100">
+        <div className="container">
+          <div className="max-w-4xl mx-auto rounded-2xl bg-white border border-blue-100 p-7 md:p-9 text-center shadow-sm">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#2C5F7F]/10">
+              <ClipboardList className="h-6 w-6 text-[#2C5F7F]" />
+            </div>
+            <p className="text-[#2C5F7F] font-medium mb-2">Local Case Studies</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Commercial Project Records for {location.name}
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We are building a library of verified, location-specific project records for {location.name}. In the meantime, explore our documented commercial work or book a free survey to discuss a comparable project.
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <Link href="/our-work">
+                <Button variant="outline" className="border-[#2C5F7F] text-[#2C5F7F] hover:bg-[#2C5F7F] hover:text-white">
+                  View Our Work
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+              <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52]" onClick={() => setQuotePopupOpen(true)}>
+                Book a Free Site Survey
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -633,48 +663,6 @@ export function LocationPage({ location }: LocationPageProps) {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-14 bg-gray-50">
-        <div className="container">
-          <div className="text-center mb-8">
-            <p className="text-[#2C5F7F] font-medium mb-2">Client Feedback</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
-              What Our Clients Say
-            </h2>
-            <div className="flex items-center justify-center gap-2 mt-3">
-              <div className="flex gap-0.5">
-                {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
-              </div>
-              <span className="text-sm font-semibold text-gray-700">4.9 / 5</span>
-              <span className="text-sm text-gray-500">&mdash; 127 verified reviews</span>
-            </div>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {[
-              { name: 'James H.', company: 'Midlands Steel Fabricators', text: `The team arrived on time and blasted our structural steelwork to SA2.5 standard. Excellent finish and very professional throughout.` },
-              { name: 'Sarah M.', company: 'West Midlands Property Group', text: 'Competitive quote, fast turnaround, and the site was left spotless. We\'ve used them three times now and always impressed.' },
-              { name: 'Dave T.', company: 'National Container Services', text: 'Handled a batch of 12 containers efficiently. The mobile unit came directly to our yard — no logistics headaches at all.' },
-            ].map((t, i) => (
-              <blockquote key={i} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100" itemScope itemType="https://schema.org/Review">
-                <div className="flex gap-0.5 mb-3">
-                  {[1,2,3,4,5].map(s => <Star key={s} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />)}
-                </div>
-                <p className="text-gray-700 text-sm leading-relaxed mb-4" itemProp="reviewBody">&ldquo;{t.text}&rdquo;</p>
-                <footer className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-[#2C5F7F]/10 flex items-center justify-center">
-                    <span className="text-[#2C5F7F] font-bold text-xs">{t.name[0]}</span>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-[#2C2C2C]" itemProp="author">{t.name}</p>
-                    <p className="text-xs text-gray-500">{t.company}</p>
-                  </div>
-                </footer>
-              </blockquote>
-            ))}
           </div>
         </div>
       </section>

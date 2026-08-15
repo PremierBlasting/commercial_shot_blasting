@@ -1463,3 +1463,13 @@
 - [x] Add local industry spotlights and three locally relevant FAQs to each new high-priority area page
 - [x] Add eligible new URLs to sitemap-service-areas.xml and prefer researched local spotlights in SSR output
 - [x] Validate complete regression suite, live SSR output, and release checkpoint (178 tests passing)
+
+## Service-Area Expansion Phase 2 (13 August 2026)
+- [x] Reconcile and publish the remaining 33 England and Wales high-population service-area pages
+- [x] Audit Scotland and Northern Ireland settlement populations and identify eligible future coverage pages
+- [x] Add the compact above-the-fold quote form to the first 40 newly created location pages through the shared template
+- [x] Confirm shared interactive maps and add a transparent local case-study placeholder to each location-page template
+- [x] Validate SSR, sitemap coverage, TypeScript, and automated tests before release (181 tests passing)
+
+## Location-Page Trust Content Correction (13 August 2026)
+- [x] Remove the hard-coded testimonial cards from location pages because they are not verified customer reviews

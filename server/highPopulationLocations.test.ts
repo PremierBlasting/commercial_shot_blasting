@@ -8,6 +8,11 @@ const HIGH_POPULATION_TOWN_SLUGS = [
   "gillingham-medway", "st-helens", "eastbourne", "preston", "southport", "harlow", "darlington",
   "hastings", "hartlepool", "stockton-on-tees", "ashford", "wigan", "bury", "bracknell", "burnley",
   "carlisle", "chatham", "woking", "harrogate", "south-shields", "gosport",
+  "kingswood-and-fishponds", "wythenshawe", "wallasey", "dartford", "bognor-regis", "paignton",
+  "maidenhead", "rochester", "margate", "sale", "farnborough", "tynemouth", "huyton-with-roby",
+  "scarborough", "gravesend", "bebington", "weymouth", "brentwood", "barrow-in-furness", "canterbury",
+  "sittingbourne", "bootle", "clacton-on-sea", "lancaster", "torquay", "folkestone", "washington",
+  "royal-leamington-spa", "royal-tunbridge-wells", "durham", "wokingham", "crosby", "horsham",
 ] as const;
 
 describe("high-population service-area expansion", () => {

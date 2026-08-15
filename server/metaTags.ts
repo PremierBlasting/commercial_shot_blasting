@@ -6375,6 +6375,11 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
       </ul>
       <p><a href="${SITE_URL}/our-work">View all completed shot blasting projects</a></p>
     </section>
+    <section aria-label="Local Case Studies">
+      <h2>Commercial Project Records for ${escHtml(name)}</h2>
+      <p>We are building a library of verified, location-specific project records for ${escHtml(name)}. In the meantime, explore our documented commercial work or book a free site survey to discuss a comparable project.</p>
+      <p><a href="${SITE_URL}/our-work">View our documented commercial work</a> or <a href="${SITE_URL}/site-survey">book a free site survey</a>.</p>
+    </section>
     <section aria-label="Popular Services Near">
       <h2>Popular Shot Blasting Services near ${escHtml(name)}</h2>
       <ul>
