@@ -61,7 +61,7 @@ export function DeferredServiceAreasMap({ onAreaClick, onQuoteClick }: DeferredS
             Interactive Coverage Map
           </h3>
           <p className="text-white/70 max-w-md mb-8">
-            Click below to load our interactive Google Maps view showing all 100+ service locations across England and Wales.
+            Click below to load our interactive Google Maps view showing all 100+ service locations across the UK.
           </p>
 
           <Button

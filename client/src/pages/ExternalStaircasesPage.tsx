@@ -24,7 +24,7 @@ const JSONLD_GRAPH = {
       "@id": "https://commercialshotblasting.co.uk/external-staircases#service",
       "name": "External Staircases & Fire Escapes Shot Blasting",
       "alternateName": ["External Steel Staircase Shot Blasting", "Fire Escape Shot Blasting UK", "Shot Blasting Fire Escapes", "Staircase Rust Removal", "Shot Blasting External Steps UK"],
-      "description": "On-site mobile shot blasting of external steel staircases and fire escapes across England and Wales. Rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required — we blast the structure in place at your premises.",
+      "description": "On-site mobile shot blasting of external steel staircases and fire escapes across the UK. Rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required — we blast the structure in place at your premises.",
       "url": "https://commercialshotblasting.co.uk/external-staircases",
       "serviceType": "Shot Blasting",
       "category": "Surface Preparation",
@@ -86,7 +86,7 @@ const JSONLD_GRAPH = {
       "@type": "FAQPage",
       "@id": "https://commercialshotblasting.co.uk/external-staircases#faq",
       "mainEntity": [
-        { "@type": "Question", "name": "Do you blast external staircases on-site?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we always work on-site at your premises. We bring all our mobile blasting equipment to you, so there is no need to dismantle or transport the staircase. We cover England and Wales." } },
+        { "@type": "Question", "name": "Do you blast external staircases on-site?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we always work on-site at your premises. We bring all our mobile blasting equipment to you, so there is no need to dismantle or transport the staircase. We cover the UK." } },
         { "@type": "Question", "name": "What standard do you blast external staircases to?", "acceptedAnswer": { "@type": "Answer", "text": "We blast all external steelwork to Sa 2.5 near-white metal standard with an Rz 50–75 μm anchor profile — the specification required by most protective coating systems including epoxy, polyurethane, and intumescent paints." } },
         { "@type": "Question", "name": "Can you blast an external staircase while the building is occupied?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our mobile setup is self-contained and we can work in a designated area while the building remains occupied. We discuss logistics with you before starting and implement appropriate dust and abrasive containment." } },
         { "@type": "Question", "name": "How long does it take to shot blast an external staircase?", "acceptedAnswer": { "@type": "Answer", "text": "Most external staircases can be completed in one to two days. Timescales depend on the size and condition of the staircase. We will give you an accurate estimate when you enquire." } },
@@ -100,7 +100,7 @@ const JSONLD_GRAPH = {
 const faqs = [
   {
     question: "Do you blast staircases on-site?",
-    answer: "Yes — we always work on-site at your premises. We bring all our mobile blasting equipment to you, so there is no need to dismantle or transport the staircase. We cover England and Wales."
+    answer: "Yes — we always work on-site at your premises. We bring all our mobile blasting equipment to you, so there is no need to dismantle or transport the staircase. We cover the UK."
   },
   {
     question: "What standard do you blast staircases to?",
@@ -130,7 +130,7 @@ export default function ExternalStaircasesPage() {
 
   useSEO({
     title: "Shot Blasting External Staircases & Fire Escapes UK | On-Site Rust Removal | Sa 2.5 | Commercial Shot Blasting",
-    description: "Mobile on-site shot blasting for external steel staircases and fire escapes across England and Wales. Rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required — we come to you. Call 07721 375756.",
+    description: "Mobile on-site shot blasting for external steel staircases and fire escapes across the UK. Rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required — we come to you. Call 07721 375756.",
     keywords: "shot blasting external staircases, shot blasting fire escapes, fire escape shot blasting UK, external staircase shot blasting, external staircase rust removal, steel staircase shot blasting UK, mobile shot blasting staircases, shot blasting fire escapes UK, fire escape rust removal, external staircase surface preparation, shot blast external steps UK, staircase rust and paint removal UK",
     image: "/manus-storage/staircase_thumb_d419ab8f.jpg",
     canonical: "https://commercialshotblasting.co.uk/external-staircases",
@@ -182,7 +182,7 @@ export default function ExternalStaircasesPage() {
             Shot Blasting External Staircases &amp; Fire Escapes
           </h1>
           <p className="text-xl text-white/90 mb-6 max-w-2xl">
-            Mobile on-site shot blasting for external steel staircases and fire escapes — rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required. We come to you, anywhere in England and Wales.
+            Mobile on-site shot blasting for external steel staircases and fire escapes — rust, old paint, and contamination removed to Sa 2.5 near-white metal standard. No dismantling required. We come to you, anywhere in the UK.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90 font-semibold" onClick={() => setQuotePopupOpen(true)}>
@@ -257,7 +257,7 @@ export default function ExternalStaircasesPage() {
                     "Sa 2.5 standard achieved on every project",
                     "Iron silicate media for consistent Rz 50–75 μm anchor profile",
                     "Fast 1–2 day turnaround for most staircases",
-                    "Mobile service covering England and Wales",
+                    "Mobile service covering the UK",
                     "Suitable for all external steel staircase types and sizes",
                     "Dust and abrasive containment as standard",
                     "Ready for immediate priming after blasting",

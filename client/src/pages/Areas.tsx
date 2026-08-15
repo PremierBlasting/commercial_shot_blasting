@@ -504,7 +504,7 @@ export default function Areas() {
               Shot Blasting Services Near Me — All Areas
             </h1>
             <p className="text-xl text-white/80 mb-8">
-              Looking for a shot blasting contractor near you? Our 12 mobile teams cover 650+ towns and cities across England and Wales, delivering professional on-site shot blasting services directly to your premises.
+              Looking for a shot blasting contractor near you? Our 12 mobile teams cover 650+ towns and cities across the UK, delivering professional on-site shot blasting services directly to your premises.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -532,7 +532,7 @@ export default function Areas() {
               Interactive Coverage Map
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Explore our service coverage across England and Wales. Click on any marker to see location details.
+              Explore our service coverage across the UK. Click on any marker to see location details.
             </p>
           </div>
           
@@ -550,7 +550,7 @@ export default function Areas() {
               All Service Locations
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-              Browse all {totalLocations}+ locations we serve across England and Wales. Click on any location to view detailed information about our services in that area.
+              Browse all {totalLocations}+ locations we serve across the UK. Click on any location to view detailed information about our services in that area.
             </p>
             
             {/* Region Filter Buttons */}
@@ -1716,7 +1716,7 @@ export default function Areas() {
               Shot Blasting by County
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We cover {countiesForAreas.length} counties across England and Wales. Click your county for local service details, towns covered, and FAQs.
+              We cover {countiesForAreas.length} counties across the UK. Click your county for local service details, towns covered, and FAQs.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">

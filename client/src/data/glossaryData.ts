@@ -580,7 +580,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
 </ul>
 
 <h2>Mobile Shot Blasting</h2>
-<p>Commercial Shot Blasting operates 12 mobile blasting units across England and Wales, allowing us to carry out shot blasting on site — at the fabricator's yard, on the construction site, or at the client's premises. Mobile blasting eliminates the cost and logistics of transporting large steel structures to a fixed workshop.</p>
+<p>Commercial Shot Blasting operates 12 mobile blasting units across the UK, allowing us to carry out shot blasting on site — at the fabricator's yard, on the construction site, or at the client's premises. Mobile blasting eliminates the cost and logistics of transporting large steel structures to a fixed workshop.</p>
 
 <h2>Applications</h2>
 <p>Shot blasting is used to prepare a wide range of steel structures and components, including structural steel frames, factory and warehouse cladding, shipping containers, fire escapes and staircases, bridge steelwork, floor preparation, pipework, and plant and machinery.</p>`,

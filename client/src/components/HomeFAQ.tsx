@@ -26,7 +26,7 @@ const faqs: FAQItem[] = [
     answer: (
       <>
         Yes, we provide fully mobile shot blasting services across{' '}
-        <Link href="/service-areas" className="text-[#1e6b8c] hover:underline font-medium">England and Wales</Link>. Our team travels to your site with all necessary equipment, which is ideal for large structures that cannot be transported. We serve the{' '}
+        <Link href="/service-areas" className="text-[#1e6b8c] hover:underline font-medium">the UK</Link>. Our team travels to your site with all necessary equipment, which is ideal for large structures that cannot be transported. We serve the{' '}
         <Link href="/service-areas/west-midlands" className="text-[#1e6b8c] hover:underline font-medium">West Midlands</Link>,{' '}
         <Link href="/service-areas/yorkshire" className="text-[#1e6b8c] hover:underline font-medium">Yorkshire</Link>,{' '}
         <Link href="/service-areas/north-west" className="text-[#1e6b8c] hover:underline font-medium">North West</Link>, and many other regions.
@@ -123,7 +123,7 @@ const generateFAQSchema = () => {
     },
     {
       question: "Do you offer mobile shot blasting services?",
-      answer: "Yes, we provide fully mobile shot blasting services across England and Wales. Our team travels to your site with all necessary equipment, which is ideal for large structures that cannot be transported. We serve the West Midlands, Yorkshire, North West, and many other regions."
+      answer: "Yes, we provide fully mobile shot blasting services across the UK. Our team travels to your site with all necessary equipment, which is ideal for large structures that cannot be transported. We serve the West Midlands, Yorkshire, North West, and many other regions."
     },
     {
       question: "How long does commercial shot blasting take?",

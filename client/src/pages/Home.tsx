@@ -390,7 +390,7 @@ export default function Home() {
               Shot Blasting Services for Commercial & Industrial Projects Across the UK
             </h1>
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-              UK-wide mobile shot blasting services for commercial and industrial clients. We bring our equipment to you — removing rust, mill scale, paint, and coatings from structural steel, factory cladding, machinery, and more, on your site, anywhere in England and Wales.
+              UK-wide mobile shot blasting services for commercial and industrial clients. We bring our equipment to you — removing rust, mill scale, paint, and coatings from structural steel, factory cladding, machinery, and more, on your site, anywhere in the UK.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>
@@ -1174,7 +1174,7 @@ export default function Home() {
               Serving Clients Across the UK
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              From our headquarters in the West Midlands, we provide professional shot blasting services across England and Wales. Click on any location to learn more.
+              From our headquarters in the West Midlands, we provide professional shot blasting services across the UK. Click on any location to learn more.
             </p>
           </div>
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden">

@@ -132,10 +132,10 @@ export function StaticServiceAreasMap() {
         {/* Info panel */}
         <div className="w-full md:w-2/5 text-white text-center md:text-left">
           <h3 className="text-2xl md:text-3xl font-bold mb-3">
-            Covering Most of England and Wales
+            Covering the UK
           </h3>
           <p className="text-white/80 mb-6 text-sm md:text-base">
-            Based at our West Midlands headquarters with 12 dedicated teams strategically positioned across the country, we deliver professional shot blasting services throughout England and Wales.
+            Based at our West Midlands headquarters with 12 dedicated teams strategically positioned across the country, we deliver professional shot blasting services throughout the UK.
           </p>
           
           {/* Counties list - organized by region */}

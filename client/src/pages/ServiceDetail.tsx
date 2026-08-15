@@ -1590,7 +1590,7 @@ export default function ServiceDetail() {
                   <div className="flex-1">
                     <p className="text-xs font-semibold uppercase tracking-widest text-[#2C5F7F]/70 mb-1">Related Service</p>
                     <p className="text-lg font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>Car Park Paint &amp; Line Marking Removal</p>
-                    <p className="text-sm text-gray-600 mt-1">Need car park bay markings, thermoplastic road paint, or old line markings removed? Our mobile shot blasting units remove all marking types from tarmac and concrete — no chemicals, no scarring, ready for re-marking. We cover car parks, retail parks, industrial estates, and airports across England and Wales.</p>
+                    <p className="text-sm text-gray-600 mt-1">Need car park bay markings, thermoplastic road paint, or old line markings removed? Our mobile shot blasting units remove all marking types from tarmac and concrete — no chemicals, no scarring, ready for re-marking. We cover car parks, retail parks, industrial estates, and airports across the UK.</p>
                   </div>
                   <Link href="/services/car-park-paint-removal" className="flex-shrink-0 inline-flex items-center gap-2 bg-[#2C5F7F] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#1e4a63] transition-colors">
                     Learn More <ArrowRight className="w-4 h-4" />
@@ -1692,7 +1692,7 @@ export default function ServiceDetail() {
                   Where We Offer {service.title}
                 </h2>
                 <p className="text-gray-600 mb-5">
-                  Our mobile units deliver <strong>{service.title.toLowerCase()}</strong> services across 35 counties in England and Wales.
+                  Our mobile units deliver <strong>{service.title.toLowerCase()}</strong> services across 35 counties in the UK.
                   Select a county below to see all the towns and areas we cover, or{' '}
                   <Link href="/contact" className="text-[#2C5F7F] underline">contact us</Link> for a site survey.
                 </p>
@@ -1906,7 +1906,7 @@ export default function ServiceDetail() {
             <h2 className="text-3xl font-bold text-[#2C5F7F] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
               Recent {service.shortTitle} Projects
             </h2>
-            <p className="text-gray-600 mb-8">See examples of our {service.title.toLowerCase()} work from across England and Wales.</p>
+            <p className="text-gray-600 mb-8">See examples of our {service.title.toLowerCase()} work from across the UK.</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedProjects.map((item) => (
                 <BeforeAfterCard
@@ -1943,7 +1943,7 @@ export default function ServiceDetail() {
               </h2>
               <p className="text-gray-600 mb-6">
                 Fill in the short form and we'll get back to you promptly with a no-obligation quote.
-                Our mobile units cover all of England and Wales — we come to your site.
+                Our mobile units cover all of the UK — we come to your site.
               </p>
               <ul className="space-y-3 mb-8">
                 {[

@@ -189,7 +189,7 @@ export function LeadForm({
           <h3 className={`font-semibold text-base ${headingColor}`}>
             {heading ?? `Request A Site Visit${locationName ? ` in ${locationName}` : ""}`}
           </h3>
-          {subheading && <p className={`text-xs mt-0.5 ${subColor}`}>{subheading}</p>}
+          <p className={`text-xs mt-0.5 ${subColor}`}>{subheading || "We'll get back to you promptly"}</p>
         </div>
       )}
 

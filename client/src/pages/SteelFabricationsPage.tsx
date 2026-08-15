@@ -34,7 +34,7 @@ const JSONLD_GRAPH = {
       "@id": "https://commercialshotblasting.co.uk/steel-fabrications#service",
       "name": "Steel Fabrications Shot Blasting",
       "alternateName": ["Fabricated Steel Shot Blasting", "Shot Blasting Fabricated Steelwork", "Mobile Shot Blasting Fabrications"],
-      "description": "On-site shot blasting of steel fabrications across England and Wales. Rust, mill scale, and old coatings removed from frames, base plates, arch sections, channels, and brackets to Sa 2.5 near-white metal standard. Mobile service — we come to your site.",
+      "description": "On-site shot blasting of steel fabrications across the UK. Rust, mill scale, and old coatings removed from frames, base plates, arch sections, channels, and brackets to Sa 2.5 near-white metal standard. Mobile service — we come to your site.",
       "url": "https://commercialshotblasting.co.uk/steel-fabrications",
       "serviceType": "Shot Blasting",
       "category": "Surface Preparation",
@@ -64,7 +64,7 @@ const JSONLD_GRAPH = {
       "@id": "https://commercialshotblasting.co.uk/steel-fabrications#faq",
       "mainEntity": [
         { "@type": "Question", "name": "What standard do you blast fabrications to?", "acceptedAnswer": { "@type": "Answer", "text": "We blast all fabrications to Sa 2.5 near-white metal standard with an Rz 50–75 μm anchor profile — the specification required by most protective coating systems including epoxy, polyurethane, and intumescent paints." } },
-        { "@type": "Question", "name": "Do you come to our site to blast steel fabrications?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we always work on-site at your premises. We bring all our mobile blasting equipment to you, so there's no need to transport your fabrications anywhere. We cover England and Wales." } },
+        { "@type": "Question", "name": "Do you come to our site to blast steel fabrications?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we always work on-site at your premises. We bring all our mobile blasting equipment to you, so there's no need to transport your fabrications anywhere. We cover the UK." } },
         { "@type": "Question", "name": "How long does shot blasting steel fabrications take?", "acceptedAnswer": { "@type": "Answer", "text": "Timescales depend on the volume and complexity of your fabrications. We'll give you an accurate estimate when you enquire, and we work around your schedule to minimise disruption." } },
         { "@type": "Question", "name": "Can you blast mixed batches of different fabrication shapes?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We handle mixed batches of different shapes and sizes on-site — frames, plates, channels, and curved sections can all be processed in the same visit, reducing cost per piece." } },
         { "@type": "Question", "name": "Can you blast while other work is ongoing on site?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our mobile setup is self-contained and we can work in a designated area of your site while other trades continue elsewhere. We discuss logistics with you before starting." } },
@@ -88,7 +88,7 @@ const JSONLD_GRAPH = {
 
 const faqs = [
   { question: "What standard do you blast fabrications to?", answer: "We blast all fabrications to Sa 2.5 near-white metal standard with an Rz 50–75 μm anchor profile — the specification required by most protective coating systems including epoxy, polyurethane, and intumescent paints." },
-  { question: "Do you come to our site?", answer: "Yes — we always work on-site at your premises. We bring all our mobile blasting equipment to you, so there's no need to transport your fabrications anywhere. We cover England and Wales." },
+  { question: "Do you come to our site?", answer: "Yes — we always work on-site at your premises. We bring all our mobile blasting equipment to you, so there's no need to transport your fabrications anywhere. We cover the UK." },
   { question: "How long does it take?", answer: "Timescales depend on the volume and complexity of your fabrications. We'll give you an accurate estimate when you enquire, and we work around your schedule to minimise disruption." },
   { question: "Can you blast while other work is ongoing?", answer: "Yes. Our mobile setup is self-contained and we can work in a designated area of your site while other trades continue elsewhere. We discuss logistics with you before starting." },
   { question: "Can you blast mixed batches of different shapes?", answer: "Absolutely. We handle mixed batches of different shapes and sizes on-site — frames, plates, channels, and curved sections can all be processed in the same visit, reducing cost per piece." },
@@ -101,7 +101,7 @@ export default function SteelFabricationsPage() {
 
   useSEO({
     title: "Shot Blasting Steel Fabrications UK | On-Site Service | Sa 2.5 Standard | Commercial Shot Blasting",
-    description: "Mobile on-site shot blasting for steel fabrications across England and Wales. Frames, base plates, arch sections, channels, and brackets blasted to Sa 2.5 near-white metal standard. No transport required — we come to you. Call 07721 375756.",
+    description: "Mobile on-site shot blasting for steel fabrications across the UK. Frames, base plates, arch sections, channels, and brackets blasted to Sa 2.5 near-white metal standard. No transport required — we come to you. Call 07721 375756.",
     keywords: "shot blasting steel fabrications, fabricated steel shot blasting, shot blasting fabricated steelwork, mobile shot blasting fabrications, Sa 2.5 steel fabrications, rust removal fabricated steel, mill scale removal fabrications, shot blasting fabricated steel frames, steel fabrications surface preparation UK",
     image: images.p1After,
     canonical: "https://commercialshotblasting.co.uk/steel-fabrications",
@@ -160,7 +160,7 @@ export default function SteelFabricationsPage() {
             Shot Blasting Steel Fabrications
           </h1>
           <p className="text-xl text-white/90 mb-6 max-w-2xl">
-            Mobile on-site shot blasting for fabricated steelwork — rust, mill scale, and old coatings removed to Sa 2.5 near-white metal standard. We come to your site, anywhere in England and Wales.
+            Mobile on-site shot blasting for fabricated steelwork — rust, mill scale, and old coatings removed to Sa 2.5 near-white metal standard. We come to your site, anywhere in the UK.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={() => setQuotePopupOpen(true)}>
@@ -192,7 +192,7 @@ export default function SteelFabricationsPage() {
                 {/* AI Overview / Featured Snippet target block */}
                 <div className="bg-blue-50 border-l-4 border-[#2C5F7F] rounded-r-lg p-5 mb-6">
                   <p className="text-gray-800 font-medium leading-relaxed">
-                    <strong>Shot blasting steel fabrications</strong> is the process of propelling iron silicate (copper slag) abrasive media at high velocity against fabricated steelwork to remove rust, mill scale, and old coatings — producing a clean, profiled surface ready for protective coating. Commercial Shot Blasting carries out this process <strong>on-site at your premises</strong> across England and Wales, achieving <strong>Sa 2.5 near-white metal standard</strong> with an Rz 50–75 μm anchor profile on every project.
+                    <strong>Shot blasting steel fabrications</strong> is the process of propelling iron silicate (copper slag) abrasive media at high velocity against fabricated steelwork to remove rust, mill scale, and old coatings — producing a clean, profiled surface ready for protective coating. Commercial Shot Blasting carries out this process <strong>on-site at your premises</strong> across the UK, achieving <strong>Sa 2.5 near-white metal standard</strong> with an Rz 50–75 μm anchor profile on every project.
                   </p>
                 </div>
                 <p className="text-gray-700 text-lg leading-relaxed mb-4">
@@ -214,7 +214,7 @@ export default function SteelFabricationsPage() {
                     "We come to you — no transport costs or delays",
                     "Iron silicate media for consistent Rz 50–75 μm anchor profile",
                     "Fast turnaround — minimal disruption to your production schedule",
-                    "Mobile service covering England and Wales",
+                    "Mobile service covering the UK",
                     "Fully documented process with job references maintained throughout",
                     "Mixed batches of different shapes and sizes processed on-site",
                     "Curved sections, channels, and complex profiles handled with ease",

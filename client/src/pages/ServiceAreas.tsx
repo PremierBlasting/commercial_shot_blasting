@@ -429,7 +429,7 @@ export default function ServiceAreas() {
   const serviceAreaFaqs = [
     {
       question: "Do you offer mobile shot blasting near me across the UK?",
-      answer: "Yes — we operate a fully mobile shot blasting service and travel to sites across England and Wales. Our mobile unit brings the equipment directly to your location, so there is no need to transport your steelwork or structures to a fixed facility. We regularly cover the Midlands, North West, Yorkshire, East Midlands, East Anglia, South West, and Welsh Borders. Call 07721 375756 to confirm coverage for your specific location."
+      answer: "Yes — we operate a fully mobile shot blasting service and travel to sites across the UK. Our mobile unit brings the equipment directly to your location, so there is no need to transport your steelwork or structures to a fixed facility. We regularly cover the Midlands, North West, Yorkshire, East Midlands, East Anglia, South West, and Welsh Borders. Call 07721 375756 to confirm coverage for your specific location."
     },
     {
       question: "What areas do you cover for shot blasting services?",
@@ -475,7 +475,7 @@ export default function ServiceAreas() {
               Shot Blasting Services Near You — UK-Wide Coverage
             </h1>
             <p className="text-xl text-white/80 mb-4">
-              Mobile shot blasting services delivered to your site across England and Wales. From Birmingham and Manchester to Bristol, Cardiff, and beyond — our teams are ready to mobilise.
+              Mobile shot blasting services delivered to your site across the UK. From Birmingham and Manchester to Bristol, Cardiff, and beyond — our teams are ready to mobilise.
             </p>
             <p className="text-lg text-white/60 mb-8">
               <strong className="text-[#d4a853]">25+ locations</strong> served across <strong className="text-[#d4a853]">7 regions</strong> with 
@@ -828,7 +828,7 @@ export default function ServiceAreas() {
               Counties & Cities We Serve
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Professional shot blasting services across England and Wales. From major cities to rural counties, we bring expertise to your location.
+              Professional shot blasting services across the UK. From major cities to rural counties, we bring expertise to your location.
             </p>
           </div>
 

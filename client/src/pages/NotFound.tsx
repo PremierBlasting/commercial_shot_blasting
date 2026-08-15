@@ -147,7 +147,7 @@ export default function NotFound() {
             <h2 className="text-lg font-semibold text-white">Find Shot Blasting Near You</h2>
           </div>
           <p className="text-white/50 text-sm mb-5">
-            We cover all of England and Wales. Select your county to see local coverage.
+            We cover all of the UK. Select your county to see local coverage.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
             {[...COUNTIES].sort((a, b) => a.name.localeCompare(b.name)).map((county) => (

@@ -294,7 +294,7 @@ export default function BlogPost() {
                 <p className="font-bold text-[#2C2C2C] text-base mb-1">Commercial Shot Blasting</p>
                 <p className="text-xs text-gray-500 mb-2 uppercase tracking-widest">UK Commercial Shot Blasting Contractor</p>
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  Commercial Shot Blasting is the commercial and industrial arm of Premier Blasting, operating across England and Wales. Our team has over 15 years of hands-on experience in abrasive blast cleaning, surface preparation to ISO 8501-1 standards, and specialist coatings removal for structural steel, concrete, and industrial plant. We work directly with contractors, fabricators, and project managers to deliver measurable, specification-compliant results on site.
+                  Commercial Shot Blasting is the commercial and industrial arm of Premier Blasting, operating across the UK. Our team has over 15 years of hands-on experience in abrasive blast cleaning, surface preparation to ISO 8501-1 standards, and specialist coatings removal for structural steel, concrete, and industrial plant. We work directly with contractors, fabricators, and project managers to deliver measurable, specification-compliant results on site.
                 </p>
                 <div className="mt-3 flex flex-wrap gap-3">
                   <a href="/about" className="text-xs font-semibold text-[#2C5F7F] hover:underline">About Us</a>
@@ -309,7 +309,7 @@ export default function BlogPost() {
             {/* CTA — native LeadForm */}
             <div className="mt-14">
               <Suspense fallback={<div className="h-64 flex items-center justify-center text-gray-400">Loading form…</div>}>
-                <LeadFormLazy variant="light" heading="Request a Free Site Survey" subheading="Our expert team covers England &amp; Wales. We'll get back to you within 24 hours." showWhatsApp={true} />
+                <LeadFormLazy variant="light" heading="Request a Free Site Survey" subheading="Our expert team covers the UK. We'll get back to you promptly." showWhatsApp={true} />
               </Suspense>
             </div>
 

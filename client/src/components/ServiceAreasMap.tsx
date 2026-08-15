@@ -11,7 +11,7 @@ interface ServiceLocation {
   region?: string;
 }
 
-// All service locations across England and Wales - organized by county/region
+// All service locations across the UK - organized by county/region
 const serviceLocations: ServiceLocation[] = [
   // West Midlands (Metro)
   { name: "Birmingham", position: { lat: 52.4862, lng: -1.8904 }, region: "West Midlands" },
@@ -678,7 +678,7 @@ export function ServiceAreasMap({ onAreaClick, onQuoteClick }: ServiceAreasMapPr
       {/* Contact CTA */}
       <div className="bg-[#1a3d52] rounded-xl p-6 text-center text-white">
         <h3 className="text-xl font-semibold mb-2">Not sure if we cover your area?</h3>
-        <p className="text-white/70 mb-4">We travel across England and Wales for larger projects. Give us a call to discuss your requirements.</p>
+        <p className="text-white/70 mb-4">We travel across the UK for larger projects. Give us a call to discuss your requirements.</p>
         <Button 
           className="bg-[#d4a853] hover:bg-[#c49843] text-[#1a3d52] font-semibold"
           asChild

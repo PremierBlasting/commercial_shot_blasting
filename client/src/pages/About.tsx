@@ -77,10 +77,10 @@ export default function About() {
               </h2>
               <p className="text-gray-600 mb-4 leading-relaxed">
                 Commercial Shot Blasting is the commercial and industrial shot blasting arm of{" "}
-                <a href="https://premierblasting.co.uk" target="_blank" rel="noopener noreferrer" className="font-bold text-[#2C5F7F] underline decoration-[#2C5F7F]/40 hover:decoration-[#2C5F7F] transition-colors">Premier Blasting Ltd</a>. Operating under the Premier Blasting Ltd umbrella, we focus exclusively on large-scale commercial, industrial, and agricultural projects across England and Wales.
+                <a href="https://premierblasting.co.uk" target="_blank" rel="noopener noreferrer" className="font-bold text-[#2C5F7F] underline decoration-[#2C5F7F]/40 hover:decoration-[#2C5F7F] transition-colors">Premier Blasting Ltd</a>. Operating under the Premier Blasting Ltd umbrella, we focus exclusively on large-scale commercial, industrial, and agricultural projects across the UK.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Our advanced shot blasting technology delivers exceptional results at competitive prices, with 12 fully equipped mobile units ready to attend your site anywhere in England and Wales.
+                Our advanced shot blasting technology delivers exceptional results at competitive prices, with 12 fully equipped mobile units ready to attend your site anywhere in the UK.
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 As part of our commitment, we employ an expert team dedicated to providing unparalleled services while maintaining high safety standards that protect your property and workforce.

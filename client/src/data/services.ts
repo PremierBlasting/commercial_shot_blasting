@@ -1211,13 +1211,13 @@ export const services: ServiceData[] = [
     title: "Intumescent Painting",
     shortTitle: "Intumescent Painting",
     tagline: "Fire-Resistant Coatings Applied to Perfectly Prepared Steel",
-    description: "Commercial Shot Blasting offers a complete intumescent painting service for structural steel, fire escapes, and industrial metalwork. We prepare the steel to the correct cleanliness grade using shot blasting, then apply certified intumescent coatings that expand under heat to protect the structure. Two specialist teams on site at the same time — blasting and painting in a single visit — delivering compliant, inspected, and documented fire protection for new builds, refurbishments, and structural upgrades across England and Wales.",
+    description: "Commercial Shot Blasting offers a complete intumescent painting service for structural steel, fire escapes, and industrial metalwork. We prepare the steel to the correct cleanliness grade using shot blasting, then apply certified intumescent coatings that expand under heat to protect the structure. Two specialist teams on site at the same time — blasting and painting in a single visit — delivering compliant, inspected, and documented fire protection for new builds, refurbishments, and structural upgrades across the UK.",
     heroImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3363_26c5983e.webp",
     benefits: [
       "Full in-house service: shot blasting and intumescent painting under one contract",
       "Certified coatings compliant with BS EN 13381 and ASFP guidelines",
       "Certified fire protection coatings applied and fully documented",
-      "Mobile service — we come to your site anywhere in England and Wales",
+      "Mobile service — we come to your site anywhere in the UK",
       "Correct surface preparation ensures maximum coating adhesion and longevity",
       "Detailed inspection records and coating thickness reports provided",
       "Works on structural steel frames, fire escapes, staircases, and mezzanines",
@@ -1282,7 +1282,7 @@ export const services: ServiceData[] = [
       },
       {
         question: "Do you offer this service nationwide?",
-        answer: "Yes. Like all our services, intumescent painting is delivered on a mobile basis across England and Wales. We bring all equipment to your site and can work around your construction programme. Contact us to discuss your project and we will provide a site visit and quotation."
+        answer: "Yes. Like all our services, intumescent painting is delivered on a mobile basis across the UK. We bring all equipment to your site and can work around your construction programme. Contact us to discuss your project and we will provide a site visit and quotation."
       }
     ]
   },
@@ -1343,7 +1343,7 @@ export const services: ServiceData[] = [
       },
       {
         question: "Do you offer this service nationwide?",
-        answer: "Yes. Our mobile teams operate across England and Wales and can reach most coastal, river, and canal locations. Contact us to discuss your project and we will provide a site visit and quotation."
+        answer: "Yes. Our mobile teams operate across the UK and can reach most coastal, river, and canal locations. Contact us to discuss your project and we will provide a site visit and quotation."
       }
     ]
   },
@@ -1526,7 +1526,7 @@ export const services: ServiceData[] = [
       },
       {
         question: "Do you offer this service nationwide?",
-        answer: "Yes. Our mobile teams operate across England and Wales. We bring all equipment to your site and can work around your operational requirements. Contact us to discuss your project and we will provide a site visit and quotation."
+        answer: "Yes. Our mobile teams operate across the UK. We bring all equipment to your site and can work around your operational requirements. Contact us to discuss your project and we will provide a site visit and quotation."
       }
     ]
   },
@@ -1587,7 +1587,7 @@ export const services: ServiceData[] = [
       },
       {
         question: "Do you offer this service nationwide?",
-        answer: "Yes. Our mobile teams operate across England and Wales. Contact us to discuss your project and we will provide a site visit and quotation."
+        answer: "Yes. Our mobile teams operate across the UK. Contact us to discuss your project and we will provide a site visit and quotation."
       }
     ]
   },
@@ -1648,7 +1648,7 @@ export const services: ServiceData[] = [
       },
       {
         question: "Do you offer this service nationwide?",
-        answer: "Yes. Our mobile teams operate across England and Wales. We regularly work on farms throughout the Midlands, East Anglia, Yorkshire, and the South West. Contact us to discuss your project and we will provide a site visit and quotation."
+        answer: "Yes. Our mobile teams operate across the UK. We regularly work on farms throughout the Midlands, East Anglia, Yorkshire, and the South West. Contact us to discuss your project and we will provide a site visit and quotation."
       }
     ]
   }

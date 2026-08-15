@@ -34,7 +34,7 @@ const JSONLD_GRAPH = {
         "Car Park Surface Preparation",
         "Parking Bay Paint Removal"
       ],
-      "description": "Mobile on-site shot blasting to remove car park line markings, bay numbers, road paint, thermoplastic markings, and old coatings from tarmac and concrete surfaces. We cover car parks, retail parks, industrial estates, airports, hospitals, and logistics centres across England and Wales.",
+      "description": "Mobile on-site shot blasting to remove car park line markings, bay numbers, road paint, thermoplastic markings, and old coatings from tarmac and concrete surfaces. We cover car parks, retail parks, industrial estates, airports, hospitals, and logistics centres across the UK.",
       "url": "https://commercialshotblasting.co.uk/services/car-park-paint-removal",
       "serviceType": "Shot Blasting",
       "category": "Surface Preparation",
@@ -98,7 +98,7 @@ const JSONLD_GRAPH = {
         {
           "@type": "Question",
           "name": "What areas do you cover for car park paint removal?",
-          "acceptedAnswer": { "@type": "Answer", "text": "We cover the whole of England and Wales from our bases in the Midlands. We regularly work in Nottingham, Birmingham, Manchester, Leeds, London, Bristol, and across our 35-county service area. Travel is included in our quotation." }
+          "acceptedAnswer": { "@type": "Answer", "text": "We cover the whole of the UK from our bases in the Midlands. We regularly work in Nottingham, Birmingham, Manchester, Leeds, London, Bristol, and across our 35-county service area. Travel is included in our quotation." }
         },
         {
           "@type": "Question",
@@ -120,7 +120,7 @@ const JSONLD_GRAPH = {
       "@type": "WebPage",
       "@id": "https://commercialshotblasting.co.uk/services/car-park-paint-removal#webpage",
       "name": "Car Park Paint & Line Marking Removal | Shot Blasting UK",
-      "description": "Mobile on-site shot blasting to remove car park line markings, bay numbers, thermoplastic road markings, and old paint from tarmac and concrete. England and Wales. Free site survey.",
+      "description": "Mobile on-site shot blasting to remove car park line markings, bay numbers, thermoplastic road markings, and old paint from tarmac and concrete. the UK. Free site survey.",
       "url": "https://commercialshotblasting.co.uk/services/car-park-paint-removal",
       "inLanguage": "en-GB",
       "isPartOf": { "@id": "https://commercialshotblasting.co.uk/#website" }
@@ -155,7 +155,7 @@ const faqs = [
   },
   {
     question: "What areas do you cover for car park paint removal?",
-    answer: "We cover the whole of England and Wales from our bases in the Midlands. We regularly work in Nottingham, Birmingham, Manchester, Leeds, London, Bristol, and across our 35-county service area. Travel is included in our quotation."
+    answer: "We cover the whole of the UK from our bases in the Midlands. We regularly work in Nottingham, Birmingham, Manchester, Leeds, London, Bristol, and across our 35-county service area. Travel is included in our quotation."
   },
   {
     question: "How much does car park line marking removal cost?",
@@ -176,7 +176,7 @@ const whyShot = [
   { icon: Shield, title: "No chemicals or heat", desc: "Shot blasting is a dry, mechanical process — no solvents, no open flames, no chemical waste to dispose of." },
   { icon: Award, title: "Leaves surface ready to re-mark", desc: "The blasted surface has a clean, lightly textured profile that provides excellent adhesion for new line marking paint or thermoplastic." },
   { icon: Clock, title: "Fast turnaround", desc: "Our mobile units can process hundreds of linear metres per day. Most car parks are completed in one to two days." },
-  { icon: MapPin, title: "Nationwide coverage", desc: "We cover all of England and Wales. Travel costs are included in our quotation — no hidden extras." },
+  { icon: MapPin, title: "Nationwide coverage", desc: "We cover all of the UK. Travel costs are included in our quotation — no hidden extras." },
 ];
 
 export default function CarParkPage() {
@@ -185,7 +185,7 @@ export default function CarParkPage() {
 
   useSEO({
     title: "Car Park Paint & Line Marking Removal | Shot Blasting UK | Commercial Shot Blasting",
-    description: "Mobile on-site shot blasting to remove car park line markings, bay numbers, thermoplastic road markings, and old paint from tarmac and concrete. England and Wales. Free site survey and quotation.",
+    description: "Mobile on-site shot blasting to remove car park line markings, bay numbers, thermoplastic road markings, and old paint from tarmac and concrete. the UK. Free site survey and quotation.",
     canonical: "https://commercialshotblasting.co.uk/services/car-park-paint-removal",
   });
 
@@ -231,7 +231,7 @@ export default function CarParkPage() {
             Car Park Paint &amp; Line Marking Removal
           </h1>
           <p className="text-xl text-white/85 max-w-2xl mb-8 leading-relaxed">
-            Mobile on-site shot blasting to remove bay markings, thermoplastic road paint, bay numbers, and old coatings from tarmac and concrete — anywhere in England and Wales.
+            Mobile on-site shot blasting to remove bay markings, thermoplastic road paint, bay numbers, and old coatings from tarmac and concrete — anywhere in the UK.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Button
@@ -272,7 +272,7 @@ export default function CarParkPage() {
               Shot blasting is the most effective method for removing car park line markings from tarmac and concrete. Our mobile equipment removes paint, thermoplastic, bay numbers, disabled symbols, arrows, and hatching back to a clean surface without damaging the substrate. The blasted surface has a light texture that actually improves adhesion for new markings.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              We work on-site at your premises, anywhere in England and Wales. We can work in sections to keep part of the car park operational, and we can schedule out-of-hours or weekend working to minimise disruption.
+              We work on-site at your premises, anywhere in the UK. We can work in sections to keep part of the car park operational, and we can schedule out-of-hours or weekend working to minimise disruption.
             </p>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-xl">
@@ -465,7 +465,7 @@ export default function CarParkPage() {
               Coverage across England &amp; Wales
             </h2>
             <p className="text-gray-700 mb-4 leading-relaxed">
-              We operate from bases in the Midlands and cover all of England and Wales. We regularly work in Nottingham, Birmingham, Manchester, Leeds, Sheffield, Leicester, Derby, Coventry, Bristol, London, and across our <Link href="/service-areas" className="text-[#2C5F7F] underline hover:text-[#C17F3B]">35-county service area</Link>.
+              We operate from bases in the Midlands and cover all of the UK. We regularly work in Nottingham, Birmingham, Manchester, Leeds, Sheffield, Leicester, Derby, Coventry, Bristol, London, and across our <Link href="/service-areas" className="text-[#2C5F7F] underline hover:text-[#C17F3B]">35-county service area</Link>.
             </p>
             <p className="text-gray-700 mb-6 leading-relaxed">
               Travel costs are included in our quotation. For large projects or repeat contracts, we can agree a programme that minimises mobilisation costs across multiple sites.

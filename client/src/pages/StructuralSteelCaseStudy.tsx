@@ -243,7 +243,7 @@ export default function StructuralSteelCaseStudy() {
           "@type": "LocalBusiness",
           "name": "Commercial Shot Blasting",
           "url": "https://commercialshotblasting.co.uk",
-          "areaServed": "England and Wales"
+          "areaServed": "the UK"
         }
       },
       "keywords": "structural steel shot blasting, commercial building shot blasting, Sa 2.5 surface preparation, coating removal structural steel, shot blasting case study UK"
@@ -766,7 +766,7 @@ export default function StructuralSteelCaseStudy() {
         <section className="bg-slate-900 rounded-2xl p-8 md:p-12">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Have a Similar Structural Steel Project?</h2>
-            <p className="text-white/70 max-w-xl mx-auto">We provide mobile shot blasting for structural steel across England and Wales. Request a free site survey below.</p>
+            <p className="text-white/70 max-w-xl mx-auto">We provide mobile shot blasting for structural steel across the UK. Request a free site survey below.</p>
           </div>
           <Suspense fallback={<div className="h-64 flex items-center justify-center text-white/40">Loading form…</div>}>
             <LeadFormLazy variant="dark" heading="" showWhatsApp={true} />

@@ -112,7 +112,7 @@ export default function Counties() {
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed">
             We provide professional mobile shot blasting services across{" "}
-            <strong>{totalCounties} counties</strong> in England and Wales.
+            <strong>{totalCounties} counties</strong> in the UK.
             Select your county below to find out more about our services in your
             area.
           </p>

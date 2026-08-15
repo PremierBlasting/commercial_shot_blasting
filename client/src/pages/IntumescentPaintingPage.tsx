@@ -40,7 +40,7 @@ const JSONLD_GRAPH = {
         "Steel Fire Protection Coating UK",
         "Intumescent Paint Contractors England Wales"
       ],
-      "description": "Specialist intumescent painting contractors for structural steel across England and Wales. We shot blast to Sa 2.5 and apply certified fire protection coatings in a single mobilisation — blasting and painting on the same day with multiple operatives on site.",
+      "description": "Specialist intumescent painting contractors for structural steel across the UK. We shot blast to Sa 2.5 and apply certified fire protection coatings in a single mobilisation — blasting and painting on the same day with multiple operatives on site.",
       "url": "https://commercialshotblasting.co.uk/services/intumescent-painting",
       "serviceType": "Intumescent Painting",
       "category": "Fire Protection Coatings",
@@ -91,7 +91,7 @@ const JSONLD_GRAPH = {
           "name": "How do I find intumescent painting contractors in the UK?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Look for intumescent painting contractors who also carry out shot blasting — ideally as a single combined service. The key risk with separate contractors is the gap between blast and paint: bare steel can flash rust within hours, compromising adhesion. A specialist who provides both operations in one mobilisation eliminates that risk entirely. We cover England and Wales and can provide a fixed-price quotation from your fire rating schedule."
+            "text": "Look for intumescent painting contractors who also carry out shot blasting — ideally as a single combined service. The key risk with separate contractors is the gap between blast and paint: bare steel can flash rust within hours, compromising adhesion. A specialist who provides both operations in one mobilisation eliminates that risk entirely. We cover the UK and can provide a fixed-price quotation from your fire rating schedule."
           }
         },
         {
@@ -131,7 +131,7 @@ const JSONLD_GRAPH = {
           "name": "What types of steel structures do you coat with intumescent paint?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We coat portal frames, roof trusses, mezzanine floors, staircases, columns, beams, purlins, and complex fabrications. We work on new-build commercial and industrial units, warehouse conversions, extensions, and refurbishment projects across England and Wales."
+            "text": "We coat portal frames, roof trusses, mezzanine floors, staircases, columns, beams, purlins, and complex fabrications. We work on new-build commercial and industrial units, warehouse conversions, extensions, and refurbishment projects across the UK."
           }
         }
       ]
@@ -149,7 +149,7 @@ const JSONLD_GRAPH = {
       "@id": "https://commercialshotblasting.co.uk/services/intumescent-painting",
       "url": "https://commercialshotblasting.co.uk/services/intumescent-painting",
       "name": "Intumescent Painting Contractors | Structural Steel Fire Protection | Commercial Shot Blasting",
-      "description": "Specialist intumescent painting contractors for structural steel across England and Wales. Shot blast to Sa 2.5 and certified fire protection coatings in one mobilisation — blasting and painting on the same day.",
+      "description": "Specialist intumescent painting contractors for structural steel across the UK. Shot blast to Sa 2.5 and certified fire protection coatings in one mobilisation — blasting and painting on the same day.",
       "inLanguage": "en-GB",
       "isPartOf": { "@type": "WebSite", "url": "https://commercialshotblasting.co.uk" },
       "about": { "@id": "https://commercialshotblasting.co.uk/services/intumescent-painting#service" },
@@ -161,7 +161,7 @@ const JSONLD_GRAPH = {
 const FAQS = [
   {
     q: "How do I find intumescent painting contractors in the UK?",
-    a: "Look for intumescent painting contractors who also carry out shot blasting — ideally as a single combined service. The key risk with separate contractors is the gap between blast and paint: bare steel can flash rust within hours, compromising adhesion. A specialist who provides both operations in one mobilisation eliminates that risk entirely. We cover England and Wales and can provide a fixed-price quotation from your fire rating schedule."
+    a: "Look for intumescent painting contractors who also carry out shot blasting — ideally as a single combined service. The key risk with separate contractors is the gap between blast and paint: bare steel can flash rust within hours, compromising adhesion. A specialist who provides both operations in one mobilisation eliminates that risk entirely. We cover the UK and can provide a fixed-price quotation from your fire rating schedule."
   },
   {
     q: "What should I look for when hiring intumescent painting contractors?",
@@ -181,7 +181,7 @@ const FAQS = [
   },
   {
     q: "What types of steel structures do you coat with intumescent paint?",
-    a: "We coat portal frames, roof trusses, mezzanine floors, staircases, columns, beams, purlins, and complex fabrications. We work on new-build commercial and industrial units, warehouse conversions, extensions, and refurbishment projects across England and Wales."
+    a: "We coat portal frames, roof trusses, mezzanine floors, staircases, columns, beams, purlins, and complex fabrications. We work on new-build commercial and industrial units, warehouse conversions, extensions, and refurbishment projects across the UK."
   }
 ];
 
@@ -221,7 +221,7 @@ export default function IntumescentPaintingPage() {
 
   useSEO({
     title: "Intumescent Painting Contractors | Structural Steel Fire Protection | Commercial Shot Blasting",
-    description: "Looking for intumescent painting contractors for structural steel? We blast to Sa 2.5 and apply certified fire protection coatings on the same day — multiple operatives, single mobilisation, anywhere in England and Wales.",
+    description: "Looking for intumescent painting contractors for structural steel? We blast to Sa 2.5 and apply certified fire protection coatings on the same day — multiple operatives, single mobilisation, anywhere in the UK.",
     canonical: "https://commercialshotblasting.co.uk/services/intumescent-painting",
     image: "https://commercialshotblasting.co.uk/manus-storage/intumescentpaint_28bdf742.jpeg",
   });
@@ -262,7 +262,7 @@ export default function IntumescentPaintingPage() {
               Intumescent Painting Contractors for Structural Steel
             </h1>
             <p className="mt-4 text-lg text-white/85 max-w-2xl">
-              On-site shot blasting and certified intumescent fire protection coatings in a single mobilisation. Three specialist operatives, blasting and painting on the same day — anywhere in England and Wales.
+              On-site shot blasting and certified intumescent fire protection coatings in a single mobilisation. Three specialist operatives, blasting and painting on the same day — anywhere in the UK.
             </p>
             <div className="flex flex-wrap gap-3 mt-8">
               <Button
@@ -313,7 +313,7 @@ export default function IntumescentPaintingPage() {
                 This is not the same as booking two separate contractors. Because all operatives are ours, they work in sequence, not in conflict. There is no handover gap, no risk of flash rusting between blast and paint, and no dispute over substrate condition. The coating is applied to the correct surface in the correct window — every time.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                We work as intumescent painting contractors on portal frames, roof trusses, mezzanine floors, and complex fabrications across England and Wales. One mobilisation, one invoice, one point of contact.
+                We work as intumescent painting contractors on portal frames, roof trusses, mezzanine floors, and complex fabrications across the UK. One mobilisation, one invoice, one point of contact.
               </p>
             </div>
             <div className="space-y-4">
@@ -703,7 +703,7 @@ export default function IntumescentPaintingPage() {
             Need Intumescent Painting Contractors for Your Project?
           </h2>
           <p className="text-white/80 mb-8 text-lg max-w-2xl mx-auto">
-            We are specialist intumescent painting contractors covering England and Wales — providing a combined shot blast and fire protection coating service for structural steel. Send us your fire rating schedule and we will provide a fixed-price quotation.
+            We are specialist intumescent painting contractors covering the UK — providing a combined shot blast and fire protection coating service for structural steel. Send us your fire rating schedule and we will provide a fixed-price quotation.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
@@ -901,7 +901,7 @@ export default function IntumescentPaintingPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-[#2C5F7F] text-sm">England &amp; Wales coverage</p>
-                    <p className="text-sm text-gray-500">We mobilise to any commercial or industrial site across England and Wales.</p>
+                    <p className="text-sm text-gray-500">We mobilise to any commercial or industrial site across the UK.</p>
                   </div>
                 </div>
               </div>

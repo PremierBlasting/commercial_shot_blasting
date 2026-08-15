@@ -29,7 +29,7 @@ export function CompactSurveyCapture({ defaults, onStart, className = "" }: Comp
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <div>
           <p className="text-sm font-bold text-[#1a3a52]">Request A Site Visit</p>
-          <p className="text-xs text-slate-500">Start in under a minute. No obligation.</p>
+          <p className="text-xs text-slate-500">Start in under a minute. No obligation. We'll get back to you promptly.</p>
         </div>
       </div>
       <div className="grid gap-2 sm:grid-cols-[1.25fr_0.9fr_auto]">

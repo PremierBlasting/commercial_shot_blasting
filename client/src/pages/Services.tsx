@@ -120,7 +120,7 @@ export default function Services() {
             Shot Blasting Services UK — Commercial &amp; Industrial
           </h1>
           <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Professional mobile shot blasting services for commercial and industrial clients throughout England and Wales. We deliver all 18 shot blasting services directly to your site — structural steelwork, factory cladding, containers, floor preparation, rust removal, pipework, plant and machinery, and more — to SA2.5 and SA3 standards.
+            Professional mobile shot blasting services for commercial and industrial clients throughout the UK. We deliver all 18 shot blasting services directly to your site — structural steelwork, factory cladding, containers, floor preparation, rust removal, pipework, plant and machinery, and more — to SA2.5 and SA3 standards.
           </p>
           <Button 
             size="lg" 
@@ -137,7 +137,7 @@ export default function Services() {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-4">
-              Commercial Shot Blasting provides <strong>shot blasting services</strong> across the UK for a wide range of commercial and industrial applications. Our fully equipped mobile units travel directly to your site anywhere in England and Wales, eliminating the cost and delay of transporting materials to a fixed workshop.
+              Commercial Shot Blasting provides <strong>shot blasting services</strong> across the UK for a wide range of commercial and industrial applications. Our fully equipped mobile units travel directly to your site anywhere in the UK, eliminating the cost and delay of transporting materials to a fixed workshop.
             </p>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
               All shot blasting services are carried out to <strong>SA2.5 near white metal</strong> or <strong>SA3 white metal</strong> standards as required, leaving surfaces clean, profiled, and ready for protective coating. We work with fabricators, contractors, facilities managers, and site owners across construction, manufacturing, agriculture, marine, and heritage sectors.
@@ -245,7 +245,7 @@ export default function Services() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { title: "Mobile — We Come to You", body: "Our shot blasting services are fully mobile. We bring all equipment directly to your site anywhere in England and Wales, saving you the time and cost of transporting materials." },
+              { title: "Mobile — We Come to You", body: "Our shot blasting services are fully mobile. We bring all equipment directly to your site anywhere in the UK, saving you the time and cost of transporting materials." },
               { title: "SA2.5 & SA3 Guaranteed", body: "Every shot blasting job is completed to the specified blast standard — SA2.5 near white metal or SA3 white metal — with a full site cleanup before we leave." },
               { title: "18 Services, One Provider", body: "From structural steelwork and factory cladding to floor preparation and powder coating, we offer the full range of shot blasting services under one roof." },
             ].map((item) => (
@@ -270,7 +270,7 @@ export default function Services() {
           <div className="space-y-5">
             {[
               { q: "What shot blasting services do you offer?", a: "We offer 18 specialist shot blasting services including structural steel frames, factory and warehouse cladding, steel containers, floor preparation, fire escapes, staircases, bridge steelwork, warehouse racking, process pipework, telecom masts, commercial radiators, commercial vehicles, steel doors, steel sheeting, steel gates, plant and machinery, and combined shot blasting and powder coating." },
-              { q: "Do you offer shot blasting services across the whole of the UK?", a: "Yes. Our mobile shot blasting services cover England and Wales. We travel directly to your site, so there is no need to transport your materials. We regularly work across the Midlands, North West, Yorkshire, South East, South West, and Wales." },
+              { q: "Do you offer shot blasting services across the whole of the UK?", a: "Yes. Our mobile shot blasting services cover the UK. We travel directly to your site, so there is no need to transport your materials. We regularly work across the Midlands, North West, Yorkshire, South East, South West, and Wales." },
               { q: "What blast standard do your shot blasting services achieve?", a: "All our shot blasting services are carried out to SA2.5 near white metal or SA3 white metal as specified. These are internationally recognised standards (ISO 8501-1) that define the cleanliness of the blasted surface and are required by most protective coating manufacturers." },
               { q: "How much do shot blasting services cost?", a: "The cost of shot blasting services depends on the surface area, material type, blast standard required, and site location. We provide no-obligation quotes for all projects. Call 07721 375756 or use our online quote form to get a price." },
               { q: "How quickly can you carry out shot blasting services?", a: "We can typically schedule a site visit within a few days. For urgent projects, call us directly on 07721 375756 to discuss availability." },
