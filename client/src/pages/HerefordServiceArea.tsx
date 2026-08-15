@@ -51,7 +51,7 @@ const HEREFORD_TESTIMONIALS = [
 const HEREFORD_FAQ = [
   { question: `Do you offer mobile shot blasting services in ${LOCATION_NAME}?`, answer: `Yes, we operate a fully mobile shot blasting unit and can service all areas within ${LOCATION_NAME} and the wider Herefordshire county, including Leominster, Ross-on-Wye, and Ledbury.` },
   { question: "What kind of surfaces can you blast in Hereford?", answer: "We can safely and effectively blast steel, concrete, stone, brick, wood, and various other materials. We tailor the abrasive and pressure to the specific surface and project requirement." },
-  { question: "How quickly can you start a project in the area?", answer: "We aim to provide a quote within 24 hours of inquiry. Project start times depend on our current schedule, but we prioritize local commercial and industrial clients." },
+  { question: "How quickly can you start a project in the area?", answer: "We aim to provide a quote promptly after inquiry. Project start times depend on our current schedule, but we prioritize local commercial and industrial clients." },
 ];
 
 // --- Component Structure ---
@@ -291,7 +291,7 @@ const ContactFormSection = () => {
     const faqSchema = document.createElement('script');
     faqSchema.type = 'application/ld+json';
     faqSchema.id = 'faq-schema';
-    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer mobile shot blasting services in the area?","acceptedAnswer":{"@type":"Answer","text":"Yes, we operate a fully mobile shot blasting unit and can service all areas within the area and the wider Herefordshire county, including Leominster, Ross-on-Wye, and Ledbury."}},{"@type":"Question","name":"What kind of surfaces can you blast in Hereford?","acceptedAnswer":{"@type":"Answer","text":"We can safely and effectively blast steel, concrete, stone, brick, wood, and various other materials. We tailor the abrasive and pressure to the specific surface and project requirement."}},{"@type":"Question","name":"How quickly can you start a project in the area?","acceptedAnswer":{"@type":"Answer","text":"We aim to provide a quote within 24 hours of inquiry. Project start times depend on our current schedule, but we prioritize local commercial and industrial clients."}}]}`;
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer mobile shot blasting services in the area?","acceptedAnswer":{"@type":"Answer","text":"Yes, we operate a fully mobile shot blasting unit and can service all areas within the area and the wider Herefordshire county, including Leominster, Ross-on-Wye, and Ledbury."}},{"@type":"Question","name":"What kind of surfaces can you blast in Hereford?","acceptedAnswer":{"@type":"Answer","text":"We can safely and effectively blast steel, concrete, stone, brick, wood, and various other materials. We tailor the abrasive and pressure to the specific surface and project requirement."}},{"@type":"Question","name":"How quickly can you start a project in the area?","acceptedAnswer":{"@type":"Answer","text":"We aim to provide a quote promptly after inquiry. Project start times depend on our current schedule, but we prioritize local commercial and industrial clients."}}]}`;
     document.head.appendChild(faqSchema);
     return () => {
       const el = document.getElementById('faq-schema');
@@ -309,7 +309,7 @@ const ContactFormSection = () => {
               Request A Site Visit for {LOCATION_NAME}
             </h2>
             <p className="text-gray-600 mb-8">
-              Fill out the form below and our {LOCATION_NAME} service team will get back to you within 24 hours with a detailed quote for your project.
+              Fill out the form below and our {LOCATION_NAME} service team will get back to you promptly with a detailed quote for your project.
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-4">

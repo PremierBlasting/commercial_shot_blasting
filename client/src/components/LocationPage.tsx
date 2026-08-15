@@ -475,9 +475,9 @@ export function LocationPage({ location }: LocationPageProps) {
               <div className="w-12 h-12 bg-[#2C5F7F]/10 rounded-lg flex items-center justify-center mb-4">
                 <CheckCircle className="w-6 h-6 text-[#2C5F7F]" />
               </div>
-              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">24-Hour Response in {location.name}</h3>
+              <h3 className="text-xl font-bold text-[#2C2C2C] mb-3">Fast Response in {location.name}</h3>
               <p className="text-gray-600">
-                We typically respond within 24 hours and can schedule a site visit at your convenience anywhere in {location.name}.
+                We can schedule a site visit at your convenience anywhere in {location.name}.
               </p>
             </div>
 
@@ -875,7 +875,7 @@ export function LocationPage({ location }: LocationPageProps) {
               Request A Site Visit in {location.name}
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              No-obligation site visits for all shot blasting services in {location.name} and across {location.county}. Call us today or request a site visit online — we typically respond within 24 hours.
+              No-obligation site visits for all shot blasting services in {location.name} and across {location.county}. Call us today or request a site visit online — we respond promptly.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Button 
@@ -915,7 +915,7 @@ export function LocationPage({ location }: LocationPageProps) {
               {
                 step: 1,
                 title: "Request A Site Survey",
-                text: `Call 07721 375756 or use our online form to arrange a no-obligation site visit in ${location.name}. We will assess the surfaces, confirm the blast standard required (SA2.5 or SA3), and provide a written quote — typically within 24 hours of the visit.`
+                text: `Call 07721 375756 or use our online form to arrange a no-obligation site visit in ${location.name}. We will assess the surfaces, confirm the blast standard required (SA2.5 or SA3), and provide a written quote — after the visit.`
               },
               {
                 step: 2,
@@ -1101,7 +1101,7 @@ export function LocationPage({ location }: LocationPageProps) {
                 </div>
                 <div className="flex items-center gap-2 text-blue-200">
                   <CheckCircle className="w-4 h-4 text-[#7ec8e3] shrink-0" />
-                  Response within 24 hours
+                  
                 </div>
                 <div className="flex items-center gap-2 text-blue-200">
                   <CheckCircle className="w-4 h-4 text-[#7ec8e3] shrink-0" />
@@ -1124,7 +1124,7 @@ export function LocationPage({ location }: LocationPageProps) {
                 <div className="bg-white/10 rounded-xl p-6 text-center">
                   <CheckCircle className="w-10 h-10 text-[#7ec8e3] mx-auto mb-3" />
                   <h3 className="font-bold text-lg mb-1">Site visit requested!</h3>
-                  <p className="text-blue-100 text-sm">We'll be in touch within 24 hours to confirm your site visit. For urgent jobs, call us directly on 07721 375756.</p>
+                  <p className="text-blue-100 text-sm">We'll be in touch shortly to confirm your site visit. For urgent jobs, call us directly on 07721 375756.</p>
                 </div>
               ) : (
                 <form onSubmit={handleInlineFormSubmit} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 flex flex-col gap-4">

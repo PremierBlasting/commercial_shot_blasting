@@ -439,7 +439,7 @@ export default function WorcesterServiceArea() {
             <AccordionItem value="item-3">
               <AccordionTrigger>How quickly can you provide a quote for a Worcester project?</AccordionTrigger>
               <AccordionContent>
-                We aim to provide a detailed, no-obligation quote within 24 hours of receiving your inquiry. For complex projects in the Worcester area, we may arrange a quick site visit to ensure the most accurate pricing.
+                We aim to provide a detailed, no-obligation quote promptly after receiving your inquiry. For complex projects in the Worcester area, we may arrange a quick site visit to ensure the most accurate pricing.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

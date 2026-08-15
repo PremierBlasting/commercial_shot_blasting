@@ -148,7 +148,7 @@ export default function Services() {
               { label: "18 Services", sub: "Full range available" },
               { label: "SA2.5 / SA3", sub: "Blast standard guaranteed" },
               { label: "Mobile UK-Wide", sub: "We come to your site" },
-              { label: "Site Visits", sub: "24-hour response" },
+              { label: "Site Visits", sub: "Fast response" },
             ].map((item) => (
               <div key={item.label} className="bg-[#f0f6fb] rounded-xl p-4">
                 <p className="font-bold text-[#2C5F7F] text-lg">{item.label}</p>
@@ -273,7 +273,7 @@ export default function Services() {
               { q: "Do you offer shot blasting services across the whole of the UK?", a: "Yes. Our mobile shot blasting services cover England and Wales. We travel directly to your site, so there is no need to transport your materials. We regularly work across the Midlands, North West, Yorkshire, South East, South West, and Wales." },
               { q: "What blast standard do your shot blasting services achieve?", a: "All our shot blasting services are carried out to SA2.5 near white metal or SA3 white metal as specified. These are internationally recognised standards (ISO 8501-1) that define the cleanliness of the blasted surface and are required by most protective coating manufacturers." },
               { q: "How much do shot blasting services cost?", a: "The cost of shot blasting services depends on the surface area, material type, blast standard required, and site location. We provide no-obligation quotes for all projects. Call 07721 375756 or use our online quote form to get a price." },
-              { q: "How quickly can you carry out shot blasting services?", a: "We aim to respond to all enquiries within 24 hours and can typically schedule a site visit within a few days. For urgent projects, call us directly on 07721 375756 to discuss availability." },
+              { q: "How quickly can you carry out shot blasting services?", a: "We can typically schedule a site visit within a few days. For urgent projects, call us directly on 07721 375756 to discuss availability." },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-xl p-6 shadow-sm">
                 <h3 className="font-bold text-[#2C2C2C] mb-2 flex items-start gap-2">
@@ -294,7 +294,7 @@ export default function Services() {
             Request A Site Visit for Shot Blasting Services UK
           </h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8">
-            No-obligation quotes for all shot blasting services across the UK. We typically respond within 24 hours and can schedule a site survey at your convenience.
+            No-obligation quotes for all shot blasting services across the UK. We can schedule a site survey at your convenience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 

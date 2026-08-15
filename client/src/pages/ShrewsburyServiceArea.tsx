@@ -488,7 +488,7 @@ export default function ShrewsburyServiceArea() {
                 Request A Site Visit for Your Shrewsbury Project
               </h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form and our Shrewsbury team will get back to you within 24 hours with a detailed quote for your project in Shropshire or Mid-Wales.
+                Fill out the form and our Shrewsbury team will get back to you promptly with a detailed quote for your project in Shropshire or Mid-Wales.
               </p>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">

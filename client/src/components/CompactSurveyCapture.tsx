@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { useState } from "react";
 import type { SurveyBookingDefaults } from "./SurveyBookingFlow";
 
@@ -31,7 +31,6 @@ export function CompactSurveyCapture({ defaults, onStart, className = "" }: Comp
           <p className="text-sm font-bold text-[#1a3a52]">Request A Site Visit</p>
           <p className="text-xs text-slate-500">Start in under a minute. No obligation.</p>
         </div>
-        <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-1 text-[11px] font-semibold text-emerald-700"><CheckCircle2 className="h-3.5 w-3.5" /> Reply within 24h</span>
       </div>
       <div className="grid gap-2 sm:grid-cols-[1.25fr_0.9fr_auto]">
         <label className="sr-only" htmlFor="compact-survey-service">What needs blasting?</label>

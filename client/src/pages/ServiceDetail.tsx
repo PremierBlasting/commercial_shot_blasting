@@ -1942,7 +1942,7 @@ export default function ServiceDetail() {
                 Request A {service.shortTitle} Site Visit
               </h2>
               <p className="text-gray-600 mb-6">
-                Fill in the short form and we'll get back to you within 24 hours with a no-obligation quote.
+                Fill in the short form and we'll get back to you promptly with a no-obligation quote.
                 Our mobile units cover all of England and Wales — we come to your site.
               </p>
               <ul className="space-y-3 mb-8">
@@ -1977,7 +1977,7 @@ export default function ServiceDetail() {
               <LeadForm
                 variant="light"
                 heading="Request A Site Visit"
-                subheading="We respond within 24 hours"
+                subheading="We respond promptly"
                 showWhatsApp={true}
               />
             </div>

@@ -503,7 +503,7 @@ export default function NottinghamServiceArea() {
                 Request A Site Visit for Your {locationName} Project
               </h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form and our team dedicated to the {regionName} area will get back to you within 24 hours with a detailed quote for your project.
+                Fill out the form and our team dedicated to the {regionName} area will get back to you promptly with a detailed quote for your project.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">

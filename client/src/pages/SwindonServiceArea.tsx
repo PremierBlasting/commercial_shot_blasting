@@ -507,7 +507,7 @@ export default function SwindonServiceArea() {
                 Request A Site Visit for Swindon
               </h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form and our Swindon-based team will get back to you within 24 hours with a detailed quote for your project in Wiltshire.
+                Fill out the form and our Swindon-based team will get back to you promptly with a detailed quote for your project in Wiltshire.
               </p>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">

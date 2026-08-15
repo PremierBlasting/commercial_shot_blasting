@@ -874,7 +874,7 @@ export default function IntumescentPaintingPage() {
                 Request a Quote from Our Intumescent Painting Contractors
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Tell us about your project — the type of steelwork, the required fire rating, and the location — and we will come back to you with a fixed-price quotation within 24 hours. No obligation.
+                Tell us about your project — the type of steelwork, the required fire rating, and the location — and we will come back to you with a fixed-price quotation promptly. No obligation.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
@@ -891,7 +891,7 @@ export default function IntumescentPaintingPage() {
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#2C5F7F] text-sm">Response within 24 hours</p>
+                    <p className="font-semibold text-[#2C5F7F] text-sm"></p>
                     <p className="text-sm text-gray-500">We review every enquiry the same day and respond with availability and pricing.</p>
                   </div>
                 </div>

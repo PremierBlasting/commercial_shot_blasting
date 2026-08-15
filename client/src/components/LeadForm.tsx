@@ -169,7 +169,7 @@ export function LeadForm({
         <CheckCircle className={`w-12 h-12 mx-auto mb-4 ${isDark ? "text-[#7ec8e3]" : "text-[#2C5F7F]"}`} />
         <h3 className={`font-bold text-lg mb-2 ${headingColor}`}>Site Visit Requested!</h3>
         <p className={`text-sm ${subColor}`}>
-          Thanks, {firstName}. We'll be in touch within 24 hours to confirm your site visit.
+          Thanks, {firstName}. We'll be in touch shortly to confirm your site visit.
           {" "}For urgent jobs, call us directly on{" "}
           <a href="tel:07721375756" className={`font-semibold ${isDark ? "text-[#7ec8e3]" : "text-[#2C5F7F]"} hover:underline`}>
             07721 375756

@@ -55,7 +55,7 @@ export default function Contact() {
                 Let's Discuss Your Project
               </h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form and our team will get back to you within 24 hours with a detailed quote for your project.
+                Fill out the form and our team will get back to you promptly with a detailed quote for your project.
               </p>
 
               {/* Contact Information */}
@@ -99,7 +99,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-[#2C2C2C]">Fast Response Time</p>
-                      <p className="text-sm text-gray-600">24-hour quote turnaround</p>
+                      <p className="text-sm text-gray-600">Fast quote turnaround</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -129,7 +129,7 @@ export default function Contact() {
               <LeadForm
                 variant="light"
                 heading="Request A Site Visit"
-                subheading="We'll arrange a site visit and get back to you within 24 hours."
+                subheading="We'll arrange a site visit and get back to you promptly."
                 showWhatsApp={true}
               />
             </div>

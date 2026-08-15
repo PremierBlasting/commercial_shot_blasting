@@ -969,7 +969,7 @@ export function CountyPage({ county }: CountyPageProps) {
             Request A Site Visit for Shot Blasting Services in {county.name}
           </h2>
           <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-            No-obligation quotes for all shot blasting services across {county.name}. We typically respond within 24 hours and can schedule a site survey at your convenience.
+            No-obligation quotes for all shot blasting services across {county.name}. We can schedule a site survey at your convenience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
@@ -1061,7 +1061,7 @@ export function CountyPage({ county }: CountyPageProps) {
               {
                 step: 1,
                 title: "Request A Site Survey",
-                text: `Call 07721 375756 or use our online form to arrange a no-obligation site visit across ${county.name}. We will assess the surfaces, confirm the blast standard required (SA2.5 or SA3), and provide a written quote — typically within 24 hours of the visit.`
+                text: `Call 07721 375756 or use our online form to arrange a no-obligation site visit across ${county.name}. We will assess the surfaces, confirm the blast standard required (SA2.5 or SA3), and provide a written quote — after the visit.`
               },
               {
                 step: 2,

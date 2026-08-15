@@ -445,7 +445,7 @@ export default function ServiceAreas() {
     },
     {
       question: "How quickly can you attend site for a shot blasting quote?",
-      answer: "We aim to arrange a site survey within 3-5 working days of your enquiry, depending on location and current workload. For urgent projects, call us directly on 07721 375756 and we will do our best to accommodate your timeline. Written quotes are typically provided within 24 hours of the site visit."
+      answer: "We aim to arrange a site survey within 3-5 working days of your enquiry, depending on location and current workload. For urgent projects, call us directly on 07721 375756 and we will do our best to accommodate your timeline. Written quotes are provided promptly after the site visit."
     }
   ];
 

@@ -114,7 +114,7 @@ export default function LeicesterServiceArea() {
   const faqs = [
     { question: "Do you offer on-site shot blasting in Leicester?", answer: "Yes, we provide mobile, on-site shot blasting services across Leicester and the wider East Midlands region for large structures and machinery." },
     { question: "What types of surfaces can you treat?", answer: "We can treat a wide range of surfaces including steel, concrete, brick, stone, and wood, ideal for Leicester's diverse industrial and historic buildings." },
-    { question: "How quickly can you start a project in Leicester?", answer: "We aim to provide a quote within 24 hours and can typically schedule a start date within one week, depending on the project size and our current workload." },
+    { question: "How quickly can you start a project in Leicester?", answer: "We can typically schedule a start date within one week, depending on the project size and our current workload." },
   ];
 
   const testimonials = [
@@ -126,7 +126,7 @@ export default function LeicesterServiceArea() {
     const faqSchema = document.createElement('script');
     faqSchema.type = 'application/ld+json';
     faqSchema.id = 'faq-schema';
-    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer on-site shot blasting in Leicester?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide mobile, on-site shot blasting services across Leicester and the wider East Midlands region for large structures and machinery."}},{"@type":"Question","name":"What types of surfaces can you treat?","acceptedAnswer":{"@type":"Answer","text":"We can treat a wide range of surfaces including steel, concrete, brick, stone, and wood, ideal for Leicester's diverse industrial and historic buildings."}},{"@type":"Question","name":"How quickly can you start a project in Leicester?","acceptedAnswer":{"@type":"Answer","text":"We aim to provide a quote within 24 hours and can typically schedule a start date within one week, depending on the project size and our current workload."}}]}`;
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you offer on-site shot blasting in Leicester?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide mobile, on-site shot blasting services across Leicester and the wider East Midlands region for large structures and machinery."}},{"@type":"Question","name":"What types of surfaces can you treat?","acceptedAnswer":{"@type":"Answer","text":"We can treat a wide range of surfaces including steel, concrete, brick, stone, and wood, ideal for Leicester's diverse industrial and historic buildings."}},{"@type":"Question","name":"How quickly can you start a project in Leicester?","acceptedAnswer":{"@type":"Answer","text":"We can typically schedule a start date within one week, depending on the project size and our current workload."}}]}`;
     document.head.appendChild(faqSchema);
     return () => {
       const el = document.getElementById('faq-schema');
@@ -489,7 +489,7 @@ export default function LeicesterServiceArea() {
                 Request A Site Visit for Leicester
               </h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form and our team will get back to you within 24 hours with a detailed quote for your project in Leicester or the East Midlands.
+                Fill out the form and our team will get back to you promptly with a detailed quote for your project in Leicester or the East Midlands.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">

@@ -497,7 +497,7 @@ export default function DerbyServiceArea() {
                 Request A Site Visit
               </h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form and our team will get back to you within 24 hours with a detailed quote for your project.
+                Fill out the form and our team will get back to you promptly with a detailed quote for your project.
               </p>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">

@@ -1073,7 +1073,7 @@ export default function Home() {
                 Request A Site Visit
               </h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form and our team will get back to you within 24 hours with a detailed quote for your project.
+                Fill out the form and our team will get back to you promptly with a detailed quote for your project.
               </p>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
@@ -1116,7 +1116,7 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <p className="font-semibold text-[#2C2C2C]">24-Hour Response Time</p>
+                      <p className="font-semibold text-[#2C2C2C]">Fast Response Time</p>
                       <p className="text-sm text-gray-600">Quick quotes and rapid project turnaround</p>
                     </div>
                   </div>
@@ -1158,7 +1158,7 @@ export default function Home() {
             </div>
             <Card className="p-6">
               <Suspense fallback={<div className="h-64 flex items-center justify-center text-gray-400">Loading form…</div>}>
-                <LeadFormLazy variant="light" heading="Request A Site Visit" subheading="We'll get back to you within 24 hours with a detailed quote." showWhatsApp={true} />
+                <LeadFormLazy variant="light" heading="Request A Site Visit" subheading="We'll get back to you promptly with a detailed quote." showWhatsApp={true} />
               </Suspense>
             </Card>
           </div>

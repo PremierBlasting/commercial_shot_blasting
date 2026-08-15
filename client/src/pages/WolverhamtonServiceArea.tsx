@@ -484,7 +484,7 @@ export default function WolverhamptonServiceArea() {
                 Request A Site Visit for Your Wolverhampton Project
               </h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form and our local Wolverhampton team will get back to you within 24 hours with a detailed quote for your project.
+                Fill out the form and our local Wolverhampton team will get back to you promptly with a detailed quote for your project.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">

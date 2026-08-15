@@ -560,7 +560,7 @@ export default function LincolnServiceArea() {
                 Request A Site Visit for {LOCATION_NAME}
               </h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form and our local team will get back to you within 24 hours with a detailed quote for your project in {LOCATION_NAME}.
+                Fill out the form and our local team will get back to you promptly with a detailed quote for your project in {LOCATION_NAME}.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-gray-600">
