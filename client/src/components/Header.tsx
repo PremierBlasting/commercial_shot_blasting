@@ -611,11 +611,11 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
           <Button 
             className="hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90" 
             onClick={() => {
-              trackCTAClick('Book a Free Site Survey', 'Header');
+              trackCTAClick('Request A Site Visit', 'Header');
               onOpenQuotePopup?.();
             }}
           >
-            Book a Free Site Survey
+            Request A Site Visit
           </Button>
           {/* Mobile Menu Button */}
           <button 
@@ -801,11 +801,11 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                 className="bg-white text-[#2C5F7F] hover:bg-white/90 w-full" 
                 onClick={() => { 
                   closeMobileMenu(); 
-                  trackCTAClick('Book a Free Site Survey', 'Mobile Menu');
+                  trackCTAClick('Request A Site Visit', 'Mobile Menu');
                   onOpenQuotePopup?.(); 
                 }}
               >
-                Book a Free Site Survey
+                Request A Site Visit
               </Button>
             </div>
           </div>

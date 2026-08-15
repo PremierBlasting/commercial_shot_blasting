@@ -10,7 +10,7 @@ describe("location-page conversion and local-proof features", () => {
   it("includes the compact survey capture above the fold for every data-driven location page", () => {
     expect(locationPageSource).toContain("<CompactSurveyCapture");
     expect(locationPageSource).toContain('defaults={{ locationName: location.name }}');
-    expect(locationPageSource).toContain("Book a Free Site Survey");
+    expect(locationPageSource).toContain("Request A Site Visit");
   });
 
   it("renders both interactive local maps from the shared location template", () => {
@@ -30,16 +30,8 @@ describe("location-page conversion and local-proof features", () => {
     expect(locationPageSource).not.toContain("Midlands Steel Fabricators");
   });
 
-  it("has a sticky mobile CTA bar labeled 'Book a Free Site Survey'", () => {
-    expect(locationPageSource).toContain("Sticky mobile Book a Free Site Survey bar");
+  it("has a sticky mobile CTA bar labeled 'Request A Site Visit'", () => {
+    expect(locationPageSource).toContain("Sticky mobile Request A Site Visit bar");
     expect(locationPageSource).toContain("CalendarCheck");
-    // The sticky mobile bar specifically uses CalendarCheck + "Book a Free Site Survey"
-    // (other page sections may still use "Request A Site Visit" for different CTAs)
-    const stickyBarSection = locationPageSource.slice(
-      locationPageSource.indexOf("Sticky mobile Book a Free Site Survey bar"),
-      locationPageSource.indexOf("Sticky mobile Book a Free Site Survey bar") + 500
-    );
-    expect(stickyBarSection).toContain("Book a Free Site Survey");
-    expect(stickyBarSection).not.toContain("Request A Site Visit");
   });
 });

@@ -187,7 +187,7 @@ export function LeadForm({
       {(heading || locationName) && (
         <div className="mb-1">
           <h3 className={`font-semibold text-base ${headingColor}`}>
-            {heading ?? `Book a Free Site Survey${locationName ? ` in ${locationName}` : ""}`}
+            {heading ?? `Request A Site Visit${locationName ? ` in ${locationName}` : ""}`}
           </h3>
           {subheading && <p className={`text-xs mt-0.5 ${subColor}`}>{subheading}</p>}
         </div>
@@ -391,7 +391,7 @@ export function LeadForm({
         {contactMutation.isPending ? (
           <span>Sending…</span>
         ) : (
-          <><ArrowRight className="w-4 h-4" /> Book a Free Site Survey</>
+          <><ArrowRight className="w-4 h-4" /> Request A Site Visit</>
         )}
       </button>
 

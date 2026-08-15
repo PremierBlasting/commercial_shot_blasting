@@ -204,7 +204,7 @@ export function LocationPage({ location }: LocationPageProps) {
                 className="bg-white text-[#2C5F7F] hover:bg-gray-100"
                 onClick={() => setQuotePopupOpen(true)}
               >
-                Book a Free Site Survey
+                Request A Site Visit
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               <Button 
@@ -404,7 +404,7 @@ export function LocationPage({ location }: LocationPageProps) {
                 </Link>
                 <Button className="bg-[#2C5F7F] hover:bg-[#1a3d52] text-sm" onClick={() => setQuotePopupOpen(true)}>
                   <CalendarCheck className="w-4 h-4 mr-2" />
-                  Book a Free Site Survey
+                  Request A Site Visit
                 </Button>
               </div>
             </div>
@@ -1269,7 +1269,7 @@ export function LocationPage({ location }: LocationPageProps) {
         </div>
       </section>
 
-      {/* Sticky mobile Book a Free Site Survey bar */}
+      {/* Sticky mobile Request A Site Visit bar */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#2C5F7F] shadow-[0_-2px_12px_rgba(0,0,0,0.15)] animate-[stickyPulse_0.6s_ease-in-out_3]"
         style={{ animationDelay: '1s' }}
       >
@@ -1280,7 +1280,7 @@ export function LocationPage({ location }: LocationPageProps) {
             onClick={() => setQuotePopupOpen(true)}
           >
             <CalendarCheck className="w-4 h-4" />
-            Book a Free Site Survey
+            Request A Site Visit
           </button>
           <a
             href="tel:07721375756"

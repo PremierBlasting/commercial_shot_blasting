@@ -28,7 +28,7 @@ export function CompactSurveyCapture({ defaults, onStart, className = "" }: Comp
     <form onSubmit={beginSurvey} className={`rounded-2xl border border-white/30 bg-white/95 p-4 text-left shadow-2xl backdrop-blur-sm ${className}`}>
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <div>
-          <p className="text-sm font-bold text-[#1a3a52]">Book a Free Site Survey</p>
+          <p className="text-sm font-bold text-[#1a3a52]">Request A Site Visit</p>
           <p className="text-xs text-slate-500">Start in under a minute. No obligation.</p>
         </div>
         <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-1 text-[11px] font-semibold text-emerald-700"><CheckCircle2 className="h-3.5 w-3.5" /> Reply within 24h</span>

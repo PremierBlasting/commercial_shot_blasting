@@ -334,7 +334,7 @@ export default function BlogPost() {
                 href="/site-survey"
                 className="inline-flex items-center justify-center gap-2 bg-white text-[#1a3d52] font-bold px-7 py-3.5 rounded-lg hover:bg-gray-100 transition-colors text-base whitespace-nowrap shadow-lg"
               >
-                Book a Free Site Survey
+                Request A Site Visit
               </a>
               <a
                 href="tel:07721375756"

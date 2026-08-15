@@ -394,7 +394,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>
-                Book a Free Site Survey
+                Request A Site Visit
               </Button>
               <Link href="/our-work">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
