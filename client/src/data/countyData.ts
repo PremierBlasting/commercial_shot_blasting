@@ -1218,9 +1218,9 @@ export const countyData: Record<string, CountyData> = {
     ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/QRpJYgxdNmiyqvIK.webp",
     latitude: 54.7753,
     longitude: -1.5849,
-    majorTowns: ["Durham City", "Darlington", "Hartlepool", "Newton Aycliffe"],
+    majorTowns: ["Durham City", "Darlington", "Hartlepool", "Newton Aycliffe", "Consett", "Bishop Auckland", "Peterlee"],
     industries: ["Manufacturing", "Engineering", "Construction", "Automotive"],
-    townsAndVillages: ["Barnard Castle", "Bishop Auckland", "Chester-le-Street", "Consett", "Crook", "Darlington", "Durham City", "Ferryhill", "Hartlepool", "Lanchester", "Middleton-in-Teesdale", "Newton Aycliffe", "Peterlee", "Seaham", "Shildon", "Spennymoor", "Stanley", "Stanhope", "Stockton-on-Tees", "Trimdon"],
+    townsAndVillages: ["Barnard Castle", "Billingham", "Bishop Auckland", "Chester-le-Street", "Consett", "Crook", "Darlington", "Durham City", "Ferryhill", "Hartlepool", "Lanchester", "Middleton-in-Teesdale", "Newton Aycliffe", "Peterlee", "Seaham", "Shildon", "Spennymoor", "Stanley", "Stanhope", "Stockton-on-Tees", "Trimdon"],
     faqs: [
       {
         question: "Do you provide shot blasting services throughout County Durham?",
