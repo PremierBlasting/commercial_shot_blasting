@@ -1482,3 +1482,12 @@
 - [x] Update SSR body HTML in metaTags.ts to replace the placeholder section with the same project examples content
 - [x] Update locationPageConversionFeatures.test.ts to reflect the new case-study section content
 - [x] Validate TypeScript and run all tests (182 tests passing)
+
+## Scotland & Northern Ireland Expansion + Project Photos + Pulse CTA (15 August 2026)
+- [x] Publish 16 Scotland high-population service-area pages (Edinburgh, Glasgow, Aberdeen, Dundee, Falkirk, Cumbernauld, Dunfermline, East Kilbride, Greenock, Livingston, Inverness, Ayr, Kilmarnock, Kirkcaldy, Stirling, Perth)
+- [x] Publish 6 Northern Ireland high-population service-area pages (Belfast, Derry, Craigavon, Newtownabbey, Bangor, Lisburn)
+- [x] Add local industry spotlights and 3 unique FAQs to each of the 22 new pages
+- [x] Add all 22 new URLs to sitemap-service-areas.xml (total: 732 URLs)
+- [x] Replace generic CDN images in all 16 recentProjects entries with real CSB job photos from the Steels project
+- [x] Add stickyPulse animation (3 pulses after 1s delay) to the mobile sticky CTA bar on first page load
+- [x] Validate TypeScript (0 errors) and run all tests (182 passing)

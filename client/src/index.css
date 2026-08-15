@@ -168,6 +168,17 @@
   animation-play-state: paused;
 }
 
+@keyframes stickyPulse {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.15);
+  }
+  50% {
+    transform: translateY(-3px);
+    box-shadow: 0 -4px 20px rgba(44,95,127,0.4);
+  }
+}
+
 /* HubSpot Form Styling */
 .hubspot-form-container,
 .hubspot-popup-form {

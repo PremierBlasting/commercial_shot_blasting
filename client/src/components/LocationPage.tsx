@@ -1270,11 +1270,13 @@ export function LocationPage({ location }: LocationPageProps) {
       </section>
 
       {/* Sticky mobile Book a Free Site Survey bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#2C5F7F] shadow-[0_-2px_12px_rgba(0,0,0,0.15)]">
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#2C5F7F] shadow-[0_-2px_12px_rgba(0,0,0,0.15)] animate-[stickyPulse_0.6s_ease-in-out_3]"
+        style={{ animationDelay: '1s' }}
+      >
         <div className="flex items-stretch">
           <button
             type="button"
-            className="flex-1 flex items-center justify-center gap-2 py-3.5 text-white font-semibold text-sm"
+            className="flex-1 flex items-center justify-center gap-2 py-3.5 text-white font-semibold text-sm relative overflow-hidden"
             onClick={() => setQuotePopupOpen(true)}
           >
             <CalendarCheck className="w-4 h-4" />
