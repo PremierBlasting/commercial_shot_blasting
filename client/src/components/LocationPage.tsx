@@ -1,6 +1,6 @@
 import { Link } from "wouter";
-import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2, Star, Factory, ClipboardList, ChevronDown, ChevronUp, CalendarCheck } from "lucide-react";
-import { useState, useMemo, useEffect } from "react";
+import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2, Star, Factory, ClipboardList, ChevronDown, ChevronUp, CalendarCheck, Map as MapIcon } from "lucide-react";
+import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import { getLocationSEO, useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { QuotePopup } from "@/components/QuotePopup";
@@ -14,7 +14,24 @@ import { HeroCarousel } from "@/components/HeroCarousel";
 import { Footer } from "@/components/Footer";
 import { ShareButton } from "@/components/ShareButton";
 import { ServiceRadiusMap } from "@/components/ServiceRadiusMap";
-import { LocalIndustryMap } from "@/components/LocalIndustryMap";
+import { LocalIndustryMap } from "@/components/LocalIndustryMap"; 
+
+/** Hook: returns true once the ref element enters the viewport (with 200px rootMargin for preloading) */
+function useLazyVisible(rootMargin = "200px") {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
+      { rootMargin }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [rootMargin]);
+  return { ref, visible };
+}
 import { trackPhoneCall } from "@/lib/analytics";
 import { FAQSchema, generateLocationFAQs } from "@/components/FAQSchema";
 import { LocationData, locationData } from '@shared/locationData';
@@ -72,6 +89,10 @@ export function LocationPage({ location }: LocationPageProps) {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [showQuickNav, setShowQuickNav] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  // Lazy-load maps only when scrolled into view (saves ~200KB initial payload on mobile)
+  const industryMapLazy = useLazyVisible("300px");
+  const radiusMapLazy = useLazyVisible("300px");
 
   // Show quick-nav after user scrolls past the hero
   useEffect(() => {
@@ -337,11 +358,22 @@ export function LocationPage({ location }: LocationPageProps) {
                 Our mobile shot blasting units serve all industrial estates, business parks, and manufacturing sites in and around {location.name}.
               </p>
             </div>
-            <LocalIndustryMap
-              townName={location.name}
-              county={location.county}
-              className="max-w-2xl mx-auto"
-            />
+            <div ref={industryMapLazy.ref} className="max-w-2xl mx-auto min-h-[300px]">
+              {industryMapLazy.visible ? (
+                <LocalIndustryMap
+                  townName={location.name}
+                  county={location.county}
+                  className="w-full"
+                />
+              ) : (
+                <div className="h-[300px] bg-slate-100 rounded-xl flex items-center justify-center text-gray-400">
+                  <div className="text-center">
+                    <MapIcon className="w-8 h-8 mx-auto mb-2 opacity-50" />
+                    <p className="text-sm">Loading map...</p>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>
@@ -651,7 +683,18 @@ export function LocationPage({ location }: LocationPageProps) {
                 We provide mobile shot blasting services throughout {location.name} and the surrounding areas in {location.county}.
               </p>
             </div>
-            <ServiceRadiusMap locationName={location.name} county={location.county} radiusMiles={30} />
+            <div ref={radiusMapLazy.ref} className="min-h-[350px]">
+              {radiusMapLazy.visible ? (
+                <ServiceRadiusMap locationName={location.name} county={location.county} radiusMiles={30} />
+              ) : (
+                <div className="h-[350px] bg-slate-100 rounded-xl flex items-center justify-center text-gray-400">
+                  <div className="text-center">
+                    <MapIcon className="w-8 h-8 mx-auto mb-2 opacity-50" />
+                    <p className="text-sm">Loading service area map...</p>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>

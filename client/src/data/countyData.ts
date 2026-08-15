@@ -1316,4 +1316,40 @@ export const countyData: Record<string, CountyData> = {
       }
     ]
   },
+  "cornwall": {
+    name: "Cornwall",
+    slug: "cornwall",
+    region: "South West England",
+    description: "Professional shot blasting services throughout Cornwall. Serving Truro, Falmouth, Redruth, Camborne, Penzance, Bodmin, St Austell, and Newquay with expert surface preparation for marine, industrial, and heritage structures.",
+    metaDescription: "Mobile shot blasting in Cornwall — ship repair, harbour infrastructure, mining heritage buildings & industrial steelwork. SA2.5/SA3 standard. Serving Truro, Falmouth & Penzance.",
+    url: "https://commercialshotblasting.co.uk/counties/cornwall",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
+    latitude: 50.2660,
+    longitude: -5.0527,
+    majorTowns: ["Truro", "Falmouth", "Redruth", "Penzance", "St Austell", "Newquay"],
+    industries: ["Marine", "Mining Heritage", "Tourism Infrastructure", "Agriculture", "Renewable Energy"],
+    townsAndVillages: ["Bodmin", "Bude", "Callington", "Camborne", "Falmouth", "Fowey", "Hayle", "Helston", "Launceston", "Liskeard", "Looe", "Newquay", "Padstow", "Par", "Penryn", "Penzance", "Redruth", "Saltash", "St Austell", "St Ives", "Truro", "Wadebridge"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Cornwall?",
+        answer: "Yes, we provide mobile shot blasting services across all of Cornwall. Our fully equipped mobile units can reach any location in the county, including Truro, Falmouth, Penzance, St Austell, Newquay, and all surrounding areas."
+      },
+      {
+        question: "Can you blast marine vessels and harbour infrastructure in Cornwall?",
+        answer: "Absolutely. We regularly work at Falmouth Docks and other Cornish harbours, blasting ship hulls, harbour steelwork, dock gates, and marine equipment. Our mobile units are ideal for on-site marine work where structures cannot be moved."
+      },
+      {
+        question: "Do you work on heritage mining buildings in Cornwall?",
+        answer: "Yes, we have extensive experience with heritage structures including former engine houses and mining buildings across the Cornish Mining World Heritage Site. We use appropriate abrasive media and pressures to clean stonework and metalwork without causing damage."
+      },
+      {
+        question: "How quickly can you reach my location in Cornwall?",
+        answer: "We can typically schedule site visits in Cornwall within 3-5 working days. For urgent projects at Falmouth Docks or industrial estates near the A30 corridor, we can often respond faster. Call us on 07721 375756 to discuss your timeline."
+      },
+      {
+        question: "What types of projects do you handle in Cornwall?",
+        answer: "We handle a wide range of commercial projects in Cornwall including ship repair at Falmouth, china clay infrastructure near St Austell, agricultural buildings, wind farm components, hotel and tourism infrastructure refurbishment, and structural steel for new construction projects."
+      }
+    ]
+  },
 };
