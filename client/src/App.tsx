@@ -199,6 +199,9 @@ const DurhamCounty = lazy(() => import("./pages/counties/DurhamCounty"));
 const TyneAndWearCounty = lazy(() => import("./pages/counties/TyneAndWearCounty"));
 const NorthumberlandCounty = lazy(() => import("./pages/counties/NorthumberlandCounty"));
 const CornwallCounty = lazy(() => import("./pages/counties/CornwallCounty"));
+const KentCounty = lazy(() => import("./pages/counties/KentCounty"));
+const DevonCounty = lazy(() => import("./pages/counties/DevonCounty"));
+const MerseysideCounty = lazy(() => import("./pages/counties/MerseysideCounty"));
 
 // Dynamic location router for all 605 towns and villages
 const LocationRouter = lazy(() => import("./pages/LocationRouter"));
@@ -307,6 +310,9 @@ function Router() {
           <Route path="/counties/tyne-and-wear" component={() => <Suspense fallback={<CountyPageSkeleton />}><TyneAndWearCounty /></Suspense>} />
           <Route path="/counties/northumberland" component={() => <Suspense fallback={<CountyPageSkeleton />}><NorthumberlandCounty /></Suspense>} />
           <Route path="/counties/cornwall" component={() => <Suspense fallback={<CountyPageSkeleton />}><CornwallCounty /></Suspense>} />
+          <Route path="/counties/kent" component={() => <Suspense fallback={<CountyPageSkeleton />}><KentCounty /></Suspense>} />
+          <Route path="/counties/devon" component={() => <Suspense fallback={<CountyPageSkeleton />}><DevonCounty /></Suspense>} />
+          <Route path="/counties/merseyside" component={() => <Suspense fallback={<CountyPageSkeleton />}><MerseysideCounty /></Suspense>} />
         {/* Dynamic Location Pages (605 towns and villages) */}
         <Route path="/locations/:slug" component={LocationRouter} />
         <Route path="/service-areas/birmingham" component={BirminghamServiceArea} />

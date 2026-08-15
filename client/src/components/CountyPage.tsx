@@ -1343,13 +1343,15 @@ export function CountyPage({ county }: CountyPageProps) {
               </p>
             </div>
             {/* Search bar */}
-            <div className="max-w-sm mx-auto mb-6 relative">
+            <div className="max-w-sm mx-auto mb-6 relative" role="combobox" aria-expanded={townSearch.length >= 1 && filteredTowns.length > 0} aria-haspopup="listbox">
               <input
                 type="text"
                 value={townSearch}
                 onChange={(e) => setTownSearch(e.target.value)}
                 placeholder={`Search towns in ${county.name}…`}
                 className="w-full border border-gray-200 rounded-lg px-4 py-2 pr-9 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C5F7F] focus:border-transparent"
+                aria-autocomplete="list"
+                aria-controls="town-autocomplete-list"
               />
               {townSearch && (
                 <button
@@ -1359,6 +1361,26 @@ export function CountyPage({ county }: CountyPageProps) {
                 >
                   ×
                 </button>
+              )}
+              {/* Autocomplete dropdown */}
+              {townSearch.length >= 1 && filteredTowns.length > 0 && filteredTowns.length <= 8 && (
+                <ul
+                  id="town-autocomplete-list"
+                  role="listbox"
+                  className="absolute z-50 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden max-h-64 overflow-y-auto"
+                >
+                  {filteredTowns.slice(0, 5).map((town) => (
+                    <li key={town.slug} role="option">
+                      <Link href={`/service-areas/${town.slug}`}>
+                        <div className="flex items-center gap-2 px-4 py-2.5 hover:bg-[#f0f6fb] cursor-pointer transition-colors border-b border-gray-50 last:border-0">
+                          <MapPin className="w-3.5 h-3.5 text-[#2C5F7F] shrink-0" />
+                          <span className="text-sm font-medium text-[#2C2C2C]">{town.name}</span>
+                          <ArrowRight className="w-3 h-3 text-gray-300 ml-auto" />
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               )}
             </div>
             {townSearchLoading ? (

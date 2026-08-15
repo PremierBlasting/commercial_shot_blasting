@@ -1352,4 +1352,112 @@ export const countyData: Record<string, CountyData> = {
       }
     ]
   },
+  "kent": {
+    name: "Kent",
+    slug: "kent",
+    region: "South East England",
+    description: "Professional shot blasting services throughout Kent. Serving Maidstone, Canterbury, Dover, Folkestone, Ashford, and Thanet with expert surface preparation for port infrastructure, industrial steelwork, and heritage buildings.",
+    metaDescription: "Mobile shot blasting in Kent — port infrastructure, Channel Tunnel steelwork, industrial estates & heritage buildings. SA2.5/SA3 standard. Serving Maidstone, Dover & Canterbury.",
+    url: "https://commercialshotblasting.co.uk/counties/kent",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
+    latitude: 51.2787,
+    longitude: 0.5217,
+    majorTowns: ["Maidstone", "Canterbury", "Dover", "Folkestone", "Ashford", "Thanet"],
+    industries: ["Port & Logistics", "Manufacturing", "Construction", "Agriculture", "Heritage"],
+    townsAndVillages: ["Ashford", "Broadstairs", "Canterbury", "Chatham", "Dartford", "Deal", "Dover", "Faversham", "Folkestone", "Gillingham", "Gravesend", "Herne Bay", "Hythe", "Maidstone", "Margate", "Ramsgate", "Rochester", "Royal Tunbridge Wells", "Sandwich", "Sevenoaks", "Sittingbourne", "Swanley", "Tonbridge", "Whitstable"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Kent?",
+        answer: "Yes, we provide mobile shot blasting services across all of Kent. Our fully equipped mobile units can reach any location in the county, including Maidstone, Canterbury, Dover, Folkestone, Ashford, and all surrounding areas."
+      },
+      {
+        question: "Can you work on port infrastructure at Dover and other Kent harbours?",
+        answer: "Absolutely. We regularly blast harbour steelwork, dock gates, container handling equipment, and marine structures at ports across Kent including Dover, Ramsgate, and Sheerness."
+      },
+      {
+        question: "Do you handle heritage building restoration in Kent?",
+        answer: "Yes, we have experience with heritage structures across Kent including oast houses, historic dockyards, and listed buildings. We use appropriate abrasive media to clean surfaces without causing damage to the underlying materials."
+      },
+      {
+        question: "How quickly can you reach my location in Kent?",
+        answer: "We can typically schedule site visits in Kent within 3-5 working days. For urgent projects at Dover Port or industrial estates near the M20 corridor, we can often respond faster. Call us on 07721 375756."
+      },
+      {
+        question: "What types of industrial projects do you handle in Kent?",
+        answer: "We handle structural steel for new builds, factory cladding refurbishment, warehouse floor preparation, container maintenance at logistics hubs, agricultural buildings, and bridge steelwork across Kent's motorway and rail network."
+      }
+    ]
+  },
+  "devon": {
+    name: "Devon",
+    slug: "devon",
+    region: "South West England",
+    description: "Professional shot blasting services throughout Devon. Serving Exeter, Plymouth, Torquay, Barnstaple, Newton Abbot, and Tiverton with expert surface preparation for marine, agricultural, and industrial structures.",
+    metaDescription: "Mobile shot blasting in Devon — marine vessels, agricultural machinery, industrial steelwork & heritage buildings. SA2.5/SA3 standard. Serving Exeter, Plymouth & Barnstaple.",
+    url: "https://commercialshotblasting.co.uk/counties/devon",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/xRNbdXezEbVeGwhe.webp",
+    latitude: 50.7156,
+    longitude: -3.5309,
+    majorTowns: ["Exeter", "Plymouth", "Torquay", "Barnstaple", "Newton Abbot", "Tiverton"],
+    industries: ["Marine", "Agriculture", "Manufacturing", "Tourism Infrastructure", "Defence"],
+    townsAndVillages: ["Axminster", "Barnstaple", "Bideford", "Bovey Tracey", "Braunton", "Brixham", "Buckfastleigh", "Crediton", "Cullompton", "Dartmouth", "Dawlish", "Exeter", "Exmouth", "Honiton", "Ilfracombe", "Ivybridge", "Kingsbridge", "Newton Abbot", "Okehampton", "Paignton", "Plymouth", "Salcombe", "Sidmouth", "South Molton", "Tavistock", "Teignmouth", "Tiverton", "Torquay", "Totnes"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Devon?",
+        answer: "Yes, we provide mobile shot blasting services across all of Devon. Our fully equipped mobile units can reach any location in the county, including Exeter, Plymouth, Torquay, Barnstaple, and all surrounding areas."
+      },
+      {
+        question: "Can you blast marine vessels and harbour infrastructure in Devon?",
+        answer: "Absolutely. We work at Plymouth's Devonport Dockyard, Brixham harbour, and other Devon ports, blasting ship hulls, harbour steelwork, and marine equipment. Our mobile units are ideal for on-site work."
+      },
+      {
+        question: "Do you work on agricultural buildings in Devon?",
+        answer: "Yes, we regularly blast agricultural buildings, farm machinery, livestock housing steelwork, and grain storage facilities across Devon's extensive farming sector."
+      },
+      {
+        question: "How quickly can you reach my location in Devon?",
+        answer: "We can typically schedule site visits in Devon within 3-5 working days. For urgent projects near the M5/A38 corridor or Plymouth naval dockyard, we can often respond faster. Call us on 07721 375756."
+      },
+      {
+        question: "What types of projects do you handle in Devon?",
+        answer: "We handle naval and marine work at Plymouth, agricultural buildings across rural Devon, hotel and tourism infrastructure refurbishment, structural steel for new construction, and heritage building restoration throughout the county."
+      }
+    ]
+  },
+  "merseyside": {
+    name: "Merseyside",
+    slug: "merseyside",
+    region: "North West England",
+    description: "Professional shot blasting services throughout Merseyside. Serving Liverpool, Birkenhead, St Helens, Southport, and Wirral with expert surface preparation for port infrastructure, industrial steelwork, and heritage buildings.",
+    metaDescription: "Mobile shot blasting in Merseyside — port infrastructure, shipbuilding, industrial estates & heritage buildings. SA2.5/SA3 standard. Serving Liverpool, Birkenhead & St Helens.",
+    url: "https://commercialshotblasting.co.uk/counties/merseyside",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
+    latitude: 53.4084,
+    longitude: -2.9916,
+    majorTowns: ["Liverpool", "Birkenhead", "St Helens", "Southport", "Bootle", "Wallasey"],
+    industries: ["Port & Logistics", "Manufacturing", "Construction", "Marine", "Heritage"],
+    townsAndVillages: ["Bebington", "Birkenhead", "Bootle", "Crosby", "Formby", "Heswall", "Hoylake", "Huyton", "Kirkby", "Knowsley", "Liverpool", "Maghull", "Moreton", "Neston", "New Brighton", "Newton-le-Willows", "Prescot", "Rainhill", "St Helens", "Southport", "Wallasey", "West Kirby", "Widnes"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Merseyside?",
+        answer: "Yes, we provide mobile shot blasting services across all of Merseyside. Our fully equipped mobile units can reach any location in the region, including Liverpool, Birkenhead, St Helens, Southport, and all surrounding areas."
+      },
+      {
+        question: "Can you work on port infrastructure at Liverpool Docks?",
+        answer: "Absolutely. We regularly blast harbour steelwork, dock gates, container handling equipment, and marine structures at Liverpool's extensive port facilities and across the Mersey."
+      },
+      {
+        question: "Do you handle heritage building restoration in Merseyside?",
+        answer: "Yes, we have experience with heritage structures across Merseyside including the Albert Dock area, listed industrial buildings, and Victorian warehouse conversions. We use appropriate techniques to preserve historical integrity."
+      },
+      {
+        question: "How quickly can you reach my location in Merseyside?",
+        answer: "We can typically schedule site visits in Merseyside within 2-4 working days. For urgent projects at Liverpool Docks or industrial estates near the M62 corridor, we can often respond faster. Call us on 07721 375756."
+      },
+      {
+        question: "What types of industrial projects do you handle in Merseyside?",
+        answer: "We handle port infrastructure, shipyard steelwork, factory cladding, warehouse floors, structural steel for new builds, bridge maintenance, and industrial estate refurbishment across Merseyside."
+      }
+    ]
+  },
 };

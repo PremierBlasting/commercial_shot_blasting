@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2, Star, Factory, ClipboardList, ChevronDown, ChevronUp, CalendarCheck, Map as MapIcon } from "lucide-react";
-import { useState, useMemo, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { getLocationSEO, useSEO } from "@/hooks/useSEO";
 import { Button } from "@/components/ui/button";
 import { QuotePopup } from "@/components/QuotePopup";
@@ -34,7 +34,8 @@ function useLazyVisible(rootMargin = "200px") {
 }
 import { trackPhoneCall } from "@/lib/analytics";
 import { FAQSchema, generateLocationFAQs } from "@/components/FAQSchema";
-import { LocationData, locationData } from '@shared/locationData';
+import type { LocationData } from '@shared/locationData';
+import { loadCountyLocations } from '@/data/locationChunkLoader';
 import { countyData } from '@/data/countyData';
 import { countyContext } from '@shared/countyContext';
 import { townSpotlight } from '@shared/townSpotlight';
@@ -156,10 +157,15 @@ export function LocationPage({ location }: LocationPageProps) {
   };
 
   // Derive nearby towns from same-county locations (up to 12, excluding current)
-  const nearbyTowns = useMemo(() => {
-    return Object.values(locationData)
-      .filter(l => l.countySlug === location.countySlug && l.slug !== location.slug)
-      .slice(0, 12);
+  const [nearbyTowns, setNearbyTowns] = useState<LocationData[]>([]);
+  useEffect(() => {
+    if (!location.countySlug) return;
+    loadCountyLocations(location.countySlug).then(countyLocs => {
+      const nearby = Object.values(countyLocs)
+        .filter(l => l.slug !== location.slug)
+        .slice(0, 12);
+      setNearbyTowns(nearby);
+    });
   }, [location.countySlug, location.slug]);
 
   // Set SEO metadata with optimized location-specific descriptions
