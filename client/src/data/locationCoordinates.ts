@@ -72,4 +72,5 @@ export const locationCoordinates: Record<string, { lat: number; lng: number }> =
   torquay: { lat: 50.4619, lng: -3.5253 },
   "newton-abbot": { lat: 50.5290, lng: -3.6110 },
   tiverton: { lat: 50.9035, lng: -3.4894 },
+  birkenhead: { lat: 53.3933, lng: -3.0146 },
 };

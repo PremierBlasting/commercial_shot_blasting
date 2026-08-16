@@ -1512,3 +1512,9 @@
 - [x] Add lightweight coordinates for all Kent county hub towns with matching service-area pages
 - [x] Add lightweight coordinates for all Devon county hub towns with matching service-area pages
 - [x] Add coverage regression tests and validate TypeScript and the full test suite
+
+## Nearby-Area Loading, Distance, and Merseyside Coverage (16 August 2026)
+- [x] Add a visible geolocation loading indicator within the nearby-area search control
+- [x] Add prominent distance badges to nearby-area suggestions
+- [x] Add coordinates for all current Merseyside service-area records
+- [x] Add regression tests and validate TypeScript and the full test suite

@@ -33,7 +33,7 @@ export function NearbyAreaSuggestions({ maxItems = 3 }: NearbyAreaSuggestionsPro
             <div className="flex cursor-pointer items-center gap-2 border-t border-gray-50 px-4 py-2.5 transition-colors hover:bg-[#f0f6fb]">
               <MapPin className="h-3.5 w-3.5 shrink-0 text-[#2C5F7F]" />
               <span className="text-sm font-medium text-[#2C2C2C]">{area.name}</span>
-              <span className="ml-auto text-xs text-gray-400">{area.distanceMiles === 0 ? "Nearest area" : `${area.distanceMiles} mi away`}</span>
+              <span className="ml-auto shrink-0 rounded-full bg-[#e8f3f9] px-2 py-0.5 text-xs font-semibold text-[#2C5F7F]">{area.distanceMiles === 0 ? "Nearest" : `${area.distanceMiles} mi`}</span>
             </div>
           </Link>
         ))}
@@ -53,6 +53,12 @@ export function NearbyAreaSuggestions({ maxItems = 3 }: NearbyAreaSuggestionsPro
         {status === "loading" ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Navigation className="h-3.5 w-3.5" />}
         {status === "loading" ? "Finding nearby areas…" : "Find popular areas near you"}
       </button>
+      {status === "loading" && (
+        <div role="status" aria-live="polite" className="mt-2 overflow-hidden rounded-md border border-[#cfe7f3] bg-[#f7fbfe] px-3 py-2">
+          <div className="flex items-center gap-2 text-xs font-medium text-[#2C5F7F]"><Loader2 className="h-3.5 w-3.5 animate-spin" /> Checking your location for the nearest service areas…</div>
+          <div className="mt-2 h-1 overflow-hidden rounded-full bg-[#dceef7]"><div className="h-full w-1/2 animate-pulse rounded-full bg-[#2C5F7F]" /></div>
+        </div>
+      )}
       <div className="my-3 flex items-center gap-2 text-[11px] uppercase tracking-wide text-gray-400"><span className="h-px flex-1 bg-gray-100" />or use a postcode<span className="h-px flex-1 bg-gray-100" /></div>
       <form onSubmit={submitPostcode} className="flex gap-2">
         <label className="sr-only" htmlFor="nearby-postcode">UK postcode</label>
@@ -77,9 +83,9 @@ export function NearbyAreaSuggestions({ maxItems = 3 }: NearbyAreaSuggestionsPro
       {postcodeError ? <p role="alert" className="mt-2 text-center text-xs text-red-600">{postcodeError}</p> : null}
       {status === "denied" || status === "unavailable" || status === "error" ? (
         <p className="mt-2 text-center text-xs text-gray-500">Device location isn&apos;t available. Try a full UK postcode instead.</p>
-      ) : (
+      ) : status !== "loading" ? (
         <p className="mt-2 text-center text-[11px] text-gray-400">Device location stays in your browser. A typed postcode is used only for this lookup and is not saved.</p>
-      )}
+      ) : null}
     </div>
   );
 }

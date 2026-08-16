@@ -26,4 +26,10 @@ describe("suggestion keyboard navigation", () => {
       expect(locationCoordinates[slug]).toMatchObject({ lat: expect.any(Number), lng: expect.any(Number) });
     }
   });
+
+  it("has coordinates for every current Merseyside service-area record", () => {
+    for (const slug of ["liverpool", "birkenhead"]) {
+      expect(locationCoordinates[slug]).toMatchObject({ lat: expect.any(Number), lng: expect.any(Number) });
+    }
+  });
 });
