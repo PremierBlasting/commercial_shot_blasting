@@ -15,6 +15,7 @@ import { Footer } from "@/components/Footer";
 import { ShareButton } from "@/components/ShareButton";
 import { ServiceRadiusMap } from "@/components/ServiceRadiusMap";
 import { LocalIndustryMap } from "@/components/LocalIndustryMap"; 
+import { recordAreaVisit } from "@/hooks/useRecentlyViewed";
 
 /** Hook: returns true once the ref element enters the viewport (with 200px rootMargin for preloading) */
 function useLazyVisible(rootMargin = "200px") {
@@ -94,6 +95,11 @@ export function LocationPage({ location }: LocationPageProps) {
   // Lazy-load maps only when scrolled into view (saves ~200KB initial payload on mobile)
   const industryMapLazy = useLazyVisible("300px");
   const radiusMapLazy = useLazyVisible("300px");
+
+  // Record this area visit for "recently viewed" feature
+  useEffect(() => {
+    recordAreaVisit(location.slug, location.name, location.county);
+  }, [location.slug, location.name, location.county]);
 
   // Show quick-nav after user scrolls past the hero
   useEffect(() => {

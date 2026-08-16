@@ -1496,4 +1496,76 @@ export const countyData: Record<string, CountyData> = {
       }
     ]
   },
+  "surrey": {
+    name: "Surrey",
+    slug: "surrey",
+    region: "South East England",
+    description: "Professional shot blasting services throughout Surrey. Serving Guildford, Woking, Epsom, Camberley, and Farnham with expert surface preparation for tech campus buildings, light industrial estates, and commercial property refurbishment.",
+    metaDescription: "Mobile shot blasting in Surrey — tech campuses, industrial estates, commercial property & heritage buildings. SA2.5/SA3 standard. Serving Guildford, Woking, Epsom & Camberley.",
+    url: "https://commercialshotblasting.co.uk/counties/surrey",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
+    latitude: 51.2362,
+    longitude: -0.5704,
+    majorTowns: ["Guildford", "Woking", "Epsom", "Camberley", "Farnham"],
+    industries: ["Technology", "Defence", "Pharmaceuticals", "Light Manufacturing", "Heritage"],
+    townsAndVillages: ["Camberley", "Dorking", "Epsom", "Esher", "Farnham", "Godalming", "Guildford", "Haslemere", "Leatherhead", "Reigate", "Staines", "Walton-on-Thames", "Weybridge", "Woking"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Surrey?",
+        answer: "Yes, we provide mobile shot blasting services across all of Surrey. Our fully equipped mobile units can reach any location in the county, including Guildford, Woking, Epsom, Camberley, Farnham, and all surrounding areas via the M25, M3, and A3."
+      },
+      {
+        question: "Can you work on tech campus and commercial buildings in Surrey?",
+        answer: "Absolutely. We regularly blast structural steelwork, cladding panels, and external metalwork at technology parks and commercial campuses across Surrey including Watchmoor Park, McLaren Technology Centre area, and business parks along the M3/A3 corridors."
+      },
+      {
+        question: "Do you handle heritage building restoration in Surrey?",
+        answer: "Yes, we have experience with heritage structures across Surrey including listed buildings, historic industrial premises, and period properties. We select appropriate abrasive media to clean surfaces without causing damage to original materials."
+      },
+      {
+        question: "How quickly can you reach my site in Surrey?",
+        answer: "We can typically schedule site visits in Surrey within 3-5 working days. With excellent M25, M3, and A3 access, we can reach most Surrey locations efficiently. Call us on 07721 375756 for availability."
+      },
+      {
+        question: "What types of industrial projects do you handle in Surrey?",
+        answer: "We handle tech campus steelwork, pharmaceutical facility equipment, defence sector infrastructure, light manufacturing units, warehouse floors, commercial property refurbishment, and heritage building restoration across Surrey."
+      }
+    ]
+  },
+  "sussex": {
+    name: "Sussex",
+    slug: "sussex",
+    region: "South East England",
+    description: "Professional shot blasting services throughout Sussex. Serving Brighton, Crawley, Worthing, and Horsham with expert surface preparation for aviation infrastructure, port steelwork, logistics warehouses, and coastal heritage buildings.",
+    metaDescription: "Mobile shot blasting in Sussex — aviation infrastructure, port steelwork, logistics warehouses & coastal heritage. SA2.5/SA3 standard. Serving Brighton, Crawley, Worthing & Horsham.",
+    url: "https://commercialshotblasting.co.uk/counties/sussex",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
+    latitude: 50.8376,
+    longitude: -0.7749,
+    majorTowns: ["Brighton and Hove", "Crawley", "Worthing", "Horsham"],
+    industries: ["Aviation", "Logistics", "Pharmaceuticals", "Marine", "Heritage"],
+    townsAndVillages: ["Bognor Regis", "Brighton and Hove", "Burgess Hill", "Chichester", "Crawley", "Eastbourne", "East Grinstead", "Hastings", "Haywards Heath", "Horsham", "Lewes", "Littlehampton", "Newhaven", "Shoreham-by-Sea", "Worthing"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Sussex?",
+        answer: "Yes, we provide mobile shot blasting services across all of Sussex — both East and West. Our fully equipped units can reach any location including Brighton, Crawley, Worthing, Horsham, Eastbourne, and Chichester."
+      },
+      {
+        question: "Can you work on aviation and logistics facilities near Gatwick?",
+        answer: "Absolutely. We regularly blast structural steelwork, hangar cladding, warehouse floors, and logistics infrastructure at Manor Royal Business District and the wider Gatwick Diamond area. We're experienced working alongside live aviation operations."
+      },
+      {
+        question: "Do you handle coastal and marine structures in Sussex?",
+        answer: "Yes, we have extensive experience with coastal infrastructure including marina steelwork, port equipment, Victorian pier ironwork, and seafront railings. We use appropriate abrasive media for salt-damaged surfaces requiring preparation before protective coatings."
+      },
+      {
+        question: "How quickly can you reach my site in Sussex?",
+        answer: "We can typically schedule site visits in Sussex within 3-5 working days. With good A23/M23 and A27 access, we can reach most Sussex locations efficiently. Call us on 07721 375756 for availability."
+      },
+      {
+        question: "What types of industrial projects do you handle in Sussex?",
+        answer: "We handle aviation hangar steelwork, logistics warehouse floors, pharmaceutical manufacturing equipment, coastal/marine infrastructure, commercial property refurbishment, and heritage building restoration across Sussex."
+      }
+    ]
+  },
 };

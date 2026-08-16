@@ -9539,7 +9539,7 @@ export const locationData: Record<string, LocationData> = {
     name: "Guildford",
     slug: "guildford",
     county: "Surrey",
-    countySlug: "berkshire",
+    countySlug: "surrey",
     region: "South East England",
     description: "Shot Blasting in Guildford, Surrey. Professional surface preparation & rust removal. Expert commercial blasting. Call 07721 375756",
     spotlightText: "Guildford's industrial catchment—anchored by Slyfield Industrial Estate and Guildford Business Park—supports a dense cluster of precision engineering, steel fabrication and construction contractors alongside logistics operators serving the wider Surrey and South East markets. With direct frontage to the A3 and quick access to the M25 (J10 Wisley), local site teams routinely require onsite shot blasting for structural steelwork, concrete floor preparation and heavy plant and machinery refurbishment as part of ongoing commercial construction, warehouse fit-outs and industrial unit refurbishments.",
@@ -9880,47 +9880,6 @@ export const locationData: Record<string, LocationData> = {
     },
     {
       "question": "How do I arrange a free site survey in Newcastle upon Tyne?",
-      "answer": "Use the Book a Free Site Survey form or call 07721 375756. Share the site postcode, what needs blasting and any photos or drawings; we will review the requirements and arrange the next practical step."
-    }
-  ]
-},
-  "brighton-and-hove": {
-  "name": "Brighton and Hove",
-  "slug": "brighton-and-hove",
-  "county": "East Sussex",
-  "countySlug": "hampshire",
-  "region": "South East England",
-  "description": "Commercial shot blasting services in Brighton and Hove, East Sussex. Mobile surface preparation for structural steel, plant, cladding and industrial floors. Book a free site survey on 07721 375756.",
-  "spotlightText": "Brighton and Hove’s diverse commercial landscape ranges from established industrial parks like Hollingbury and Centenary to marine and logistics operations anchored by Shoreham Port. Industrial assets, steel structures, and commercial warehouses across these key employment hubs face ongoing environmental exposure and heavy operational wear, making rigorous surface preparation essential. Professional commercial shot blasting provides an effective, high-performance solution for removing stubborn rust, failed coatings, and surface contaminants from structural steel frameworks, industrial storage tanks, and concrete floors. By thoroughly stripping and profiling substrates down to bare metal or optimal anchor patterns, local facilities ensure subsequent protective coatings achieve maximum adhesion, safeguarding critical assets across East Sussex.",
-  "uniqueFaqs": [
-    {
-      "question": "What types of commercial and industrial facilities in Brighton and Hove benefit from shot blasting?",
-      "answer": "Facilities located across Hollingbury Industrial Estate, Centenary Industrial Estate, and Shoreham Port frequently utilize commercial shot blasting. This includes manufacturing plants, warehouses, marine engineering workshops, and commercial properties requiring heavy-duty surface preparation, rust removal, and concrete profiling."
-    },
-    {
-      "question": "Is on-site mobile shot blasting available for commercial properties in Brighton and Hove?",
-      "answer": "Yes, mobile shot blasting equipment can be deployed directly to commercial and industrial sites throughout Brighton and Hove. Utilizing major arterial routes such as the A23 and A27, specialized teams mobilize fully contained units to perform structural steel cleaning and concrete floor preparation on location."
-    },
-    {
-      "question": "Why is surface preparation through shot blasting crucial for industrial structures in coastal areas like Brighton and Hove?",
-      "answer": "Coastal environments present heightened risks of moisture and salt-induced corrosion. Shot blasting effectively strips away existing rust, marine deposits, and degraded coatings down to bare metal, creating an optimal surface profile that ensures long-term protective coating adhesion and structural longevity."
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Do you provide commercial shot blasting services in Brighton and Hove?",
-      "answer": "Yes. Our mobile teams support commercial and industrial surface preparation throughout Brighton and Hove and the wider East Sussex area. We assess access, containment, substrate condition and coating requirements before recommending the right blasting method."
-    },
-    {
-      "question": "Can you carry out shot blasting on-site in Brighton and Hove?",
-      "answer": "Yes. Where access, dust control and the site environment allow, mobile blasting equipment can be brought to commercial sites in Brighton and Hove. A free survey lets us confirm the safest and most efficient approach for fixed steelwork, plant or flooring."
-    },
-    {
-      "question": "What can be prepared by shot blasting in Brighton and Hove?",
-      "answer": "We prepare structural steel, fabricated components, machinery, containers, factory cladding and concrete floors. The required abrasive, containment and blast profile are selected around the material and the coating system that will follow."
-    },
-    {
-      "question": "How do I arrange a free site survey in Brighton and Hove?",
       "answer": "Use the Book a Free Site Survey form or call 07721 375756. Share the site postcode, what needs blasting and any photos or drawings; we will review the requirements and arrange the next practical step."
     }
   ]
@@ -10417,47 +10376,6 @@ export const locationData: Record<string, LocationData> = {
     }
   ]
 },
-  "crawley": {
-  "name": "Crawley",
-  "slug": "crawley",
-  "county": "West Sussex",
-  "countySlug": "hampshire",
-  "region": "South East England",
-  "description": "Commercial shot blasting services in Crawley, West Sussex. Mobile surface preparation for structural steel, plant, cladding and industrial floors. Book a free site survey on 07721 375756.",
-  "spotlightText": "Crawley serves as a major economic powerhouse in the South East, anchored by the extensive Manor Royal Business District and specialized industrial hubs such as Forgewood Industrial Estate. These commercial centers host hundreds of advanced manufacturing, logistics, aerospace, and engineering firms that rely on durable infrastructure and heavy machinery. Commercial shot blasting plays a vital role across these facilities by providing high-performance surface preparation for structural steel frameworks, industrial flooring, storage tanks, and heavy transport equipment. By efficiently removing corrosion, old coatings, and mill scale, professional blast cleaning ensures optimal profile bonding for protective coatings, extending asset lifespans and maintaining strict safety compliance in demanding industrial environments.",
-  "uniqueFaqs": [
-    {
-      "question": "What commercial sectors in Crawley commonly require shot blasting services?",
-      "answer": "Advanced manufacturing, aerospace engineering, logistics warehousing, and heavy transport facilities across Manor Royal and Forgewood Industrial Estate frequently require shot blasting for structural steel and equipment maintenance."
-    },
-    {
-      "question": "How does professional surface preparation benefit industrial facilities in Manor Royal?",
-      "answer": "Professional blast cleaning efficiently removes rust, mill scale, and degraded coatings from steel structures, concrete flooring, and storage tanks, creating an optimal surface profile for high-performance protective coatings."
-    },
-    {
-      "question": "Is on-site mobile shot blasting available for business parks in Crawley?",
-      "answer": "Yes, fully mobile shot blasting and abrasive cleaning units are deployed directly to industrial sites and logistics hubs across Crawley to minimize operational downtime and streamline maintenance."
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Do you provide commercial shot blasting services in Crawley?",
-      "answer": "Yes. Our mobile teams support commercial and industrial surface preparation throughout Crawley and the wider West Sussex area. We assess access, containment, substrate condition and coating requirements before recommending the right blasting method."
-    },
-    {
-      "question": "Can you carry out shot blasting on-site in Crawley?",
-      "answer": "Yes. Where access, dust control and the site environment allow, mobile blasting equipment can be brought to commercial sites in Crawley. A free survey lets us confirm the safest and most efficient approach for fixed steelwork, plant or flooring."
-    },
-    {
-      "question": "What can be prepared by shot blasting in Crawley?",
-      "answer": "We prepare structural steel, fabricated components, machinery, containers, factory cladding and concrete floors. The required abrasive, containment and blast profile are selected around the material and the coating system that will follow."
-    },
-    {
-      "question": "How do I arrange a free site survey in Crawley?",
-      "answer": "Use the Book a Free Site Survey form or call 07721 375756. Share the site postcode, what needs blasting and any photos or drawings; we will review the requirements and arrange the next practical step."
-    }
-  ]
-},
   "basingstoke": {
   "name": "Basingstoke",
   "slug": "basingstoke",
@@ -10536,47 +10454,6 @@ export const locationData: Record<string, LocationData> = {
     },
     {
       "question": "How do I arrange a free site survey in Gateshead?",
-      "answer": "Use the Book a Free Site Survey form or call 07721 375756. Share the site postcode, what needs blasting and any photos or drawings; we will review the requirements and arrange the next practical step."
-    }
-  ]
-},
-  "worthing": {
-  "name": "Worthing",
-  "slug": "worthing",
-  "county": "West Sussex",
-  "countySlug": "hampshire",
-  "region": "South East England",
-  "description": "Commercial shot blasting services in Worthing, West Sussex. Mobile surface preparation for structural steel, plant, cladding and industrial floors. Book a free site survey on 07721 375756.",
-  "spotlightText": "Worthing supports a robust and diverse commercial economy, anchored by key business hubs such as Worthing Business Park on Dominion Way and Northbrook Business Park. These established manufacturing, engineering, and logistics facilities frequently require durable surface preparation and corrosion control solutions to maintain high-performance structural assets. Commercial shot blasting plays a vital role across these West Sussex industrial sites, ensuring machinery, steelwork, and concrete structures are thoroughly stripped, cleaned, and primed for heavy-duty protective coatings. With direct arterial access via the A27 and A24 corridors, contractors can efficiently mobilise heavy-duty abrasive blasting equipment to commercial and industrial premises throughout the Worthing area.",
-  "uniqueFaqs": [
-    {
-      "question": "What types of industrial facilities in Worthing benefit from commercial shot blasting?",
-      "answer": "Manufacturing units, engineering workshops, and warehousing facilities located within hubs such as Worthing Business Park and Northbrook Business Park regularly utilize shot blasting for structural steel cleaning, machinery maintenance, and surface profiling prior to protective coating application."
-    },
-    {
-      "question": "Can mobile shot blasting equipment access commercial sites across Worthing?",
-      "answer": "Yes, commercial shot blasting contractors easily mobilise specialized mobile equipment to sites throughout Worthing via primary arterial routes like the A27 and A24, accommodating both on-site structural cleaning and workshop-based surface preparation."
-    },
-    {
-      "question": "Why is surface preparation essential for commercial buildings in coastal areas like Worthing?",
-      "answer": "Coastal environments increase the risk of moisture ingress and atmospheric corrosion on exposed metalwork. Professional shot blasting removes rust, mill scale, and failing coatings down to bare metal, ensuring optimal adhesion for anti-corrosive industrial paint systems."
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Do you provide commercial shot blasting services in Worthing?",
-      "answer": "Yes. Our mobile teams support commercial and industrial surface preparation throughout Worthing and the wider West Sussex area. We assess access, containment, substrate condition and coating requirements before recommending the right blasting method."
-    },
-    {
-      "question": "Can you carry out shot blasting on-site in Worthing?",
-      "answer": "Yes. Where access, dust control and the site environment allow, mobile blasting equipment can be brought to commercial sites in Worthing. A free survey lets us confirm the safest and most efficient approach for fixed steelwork, plant or flooring."
-    },
-    {
-      "question": "What can be prepared by shot blasting in Worthing?",
-      "answer": "We prepare structural steel, fabricated components, machinery, containers, factory cladding and concrete floors. The required abrasive, containment and blast profile are selected around the material and the coating system that will follow."
-    },
-    {
-      "question": "How do I arrange a free site survey in Worthing?",
       "answer": "Use the Book a Free Site Survey form or call 07721 375756. Share the site postcode, what needs blasting and any photos or drawings; we will review the requirements and arrange the next practical step."
     }
   ]
@@ -11315,47 +11192,6 @@ export const locationData: Record<string, LocationData> = {
     },
     {
       "question": "How do I arrange a free site survey in Chatham?",
-      "answer": "Use the Book a Free Site Survey form or call 07721 375756. Share the site postcode, what needs blasting and any photos or drawings; we will review the requirements and arrange the next practical step."
-    }
-  ]
-},
-  "woking": {
-  "name": "Woking",
-  "slug": "woking",
-  "county": "Surrey",
-  "countySlug": "berkshire",
-  "region": "South East England",
-  "description": "Commercial shot blasting services in Woking, Surrey. Mobile surface preparation for structural steel, plant, cladding and industrial floors. Book a free site survey on 07721 375756.",
-  "spotlightText": "Woking supports a thriving commercial and industrial economy anchored by established employment centres such as Woking Business Park on Albert Drive and Burnt Common Business Park. These key sites host a diverse range of engineering, light manufacturing, and distribution enterprises that rely on robust structural maintenance. Commercial shot blasting plays an essential role in this industrial ecosystem by providing heavy-duty surface preparation, rust removal, and concrete profiling for steel structures, storage tanks, and manufacturing equipment. By effectively stripping away stubborn corrosion and coatings, professional blast cleaning ensures optimal adhesion for protective finishes, extending the operational lifespan of vital industrial assets throughout the Surrey region.",
-  "uniqueFaqs": [
-    {
-      "question": "What types of industrial facilities in Woking typically require commercial shot blasting services?",
-      "answer": "Facilities across Woking, including manufacturing plants, engineering workshops, and logistics warehouses within hubs like Woking Business Park and Burnt Common Business Park, frequently utilize shot blasting for structural steel, machinery refurbishment, and surface profiling."
-    },
-    {
-      "question": "Can commercial shot blasting be performed on-site at business premises in Woking?",
-      "answer": "Yes, mobile commercial shot blasting equipment can be deployed directly to industrial sites, warehouses, and construction locations across Woking and surrounding Surrey areas to treat large structures, storage tanks, and structural frames without relocation."
-    },
-    {
-      "question": "How does commercial shot blasting benefit manufacturing and engineering equipment in Woking?",
-      "answer": "Shot blasting efficiently removes rust, mill scale, and degraded coatings down to bare metal or concrete, providing the ideal surface profile required for high-performance protective coatings and epoxy floor screeds commonly used in Woking industrial facilities."
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Do you provide commercial shot blasting services in Woking?",
-      "answer": "Yes. Our mobile teams support commercial and industrial surface preparation throughout Woking and the wider Surrey area. We assess access, containment, substrate condition and coating requirements before recommending the right blasting method."
-    },
-    {
-      "question": "Can you carry out shot blasting on-site in Woking?",
-      "answer": "Yes. Where access, dust control and the site environment allow, mobile blasting equipment can be brought to commercial sites in Woking. A free survey lets us confirm the safest and most efficient approach for fixed steelwork, plant or flooring."
-    },
-    {
-      "question": "What can be prepared by shot blasting in Woking?",
-      "answer": "We prepare structural steel, fabricated components, machinery, containers, factory cladding and concrete floors. The required abrasive, containment and blast profile are selected around the material and the coating system that will follow."
-    },
-    {
-      "question": "How do I arrange a free site survey in Woking?",
       "answer": "Use the Book a Free Site Survey form or call 07721 375756. Share the site postcode, what needs blasting and any photos or drawings; we will review the requirements and arrange the next practical step."
     }
   ]
@@ -12796,47 +12632,6 @@ export const locationData: Record<string, LocationData> = {
     }
   ]
 },
-  "horsham": {
-  "name": "Horsham",
-  "slug": "horsham",
-  "county": "West Sussex",
-  "countySlug": "hampshire",
-  "region": "South East England",
-  "description": "Commercial shot blasting services in Horsham, West Sussex. Mobile surface preparation for structural steel, plant, cladding and industrial floors. Book a free site survey on 07721 375756.",
-  "spotlightText": "Horsham functions as a vibrant commercial and industrial hub within the Gatwick Diamond economic area, underpinned by a resilient economy and strong demand for business space. The town's established industrial corridors—including Redkiln Close, Blatchford Road, Parsonage Road, Foundry Lane, and Nightingale Road—house a diverse mix of small and medium-sized enterprises alongside prominent advanced manufacturing, life sciences, and engineering firms such as Ceres Power, Chess Dynamics, Thermo Fisher Scientific, and Aerco Ltd. Benefiting from strategic road connectivity via the A24 and A264 dual carriageways, as well as close proximity to Gatwick Airport and Crawley, Horsham provides exceptional logistical access for commercial operations. This robust infrastructure makes it an ideal location for industrial asset upgrades and specialist surface preparation services.",
-  "uniqueFaqs": [
-    {
-      "question": "How quickly can your mobile shot blasting team deploy to industrial units in Horsham's Foundry Lane or Blatchford Road?",
-      "answer": "We provide rapid deployment across Horsham’s core commercial areas, including Foundry Lane, Blatchford Road, and Redkiln Close. Our mobile surface preparation units arrive fully self-contained, allowing us to schedule works around your operational hours. Whether you require structural steel cleaning or machinery refurbishment, we minimise downtime and complete projects efficiently for local manufacturing and engineering facilities."
-    },
-    {
-      "question": "What surface preparation techniques are best suited for commercial steel structures in West Sussex?",
-      "answer": "For commercial and industrial steel structures across West Sussex, abrasive blast cleaning to Sa 2.5 or Sa 3 is the industry standard for removing heavy rust, mill scale, and failing coatings. Our techniques prepare surfaces perfectly for high-performance protective coatings, ensuring long-term corrosion resistance for warehouses, manufacturing units, and logistics facilities in the Gatwick Diamond region."
-    },
-    {
-      "question": "Do you offer dust-controlled shot blasting for operational commercial and manufacturing facilities in Horsham?",
-      "answer": "Yes, we utilise advanced dust-controlled and vacuum-assisted shot blasting methods specifically designed for active manufacturing plants, warehouses, and aerospace engineering facilities in Horsham. This containment approach captures spent abrasive and airborne particulate instantly, allowing internal refurbishment, floor preparation, and steel maintenance to proceed safely without disrupting adjacent commercial operations or contaminating sensitive equipment."
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Do you provide commercial shot blasting services in Horsham?",
-      "answer": "Yes. Our mobile teams support commercial and industrial surface preparation throughout Horsham and the wider West Sussex area. We assess access, containment, substrate condition and coating requirements before recommending the right blasting method."
-    },
-    {
-      "question": "Can you carry out shot blasting on-site in Horsham?",
-      "answer": "Yes. Where access, dust control and the site environment allow, mobile blasting equipment can be brought to commercial sites in Horsham. A free survey lets us confirm the safest and most efficient approach for fixed steelwork, plant or flooring."
-    },
-    {
-      "question": "What can be prepared by shot blasting in Horsham?",
-      "answer": "We prepare structural steel, fabricated components, machinery, containers, factory cladding and concrete floors. The required abrasive, containment and blast profile are selected around the material and the coating system that will follow."
-    },
-    {
-      "question": "How do I arrange a free site survey in Horsham?",
-      "answer": "Use the Book a Free Site Survey form or call 07721 375756. Share the site postcode, what needs blasting and any photos or drawings; we will review the requirements and arrange the next practical step."
-    }
-  ]
-},
 
   "goole": {
     name: "Goole",
@@ -13587,5 +13382,125 @@ export const locationData: Record<string, LocationData> = {
       { question: "Are your shot blasting services suitable for infrastructure projects like the Newquay Station upgrades?", answer: "Absolutely. We provide expert shot blasting for infrastructure projects, including bridge maintenance and railway station upgrades like the Mid Cornwall Metro project. Our services ensure that steel and concrete surfaces are thoroughly cleaned and prepared for necessary repairs and protective treatments." },
     ],
     faqs: [],
+  },
+  "woking": {
+    name: "Woking",
+    slug: "woking",
+    county: "Surrey",
+    countySlug: "surrey",
+    region: "South East England",
+    description: "Professional mobile shot blasting services in Woking, Surrey. Structural steel, cladding, containers, floor preparation and rust removal. SA2.5/SA3 standard.",
+    spotlightText: "Woking’s dynamic commercial landscape features a unique blend of cutting-edge technology campuses and established light industrial zones. Home to major employers like the McLaren Technology Centre and Capgemini UK HQ, the area demands high-quality surface preparation for modern architectural steelwork and facility maintenance. We regularly provide commercial shot blasting services across the Sheerwater and Goldsworth Park industrial estates, preparing structural steel, warehouse flooring, and machinery for protective coatings. Conveniently located near M25 Junctions 10 and 11, our mobile blasting units can rapidly deploy to Woking-based businesses, ensuring minimal downtime for your operations while delivering exceptional surface restoration for both high-tech facilities and traditional industrial units.",
+    uniqueFaqs: [
+      { question: "What types of Woking businesses typically require your commercial shot blasting services?", answer: "In Woking, we serve a diverse range of commercial clients, from advanced engineering firms near the McLaren Technology Centre to manufacturing and logistics companies in the Sheerwater and Goldsworth Park estates. Our shot blasting services are frequently used to prepare structural steelwork, refurbish heavy plant machinery, and clean expansive warehouse concrete floors before applying specialized industrial coatings." },
+      { question: "Can your mobile shot blasting units easily access industrial sites in Woking?", answer: "Absolutely. Woking's excellent connectivity, particularly its proximity to M25 Junctions 10 and 11, allows our mobile teams to reach local sites quickly and efficiently. Whether your facility is located in a busy tech campus or a tighter unit within the Goldsworth Park industrial estate, our self-contained rigs are designed to operate safely and effectively in various commercial environments without disrupting your daily operations." },
+      { question: "Do you provide dust-free shot blasting for sensitive tech environments in Woking?", answer: "Yes, we understand that Woking is home to numerous high-tech facilities and corporate headquarters that require strict environmental controls. We offer specialized dustless shot blasting and vacuum blasting techniques that minimize airborne particulates. This ensures that delicate electronic equipment and clean-room environments in nearby tech campuses remain completely protected while we effectively restore your structural surfaces or industrial flooring." }
+    ],
+    faqs: []
+  },
+  "crawley": {
+    name: "Crawley",
+    slug: "crawley",
+    county: "West Sussex",
+    countySlug: "sussex",
+    region: "South East England",
+    description: "Professional mobile shot blasting services in Crawley, West Sussex. Structural steel, cladding, containers, floor preparation and rust removal. SA2.5/SA3 standard.",
+    spotlightText: "Crawley\'s industrial landscape is dominated by Gatwick Airport and the expansive Manor Royal Business District, one of the largest business parks in the South East. This high-density commercial zone relies on robust infrastructure, creating strong demand for professional shot blasting services. We regularly prepare surfaces for aviation maintenance hangars, logistics warehouses, and heavy plant machinery, ensuring they meet strict industry standards. Situated just off Junction 10 of the M23 motorway, our teams rapidly deploy to sites across Crawley and West Sussex. Whether stripping old coatings from structural steelwork or preparing concrete floors in distribution centres, we provide the essential surface preparation required by Crawley\'s thriving aviation and logistics sectors.",
+    uniqueFaqs: [
+      { question: "What types of Crawley businesses typically require your commercial shot blasting services?", answer: "In Crawley, we frequently partner with companies based in the Manor Royal Business District and the aviation sector around Gatwick. Our services are essential for logistics companies needing warehouse floor preparation, aviation maintenance facilities requiring structural steel cleaning, and heavy plant operators. We expertly remove rust, old paint, and industrial contaminants to prepare surfaces for fresh protective coatings." },
+      { question: "Can your mobile shot blasting units easily access sites near Gatwick Airport and the M23?", answer: "Yes, our mobile shot blasting teams are fully equipped to navigate Crawley's busy transport networks. Being situated close to the M23 and major A-roads allows us to efficiently reach industrial estates, including high-security areas near Gatwick Airport. We coordinate closely with site managers to ensure our equipment is deployed safely and with minimal disruption to your ongoing logistics or aviation operations." },
+      { question: "Do you provide shot blasting for large warehouse floor refurbishments in Crawley?", answer: "Absolutely. With Crawley serving as a major logistics hub, warehouse floor refurbishment is one of our most requested services. We use specialized shot blasting techniques to remove old epoxy coatings, line markings, and stubborn industrial grime from large concrete floors. This process creates the perfect textured profile for applying new, highly durable resin coatings that can withstand heavy forklift traffic." }
+    ],
+    faqs: []
+  },
+  "brighton-and-hove": {
+    name: "Brighton and Hove",
+    slug: "brighton-and-hove",
+    county: "East Sussex",
+    countySlug: "sussex",
+    region: "South East England",
+    description: "Professional mobile shot blasting services in Brighton and Hove, East Sussex. Structural steel, cladding, containers, floor preparation and rust removal. SA2.5/SA3 standard.",
+    spotlightText: "Brighton and Hove\'s diverse commercial landscape presents unique surface preparation requirements, from historic Victorian ironwork along the seafront to modern infrastructure at Brighton Marina. We regularly provide commercial shot blasting services for creative sector offices in converted industrial buildings and structural steelwork at the Hollingbury Industrial Estate and Woodingdean Business Park. Located at the terminus of the A23 and just minutes from the bustling Shoreham Port, the city is highly accessible for our mobile blasting units. Whether it\'s restoring heritage metalwork like the iconic Madeira Terrace structures or preparing heavy marine equipment and port infrastructure for protective coatings, our expert team delivers tailored abrasive blasting solutions for Brighton\'s dynamic industrial and commercial sectors.",
+    uniqueFaqs: [
+      { question: "What types of Brighton industries typically require your commercial shot blasting services?", answer: "We serve a wide range of Brighton and Hove businesses, particularly those in the marine, heritage, and construction sectors. Our services are frequently used for preparing steelwork at Shoreham Port, restoring Victorian ironwork along the seafront, and cleaning exposed brickwork or structural beams in converted industrial buildings used by the city's thriving creative and tech sectors." },
+      { question: "Can your mobile shot blasting units access sites in central Brighton and the Marina?", answer: "Yes, our mobile shot blasting teams are fully equipped to navigate Brighton's busy city centre and coastal routes. We regularly operate around the A27 and A23 corridors, providing on-site surface preparation at Brighton Marina, local university campuses, and central commercial properties. We carefully manage logistics to ensure minimal disruption in high-traffic or densely populated urban areas." },
+      { question: "Do you have experience restoring Brighton's historic Victorian ironwork and coastal structures?", answer: "Absolutely. Brighton's coastal environment causes significant salt corrosion on historic metalwork. We specialise in the delicate restoration of Victorian ironwork, using precise abrasive blasting techniques to remove rust and old paint without damaging the underlying heritage structures. This ensures these iconic coastal assets are perfectly prepared for modern protective coatings to withstand the harsh marine climate." }
+    ],
+    faqs: []
+  },
+  "worthing": {
+    name: "Worthing",
+    slug: "worthing",
+    county: "West Sussex",
+    countySlug: "sussex",
+    region: "South East England",
+    description: "Professional mobile shot blasting services in Worthing, West Sussex. Structural steel, cladding, containers, floor preparation and rust removal. SA2.5/SA3 standard.",
+    spotlightText: "Worthing\'s diverse commercial landscape, anchored by major hubs like Goring Business Park and the nearby Lancing Business Park, presents unique surface preparation requirements. From the stringent hygiene standards of pharmaceutical manufacturing facilities like GSK to local food processing plants, our commercial shot blasting services ensure pristine, contaminant-free surfaces. We also regularly support the light engineering workshops scattered across the area, restoring heavy machinery and structural steelwork. Situated conveniently along the A27 and just a short distance from Shoreham Port, our mobile blasting units can rapidly deploy across Worthing and West Sussex, delivering efficient, industrial-grade cleaning and preparation with minimal downtime for your operations.",
+    uniqueFaqs: [
+      { question: "What types of Worthing industries benefit most from your commercial shot blasting services?", answer: "We frequently partner with Worthing's pharmaceutical and food processing sectors, where maintaining exceptionally clean, coating-ready surfaces is critical for compliance. Additionally, we provide heavy-duty abrasive blasting for light engineering workshops and manufacturing facilities in areas like Goring Business Park, effectively removing rust, old paint, and industrial residues from machinery and structural steel." },
+      { question: "Can your mobile shot blasting units easily access sites in central Worthing and local business parks?", answer: "Yes, our mobile units are fully equipped to navigate both central Worthing and surrounding industrial estates like Lancing Business Park. Because we are situated with easy access to the A27 corridor, we can quickly mobilize our equipment to your site. We handle all logistics, ensuring our machinery is positioned safely without disrupting your daily commercial operations." },
+      { question: "How do you handle shot blasting for coastal commercial properties in Worthing exposed to salt air?", answer: "Coastal environments like Worthing accelerate corrosion on commercial structures and metalwork due to salt-laden air. We use specialized abrasive blasting techniques to thoroughly strip away salt-induced rust and degraded coatings from coastal industrial units and marine-adjacent facilities. This creates an optimal profile for protective marine-grade coatings, significantly extending the lifespan of your valuable assets." }
+    ],
+    faqs: []
+  },
+  "horsham": {
+    name: "Horsham",
+    slug: "horsham",
+    county: "West Sussex",
+    countySlug: "sussex",
+    region: "South East England",
+    description: "Professional mobile shot blasting services in Horsham, West Sussex. Structural steel, cladding, containers, floor preparation and rust removal. SA2.5/SA3 standard.",
+    spotlightText: "Horsham\'s diverse commercial landscape, blending historic charm with modern enterprise, presents unique requirements for professional shot blasting. From the heritage buildings in the town centre to the modern commercial units at Broadbridge Heath Industrial Estate and the Foundry Lane business area, our surface preparation services cater to a wide array of structures. We frequently assist businesses near major employers like the RSA Insurance HQ with structural steel cleaning, concrete preparation, and facade restoration. Conveniently located just 15 miles from Gatwick Airport and with excellent links to the M23 motorway, our mobile shot blasting teams can rapidly deploy to any Horsham site, ensuring minimal downtime for your industrial or commercial operations.",
+    uniqueFaqs: [
+      { question: "What types of Horsham businesses typically require your commercial shot blasting services?", answer: "We serve a wide variety of businesses across Horsham, particularly those based in the Foundry Lane and Broadbridge Heath industrial areas. Our services are frequently utilized by manufacturing facilities for machinery refurbishment, logistics companies needing warehouse floor preparation, and commercial property managers requiring facade restoration for both modern units and the town's historic heritage buildings." },
+      { question: "Can your mobile shot blasting units easily access sites in central Horsham and local industrial estates?", answer: "Yes, our mobile shot blasting rigs are fully equipped to navigate both the bustling town centre and larger commercial zones like Broadbridge Heath. Because Horsham is well-connected via the A24 and close to the M23, our teams can efficiently reach your site. We also coordinate carefully to manage access restrictions and minimize disruption in busy commercial areas." },
+      { question: "Do you provide specialized shot blasting for Horsham's heritage buildings and older commercial properties?", answer: "Absolutely. Horsham is known for its beautiful mix of historic architecture and modern developments. For older heritage buildings and sensitive facades, we utilize specialized, low-pressure abrasive cleaning techniques. This ensures that years of grime, old paint, or environmental pollutants are safely removed without damaging the underlying historic brickwork, stone, or delicate structural elements." }
+    ],
+    faqs: []
+  },
+  "epsom": {
+    name: "Epsom",
+    slug: "epsom",
+    county: "Surrey",
+    countySlug: "surrey",
+    region: "South East England",
+    description: "Professional mobile shot blasting services in Epsom, Surrey. Structural steel, cladding, containers, floor preparation and rust removal. SA2.5/SA3 standard.",
+    spotlightText: "Epsom’s commercial landscape is a dynamic mix of light manufacturing, pharmaceutical facilities, and ongoing commercial property refurbishments. Located conveniently near M25 Junction 9, the town offers excellent logistical access for heavy-duty industrial services. Businesses operating within the Longmead Industrial Estate and Nonsuch Industrial Estate frequently require professional surface preparation to maintain their facilities and equipment. Our commercial shot blasting services are perfectly suited for Epsom\'s diverse industrial needs, from restoring structural steelwork in aging warehouses to preparing specialized pharmaceutical manufacturing equipment for recoating. Whether it\'s a large-scale commercial refurbishment project or routine maintenance for light manufacturing plants, we provide the essential surface preparation required to keep Epsom\'s industries operating at peak efficiency.",
+    uniqueFaqs: [
+      { question: "What types of Epsom businesses typically require your commercial shot blasting services?", answer: "In Epsom, we frequently work with companies in the pharmaceutical sector and light manufacturing industries. These businesses often need shot blasting to clean and prepare specialized machinery, storage tanks, and structural steelwork for protective coatings. Additionally, we partner with contractors involved in commercial property refurbishments across the town, helping to restore brickwork, concrete, and metal surfaces to their original condition." },
+      { question: "Can your mobile shot blasting units easily access businesses in Epsom's industrial estates?", answer: "Yes, absolutely. Epsom's close proximity to M25 Junction 9 makes it highly accessible for our mobile shot blasting fleet. We regularly dispatch our fully equipped units to major local business hubs like the Longmead Industrial Estate and Nonsuch Industrial Estate. Our teams are experienced in navigating these busy commercial zones and can set up our equipment efficiently with minimal disruption to your daily operations." },
+      { question: "Do you provide surface preparation for commercial property refurbishments in Epsom?", answer: "Yes, commercial property refurbishment is a significant part of our work in Epsom. As older industrial and commercial buildings are updated, our shot blasting services are essential for removing old paint, rust, and industrial grime from structural steel, exposed brick, and concrete floors. This thorough surface preparation ensures that new protective coatings adhere properly, extending the lifespan of the refurbished properties and improving their overall safety and appearance." }
+    ],
+    faqs: []
+  },
+  "camberley": {
+    name: "Camberley",
+    slug: "camberley",
+    county: "Surrey",
+    countySlug: "surrey",
+    region: "South East England",
+    description: "Professional mobile shot blasting services in Camberley, Surrey. Structural steel, cladding, containers, floor preparation and rust removal. SA2.5/SA3 standard.",
+    spotlightText: "Camberley’s strategic position just off Junction 4 of the M3 makes it a prime hub for logistics and commercial enterprise in Surrey. The town boasts thriving commercial zones like Watchmoor Park and the London Road industrial units, which house numerous logistics warehouses and heavy-duty commercial steel structures requiring regular maintenance. Given the close proximity to the Royal Military Academy Sandhurst, the local defence sector also relies on robust surface preparation for specialized equipment and facilities. Our commercial shot blasting services are perfectly tailored to support Camberley’s diverse industrial landscape, providing essential restoration and protective coating preparation for steelwork, warehouse flooring, and heavy machinery across these busy estates.",
+    uniqueFaqs: [
+      { question: "What types of Camberley businesses typically require your commercial shot blasting services?", answer: "In Camberley, we frequently work with logistics companies based in Watchmoor Park, preparing warehouse floors and restoring structural steelwork. We also provide specialized shot blasting for the local defence sector near Sandhurst, cleaning heavy equipment and military-grade infrastructure. Additionally, manufacturing facilities along London Road regularly use our services to maintain their heavy machinery and commercial steel structures." },
+      { question: "Can your mobile shot blasting units easily access industrial sites near the M3 in Camberley?", answer: "Yes, our mobile shot blasting teams are fully equipped to navigate Camberley's busy commercial zones. Being situated so close to Junction 4 of the M3 allows us to rapidly deploy our heavy-duty equipment to sites like Watchmoor Park and the London Road industrial units. We coordinate closely with site managers to ensure minimal disruption to your daily logistics and warehouse operations." },
+      { question: "Do you provide shot blasting for older commercial steel structures in Camberley's established industrial estates?", answer: "Absolutely. Many of the established commercial buildings and warehouses in Camberley require careful restoration to maintain their structural integrity. We use precise, adjustable shot blasting techniques to safely remove years of old paint, rust, and industrial grime from aging steel frameworks. This essential surface preparation ensures that new protective coatings adhere properly, extending the lifespan of your commercial property." }
+    ],
+    faqs: []
+  },
+  "farnham": {
+    name: "Farnham",
+    slug: "farnham",
+    county: "Surrey",
+    countySlug: "surrey",
+    region: "South East England",
+    description: "Professional mobile shot blasting services in Farnham, Surrey. Structural steel, cladding, containers, floor preparation and rust removal. SA2.5/SA3 standard.",
+    spotlightText: "Farnham\'s diverse commercial landscape, from the bustling Coxbridge Business Park to the established Farnham Trading Estate, presents unique surface preparation requirements. Situated conveniently along the A31 with quick access to the A3 corridor, the town is a hub for craft brewing and food production facilities that regularly require hygienic stainless steel shot blasting and equipment refurbishment. Furthermore, Farnham\'s rich architectural history and the presence of the University for the Creative Arts campus mean we frequently undertake delicate heritage building restoration projects. Whether it\'s preparing structural steelwork for new industrial units or restoring historic brickwork, our commercial shot blasting services are tailored to meet the exacting standards of Farnham\'s thriving business community.",
+    uniqueFaqs: [
+      { question: "What types of Farnham businesses typically use your commercial shot blasting services?", answer: "We work extensively with Farnham's thriving craft brewing and food production sectors, providing specialized abrasive cleaning for vats, silos, and processing equipment. Additionally, we frequently assist contractors at the Farnham Trading Estate with structural steel preparation, and partner with conservation specialists for heritage building restoration projects across the town center." },
+      { question: "Can your mobile shot blasting units easily access sites like Coxbridge Business Park?", answer: "Yes, our mobile fleet is fully equipped to navigate Farnham's road network. Being situated near the A31 and A3 allows us to rapidly deploy our heavy-duty shot blasting equipment directly to commercial sites, including Coxbridge Business Park and the University for the Creative Arts campus, ensuring minimal disruption to your daily operations." },
+      { question: "Do you offer specialized shot blasting for Farnham's historic and heritage buildings?", answer: "Absolutely. Farnham is renowned for its beautiful historic architecture, which requires a delicate touch. We utilize specialized low-pressure micro-blasting techniques and carefully selected abrasives to safely remove years of grime, paint, or environmental pollutants from heritage brickwork and stone without damaging the underlying substrate, preserving the town's unique character." }
+    ],
+    faqs: []
   },
 };
