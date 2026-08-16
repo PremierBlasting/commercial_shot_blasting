@@ -51,4 +51,6 @@ export const locationCoordinates: Record<string, { lat: number; lng: number }> =
   camberley: { lat: 51.3382, lng: -0.7421 },
   farnham: { lat: 51.2140, lng: -0.8001 },
   guildford: { lat: 51.2362, lng: -0.5704 },
+  portsmouth: { lat: 50.8198, lng: -1.0880 },
+  gosport: { lat: 50.7951, lng: -1.1290 },
 };

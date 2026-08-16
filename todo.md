@@ -1502,3 +1502,8 @@
 - [x] Add an opt-in postcode lookup fallback to nearby-area search dropdowns
 - [x] Expand the lightweight coordinate index for all current Essex and Dorset service-area towns
 - [x] Add regression tests and validate TypeScript and the full test suite
+
+## Regional Coordinates and Keyboard Search Navigation (16 August 2026)
+- [x] Expand the lightweight coordinate index for all Hampshire, Surrey, and Sussex service-area towns
+- [x] Add ArrowUp, ArrowDown, Enter, and Escape navigation to location search suggestions
+- [x] Add regression tests and validate TypeScript and the full test suite

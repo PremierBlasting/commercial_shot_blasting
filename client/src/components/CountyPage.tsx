@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { locationData } from "@/data/locationData";
 import { Phone, MapPin, CheckCircle, ArrowRight, Award, Zap, Building2, ChevronDown, ChevronUp, Wrench, Layers, Flame, Anchor, Factory, Settings } from "lucide-react";
 import { Clock } from "lucide-react";
@@ -6,6 +6,7 @@ import { ShareButton } from "@/components/ShareButton";
 import { useState, useEffect } from "react";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 import { NearbyAreaSuggestions } from "@/components/NearbyAreaSuggestions";
+import { useSuggestionKeyboard } from "@/hooks/useSuggestionKeyboard";
 import { Button } from "@/components/ui/button";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Header } from "@/components/Header";
@@ -278,6 +279,7 @@ export function CountyPage({ county }: CountyPageProps) {
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [searchFocused, setSearchFocused] = useState(false);
   const { items: recentlyViewed, clearHistory } = useRecentlyViewed();
+  const [, setLocation] = useLocation();
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [showCountyNav, setShowCountyNav] = useState(false);
   const [activeCountySection, setActiveCountySection] = useState<string | null>(null);
@@ -319,6 +321,13 @@ export function CountyPage({ county }: CountyPageProps) {
   const filteredTowns = debouncedSearch.trim().length >= 1
     ? allCountyTowns.filter((t) => t.name.toLowerCase().includes(debouncedSearch.toLowerCase()))
     : allCountyTowns;
+  const townSuggestions = townSearch.trim().length >= 1 && !townSearchLoading
+    ? filteredTowns.slice(0, 5).map((town) => ({ ...town, id: town.slug }))
+    : [];
+  const { activeIndex: activeTownIndex, setActiveIndex: setActiveTownIndex, onKeyDown: onTownSearchKeyDown } = useSuggestionKeyboard(
+    townSuggestions,
+    (town) => setLocation(`/service-areas/${town.slug}`),
+  );
 
   return (
     <div className="min-h-screen bg-white">
@@ -1348,15 +1357,17 @@ export function CountyPage({ county }: CountyPageProps) {
               </p>
             </div>
             {/* Search bar */}
-            <div className="max-w-sm mx-auto mb-6 relative" role="combobox" aria-expanded={townSearch.length >= 1 && filteredTowns.length > 0} aria-haspopup="listbox" onFocusCapture={() => setSearchFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setSearchFocused(false); }}>
+            <div className="max-w-sm mx-auto mb-6 relative" role="combobox" aria-expanded={searchFocused && (townSearch.length === 0 || townSuggestions.length > 0)} aria-haspopup="listbox" onFocusCapture={() => setSearchFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setSearchFocused(false); }}>
               <input
                 type="text"
                 value={townSearch}
                 onChange={(e) => setTownSearch(e.target.value)}
+                onKeyDown={onTownSearchKeyDown}
                 placeholder={`Search towns in ${county.name}…`}
                 className="w-full border border-gray-200 rounded-lg px-4 py-2 pr-9 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C5F7F] focus:border-transparent"
                 aria-autocomplete="list"
                 aria-controls="town-autocomplete-list"
+                aria-activedescendant={activeTownIndex >= 0 ? `town-autocomplete-option-${townSuggestions[activeTownIndex]?.slug}` : undefined}
               />
               {townSearch && (
                 <button
@@ -1408,10 +1419,10 @@ export function CountyPage({ county }: CountyPageProps) {
                   role="listbox"
                   className="absolute z-50 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden max-h-64 overflow-y-auto"
                 >
-                  {filteredTowns.length > 0 ? filteredTowns.slice(0, 5).map((town) => (
-                    <li key={town.slug} role="option">
+                  {filteredTowns.length > 0 ? townSuggestions.map((town, index) => (
+                    <li key={town.slug} id={`town-autocomplete-option-${town.slug}`} role="option" aria-selected={activeTownIndex === index}>
                       <Link href={`/service-areas/${town.slug}`}>
-                        <div className="flex items-center gap-2 px-4 py-2.5 hover:bg-[#f0f6fb] cursor-pointer transition-colors border-b border-gray-50 last:border-0">
+                        <div onMouseEnter={() => setActiveTownIndex(index)} className={`flex items-center gap-2 px-4 py-2.5 cursor-pointer transition-colors border-b border-gray-50 last:border-0 ${activeTownIndex === index ? "bg-[#f0f6fb]" : "hover:bg-[#f0f6fb]"}`}>
                           <MapPin className="w-3.5 h-3.5 text-[#2C5F7F] shrink-0" />
                           <span className="text-sm font-medium text-[#2C2C2C]">
                             {(() => {

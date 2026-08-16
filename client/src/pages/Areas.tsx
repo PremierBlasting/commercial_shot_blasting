@@ -5,7 +5,7 @@ import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { QuotePopup } from "@/components/QuotePopup";
 import { DeferredServiceAreasMap } from "@/components/DeferredServiceAreasMap";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { countyData } from "@/data/countyData";
 import { 
   MapPin, 
@@ -16,6 +16,7 @@ import {
 import { Clock } from "lucide-react";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 import { NearbyAreaSuggestions } from "@/components/NearbyAreaSuggestions";
+import { useSuggestionKeyboard } from "@/hooks/useSuggestionKeyboard";
 
 const countiesForAreas = Object.values(countyData).sort((a, b) => a.name.localeCompare(b.name));
 const regionColoursAreas: Record<string, string> = {
@@ -402,6 +403,7 @@ export default function Areas() {
   const [selectedRegionFilter, setSelectedRegionFilter] = useState<string>("all");
   const [searchFocused, setSearchFocused] = useState(false);
   const { items: recentlyViewed, clearHistory } = useRecentlyViewed();
+  const [, setLocation] = useLocation();
 
   // Get unique high-level regions for filter buttons
   const regionFilters = [
@@ -475,6 +477,17 @@ export default function Areas() {
       )
     }))
     .filter(region => region.locations.length > 0);
+  const areaSuggestions = searchQuery.trim().length >= 1
+    ? filteredRegions.flatMap((region) => region.locations.map((location) => ({
+      ...location,
+      id: location.href,
+      county: region.region,
+    }))).slice(0, 5)
+    : [];
+  const { activeIndex: activeAreaIndex, setActiveIndex: setActiveAreaIndex, onKeyDown: onAreaSearchKeyDown } = useSuggestionKeyboard(
+    areaSuggestions,
+    (area) => setLocation(area.href),
+  );
 
   return (
     <div className="min-h-screen bg-[#f8f5f0]">
@@ -576,14 +589,18 @@ export default function Areas() {
             </div>
 
             {/* Search Box */}
-            <div className="max-w-md mx-auto relative" role="combobox" aria-expanded={searchFocused && searchQuery.length === 0 && recentlyViewed.length > 0} aria-haspopup="listbox" onFocusCapture={() => setSearchFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setSearchFocused(false); }}>
+            <div className="max-w-md mx-auto relative" role="combobox" aria-expanded={searchFocused && (searchQuery.length === 0 || areaSuggestions.length > 0)} aria-haspopup="listbox" onFocusCapture={() => setSearchFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setSearchFocused(false); }}>
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search for a location..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={onAreaSearchKeyDown}
                 className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-200 focus:border-[#2C5F7F] focus:ring-2 focus:ring-[#2C5F7F]/20 outline-none transition-all"
+                aria-autocomplete="list"
+                aria-controls="areas-autocomplete-list"
+                aria-activedescendant={activeAreaIndex >= 0 ? `areas-autocomplete-option-${areaSuggestions[activeAreaIndex]?.id.replace(/[^a-z0-9]/gi, "-")}` : undefined}
               />
               {/* Recently viewed dropdown */}
               {searchFocused && searchQuery.length === 0 && (
@@ -614,6 +631,27 @@ export default function Areas() {
                     ))}
                   </>}
                   <li><NearbyAreaSuggestions /></li>
+                </ul>
+              )}
+              {searchQuery.length >= 1 && areaSuggestions.length > 0 && (
+                <ul id="areas-autocomplete-list" role="listbox" className="absolute z-50 top-full left-0 right-0 mt-1 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg">
+                  {areaSuggestions.map((area, index) => {
+                    const matchIndex = area.title.toLowerCase().indexOf(searchQuery.toLowerCase());
+                    const optionId = `areas-autocomplete-option-${area.id.replace(/[^a-z0-9]/gi, "-")}`;
+                    return (
+                      <li key={area.id} id={optionId} role="option" aria-selected={activeAreaIndex === index}>
+                        <Link href={area.href}>
+                          <div onMouseEnter={() => setActiveAreaIndex(index)} className={`flex cursor-pointer items-center gap-2 border-b border-gray-50 px-4 py-2.5 transition-colors last:border-0 ${activeAreaIndex === index ? "bg-[#f0f6fb]" : "hover:bg-[#f0f6fb]"}`}>
+                            <MapPin className="h-3.5 w-3.5 shrink-0 text-[#2C5F7F]" />
+                            <span className="text-sm font-medium text-[#2C2C2C]">
+                              {matchIndex === -1 ? area.title : <>{area.title.slice(0, matchIndex)}<span className="font-bold text-[#2C5F7F]">{area.title.slice(matchIndex, matchIndex + searchQuery.length)}</span>{area.title.slice(matchIndex + searchQuery.length)}</>}
+                            </span>
+                            <span className="ml-auto text-xs text-gray-400">{area.county}</span>
+                          </div>
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
             </div>
