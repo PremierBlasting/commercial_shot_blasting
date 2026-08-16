@@ -1491,3 +1491,9 @@
 - [x] Replace generic CDN images in all 16 recentProjects entries with real CSB job photos from the Steels project
 - [x] Add stickyPulse animation (3 pulses after 1s delay) to the mobile sticky CTA bar on first page load
 - [x] Validate TypeScript (0 errors) and run all tests (182 passing)
+
+## Essex Hub and Location Search Enhancements (16 August 2026)
+- [x] Create an Essex county hub page and properly group Basildon, Chelmsford, Colchester, and Southend
+- [x] Add the recently viewed areas dropdown to the homepage location search form
+- [x] Add permission-based nearby-area suggestions using browser geolocation in location search dropdowns
+- [x] Add regression tests and validate TypeScript, test suite, sitemap, and routes

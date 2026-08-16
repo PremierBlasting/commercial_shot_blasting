@@ -1010,7 +1010,7 @@ export const countyData: Record<string, CountyData> = {
       },
       {
         question: "How quickly can you reach my location in Essex?",
-        answer: "We typically respond to enquiries within 24 hours and can usually schedule site visits in Essex within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
+        answer: "We will get back to you promptly and can usually schedule site visits in Essex within 2-5 working days, depending on your location and our current schedule. For urgent projects, we can often accommodate faster response times."
       },
       {
         question: "What types of surfaces can you blast in commercial settings?",
