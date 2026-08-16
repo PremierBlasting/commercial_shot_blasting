@@ -107,5 +107,11 @@ export function useNearbyAreas() {
     }
   }, []);
 
-  return { status, nearbyAreas, postcodeError, requestNearbyAreas, requestNearbyByPostcode };
+  const resetNearbyAreas = useCallback(() => {
+    setNearbyAreas([]);
+    setPostcodeError("");
+    setStatus("idle");
+  }, []);
+
+  return { status, nearbyAreas, postcodeError, requestNearbyAreas, requestNearbyByPostcode, resetNearbyAreas };
 }

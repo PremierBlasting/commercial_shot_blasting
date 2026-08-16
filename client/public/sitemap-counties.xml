@@ -169,6 +169,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://commercialshotblasting.co.uk/counties/greater-manchester</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://commercialshotblasting.co.uk/counties/merseyside</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

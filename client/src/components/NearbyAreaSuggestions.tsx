@@ -1,4 +1,4 @@
-import { Loader2, MapPin, Navigation } from "lucide-react";
+import { Loader2, MapPin, Navigation, RotateCcw } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 import { useNearbyAreas } from "@/hooks/useNearbyAreas";
@@ -13,7 +13,8 @@ interface NearbyAreaSuggestionsProps {
  */
 export function NearbyAreaSuggestions({ maxItems = 3 }: NearbyAreaSuggestionsProps) {
   const [postcode, setPostcode] = useState("");
-  const { status, nearbyAreas, postcodeError, requestNearbyAreas, requestNearbyByPostcode } = useNearbyAreas();
+  const { status, nearbyAreas, postcodeError, requestNearbyAreas, requestNearbyByPostcode, resetNearbyAreas } = useNearbyAreas();
+  const orderedNearbyAreas = [...nearbyAreas].sort((left, right) => left.distanceMiles - right.distanceMiles);
 
   const submitPostcode = (event: React.FormEvent) => {
     event.preventDefault();
@@ -23,12 +24,15 @@ export function NearbyAreaSuggestions({ maxItems = 3 }: NearbyAreaSuggestionsPro
   if (status === "ready") {
     return (
       <div className="border-t border-gray-100">
-        <div className="px-4 py-2">
+        <div className="flex items-center justify-between gap-3 px-4 py-2">
           <span className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-gray-400">
             <Navigation className="h-3 w-3" /> Popular areas near you
           </span>
+          <button type="button" onMouseDown={(event) => event.preventDefault()} onClick={resetNearbyAreas} className="inline-flex items-center gap-1 text-xs font-medium text-gray-400 transition-colors hover:text-[#2C5F7F]" aria-label="Clear active location lookup">
+            <RotateCcw className="h-3 w-3" /> Clear location
+          </button>
         </div>
-        {nearbyAreas.slice(0, maxItems).map((area) => (
+        {orderedNearbyAreas.slice(0, maxItems).map((area) => (
           <Link key={area.slug} href={`/service-areas/${area.slug}`}>
             <div className="flex cursor-pointer items-center gap-2 border-t border-gray-50 px-4 py-2.5 transition-colors hover:bg-[#f0f6fb]">
               <MapPin className="h-3.5 w-3.5 shrink-0 text-[#2C5F7F]" />

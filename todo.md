@@ -1518,3 +1518,9 @@
 - [x] Add prominent distance badges to nearby-area suggestions
 - [x] Add coordinates for all current Merseyside service-area records
 - [x] Add regression tests and validate TypeScript and the full test suite
+
+## Greater Manchester and Nearby-Area Controls (16 August 2026)
+- [x] Confirm Greater Manchester hub route and add coordinates for all current Greater Manchester service-area towns
+- [x] Sort nearby-area suggestions explicitly by distance before display
+- [x] Add a manual reset control to clear the active in-browser location lookup
+- [x] Add regression tests and validate TypeScript and the full test suite

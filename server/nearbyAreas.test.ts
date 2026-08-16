@@ -25,4 +25,14 @@ describe("nearby service area suggestions", () => {
       expect(locationCoordinates[slug]).toMatchObject({ lat: expect.any(Number), lng: expect.any(Number) });
     }
   });
+
+  it("includes all current Greater Manchester service-area towns and orders results by distance", () => {
+    const requiredSlugs = ["bolton", "manchester", "oldham", "rochdale", "salford", "stockport", "wigan", "bury", "wythenshawe", "sale", "leigh", "hindley", "atherton", "tyldesley", "radcliffe", "littleborough", "ramsbottom"];
+    for (const slug of requiredSlugs) {
+      expect(locationCoordinates[slug]).toMatchObject({ lat: expect.any(Number), lng: expect.any(Number) });
+    }
+
+    const nearby = getNearbyAreas(53.4808, -2.2426, 5);
+    expect(nearby.map((area) => area.distanceMiles)).toEqual([...nearby.map((area) => area.distanceMiles)].sort((a, b) => a - b));
+  });
 });
