@@ -1,6 +1,8 @@
 import { Link } from "wouter";
 import { ChevronRight } from "lucide-react";
 
+const SITE_URL = "https://commercialshotblasting.co.uk";
+
 export interface BreadcrumbItem {
   label: string;
   href: string;
@@ -35,7 +37,7 @@ export function Breadcrumb({ items, className = "", bare = false }: BreadcrumbPr
       "@type": "ListItem",
       "position": index + 1,
       "name": item.label,
-      "item": `${typeof window !== 'undefined' ? window.location.origin : ''}${item.href}`
+      "item": `${SITE_URL}${item.href}`
     }))
   };
 

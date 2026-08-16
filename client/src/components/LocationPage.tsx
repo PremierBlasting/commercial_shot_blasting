@@ -181,7 +181,7 @@ export function LocationPage({ location }: LocationPageProps) {
     { label: "Home", href: "/" },
     { label: "Service Areas", href: "/service-areas" },
     { label: location.county, href: `/counties/${location.countySlug}` },
-    { label: location.name, href: `/service-areas/${location.slug}` }
+    { label: location.name, href: `/service-areas/${location.slug}`, isCurrentPage: true }
   ];
   const locationSpotlight = location.spotlightText || townSpotlight[location.slug];
 

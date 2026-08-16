@@ -1,58 +1,12 @@
 import { Link } from "wouter";
 import { Phone, Mail } from "lucide-react";
 import { trackPhoneCall, trackEvent } from "@/lib/analytics";
+import { countyData } from "@/data/countyData";
 
-// All 35 county hubs — grouped for display
-const COUNTY_LINKS = [
-  // East Midlands
-  { slug: "derbyshire", name: "Derbyshire" },
-  { slug: "leicestershire", name: "Leicestershire" },
-  { slug: "lincolnshire", name: "Lincolnshire" },
-  { slug: "northamptonshire", name: "Northamptonshire" },
-  { slug: "nottinghamshire", name: "Nottinghamshire" },
-  // East of England
-  { slug: "bedfordshire", name: "Bedfordshire" },
-  { slug: "cambridgeshire", name: "Cambridgeshire" },
-  { slug: "essex", name: "Essex" },
-  { slug: "hertfordshire", name: "Hertfordshire" },
-  { slug: "norfolk", name: "Norfolk" },
-  { slug: "suffolk", name: "Suffolk" },
-  // West Midlands
-  { slug: "herefordshire", name: "Herefordshire" },
-  { slug: "shropshire", name: "Shropshire" },
-  { slug: "staffordshire", name: "Staffordshire" },
-  { slug: "warwickshire", name: "Warwickshire" },
-  { slug: "west-midlands", name: "West Midlands" },
-  { slug: "worcestershire", name: "Worcestershire" },
-  // Yorkshire
-  { slug: "north-yorkshire", name: "North Yorkshire" },
-  { slug: "south-yorkshire", name: "South Yorkshire" },
-  { slug: "west-yorkshire", name: "West Yorkshire" },
-  // North West
-  { slug: "cheshire", name: "Cheshire" },
-  { slug: "cumbria", name: "Cumbria" },
-  { slug: "greater-manchester", name: "Greater Manchester" },
-  { slug: "lancashire", name: "Lancashire" },
-  // North East
-  { slug: "durham", name: "County Durham" },
-  { slug: "northumberland", name: "Northumberland" },
-  { slug: "tyne-and-wear", name: "Tyne & Wear" },
-  // South West
-  { slug: "gloucestershire", name: "Gloucestershire" },
-  { slug: "north-devon", name: "North Devon" },
-  { slug: "somerset", name: "Somerset" },
-  { slug: "wiltshire", name: "Wiltshire" },
-  // South England
-  { slug: "berkshire", name: "Berkshire" },
-  { slug: "buckinghamshire", name: "Buckinghamshire" },
-  { slug: "hampshire", name: "Hampshire" },
-  // Wales Borders
-  { slug: "east-wales", name: "East Wales" },
-];
-
-// Split counties into two columns for display
-const COUNTY_COL1 = COUNTY_LINKS.slice(0, 18);
-const COUNTY_COL2 = COUNTY_LINKS.slice(18);
+// Derive footer links from the active county catalogue so new hubs appear automatically.
+const COUNTY_LINKS = Object.values(countyData)
+  .map(({ slug, name }) => ({ slug, name }))
+  .sort((a, b) => a.name.localeCompare(b.name));
 
 export function Footer() {
   return (
@@ -152,7 +106,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Service Areas — all 35 county hubs */}
+          {/* Service Areas — all active county hubs */}
           <div>
             <h4 className="font-semibold mb-4">Service Areas</h4>
             <ul className="space-y-1 text-white/70 text-sm mb-3">

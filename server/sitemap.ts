@@ -13,8 +13,10 @@ import type { Express } from "express";
 import { getPublishedBlogPosts, getActiveGalleryItems } from "./db";
 import { locationSlugIndex } from "../client/src/data/locationSlugIndex";
 import { countyData } from "../client/src/data/countyData";
+import { countyLastModified, locationLastModified } from "@shared/sitemapLastModified";
 
 const SITE_URL = "https://commercialshotblasting.co.uk";
+const CATALOGUE_BASELINE_LASTMOD = "2026-02-18";
 
 // ── Static pages ──────────────────────────────────────────────────────────────
 const STATIC_PAGES = [
@@ -125,8 +127,9 @@ export async function buildSitemap(): Promise<string> {
   // County pages derive directly from the registered county page catalogue.
   // New county hubs are included automatically without editing a separate sitemap list.
   for (const slug of Object.keys(countyData)) {
+    const lastmod = countyLastModified[slug] ?? CATALOGUE_BASELINE_LASTMOD;
     urls.push(
-      `  <url>\n    <loc>${escapeXml(`${SITE_URL}/counties/${slug}`)}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`
+      `  <url>\n    <loc>${escapeXml(`${SITE_URL}/counties/${slug}`)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`
     );
   }
 
@@ -135,8 +138,9 @@ export async function buildSitemap(): Promise<string> {
     const isTopCity = TOP_CITY_SLUGS.has(slug);
     const changefreq = isTopCity ? "weekly" : "monthly";
     const priority = isTopCity ? "0.8" : "0.6";
+    const lastmod = locationLastModified[slug] ?? CATALOGUE_BASELINE_LASTMOD;
     urls.push(
-      `  <url>\n    <loc>${escapeXml(`${SITE_URL}/service-areas/${slug}`)}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`
+      `  <url>\n    <loc>${escapeXml(`${SITE_URL}/service-areas/${slug}`)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`
     );
   }
 

@@ -82,7 +82,9 @@ const MAIN_PAGES = [
   { href: "/reviews", label: "Customer Reviews" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
-  { href: "/prep-and-cleanup", label: "Prep & Cleanup" },
+  { href: "/site-survey", label: "Request A Site Visit" },
+  { href: "/preparation-and-cleanup", label: "Preparation & Cleanup" },
+  { href: "/privacy-policy", label: "Privacy Policy" },
 ];
 
 // ── Component ──────────────────────────────────────────────────────────────────
@@ -126,10 +128,13 @@ export default function SitemapPage() {
     return map;
   }, []);
 
-  const sortedRegions = useMemo(
-    () => REGION_ORDER.filter((r) => countiesByRegion[r]),
-    [countiesByRegion]
-  );
+  const sortedRegions = useMemo(() => {
+    const knownRegions = REGION_ORDER.filter((region) => countiesByRegion[region]);
+    const additionalRegions = Object.keys(countiesByRegion)
+      .filter((region) => !REGION_ORDER.includes(region))
+      .sort((a, b) => a.localeCompare(b));
+    return [...knownRegions, ...additionalRegions];
+  }, [countiesByRegion]);
 
   const totalTowns = Object.values(locationData).length;
   const totalCounties = Object.values(countyData).length;
@@ -208,10 +213,13 @@ export default function SitemapPage() {
             <h1 className="text-3xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
               Site Map
             </h1>
-            <p className="text-white/80 mb-6">
-              Complete directory of all {totalTowns} service area pages, {totalCounties} county pages,{" "}
-              {SERVICE_SLUGS.length} services and {INDUSTRY_SLUGS.length} industries.
-            </p>
+              <p className="text-white/80 mb-6">
+                Complete directory of all {totalTowns} service area pages, {totalCounties} county pages,{" "}
+                {SERVICE_SLUGS.length} services and {INDUSTRY_SLUGS.length} industries.
+              </p>
+              <p className="text-sm text-white/70 -mt-3 mb-6">
+                Looking for the search-engine version? <a href="/sitemap.xml" className="underline hover:text-white">Open the XML sitemap</a>.
+              </p>
 
             {/* Search bar */}
             <div className="relative max-w-xl">

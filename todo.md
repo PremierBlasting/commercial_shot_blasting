@@ -1530,3 +1530,13 @@
 - [x] Include static pages, services, industries, blogs, glossary, and all service-area pages with canonical XML
 - [x] Register the dynamic sitemap in discovery files and add automated coverage tests
 - [x] Validate XML output, TypeScript, and the full test suite
+
+## Sitemap Dates, HTML Sitemap, and Breadcrumbs (16 August 2026)
+- [x] Generate deterministic accurate `lastmod` dates for dynamic sitemap service-area and county hub URLs
+- [x] Create or enhance a visual HTML sitemap page with all county hubs and service-area towns, linked from the footer
+- [x] Verify and complete canonical breadcrumbs on all shared service-area and county hub templates
+- [x] Add regression tests and validate TypeScript, XML output, routes, and the full test suite
+
+## Legacy Sitemap Consolidation (16 August 2026)
+- [x] Keep the image sitemap available while redirecting stale static page sitemaps to the canonical dynamic sitemap
+- [x] Remove stale legacy page-sitemap discovery references and add redirect regression tests

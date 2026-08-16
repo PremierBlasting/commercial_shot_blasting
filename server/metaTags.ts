@@ -9,6 +9,8 @@ import { servicePreparationSteps } from "@shared/servicePreparationSteps";
 import { countyContext } from "@shared/countyContext";
 import { getTownSpotlight } from "@shared/townSpotlight";
 import { countyOgImageUrl, townOgImageUrl } from "./ogImage";
+import { locationSlugIndex } from "../client/src/data/locationSlugIndex";
+import { countyData as clientCountyData } from "../client/src/data/countyData";
 
 // County chunk preload manifest (loaded once at startup in production)
 let countyChunkManifest: Record<string, string> | null = null;
@@ -7641,6 +7643,8 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
   }
 
   if (url === '/sitemap' || url === '/sitemap/') {
+    const sitemapTownCount = Object.keys(locationSlugIndex).length;
+    const sitemapCountyCount = Object.keys(clientCountyData).length;
     const sitemapTitle = `Site Map — Commercial Shot Blasting`;
     const sitemapDesc = `Complete directory of all service areas, counties, services and industries covered by Commercial Shot Blasting across the UK. Find shot blasting services near you.`;
     const sitemapUrl = `${SITE_URL}/sitemap`;
@@ -7669,7 +7673,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <meta name="twitter:description" content="${sitemapDesc}" />
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, sitemapMetaTags);
-    const _ssr_sitemap = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/services">Services</a> | <a href="${SITE_URL}/service-areas">Service Areas</a> | <a href="${SITE_URL}/about">About</a> | <a href="${SITE_URL}/contact">Contact</a> | <a href="${SITE_URL}/blog">Blog</a> | <a href="${SITE_URL}/industries">Industries</a> | <a href="${SITE_URL}/glossary">Glossary</a></nav><main><h1>Site Map — Commercial Shot Blasting</h1><p>Complete directory of all service areas, counties, services and industries covered by Commercial Shot Blasting across the UK.</p><ul><li><a href="${SITE_URL}/">Home</a></li><li><a href="${SITE_URL}/services">All Shot Blasting Services</a></li><li><a href="${SITE_URL}/service-areas">Service Areas — 638 UK Towns</a></li><li><a href="${SITE_URL}/counties">Counties</a></li><li><a href="${SITE_URL}/industries">Industries</a></li><li><a href="${SITE_URL}/blog">Blog</a></li><li><a href="${SITE_URL}/glossary">Shot Blasting Glossary</a></li><li><a href="${SITE_URL}/about">About Us</a></li><li><a href="${SITE_URL}/contact">Contact</a></li></ul></main></div>`;
+    const _ssr_sitemap = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/services">Services</a> | <a href="${SITE_URL}/service-areas">Service Areas</a> | <a href="${SITE_URL}/counties">Counties</a> | <a href="${SITE_URL}/about">About</a> | <a href="${SITE_URL}/contact">Contact</a> | <a href="${SITE_URL}/blog">Blog</a> | <a href="${SITE_URL}/industries">Industries</a> | <a href="${SITE_URL}/glossary">Glossary</a></nav><main><h1>Site Map — Commercial Shot Blasting</h1><p>Complete directory of all ${sitemapTownCount} service areas, ${sitemapCountyCount} county hubs, services and industries covered by Commercial Shot Blasting across the UK.</p><ul><li><a href="${SITE_URL}/">Home</a></li><li><a href="${SITE_URL}/services">All Shot Blasting Services</a></li><li><a href="${SITE_URL}/service-areas">Service Areas — ${sitemapTownCount} UK Towns</a></li><li><a href="${SITE_URL}/counties">County Hubs — ${sitemapCountyCount}</a></li><li><a href="${SITE_URL}/industries">Industries</a></li><li><a href="${SITE_URL}/blog">Blog</a></li><li><a href="${SITE_URL}/glossary">Shot Blasting Glossary</a></li><li><a href="${SITE_URL}/sitemap.xml">XML Sitemap</a></li><li><a href="${SITE_URL}/about">About Us</a></li><li><a href="${SITE_URL}/contact">Contact</a></li></ul></main></div>`;
     if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
       modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', _ssr_sitemap);
     } else {
