@@ -738,6 +738,7 @@ export const locationSlugIndex: Record<string, string> = {
   "wilton": "wiltshire",
   "wincanton": "somerset",
   "winchcombe": "gloucestershire",
+  "winchester": "hampshire",
   "winsford": "cheshire",
   "winslow": "buckinghamshire",
   "wirksworth": "derbyshire",

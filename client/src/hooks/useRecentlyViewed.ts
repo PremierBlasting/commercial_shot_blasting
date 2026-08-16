@@ -39,12 +39,21 @@ export function recordAreaVisit(slug: string, name: string, county: string): voi
 }
 
 /** Hook to get recently viewed areas (reactive) */
-export function useRecentlyViewed(): RecentlyViewedArea[] {
+export function useRecentlyViewed(): { items: RecentlyViewedArea[]; clearHistory: () => void } {
   const [items, setItems] = useState<RecentlyViewedArea[]>([]);
 
   useEffect(() => {
     setItems(getRecentlyViewed());
   }, []);
 
-  return items;
+  const clearHistory = () => {
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+      setItems([]);
+    } catch {
+      // localStorage may be unavailable
+    }
+  };
+
+  return { items, clearHistory };
 }

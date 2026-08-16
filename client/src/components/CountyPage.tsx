@@ -276,7 +276,7 @@ export function CountyPage({ county }: CountyPageProps) {
   const [townSearchLoading, setTownSearchLoading] = useState(false);
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [searchFocused, setSearchFocused] = useState(false);
-  const recentlyViewed = useRecentlyViewed();
+  const { items: recentlyViewed, clearHistory } = useRecentlyViewed();
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [showCountyNav, setShowCountyNav] = useState(false);
   const [activeCountySection, setActiveCountySection] = useState<string | null>(null);
@@ -1375,8 +1375,15 @@ export function CountyPage({ county }: CountyPageProps) {
                   className="absolute z-50 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden"
                 >
                   <li className="px-4 py-2 border-b border-gray-100">
-                    <span className="text-xs font-medium text-gray-400 uppercase tracking-wide flex items-center gap-1.5">
-                      <Clock className="w-3 h-3" /> Recently viewed
+                    <span className="text-xs font-medium text-gray-400 uppercase tracking-wide flex items-center gap-1.5 justify-between">
+                      <span className="flex items-center gap-1.5"><Clock className="w-3 h-3" /> Recently viewed</span>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); clearHistory(); }}
+                        className="text-xs text-gray-400 hover:text-red-500 transition-colors"
+                        aria-label="Clear history"
+                      >
+                        Clear
+                      </button>
                     </span>
                   </li>
                   {recentlyViewed.slice(0, 3).map((area) => (
@@ -1404,7 +1411,16 @@ export function CountyPage({ county }: CountyPageProps) {
                       <Link href={`/service-areas/${town.slug}`}>
                         <div className="flex items-center gap-2 px-4 py-2.5 hover:bg-[#f0f6fb] cursor-pointer transition-colors border-b border-gray-50 last:border-0">
                           <MapPin className="w-3.5 h-3.5 text-[#2C5F7F] shrink-0" />
-                          <span className="text-sm font-medium text-[#2C2C2C]">{town.name}</span>
+                          <span className="text-sm font-medium text-[#2C2C2C]">
+                            {(() => {
+                              const idx = town.name.toLowerCase().indexOf(townSearch.toLowerCase());
+                              if (idx === -1) return town.name;
+                              const before = town.name.slice(0, idx);
+                              const match = town.name.slice(idx, idx + townSearch.length);
+                              const after = town.name.slice(idx + townSearch.length);
+                              return <>{before}<span className="text-[#2C5F7F] font-bold">{match}</span>{after}</>;
+                            })()}
+                          </span>
                           <ArrowRight className="w-3 h-3 text-gray-300 ml-auto" />
                         </div>
                       </Link>
