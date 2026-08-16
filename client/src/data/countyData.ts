@@ -1568,4 +1568,40 @@ export const countyData: Record<string, CountyData> = {
       }
     ]
   },
+  "dorset": {
+    name: "Dorset",
+    slug: "dorset",
+    region: "South West England",
+    description: "Professional shot blasting services throughout Dorset. Serving Bournemouth, Poole, Weymouth, and Dorchester with expert surface preparation for marine engineering, yacht manufacturing, port infrastructure, and commercial construction.",
+    metaDescription: "Mobile shot blasting in Dorset — marine engineering, yacht manufacturing, port infrastructure & commercial buildings. SA2.5/SA3 standard. Serving Bournemouth, Poole & Weymouth.",
+    url: "https://commercialshotblasting.co.uk/counties/dorset",
+    ogImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
+    latitude: 50.7488,
+    longitude: -2.3445,
+    majorTowns: ["Bournemouth", "Poole", "Weymouth", "Dorchester"],
+    industries: ["Marine & Yacht Manufacturing", "Port Infrastructure", "Tourism & Hospitality", "Financial Services", "Heritage"],
+    townsAndVillages: ["Blandford Forum", "Bournemouth", "Bridport", "Christchurch", "Dorchester", "Ferndown", "Gillingham", "Lyme Regis", "Poole", "Shaftesbury", "Sherborne", "Swanage", "Verwood", "Wareham", "Weymouth", "Wimborne Minster"],
+    faqs: [
+      {
+        question: "Do you provide shot blasting services throughout Dorset?",
+        answer: "Yes, we provide mobile shot blasting services across all of Dorset. Our fully equipped mobile units can reach any location in the county, including Bournemouth, Poole, Weymouth, Dorchester, and all surrounding areas via the A31, A35, and A354."
+      },
+      {
+        question: "Can you work on marine and yacht manufacturing facilities in Dorset?",
+        answer: "Absolutely. We regularly blast yacht hulls, marine engine components, port crane steelwork, and harbour infrastructure across Poole Harbour and Portland Port. We're experienced working in marine environments and understand the specific requirements for salt-damaged surfaces."
+      },
+      {
+        question: "Do you handle heritage and coastal structures in Dorset?",
+        answer: "Yes, we have experience with heritage structures including Victorian seafront ironwork, listed buildings, and period properties across Dorset's coast. We select appropriate abrasive media to clean surfaces without causing damage to original materials."
+      },
+      {
+        question: "How quickly can you reach my site in Dorset?",
+        answer: "We can typically schedule site visits in Dorset within 3-5 working days. With good A31 and A35 access, we can reach most Dorset locations efficiently. Call us on 07721 375756 for availability."
+      },
+      {
+        question: "What types of industrial projects do you handle in Dorset?",
+        answer: "We handle yacht manufacturing steelwork, port infrastructure, marine engineering components, commercial building cladding, warehouse floors, heritage building restoration, and tourism infrastructure across Dorset."
+      }
+    ]
+  },
 };

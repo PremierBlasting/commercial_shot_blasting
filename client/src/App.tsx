@@ -205,6 +205,7 @@ const MerseysideCounty = lazy(() => import("./pages/counties/MerseysideCounty"))
 const OxfordshireCounty = lazy(() => import("./pages/counties/OxfordshireCounty"));
 const SurreyCounty = lazy(() => import("./pages/counties/SurreyCounty"));
 const SussexCounty = lazy(() => import("./pages/counties/SussexCounty"));
+const DorsetCounty = lazy(() => import("./pages/counties/DorsetCounty"));
 
 // Dynamic location router for all 605 towns and villages
 const LocationRouter = lazy(() => import("./pages/LocationRouter"));
@@ -319,6 +320,7 @@ function Router() {
           <Route path="/counties/oxfordshire" component={() => <Suspense fallback={<CountyPageSkeleton />}><OxfordshireCounty /></Suspense>} />
           <Route path="/counties/surrey" component={() => <Suspense fallback={<CountyPageSkeleton />}><SurreyCounty /></Suspense>} />
           <Route path="/counties/sussex" component={() => <Suspense fallback={<CountyPageSkeleton />}><SussexCounty /></Suspense>} />
+          <Route path="/counties/dorset" component={() => <Suspense fallback={<CountyPageSkeleton />}><DorsetCounty /></Suspense>} />
         {/* Dynamic Location Pages (605 towns and villages) */}
         <Route path="/locations/:slug" component={LocationRouter} />
         <Route path="/service-areas/birmingham" component={BirminghamServiceArea} />

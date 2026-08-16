@@ -13,6 +13,8 @@ import {
   ArrowRight,
   Search
 } from "lucide-react";
+import { Clock } from "lucide-react";
+import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 
 const countiesForAreas = Object.values(countyData).sort((a, b) => a.name.localeCompare(b.name));
 const regionColoursAreas: Record<string, string> = {
@@ -397,6 +399,8 @@ export default function Areas() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedRegionFilter, setSelectedRegionFilter] = useState<string>("all");
+  const [searchFocused, setSearchFocused] = useState(false);
+  const { items: recentlyViewed, clearHistory } = useRecentlyViewed();
 
   // Get unique high-level regions for filter buttons
   const regionFilters = [
@@ -571,15 +575,45 @@ export default function Areas() {
             </div>
 
             {/* Search Box */}
-            <div className="max-w-md mx-auto relative">
+            <div className="max-w-md mx-auto relative" role="combobox" aria-expanded={searchFocused && searchQuery.length === 0 && recentlyViewed.length > 0} aria-haspopup="listbox">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search for a location..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setSearchFocused(true)}
+                onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
                 className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-200 focus:border-[#2C5F7F] focus:ring-2 focus:ring-[#2C5F7F]/20 outline-none transition-all"
               />
+              {/* Recently viewed dropdown */}
+              {searchFocused && searchQuery.length === 0 && recentlyViewed.length > 0 && (
+                <ul className="absolute z-50 top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden">
+                  <li className="px-4 py-2 border-b border-gray-100">
+                    <span className="text-xs font-medium text-gray-400 uppercase tracking-wide flex items-center gap-1.5 justify-between">
+                      <span className="flex items-center gap-1.5"><Clock className="w-3 h-3" /> Recently viewed</span>
+                      <button
+                        onClick={(e) => { e.stopPropagation(); clearHistory(); }}
+                        className="text-xs text-gray-400 hover:text-red-500 transition-colors"
+                        aria-label="Clear history"
+                      >
+                        Clear
+                      </button>
+                    </span>
+                  </li>
+                  {recentlyViewed.slice(0, 3).map((area) => (
+                    <li key={area.slug}>
+                      <Link href={`/service-areas/${area.slug}`}>
+                        <div className="flex items-center gap-2 px-4 py-2.5 hover:bg-[#f0f6fb] cursor-pointer transition-colors border-b border-gray-50 last:border-0">
+                          <MapPin className="w-3.5 h-3.5 text-[#2C5F7F] shrink-0" />
+                          <span className="text-sm font-medium text-[#2C2C2C]">{area.name}</span>
+                          <span className="text-xs text-gray-400 ml-auto">{area.county}</span>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
 

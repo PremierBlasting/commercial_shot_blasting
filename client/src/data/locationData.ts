@@ -9159,47 +9159,6 @@ export const locationData: Record<string, LocationData> = {
     }
   ]
 },
-  "bournemouth": {
-  "name": "Bournemouth",
-  "slug": "bournemouth",
-  "county": "Dorset",
-  "countySlug": "hampshire",
-  "region": "South West England",
-  "description": "Commercial shot blasting services in Bournemouth, Dorset. Mobile surface preparation for structural steel, plant, cladding and industrial floors. Book a free site survey on 07721 375756.",
-  "spotlightText": "Bournemouth’s diverse commercial landscape, anchored by established logistics hubs and manufacturing facilities such as the Aviation Business Park and Bankes Heath Industrial Park, demands rigorous maintenance and surface preparation solutions. Commercial shot blasting plays a vital role across the region, ensuring heavy machinery, structural steelwork, concrete flooring, and transport infrastructure meet stringent industrial standards. By efficiently removing corrosion, old coatings, and surface contaminants, shot blasting prepares substrates for high-performance protective coatings and anti-corrosion treatments. In a coastal and economically active region like Dorset, maintaining robust asset integrity across aviation, warehousing, and general manufacturing sectors is essential for operational safety and longevity.",
-  "uniqueFaqs": [
-    {
-      "question": "What types of commercial facilities in Bournemouth benefit most from shot blasting?",
-      "answer": "Facilities across Bournemouth, including aviation hangars at the Aviation Business Park and warehousing units at Bankes Heath Industrial Park, frequently utilize shot blasting for structural steel, concrete floors, and heavy machinery maintenance."
-    },
-    {
-      "question": "Can commercial shot blasting be scheduled outside normal operating hours in Bournemouth businesses?",
-      "answer": "Yes, contractors servicing Bournemouth commercial properties frequently offer flexible scheduling, including out-of-hours and weekend execution, to minimize disruption to active logistics, manufacturing, and commercial operations."
-    },
-    {
-      "question": "How does coastal proximity in Bournemouth affect the choice of surface preparation?",
-      "answer": "Bournemouth's coastal environment exposes metal structures to salt air and increased corrosion risks, making thorough abrasive shot blasting essential prior to applying marine-grade or anti-corrosion protective coatings."
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Do you provide commercial shot blasting services in Bournemouth?",
-      "answer": "Yes. Our mobile teams support commercial and industrial surface preparation throughout Bournemouth and the wider Dorset area. We assess access, containment, substrate condition and coating requirements before recommending the right blasting method."
-    },
-    {
-      "question": "Can you carry out shot blasting on-site in Bournemouth?",
-      "answer": "Yes. Where access, dust control and the site environment allow, mobile blasting equipment can be brought to commercial sites in Bournemouth. A free survey lets us confirm the safest and most efficient approach for fixed steelwork, plant or flooring."
-    },
-    {
-      "question": "What can be prepared by shot blasting in Bournemouth?",
-      "answer": "We prepare structural steel, fabricated components, machinery, containers, factory cladding and concrete floors. The required abrasive, containment and blast profile are selected around the material and the coating system that will follow."
-    },
-    {
-      "question": "How do I arrange a free site survey in Bournemouth?",
-      "answer": "Use the Book a Free Site Survey form or call 07721 375756. Share the site postcode, what needs blasting and any photos or drawings; we will review the requirements and arrange the next practical step."
-    }
-  ]
-},
   "swansea": {
   "name": "Swansea",
   "slug": "swansea",
@@ -9319,47 +9278,6 @@ export const locationData: Record<string, LocationData> = {
     },
     {
       "question": "How do I arrange a free site survey in York?",
-      "answer": "Use the Book a Free Site Survey form or call 07721 375756. Share the site postcode, what needs blasting and any photos or drawings; we will review the requirements and arrange the next practical step."
-    }
-  ]
-},
-  "poole": {
-  "name": "Poole",
-  "slug": "poole",
-  "county": "Dorset",
-  "countySlug": "hampshire",
-  "region": "South West England",
-  "description": "Commercial shot blasting services in Poole, Dorset. Mobile surface preparation for structural steel, plant, cladding and industrial floors. Book a free site survey on 07721 375756.",
-  "spotlightText": "Poole supports a dynamic commercial and industrial economy anchored by key commercial nodes like Fleets Corner Business Park and Newtown Business Park, alongside the active maritime facilities at the Port of Poole. These hubs accommodate an array of warehousing, manufacturing, distribution, and marine-related enterprises that regularly require specialized surface maintenance and heavy-duty asset preservation. Commercial shot blasting plays a vital role across Dorset in maintaining structural integrity, removing corrosion, and preparing steelwork and concrete infrastructure for protective coatings. By servicing industrial estates throughout Poole, professional surface preparation contractors help businesses extend asset lifespans and meet stringent regulatory standards across demanding operational environments.",
-  "uniqueFaqs": [
-    {
-      "question": "What types of industrial facilities in Poole benefit from commercial shot blasting?",
-      "answer": "Industrial and logistics facilities across Poole, including warehousing units at Fleets Corner Business Park and manufacturing plants near the Port of Poole, utilize shot blasting to strip rust, old coatings, and mill scale from structural steel, tanks, and heavy machinery prior to recoating."
-    },
-    {
-      "question": "Can mobile shot blasting units be deployed directly to business parks in Poole?",
-      "answer": "Yes, mobile commercial shot blasting equipment can be brought directly to industrial sites, business parks, and commercial premises across Poole to perform on-site surface preparation, minimizing downtime and transport logistics for large static assets."
-    },
-    {
-      "question": "How does marine environment exposure in Poole affect the need for abrasive blasting?",
-      "answer": "Due to Poole's coastal location and maritime operations around Poole Harbour, industrial structures, metal fabrications, and marine equipment are prone to accelerated atmospheric corrosion, making high-performance abrasive blasting essential for effective protective coating adhesion."
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Do you provide commercial shot blasting services in Poole?",
-      "answer": "Yes. Our mobile teams support commercial and industrial surface preparation throughout Poole and the wider Dorset area. We assess access, containment, substrate condition and coating requirements before recommending the right blasting method."
-    },
-    {
-      "question": "Can you carry out shot blasting on-site in Poole?",
-      "answer": "Yes. Where access, dust control and the site environment allow, mobile blasting equipment can be brought to commercial sites in Poole. A free survey lets us confirm the safest and most efficient approach for fixed steelwork, plant or flooring."
-    },
-    {
-      "question": "What can be prepared by shot blasting in Poole?",
-      "answer": "We prepare structural steel, fabricated components, machinery, containers, factory cladding and concrete floors. The required abrasive, containment and blast profile are selected around the material and the coating system that will follow."
-    },
-    {
-      "question": "How do I arrange a free site survey in Poole?",
       "answer": "Use the Book a Free Site Survey form or call 07721 375756. Share the site postcode, what needs blasting and any photos or drawings; we will review the requirements and arrange the next practical step."
     }
   ]
@@ -10796,47 +10714,6 @@ export const locationData: Record<string, LocationData> = {
     },
     {
       "question": "How do I arrange a free site survey in Bebington?",
-      "answer": "Use the Book a Free Site Survey form or call 07721 375756. Share the site postcode, what needs blasting and any photos or drawings; we will review the requirements and arrange the next practical step."
-    }
-  ]
-},
-  "weymouth": {
-  "name": "Weymouth",
-  "slug": "weymouth",
-  "county": "Dorset",
-  "countySlug": "hampshire",
-  "region": "South West England",
-  "description": "Commercial shot blasting services in Weymouth, Dorset. Mobile surface preparation for structural steel, plant, cladding and industrial floors. Book a free site survey on 07721 375756.",
-  "spotlightText": "Weymouth, situated in the county of Dorset within South West England, features a robust industrial and commercial economy anchored by major employment hubs such as the Granby Industrial Estate and Link Park Weymouth. As South Dorset's largest employment site, the Granby Industrial Estate accommodates diverse light manufacturing, warehousing, engineering, and construction supply enterprises. Transport connectivity is primarily facilitated by the A354 arterial route, which connects Weymouth northward toward Dorchester, the A35, and onward to the wider regional motorway network. Additionally, the town's proximity to Weymouth Port and nearby Portland Port underpins its maritime engineering, logistics, and marine service sectors, driving ongoing demand for specialized commercial shot blasting and protective surface preparation.",
-  "uniqueFaqs": [
-    {
-      "question": "What industrial sectors in Weymouth commonly require professional commercial shot blasting services?",
-      "answer": "Weymouth's industrial sector—particularly businesses operating within the Granby Industrial Estate and Link Park Weymouth—frequently requires professional shot blasting for structural steel fabrication, plant machinery refurbishment, heavy transport chassis, and marine infrastructure maintenance. Surface preparation is essential for removing heavy corrosion, scale, and old coatings before applying high-performance protective paint systems in demanding environments."
-    },
-    {
-      "question": "How does Weymouth's maritime climate affect commercial metal structures and surface preparation requirements?",
-      "answer": "Weymouth's coastal location exposes commercial structures, port equipment, and steel fabrications to high levels of moisture, salt spray, and atmospheric salinity, which significantly accelerate rust and corrosion. Consequently, rigorous abrasive blast cleaning down to bare metal is vital to ensure optimal coating adhesion and long-term asset durability across local marine and coastal facilities."
-    },
-    {
-      "question": "Can shot blasting services be scheduled to accommodate operational hours for businesses on Weymouth trading estates?",
-      "answer": "Yes, commercial shot blasting operations can be tailored to fit around business hours or executed on-site across Weymouth's commercial hubs to minimize operational downtime. Flexible scheduling ensures that local manufacturing plants, fabrication workshops, and logistics depots can maintain productivity while essential structural maintenance and surface refurbishment work is carried out."
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Do you provide commercial shot blasting services in Weymouth?",
-      "answer": "Yes. Our mobile teams support commercial and industrial surface preparation throughout Weymouth and the wider Dorset area. We assess access, containment, substrate condition and coating requirements before recommending the right blasting method."
-    },
-    {
-      "question": "Can you carry out shot blasting on-site in Weymouth?",
-      "answer": "Yes. Where access, dust control and the site environment allow, mobile blasting equipment can be brought to commercial sites in Weymouth. A free survey lets us confirm the safest and most efficient approach for fixed steelwork, plant or flooring."
-    },
-    {
-      "question": "What can be prepared by shot blasting in Weymouth?",
-      "answer": "We prepare structural steel, fabricated components, machinery, containers, factory cladding and concrete floors. The required abrasive, containment and blast profile are selected around the material and the coating system that will follow."
-    },
-    {
-      "question": "How do I arrange a free site survey in Weymouth?",
       "answer": "Use the Book a Free Site Survey form or call 07721 375756. Share the site postcode, what needs blasting and any photos or drawings; we will review the requirements and arrange the next practical step."
     }
   ]
@@ -12328,6 +12205,51 @@ export const locationData: Record<string, LocationData> = {
       { question: "What types of Basingstoke businesses typically require your commercial shot blasting services?", answer: "We regularly partner with logistics companies operating the large distribution warehouses along the M3 corridor, providing floor profiling and structural steel cleaning. Additionally, we assist facility managers at major corporate headquarters in Basing View and Chineham Business Park with exterior building maintenance, car park surface preparation, and equipment refurbishment, ensuring these high-profile commercial properties maintain their professional appearance and structural integrity." },
       { question: "Can your mobile shot blasting units easily access industrial sites near the M3 in Basingstoke?", answer: "Absolutely. Our mobile shot blasting rigs are fully equipped to navigate Basingstoke's commercial zones, including the busy Hampshire International Business Park. Because we are situated with quick access to M3 Junctions 6 and 7, we can efficiently reach your facility without navigating heavy town centre traffic. We coordinate closely with site managers to ensure our equipment is positioned safely without disrupting your daily logistics operations." },
       { question: "Do you provide dust-free shot blasting for sensitive environments like Basingstoke's corporate business parks?", answer: "Yes, we utilize advanced dustless shot blasting and vacuum recovery systems specifically designed for sensitive commercial environments like Basing View. This specialized equipment minimizes airborne particulates and noise pollution, allowing us to perform essential surface preparation on concrete and steelwork without disrupting neighboring corporate offices or violating the strict environmental regulations often enforced within Basingstoke's premier business parks." }
+    ],
+    faqs: []
+  },
+  "weymouth": {
+    name: "Weymouth",
+    slug: "weymouth",
+    county: "Dorset",
+    countySlug: "dorset",
+    region: "South West England",
+    description: "Professional mobile shot blasting services in Weymouth, Dorset. Structural steel, cladding, containers, floor preparation and rust removal. SA2.5/SA3 standard.",
+    spotlightText: "Weymouth’s coastal location and rich maritime heritage create a constant demand for professional shot blasting services. From the heavy marine engineering and ferry terminal infrastructure at nearby Portland Port to the extensive manufacturing facilities at the Granby Industrial Estate, we provide essential surface preparation for diverse commercial sectors. The town\'s historic Victorian seafront ironwork also requires specialized, delicate restoration to withstand the harsh, salt-laden coastal environment. Conveniently situated along the A354 with direct links to the A35, our mobile shot blasting teams can rapidly deploy across Weymouth and the wider Dorset area, ensuring minimal downtime for your critical industrial operations and infrastructure projects.",
+    uniqueFaqs: [
+      { question: "What types of Weymouth industries typically require your commercial shot blasting services?", answer: "We frequently partner with marine engineering firms operating out of Portland Port, providing heavy-duty surface preparation for vessels and maritime infrastructure. Additionally, we serve manufacturing and fabrication businesses based in the Granby Industrial Estate, preparing structural steelwork, machinery, and commercial vehicles for protective coatings to ensure long-lasting durability against coastal corrosion." },
+      { question: "Can your mobile shot blasting units easily access sites across Weymouth and Portland?", answer: "Yes, our fully equipped mobile units are designed to navigate both the busy A354 corridor and Weymouth's narrower coastal roads. Whether your project is located at a large commercial facility on the Granby Industrial Estate or directly at the Portland Port docks, we provide rapid, on-site surface preparation with minimal disruption to your daily operations." },
+      { question: "Do you have experience restoring Weymouth's historic seafront ironwork?", answer: "Absolutely. Weymouth’s beautiful Victorian seafront features extensive heritage ironwork that is constantly exposed to harsh, salt-laden sea air. We use specialized, adjustable shot blasting techniques to carefully remove layers of corrosive rust and old marine paint without damaging the underlying historic metal. This meticulous preparation is crucial for applying new protective coatings that preserve these iconic coastal structures." }
+    ],
+    faqs: []
+  },
+  "bournemouth": {
+    name: "Bournemouth",
+    slug: "bournemouth",
+    county: "Dorset",
+    countySlug: "dorset",
+    region: "South West England",
+    description: "Professional mobile shot blasting services in Bournemouth, Dorset. Structural steel, cladding, containers, floor preparation and rust removal. SA2.5/SA3 standard.",
+    spotlightText: "Bournemouth is a major South Coast hub with a thriving commercial sector, making our professional shot blasting services essential for local businesses. From the financial services district in Lansdowne to the modern facilities at Wessex Fields industrial area, we help maintain and restore a variety of commercial structures. Our team frequently works on structural steelwork, university campus renovations at Bournemouth University, and industrial machinery maintenance. Conveniently located near the A338 and A31, we provide rapid response times to sites across the city and surrounding Dorset areas. Whether you need surface preparation for a new development or restoration of existing industrial assets, our expert team delivers high-quality results tailored to Bournemouth\'s unique commercial landscape.",
+    uniqueFaqs: [
+      { question: "What types of Bournemouth businesses typically require your commercial shot blasting services?", answer: "We regularly partner with a diverse range of Bournemouth enterprises, particularly those based in the Lansdowne Business District and Wessex Fields. Our services are frequently utilized by construction firms for structural steel preparation, facility managers at local university campuses for building restoration, and manufacturing facilities needing heavy machinery cleaning. We tailor our abrasive blasting techniques to suit each specific commercial application." },
+      { question: "Can your mobile shot blasting units easily access sites in central Bournemouth and local industrial estates?", answer: "Yes, our mobile units are fully equipped to navigate both the busy central areas of Bournemouth and larger industrial zones. Utilizing the A338 and A31 corridors, we ensure prompt arrival at your site. We carefully plan our logistics to minimize disruption, whether we are working at a restricted-access university campus or a spacious facility in the Wessex Fields industrial area." },
+      { question: "Do you provide shot blasting for coastal commercial properties in Bournemouth affected by salt corrosion?", answer: "Absolutely. Given Bournemouth's prominent South Coast location, many commercial structures suffer from accelerated rust and salt-induced corrosion. Our specialized shot blasting techniques effectively remove stubborn coastal weathering, rust, and old protective coatings from steelwork and concrete. This thorough surface preparation is crucial for applying new protective sealants, ensuring the long-term durability of your coastal commercial property against the harsh marine environment." }
+    ],
+    faqs: []
+  },
+  "poole": {
+    name: "Poole",
+    slug: "poole",
+    county: "Dorset",
+    countySlug: "dorset",
+    region: "South West England",
+    description: "Professional mobile shot blasting services in Poole, Dorset. Structural steel, cladding, containers, floor preparation and rust removal. SA2.5/SA3 standard.",
+    spotlightText: "Poole\'s thriving commercial landscape, anchored by the world\'s second-largest natural harbour, presents unique demands for industrial surface preparation. From the marine engineering hubs supporting Sunseeker\'s luxury yacht manufacturing to the bustling operations at Poole Port, our commercial shot blasting services are essential for maintaining critical infrastructure. We regularly service heavy machinery, steel frameworks, and marine vessels across major business hubs like the Nuffield Industrial Estate and Mannings Heath Business Park. Conveniently located with direct links to the A35 and A31, our mobile teams can rapidly deploy to any site in the Poole area, ensuring minimal downtime for your operations while delivering exceptional surface restoration tailored to coastal industrial environments.",
+    uniqueFaqs: [
+      { question: "Do you provide shot blasting for marine engineering and yacht manufacturing facilities in Poole?", answer: "Yes, we frequently work with Poole's prominent marine sector, including businesses around the harbour and local yacht manufacturers. Our commercial shot blasting effectively removes marine coatings, rust, and salt corrosion from vessel hulls, dry dock equipment, and manufacturing infrastructure. We use specialized abrasives that are tough on marine degradation but safe for structural integrity, ensuring optimal surface preparation for protective marine coatings." },
+      { question: "Can your mobile shot blasting units easily access sites on the Nuffield Industrial Estate?", answer: "Absolutely. Our fully equipped mobile shot blasting rigs are designed for seamless deployment across Poole, including busy commercial zones like the Nuffield Industrial Estate and Mannings Heath Business Park. With excellent connectivity via the A35 and A31, we can efficiently transport our heavy-duty equipment to your facility. We coordinate closely with site managers to ensure our logistics align with your operational schedule." },
+      { question: "How do you handle surface preparation for structures exposed to Poole's coastal environment?", answer: "Coastal industrial structures in Poole face severe challenges from salt-laden air and moisture, leading to accelerated corrosion. Our shot blasting process is specifically tailored to combat this by completely eradicating deep-seated rust and saline contaminants from steelwork and port infrastructure. By achieving a pristine, white-metal finish, we provide the ideal anchor profile for heavy-duty anti-corrosion paints, significantly extending the lifespan of your coastal assets." }
     ],
     faqs: []
   },
