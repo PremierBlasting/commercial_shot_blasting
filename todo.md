@@ -1524,3 +1524,9 @@
 - [x] Sort nearby-area suggestions explicitly by distance before display
 - [x] Add a manual reset control to clear the active in-browser location lookup
 - [x] Add regression tests and validate TypeScript and the full test suite
+
+## Dynamic Full Site Sitemap (16 August 2026)
+- [x] Generate dynamic sitemap URLs from the complete current service-area and county-hub catalogues
+- [x] Include static pages, services, industries, blogs, glossary, and all service-area pages with canonical XML
+- [x] Register the dynamic sitemap in discovery files and add automated coverage tests
+- [x] Validate XML output, TypeScript, and the full test suite

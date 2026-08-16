@@ -5,12 +5,14 @@
  *  - Static pages (home, about, contact, services index, industries index, areas index, blog, reviews)
  *  - 18 service detail pages
  *  - 8 industry pages
- *  - 30 county pages
- *  - 650 service-area (town) pages
+ *  - Every registered county hub
+ *  - Every current service-area (town) page
  */
 
 import type { Express } from "express";
 import { getPublishedBlogPosts, getActiveGalleryItems } from "./db";
+import { locationSlugIndex } from "../client/src/data/locationSlugIndex";
+import { countyData } from "../client/src/data/countyData";
 
 const SITE_URL = "https://commercialshotblasting.co.uk";
 
@@ -21,9 +23,12 @@ const STATIC_PAGES = [
   { loc: "/contact", changefreq: "monthly", priority: "0.8" },
   { loc: "/services", changefreq: "weekly", priority: "0.9" },
   { loc: "/industries", changefreq: "weekly", priority: "0.9" },
+  { loc: "/counties", changefreq: "weekly", priority: "0.8" },
   { loc: "/service-areas", changefreq: "weekly", priority: "0.9" },
+  { loc: "/site-survey", changefreq: "monthly", priority: "0.8" },
   { loc: "/blog", changefreq: "weekly", priority: "0.7" },
   { loc: "/glossary", changefreq: "monthly", priority: "0.7" },
+  { loc: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
   { loc: "/reviews", changefreq: "monthly", priority: "0.6" },
   { loc: "/prep-and-cleanup", changefreq: "monthly", priority: "0.6" },
   { loc: "/our-work", changefreq: "monthly", priority: "0.6" },
@@ -69,45 +74,6 @@ const INDUSTRY_SLUGS = [
   "transport-logistics",
 ];
 
-// ── County slugs ──────────────────────────────────────────────────────────────
-const COUNTY_SLUGS = [
-  "cambridgeshire",
-  "essex",
-  "hertfordshire",
-  "norfolk",
-  "suffolk",
-  "derbyshire",
-  "leicestershire",
-  "lincolnshire",
-  "northamptonshire",
-  "nottinghamshire",
-  "herefordshire",
-  "shropshire",
-  "staffordshire",
-  "warwickshire",
-  "west-midlands",
-  "worcestershire",
-  "south-yorkshire",
-  "west-yorkshire",
-  "north-yorkshire",
-  "cheshire",
-  "greater-manchester",
-  "lancashire",
-  "merseyside",
-  "cumbria",
-  "county-durham",
-  "tyne-and-wear",
-  "northumberland",
-  "gloucestershire",
-  "north-devon",
-  "somerset",
-  "wiltshire",
-  "buckinghamshire",
-  "berkshire",
-  "hampshire",
-  "east-wales",
-];
-
 // ── Top 20 major city slugs — higher priority/changefreq ─────────────────────
 const TOP_CITY_SLUGS = new Set([
   "birmingham", "manchester", "leeds", "sheffield", "bristol",
@@ -116,17 +82,8 @@ const TOP_CITY_SLUGS = new Set([
   "portsmouth", "derby", "wolverhampton", "stoke-on-trent", "hull",
 ]);
 
-// ── Town slugs (650 service-area pages) ───────────────────────────────────────
-// Imported directly from shared locationData — works in both dev (tsx) and prod (compiled)
-import { locationData } from "@shared/locationData";
-
 function loadTownSlugs(): string[] {
-  try {
-    return Object.keys(locationData);
-  } catch (e) {
-    console.error("[Sitemap] Failed to load town slugs:", e);
-    return [];
-  }
+  return Object.keys(locationSlugIndex);
 }
 
 function escapeXml(str: string): string {
@@ -138,7 +95,7 @@ function escapeXml(str: string): string {
     .replace(/'/g, "&apos;");
 }
 
-async function buildSitemap(): Promise<string> {
+export async function buildSitemap(): Promise<string> {
   const townSlugs = loadTownSlugs();
   const today = new Date().toISOString().split("T")[0];
 
@@ -165,8 +122,9 @@ async function buildSitemap(): Promise<string> {
     );
   }
 
-  // County pages
-  for (const slug of COUNTY_SLUGS) {
+  // County pages derive directly from the registered county page catalogue.
+  // New county hubs are included automatically without editing a separate sitemap list.
+  for (const slug of Object.keys(countyData)) {
     urls.push(
       `  <url>\n    <loc>${escapeXml(`${SITE_URL}/counties/${slug}`)}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`
     );
