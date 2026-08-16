@@ -16,4 +16,14 @@ describe("suggestion keyboard navigation", () => {
       expect(locationCoordinates[slug]).toMatchObject({ lat: expect.any(Number), lng: expect.any(Number) });
     }
   });
+
+  it("has coordinates for every current Kent and Devon service-area record", () => {
+    const requiredSlugs = [
+      "maidstone", "gillingham-medway", "ashford", "chatham", "dartford", "rochester", "margate", "gravesend", "canterbury", "sittingbourne", "folkestone", "royal-tunbridge-wells",
+      "barnstaple", "bideford", "plymouth", "exeter", "torquay", "newton-abbot", "tiverton",
+    ];
+    for (const slug of requiredSlugs) {
+      expect(locationCoordinates[slug]).toMatchObject({ lat: expect.any(Number), lng: expect.any(Number) });
+    }
+  });
 });

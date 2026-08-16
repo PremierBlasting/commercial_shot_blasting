@@ -1507,3 +1507,8 @@
 - [x] Expand the lightweight coordinate index for all Hampshire, Surrey, and Sussex service-area towns
 - [x] Add ArrowUp, ArrowDown, Enter, and Escape navigation to location search suggestions
 - [x] Add regression tests and validate TypeScript and the full test suite
+
+## Kent and Devon Nearby-Area Coordinates (16 August 2026)
+- [x] Add lightweight coordinates for all Kent county hub towns with matching service-area pages
+- [x] Add lightweight coordinates for all Devon county hub towns with matching service-area pages
+- [x] Add coverage regression tests and validate TypeScript and the full test suite
