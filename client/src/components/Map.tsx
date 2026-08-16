@@ -94,7 +94,7 @@ const MAPS_PROXY_URL = `${FORGE_BASE_URL}/v1/maps/proxy`;
 
 let mapScriptPromise: Promise<void> | null = null;
 
-function loadMapScript() {
+export function loadMapScript() {
   // If already loading or loaded, return the existing promise
   if (mapScriptPromise) {
     return mapScriptPromise;

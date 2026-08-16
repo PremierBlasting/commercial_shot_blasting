@@ -576,15 +576,13 @@ export default function Areas() {
             </div>
 
             {/* Search Box */}
-            <div className="max-w-md mx-auto relative" role="combobox" aria-expanded={searchFocused && searchQuery.length === 0 && recentlyViewed.length > 0} aria-haspopup="listbox">
+            <div className="max-w-md mx-auto relative" role="combobox" aria-expanded={searchFocused && searchQuery.length === 0 && recentlyViewed.length > 0} aria-haspopup="listbox" onFocusCapture={() => setSearchFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setSearchFocused(false); }}>
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search for a location..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                onFocus={() => setSearchFocused(true)}
-                onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
                 className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-200 focus:border-[#2C5F7F] focus:ring-2 focus:ring-[#2C5F7F]/20 outline-none transition-all"
               />
               {/* Recently viewed dropdown */}

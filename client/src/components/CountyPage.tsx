@@ -1348,13 +1348,11 @@ export function CountyPage({ county }: CountyPageProps) {
               </p>
             </div>
             {/* Search bar */}
-            <div className="max-w-sm mx-auto mb-6 relative" role="combobox" aria-expanded={townSearch.length >= 1 && filteredTowns.length > 0} aria-haspopup="listbox">
+            <div className="max-w-sm mx-auto mb-6 relative" role="combobox" aria-expanded={townSearch.length >= 1 && filteredTowns.length > 0} aria-haspopup="listbox" onFocusCapture={() => setSearchFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setSearchFocused(false); }}>
               <input
                 type="text"
                 value={townSearch}
                 onChange={(e) => setTownSearch(e.target.value)}
-                onFocus={() => setSearchFocused(true)}
-                onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
                 placeholder={`Search towns in ${county.name}…`}
                 className="w-full border border-gray-200 rounded-lg px-4 py-2 pr-9 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C5F7F] focus:border-transparent"
                 aria-autocomplete="list"

@@ -1,5 +1,7 @@
 import { useCallback, useState } from "react";
 import { locationCoordinates } from "@/data/locationCoordinates";
+import { loadMapScript } from "@/components/Map";
+import { isValidUKPostcode, normalisePostcode } from "@shared/postcodeUtils";
 
 export interface NearbyArea {
   slug: string;
@@ -7,7 +9,7 @@ export interface NearbyArea {
   distanceMiles: number;
 }
 
-export type NearbyAreasStatus = "idle" | "loading" | "ready" | "denied" | "unavailable" | "error";
+export type NearbyAreasStatus = "idle" | "loading" | "postcode-loading" | "ready" | "denied" | "unavailable" | "error";
 
 function titleFromSlug(slug: string): string {
   const specialNames: Record<string, string> = {
@@ -49,8 +51,10 @@ export function getNearbyAreas(latitude: number, longitude: number, limit = 3): 
 export function useNearbyAreas() {
   const [status, setStatus] = useState<NearbyAreasStatus>("idle");
   const [nearbyAreas, setNearbyAreas] = useState<NearbyArea[]>([]);
+  const [postcodeError, setPostcodeError] = useState("");
 
   const requestNearbyAreas = useCallback(() => {
+    setPostcodeError("");
     if (!("geolocation" in navigator)) {
       setStatus("unavailable");
       return;
@@ -69,5 +73,39 @@ export function useNearbyAreas() {
     );
   }, []);
 
-  return { status, nearbyAreas, requestNearbyAreas };
+  const requestNearbyByPostcode = useCallback(async (postcode: string) => {
+    const normalisedPostcode = normalisePostcode(postcode);
+    if (!isValidUKPostcode(normalisedPostcode)) {
+      setPostcodeError("Enter a full UK postcode, for example B1 1AA.");
+      return;
+    }
+
+    setPostcodeError("");
+    setStatus("postcode-loading");
+    try {
+      await loadMapScript();
+      const coordinates = await new Promise<{ latitude: number; longitude: number }>((resolve, reject) => {
+        if (!window.google?.maps) {
+          reject(new Error("Postcode lookup is temporarily unavailable."));
+          return;
+        }
+        const geocoder = new window.google.maps.Geocoder();
+        geocoder.geocode({ address: `${normalisedPostcode}, UK`, componentRestrictions: { country: "GB" } }, (results, geocoderStatus) => {
+          const result = results?.[0];
+          if (geocoderStatus !== "OK" || !result) {
+            reject(new Error("We could not find that postcode. Please check it and try again."));
+            return;
+          }
+          resolve({ latitude: result.geometry.location.lat(), longitude: result.geometry.location.lng() });
+        });
+      });
+      setNearbyAreas(getNearbyAreas(coordinates.latitude, coordinates.longitude));
+      setStatus("ready");
+    } catch (error) {
+      setPostcodeError(error instanceof Error ? error.message : "We could not look up that postcode. Please try again.");
+      setStatus("idle");
+    }
+  }, []);
+
+  return { status, nearbyAreas, postcodeError, requestNearbyAreas, requestNearbyByPostcode };
 }

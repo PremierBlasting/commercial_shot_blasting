@@ -1497,3 +1497,8 @@
 - [x] Add the recently viewed areas dropdown to the homepage location search form
 - [x] Add permission-based nearby-area suggestions using browser geolocation in location search dropdowns
 - [x] Add regression tests and validate TypeScript, test suite, sitemap, and routes
+
+## Postcode-Based Nearby Area Fallback (16 August 2026)
+- [x] Add an opt-in postcode lookup fallback to nearby-area search dropdowns
+- [x] Expand the lightweight coordinate index for all current Essex and Dorset service-area towns
+- [x] Add regression tests and validate TypeScript and the full test suite

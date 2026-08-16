@@ -43,8 +43,8 @@ export function CompactSurveyCapture({ defaults, onStart, className = "" }: Comp
           <option value="">What needs blasting?</option>
           {QUICK_SERVICES.map((option) => <option key={option} value={option}>{option}</option>)}
         </select>
-        <div className="relative" role="combobox" aria-expanded={locationFocused && postalCode.length === 0} aria-haspopup="listbox">
-          <label className="relative block"><span className="sr-only">Site postcode</span><MapPin className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" /><input id="compact-survey-postcode" value={postalCode} onChange={(event) => { setPostalCode(event.target.value); setError(""); }} onFocus={() => setLocationFocused(true)} onBlur={() => setTimeout(() => setLocationFocused(false), 200)} placeholder="Site postcode" className="w-full rounded-lg border border-slate-200 bg-white py-3 pl-9 pr-3 text-sm text-slate-700 outline-none transition focus:border-[#2C5F7F] focus:ring-2 focus:ring-[#2C5F7F]/20" /></label>
+        <div className="relative" role="combobox" aria-expanded={locationFocused && postalCode.length === 0} aria-haspopup="listbox" onFocusCapture={() => setLocationFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setLocationFocused(false); }}>
+          <label className="relative block"><span className="sr-only">Site postcode</span><MapPin className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" /><input id="compact-survey-postcode" value={postalCode} onChange={(event) => { setPostalCode(event.target.value); setError(""); }} placeholder="Site postcode" className="w-full rounded-lg border border-slate-200 bg-white py-3 pl-9 pr-3 text-sm text-slate-700 outline-none transition focus:border-[#2C5F7F] focus:ring-2 focus:ring-[#2C5F7F]/20" /></label>
           {locationFocused && postalCode.length === 0 && (
             <ul className="absolute z-50 top-full left-0 right-0 mt-1 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-lg">
               {recentlyViewed.length > 0 && <>
