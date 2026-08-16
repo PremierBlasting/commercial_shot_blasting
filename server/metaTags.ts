@@ -3781,6 +3781,8 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
     schemas.push({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id": `${url}#breadcrumb`,
+      "inLanguage": "en-GB",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
         { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": `${SITE_URL}/service-areas` },
@@ -3792,6 +3794,8 @@ function generateLocationSchemas(locationSlug: string, locationName: string, url
     schemas.push({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      "@id": `${url}#breadcrumb`,
+      "inLanguage": "en-GB",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
         { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": `${SITE_URL}/service-areas` },
@@ -7213,7 +7217,9 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
   const countyMatch = url.match(/^\/counties\/([a-z-]+)/);
   if (countyMatch) {
     const countySlug = countyMatch[1];
-    const county: CountyData | undefined = countyData[countySlug];
+    // Client countyData is the current canonical hub catalogue; shared countyData
+    // remains as a fallback for older records used by other SSR helpers.
+    const county = clientCountyData[countySlug] ?? countyData[countySlug];
     if (county) {
       const pageUrl = `${SITE_URL}/counties/${countySlug}`;
       const pageTitle = `${county.name} Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting UK`;
@@ -7236,7 +7242,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     </script>
     ${faqSchemaItems ? `<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[${faqSchemaItems}]}</script>` : ''}
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"${SITE_URL}"},{"@type":"ListItem","position":2,"name":"Counties","item":"${SITE_URL}/counties"},{"@type":"ListItem","position":3,"name":"${county.name}","item":"${pageUrl}"}]}
+    {"@context":"https://schema.org","@type":"BreadcrumbList","@id":"${pageUrl}#breadcrumb","inLanguage":"en-GB","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"${SITE_URL}"},{"@type":"ListItem","position":2,"name":"Counties","item":"${SITE_URL}/counties"},{"@type":"ListItem","position":3,"name":"${county.name}","item":"${pageUrl}"}]}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"WebPage","name":"${pageTitle}","url":"${pageUrl}","description":"${metaDesc}"}

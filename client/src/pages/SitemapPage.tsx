@@ -4,7 +4,8 @@ import { countyData } from "@/data/countyData";
 import { locationData } from "@/data/locationData";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Search, X, ChevronUp } from "lucide-react";
+import { SitemapCoverageMap } from "@/components/SitemapCoverageMap";
+import { Search, X, ChevronUp, Filter } from "lucide-react";
 
 // ── Highlight helper ───────────────────────────────────────────────────────────
 // Wraps matched substring in a <mark> with a yellow highlight style.
@@ -141,7 +142,7 @@ export default function SitemapPage() {
 
   // ── Search / filter logic ────────────────────────────────────────────────────
   const q = query.trim().toLowerCase();
-  const isSearching = q.length >= 2;
+  const isSearching = q.length >= 1;
 
   const filteredServices = useMemo(
     () => (isSearching ? SERVICE_SLUGS.filter((s) => s.name.toLowerCase().includes(q)) : SERVICE_SLUGS),
@@ -198,6 +199,10 @@ export default function SitemapPage() {
     filteredTowns.length > 0 ||
     filteredCounties.length > 0;
 
+  const resultSummary = isSearching
+    ? `${filteredTowns.length} towns, ${filteredCounties.length} counties, ${filteredServices.length} services and ${filteredIndustries.length} industries found`
+    : "Search the complete town, county, service and industry directory";
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -221,14 +226,16 @@ export default function SitemapPage() {
                 Looking for the search-engine version? <a href="/sitemap.xml" className="underline hover:text-white">Open the XML sitemap</a>.
               </p>
 
-            {/* Search bar */}
+            {/* Search filter */}
             <div className="relative max-w-xl">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50 pointer-events-none" />
               <input
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search towns, counties, services…"
+                placeholder="Filter towns, counties, services…"
+                aria-label="Filter the site map by town, county, service or industry"
+                aria-describedby="sitemap-filter-status"
                 className="w-full bg-white/10 border border-white/20 rounded-lg pl-10 pr-10 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white/40 focus:bg-white/15 transition"
               />
               {query && (
@@ -241,10 +248,16 @@ export default function SitemapPage() {
                 </button>
               )}
             </div>
+            <p id="sitemap-filter-status" className="mt-3 flex items-center gap-2 text-sm text-white/75" aria-live="polite">
+              <Filter className="h-4 w-4" aria-hidden="true" />
+              {resultSummary}
+            </p>
           </div>
         </section>
 
         <div className="container py-12">
+
+          <SitemapCoverageMap query={query} />
 
           {/* ── SEARCH RESULTS ── */}
           {isSearching ? (

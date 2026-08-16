@@ -1540,3 +1540,10 @@
 ## Legacy Sitemap Consolidation (16 August 2026)
 - [x] Keep the image sitemap available while redirecting stale static page sitemaps to the canonical dynamic sitemap
 - [x] Remove stale legacy page-sitemap discovery references and add redirect regression tests
+
+## Interactive Visual Sitemap and Deployment Repair (16 August 2026)
+- [x] Repair production builds by consuming committed sitemap timestamp metadata without invoking git in the deployment container
+- [x] Add accessible town and county search filtering to the visual HTML sitemap
+- [x] Add an interactive Google Map showing county hubs and service-area coverage on the visual sitemap
+- [x] Add full BreadcrumbList structured data to service-area and county SSR output
+- [x] Add regression tests and validate the production build, TypeScript, and full test suite

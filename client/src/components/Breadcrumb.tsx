@@ -53,18 +53,31 @@ export function Breadcrumb({ items, className = "", bare = false }: BreadcrumbPr
         aria-label="Breadcrumb"
         className={bare ? className : `py-3 px-4 bg-white/50 rounded-lg border border-gray-200 ${className}`}
       >
-        <ol className="flex flex-wrap items-center gap-2">
+        <ol
+          className="flex flex-wrap items-center gap-2"
+          itemScope
+          itemType="https://schema.org/BreadcrumbList"
+        >
           {items.map((item, index) => (
-            <li key={item.href} className="flex items-center gap-2">
+            <li
+              key={item.href}
+              className="flex items-center gap-2"
+              itemProp="itemListElement"
+              itemScope
+              itemType="https://schema.org/ListItem"
+            >
+              <meta itemProp="position" content={String(index + 1)} />
               {item.isCurrentPage ? (
                 <>
                   {index > 0 && <ChevronRight className="w-4 h-4 text-gray-400" />}
                   <span 
                     className="text-gray-600 font-medium"
                     aria-current="page"
+                    itemProp="name"
                   >
                     {item.label}
                   </span>
+                  <meta itemProp="item" content={`${SITE_URL}${item.href}`} />
                 </>
               ) : (
                 <>
@@ -72,8 +85,9 @@ export function Breadcrumb({ items, className = "", bare = false }: BreadcrumbPr
                   <Link
                     href={item.href}
                     className="text-[#2C5F7F] hover:text-[#1a3d52] hover:underline transition-colors"
+                    itemProp="item"
                   >
-                    {item.label}
+                    <span itemProp="name">{item.label}</span>
                   </Link>
                 </>
               )}
