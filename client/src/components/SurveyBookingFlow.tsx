@@ -6,9 +6,12 @@ import { validateLeadEmailClient } from "@shared/emailValidation";
 
 const SERVICE_OPTIONS = [
   "Structural Steelwork",
+  "End-to-End Blasting & Coating",
   "Intumescent Painting",
   "Factory, Cladding & Roofing",
   "Machinery & Equipment",
+  "Containers, Tanks & Vessels",
+  "Paint & Coating Removal",
   "Floors & Surfaces",
   "Other / Not Sure",
 ];
@@ -166,7 +169,7 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
         <CheckCircle2 className="mx-auto mb-3 h-12 w-12 text-emerald-600" />
         <h3 className="font-display text-2xl font-bold text-[#1a3a52]">Your free site survey request is in.</h3>
         <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-slate-600">
-          Thanks, {firstName}. We will contact you within 24 hours to confirm your survey. For urgent work, call <a className="font-semibold text-[#2C5F7F] underline" href="tel:07721375756">07721 375756</a>.
+          Thanks, {firstName}. We will get back to you promptly to confirm your survey. For urgent work, call <a className="font-semibold text-[#2C5F7F] underline" href="tel:07721375756">07721 375756</a>.
         </p>
       </div>
     );
@@ -275,7 +278,7 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
         {step > 1 ? <button type="button" onClick={() => setStep((current) => current - 1)} disabled={isBusy} className="inline-flex items-center gap-1.5 rounded-lg px-3 py-3 text-sm font-semibold text-[#2C5F7F] transition hover:bg-[#e9f4f9]"><ArrowLeft className="h-4 w-4" /> Back</button> : <span />}
         {step < 3 ? <button type="button" onClick={nextStep} className="inline-flex items-center gap-2 rounded-lg bg-[#E8A020] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#d4911a] active:scale-[0.98]">Continue <ArrowRight className="h-4 w-4" /></button> : <button type="submit" disabled={isBusy} className="inline-flex items-center gap-2 rounded-lg bg-[#E8A020] px-4 py-3 text-sm font-bold text-white transition hover:bg-[#d4911a] disabled:cursor-not-allowed disabled:opacity-60 active:scale-[0.98]">{isBusy ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending…</> : <>Request A Site Visit <ArrowRight className="h-4 w-4" /></>}</button>}
       </div>
-      <p className="text-center text-xs text-slate-500">Free, no-obligation survey. We normally reply within 24 hours.</p>
+      <p className="text-center text-xs text-slate-500">Free, no-obligation survey. We will get back to you promptly.</p>
     </form>
   );
 }

@@ -33,7 +33,7 @@ export function QuotePopup({ open, onOpenChange, locationName, defaults }: Quote
             Request A Site Visit
           </DialogTitle>
           <DialogDescription className="text-center text-gray-600">
-            Tell us about the project in three short steps. We will confirm your free, no-obligation survey within 24 hours.
+            Tell us about the project in three short steps. We will confirm your free, no-obligation survey promptly.
           </DialogDescription>
         </DialogHeader>
         <div className="mt-4">

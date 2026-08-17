@@ -91,6 +91,7 @@ const MAIN_PAGES = [
 // ── Component ──────────────────────────────────────────────────────────────────
 export default function SitemapPage() {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [activeRegion, setActiveRegion] = useState("");
 
   useEffect(() => {
     const onScroll = () => setShowBackToTop(window.scrollY > 400);
@@ -143,19 +144,21 @@ export default function SitemapPage() {
   // ── Search / filter logic ────────────────────────────────────────────────────
   const q = query.trim().toLowerCase();
   const isSearching = q.length >= 1;
+  const isFiltering = isSearching || Boolean(activeRegion);
+  const matchesRegion = (countySlug: string) => !activeRegion || countyData[countySlug]?.region === activeRegion;
 
   const filteredServices = useMemo(
-    () => (isSearching ? SERVICE_SLUGS.filter((s) => s.name.toLowerCase().includes(q)) : SERVICE_SLUGS),
+    () => (isSearching ? SERVICE_SLUGS.filter((s) => s.name.toLowerCase().includes(q)) : []),
     [q, isSearching]
   );
 
   const filteredIndustries = useMemo(
-    () => (isSearching ? INDUSTRY_SLUGS.filter((s) => s.name.toLowerCase().includes(q)) : INDUSTRY_SLUGS),
+    () => (isSearching ? INDUSTRY_SLUGS.filter((s) => s.name.toLowerCase().includes(q)) : []),
     [q, isSearching]
   );
 
   const filteredMainPages = useMemo(
-    () => (isSearching ? MAIN_PAGES.filter((p) => p.label.toLowerCase().includes(q)) : MAIN_PAGES),
+    () => (isSearching ? MAIN_PAGES.filter((p) => p.label.toLowerCase().includes(q)) : []),
     [q, isSearching]
   );
 
@@ -173,23 +176,23 @@ export default function SitemapPage() {
 
   const filteredTowns = useMemo(
     () =>
-      isSearching
+      isFiltering
         ? allTownsFlat
-            .filter((t) => t.name.toLowerCase().includes(q) || t.county.toLowerCase().includes(q))
+            .filter((t) => (!isSearching || t.name.toLowerCase().includes(q) || t.county.toLowerCase().includes(q)) && matchesRegion(t.countySlug))
             .sort((a, b) => a.name.localeCompare(b.name))
             .slice(0, 200) // cap at 200 results for performance
         : [],
-    [q, isSearching, allTownsFlat]
+    [q, isSearching, isFiltering, activeRegion, allTownsFlat]
   );
 
   const filteredCounties = useMemo(
     () =>
-      isSearching
+      isFiltering
         ? Object.values(countyData).filter(
-            (c) => c.name.toLowerCase().includes(q) || c.region.toLowerCase().includes(q)
+            (c) => (!isSearching || c.name.toLowerCase().includes(q) || c.region.toLowerCase().includes(q)) && (!activeRegion || c.region === activeRegion)
           )
         : [],
-    [q, isSearching]
+    [q, isSearching, isFiltering, activeRegion]
   );
 
   const hasSearchResults =
@@ -199,7 +202,7 @@ export default function SitemapPage() {
     filteredTowns.length > 0 ||
     filteredCounties.length > 0;
 
-  const resultSummary = isSearching
+  const resultSummary = isFiltering
     ? `${filteredTowns.length} towns, ${filteredCounties.length} counties, ${filteredServices.length} services and ${filteredIndustries.length} industries found`
     : "Search the complete town, county, service and industry directory";
 
@@ -225,6 +228,14 @@ export default function SitemapPage() {
               <p className="text-sm text-white/70 -mt-3 mb-6">
                 Looking for the search-engine version? <a href="/sitemap.xml" className="underline hover:text-white">Open the XML sitemap</a>.
               </p>
+
+            <div className="mb-4 flex flex-wrap items-center gap-2" aria-label="Filter sitemap by major region">
+              <span className="mr-1 text-xs font-semibold uppercase tracking-wide text-white/65">Regions:</span>
+              <button type="button" onClick={() => setActiveRegion("")} aria-pressed={!activeRegion} className={`rounded-full px-3 py-1.5 text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-white/50 ${!activeRegion ? "bg-white text-[#1a3d52]" : "bg-white/10 text-white hover:bg-white/20"}`}>All areas</button>
+              {sortedRegions.map((region) => (
+                <button key={region} type="button" onClick={() => setActiveRegion((current) => current === region ? "" : region)} aria-pressed={activeRegion === region} className={`rounded-full px-3 py-1.5 text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-white/50 ${activeRegion === region ? "bg-white text-[#1a3d52]" : "bg-white/10 text-white hover:bg-white/20"}`}>{region}</button>
+              ))}
+            </div>
 
             {/* Search filter */}
             <div className="relative max-w-xl">
@@ -257,13 +268,13 @@ export default function SitemapPage() {
 
         <div className="container py-12">
 
-          <SitemapCoverageMap query={query} />
+          <SitemapCoverageMap query={query} region={activeRegion} />
 
           {/* ── SEARCH RESULTS ── */}
-          {isSearching ? (
+          {isFiltering ? (
             <div>
               <p className="text-sm text-gray-500 mb-8">
-                Showing results for <strong>"{query}"</strong>
+                Showing results {isSearching && <>for <strong>"{query}"</strong></>}{isSearching && activeRegion && " in "}{activeRegion && <strong>{activeRegion}</strong>}
                 {!hasSearchResults && " — no matches found."}
               </p>
 

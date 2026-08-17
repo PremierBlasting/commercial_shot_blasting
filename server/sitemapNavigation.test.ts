@@ -29,6 +29,7 @@ describe("sitemap navigation and consolidation", () => {
     const packageJson = JSON.parse(readFileSync(resolve(projectRoot, "package.json"), "utf8"));
     expect(packageJson.scripts["sitemap:lastmod"]).toBe("node scripts/generate-sitemap-lastmod.mjs");
     expect(packageJson.scripts.build).not.toContain("generate-sitemap-lastmod");
+    expect(packageJson.scripts.build).not.toContain("generate-sitemap.mjs");
   });
 
   it("marks service-area breadcrumbs as the active current page", () => {
@@ -46,7 +47,7 @@ describe("sitemap navigation and consolidation", () => {
     expect(sitemapPage).toContain("const isSearching = q.length >= 1");
     expect(coverageMap).toContain("Load interactive coverage map");
     expect(coverageMap).toContain("MapView");
-    expect(coverageMap).toContain("County hub markers represent every service area");
+    expect(coverageMap).toContain("County hubs represent every service area");
   });
 
   it("outputs visible and server-rendered BreadcrumbList structured data", () => {

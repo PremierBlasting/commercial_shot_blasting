@@ -1547,3 +1547,15 @@
 - [x] Add an interactive Google Map showing county hubs and service-area coverage on the visual sitemap
 - [x] Add full BreadcrumbList structured data to service-area and county SSR output
 - [x] Add regression tests and validate the production build, TypeScript, and full test suite
+
+## Site Visit Options and Interactive Sitemap Controls (17 August 2026)
+- [x] Add End-to-End Blasting & Coating and other relevant project choices to the Site Visit service selector
+- [x] Remove remaining 24-hour reply promises from the Site Visit flow
+- [x] Add marker clustering and region quick-filter chips to the interactive sitemap map
+- [x] Add a privacy-conscious Locate Me map control that centres the map and highlights nearby towns
+- [x] Add regression tests and validate TypeScript, accessibility, build, and the full test suite
+
+## CSB Lead-Sheet Message Visibility (17 August 2026)
+- [x] Preserve the existing lead-sheet columns and add a clear one-line project/message preview for new CSB leads
+- [x] Add a non-destructive Read Full Message link or indicator without changing existing lead routing or workflows
+- [x] Add regression coverage and verify the CSB sheet presentation with a safe non-production check
