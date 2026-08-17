@@ -85,4 +85,16 @@ describe("sitemap map controls and Site Visit options", () => {
     expect(handoff).toContain("window.sessionStorage.setItem");
     expect(handoff).not.toContain("fetch(");
   });
+
+  it("shows the nearest mapped service towns beneath a valid Site Visit postcode without server lookup", () => {
+    const surveyFlow = readFileSync(resolve(projectRoot, "client/src/components/SurveyBookingFlow.tsx"), "utf8");
+    const nearbyCoverage = readFileSync(resolve(projectRoot, "client/src/hooks/usePostcodeNearbyCoverage.ts"), "utf8");
+
+    expect(surveyFlow).toContain("usePostcodeNearbyCoverage(postalCode)");
+    expect(surveyFlow).toContain("Service coverage near your site");
+    expect(surveyFlow).toContain("Finding nearby service areas");
+    expect(nearbyCoverage).toContain("new window.google.maps.Geocoder()");
+    expect(nearbyCoverage).toContain("Object.entries(locationCoordinates)");
+    expect(nearbyCoverage).not.toContain("fetch(");
+  });
 });

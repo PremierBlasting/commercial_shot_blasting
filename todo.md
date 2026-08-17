@@ -1573,3 +1573,7 @@
 ## Site Visit Postcode Handoff (17 August 2026)
 - [x] Reuse a valid Site Visit postcode in the sitemap map search without server persistence
 - [x] Add regression coverage and validate TypeScript and the full test suite
+
+## Site Visit Nearby-Town Coverage Feedback (17 August 2026)
+- [x] Show browser-derived nearby service towns below a valid Site Visit postcode without server persistence
+- [x] Add regression coverage and validate TypeScript and the full test suite
