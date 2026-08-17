@@ -1581,3 +1581,8 @@
 ## Expanded Nearby-Town Coverage (17 August 2026)
 - [x] Add an accessible See All Nearby Towns control below the initial three Site Visit coverage results
 - [x] Add regression coverage and validate TypeScript and the full test suite
+
+## Nearby County Context and Typical Projects (17 August 2026)
+- [x] Add county labels to browser-derived nearby Site Visit coverage towns
+- [x] Show county-relevant verified typical-project examples beneath nearby coverage results
+- [x] Add regression coverage and validate TypeScript and the full test suite

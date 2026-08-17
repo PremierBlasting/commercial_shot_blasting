@@ -4,6 +4,7 @@ import { trpc } from "@/lib/trpc";
 import { formatUTMForSubmission } from "@/lib/utm";
 import { saveSitemapPostcodeHandoff } from "@/lib/sitemapPostcodeHandoff";
 import { usePostcodeNearbyCoverage } from "@/hooks/usePostcodeNearbyCoverage";
+import { recentProjects } from "@/data/recentProjects";
 import { validateLeadEmailClient } from "@shared/emailValidation";
 import { isValidUKPostcode, normalisePostcode } from "@shared/postcodeUtils";
 
@@ -77,6 +78,10 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
   const inputRef = useRef<HTMLInputElement>(null);
   const nearbyCoverage = usePostcodeNearbyCoverage(postalCode);
   const displayedNearbyTowns = showAllNearbyTowns ? nearbyCoverage.towns : nearbyCoverage.towns.slice(0, 3);
+  const nearestCounty = nearbyCoverage.towns[0]?.countySlug;
+  const nearbyProjects = nearestCounty
+    ? recentProjects.filter((project) => project.countySlugs.includes(nearestCounty)).slice(0, 2)
+    : [];
 
   const uploadAttachments = trpc.contact.uploadAttachments.useMutation();
   const submitLead = trpc.contact.submit.useMutation({
@@ -239,7 +244,7 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
                       href={`/service-areas/${town.slug}`}
                       className="rounded-full bg-white px-2 py-1 text-xs font-medium text-[#2C5F7F] shadow-sm transition hover:bg-[#2C5F7F] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/30"
                     >
-                      {town.name} · {town.miles.toFixed(1)} mi
+                      {town.name} · {town.countyLabel} · {town.miles.toFixed(1)} mi
                     </a>
                   ))}
                 </div>
@@ -253,6 +258,23 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
                     {showAllNearbyTowns ? "Show fewer nearby towns" : `See all nearby towns (${nearbyCoverage.towns.length})`}
                   </button>
                 )}
+              </div>
+            )}
+            {nearbyCoverage.status === "ready" && nearbyProjects.length > 0 && (
+              <div className="mt-3 rounded-lg border border-sky-100 bg-sky-50 px-3 py-2">
+                <p className="text-xs font-semibold text-[#1a3a52]">Relevant recent project examples</p>
+                <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                  {nearbyProjects.map((project) => (
+                    <a
+                      key={project.id}
+                      href={`/services/${project.serviceSlug}`}
+                      className="rounded-md border border-sky-100 bg-white px-2.5 py-2 text-xs transition hover:border-[#2C5F7F]/35 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/30"
+                    >
+                      <span className="block font-semibold text-[#2C5F7F]">{project.title}</span>
+                      <span className="mt-0.5 block leading-relaxed text-slate-600">{project.description}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
             )}
             {nearbyCoverage.status === "error" && (

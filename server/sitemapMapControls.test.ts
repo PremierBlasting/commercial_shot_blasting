@@ -108,4 +108,15 @@ describe("sitemap map controls and Site Visit options", () => {
     expect(surveyFlow).toContain("aria-expanded={showAllNearbyTowns}");
     expect(nearbyCoverage).toContain(".slice(0, 12)");
   });
+
+  it("adds county context and verified county-relevant project examples to nearby coverage", () => {
+    const surveyFlow = readFileSync(resolve(projectRoot, "client/src/components/SurveyBookingFlow.tsx"), "utf8");
+    const nearbyCoverage = readFileSync(resolve(projectRoot, "client/src/hooks/usePostcodeNearbyCoverage.ts"), "utf8");
+
+    expect(surveyFlow).toContain("Relevant recent project examples");
+    expect(surveyFlow).toContain("project.countySlugs.includes(nearestCounty)");
+    expect(surveyFlow).toContain("town.countyLabel");
+    expect(nearbyCoverage).toContain("locationSlugIndex");
+    expect(nearbyCoverage).toContain("countyLabel");
+  });
 });

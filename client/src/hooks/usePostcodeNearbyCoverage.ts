@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { loadMapScript } from "@/components/Map";
 import { locationCoordinates } from "@/data/locationCoordinates";
+import { locationSlugIndex } from "@/data/locationSlugIndex";
 import { distanceInMiles } from "@/lib/sitemapMapUtils";
 import { isValidUKPostcode, normalisePostcode } from "@shared/postcodeUtils";
 
 export type NearbyCoverageTown = {
   name: string;
   slug: string;
+  countySlug: string;
+  countyLabel: string;
   miles: number;
 };
 
@@ -22,6 +25,10 @@ function townNameFromSlug(slug: string) {
     if (index > 0 && LOWERCASE_WORDS.has(word)) return word;
     return word.charAt(0).toUpperCase() + word.slice(1);
   }).join(" ");
+}
+
+function countyLabelFromSlug(slug: string) {
+  return townNameFromSlug(slug);
 }
 
 /**
@@ -61,7 +68,18 @@ export function usePostcodeNearbyCoverage(value: string): NearbyCoverageState {
         });
         if (requestId !== requestRef.current) return;
         const towns = Object.entries(locationCoordinates)
-          .map(([slug, point]) => ({ slug, name: townNameFromSlug(slug), miles: distanceInMiles(coordinates, point) }))
+          .map(([slug, point]) => {
+            const countySlug = locationSlugIndex[slug];
+            if (!countySlug) return null;
+            return {
+              slug,
+              name: townNameFromSlug(slug),
+              countySlug,
+              countyLabel: countyLabelFromSlug(countySlug),
+              miles: distanceInMiles(coordinates, point),
+            };
+          })
+          .filter((town): town is NearbyCoverageTown => town !== null)
           .sort((a, b) => a.miles - b.miles)
           .slice(0, 12);
         setState({ status: "ready", towns });
