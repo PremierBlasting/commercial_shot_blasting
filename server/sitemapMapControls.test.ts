@@ -50,4 +50,15 @@ describe("sitemap map controls and Site Visit options", () => {
     expect(coverageMap).toContain("navigator.geolocation.getCurrentPosition");
     expect(coverageMap).toContain("Nearby towns highlighted");
   });
+
+  it("supports full-postcode lookup and map centring without sending location to the server", () => {
+    const coverageMap = readFileSync(resolve(projectRoot, "client/src/components/SitemapCoverageMap.tsx"), "utf8");
+
+    expect(coverageMap).toContain("Find a postcode on the map");
+    expect(coverageMap).toContain("isValidUKPostcode");
+    expect(coverageMap).toContain("new window.google.maps.Geocoder()");
+    expect(coverageMap).toContain("Find postcode");
+    expect(coverageMap).toContain("map.setZoom(10)");
+    expect(coverageMap).not.toContain("fetch(");
+  });
 });

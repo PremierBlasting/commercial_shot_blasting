@@ -1559,3 +1559,8 @@
 - [x] Preserve the existing lead-sheet columns and add a clear one-line project/message preview for new CSB leads
 - [x] Add a non-destructive Read Full Message link or indicator without changing existing lead routing or workflows
 - [x] Add regression coverage and verify the CSB sheet presentation with a safe non-production check
+
+## Postcode Sitemap Map and Long-Summary Lead Alerts (17 August 2026)
+- [x] Add postcode search and map centring to the interactive sitemap coverage map
+- [x] Add non-destructive conditional formatting for CSB rows with long project summaries
+- [x] Add regression tests and validate web and cloud lead-sync behaviour
