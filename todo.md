@@ -1605,3 +1605,9 @@
 ## Verified Project Gallery Lightbox (17 August 2026)
 - [x] Add an accessible browseable lightbox gallery for approved multi-image project records
 - [x] Add regression coverage and validate TypeScript and the full test suite
+
+## Mobile Gallery Zoom, Sharing, and Approved Gallery Expansion (17 August 2026)
+- [x] Add touch pinch-to-zoom and reset controls to the verified project gallery lightbox
+- [x] Add a safe native/fallback Share This Project control to verified project cards
+- [x] Attach approved multi-image galleries only where the documented structural case study provides matching image evidence
+- [x] Add regression coverage and validate TypeScript and the full test suite

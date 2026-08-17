@@ -7,6 +7,7 @@ import { usePostcodeNearbyCoverage } from "@/hooks/usePostcodeNearbyCoverage";
 import { recentProjects } from "@/data/recentProjects";
 import { BeforeAfterProjectSlider } from "@/components/BeforeAfterProjectSlider";
 import { ProjectImageGallery } from "@/components/ProjectImageGallery";
+import { ProjectShareButton } from "@/components/ProjectShareButton";
 import { validateLeadEmailClient } from "@shared/emailValidation";
 import { isValidUKPostcode, normalisePostcode } from "@shared/postcodeUtils";
 
@@ -293,6 +294,7 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
                   {filteredNearbyProjects.map((project) => (
                     <article
                       key={project.id}
+                      id={`project-${project.id}`}
                       className="overflow-hidden rounded-md border border-sky-100 bg-white text-xs"
                     >
                       <img
@@ -304,7 +306,7 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
                       <span className="block px-2.5 pt-2 font-semibold text-[#2C5F7F]">{project.title}</span>
                       <span className="block px-2.5 pt-0.5 leading-relaxed text-slate-600">Surface preparation outcome: {project.description}</span>
                       <span className="block px-2.5 pt-1 text-[11px] font-medium text-slate-500">{project.date} · {project.serviceLabel}</span>
-                      <div className="flex items-center justify-between gap-2 px-2.5 pb-2 pt-1.5">
+                      <div className="flex flex-wrap items-center justify-between gap-2 px-2.5 pb-2 pt-1.5">
                         <button
                           type="button"
                           onClick={() => setExpandedProjectId((current) => current === project.id ? null : project.id)}
@@ -313,7 +315,10 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
                         >
                           {expandedProjectId === project.id ? "Show less" : "Read project details"}
                         </button>
-                        <a href={`/services/${project.serviceSlug}`} className="font-semibold text-[#2C5F7F] underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/30">View service</a>
+                        <span className="flex items-center gap-2">
+                          <ProjectShareButton projectId={project.id} projectTitle={project.title} />
+                          <a href={`/services/${project.serviceSlug}`} className="font-semibold text-[#2C5F7F] underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/30">View service</a>
+                        </span>
                       </div>
                       {expandedProjectId === project.id && (
                         <div className="border-t border-sky-100 bg-slate-50 px-2.5 py-2.5">

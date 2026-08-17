@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, Images, X } from "lucide-react";
+import type React from "react";
+import { ChevronLeft, ChevronRight, Images, RotateCcw, X, ZoomIn } from "lucide-react";
 
 interface GalleryImage {
   src: string;
@@ -14,10 +15,23 @@ interface ProjectImageGalleryProps {
 export function ProjectImageGallery({ title, images }: ProjectImageGalleryProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [zoom, setZoom] = useState(1);
+  const [pinchStartDistance, setPinchStartDistance] = useState<number | null>(null);
+  const [pinchStartZoom, setPinchStartZoom] = useState(1);
   const activeImage = images[activeIndex];
 
-  const previous = () => setActiveIndex((index) => (index - 1 + images.length) % images.length);
-  const next = () => setActiveIndex((index) => (index + 1) % images.length);
+  const previous = () => {
+    setActiveIndex((index) => (index - 1 + images.length) % images.length);
+    setZoom(1);
+  };
+  const next = () => {
+    setActiveIndex((index) => (index + 1) % images.length);
+    setZoom(1);
+  };
+  const distanceBetweenTouches = (touches: React.TouchList) => Math.hypot(
+    touches[0].clientX - touches[1].clientX,
+    touches[0].clientY - touches[1].clientY,
+  );
 
   useEffect(() => {
     if (!isOpen) return;
@@ -36,7 +50,7 @@ export function ProjectImageGallery({ title, images }: ProjectImageGalleryProps)
     <>
       <button
         type="button"
-        onClick={() => setIsOpen(true)}
+        onClick={() => { setZoom(1); setIsOpen(true); }}
         className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-[#2C5F7F] underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/30"
       >
         <Images className="h-3.5 w-3.5" aria-hidden="true" /> Browse project gallery ({images.length})
@@ -54,10 +68,31 @@ export function ProjectImageGallery({ title, images }: ProjectImageGalleryProps)
               <p className="text-sm font-semibold">{title} — project gallery</p>
               <button type="button" onClick={() => setIsOpen(false)} className="inline-flex items-center gap-1.5 rounded-md border border-white/30 px-3 py-1.5 text-xs font-semibold hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white"><X className="h-3.5 w-3.5" /> Close</button>
             </div>
-            <div className="relative overflow-hidden rounded-lg bg-black">
-              <img src={activeImage.src} alt={activeImage.caption} className="h-[65vh] w-full object-contain" />
+            <div
+              className="relative overflow-hidden rounded-lg bg-black touch-none"
+              onTouchStart={(event) => {
+                if (event.touches.length === 2) {
+                  setPinchStartDistance(distanceBetweenTouches(event.touches));
+                  setPinchStartZoom(zoom);
+                }
+              }}
+              onTouchMove={(event) => {
+                if (event.touches.length === 2 && pinchStartDistance) {
+                  event.preventDefault();
+                  const scale = distanceBetweenTouches(event.touches) / pinchStartDistance;
+                  setZoom(Math.min(3, Math.max(1, pinchStartZoom * scale)));
+                }
+              }}
+              onTouchEnd={() => setPinchStartDistance(null)}
+            >
+              <img src={activeImage.src} alt={activeImage.caption} className="h-[65vh] w-full origin-center object-contain transition-transform duration-100" style={{ transform: `scale(${zoom})` }} />
               <button type="button" onClick={previous} aria-label="Previous project image" className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-slate-950/70 p-2 text-white hover:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-white"><ChevronLeft className="h-5 w-5" /></button>
               <button type="button" onClick={next} aria-label="Next project image" className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-slate-950/70 p-2 text-white hover:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-white"><ChevronRight className="h-5 w-5" /></button>
+              {zoom > 1 ? (
+                <button type="button" onClick={() => setZoom(1)} aria-label="Reset image zoom" className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-md bg-slate-950/80 px-2.5 py-1.5 text-xs font-semibold text-white hover:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-white"><RotateCcw className="h-3.5 w-3.5" /> Reset zoom</button>
+              ) : (
+                <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-md bg-slate-950/80 px-2.5 py-1.5 text-xs font-medium text-white"><ZoomIn className="h-3.5 w-3.5" /> Pinch to zoom</span>
+              )}
             </div>
             <div className="mt-3 flex items-start justify-between gap-4 text-sm text-slate-200">
               <p className="leading-relaxed">{activeImage.caption}</p>

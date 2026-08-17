@@ -171,4 +171,19 @@ describe("sitemap map controls and Site Visit options", () => {
     expect(gallery).toContain('event.key === "ArrowRight"');
     expect(surveyFlow).toContain("ProjectImageGallery");
   });
+
+  it("supports mobile zoom and safe project sharing while retaining evidence-based gallery records", () => {
+    const projects = readFileSync(resolve(projectRoot, "client/src/data/recentProjects.ts"), "utf8");
+    const gallery = readFileSync(resolve(projectRoot, "client/src/components/ProjectImageGallery.tsx"), "utf8");
+    const shareButton = readFileSync(resolve(projectRoot, "client/src/components/ProjectShareButton.tsx"), "utf8");
+    const surveyFlow = readFileSync(resolve(projectRoot, "client/src/components/SurveyBookingFlow.tsx"), "utf8");
+
+    expect(projects.match(/galleryImages:/g)).toHaveLength(1);
+    expect(gallery).toContain("Pinch to zoom");
+    expect(gallery).toContain("onTouchMove");
+    expect(gallery).toContain("Reset image zoom");
+    expect(shareButton).toContain("navigator.share");
+    expect(shareButton).toContain("Link copied");
+    expect(surveyFlow).toContain("ProjectShareButton");
+  });
 });
