@@ -1586,3 +1586,7 @@
 - [x] Add county labels to browser-derived nearby Site Visit coverage towns
 - [x] Show county-relevant verified typical-project examples beneath nearby coverage results
 - [x] Add regression coverage and validate TypeScript and the full test suite
+
+## Nearby Project Card Imagery (17 August 2026)
+- [x] Add responsive approved project images to nearby verified project example cards
+- [x] Add regression coverage and validate TypeScript and the full test suite

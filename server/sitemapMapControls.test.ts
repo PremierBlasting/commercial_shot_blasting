@@ -119,4 +119,13 @@ describe("sitemap map controls and Site Visit options", () => {
     expect(nearbyCoverage).toContain("locationSlugIndex");
     expect(nearbyCoverage).toContain("countyLabel");
   });
+
+  it("renders approved lazy-loaded project imagery in nearby project example cards", () => {
+    const surveyFlow = readFileSync(resolve(projectRoot, "client/src/components/SurveyBookingFlow.tsx"), "utf8");
+
+    expect(surveyFlow).toContain("src={project.afterImage}");
+    expect(surveyFlow).toContain("loading=\"lazy\"");
+    expect(surveyFlow).toContain("Completed ${project.title} project");
+    expect(surveyFlow).toContain("object-cover");
+  });
 });

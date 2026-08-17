@@ -268,10 +268,17 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
                     <a
                       key={project.id}
                       href={`/services/${project.serviceSlug}`}
-                      className="rounded-md border border-sky-100 bg-white px-2.5 py-2 text-xs transition hover:border-[#2C5F7F]/35 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/30"
+                      className="group overflow-hidden rounded-md border border-sky-100 bg-white text-xs transition hover:border-[#2C5F7F]/35 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/30"
                     >
-                      <span className="block font-semibold text-[#2C5F7F]">{project.title}</span>
-                      <span className="mt-0.5 block leading-relaxed text-slate-600">{project.description}</span>
+                      <img
+                        src={project.afterImage}
+                        alt={`Completed ${project.title} project`}
+                        loading="lazy"
+                        className="h-24 w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                      />
+                      <span className="block px-2.5 pt-2 font-semibold text-[#2C5F7F]">{project.title}</span>
+                      <span className="block px-2.5 pt-0.5 leading-relaxed text-slate-600">{project.description}</span>
+                      <span className="block px-2.5 pb-2 pt-1 text-[11px] font-medium text-slate-500">{project.date} · View service</span>
                     </a>
                   ))}
                 </div>
