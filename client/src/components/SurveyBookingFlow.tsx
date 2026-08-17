@@ -73,8 +73,10 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
   const [error, setError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [showAllNearbyTowns, setShowAllNearbyTowns] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const nearbyCoverage = usePostcodeNearbyCoverage(postalCode);
+  const displayedNearbyTowns = showAllNearbyTowns ? nearbyCoverage.towns : nearbyCoverage.towns.slice(0, 3);
 
   const uploadAttachments = trpc.contact.uploadAttachments.useMutation();
   const submitLead = trpc.contact.submit.useMutation({
@@ -212,7 +214,7 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
         <div className="space-y-4">
           <div>
             <label htmlFor="survey-postcode" className="mb-1.5 block text-sm font-semibold text-[#1a3a52]">Site postcode <span className="text-amber-700">*</span></label>
-            <input id="survey-postcode" value={postalCode} onChange={(event) => setPostalCode(event.target.value)} placeholder="For example: B1 1AA" className="w-full rounded-lg border border-slate-200 bg-white px-3 py-3 text-sm text-slate-800 outline-none transition focus:border-[#2C5F7F] focus:ring-2 focus:ring-[#2C5F7F]/20" />
+            <input id="survey-postcode" value={postalCode} onChange={(event) => { setPostalCode(event.target.value); setShowAllNearbyTowns(false); }} placeholder="For example: B1 1AA" className="w-full rounded-lg border border-slate-200 bg-white px-3 py-3 text-sm text-slate-800 outline-none transition focus:border-[#2C5F7F] focus:ring-2 focus:ring-[#2C5F7F]/20" />
             {isValidUKPostcode(normalisePostcode(postalCode)) && (
               <a
                 href={`/sitemap?postcode=${encodeURIComponent(normalisePostcode(postalCode))}`}
@@ -231,7 +233,7 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
               <div className="mt-2 rounded-lg border border-emerald-100 bg-emerald-50 px-3 py-2" aria-live="polite">
                 <p className="text-xs font-semibold text-emerald-900">Service coverage near your site</p>
                 <div className="mt-1 flex flex-wrap gap-1.5">
-                  {nearbyCoverage.towns.map((town) => (
+                  {displayedNearbyTowns.map((town) => (
                     <a
                       key={town.slug}
                       href={`/service-areas/${town.slug}`}
@@ -241,6 +243,16 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
                     </a>
                   ))}
                 </div>
+                {nearbyCoverage.towns.length > 3 && (
+                  <button
+                    type="button"
+                    onClick={() => setShowAllNearbyTowns((current) => !current)}
+                    aria-expanded={showAllNearbyTowns}
+                    className="mt-2 text-xs font-semibold text-[#2C5F7F] underline underline-offset-2 transition hover:text-[#1a3a52] focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/30"
+                  >
+                    {showAllNearbyTowns ? "Show fewer nearby towns" : `See all nearby towns (${nearbyCoverage.towns.length})`}
+                  </button>
+                )}
               </div>
             )}
             {nearbyCoverage.status === "error" && (

@@ -63,7 +63,7 @@ export function usePostcodeNearbyCoverage(value: string): NearbyCoverageState {
         const towns = Object.entries(locationCoordinates)
           .map(([slug, point]) => ({ slug, name: townNameFromSlug(slug), miles: distanceInMiles(coordinates, point) }))
           .sort((a, b) => a.miles - b.miles)
-          .slice(0, 3);
+          .slice(0, 12);
         setState({ status: "ready", towns });
       } catch {
         if (requestId === requestRef.current) setState({ status: "error", towns: [] });

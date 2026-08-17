@@ -97,4 +97,15 @@ describe("sitemap map controls and Site Visit options", () => {
     expect(nearbyCoverage).toContain("Object.entries(locationCoordinates)");
     expect(nearbyCoverage).not.toContain("fetch(");
   });
+
+  it("keeps initial nearby coverage compact and lets visitors reveal more towns on demand", () => {
+    const surveyFlow = readFileSync(resolve(projectRoot, "client/src/components/SurveyBookingFlow.tsx"), "utf8");
+    const nearbyCoverage = readFileSync(resolve(projectRoot, "client/src/hooks/usePostcodeNearbyCoverage.ts"), "utf8");
+
+    expect(surveyFlow).toContain("showAllNearbyTowns");
+    expect(surveyFlow).toContain("See all nearby towns");
+    expect(surveyFlow).toContain("Show fewer nearby towns");
+    expect(surveyFlow).toContain("aria-expanded={showAllNearbyTowns}");
+    expect(nearbyCoverage).toContain(".slice(0, 12)");
+  });
 });

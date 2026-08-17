@@ -1577,3 +1577,7 @@
 ## Site Visit Nearby-Town Coverage Feedback (17 August 2026)
 - [x] Show browser-derived nearby service towns below a valid Site Visit postcode without server persistence
 - [x] Add regression coverage and validate TypeScript and the full test suite
+
+## Expanded Nearby-Town Coverage (17 August 2026)
+- [x] Add an accessible See All Nearby Towns control below the initial three Site Visit coverage results
+- [x] Add regression coverage and validate TypeScript and the full test suite
