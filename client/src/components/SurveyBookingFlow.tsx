@@ -6,6 +6,7 @@ import { saveSitemapPostcodeHandoff } from "@/lib/sitemapPostcodeHandoff";
 import { usePostcodeNearbyCoverage } from "@/hooks/usePostcodeNearbyCoverage";
 import { recentProjects } from "@/data/recentProjects";
 import { BeforeAfterProjectSlider } from "@/components/BeforeAfterProjectSlider";
+import { ProjectImageGallery } from "@/components/ProjectImageGallery";
 import { validateLeadEmailClient } from "@shared/emailValidation";
 import { isValidUKPostcode, normalisePostcode } from "@shared/postcodeUtils";
 
@@ -325,6 +326,9 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
                               title={project.title}
                               caption={project.comparisonCaption}
                             />
+                          )}
+                          {project.galleryImages && (
+                            <ProjectImageGallery title={project.title} images={project.galleryImages} />
                           )}
                         </div>
                       )}

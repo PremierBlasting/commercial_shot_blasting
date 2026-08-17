@@ -1601,3 +1601,7 @@
 - [x] Make the optional Site Visit surface-condition photo upload field easier to discover and use
 - [x] Add service-based filtering to nearby verified project examples
 - [x] Add regression coverage and validate TypeScript and the full test suite
+
+## Verified Project Gallery Lightbox (17 August 2026)
+- [x] Add an accessible browseable lightbox gallery for approved multi-image project records
+- [x] Add regression coverage and validate TypeScript and the full test suite

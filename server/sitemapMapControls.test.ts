@@ -157,4 +157,18 @@ describe("sitemap map controls and Site Visit options", () => {
     expect(surveyFlow).toContain("Filter project examples by service");
     expect(surveyFlow).toContain('aria-pressed={activeProjectServiceFilter === service}');
   });
+
+  it("offers a keyboard-accessible lightbox gallery only for verified multi-image projects", () => {
+    const projects = readFileSync(resolve(projectRoot, "client/src/data/recentProjects.ts"), "utf8");
+    const gallery = readFileSync(resolve(projectRoot, "client/src/components/ProjectImageGallery.tsx"), "utf8");
+    const surveyFlow = readFileSync(resolve(projectRoot, "client/src/components/SurveyBookingFlow.tsx"), "utf8");
+
+    expect(projects).toContain("galleryImages");
+    expect(projects).toContain("IMG_3292_7bee69d3");
+    expect(gallery).toContain("Browse project gallery");
+    expect(gallery).toContain('role="dialog"');
+    expect(gallery).toContain('event.key === "ArrowLeft"');
+    expect(gallery).toContain('event.key === "ArrowRight"');
+    expect(surveyFlow).toContain("ProjectImageGallery");
+  });
 });

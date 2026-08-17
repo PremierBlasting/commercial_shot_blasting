@@ -13,6 +13,7 @@ export interface RecentProject {
   afterImage: string;
   beforeImage?: string;
   comparisonCaption?: string;
+  galleryImages?: Array<{ src: string; caption: string }>;
   countySlugs: string[]; // county slugs this project is relevant to
   date: string; // display date e.g. "April 2025"
 }
@@ -27,6 +28,13 @@ export const recentProjects: RecentProject[] = [
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3365_56728af1.webp",
     beforeImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3339_a869318b.webp",
     comparisonCaption: "Documented views from the same structural-steel project: failed paint and corrosion before preparation, followed by a clean profiled surface ready for protective coating.",
+    galleryImages: [
+      { src: "https://commercialshotblasting.co.uk/manus-storage/IMG_3339_a869318b.webp", caption: "Before: white paint with heavy rust patches on the structural steel column." },
+      { src: "https://commercialshotblasting.co.uk/manus-storage/IMG_3292_7bee69d3.webp", caption: "During: two operators carrying out controlled blast cleaning with full PPE." },
+      { src: "https://commercialshotblasting.co.uk/manus-storage/IMG_3335_66ca0def.webp", caption: "Preparation detail: freshly blasted column base with a uniform profile for coating adhesion." },
+      { src: "https://commercialshotblasting.co.uk/manus-storage/IMG_3358_fa5ea2cf.webp", caption: "Site overview: multiple structural-steel bays prepared across the commercial unit." },
+      { src: "https://commercialshotblasting.co.uk/manus-storage/IMG_3365_56728af1.webp", caption: "After: clean profiled structural steel ready for the protective coating system." },
+    ],
     countySlugs: ["staffordshire", "west-midlands", "warwickshire", "worcestershire", "shropshire"],
     date: "March 2025",
   },
