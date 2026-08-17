@@ -143,4 +143,18 @@ describe("sitemap map controls and Site Visit options", () => {
     expect(slider).toContain('type="range"');
     expect(slider).toContain("Compare before and after images");
   });
+
+  it("provides a full-screen comparison, discoverable condition-photo upload, and nearby project service filters", () => {
+    const surveyFlow = readFileSync(resolve(projectRoot, "client/src/components/SurveyBookingFlow.tsx"), "utf8");
+    const slider = readFileSync(resolve(projectRoot, "client/src/components/BeforeAfterProjectSlider.tsx"), "utf8");
+
+    expect(slider).toContain("View full-screen comparison");
+    expect(slider).toContain('role="dialog"');
+    expect(slider).toContain("Full-screen comparison");
+    expect(surveyFlow).toContain("Share photos of the current surface condition");
+    expect(surveyFlow).toContain("Upload photos");
+    expect(surveyFlow).toContain("projectServiceFilter");
+    expect(surveyFlow).toContain("Filter project examples by service");
+    expect(surveyFlow).toContain('aria-pressed={activeProjectServiceFilter === service}');
+  });
 });

@@ -77,6 +77,7 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
   const [submitted, setSubmitted] = useState(false);
   const [showAllNearbyTowns, setShowAllNearbyTowns] = useState(false);
   const [expandedProjectId, setExpandedProjectId] = useState<string | null>(null);
+  const [projectServiceFilter, setProjectServiceFilter] = useState("All examples");
   const inputRef = useRef<HTMLInputElement>(null);
   const nearbyCoverage = usePostcodeNearbyCoverage(postalCode);
   const displayedNearbyTowns = showAllNearbyTowns ? nearbyCoverage.towns : nearbyCoverage.towns.slice(0, 3);
@@ -84,6 +85,13 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
   const nearbyProjects = nearestCounty
     ? recentProjects.filter((project) => project.countySlugs.includes(nearestCounty)).slice(0, 2)
     : [];
+  const nearbyProjectServices = Array.from(new Set(nearbyProjects.map((project) => project.serviceLabel)));
+  const activeProjectServiceFilter = projectServiceFilter === "All examples" || nearbyProjectServices.includes(projectServiceFilter)
+    ? projectServiceFilter
+    : "All examples";
+  const filteredNearbyProjects = activeProjectServiceFilter === "All examples"
+    ? nearbyProjects
+    : nearbyProjects.filter((project) => project.serviceLabel === activeProjectServiceFilter);
 
   const uploadAttachments = trpc.contact.uploadAttachments.useMutation();
   const submitLead = trpc.contact.submit.useMutation({
@@ -265,8 +273,23 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
             {nearbyCoverage.status === "ready" && nearbyProjects.length > 0 && (
               <div className="mt-3 rounded-lg border border-sky-100 bg-sky-50 px-3 py-2">
                 <p className="text-xs font-semibold text-[#1a3a52]">Relevant recent project examples</p>
+                {nearbyProjectServices.length > 1 && (
+                  <div className="mt-2 flex flex-wrap gap-1.5" aria-label="Filter project examples by service">
+                    {["All examples", ...nearbyProjectServices].map((service) => (
+                      <button
+                        key={service}
+                        type="button"
+                        onClick={() => setProjectServiceFilter(service)}
+                        aria-pressed={activeProjectServiceFilter === service}
+                        className={`rounded-full px-2 py-1 text-[11px] font-semibold transition focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/30 ${activeProjectServiceFilter === service ? "bg-[#2C5F7F] text-white" : "bg-white text-[#2C5F7F] shadow-sm hover:bg-sky-100"}`}
+                      >
+                        {service}
+                      </button>
+                    ))}
+                  </div>
+                )}
                 <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                  {nearbyProjects.map((project) => (
+                  {filteredNearbyProjects.map((project) => (
                     <article
                       key={project.id}
                       className="overflow-hidden rounded-md border border-sky-100 bg-white text-xs"
@@ -362,10 +385,10 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
           <div className="rounded-xl border border-dashed border-[#2C5F7F]/35 bg-[#f6fafc] p-3">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="text-sm font-semibold text-[#1a3a52]">Add photos or a drawing <span className="font-normal text-slate-500">(optional)</span></p>
-                <p className="mt-0.5 text-xs leading-relaxed text-slate-500">JPEG, PNG, WebP or PDF. Up to {MAX_FILES} files, 8 MB each.</p>
+                <p className="text-sm font-semibold text-[#1a3a52]">Share photos of the current surface condition <span className="font-normal text-slate-500">(optional)</span></p>
+                <p className="mt-0.5 text-xs leading-relaxed text-slate-500">Photos help us assess coatings, corrosion, access, and preparation requirements before a visit. JPEG, PNG, WebP or PDF. Up to {MAX_FILES} files, 8 MB each.</p>
               </div>
-              <button type="button" onClick={() => inputRef.current?.click()} className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-white px-2.5 py-2 text-xs font-semibold text-[#2C5F7F] shadow-sm ring-1 ring-[#2C5F7F]/15 transition hover:bg-[#e9f4f9]"><Upload className="h-3.5 w-3.5" /> Add files</button>
+              <button type="button" onClick={() => inputRef.current?.click()} className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-white px-2.5 py-2 text-xs font-semibold text-[#2C5F7F] shadow-sm ring-1 ring-[#2C5F7F]/15 transition hover:bg-[#e9f4f9]"><Upload className="h-3.5 w-3.5" /> Upload photos</button>
             </div>
             <input ref={inputRef} type="file" multiple accept="image/jpeg,image/png,image/webp,application/pdf" onChange={(event) => addFiles(event.target.files)} className="sr-only" />
             {files.length > 0 && <ul className="mt-3 space-y-2">{files.map((file, index) => <li key={`${file.name}-${file.lastModified}`} className="flex items-center justify-between gap-2 rounded-md bg-white px-2.5 py-2 text-xs text-slate-600"><span className="flex min-w-0 items-center gap-1.5"><FileText className="h-3.5 w-3.5 shrink-0 text-[#2C5F7F]" /><span className="truncate">{file.name}</span></span><button type="button" onClick={() => setFiles((current) => current.filter((_, currentIndex) => currentIndex !== index))} aria-label={`Remove ${file.name}`} className="rounded p-0.5 text-slate-400 hover:bg-red-50 hover:text-red-600"><X className="h-4 w-4" /></button></li>)}</ul>}

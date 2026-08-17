@@ -1595,3 +1595,9 @@
 - [x] Add interactive before-and-after comparison only where a verified image pair is available
 - [x] Add expandable verified project detail and descriptive preparation-outcome captions
 - [x] Add regression coverage and validate TypeScript and the full test suite
+
+## Project Comparison Lightbox and Service Filters (17 August 2026)
+- [x] Add an accessible full-screen lightbox for verified before-and-after comparisons
+- [x] Make the optional Site Visit surface-condition photo upload field easier to discover and use
+- [x] Add service-based filtering to nearby verified project examples
+- [x] Add regression coverage and validate TypeScript and the full test suite
