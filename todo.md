@@ -1569,3 +1569,7 @@
 - [x] Add a distance-radius selector and immediate postcode validation to the interactive sitemap map
 - [x] Add safe Google Maps lead-row links for new and existing CSB leads without changing existing fields or routing
 - [x] Add regression tests and validate web and cloud lead-sync behaviour
+
+## Site Visit Postcode Handoff (17 August 2026)
+- [x] Reuse a valid Site Visit postcode in the sitemap map search without server persistence
+- [x] Add regression coverage and validate TypeScript and the full test suite

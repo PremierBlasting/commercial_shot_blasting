@@ -5,6 +5,7 @@ import { countyData } from "@/data/countyData";
 import { locationData } from "@/data/locationData";
 import { locationCoordinates } from "@/data/locationCoordinates";
 import { clusterCoveragePoints, distanceInMiles } from "@/lib/sitemapMapUtils";
+import { readSitemapPostcodeHandoff } from "@/lib/sitemapPostcodeHandoff";
 import { isValidUKPostcode, normalisePostcode } from "@shared/postcodeUtils";
 
 interface SitemapCoverageMapProps {
@@ -52,13 +53,18 @@ function escapeHtml(value: string) {
  * visitor is zoomed out. Browser location is requested only after a user action.
  */
 export function SitemapCoverageMap({ query, region }: SitemapCoverageMapProps) {
+  const initialPostcode = useMemo(() => {
+    if (typeof window === "undefined") return "";
+    const fromUrl = normalisePostcode(new URLSearchParams(window.location.search).get("postcode") ?? "");
+    return isValidUKPostcode(fromUrl) ? fromUrl : readSitemapPostcodeHandoff();
+  }, []);
   const [isMapEnabled, setIsMapEnabled] = useState(false);
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const [mapZoom, setMapZoom] = useState(6);
   const [userLocation, setUserLocation] = useState<UserLocation | null>(null);
   const [isLocating, setIsLocating] = useState(false);
   const [locationError, setLocationError] = useState("");
-  const [postcode, setPostcode] = useState("");
+  const [postcode, setPostcode] = useState(initialPostcode);
   const [postcodeError, setPostcodeError] = useState("");
   const [isPostcodeLoading, setIsPostcodeLoading] = useState(false);
   const [searchRadiusMiles, setSearchRadiusMiles] = useState<number>(50);
@@ -365,7 +371,9 @@ export function SitemapCoverageMap({ query, region }: SitemapCoverageMapProps) {
                 {postcodeError || postcodeFormatError ? (
                   <p id="sitemap-map-postcode-error" role="alert" className="mt-1 text-xs text-amber-800">{postcodeError || postcodeFormatError}</p>
                 ) : (
-                  <p id="sitemap-map-postcode-help" className="mt-1 text-xs text-slate-500">Choose a radius to highlight mapped towns around your postcode.</p>
+                  <p id="sitemap-map-postcode-help" className="mt-1 text-xs text-slate-500">
+                    {initialPostcode && postcode === initialPostcode ? "Your Site Visit postcode is ready to search. Choose a radius to highlight mapped towns." : "Choose a radius to highlight mapped towns around your postcode."}
+                  </p>
                 )}
               </div>
               <label className="sr-only" htmlFor="sitemap-map-radius">Search radius</label>

@@ -72,4 +72,17 @@ describe("sitemap map controls and Site Visit options", () => {
     expect(coverageMap).toContain("aria-invalid");
     expect(coverageMap).toContain("radius: searchRadiusMiles * 1609.344");
   });
+
+  it("prefills the map from a valid browser-only Site Visit postcode handoff", () => {
+    const surveyFlow = readFileSync(resolve(projectRoot, "client/src/components/SurveyBookingFlow.tsx"), "utf8");
+    const coverageMap = readFileSync(resolve(projectRoot, "client/src/components/SitemapCoverageMap.tsx"), "utf8");
+    const handoff = readFileSync(resolve(projectRoot, "client/src/lib/sitemapPostcodeHandoff.ts"), "utf8");
+
+    expect(surveyFlow).toContain("saveSitemapPostcodeHandoff(postalCode)");
+    expect(surveyFlow).toContain("View coverage around this postcode on the map");
+    expect(coverageMap).toContain("readSitemapPostcodeHandoff");
+    expect(coverageMap).toContain('new URLSearchParams(window.location.search).get("postcode")');
+    expect(handoff).toContain("window.sessionStorage.setItem");
+    expect(handoff).not.toContain("fetch(");
+  });
 });

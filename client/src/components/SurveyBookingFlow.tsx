@@ -2,7 +2,9 @@ import { useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, FileText, Loader2, Upload, X } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { formatUTMForSubmission } from "@/lib/utm";
+import { saveSitemapPostcodeHandoff } from "@/lib/sitemapPostcodeHandoff";
 import { validateLeadEmailClient } from "@shared/emailValidation";
+import { isValidUKPostcode, normalisePostcode } from "@shared/postcodeUtils";
 
 const SERVICE_OPTIONS = [
   "Structural Steelwork",
@@ -104,6 +106,7 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
       setError("Please enter the site postcode so we can confirm coverage and plan the visit.");
       return;
     }
+    if (step === 2) saveSitemapPostcodeHandoff(postalCode);
     setStep((current) => Math.min(3, current + 1));
   };
 
@@ -208,6 +211,15 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
           <div>
             <label htmlFor="survey-postcode" className="mb-1.5 block text-sm font-semibold text-[#1a3a52]">Site postcode <span className="text-amber-700">*</span></label>
             <input id="survey-postcode" value={postalCode} onChange={(event) => setPostalCode(event.target.value)} placeholder="For example: B1 1AA" className="w-full rounded-lg border border-slate-200 bg-white px-3 py-3 text-sm text-slate-800 outline-none transition focus:border-[#2C5F7F] focus:ring-2 focus:ring-[#2C5F7F]/20" />
+            {isValidUKPostcode(normalisePostcode(postalCode)) && (
+              <a
+                href={`/sitemap?postcode=${encodeURIComponent(normalisePostcode(postalCode))}`}
+                onClick={() => saveSitemapPostcodeHandoff(postalCode)}
+                className="mt-2 inline-flex text-xs font-semibold text-[#2C5F7F] underline underline-offset-2 transition hover:text-[#1a3a52] focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/25"
+              >
+                View coverage around this postcode on the map
+              </a>
+            )}
           </div>
           <div>
             <label htmlFor="survey-site" className="mb-1.5 block text-sm font-semibold text-[#1a3a52]">Site or company name <span className="font-normal text-slate-400">(optional)</span></label>
