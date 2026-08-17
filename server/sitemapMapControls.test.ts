@@ -48,7 +48,7 @@ describe("sitemap map controls and Site Visit options", () => {
     expect(coverageMap).toContain("clusterCoveragePoints");
     expect(coverageMap).toContain("Locate Me");
     expect(coverageMap).toContain("navigator.geolocation.getCurrentPosition");
-    expect(coverageMap).toContain("Nearby towns highlighted");
+    expect(coverageMap).toContain("Nearby towns within {searchRadiusMiles} miles");
   });
 
   it("supports full-postcode lookup and map centring without sending location to the server", () => {
@@ -58,7 +58,18 @@ describe("sitemap map controls and Site Visit options", () => {
     expect(coverageMap).toContain("isValidUKPostcode");
     expect(coverageMap).toContain("new window.google.maps.Geocoder()");
     expect(coverageMap).toContain("Find postcode");
-    expect(coverageMap).toContain("map.setZoom(10)");
+    expect(coverageMap).toContain("map.setZoom(zoomForRadius(searchRadiusMiles))");
     expect(coverageMap).not.toContain("fetch(");
+  });
+
+  it("validates postcode format inline and lets visitors choose a nearby-town radius", () => {
+    const coverageMap = readFileSync(resolve(projectRoot, "client/src/components/SitemapCoverageMap.tsx"), "utf8");
+
+    expect(coverageMap).toContain("SEARCH_RADIUS_OPTIONS");
+    expect(coverageMap).toContain('id="sitemap-map-radius"');
+    expect(coverageMap).toContain("Within {radius} miles");
+    expect(coverageMap).toContain("postcodeFormatError");
+    expect(coverageMap).toContain("aria-invalid");
+    expect(coverageMap).toContain("radius: searchRadiusMiles * 1609.344");
   });
 });

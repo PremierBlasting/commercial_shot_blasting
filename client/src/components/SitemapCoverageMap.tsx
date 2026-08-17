@@ -27,6 +27,15 @@ type CountyPoint = CoveragePoint & {
 
 type UserLocation = { lat: number; lng: number };
 
+const SEARCH_RADIUS_OPTIONS = [25, 50, 100, 150] as const;
+
+function zoomForRadius(radiusMiles: number) {
+  if (radiusMiles <= 25) return 10;
+  if (radiusMiles <= 50) return 9;
+  if (radiusMiles <= 100) return 8;
+  return 7;
+}
+
 function escapeHtml(value: string) {
   return value.replace(/[&<>'"]/g, (character) => ({
     "&": "&amp;",
@@ -52,8 +61,14 @@ export function SitemapCoverageMap({ query, region }: SitemapCoverageMapProps) {
   const [postcode, setPostcode] = useState("");
   const [postcodeError, setPostcodeError] = useState("");
   const [isPostcodeLoading, setIsPostcodeLoading] = useState(false);
+  const [searchRadiusMiles, setSearchRadiusMiles] = useState<number>(50);
   const markersRef = useRef<google.maps.Marker[]>([]);
+  const radiusCircleRef = useRef<google.maps.Circle | null>(null);
   const normalizedQuery = query.trim().toLowerCase();
+  const normalisedPostcode = normalisePostcode(postcode);
+  const postcodeFormatError = postcode.trim().length >= 5 && !isValidUKPostcode(normalisedPostcode)
+    ? "Enter a full UK postcode, for example B1 1AA."
+    : "";
 
   const countyPoints = useMemo<CountyPoint[]>(() =>
     Object.values(countyData).map((county) => ({
@@ -97,8 +112,9 @@ export function SitemapCoverageMap({ query, region }: SitemapCoverageMapProps) {
     ? matchingAreas
         .map((point) => ({ point, miles: distanceInMiles(userLocation, point) }))
         .sort((a, b) => a.miles - b.miles)
+        .filter(({ miles }) => miles <= searchRadiusMiles)
         .slice(0, 6)
-    : [], [matchingAreas, userLocation]);
+    : [], [matchingAreas, searchRadiusMiles, userLocation]);
   const nearbySlugs = useMemo(() => new Set(nearbyAreas.map(({ point }) => point.slug)), [nearbyAreas]);
 
   useEffect(() => {
@@ -113,6 +129,24 @@ export function SitemapCoverageMap({ query, region }: SitemapCoverageMapProps) {
     [...matchingHubs, ...matchingAreas].forEach((point) => bounds.extend({ lat: point.lat, lng: point.lng }));
     if (!bounds.isEmpty()) map.fitBounds(bounds, 42);
   }, [map, matchingHubs, matchingAreas, userLocation]);
+
+  useEffect(() => {
+    radiusCircleRef.current?.setMap(null);
+    radiusCircleRef.current = null;
+    if (!map || !window.google?.maps || !userLocation) return;
+    radiusCircleRef.current = new window.google.maps.Circle({
+      map,
+      center: userLocation,
+      radius: searchRadiusMiles * 1609.344,
+      fillColor: "#e8a020",
+      fillOpacity: 0.08,
+      strokeColor: "#e8a020",
+      strokeOpacity: 0.8,
+      strokeWeight: 1.5,
+      clickable: false,
+    });
+    return () => radiusCircleRef.current?.setMap(null);
+  }, [map, searchRadiusMiles, userLocation]);
 
   useEffect(() => {
     if (!map || !window.google?.maps) return;
@@ -208,7 +242,7 @@ export function SitemapCoverageMap({ query, region }: SitemapCoverageMapProps) {
         setUserLocation(location);
         setIsLocating(false);
         map?.panTo(location);
-        map?.setZoom(9);
+        map?.setZoom(zoomForRadius(searchRadiusMiles));
       },
       () => {
         setLocationError("We could not access your location. You can still search by town or postcode.");
@@ -220,9 +254,8 @@ export function SitemapCoverageMap({ query, region }: SitemapCoverageMapProps) {
 
   const findPostcode = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const normalisedPostcode = normalisePostcode(postcode);
-    if (!isValidUKPostcode(normalisedPostcode)) {
-      setPostcodeError("Enter a full UK postcode, for example B1 1AA.");
+    if (postcodeFormatError || !isValidUKPostcode(normalisedPostcode)) {
+      setPostcodeError(postcodeFormatError || "Enter a full UK postcode, for example B1 1AA.");
       return;
     }
     if (!map || !window.google?.maps) {
@@ -250,12 +283,17 @@ export function SitemapCoverageMap({ query, region }: SitemapCoverageMapProps) {
       });
       setUserLocation(coordinates);
       map.panTo(coordinates);
-      map.setZoom(10);
+      map.setZoom(zoomForRadius(searchRadiusMiles));
     } catch (error) {
       setPostcodeError(error instanceof Error ? error.message : "We could not look up that postcode. Please try again.");
     } finally {
       setIsPostcodeLoading(false);
     }
+  };
+
+  const updatePostcode = (value: string) => {
+    setPostcode(value.toUpperCase());
+    setPostcodeError("");
   };
 
   return (
@@ -299,7 +337,7 @@ export function SitemapCoverageMap({ query, region }: SitemapCoverageMapProps) {
               {userLocation && (
                 <button
                   type="button"
-                  onClick={() => { setUserLocation(null); setLocationError(""); }}
+                  onClick={() => { setUserLocation(null); setLocationError(""); setPostcodeError(""); }}
                   className="inline-flex items-center gap-1 rounded-full border border-slate-300 bg-white px-3 py-1.5 font-semibold text-slate-600 transition hover:border-slate-400 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F] focus:ring-offset-2"
                 >
                   <X className="h-3.5 w-3.5" aria-hidden="true" /> Clear location
@@ -317,14 +355,28 @@ export function SitemapCoverageMap({ query, region }: SitemapCoverageMapProps) {
                     inputMode="text"
                     autoComplete="postal-code"
                     value={postcode}
-                    onChange={(event) => setPostcode(event.target.value.toUpperCase())}
+                    onChange={(event) => updatePostcode(event.target.value)}
                     placeholder="Find a postcode on the map, e.g. B1 1AA"
-                    aria-describedby={postcodeError ? "sitemap-map-postcode-error" : undefined}
+                    aria-invalid={Boolean(postcodeError || postcodeFormatError)}
+                    aria-describedby={postcodeError || postcodeFormatError ? "sitemap-map-postcode-error" : "sitemap-map-postcode-help"}
                     className="w-full rounded-lg border border-[#1a3d52]/25 bg-white py-2.5 pl-10 pr-3 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-[#2C5F7F] focus:ring-2 focus:ring-[#2C5F7F]/25"
                   />
                 </div>
-                {postcodeError && <p id="sitemap-map-postcode-error" role="alert" className="mt-1 text-xs text-amber-800">{postcodeError}</p>}
+                {postcodeError || postcodeFormatError ? (
+                  <p id="sitemap-map-postcode-error" role="alert" className="mt-1 text-xs text-amber-800">{postcodeError || postcodeFormatError}</p>
+                ) : (
+                  <p id="sitemap-map-postcode-help" className="mt-1 text-xs text-slate-500">Choose a radius to highlight mapped towns around your postcode.</p>
+                )}
               </div>
+              <label className="sr-only" htmlFor="sitemap-map-radius">Search radius</label>
+              <select
+                id="sitemap-map-radius"
+                value={searchRadiusMiles}
+                onChange={(event) => setSearchRadiusMiles(Number(event.target.value))}
+                className="shrink-0 rounded-lg border border-[#1a3d52]/25 bg-white px-3 py-2.5 text-sm font-medium text-slate-800 outline-none transition focus:border-[#2C5F7F] focus:ring-2 focus:ring-[#2C5F7F]/25"
+              >
+                {SEARCH_RADIUS_OPTIONS.map((radius) => <option key={radius} value={radius}>Within {radius} miles</option>)}
+              </select>
               <button
                 type="submit"
                 disabled={isPostcodeLoading}
@@ -338,9 +390,12 @@ export function SitemapCoverageMap({ query, region }: SitemapCoverageMapProps) {
             {userLocation && nearbyAreas.length > 0 && (
               <div className="flex flex-wrap items-center gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900">
                 <Navigation className="h-3.5 w-3.5" aria-hidden="true" />
-                <span className="font-semibold">Nearby towns highlighted:</span>
+                <span className="font-semibold">Nearby towns within {searchRadiusMiles} miles:</span>
                 {nearbyAreas.slice(0, 4).map(({ point, miles }) => <span key={point.slug} className="rounded-full bg-white px-2 py-1">{point.name} · {miles.toFixed(1)} mi</span>)}
               </div>
+            )}
+            {userLocation && nearbyAreas.length === 0 && (
+              <p className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900">No mapped towns are within {searchRadiusMiles} miles. Increase the radius to see more coverage.</p>
             )}
             <MapView
               className="h-[420px] overflow-hidden rounded-xl border border-[#1a3d52]/15"

@@ -1564,3 +1564,8 @@
 - [x] Add postcode search and map centring to the interactive sitemap coverage map
 - [x] Add non-destructive conditional formatting for CSB rows with long project summaries
 - [x] Add regression tests and validate web and cloud lead-sync behaviour
+
+## Postcode Radius and Lead Maps Links (17 August 2026)
+- [x] Add a distance-radius selector and immediate postcode validation to the interactive sitemap map
+- [x] Add safe Google Maps lead-row links for new and existing CSB leads without changing existing fields or routing
+- [x] Add regression tests and validate web and cloud lead-sync behaviour
