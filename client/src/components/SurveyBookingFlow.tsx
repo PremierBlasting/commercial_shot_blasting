@@ -5,6 +5,7 @@ import { formatUTMForSubmission } from "@/lib/utm";
 import { saveSitemapPostcodeHandoff } from "@/lib/sitemapPostcodeHandoff";
 import { usePostcodeNearbyCoverage } from "@/hooks/usePostcodeNearbyCoverage";
 import { recentProjects } from "@/data/recentProjects";
+import { BeforeAfterProjectSlider } from "@/components/BeforeAfterProjectSlider";
 import { validateLeadEmailClient } from "@shared/emailValidation";
 import { isValidUKPostcode, normalisePostcode } from "@shared/postcodeUtils";
 
@@ -75,6 +76,7 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
   const [emailError, setEmailError] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [showAllNearbyTowns, setShowAllNearbyTowns] = useState(false);
+  const [expandedProjectId, setExpandedProjectId] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const nearbyCoverage = usePostcodeNearbyCoverage(postalCode);
   const displayedNearbyTowns = showAllNearbyTowns ? nearbyCoverage.towns : nearbyCoverage.towns.slice(0, 3);
@@ -265,21 +267,45 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
                 <p className="text-xs font-semibold text-[#1a3a52]">Relevant recent project examples</p>
                 <div className="mt-2 grid gap-2 sm:grid-cols-2">
                   {nearbyProjects.map((project) => (
-                    <a
+                    <article
                       key={project.id}
-                      href={`/services/${project.serviceSlug}`}
-                      className="group overflow-hidden rounded-md border border-sky-100 bg-white text-xs transition hover:border-[#2C5F7F]/35 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/30"
+                      className="overflow-hidden rounded-md border border-sky-100 bg-white text-xs"
                     >
                       <img
                         src={project.afterImage}
                         alt={`Completed ${project.title} project`}
                         loading="lazy"
-                        className="h-24 w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                        className="h-24 w-full object-cover"
                       />
                       <span className="block px-2.5 pt-2 font-semibold text-[#2C5F7F]">{project.title}</span>
-                      <span className="block px-2.5 pt-0.5 leading-relaxed text-slate-600">{project.description}</span>
-                      <span className="block px-2.5 pb-2 pt-1 text-[11px] font-medium text-slate-500">{project.date} · View service</span>
-                    </a>
+                      <span className="block px-2.5 pt-0.5 leading-relaxed text-slate-600">Surface preparation outcome: {project.description}</span>
+                      <span className="block px-2.5 pt-1 text-[11px] font-medium text-slate-500">{project.date} · {project.serviceLabel}</span>
+                      <div className="flex items-center justify-between gap-2 px-2.5 pb-2 pt-1.5">
+                        <button
+                          type="button"
+                          onClick={() => setExpandedProjectId((current) => current === project.id ? null : project.id)}
+                          aria-expanded={expandedProjectId === project.id}
+                          className="font-semibold text-[#2C5F7F] underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/30"
+                        >
+                          {expandedProjectId === project.id ? "Show less" : "Read project details"}
+                        </button>
+                        <a href={`/services/${project.serviceSlug}`} className="font-semibold text-[#2C5F7F] underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/30">View service</a>
+                      </div>
+                      {expandedProjectId === project.id && (
+                        <div className="border-t border-sky-100 bg-slate-50 px-2.5 py-2.5">
+                          <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Documented preparation detail</p>
+                          <p className="mt-1 text-xs leading-relaxed text-slate-700">{project.description}</p>
+                          {project.beforeImage && project.comparisonCaption && (
+                            <BeforeAfterProjectSlider
+                              beforeImage={project.beforeImage}
+                              afterImage={project.afterImage}
+                              title={project.title}
+                              caption={project.comparisonCaption}
+                            />
+                          )}
+                        </div>
+                      )}
+                    </article>
                   ))}
                 </div>
               </div>

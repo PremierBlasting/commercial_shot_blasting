@@ -1590,3 +1590,8 @@
 ## Nearby Project Card Imagery (17 August 2026)
 - [x] Add responsive approved project images to nearby verified project example cards
 - [x] Add regression coverage and validate TypeScript and the full test suite
+
+## Interactive Nearby Project Cards (17 August 2026)
+- [x] Add interactive before-and-after comparison only where a verified image pair is available
+- [x] Add expandable verified project detail and descriptive preparation-outcome captions
+- [x] Add regression coverage and validate TypeScript and the full test suite

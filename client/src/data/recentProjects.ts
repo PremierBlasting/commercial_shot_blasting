@@ -11,6 +11,8 @@ export interface RecentProject {
   serviceLabel: string;
   description: string;
   afterImage: string;
+  beforeImage?: string;
+  comparisonCaption?: string;
   countySlugs: string[]; // county slugs this project is relevant to
   date: string; // display date e.g. "April 2025"
 }
@@ -23,6 +25,8 @@ export const recentProjects: RecentProject[] = [
     serviceLabel: "Structural Steel Shot Blasting",
     description: "SA2.5 blast clean on 12 portal frame bays for a new industrial unit. Mill scale and fabrication residues removed ahead of intumescent coating.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3365_56728af1.webp",
+    beforeImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3339_a869318b.webp",
+    comparisonCaption: "Documented views from the same structural-steel project: failed paint and corrosion before preparation, followed by a clean profiled surface ready for protective coating.",
     countySlugs: ["staffordshire", "west-midlands", "warwickshire", "worcestershire", "shropshire"],
     date: "March 2025",
   },

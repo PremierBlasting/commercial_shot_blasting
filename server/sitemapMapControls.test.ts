@@ -128,4 +128,19 @@ describe("sitemap map controls and Site Visit options", () => {
     expect(surveyFlow).toContain("Completed ${project.title} project");
     expect(surveyFlow).toContain("object-cover");
   });
+
+  it("adds accessible expandable details and only renders verified before-and-after comparisons", () => {
+    const surveyFlow = readFileSync(resolve(projectRoot, "client/src/components/SurveyBookingFlow.tsx"), "utf8");
+    const projectData = readFileSync(resolve(projectRoot, "client/src/data/recentProjects.ts"), "utf8");
+    const slider = readFileSync(resolve(projectRoot, "client/src/components/BeforeAfterProjectSlider.tsx"), "utf8");
+
+    expect(surveyFlow).toContain("Read project details");
+    expect(surveyFlow).toContain("Documented preparation detail");
+    expect(surveyFlow).toContain("project.beforeImage && project.comparisonCaption");
+    expect(surveyFlow).toContain("BeforeAfterProjectSlider");
+    expect(projectData).toContain("beforeImage?: string");
+    expect(projectData).toContain("comparisonCaption");
+    expect(slider).toContain('type="range"');
+    expect(slider).toContain("Compare before and after images");
+  });
 });
