@@ -14,6 +14,7 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { trackPhoneCall } from "@/lib/analytics";
+import { normaliseResponseTimeCopy } from "@shared/seoContentPolicy";
 
 import { Footer } from "@/components/Footer";
 import { countyData, CountyData } from "@/data/countyData";
@@ -801,7 +802,7 @@ export function CountyPage({ county }: CountyPageProps) {
                     itemType="https://schema.org/Answer"
                   >
                     <p className="text-gray-600 leading-relaxed ml-9" itemProp="text">
-                      {faq.answer}
+                      {normaliseResponseTimeCopy(faq.answer)}
                     </p>
                   </div>
                 )}

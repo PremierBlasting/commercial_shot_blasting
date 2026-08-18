@@ -22,7 +22,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "structural-steel-staffordshire",
     title: "Structural Steel Frames — Industrial Unit",
-    serviceSlug: "structural-steel-shot-blasting",
+    serviceSlug: "structural-steel-frames",
     serviceLabel: "Structural Steel Shot Blasting",
     description: "SA2.5 blast clean on 12 portal frame bays for a new industrial unit. Mill scale and fabrication residues removed ahead of intumescent coating.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3365_56728af1.webp",
@@ -41,7 +41,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "factory-cladding-yorkshire",
     title: "Factory Cladding Restoration — Food Processing Plant",
-    serviceSlug: "factory-cladding-shot-blasting",
+    serviceSlug: "factory-cladding",
     serviceLabel: "Factory Cladding Shot Blasting",
     description: "Plastisol and failed paint removed from 2,400 m² of profiled steel cladding. Surfaces prepared for 25-year coating system.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3343_ac1c8682.webp",
@@ -51,7 +51,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "container-blasting-midlands",
     title: "Steel Container Fleet — Logistics Depot",
-    serviceSlug: "container-shot-blasting",
+    serviceSlug: "steel-containers",
     serviceLabel: "Container Shot Blasting",
     description: "Rust and old coatings removed from 18 shipping containers at a logistics depot. All containers returned to SA2.5 standard and recoated on-site.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3354_caa39ac3.webp",
@@ -61,7 +61,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "bridge-steelwork-north",
     title: "Bridge Steelwork — Footbridge Refurbishment",
-    serviceSlug: "structural-steel-shot-blasting",
+    serviceSlug: "bridge-steelwork",
     serviceLabel: "Structural Steel Shot Blasting",
     description: "Full SA3 blast clean on a 40-metre footbridge. All girders, crossmembers, and parapet rails prepared for a 3-coat protective system.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3356_0e439bba.webp",
@@ -71,7 +71,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "floor-blasting-east",
     title: "Industrial Floor Preparation — Warehouse Extension",
-    serviceSlug: "floor-shot-blasting",
+    serviceSlug: "floor-preparation",
     serviceLabel: "Floor Shot Blasting",
     description: "Concrete floor surface profiling across 3,200 m² of new warehouse extension. CSP 3–4 profile achieved for epoxy resin floor coating.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3291_59833f26.webp",
@@ -81,7 +81,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "fire-escape-northwest",
     title: "Fire Escape Restoration — Multi-Storey Office",
-    serviceSlug: "fire-escape-shot-blasting",
+    serviceSlug: "fire-escapes",
     serviceLabel: "Fire Escape Shot Blasting",
     description: "Rust and failed coatings removed from a 6-storey external fire escape. Galvanizing prep completed over 3 days with building fully occupied.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3339_a869318b.webp",
@@ -91,7 +91,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "pipework-south",
     title: "Pipework & Steelwork — Water Treatment Facility",
-    serviceSlug: "pipework-shot-blasting",
+    serviceSlug: "pipework",
     serviceLabel: "Pipework Shot Blasting",
     description: "External blast clean on 850 metres of process pipework and support steelwork. SA2.5 standard achieved for a 3-coat epoxy coating system.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3349_cb9e8c4d.webp",
@@ -101,7 +101,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "racking-east-midlands",
     title: "Warehouse Racking — Distribution Centre",
-    serviceSlug: "racking-shot-blasting",
+    serviceSlug: "warehouse-racking",
     serviceLabel: "Warehouse Racking Shot Blasting",
     description: "Shot blasting of 4,000 pallet positions of warehouse racking in situ. Rust and old powder coat removed; surfaces prepared for re-powder coating.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3340_d53be3b8.webp",
@@ -121,7 +121,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "heritage-restoration-south",
     title: "Heritage Steelwork — Victorian Railway Bridge",
-    serviceSlug: "heritage-shot-blasting",
+    serviceSlug: "bridge-steelwork",
     serviceLabel: "Heritage Shot Blasting",
     description: "Careful SA2.5 blast clean on a Grade II listed Victorian railway bridge. Decorative ironwork preserved; surfaces prepared for heritage-matched coating.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3350_31ece4f3.webp",
@@ -131,7 +131,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "telecom-tower-north",
     title: "Telecom Tower — Mobile Mast Refurbishment",
-    serviceSlug: "telecom-tower-shot-blasting",
+    serviceSlug: "telecom-towers",
     serviceLabel: "Telecom Tower Shot Blasting",
     description: "Full blast clean on a 45-metre telecom mast and associated steelwork. SA2.5 standard achieved; surfaces prepared for zinc-rich primer system.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3353_30cb94a2.webp",
@@ -141,7 +141,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "machinery-east-england",
     title: "Plant & Machinery — Paper Mill Refurbishment",
-    serviceSlug: "machinery-shot-blasting",
+    serviceSlug: "plant-machinery",
     serviceLabel: "Plant & Machinery Shot Blasting",
     description: "Blast clean on 22 pieces of paper mill machinery during planned shutdown. All surfaces prepared to SA2.5 for epoxy coating before recommissioning.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3346_8ac6e144.webp",
@@ -151,7 +151,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "school-steelwork-bucks",
     title: "School Extension Steelwork — Academy Building",
-    serviceSlug: "structural-steel-shot-blasting",
+    serviceSlug: "structural-steel-frames",
     serviceLabel: "Structural Steel Shot Blasting",
     description: "SA2.5 blast clean on 8 portal frames and 120 metres of purlins for a new school sports hall extension. Fabrication primer removed ahead of intumescent coating.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3363_b23b32da.webp",
@@ -161,7 +161,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "wind-turbine-durham",
     title: "Wind Turbine Tower Sections — Renewable Energy Site",
-    serviceSlug: "structural-steel-shot-blasting",
+    serviceSlug: "structural-steel-frames",
     serviceLabel: "Structural Steel Shot Blasting",
     description: "Full SA3 blast clean on 6 tubular tower sections (18 m each) at a wind farm maintenance depot. Mill scale and weathering removed for zinc thermal spray.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3355_362d1f7f.webp",
@@ -171,7 +171,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "factory-cladding-wales",
     title: "Factory Cladding — Food Processing Facility",
-    serviceSlug: "factory-cladding-shot-blasting",
+    serviceSlug: "factory-cladding",
     serviceLabel: "Factory Cladding Shot Blasting",
     description: "Plastisol removal from 1,800 m² of profiled steel cladding at a dairy processing plant. Panels prepared for polyester powder-coat recoating system.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3341_2a6bee76.webp",
@@ -181,7 +181,7 @@ export const recentProjects: RecentProject[] = [
   {
     id: "shipyard-crane-tyneside",
     title: "Shipyard Crane Refurbishment — Port Facility",
-    serviceSlug: "machinery-shot-blasting",
+    serviceSlug: "plant-machinery",
     serviceLabel: "Plant & Machinery Shot Blasting",
     description: "Blast clean on a 35-tonne gantry crane including jib, trolley, and support legs. Heavy corrosion and marine paint removed to SA2.5 for epoxy primer system.",
     afterImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3358_fa5ea2cf.webp",
@@ -196,8 +196,5 @@ export const recentProjects: RecentProject[] = [
  */
 export function getProjectsForCounty(countySlug: string, limit = 3): RecentProject[] {
   const matches = recentProjects.filter(p => p.countySlugs.includes(countySlug));
-  if (matches.length >= limit) return matches.slice(0, limit);
-  // Pad with non-matching projects
-  const others = recentProjects.filter(p => !p.countySlugs.includes(countySlug));
-  return [...matches, ...others].slice(0, limit);
+  return matches.slice(0, limit);
 }

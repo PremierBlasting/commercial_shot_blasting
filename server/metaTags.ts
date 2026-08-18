@@ -6259,9 +6259,7 @@ const SSR_PROJECTS: Array<{ id: string; title: string; serviceSlug: string; serv
 
 function getSSRProjectsForCounty(countySlug: string, limit = 3): typeof SSR_PROJECTS {
   const matches = SSR_PROJECTS.filter(p => p.countySlugs.includes(countySlug));
-  if (matches.length >= limit) return matches.slice(0, limit);
-  const others = SSR_PROJECTS.filter(p => !p.countySlugs.includes(countySlug));
-  return [...matches, ...others].slice(0, limit);
+  return matches.slice(0, limit);
 }
 
 function generateServiceAreaBodyHTML(locationSlug: string): string {
@@ -6291,7 +6289,7 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
     { title: `Mobile Shot Blasting in ${name}`, text: `Our fully equipped mobile units travel directly to your site in ${name}. No need to transport materials — we bring everything needed to complete the job on your premises.` },
     { title: "SA2.5 & SA3 Certified Results", text: `All shot blasting services in ${name} are completed to SA2.5 near white metal or SA3 white metal standard — the correct surface profile for long-lasting protective coatings.` },
     { title: "18 Shot Blasting Services Available", text: `From structural steelwork and factory cladding to containers, floor preparation, and plant & machinery — we offer the full range of commercial shot blasting services in ${name}.` },
-    { title: `24-Hour Response in ${name}`, text: `We typically respond to quote requests within 24 hours and can schedule a free site survey at your convenience anywhere in ${name}.` },
+    { title: `Prompt Response in ${name}`, text: `We'll get back to you promptly and discuss convenient site-survey availability anywhere in ${name}.` },
     { title: `Local Knowledge — ${name} & ${region}`, text: `Familiar with ${name} and the ${region}, we provide reliable shot blasting services you can count on, with no hidden costs.` },
     { title: "Free Site Surveys & Quotes", text: `No-obligation quotations for all shot blasting projects in ${name}. We visit your site at no charge and advise on the correct blast standard for your coating specification.` }
   ];
@@ -6382,7 +6380,7 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
     })()}
     <section aria-label="Why Choose Us">
       <h2>Why Choose Our Shot Blasting Services in ${escHtml(name)}?</h2>
-      <p>We are the specialist choice for commercial and industrial shot blasting services in ${escHtml(name)} — mobile, SA2.5/SA3 certified, and free to quote. We offer 18 shot blasting services, free site surveys, and typically respond within 24 hours.</p>
+      <p>We are the specialist choice for commercial and industrial shot blasting services in ${escHtml(name)} — mobile, SA2.5/SA3 certified, and free to quote. We offer 18 shot blasting services, free site surveys, and will get back to you promptly.</p>
       ${whyHtml}
     </section>
     <section aria-label="Services">
@@ -6412,14 +6410,6 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
         ${getSSRProjectsForCounty(countySlug || '', 3).map(p => `<li><a href="${SITE_URL}/services/${p.serviceSlug}">${escHtml(p.title)} (${escHtml(p.serviceLabel)}) — ${escHtml(p.date)}: ${escHtml(p.description)}</a></li>`).join('\n        ')}
       </ul>
       <p><a href="${SITE_URL}/our-work">View all completed shot blasting projects</a></p>
-    </section>
-    <section aria-label="Local Case Studies">
-      <h2>Commercial Shot Blasting Projects in ${escHtml(name)}</h2>
-      <p>Examples of the type of commercial and industrial shot blasting work we carry out in ${escHtml(county)} and surrounding areas:</p>
-      <ul>
-        ${getSSRProjectsForCounty(countySlug || '', 3).map(p => `<li><a href="${SITE_URL}/services/${p.serviceSlug}">${escHtml(p.title)} (${escHtml(p.serviceLabel)}) — ${escHtml(p.date)}: ${escHtml(p.description)}</a></li>`).join('\n        ')}
-      </ul>
-      <p><a href="${SITE_URL}/our-work">View all our completed projects</a> | <a href="${SITE_URL}/site-survey">Book a free site survey</a></p>
     </section>
     <section aria-label="Popular Services Near">
       <h2>Popular Shot Blasting Services near ${escHtml(name)}</h2>
@@ -6571,6 +6561,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
     modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="https://commercialshotblasting.co.uk/">Home</a> | <a href="https://commercialshotblasting.co.uk/services">Services</a> | <a href="https://commercialshotblasting.co.uk/service-areas">Service Areas</a> | <a href="https://commercialshotblasting.co.uk/about">About</a> | <a href="https://commercialshotblasting.co.uk/contact">Contact</a> | <a href="https://commercialshotblasting.co.uk/blog">Blog</a> | <a href="https://commercialshotblasting.co.uk/industries">Industries</a> | <a href="https://commercialshotblasting.co.uk/glossary">Glossary</a> | <a href="https://commercialshotblasting.co.uk/site-survey">Free Site Survey</a></nav><main><h1>Shot Blasting Services UK</h1><p>Professional mobile shot blasting services for structural steel, factory cladding, fire escapes, staircases, pipework, containers, vehicles and more. SA2.5 and SA3 standards. Free quotes across the UK.</p><ul><li><a href="https://commercialshotblasting.co.uk/services/structural-steel-frames">Structural Steel Frames Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/steel-containers">Steel Container Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/factory-cladding">Factory &amp; Warehouse Cladding Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/fire-escapes">Fire Escape Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/staircases">Staircase Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/bridge-steelwork">Bridge Steelwork Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/ladders">Ladder Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/warehouse-racking">Warehouse Racking Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/pipework">Pipework Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/floor-preparation">Floor Preparation Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/rust-removal">Rust Removal Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/mill-scale-removal">Mill Scale Removal</a></li><li><a href="https://commercialshotblasting.co.uk/services/paint-stripping">Paint Stripping Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/coating-removal">Coating Removal Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/marine-shot-blasting">Marine Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/intumescent-painting">Intumescent Painting</a></li><li><a href="https://commercialshotblasting.co.uk/services/commercial-vehicles">Commercial Vehicle Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/agricultural-shot-blasting">Agricultural Shot Blasting</a></li></ul></main></div>`);
+    modifiedHtml = modifiedHtml.replace("</main></div>", `<section aria-label="Commercial Project Planning"><h2>Commercial Project Planning Guides</h2><ul><li><a href="${SITE_URL}/services/structural-steel-frames">Structural steel shot blasting</a> — <a href="${SITE_URL}/blog/how-to-prepare-structural-steel-for-intumescent-painting">prepare structural steel for intumescent paint</a></li><li><a href="${SITE_URL}/services/factory-cladding">Factory cladding blasting</a> — <a href="${SITE_URL}/blog/shot-blasting-vs-chemical-stripping">shot blasting versus chemical stripping</a></li><li><a href="${SITE_URL}/blog/sa-2-5-vs-sa-3-surface-preparation-standard">Sa 2.5 versus Sa 3</a> — <a href="${SITE_URL}/blog/how-to-specify-shot-blasting-construction-contract">specify shot blasting in a construction contract</a></li></ul><p><a href="${SITE_URL}/site-survey">Request a site visit</a> for a project-specific survey.</p></section></main></div>`);
     return modifiedHtml;
   }
 

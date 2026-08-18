@@ -15,6 +15,7 @@ import { serveStatic, setupVite } from "./vite";
 import { registerSitemapRoute } from "../sitemap";
 import { registerOgImageRoute } from "../ogImage";
 import { getActiveTestimonials, getActiveGalleryItems, getPublishedBlogPosts } from "../db";
+import { getCanonicalServicePath, isCanonicalServiceSlug } from "@shared/serviceSeoCatalog";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -74,18 +75,16 @@ async function startServer() {
     res.redirect(301, "/site-survey");
   });
 
-  // 301 redirects: old/legacy service URL slugs → canonical current URLs
-  app.get("/services/marine-services", (_req, res) => {
-    res.redirect(301, "/services/marine-shot-blasting");
-  });
-  app.get("/services/bridge-steelwork-shot-blasting", (_req, res) => {
-    res.redirect(301, "/services/bridge-steelwork");
-  });
-  app.get("/services/automotive-restoration", (_req, res) => {
-    res.redirect(301, "/services/commercial-vehicles");
-  });
-  app.get("/services/steel-shot-blasting", (_req, res) => {
-    res.redirect(301, "/services/structural-steel-frames");
+  // Canonical service routing: redirects historic aliases and returns a genuine
+  // 404 for unknown service paths instead of a 200-status SPA error screen.
+  app.get("/services/:slug", (req, res, next) => {
+    const slug = req.params.slug;
+    const canonicalPath = getCanonicalServicePath(slug);
+    if (canonicalPath && canonicalPath !== req.path) {
+      return res.redirect(301, canonicalPath);
+    }
+    if (isCanonicalServiceSlug(slug)) return next();
+    return res.status(404).set("Content-Type", "text/html; charset=utf-8").send(`<!doctype html><html lang="en-GB"><head><meta name="robots" content="noindex, follow"><title>Service Not Found | Commercial Shot Blasting</title></head><body><main><h1>Service Not Found</h1><p>The requested service page is not available. Please browse our <a href="/services">shot blasting services</a> or <a href="/contact">contact Commercial Shot Blasting</a>.</p></main></body></html>`);
   });
   // 301 redirect: /gloucestershire → /counties/gloucestershire
   app.get("/gloucestershire", (_req, res) => {

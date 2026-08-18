@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import { getCanonicalServicePath, LEGACY_SERVICE_REDIRECTS, isCanonicalServiceSlug, normaliseServiceUrls } from "../shared/serviceSeoCatalog";
 
 /**
  * Phase 1 GSC Indexing Recovery — Redirect Route Tests
@@ -58,5 +59,19 @@ describe("GSC Phase 1 — Redirect configuration", () => {
     const legacyLink = `/areas/${slug}`;
     expect(correctLink).not.toBe(legacyLink);
     expect(correctLink).toMatch(/^\/service-areas\//);
+  });
+
+  it("redirects legacy service aliases and preserves a single canonical service route", () => {
+    expect(getCanonicalServicePath("structural-steel-shot-blasting")).toBe("/services/structural-steel-frames");
+    expect(getCanonicalServicePath("container-shot-blasting")).toBe("/services/steel-containers");
+    expect(isCanonicalServiceSlug("structural-steel-frames")).toBe(true);
+    expect(isCanonicalServiceSlug("structural-steel-shot-blasting")).toBe(false);
+    expect(Object.keys(LEGACY_SERVICE_REDIRECTS)).toContain("floor-shot-blasting");
+  });
+
+  it("rewrites stale crawler-visible service links to their canonical equivalents", () => {
+    const html = '<a href="/services/structural-steel-shot-blasting">Steel</a><script>{"url":"/services/floor-shot-blasting"}</script>';
+    expect(normaliseServiceUrls(html)).toContain('/services/structural-steel-frames');
+    expect(normaliseServiceUrls(html)).toContain('/services/floor-preparation');
   });
 });

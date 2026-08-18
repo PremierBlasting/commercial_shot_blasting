@@ -3,6 +3,7 @@ import { locationSlugIndex } from "../client/src/data/locationSlugIndex";
 import { countyData } from "../client/src/data/countyData";
 import { countyLastModified, locationLastModified } from "../shared/sitemapLastModified";
 import { buildSitemap } from "./sitemap";
+import { CANONICAL_SERVICE_SLUGS, LEGACY_SERVICE_REDIRECTS } from "../shared/serviceSeoCatalog";
 
 describe("dynamic full-site sitemap", () => {
   it("includes every current service-area and county hub URL", async () => {
@@ -28,6 +29,16 @@ describe("dynamic full-site sitemap", () => {
     const xml = await buildSitemap();
     for (const path of ["/", "/contact", "/site-survey", "/counties", "/service-areas", "/privacy-policy", "/blog"]) {
       expect(xml).toContain(`https://commercialshotblasting.co.uk${path}`);
+    }
+  });
+
+  it("lists only canonical live service URLs", async () => {
+    const xml = await buildSitemap();
+    for (const slug of CANONICAL_SERVICE_SLUGS) {
+      expect(xml).toContain(`https://commercialshotblasting.co.uk/services/${slug}`);
+    }
+    for (const legacySlug of Object.keys(LEGACY_SERVICE_REDIRECTS)) {
+      expect(xml).not.toContain(`https://commercialshotblasting.co.uk/services/${legacySlug}`);
     }
   });
 

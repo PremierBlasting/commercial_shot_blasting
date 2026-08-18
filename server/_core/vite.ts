@@ -11,6 +11,8 @@ const __dirname_vite = path.dirname(__filename);
 import { createServer as createViteServer } from "vite";
 import viteConfig from "../../vite.config";
 import { injectMetaTags } from "../metaTags";
+import { normaliseServiceUrls } from "@shared/serviceSeoCatalog";
+import { normaliseResponseTimeCopy } from "@shared/seoContentPolicy";
 // JSON-LD is now handled entirely by client-side jsonld-inject.js to avoid duplicates
 
 export async function setupVite(app: Express, server: Server) {
@@ -50,7 +52,7 @@ export async function setupVite(app: Express, server: Server) {
         `src="/src/main.tsx?v=${nanoid()}"`
       );
       // Inject meta tags for SEO (service area pages)
-      template = await injectMetaTags(template, url);
+      template = normaliseResponseTimeCopy(normaliseServiceUrls(await injectMetaTags(template, url)));
       const page = await vite.transformIndexHtml(url, template);
       res.status(200).set({ "Content-Type": "text/html" }).end(page);
     } catch (e) {
@@ -127,7 +129,7 @@ export function serveStatic(app: Express) {
     const indexPath = path.resolve(distPath, "index.html");
     let html = fs.readFileSync(indexPath, "utf-8");
     // Inject meta tags for SEO (service area pages)
-    html = await injectMetaTags(html, req.originalUrl);
+    html = normaliseResponseTimeCopy(normaliseServiceUrls(await injectMetaTags(html, req.originalUrl)));
     res.status(200).set({ "Content-Type": "text/html" }).send(html);
   });
 }

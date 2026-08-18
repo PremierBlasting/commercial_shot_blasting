@@ -1611,3 +1611,14 @@
 - [x] Add a safe native/fallback Share This Project control to verified project cards
 - [x] Attach approved multi-image galleries only where the documented structural case study provides matching image evidence
 - [x] Add regression coverage and validate TypeScript and the full test suite
+
+## SEO Priority Assessment (18 August 2026)
+- [x] Produce and prioritise the ten highest-impact SEO actions for organic discovery, indexing, and qualified commercial lead generation
+
+## Top Five SEO Implementation (18 August 2026)
+- [x] Replace invalid sitemap service URLs with the canonical live service route catalogue and add regression coverage
+- [x] Add permanent redirects and a shared canonical service URL source for legacy aliases, internal links, project cards, SSR, and structured data
+- [x] Improve the priority local-page template with verified, non-duplicated commercial evidence and remove residual response-time wording conflicts
+- [x] Add an explicit tiered local-page catalogue strategy that preserves high-value pages and suppresses low-evidence long-tail duplication from sitemap discovery
+- [x] Publish the first commercial-intent content clusters with authoritative internal links to core service and site-visit pages
+- [x] Validate rendered SEO output, production build, TypeScript, and the full test suite

@@ -10,6 +10,7 @@ import { ProjectImageGallery } from "@/components/ProjectImageGallery";
 import { ProjectShareButton } from "@/components/ProjectShareButton";
 import { validateLeadEmailClient } from "@shared/emailValidation";
 import { isValidUKPostcode, normalisePostcode } from "@shared/postcodeUtils";
+import { getCanonicalServicePath } from "@shared/serviceSeoCatalog";
 
 const SERVICE_OPTIONS = [
   "Structural Steelwork",
@@ -317,7 +318,7 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
                         </button>
                         <span className="flex items-center gap-2">
                           <ProjectShareButton projectId={project.id} projectTitle={project.title} />
-                          <a href={`/services/${project.serviceSlug}`} className="font-semibold text-[#2C5F7F] underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/30">View service</a>
+                          <a href={getCanonicalServicePath(project.serviceSlug) ?? "/services"} className="font-semibold text-[#2C5F7F] underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]/30">View service</a>
                         </span>
                       </div>
                       {expandedProjectId === project.id && (

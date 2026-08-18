@@ -42,6 +42,8 @@ import { countyContext } from '@shared/countyContext';
 import { townSpotlight } from '@shared/townSpotlight';
 import { services } from '@/data/services';
 import { getProjectsForCounty } from '@/data/recentProjects';
+import { getCanonicalServicePath } from '@shared/serviceSeoCatalog';
+import { normaliseResponseTimeCopy } from '@shared/seoContentPolicy';
 import { trpc } from "@/lib/trpc";
 import { formatUTMForSubmission } from "@/lib/utm";
 export type { LocationData };
@@ -184,6 +186,16 @@ export function LocationPage({ location }: LocationPageProps) {
     { label: location.name, href: `/service-areas/${location.slug}`, isCurrentPage: true }
   ];
   const locationSpotlight = location.spotlightText || townSpotlight[location.slug];
+  const displayedFaqs = [
+    ...(location.uniqueFaqs || []).slice(0, 3).map((faq) => ({
+      question: faq.question,
+      answer: normaliseResponseTimeCopy(faq.answer),
+    })),
+    ...generateLocationFAQs(location.name, location.county).map((faq) => ({
+      ...faq,
+      answer: normaliseResponseTimeCopy(faq.answer),
+    })),
+  ];
 
   return (
     <>
@@ -196,7 +208,7 @@ export function LocationPage({ location }: LocationPageProps) {
         nearbyAreas={location.nearbyAreas}
       />
       <ReviewSchema locationName={location.name} county={location.county} />
-      <FAQSchema faqs={[...(location.uniqueFaqs || []).slice(0, 3).map(f => ({ question: f.question, answer: f.answer })), ...generateLocationFAQs(location.name, location.county)]} locationName={location.name} />
+      <FAQSchema faqs={displayedFaqs} locationName={location.name} />
       
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
 
@@ -393,6 +405,7 @@ export function LocationPage({ location }: LocationPageProps) {
       {/* Typical Commercial Projects in {location.name} — industry-specific examples */}
       {(() => {
         const typicalProjects = getProjectsForCounty(location.countySlug || '', 3);
+        if (typicalProjects.length === 0) return null;
         return (
           <section className="py-12 bg-[#f0f6fb] border-y border-blue-100">
             <div className="container">
@@ -402,14 +415,14 @@ export function LocationPage({ location }: LocationPageProps) {
                   Commercial Shot Blasting Projects in {location.name}
                 </h2>
                 <p className="text-gray-600 max-w-2xl mx-auto text-sm">
-                  Examples of the type of commercial and industrial shot blasting work we carry out in {location.county} and surrounding areas.
+                  Verified project examples relevant to {location.county} and the surrounding commercial area.
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
                 {typicalProjects.map(project => (
                   <a
                     key={project.id}
-                    href={`/services/${project.serviceSlug}`}
+                    href={getCanonicalServicePath(project.serviceSlug) ?? "/services"}
                     title={`${project.title} — ${project.serviceLabel} in ${location.name}`}
                     className="group bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md hover:border-[#2C5F7F] transition-all duration-200 flex flex-col"
                   >
@@ -726,7 +739,7 @@ export function LocationPage({ location }: LocationPageProps) {
             </div>
 
             <div className="space-y-3" itemScope itemType="https://schema.org/FAQPage">
-              {[...(location.uniqueFaqs || []).slice(0, 3).map(f => ({ question: f.question, answer: f.answer })), ...generateLocationFAQs(location.name, location.county)].map((faq, index) => (
+              {displayedFaqs.map((faq, index) => (
                 <div key={index} className="bg-gray-50 rounded-lg overflow-hidden" itemScope itemType="https://schema.org/Question">
                   <button
                     type="button"
@@ -1050,7 +1063,7 @@ export function LocationPage({ location }: LocationPageProps) {
                 {projects.map(project => (
                   <a
                     key={project.id}
-                    href={`/services/${project.serviceSlug}`}
+                    href={getCanonicalServicePath(project.serviceSlug) ?? "/services"}
                     title={`${project.title} — ${project.serviceLabel} near ${location.name}`}
                     className="group bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md hover:border-[#2C5F7F] transition-all duration-200 flex flex-col"
                   >

@@ -73,6 +73,39 @@ const allServices = [
   { id: "agricultural-shot-blasting", title: "Agricultural Shot Blasting", description: "Shot blasting for farm machinery, grain stores, and agricultural steelwork — mobile service to your farm.", image: "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800&q=80" },
 ];
 
+const commercialResourceClusters = [
+  {
+    eyebrow: "Structural Steel & Fire Protection",
+    title: "Prepare structural steel for durable coating systems",
+    description: "Practical guidance for fabricators, main contractors, and specifiers planning blast cleaning before primer or intumescent paint.",
+    links: [
+      { label: "Structural steel shot blasting", href: "/services/structural-steel-frames" },
+      { label: "Intumescent painting preparation", href: "/services/intumescent-painting" },
+      { label: "Prepare structural steel for intumescent paint", href: "/blog/how-to-prepare-structural-steel-for-intumescent-painting" },
+    ],
+  },
+  {
+    eyebrow: "Industrial Building Refurbishment",
+    title: "Plan cladding and coating-removal projects with less disruption",
+    description: "Compare preparation options, define the existing coating condition, and plan the right sequence before a building-refurbishment programme begins.",
+    links: [
+      { label: "Factory cladding blasting", href: "/services/factory-cladding" },
+      { label: "Coating removal", href: "/services/coating-removal" },
+      { label: "Shot blasting vs chemical stripping", href: "/blog/shot-blasting-vs-chemical-stripping" },
+    ],
+  },
+  {
+    eyebrow: "Specification & Procurement",
+    title: "Specify the blast standard, scope, and site survey correctly",
+    description: "Useful resources for estimating teams and project managers comparing Sa standards, scope factors, and the information needed for an accurate survey.",
+    links: [
+      { label: "Sa 2.5 vs Sa 3 explained", href: "/blog/sa-2-5-vs-sa-3-surface-preparation-standard" },
+      { label: "Specify shot blasting in a construction contract", href: "/blog/how-to-specify-shot-blasting-construction-contract" },
+      { label: "Request a site visit", href: "/site-survey" },
+    ],
+  },
+];
+
 export default function Services() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
@@ -229,6 +262,39 @@ export default function Services() {
                   </div>
                 </Link>
               </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Commercial-intent topic clusters: connect services to the guides buyers need before enquiring. */}
+      <section className="border-y border-slate-200 bg-slate-50 py-16">
+        <div className="container">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <p className="mb-2 font-medium text-[#2C5F7F]">Commercial Project Planning</p>
+            <h2 className="text-3xl font-bold text-[#2C2C2C] md:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Guidance for Specifying and Planning Shot Blasting Work
+            </h2>
+            <p className="mt-4 text-gray-600">
+              Explore service-specific guidance before you request a survey, compare preparation options, or finalise a coating specification.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {commercialResourceClusters.map((cluster) => (
+              <article key={cluster.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#2C5F7F]">{cluster.eyebrow}</p>
+                <h3 className="mt-3 text-xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>{cluster.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-gray-600">{cluster.description}</p>
+                <ul className="mt-5 space-y-3 border-t border-slate-100 pt-4">
+                  {cluster.links.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="inline-flex items-center gap-2 text-sm font-semibold text-[#2C5F7F] hover:text-[#1a3d52] hover:underline">
+                        {link.label} <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </article>
             ))}
           </div>
         </div>

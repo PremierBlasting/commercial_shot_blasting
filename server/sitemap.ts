@@ -14,6 +14,8 @@ import { getPublishedBlogPosts, getActiveGalleryItems } from "./db";
 import { locationSlugIndex } from "../client/src/data/locationSlugIndex";
 import { countyData } from "../client/src/data/countyData";
 import { countyLastModified, locationLastModified } from "@shared/sitemapLastModified";
+import { CANONICAL_SERVICE_SLUGS } from "@shared/serviceSeoCatalog";
+import { getLocationSitemapTier, shouldIncludeLocationInSitemap } from "@shared/locationSeoTiers";
 
 const SITE_URL = "https://commercialshotblasting.co.uk";
 const CATALOGUE_BASELINE_LASTMOD = "2026-02-18";
@@ -36,33 +38,11 @@ const STATIC_PAGES = [
   { loc: "/our-work", changefreq: "monthly", priority: "0.6" },
   { loc: "/steel-fabrications", changefreq: "weekly", priority: "0.8" },
   { loc: "/external-staircases", changefreq: "weekly", priority: "0.8" },
-  { loc: "/services/car-park-paint-removal", changefreq: "weekly", priority: "0.8" },
-  { loc: "/services/intumescent-painting", changefreq: "weekly", priority: "0.8" },
   { loc: "/sitemap", changefreq: "monthly", priority: "0.5" },
 ];
 
 // ── Service pages ─────────────────────────────────────────────────────────────
-const SERVICE_SLUGS = [
-  "structural-steel-shot-blasting",
-  "container-shot-blasting",
-  "factory-cladding-shot-blasting",
-  "floor-shot-blasting",
-  "fire-escape-shot-blasting",
-  "pipework-shot-blasting",
-  "agricultural-shot-blasting",
-  "telecom-tower-shot-blasting",
-  "machinery-shot-blasting",
-  "racking-shot-blasting",
-  "marine-shot-blasting",
-  "heritage-shot-blasting",
-  "rust-removal",
-  "mill-scale-removal",
-  "paint-stripping",
-  "coating-removal",
-  "surface-preparation",
-  "mobile-shot-blasting",
-  "intumescent-painting",
-];
+const SERVICE_SLUGS = CANONICAL_SERVICE_SLUGS;
 
 // ── Industry pages ────────────────────────────────────────────────────────────
 const INDUSTRY_SLUGS = [
@@ -75,14 +55,6 @@ const INDUSTRY_SLUGS = [
   "retail",
   "transport-logistics",
 ];
-
-// ── Top 20 major city slugs — higher priority/changefreq ─────────────────────
-const TOP_CITY_SLUGS = new Set([
-  "birmingham", "manchester", "leeds", "sheffield", "bristol",
-  "liverpool", "newcastle-upon-tyne", "nottingham", "leicester", "coventry",
-  "bradford", "cardiff", "glasgow", "edinburgh", "southampton",
-  "portsmouth", "derby", "wolverhampton", "stoke-on-trent", "hull",
-]);
 
 function loadTownSlugs(): string[] {
   return Object.keys(locationSlugIndex);
@@ -133,11 +105,13 @@ export async function buildSitemap(): Promise<string> {
     );
   }
 
-  // Town / service-area pages — top 20 cities get higher priority + weekly crawl
+  // Town / service-area pages — Tier A commercial hubs receive the strongest crawl
+  // hint. Pages moved to review are held back until evidence-led local copy is ready.
   for (const slug of townSlugs) {
-    const isTopCity = TOP_CITY_SLUGS.has(slug);
-    const changefreq = isTopCity ? "weekly" : "monthly";
-    const priority = isTopCity ? "0.8" : "0.6";
+    if (!shouldIncludeLocationInSitemap(slug)) continue;
+    const tier = getLocationSitemapTier(slug);
+    const changefreq = tier === "A" ? "weekly" : "monthly";
+    const priority = tier === "A" ? "0.8" : "0.6";
     const lastmod = locationLastModified[slug] ?? CATALOGUE_BASELINE_LASTMOD;
     urls.push(
       `  <url>\n    <loc>${escapeXml(`${SITE_URL}/service-areas/${slug}`)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`
