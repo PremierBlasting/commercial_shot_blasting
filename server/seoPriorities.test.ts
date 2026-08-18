@@ -7,6 +7,8 @@ import { getProjectsForCounty } from "../client/src/data/recentProjects";
 describe("SEO priority safeguards", () => {
   it("uses only live canonical service paths and redirects historic aliases", () => {
     expect(CANONICAL_SERVICE_SLUGS).toContain("structural-steel-frames");
+    expect(CANONICAL_SERVICE_SLUGS).toContain("steel-chimney-surface-preparation");
+    expect(getCanonicalServicePath("steel-chimney-surface-preparation")).toBe("/services/steel-chimney-surface-preparation");
     expect(getCanonicalServicePath("structural-steel-shot-blasting")).toBe("/services/structural-steel-frames");
     expect(normaliseServiceUrls('<a href="/services/floor-shot-blasting">Floor</a>')).toContain("/services/floor-preparation");
   });
@@ -28,5 +30,20 @@ describe("SEO priority safeguards", () => {
   it("never pads local project examples with an unrelated county", () => {
     const projects = getProjectsForCounty("cornwall", 3);
     expect(projects.every((project) => project.countySlugs.includes("cornwall"))).toBe(true);
+  });
+
+  it("keeps the chimney service evidence-led and linked to estimating content", async () => {
+    const { readFileSync } = await import("node:fs");
+    const { resolve } = await import("node:path");
+    const projectRoot = resolve(import.meta.dirname, "..");
+    const serviceData = readFileSync(resolve(projectRoot, "client/src/data/services.ts"), "utf8");
+    const servicePage = readFileSync(resolve(projectRoot, "client/src/pages/ServiceDetail.tsx"), "utf8");
+    const headerData = readFileSync(resolve(projectRoot, "client/src/components/headerData.ts"), "utf8");
+
+    expect(serviceData).toContain('id: "steel-chimney-surface-preparation"');
+    expect(serviceData).toContain("We do not assume a standard from appearance alone");
+    expect(servicePage).toContain("Steel Chimney Section — Surface Preparation");
+    expect(servicePage).toContain("steel-fabrication-shot-blasting-costs-and-programme-guide");
+    expect(headerData).toContain("Steel Chimneys, Process Stacks & Flues");
   });
 });

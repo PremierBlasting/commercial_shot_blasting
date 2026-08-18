@@ -1636,3 +1636,9 @@
 - [x] Add contextual internal links between the new guides, Structural Steel Frames, Steel Fabrications, the steel-chimney project, and Site Visit flow
 - [x] Replace the residual 24-hour reply promise in the shared blog CTA with approved prompt-response wording
 - [x] Add regression coverage and validate the production build, TypeScript, and full test suite
+
+## Steel Chimney Service Page and Fabricator Estimating Guide (18 August 2026)
+- [x] Create a dedicated steel-chimney surface-preparation service route with factual scope, verified project media, FAQs, schema, and Site Visit conversion pathway
+- [x] Add the steel-chimney service to the service catalogue, navigation pathways, sitemap, SSR metadata, and canonical URL maps
+- [x] Publish a fabricator-focused guide to blast-cleaning costs and programme factors, with internal links to steel services, the chimney case study, and Site Visit
+- [x] Add regression coverage and validate the production build, TypeScript, and full test suite

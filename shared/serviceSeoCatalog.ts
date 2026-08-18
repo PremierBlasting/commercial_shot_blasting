@@ -5,6 +5,7 @@
  */
 export const CANONICAL_SERVICE_SLUGS = [
   "structural-steel-frames",
+  "steel-chimney-surface-preparation",
   "steel-containers",
   "factory-cladding",
   "fire-escapes",

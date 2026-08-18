@@ -112,6 +112,11 @@ function getBreadcrumbSchema(items: { name: string; url: string }[]) {
 // Service schema for service detail pages
 function getServiceSchema(serviceId: string) {
   const serviceData: Record<string, { name: string; description: string; image?: string }> = {
+    "steel-chimney-surface-preparation": {
+      name: "Steel Chimney and Process Stack Surface Preparation",
+      description: "Surface preparation for fabricated steel chimneys, process stacks, flues, and duct sections, planned around accessible shells, flanges, openings, internal surfaces, and coating handover requirements.",
+      image: "/manus-storage/SteelChimneyAfter2_3b5e3186.jpeg"
+    },
     "structural-steel-frames": {
       name: "Structural Steel Frame Shot Blasting",
       description: "Professional shot blasting for structural steel frames, removing mill scale, rust, and old coatings to prepare surfaces for protective treatments.",

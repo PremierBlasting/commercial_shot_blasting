@@ -1592,6 +1592,67 @@ export const services: ServiceData[] = [
     ]
   },
   {
+    id: "steel-chimney-surface-preparation",
+    title: "Steel Chimneys, Process Stacks & Flues",
+    shortTitle: "Steel Chimneys & Stacks",
+    tagline: "Surface Preparation for Fabricated Steel Chimneys, Stacks & Flues",
+    description: "Commercial Shot Blasting provides controlled surface preparation for fabricated steel chimneys, process stacks, flues, duct sections, and associated steelwork. We plan access around cylindrical shells, flanges, access openings, stiffeners, internal surfaces, and lifting arrangements, then prepare the accessible steelwork for the specified coating or protection sequence. Every scope is reviewed against the available drawings, current condition, site controls, and coating requirements before work is scheduled.",
+    heroImage: "/manus-storage/SteelChimneyAfter2_3b5e3186.jpeg",
+    benefits: [
+      "Evidence-led planning for cylindrical fabricated steelwork",
+      "Preparation scopes for shells, flanges, access openings, and attachments",
+      "Access and handling planned around the workpiece and working environment",
+      "Supports the specified coating, refurbishment, or installation sequence",
+      "Suitable for workshop fabrications and accessible site-based assemblies",
+      "England and Wales commercial coverage with a tailored Site Visit"
+    ],
+    process: [
+      { step: 1, title: "Scope & Drawing Review", description: "We review available drawings, dimensions, photographs, coating requirements, and access constraints to define the surfaces, interfaces, and exclusions for the chimney or stack assembly." },
+      { step: 2, title: "Access, Handling & Protection Plan", description: "The workpiece is assessed for safe positioning, lifting points, internal access, surrounding-work protection, containment, and practical inspection access before surface preparation starts." },
+      { step: 3, title: "Controlled Surface Preparation", description: "We prepare accessible fabricated steelwork using a method and sequence appropriate to the item, its current condition, the project environment, and the specified coating or protection requirements." },
+      { step: 4, title: "Inspection & Handover", description: "Prepared surfaces are reviewed against the agreed project requirements. Flanges, access openings, weld transitions, attachments, and accessible internals are included in the planned inspection sequence." },
+      { step: 5, title: "Coating & Installation Coordination", description: "We coordinate the handover so the prepared steelwork can move into its agreed coating, protection, transport, or installation sequence without unnecessary re-contamination." }
+    ],
+    applications: [
+      "Fabricated steel chimney sections",
+      "Industrial process stacks and flues",
+      "Exhaust and ventilation stack sections",
+      "Cylindrical duct and transition sections",
+      "Stack flanges, access doors, and inspection openings",
+      "Base sections, stiffeners, support lugs, and attachments",
+      "Workshop-fabricated assemblies before coating",
+      "Accessible refurbishment and maintenance scopes"
+    ],
+    caseStudies: [
+      {
+        title: "Steel Chimney Section — Surface Preparation",
+        client: "Verified Commercial Shot Blasting project",
+        challenge: "A supplied project record documents a fabricated steel chimney section with cylindrical body sections, a large flange, access opening, stiffeners, and accessible internal surfaces requiring a planned surface-preparation sequence.",
+        solution: "The documented imagery and video show the chimney section through surface preparation from several angles, including the main body, access opening, flange, and internal view. The project record is presented without an unverified site location, programme duration, blast standard, client name, or final coating-system claim.",
+        result: "The case study provides verifiable visual evidence of the fabricated chimney assembly at prepared-surface stage for project teams considering comparable chimney, stack, or flue scopes.",
+        image: "/manus-storage/SteelChimneyAfter2_3b5e3186.jpeg"
+      }
+    ],
+    faqs: [
+      {
+        question: "What steel-chimney surfaces can you prepare?",
+        answer: "A scope can include accessible external shells, flanges, access-door frames, stiffeners, attachments, and internal surfaces. The exact areas are confirmed from drawings, photographs, access arrangements, and the coating or protection specification."
+      },
+      {
+        question: "Can you prepare internal chimney or stack surfaces?",
+        answer: "Where access and project controls allow, internal surfaces can be included in the scope. Ventilation, lighting, access, debris recovery, inspection, and the applicable specification should be agreed during the planning stage."
+      },
+      {
+        question: "What blast-cleaning standard will a chimney project achieve?",
+        answer: "The required surface condition, profile, contamination limits, and records should be determined by the project specification, responsible engineer, or coating manufacturer. We do not assume a standard from appearance alone."
+      },
+      {
+        question: "Can you help us plan a chimney fabrication before coating?",
+        answer: "Yes. A Site Visit can review the fabrication drawings, current condition, lifting and access constraints, work environment, and coating requirements so the preparation and handover sequence is defined before work begins."
+      }
+    ]
+  },
+  {
     id: "agricultural-shot-blasting",
     title: "Agricultural Shot Blasting",
     shortTitle: "Agricultural Blasting",

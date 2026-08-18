@@ -3961,6 +3961,25 @@ interface ServiceMeta {
 }
 
 const serviceMeta: Record<string, ServiceMeta> = {
+  "steel-chimney-surface-preparation": {
+    id: "steel-chimney-surface-preparation",
+    title: "Steel Chimney & Process Stack Surface Preparation | Commercial Shot Blasting",
+    description: "Surface preparation for fabricated steel chimneys, process stacks, flues, and duct sections. Plan access, internals, flanges, and coating handover with Commercial Shot Blasting.",
+    heroImage: "/manus-storage/SteelChimneyAfter2_3b5e3186.jpeg",
+    benefits: ["Planned surface preparation for fabricated chimney sections", "Scope for accessible shells, flanges, openings, and attachments", "Internal-surface access considered at survey stage", "Handover coordinated to coating or protection requirements"],
+    process: [
+      { step: 1, title: "Scope & Drawing Review", description: "We review available drawings, condition images, access constraints, and coating requirements to define the work scope." },
+      { step: 2, title: "Access & Handling Plan", description: "We plan stable positioning, lifting, internal access, containment, and practical inspection access for the assembly." },
+      { step: 3, title: "Controlled Surface Preparation", description: "Accessible steelwork is prepared using a method and sequence appropriate to the workpiece, environment, and specification." },
+      { step: 4, title: "Inspection & Handover", description: "Prepared surfaces are reviewed against the agreed project requirements before coating, protection, transport, or installation." }
+    ],
+    applications: ["Fabricated steel chimney sections", "Industrial process stacks and flues", "Cylindrical duct and transition sections", "Stack flanges, access doors, and openings", "Stiffeners, support lugs, and attachments"],
+    faqs: [
+      { question: "What steel-chimney surfaces can you prepare?", answer: "Accessible external shells, flanges, access-door frames, stiffeners, attachments, and internal surfaces can be included when they are confirmed by drawings, access arrangements, and the project specification." },
+      { question: "Can internal chimney or stack surfaces be included?", answer: "Where access and project controls allow, internal surfaces can be included. Ventilation, lighting, debris recovery, inspection, and specification requirements are agreed during planning." },
+      { question: "What preparation standard will the chimney achieve?", answer: "The required surface condition, profile, contamination limits, and records should be set by the project specification, responsible engineer, or coating manufacturer. We do not assume a standard from appearance alone." }
+    ]
+  },
   "structural-steel-frames": {
     id: "structural-steel-frames",
     title: "Structural Steel Frames Shot Blasting | Professional Surface Preparation",
@@ -4654,6 +4673,23 @@ function generateServiceBodyHTML(serviceId: string): string {
     applications: string[];
     faqs: Array<{q: string; a: string}>;
   }> = {
+    "steel-chimney-surface-preparation": {
+      title: "Steel Chimneys, Process Stacks & Flues",
+      tagline: "Surface Preparation for Fabricated Steel Chimneys, Stacks & Flues",
+      description: "Commercial Shot Blasting prepares accessible fabricated steel chimneys, process stacks, flues, duct sections, flanges, access openings, and associated steelwork. We review drawings, access, handling, inspection points, and coating requirements before work is scheduled.",
+      steps: [
+        { title: "Scope & Drawing Review", description: "We review available drawings, dimensions, condition images, access constraints, and coating requirements to define the scope." },
+        { title: "Access, Handling & Protection", description: "The assembly is assessed for safe positioning, lifting, internal access, containment, and practical inspection access." },
+        { title: "Controlled Surface Preparation", description: "Accessible fabricated steelwork is prepared using a sequence suitable for the workpiece, working environment, and specified protection requirements." },
+        { title: "Inspection & Handover", description: "Prepared surfaces are reviewed against the agreed project requirements before the coating, transport, or installation sequence." }
+      ],
+      applications: ["Fabricated steel chimney sections", "Industrial process stacks and flues", "Cylindrical duct and transition sections", "Stack flanges and access openings", "Stiffeners, support lugs, and attachments"],
+      faqs: [
+        { q: "What steel-chimney surfaces can you prepare?", a: "Accessible external shells, flanges, access-door frames, stiffeners, attachments, and internal surfaces can be included when confirmed by drawings, access arrangements, and the project specification." },
+        { q: "Can internal chimney or stack surfaces be included?", a: "Where access and project controls allow, internal surfaces can be included. Ventilation, lighting, debris recovery, inspection, and specification requirements are agreed during planning." },
+        { q: "What preparation standard will the chimney achieve?", a: "The required surface condition, profile, contamination limits, and records should be set by the project specification, responsible engineer, or coating manufacturer." }
+      ]
+    },
     "structural-steel-frames": {
       title: "Structural Steel Frames",
       tagline: "Comprehensive Shot Blasting for Structural Steelwork",
@@ -5361,6 +5397,7 @@ function generateServiceBodyHTML(serviceId: string): string {
 
 // Service-specific keywords for meta keywords tag (replaces generic site-wide keywords)
 const SERVICE_KEYWORDS: Record<string, string> = {
+  "steel-chimney-surface-preparation": "steel chimney surface preparation, process stack blast cleaning, fabricated chimney blasting, steel flue coating preparation, industrial stack surface preparation",
   "structural-steel-frames": "structural steel shot blasting, steel frame surface preparation, mill scale removal steel, SA2.5 steel frames, shot blasting structural steel UK",
   "steel-containers": "steel container shot blasting, shipping container blasting, storage tank rust removal, container surface preparation UK",
   "factory-cladding": "factory cladding shot blasting, cladding rust removal, industrial cladding surface preparation, steel cladding blasting UK",
@@ -5390,6 +5427,7 @@ const SERVICE_KEYWORDS: Record<string, string> = {
 
 // Service-specific alternateName synonyms for Service schema (improves semantic entity matching)
 const SERVICE_ALTERNATE_NAMES: Record<string, string[]> = {
+  "steel-chimney-surface-preparation": ["Steel Chimney Shot Blasting", "Process Stack Blast Cleaning", "Fabricated Steel Flue Preparation", "Industrial Stack Surface Preparation"],
   "structural-steel-frames": ["Steel Frame Shot Blasting", "Structural Steel Surface Preparation", "Steel Frame Rust Removal", "Abrasive Blasting Structural Steel"],
   "steel-containers": ["Container Shot Blasting", "Shipping Container Rust Removal", "Storage Tank Blasting", "Container Surface Preparation"],
   "factory-cladding": ["Cladding Shot Blasting", "Factory Cladding Rust Removal", "Industrial Cladding Surface Preparation", "Steel Cladding Blasting"],

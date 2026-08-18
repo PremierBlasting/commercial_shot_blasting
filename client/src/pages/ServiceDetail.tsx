@@ -44,6 +44,7 @@ export default function ServiceDetail() {
   // Build a keyword map from service ID to gallery category keywords
   const serviceKeywords: Record<string, string[]> = {
     "structural-steel-frames": ["industrial", "steel", "structural"],
+    "steel-chimney-surface-preparation": ["chimney", "stack", "steel", "structural"],
     "fire-escape-shot-blasting": ["fire escape", "staircase", "industrial"],
     "racking-mezzanine": ["industrial", "racking", "mezzanine"],
     "gate-restoration": ["gates", "railings", "metal"],
@@ -383,6 +384,43 @@ export default function ServiceDetail() {
                 </h2>
                 <p className="text-gray-700 text-lg leading-relaxed">{service.description}</p>
               </div>
+
+              {service.id === "steel-chimney-surface-preparation" && (
+                <section className="rounded-2xl border border-[#2C5F7F]/15 bg-white p-6 md:p-8 shadow-sm" aria-labelledby="steel-chimney-evidence-heading">
+                  <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[#2C5F7F]">Verified project evidence</p>
+                      <h2 id="steel-chimney-evidence-heading" className="text-3xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                        Steel Chimney Section — Surface Preparation
+                      </h2>
+                    </div>
+                    <Link href="/our-work#steel-chimney-case-study" className="inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F] hover:underline">
+                      Browse the full project <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                  <p className="mb-6 text-gray-600 leading-relaxed">
+                    Supplied project photos and video show a fabricated chimney section at surface-preparation stage, including the cylindrical body, flange, access opening, stiffeners, and accessible internal surfaces. This record does not state an unverified site location, programme, blast standard, client, or final coating system.
+                  </p>
+                  <p className="mb-6 text-sm text-gray-600">
+                    Preparing an estimate? Read our <Link href="/blog/steel-fabrication-shot-blasting-costs-and-programme-guide" className="font-semibold text-[#2C5F7F] hover:underline">steel fabrication shot blasting costs and programme guide</Link> for the drawings, condition details, access information, and coating requirements that help define a clear scope.
+                  </p>
+                  <div className="grid gap-5 md:grid-cols-2">
+                    <BeforeAfterSlider
+                      beforeImage="/manus-storage/SteelChimneyBefore2_15695f0b.jpeg"
+                      afterImage="/manus-storage/SteelChimneyAfter2_3b5e3186.jpeg"
+                      beforeLabel="Before surface preparation"
+                      afterLabel="Prepared surface"
+                      className="shadow-lg"
+                    />
+                    <div className="overflow-hidden rounded-xl bg-[#1a3d52] shadow-lg">
+                      <video className="h-full min-h-64 w-full object-cover" controls playsInline preload="metadata" poster="/manus-storage/SteelChimneyDuring4_0805e0e0.jpeg">
+                        <source src="/manus-storage/SteelChimneyVideo1_b56615a3.mp4" type="video/mp4" />
+                        Your browser does not support the project video.
+                      </video>
+                    </div>
+                  </div>
+                </section>
+              )}
 
               {/* Steel Sheeting Video Section */}
               {service.id === 'steel-sheeting' && (
