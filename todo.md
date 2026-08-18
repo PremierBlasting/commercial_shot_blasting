@@ -1622,3 +1622,9 @@
 - [x] Add an explicit tiered local-page catalogue strategy that preserves high-value pages and suppresses low-evidence long-tail duplication from sitemap discovery
 - [x] Publish the first commercial-intent content clusters with authoritative internal links to core service and site-visit pages
 - [x] Validate rendered SEO output, production build, TypeScript, and the full test suite
+
+## Verified Steel Chimney Case Study (18 August 2026)
+- [x] Prepare and host the supplied before, during, after, and video media as durable web assets
+- [x] Add a factual steel-chimney surface-preparation project record with captions limited to supplied evidence
+- [x] Publish the project in the case-study gallery and relevant Site Visit project examples
+- [x] Add regression coverage and validate the production build, TypeScript, and full test suite

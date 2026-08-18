@@ -13,6 +13,25 @@ import { Footer } from "@/components/Footer";
 import { ProjectDetailModal, type ProjectDetailItem } from "@/components/ProjectDetailModal";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { BeforeAfterCard } from "@/components/BeforeAfterCard";
+
+const steelChimneyCaseStudy = {
+  title: "Steel Chimney Section — Surface Preparation",
+  description: "A verified project record documenting the surface preparation of a fabricated steel chimney section. The supplied imagery shows the large-diameter body, flange, access opening, and internal surfaces through the work.",
+  beforeAfterPairs: [
+    { before: "/manus-storage/SteelChimneyBefore1_75e4dc70.jpeg", after: "/manus-storage/SteelChimneyAfter1_646c7cdf.jpeg", label: "Full chimney-section view" },
+    { before: "/manus-storage/SteelChimneyBefore2_d3868a19.jpeg", after: "/manus-storage/SteelChimneyAfter2_3b5e3186.jpeg", label: "Long-section body and access opening" },
+    { before: "/manus-storage/SteelChimneyBefore3_4b5c924b.jpeg", after: "/manus-storage/SteelChimneyAfter3_ec243316.jpeg", label: "Flange and internal surface detail" },
+  ],
+  processImages: [
+    { src: "/manus-storage/SteelChimneyDuring1_5fd1ea8d.jpeg", caption: "Prepared chimney body and section transitions." },
+    { src: "/manus-storage/SteelChimneyDuring2_6c14e24d.jpeg", caption: "Close exterior detail around fittings and weld areas." },
+    { src: "/manus-storage/SteelChimneyDuring3_d22ee823.jpeg", caption: "Wide view of the fabricated chimney section and flange." },
+    { src: "/manus-storage/SteelChimneyDuring4_c897e50d.jpeg", caption: "Close view of the large-diameter exterior section." },
+    { src: "/manus-storage/SteelChimneyDuring5_b76e628e.jpeg", caption: "Prepared cylindrical body and section transitions." },
+  ],
+  video: "/manus-storage/SteelChimneyVideo1_b56615a3.mp4",
+};
+
 const galleryItems = [
   // Industrial Projects
   {
@@ -671,6 +690,56 @@ export default function OurWork() {
                   View Full Case Study <span aria-hidden="true">&rarr;</span>
                 </button>
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="steel-chimney-case-study" className="border-y border-sky-100 bg-sky-50 py-16">
+        <div className="container">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#2C5F7F]">Verified Project Case Study</p>
+            <h2 className="mt-3 text-3xl font-bold text-[#1a3a52] md:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>{steelChimneyCaseStudy.title}</h2>
+            <p className="mt-4 leading-relaxed text-slate-600">{steelChimneyCaseStudy.description}</p>
+            <p className="mt-3 text-sm text-slate-500">The record is limited to the supplied project evidence. It does not state a blast standard, site location, programme duration, client, or final coating system.</p>
+          </div>
+
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {steelChimneyCaseStudy.beforeAfterPairs.map((pair) => (
+              <article key={pair.label} className="overflow-hidden rounded-2xl border border-sky-100 bg-white shadow-sm">
+                <div className="grid grid-cols-2">
+                  <button type="button" onClick={() => openLightbox([pair.before, pair.after], 0)} className="group relative aspect-[4/3] overflow-hidden text-left focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#2C5F7F]">
+                    <img src={pair.before} alt={`${pair.label} before surface preparation`} loading="lazy" className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                    <span className="absolute left-2 top-2 rounded bg-slate-950/75 px-2 py-1 text-[11px] font-bold uppercase tracking-wide text-white">Before</span>
+                  </button>
+                  <button type="button" onClick={() => openLightbox([pair.before, pair.after], 1)} className="group relative aspect-[4/3] overflow-hidden text-left focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#2C5F7F]">
+                    <img src={pair.after} alt={`${pair.label} after documented surface preparation`} loading="lazy" className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                    <span className="absolute left-2 top-2 rounded bg-[#2C5F7F] px-2 py-1 text-[11px] font-bold uppercase tracking-wide text-white">After</span>
+                  </button>
+                </div>
+                <p className="p-4 text-sm font-semibold text-[#1a3a52]">{pair.label}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="rounded-2xl border border-sky-100 bg-white p-5 shadow-sm">
+              <h3 className="text-xl font-bold text-[#1a3a52]" style={{ fontFamily: "'Playfair Display', serif" }}>Project documentation</h3>
+              <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {steelChimneyCaseStudy.processImages.map((image, index) => (
+                  <button key={image.src} type="button" onClick={() => openLightbox(steelChimneyCaseStudy.processImages.map((item) => item.src), index)} className="group relative aspect-[4/3] overflow-hidden rounded-lg text-left focus:outline-none focus:ring-2 focus:ring-[#2C5F7F]">
+                    <img src={image.src} alt={image.caption} loading="lazy" className="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+                    <span className="absolute inset-x-0 bottom-0 bg-slate-950/75 px-2 py-1.5 text-[10px] leading-tight text-white opacity-0 transition group-hover:opacity-100 group-focus:opacity-100">{image.caption}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-sky-100 bg-white shadow-sm">
+              <video controls preload="metadata" poster="/manus-storage/SteelChimneyAfter1_646c7cdf.jpeg" className="aspect-video w-full bg-slate-950" aria-label="Supplied steel chimney project video">
+                <source src={steelChimneyCaseStudy.video} type="video/mp4" />
+                Your browser does not support this video.
+              </video>
+              <p className="p-4 text-sm text-slate-600">Supplied project video of the steel-chimney surface-preparation work.</p>
             </div>
           </div>
         </div>

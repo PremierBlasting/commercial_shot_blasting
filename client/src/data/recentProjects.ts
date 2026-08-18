@@ -14,11 +14,38 @@ export interface RecentProject {
   beforeImage?: string;
   comparisonCaption?: string;
   galleryImages?: Array<{ src: string; caption: string }>;
+  videoUrl?: string;
   countySlugs: string[]; // county slugs this project is relevant to
   date: string; // display date e.g. "April 2025"
 }
 
 export const recentProjects: RecentProject[] = [
+  {
+    id: "steel-chimney-surface-preparation",
+    title: "Steel Chimney Section — Surface Preparation",
+    serviceSlug: "structural-steel-frames",
+    serviceLabel: "Steel Chimney Surface Preparation",
+    description: "Verified supplied project imagery documents blast preparation of a fabricated steel chimney section, including the main body, flange, access opening, and internal surfaces.",
+    afterImage: "/manus-storage/SteelChimneyAfter1_646c7cdf.jpeg",
+    beforeImage: "/manus-storage/SteelChimneyBefore1_75e4dc70.jpeg",
+    comparisonCaption: "Supplied before-and-after project views document the chimney section before preparation and the resulting clean bare-metal surface. No blast standard, location, programme, or final coating is claimed without further project records.",
+    galleryImages: [
+      { src: "/manus-storage/SteelChimneyBefore1_75e4dc70.jpeg", caption: "Before: full chimney-section view supplied before surface preparation." },
+      { src: "/manus-storage/SteelChimneyBefore2_d3868a19.jpeg", caption: "Before: long-section view showing the fabricated body and flange detail." },
+      { src: "/manus-storage/SteelChimneyBefore3_4b5c924b.jpeg", caption: "Before: end and internal view of the chimney-section opening." },
+      { src: "/manus-storage/SteelChimneyDuring1_5fd1ea8d.jpeg", caption: "During: wide project view showing the prepared external chimney body." },
+      { src: "/manus-storage/SteelChimneyDuring2_6c14e24d.jpeg", caption: "During: close detail of the prepared exterior, fittings, and weld areas." },
+      { src: "/manus-storage/SteelChimneyDuring3_d22ee823.jpeg", caption: "During: wide-angle view of the fabricated chimney section and flange." },
+      { src: "/manus-storage/SteelChimneyDuring4_c897e50d.jpeg", caption: "During: close exterior view of the large-diameter chimney section." },
+      { src: "/manus-storage/SteelChimneyDuring5_b76e628e.jpeg", caption: "During: prepared cylindrical body and section transitions." },
+      { src: "/manus-storage/SteelChimneyAfter1_646c7cdf.jpeg", caption: "After: full chimney-section view with the documented prepared bare-metal finish." },
+      { src: "/manus-storage/SteelChimneyAfter2_3b5e3186.jpeg", caption: "After: long-section view of the prepared chimney body and access opening." },
+      { src: "/manus-storage/SteelChimneyAfter3_ec243316.jpeg", caption: "After: end view showing the flange face and internal surface after preparation." },
+    ],
+    videoUrl: "/manus-storage/SteelChimneyVideo1_b56615a3.mp4",
+    countySlugs: [],
+    date: "Verified project documentation",
+  },
   {
     id: "structural-steel-staffordshire",
     title: "Structural Steel Frames — Industrial Unit",

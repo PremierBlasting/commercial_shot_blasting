@@ -178,12 +178,25 @@ describe("sitemap map controls and Site Visit options", () => {
     const shareButton = readFileSync(resolve(projectRoot, "client/src/components/ProjectShareButton.tsx"), "utf8");
     const surveyFlow = readFileSync(resolve(projectRoot, "client/src/components/SurveyBookingFlow.tsx"), "utf8");
 
-    expect(projects.match(/galleryImages:/g)).toHaveLength(1);
+    expect(projects.match(/galleryImages:/g)).toHaveLength(2);
+    expect(projects).toContain("steel-chimney-surface-preparation");
+    expect(projects).toContain("SteelChimneyBefore1_75e4dc70.jpeg");
+    expect(projects).toContain("SteelChimneyVideo1_b56615a3.mp4");
     expect(gallery).toContain("Pinch to zoom");
     expect(gallery).toContain("onTouchMove");
     expect(gallery).toContain("Reset image zoom");
     expect(shareButton).toContain("navigator.share");
     expect(shareButton).toContain("Link copied");
     expect(surveyFlow).toContain("ProjectShareButton");
+  });
+
+  it("publishes a factual steel-chimney case study with supplied media and no unsupported performance claim", () => {
+    const ourWork = readFileSync(resolve(projectRoot, "client/src/pages/OurWork.tsx"), "utf8");
+
+    expect(ourWork).toContain("Steel Chimney Section — Surface Preparation");
+    expect(ourWork).toContain('id="steel-chimney-case-study"');
+    expect(ourWork).toContain("SteelChimneyDuring5_b76e628e.jpeg");
+    expect(ourWork).toContain("SteelChimneyVideo1_b56615a3.mp4");
+    expect(ourWork).toContain("does not state a blast standard, site location, programme duration, client, or final coating system");
   });
 });

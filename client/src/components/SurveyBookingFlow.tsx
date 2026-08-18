@@ -89,6 +89,8 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
     ? recentProjects.filter((project) => project.countySlugs.includes(nearestCounty)).slice(0, 2)
     : [];
   const nearbyProjectServices = Array.from(new Set(nearbyProjects.map((project) => project.serviceLabel)));
+  const featuredChimneyProject = recentProjects.find((project) => project.id === "steel-chimney-surface-preparation");
+  const isChimneyRelevant = serviceType === "Structural Steelwork" || serviceType === "Containers, Tanks & Vessels";
   const activeProjectServiceFilter = projectServiceFilter === "All examples" || nearbyProjectServices.includes(projectServiceFilter)
     ? projectServiceFilter
     : "All examples";
@@ -342,6 +344,30 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
                   ))}
                 </div>
               </div>
+            )}
+            {nearbyCoverage.status === "ready" && isChimneyRelevant && featuredChimneyProject && (
+              <article className="mt-3 overflow-hidden rounded-lg border border-amber-200 bg-amber-50/60">
+                <div className="grid sm:grid-cols-[9rem_1fr]">
+                  <img
+                    src={featuredChimneyProject.afterImage}
+                    alt="Prepared fabricated steel chimney section"
+                    loading="lazy"
+                    className="h-32 w-full object-cover sm:h-full"
+                  />
+                  <div className="p-3">
+                    <p className="text-[11px] font-bold uppercase tracking-wide text-amber-800">Featured verified project</p>
+                    <h3 className="mt-1 text-sm font-bold text-[#1a3a52]">{featuredChimneyProject.title}</h3>
+                    <p className="mt-1 text-xs leading-relaxed text-slate-600">{featuredChimneyProject.description}</p>
+                    <div className="mt-2 flex flex-wrap items-center gap-3">
+                      <ProjectShareButton projectId={featuredChimneyProject.id} projectTitle={featuredChimneyProject.title} />
+                      {featuredChimneyProject.galleryImages && (
+                        <ProjectImageGallery title={featuredChimneyProject.title} images={featuredChimneyProject.galleryImages} />
+                      )}
+                      <a href="/our-work#steel-chimney-case-study" className="text-xs font-semibold text-[#2C5F7F] underline underline-offset-2">View full case study</a>
+                    </div>
+                  </div>
+                </div>
+              </article>
             )}
             {nearbyCoverage.status === "error" && (
               <p className="mt-2 text-xs text-slate-500">We cover sites across the UK. You can continue with your Site Visit request.</p>
