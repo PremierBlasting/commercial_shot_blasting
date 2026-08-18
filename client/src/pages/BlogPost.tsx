@@ -326,7 +326,7 @@ export default function BlogPost() {
                 Ready to discuss your project?
               </h2>
               <p className="text-white/75 text-base max-w-xl">
-                Our team covers England &amp; Wales. Book a free, no-obligation site survey and receive a fixed-price quotation within 24 hours.
+                Our team covers England &amp; Wales. Request a free, no-obligation Site Visit to discuss your scope and receive a fixed-price quotation. We&apos;ll get back to you promptly.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">

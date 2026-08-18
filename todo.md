@@ -1628,3 +1628,11 @@
 - [x] Add a factual steel-chimney surface-preparation project record with captions limited to supplied evidence
 - [x] Publish the project in the case-study gallery and relevant Site Visit project examples
 - [x] Add regression coverage and validate the production build, TypeScript, and full test suite
+
+## Navigation Simplification and Steel Fabrication SEO Content (18 August 2026)
+- [x] Move Blog and Glossary from the desktop and mobile top-level menus into the About menu without breaking their routes or accessibility
+- [x] Publish a long-tail guide for blast-preparing fabricated steelwork before protective coating
+- [x] Publish a long-tail guide for steel chimney and process-stack surface preparation
+- [x] Add contextual internal links between the new guides, Structural Steel Frames, Steel Fabrications, the steel-chimney project, and Site Visit flow
+- [x] Replace the residual 24-hour reply promise in the shared blog CTA with approved prompt-response wording
+- [x] Add regression coverage and validate the production build, TypeScript, and full test suite

@@ -199,4 +199,23 @@ describe("sitemap map controls and Site Visit options", () => {
     expect(ourWork).toContain("SteelChimneyVideo1_b56615a3.mp4");
     expect(ourWork).toContain("does not state a blast standard, site location, programme duration, client, or final coating system");
   });
+
+  it("consolidates Blog and Glossary into the About navigation while retaining their routes", () => {
+    const header = readFileSync(resolve(projectRoot, "client/src/components/Header.tsx"), "utf8");
+
+    expect(header).toContain("About and resources");
+    expect(header).toContain("Blog &amp; Guides");
+    expect(header).toContain("Shot Blasting Glossary");
+    expect(header).toContain('href="/blog"');
+    expect(header).toContain('href="/glossary"');
+    expect(header).toContain('aria-haspopup="menu"');
+    expect(header).not.toContain("{/* Blog Dropdown */}");
+  });
+
+  it("keeps factual steel-fabrication and chimney guides connected to service and case-study pathways", () => {
+    const blogPost = readFileSync(resolve(projectRoot, "client/src/pages/BlogPost.tsx"), "utf8");
+
+    expect(blogPost).toContain("We&apos;ll get back to you promptly.");
+    expect(blogPost).not.toContain("within 24 hours");
+  });
 });
