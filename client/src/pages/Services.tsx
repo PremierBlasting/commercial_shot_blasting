@@ -103,6 +103,7 @@ const commercialResourceClusters = [
     description: "Useful resources for estimating teams and project managers comparing Sa standards, scope factors, and the information needed for an accurate survey.",
     links: [
       { label: "Steel chimney & process stack planning hub", href: "/steel-chimney-process-stack-surface-preparation" },
+      { label: "Process pipework & spools planning hub", href: "/process-pipework-spools-surface-preparation" },
       { label: "Sa 2.5 vs Sa 3 explained", href: "/blog/sa-2-5-vs-sa-3-surface-preparation-standard" },
       { label: "Specify shot blasting in a construction contract", href: "/blog/how-to-specify-shot-blasting-construction-contract" },
       { label: "Request a site visit", href: "/site-survey" },

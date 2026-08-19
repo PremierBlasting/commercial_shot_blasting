@@ -1656,3 +1656,9 @@
 - [x] Add the Factory Cladding pillar to route discovery, XML and HTML sitemaps, and the Services hub without duplicating the core service-page intent
 - [x] Add carefully selected, contextual pillar-resource links to Tier A city pages in client and SSR templates
 - [x] Add regression coverage and validate rendered SEO output, TypeScript, the full test suite, and the production build
+
+## Process Pipework Pillar and County-Hub Linking (19 August 2026)
+- [x] Publish an evidence-led Process Pipework & Spools pillar using only approved water-treatment project images and documented scope
+- [x] Add the Process Pipework pillar to route discovery, XML and HTML sitemaps, the Services hub, and crawler-visible SSR metadata without duplicating core service-page intent
+- [x] Add carefully selected, context-sensitive pillar-resource links to appropriate county hubs in client and SSR templates
+- [x] Add regression coverage and validate rendered SEO output, TypeScript, the full test suite, and the production build

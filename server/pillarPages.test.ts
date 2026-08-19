@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { injectMetaTags } from "./metaTags";
 import { getTierAPillarResources } from "../shared/tierAPillarResources";
+import { getCountyPillarResources } from "../shared/countyPillarResources";
 
 const baseHtml = `<!doctype html><html><head>
   <title>Commercial Shot Blasting</title>
@@ -21,6 +22,7 @@ describe("phase-one pillar page SSR", () => {
     ["/steel-chimney-process-stack-surface-preparation", "Steel Chimney, Process Stack & Flue Surface Preparation"],
     ["/industrial-steelwork-restoration", "Industrial Steelwork Restoration & Corrosion Preparation"],
     ["/factory-cladding-restoration", "Factory Cladding Restoration & Coating Preparation"],
+    ["/process-pipework-spools-surface-preparation", "Process Pipework, Spools & Support Steelwork Surface Preparation"],
   ] as const;
 
   it.each(pages)("emits canonical metadata, schema, and substantive SSR content for %s", async (path, heading) => {
@@ -56,5 +58,21 @@ describe("phase-one pillar page SSR", () => {
 
     expect(tierAResources.map((resource) => resource.href)).toContain("/factory-cladding-restoration");
     expect(tierBResources).toEqual([]);
+  });
+
+  it("keeps the pipework pillar limited to the documented water-treatment project evidence", async () => {
+    const html = await injectMetaTags(baseHtml, "/process-pipework-spools-surface-preparation");
+
+    expect(html).toContain("850 metres of process pipework and support steelwork");
+    expect(html).toContain("achieving Sa 2.5 for a three-coat epoxy coating system");
+    expect(html).toContain("does not establish a site location, programme, client, operating condition, or further project claims");
+  });
+
+  it("links water-treatment-relevant county hubs to the pipework pillar without adding it to unrelated counties", () => {
+    const hampshireResources = getCountyPillarResources("hampshire", ["Industrial Plant", "Aerospace & Defence"]);
+    const cornwallResources = getCountyPillarResources("cornwall", ["Tourism", "Agriculture"]);
+
+    expect(hampshireResources.map((resource) => resource.href)).toContain("/process-pipework-spools-surface-preparation");
+    expect(cornwallResources.map((resource) => resource.href)).not.toContain("/process-pipework-spools-surface-preparation");
   });
 });

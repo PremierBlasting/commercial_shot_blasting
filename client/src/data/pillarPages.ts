@@ -204,6 +204,50 @@ export const pillarPages: PillarPageData[] = [
       { question: "Why should access and coating handover be planned before surface preparation begins?", answer: "Access arrangements and the next coating stage affect the safe sequencing of the work, the protection of adjacent areas, inspection arrangements, and how the prepared surface is handed over to the coating contractor." },
     ],
   },
+  {
+    slug: "process-pipework-spools-surface-preparation",
+    eyebrow: "Industrial asset planning hub",
+    title: "Process Pipework, Spools & Support Steelwork Surface Preparation",
+    shortTitle: "Process Pipework & Spools Preparation",
+    description: "Plan blast cleaning for process pipework, spools, manifolds, and support steelwork before protective coating. Review approved water-treatment project evidence, scope inputs, specialist services, and Site Visit guidance.",
+    keywords: "process pipework shot blasting, pipe spool surface preparation, water treatment pipework blast cleaning, pipework coating preparation, industrial pipe support steelwork",
+    heroImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3349_cb9e8c4d.webp",
+    heroAlt: "Approved project image of process pipework and support steelwork at a water-treatment facility after blast cleaning",
+    overview: [
+      "This hub helps facilities teams, principal contractors, maintenance planners, and coating specialists prepare a clear enquiry for process pipework, spools, manifolds, and support steelwork. It brings together the pipework service, coating-readiness questions, inspection and access considerations, and Site Visit pathway.",
+      "The approved project record on this site documents external blast cleaning of 850 metres of process pipework and support steelwork at a water-treatment facility, achieving Sa 2.5 for a three-coat epoxy coating system. This hub is limited to that documented scope and does not add a site location, programme, client, operating condition, or further project claims.",
+    ],
+    scope: [
+      "External process pipework, fabricated spools, manifolds, flanged sections, supports, brackets, and accessible associated steelwork",
+      "Corrosion, failed coatings, mill scale, contamination, weld areas, support interfaces, and external pipework condition before coating",
+      "Planning around isolation, operating interfaces, access, containment, protection of adjacent assets, inspection, and coating handover",
+      "Asset-maintenance and refurbishment scopes where the pipework condition, access plan, and coating specification must be considered together",
+    ],
+    planningInputs: [
+      { title: "Asset and line information", description: "Share drawings, line lists, spool references, sizes, support details, quantities, flange locations, and clearly identify any excluded surfaces." },
+      { title: "Isolation and operations", description: "Confirm whether the assets are isolated, the planned maintenance window, adjacent operating equipment, permits, and site-specific control requirements." },
+      { title: "Surface and coating condition", description: "Provide photographs showing the full run, corrosion, existing coating, joints, welds, interfaces, support steelwork, and any restricted-access areas." },
+      { title: "Coating and inspection handover", description: "Identify the coating specification owner, intended coating system, inspection requirements, timing, and how the prepared work will be protected and handed over." },
+    ],
+    serviceLinks: [
+      { title: "Process Pipework, Spools & Manifolds", href: "/services/pipework", description: "Dedicated service route for pipework and associated steelwork surface preparation." },
+      { title: "Coating Removal", href: "/services/coating-removal", description: "Relevant where an existing coating system needs to be assessed before the work scope is confirmed." },
+      { title: "Plant & Machinery", href: "/services/plant-machinery", description: "Useful where wider plant assets are included in a planned maintenance or refurbishment package." },
+      { title: "Industrial Steelwork Restoration", href: "/industrial-steelwork-restoration", description: "A related planning hub for other industrial steel assets and corrosion-preparation scopes." },
+    ],
+    resourceLinks: [
+      { title: "Steel fabrication shot blasting costs and programme guide", href: "/blog/steel-fabrication-shot-blasting-costs-and-programme-guide", description: "Cost and programme factors that also apply to drawings, access, condition, and coating sequencing." },
+      { title: "Steel chimney and process-stack preparation guide", href: "/blog/steel-chimney-process-stack-surface-preparation", description: "Related guidance for fabricated cylindrical sections, access openings, and protective coating handover." },
+      { title: "Sa 2.5 surface preparation glossary", href: "/glossary/sa-2-5", description: "Plain-English explanation of the preparation grade documented in the approved water-treatment project record." },
+      { title: "Request a Site Visit", href: "/site-survey", description: "Start a structured discussion about the assets, isolation, access, coating system, and programme." },
+    ],
+    projectIds: ["pipework-south"],
+    faqs: [
+      { question: "What information helps prepare an enquiry for pipework blast cleaning?", answer: "Useful information includes line or spool references, drawings, photographs of the full run and support steelwork, isolation status, access, existing coating condition, operating constraints, and the intended coating system." },
+      { question: "Does the approved water-treatment project record apply to every pipework project?", answer: "No. It documents the stated 850-metre water-treatment scope, Sa 2.5 result, and three-coat epoxy handover for that project only. The preparation and coating requirements for another asset must be confirmed from its own specification and condition assessment." },
+      { question: "Why should isolation, access, and coating handover be considered before the work is scheduled?", answer: "They affect practical sequencing, safe access, protection of adjacent assets, inspection arrangements, surface condition at handover, and the coordination of the next coating stage." },
+    ],
+  },
 ];
 
 export function getPillarPage(slug: string): PillarPageData | undefined {

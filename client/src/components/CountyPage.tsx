@@ -15,6 +15,7 @@ import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { trackPhoneCall } from "@/lib/analytics";
 import { normaliseResponseTimeCopy } from "@shared/seoContentPolicy";
+import { getCountyPillarResources } from "@shared/countyPillarResources";
 
 import { Footer } from "@/components/Footer";
 import { countyData, CountyData } from "@/data/countyData";
@@ -284,6 +285,7 @@ export function CountyPage({ county }: CountyPageProps) {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [showCountyNav, setShowCountyNav] = useState(false);
   const [activeCountySection, setActiveCountySection] = useState<string | null>(null);
+  const countyPillarResources = getCountyPillarResources(county.slug, county.industries);
 
   // Show sticky nav + Back to Top after scrolling 400px; track active section
   useEffect(() => {
@@ -464,6 +466,29 @@ export function CountyPage({ county }: CountyPageProps) {
           </div>
         </div>
       </section>
+
+      {countyPillarResources.length > 0 && (
+        <section className="py-16 bg-[#f6fafc]" aria-label="Commercial project planning resources">
+          <div className="container">
+            <div className="max-w-3xl mb-8">
+              <p className="text-[#2C5F7F] font-medium mb-2">Commercial Project Planning</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Specialist Surface-Preparation Resources for {county.name}
+              </h2>
+              <p className="text-gray-600 mt-3">These evidence-led planning hubs help define asset, access, condition, coating, and programme information before a commercial Site Visit.</p>
+            </div>
+            <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+              {countyPillarResources.map((resource) => (
+                <a key={resource.href} href={resource.href} className="group rounded-xl border border-slate-200 bg-white p-5 transition hover:border-[#2C5F7F] hover:shadow-md">
+                  <h3 className="font-bold text-[#1a3d52] group-hover:text-[#2C5F7F]">{resource.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{resource.description}</p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F]">Explore resource <ArrowRight className="h-4 w-4" /></span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Sticky Quick-Navigation Menu */}
       <div

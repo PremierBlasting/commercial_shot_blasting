@@ -57,7 +57,7 @@ describe("SEO priority safeguards", () => {
     const ssr = readFileSync(resolve(projectRoot, "server/metaTags.ts"), "utf8");
     const servicesHub = readFileSync(resolve(projectRoot, "client/src/pages/Services.tsx"), "utf8");
 
-    for (const slug of ["steel-fabrication-surface-preparation", "steel-chimney-process-stack-surface-preparation", "industrial-steelwork-restoration", "factory-cladding-restoration"]) {
+    for (const slug of ["steel-fabrication-surface-preparation", "steel-chimney-process-stack-surface-preparation", "industrial-steelwork-restoration", "factory-cladding-restoration", "process-pipework-spools-surface-preparation"]) {
       expect(pillarData).toContain(`slug: "${slug}"`);
       expect(routes).toContain(`/${slug}`);
       expect(ssr).toContain(`"/${slug}"`);
