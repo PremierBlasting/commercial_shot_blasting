@@ -1642,3 +1642,11 @@
 - [x] Add the steel-chimney service to the service catalogue, navigation pathways, sitemap, SSR metadata, and canonical URL maps
 - [x] Publish a fabricator-focused guide to blast-cleaning costs and programme factors, with internal links to steel services, the chimney case study, and Site Visit
 - [x] Add regression coverage and validate the production build, TypeScript, and full test suite
+
+## Approved Phase-One Pillar Pages (18 August 2026)
+- [x] Build a reusable SSR-ready pillar-page template with canonical metadata, schema, verified evidence blocks, native conversion pathways, and related-resource links
+- [x] Publish the Steel Fabrication & Structural Steel Surface Preparation pillar and connect its service, guide, glossary, and verified-project hierarchy
+- [x] Publish the Steel Chimney, Process Stack & Flue Surface Preparation pillar using only the approved chimney project evidence
+- [x] Publish the Industrial Steelwork Restoration & Corrosion Preparation pillar with relevant specialist service and verified-project pathways
+- [x] Add all pillar URLs to navigation discovery, dynamic sitemap, HTML sitemap, and contextual internal links without creating duplicate service-page intent
+- [x] Add regression coverage and validate rendered SEO output, TypeScript, full tests, and production build

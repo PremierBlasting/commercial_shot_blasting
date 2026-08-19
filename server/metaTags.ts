@@ -7059,6 +7059,98 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     return modifiedHtml;
   }
 
+  // ── Phase-one pillar pages ─────────────────────────────────────────────────
+  const pillarPath = url.replace(/\/$/, "");
+  const pillarPages: Record<string, {
+    title: string;
+    description: string;
+    image: string;
+    heading: string;
+    intro: string;
+    links: Array<{ label: string; href: string }>;
+    faqs: Array<{ question: string; answer: string }>;
+  }> = {
+    "/steel-fabrication-surface-preparation": {
+      title: "Steel Fabrication & Structural Steel Surface Preparation | Commercial Shot Blasting",
+      description: "Plan steel fabrication and structural-steel surface preparation before protective coating. Explore scope inputs, specialist services, verified project evidence, guidance, and Site Visit support.",
+      image: "https://commercialshotblasting.co.uk/manus-storage/IMG_3365_56728af1.webp",
+      heading: "Steel Fabrication & Structural Steel Surface Preparation",
+      intro: "A commercial planning hub for fabricators, estimators, contractors, and coating teams preparing structural frames, fabricated steel sections, mill scale, corrosion, and coating handover. Define the components, surface condition, access, coating requirement, and sequencing before a Site Visit.",
+      links: [
+        { label: "Structural Steel Frames", href: "/services/structural-steel-frames" },
+        { label: "Steel Fabrications", href: "/steel-fabrications" },
+        { label: "Fabrication cost and programme guide", href: "/blog/steel-fabrication-shot-blasting-costs-and-programme-guide" },
+        { label: "Sa 2.5 glossary", href: "/glossary/sa-2-5" },
+      ],
+      faqs: [
+        { question: "What information helps prepare a steelwork blast-cleaning estimate?", answer: "Drawings or a component schedule, dimensions, photographs of the existing surface, access information, and the intended coating system all help define the work. A Site Visit can confirm practical details that photographs do not show." },
+        { question: "Why should coating requirements be discussed before blast cleaning?", answer: "The specified coating system may require particular cleanliness, profile, inspection, and handover arrangements. Confirming the coating requirement early reduces the risk of a mismatch between preparation and the next trade." },
+      ],
+    },
+    "/steel-chimney-process-stack-surface-preparation": {
+      title: "Steel Chimney, Process Stack & Flue Surface Preparation | Commercial Shot Blasting",
+      description: "Plan surface preparation for fabricated steel chimneys, process stacks, flues, and duct sections. Review verified chimney evidence, scope inputs, specialist services, and Site Visit guidance.",
+      image: "https://commercialshotblasting.co.uk/manus-storage/SteelChimneyAfter2_3b5e3186.jpeg",
+      heading: "Steel Chimney, Process Stack & Flue Surface Preparation",
+      intro: "A planning hub for fabricated steel chimney sections, process stacks, flues, and related ductwork. The supplied verified project evidence documents a fabricated chimney section at surface-preparation stage, including its cylindrical body, flange, access opening, stiffeners, and accessible internal surfaces. It does not establish a location, programme, blast standard, client, or final coating system.",
+      links: [
+        { label: "Steel Chimneys, Process Stacks & Flues", href: "/services/steel-chimney-surface-preparation" },
+        { label: "Verified steel chimney case study", href: "/our-work#steel-chimney-case-study" },
+        { label: "Process Pipework, Spools & Manifolds", href: "/services/pipework" },
+        { label: "Chimney and process-stack guide", href: "/blog/steel-chimney-process-stack-surface-preparation" },
+      ],
+      faqs: [
+        { question: "Can a chimney section be assessed before a blast standard is chosen?", answer: "Yes. The existing condition, coating specification, accessible surfaces, project requirements, and relevant records should be reviewed before a specific preparation standard is assumed." },
+        { question: "What should be included with an enquiry for a process stack or fabricated flue?", answer: "Useful information includes drawings or dimensions, photos of all sides, access openings, flange details, lifting and handling arrangements, the existing coating condition, and the intended next stage." },
+      ],
+    },
+    "/industrial-steelwork-restoration": {
+      title: "Industrial Steelwork Restoration & Corrosion Preparation | Commercial Shot Blasting",
+      description: "Plan industrial steelwork restoration and corrosion preparation for pipework, containers, access steelwork, bridge components, and plant. Explore specialist pathways and Site Visit support.",
+      image: "https://commercialshotblasting.co.uk/manus-storage/IMG_3349_cb9e8c4d.webp",
+      heading: "Industrial Steelwork Restoration & Corrosion Preparation",
+      intro: "A commercial planning hub for facilities teams, maintenance contractors, and asset owners reviewing corrosion, failed coatings, mill scale, and surface condition across pipework, containers, access steelwork, bridge components, and industrial plant. The relevant route depends on the asset, access, operating context, coating objective, and project requirements.",
+      links: [
+        { label: "Process Pipework, Spools & Manifolds", href: "/services/pipework" },
+        { label: "Steel Container Blasting", href: "/services/steel-containers" },
+        { label: "Fire Escapes & External Stair Towers", href: "/services/fire-escapes" },
+        { label: "Bridge Steelwork", href: "/services/bridge-steelwork" },
+      ],
+      faqs: [
+        { question: "How do you decide which industrial steelwork service is relevant?", answer: "The asset type, existing condition, access, operational environment, coating objective, and programme context guide the service discussion. This hub routes you to the most relevant specialist page before a Site Visit." },
+        { question: "Does corrosion appearance alone define the required preparation method?", answer: "No. Surface appearance is only one input. The final approach should account for the asset, coating specification, access, condition, environmental controls, and any project-specific requirements." },
+      ],
+    },
+  };
+  const pillar = pillarPages[pillarPath];
+  if (pillar) {
+    const pillarUrl = `${SITE_URL}${pillarPath}`;
+    const breadcrumbSchema = JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL }, { "@type": "ListItem", "position": 2, "name": "Services", "item": `${SITE_URL}/services` }, { "@type": "ListItem", "position": 3, "name": pillar.heading, "item": pillarUrl }] });
+    const webPageSchema = JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", "@id": `${pillarUrl}#webpage`, "name": pillar.title, "description": pillar.description, "url": pillarUrl, "inLanguage": "en-GB", "primaryImageOfPage": { "@type": "ImageObject", "url": pillar.image } });
+    const faqSchema = JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": pillar.faqs.map((faq) => ({ "@type": "Question", "name": faq.question, "acceptedAnswer": { "@type": "Answer", "text": faq.answer } })) });
+    const resourceLinks = pillar.links.map((link) => `<li><a href="${SITE_URL}${link.href}">${link.label}</a></li>`).join("");
+    const ssrBody = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/services">Services</a> | <a href="${SITE_URL}/our-work">Our Work</a> | <a href="${SITE_URL}/blog">Blog</a> | <a href="${SITE_URL}/glossary">Glossary</a> | <a href="${SITE_URL}/site-survey">Request A Site Visit</a></nav><main><h1>${pillar.heading}</h1><p>${pillar.intro}</p><h2>Related services and resources</h2><ul>${resourceLinks}</ul><h2>Planning a commercial project</h2><p>Share drawings, photographs, asset or component details, access information, existing condition, and the intended coating or next stage through a Site Visit request. We will get back to you promptly.</p><p><a href="${SITE_URL}/site-survey">Request A Site Visit</a> | <a href="tel:07721375756">07721 375756</a></p></main></div>`;
+    let modifiedHtml = html;
+    modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${pillar.title}</title>`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${pillar.description}" />`);
+    const canonicalTags = `<link rel="canonical" href="${pillarUrl}" />\n    <link rel="alternate" hreflang="en-gb" href="${pillarUrl}" />\n    <link rel="alternate" hreflang="en" href="${pillarUrl}" />`;
+    if (/<link rel="canonical"[^>]*>/.test(modifiedHtml)) {
+      modifiedHtml = modifiedHtml.replace(/<link rel="canonical"[^>]*>/, canonicalTags);
+    } else {
+      modifiedHtml = modifiedHtml.replace("</head>", `${canonicalTags}\n</head>`);
+    }
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${pillar.title}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${pillar.description}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${pillarUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:image"[^>]*>/, `<meta property="og:image" content="${pillar.image}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:title"[^>]*>/, `<meta name="twitter:title" content="${pillar.title}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:url"[^>]*>/, `<meta name="twitter:url" content="${pillarUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:description"[^>]*>/, `<meta name="twitter:description" content="${pillar.description}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="twitter:image"[^>]*>/, `<meta name="twitter:image" content="${pillar.image}" />`);
+    modifiedHtml = modifiedHtml.replace("</head>", `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n<script type="application/ld+json">${faqSchema}</script>\n</head>`);
+    return modifiedHtml.replace("<!--SSR_CONTENT-->", ssrBody);
+  }
+
   // ── Site Survey page: /site-survey ─────────────────────────────────────────
   if (url === '/site-survey' || url === '/site-survey/') {
     const surveyTitle = 'Free Site Survey for Shot Blasting | No-Obligation Quote | Commercial Shot Blasting';

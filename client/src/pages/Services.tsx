@@ -79,6 +79,7 @@ const commercialResourceClusters = [
     title: "Prepare structural steel for durable coating systems",
     description: "Practical guidance for fabricators, main contractors, and specifiers planning blast cleaning before primer or intumescent paint.",
     links: [
+      { label: "Steel fabrication & structural steel planning hub", href: "/steel-fabrication-surface-preparation" },
       { label: "Structural steel shot blasting", href: "/services/structural-steel-frames" },
       { label: "Intumescent painting preparation", href: "/services/intumescent-painting" },
       { label: "Prepare structural steel for intumescent paint", href: "/blog/how-to-prepare-structural-steel-for-intumescent-painting" },
@@ -89,6 +90,7 @@ const commercialResourceClusters = [
     title: "Plan cladding and coating-removal projects with less disruption",
     description: "Compare preparation options, define the existing coating condition, and plan the right sequence before a building-refurbishment programme begins.",
     links: [
+      { label: "Industrial steelwork restoration hub", href: "/industrial-steelwork-restoration" },
       { label: "Factory cladding blasting", href: "/services/factory-cladding" },
       { label: "Coating removal", href: "/services/coating-removal" },
       { label: "Shot blasting vs chemical stripping", href: "/blog/shot-blasting-vs-chemical-stripping" },
@@ -99,6 +101,7 @@ const commercialResourceClusters = [
     title: "Specify the blast standard, scope, and site survey correctly",
     description: "Useful resources for estimating teams and project managers comparing Sa standards, scope factors, and the information needed for an accurate survey.",
     links: [
+      { label: "Steel chimney & process stack planning hub", href: "/steel-chimney-process-stack-surface-preparation" },
       { label: "Sa 2.5 vs Sa 3 explained", href: "/blog/sa-2-5-vs-sa-3-surface-preparation-standard" },
       { label: "Specify shot blasting in a construction contract", href: "/blog/how-to-specify-shot-blasting-construction-contract" },
       { label: "Request a site visit", href: "/site-survey" },

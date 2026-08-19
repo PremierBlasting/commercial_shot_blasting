@@ -46,4 +46,26 @@ describe("SEO priority safeguards", () => {
     expect(servicePage).toContain("steel-fabrication-shot-blasting-costs-and-programme-guide");
     expect(headerData).toContain("Steel Chimneys, Process Stacks & Flues");
   });
+
+  it("publishes the approved phase-one pillar pages with SSR, sitemap, and verified-evidence discovery", async () => {
+    const { readFileSync } = await import("node:fs");
+    const { resolve } = await import("node:path");
+    const projectRoot = resolve(import.meta.dirname, "..");
+    const pillarData = readFileSync(resolve(projectRoot, "client/src/data/pillarPages.ts"), "utf8");
+    const pillarPage = readFileSync(resolve(projectRoot, "client/src/pages/PillarPage.tsx"), "utf8");
+    const routes = readFileSync(resolve(projectRoot, "client/src/App.tsx"), "utf8");
+    const ssr = readFileSync(resolve(projectRoot, "server/metaTags.ts"), "utf8");
+    const servicesHub = readFileSync(resolve(projectRoot, "client/src/pages/Services.tsx"), "utf8");
+
+    for (const slug of ["steel-fabrication-surface-preparation", "steel-chimney-process-stack-surface-preparation", "industrial-steelwork-restoration"]) {
+      expect(pillarData).toContain(`slug: "${slug}"`);
+      expect(routes).toContain(`/${slug}`);
+      expect(ssr).toContain(`"/${slug}"`);
+      expect(servicesHub).toContain(`/${slug}`);
+    }
+    expect(pillarData).toContain("steel-chimney-surface-preparation");
+    expect(pillarData).toContain("does not establish a site location, programme, blast standard, client, or final coating system");
+    expect(pillarPage).toContain("ProjectImageGallery");
+    expect(pillarPage).toContain("We’ll get back to you promptly.");
+  });
 });

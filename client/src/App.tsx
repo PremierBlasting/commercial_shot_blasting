@@ -52,6 +52,7 @@ const CallAnalytics = lazy(() => import("./pages/CallAnalytics"));
 const Reviews = lazy(() => import("./pages/Reviews"));
 const StructuralSteelCaseStudy = lazy(() => import("./pages/StructuralSteelCaseStudy"));
 const SteelFabricationsPage = lazy(() => import("./pages/SteelFabricationsPage"));
+const PillarPage = lazy(() => import("./pages/PillarPage"));
 const ExternalStaircasesPage = lazy(() => import("./pages/ExternalStaircasesPage"));
 const CarParkPage = lazy(() => import("./pages/CarParkPage"));
 const IntumescentPaintingPage = lazy(() => import("./pages/IntumescentPaintingPage"));
@@ -252,6 +253,9 @@ function Router() {
         <Route path={"/reviews"} component={Reviews} />
         <Route path={"/case-studies/structural-steel"} component={StructuralSteelCaseStudy} />
         <Route path={"/steel-fabrications"} component={SteelFabricationsPage} />
+        <Route path={"/steel-fabrication-surface-preparation"} component={PillarPage} />
+        <Route path={"/steel-chimney-process-stack-surface-preparation"} component={PillarPage} />
+        <Route path={"/industrial-steelwork-restoration"} component={PillarPage} />
         <Route path={"/external-staircases"} component={ExternalStaircasesPage} />
         <Route path={"/services/car-park-paint-removal"} component={CarParkPage} />
         <Route path={"/services/intumescent-painting"} component={IntumescentPaintingPage} />

@@ -37,6 +37,9 @@ const STATIC_PAGES = [
   { loc: "/prep-and-cleanup", changefreq: "monthly", priority: "0.6" },
   { loc: "/our-work", changefreq: "monthly", priority: "0.6" },
   { loc: "/steel-fabrications", changefreq: "weekly", priority: "0.8" },
+  { loc: "/steel-fabrication-surface-preparation", changefreq: "weekly", priority: "0.8" },
+  { loc: "/steel-chimney-process-stack-surface-preparation", changefreq: "weekly", priority: "0.8" },
+  { loc: "/industrial-steelwork-restoration", changefreq: "weekly", priority: "0.8" },
   { loc: "/external-staircases", changefreq: "weekly", priority: "0.8" },
   { loc: "/sitemap", changefreq: "monthly", priority: "0.5" },
 ];
