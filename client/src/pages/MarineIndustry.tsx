@@ -9,6 +9,7 @@ import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
 import { CountiesWeCover } from "@/components/CountiesWeCover";
+import { IndustryPillarResources } from "@/components/IndustryPillarResources";
 
 export default function MarineIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -349,6 +350,7 @@ export default function MarineIndustry() {
       </section>
 
       {/* Counties We Cover */}
+      <IndustryPillarResources industrySlug="marine" industryName="marine" />
       <CountiesWeCover industry="Marine" />
 
       {/* CTA Section */}

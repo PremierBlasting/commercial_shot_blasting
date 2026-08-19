@@ -109,6 +109,18 @@ const commercialResourceClusters = [
       { label: "Request a site visit", href: "/site-survey" },
     ],
   },
+  {
+    eyebrow: "Agricultural Steelwork & Rural Assets",
+    title: "Plan agricultural steelwork, farm equipment, and grain-store preparation clearly",
+    description: "Prepare a practical scope for farm machinery, rural steel structures, access, coating handover, and seasonal working considerations before a Site Visit.",
+    links: [
+      { label: "Agricultural steelwork & grain store planning hub", href: "/agricultural-steelwork-grain-store-preparation" },
+      { label: "Agricultural shot blasting", href: "/services/agricultural-shot-blasting" },
+      { label: "Plant and machinery shot blasting", href: "/services/plant-machinery" },
+      { label: "Rust grade glossary", href: "/glossary/rust-grade" },
+      { label: "Request a site visit", href: "/site-survey" },
+    ],
+  },
 ];
 
 export default function Services() {

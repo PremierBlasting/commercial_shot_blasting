@@ -8,6 +8,7 @@ import { Header } from "@/components/Header";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
 import { CountiesWeCover } from "@/components/CountiesWeCover";
+import { IndustryPillarResources } from "@/components/IndustryPillarResources";
 
 export default function ManufacturingIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -396,6 +397,7 @@ export default function ManufacturingIndustry() {
       </section>
 
       {/* Counties We Cover */}
+      <IndustryPillarResources industrySlug="manufacturing" industryName="manufacturing" />
       <CountiesWeCover industry="Manufacturing" />
 
       {/* CTA Section */}

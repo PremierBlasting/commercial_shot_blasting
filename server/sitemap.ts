@@ -42,6 +42,7 @@ const STATIC_PAGES = [
   { loc: "/industrial-steelwork-restoration", changefreq: "weekly", priority: "0.8" },
   { loc: "/factory-cladding-restoration", changefreq: "weekly", priority: "0.8" },
   { loc: "/process-pipework-spools-surface-preparation", changefreq: "weekly", priority: "0.8" },
+  { loc: "/agricultural-steelwork-grain-store-preparation", changefreq: "weekly", priority: "0.8" },
   { loc: "/external-staircases", changefreq: "weekly", priority: "0.8" },
   { loc: "/sitemap", changefreq: "monthly", priority: "0.5" },
 ];

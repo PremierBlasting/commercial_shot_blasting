@@ -248,6 +248,50 @@ export const pillarPages: PillarPageData[] = [
       { question: "Why should isolation, access, and coating handover be considered before the work is scheduled?", answer: "They affect practical sequencing, safe access, protection of adjacent assets, inspection arrangements, surface condition at handover, and the coordination of the next coating stage." },
     ],
   },
+  {
+    slug: "agricultural-steelwork-grain-store-preparation",
+    eyebrow: "Agricultural asset planning hub",
+    title: "Agricultural Steelwork & Grain Store Surface Preparation",
+    shortTitle: "Agricultural Steelwork & Grain Store Planning",
+    description: "Plan surface preparation for agricultural steelwork, farm machinery, grain-store structures, and rural building components before protective coating. Review approved project evidence and Site Visit guidance.",
+    keywords: "agricultural steelwork shot blasting, grain store surface preparation, farm machinery blast cleaning, agricultural building steel preparation, grain store coating preparation",
+    heroImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3334_2858c684.webp",
+    heroAlt: "Approved project image of agricultural farm machinery after rust removal and surface preparation",
+    overview: [
+      "This planning hub supports farm operators, rural building contractors, machinery owners, and coating teams assessing agricultural steelwork, grain-store structures, farm equipment, and related rural assets before protective coating or refurbishment.",
+      "The approved project record used here documents rust removal and surface preparation on 14 pieces of farm machinery, including trailers, ploughs, and spreaders, before protective coating. It does not document a grain-store project, a farm location, a programme, a client, or a specific preparation standard; grain-store scopes require their own condition assessment and specification.",
+    ],
+    scope: [
+      "Farm machinery, trailers, implements, spreaders, ploughs, brackets, gates, agricultural equipment, and accessible steel components",
+      "Agricultural building steelwork, grain-store structures, hoppers, access steelwork, and related fabricated components where the specific scope can be safely assessed",
+      "Rust, failed paint, scale, contamination, and surface condition before an agreed coating or repair stage",
+      "Access, seasonal working windows, asset handling, containment, neighbouring operations, and coating handover planning",
+    ],
+    planningInputs: [
+      { title: "Asset or building information", description: "Share photographs, dimensions, quantities, construction details, equipment type, and identify the surfaces or components included in the proposed scope." },
+      { title: "Surface condition", description: "Photographs should show corrosion, existing paint, contamination, repairs, joints, moving parts, grain-store interfaces, and any areas that must be protected." },
+      { title: "Access and seasonal constraints", description: "Explain access routes, working area, equipment handling, occupancy, livestock or crop considerations, seasonal windows, and any operational restrictions." },
+      { title: "Coating handover", description: "Identify the intended coating, repair, or next stage, plus the responsible specification owner and practical sequence after surface preparation." },
+    ],
+    serviceLinks: [
+      { title: "Agricultural Shot Blasting", href: "/services/agricultural-shot-blasting", description: "Dedicated service route for agricultural machinery, steelwork, and farm equipment preparation." },
+      { title: "Plant & Machinery", href: "/services/plant-machinery", description: "Relevant where wider plant assets or machinery form part of a maintenance scope." },
+      { title: "Steel Sheeting", href: "/services/steel-sheeting", description: "A related route for agricultural panels, sheeting, and accessible steel surfaces." },
+      { title: "Coating Removal", href: "/services/coating-removal", description: "Useful where old coatings must be assessed before an agreed preparation approach is selected." },
+    ],
+    resourceLinks: [
+      { title: "Industrial steelwork restoration planning", href: "/industrial-steelwork-restoration", description: "A related planning hub for corrosion preparation across steel assets and access systems." },
+      { title: "Shot blasting versus chemical stripping", href: "/blog/shot-blasting-vs-chemical-stripping", description: "A decision guide for comparing surface-preparation routes." },
+      { title: "Rust grade glossary", href: "/glossary/rust-grade", description: "Plain-English terminology to help describe observed corrosion condition." },
+      { title: "Request a Site Visit", href: "/site-survey", description: "Start a structured discussion about the assets, access, condition, coating, and programme." },
+    ],
+    projectIds: ["agricultural-equipment-midlands"],
+    faqs: [
+      { question: "What information helps scope agricultural steelwork or grain-store surface preparation?", answer: "Photographs, dimensions, asset or building details, surface condition, access information, seasonal constraints, and the intended coating or repair stage all help define an initial scope. A Site Visit can confirm practical details." },
+      { question: "Does the approved farm-machinery project record also document a grain-store project?", answer: "No. It documents preparation of 14 pieces of farm machinery before protective coating. Grain-store structures and agricultural buildings need their own condition assessment, scope, access plan, and specification review." },
+      { question: "Why should access and seasonal activity be discussed before agricultural preparation work?", answer: "Access routes, equipment handling, working area, surrounding farm activity, seasonal priorities, and the planned coating handover can affect safe sequencing and the practical timing of the work." },
+    ],
+  },
 ];
 
 export function getPillarPage(slug: string): PillarPageData | undefined {

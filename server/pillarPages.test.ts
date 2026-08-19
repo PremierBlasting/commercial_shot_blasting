@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { injectMetaTags } from "./metaTags";
 import { getTierAPillarResources } from "../shared/tierAPillarResources";
 import { getCountyPillarResources } from "../shared/countyPillarResources";
+import { getIndustryPillarResources } from "../shared/industryPillarResources";
 
 const baseHtml = `<!doctype html><html><head>
   <title>Commercial Shot Blasting</title>
@@ -23,6 +24,7 @@ describe("phase-one pillar page SSR", () => {
     ["/industrial-steelwork-restoration", "Industrial Steelwork Restoration & Corrosion Preparation"],
     ["/factory-cladding-restoration", "Factory Cladding Restoration & Coating Preparation"],
     ["/process-pipework-spools-surface-preparation", "Process Pipework, Spools & Support Steelwork Surface Preparation"],
+    ["/agricultural-steelwork-grain-store-preparation", "Agricultural Steelwork & Grain Store Surface Preparation"],
   ] as const;
 
   it.each(pages)("emits canonical metadata, schema, and substantive SSR content for %s", async (path, heading) => {
@@ -74,5 +76,21 @@ describe("phase-one pillar page SSR", () => {
 
     expect(hampshireResources.map((resource) => resource.href)).toContain("/process-pipework-spools-surface-preparation");
     expect(cornwallResources.map((resource) => resource.href)).not.toContain("/process-pipework-spools-surface-preparation");
+  });
+
+  it("keeps the agricultural pillar tied to the approved farm-machinery evidence without representing it as a grain-store project", async () => {
+    const html = await injectMetaTags(baseHtml, "/agricultural-steelwork-grain-store-preparation");
+
+    expect(html).toContain("14 pieces of farm machinery");
+    expect(html).toContain("does not document a grain-store project, a location, a programme, a client, or a specific preparation standard");
+    expect(html).toContain("/services/agricultural-shot-blasting");
+  });
+
+  it("selects relevant planning resources for agriculture while leaving unrelated industry hubs unchanged", () => {
+    const agricultureResources = getIndustryPillarResources("agriculture");
+    const aerospaceResources = getIndustryPillarResources("aerospace");
+
+    expect(agricultureResources.map((resource) => resource.href)).toContain("/agricultural-steelwork-grain-store-preparation");
+    expect(aerospaceResources).toEqual([]);
   });
 });

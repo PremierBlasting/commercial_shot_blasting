@@ -1662,3 +1662,9 @@
 - [x] Add the Process Pipework pillar to route discovery, XML and HTML sitemaps, the Services hub, and crawler-visible SSR metadata without duplicating core service-page intent
 - [x] Add carefully selected, context-sensitive pillar-resource links to appropriate county hubs in client and SSR templates
 - [x] Add regression coverage and validate rendered SEO output, TypeScript, the full test suite, and the production build
+
+## Agricultural Steelwork Pillar and Industry-Hub Linking (19 August 2026)
+- [x] Publish an evidence-led Agricultural Steelwork & Grain Store pillar using only approved project imagery and documented scope
+- [x] Add the Agricultural Steelwork pillar to route discovery, XML and HTML sitemaps, Services hub, and crawler-visible SSR metadata without duplicating core service-page intent
+- [x] Add carefully selected, context-sensitive pillar-resource links to relevant industry hubs in client and SSR templates
+- [x] Add regression coverage and validate rendered SEO output, TypeScript, the full test suite, and the production build

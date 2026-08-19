@@ -258,6 +258,7 @@ function Router() {
         <Route path={"/industrial-steelwork-restoration"} component={PillarPage} />
         <Route path={"/factory-cladding-restoration"} component={PillarPage} />
         <Route path={"/process-pipework-spools-surface-preparation"} component={PillarPage} />
+        <Route path={"/agricultural-steelwork-grain-store-preparation"} component={PillarPage} />
         <Route path={"/external-staircases"} component={ExternalStaircasesPage} />
         <Route path={"/services/car-park-paint-removal"} component={CarParkPage} />
         <Route path={"/services/intumescent-painting"} component={IntumescentPaintingPage} />

@@ -13,6 +13,7 @@ import { locationSlugIndex } from "../client/src/data/locationSlugIndex";
 import { countyData as clientCountyData } from "../client/src/data/countyData";
 import { getTierAPillarResources } from "@shared/tierAPillarResources";
 import { getCountyPillarResources } from "@shared/countyPillarResources";
+import { getIndustryPillarResources } from "@shared/industryPillarResources";
 
 // County chunk preload manifest (loaded once at startup in production)
 let countyChunkManifest: Record<string, string> | null = null;
@@ -7162,6 +7163,23 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
         { question: "Does the approved water-treatment project record apply to every pipework project?", answer: "No. It documents the stated 850-metre water-treatment scope, Sa 2.5 result, and three-coat epoxy handover for that project only. Another asset needs its own specification and condition assessment." },
       ],
     },
+    "/agricultural-steelwork-grain-store-preparation": {
+      title: "Agricultural Steelwork & Grain Store Surface Preparation | Commercial Shot Blasting",
+      description: "Plan surface preparation for agricultural steelwork, farm machinery, grain-store structures, and rural building components before protective coating. Review approved project evidence and Site Visit guidance.",
+      image: "https://commercialshotblasting.co.uk/manus-storage/IMG_3334_2858c684.webp",
+      heading: "Agricultural Steelwork & Grain Store Surface Preparation",
+      intro: "A planning hub for agricultural steelwork, farm machinery, grain-store structures, and rural building components. The approved project record on this site documents rust removal and surface preparation on 14 pieces of farm machinery before protective coating. It does not document a grain-store project, a location, a programme, a client, or a specific preparation standard.",
+      links: [
+        { label: "Agricultural Shot Blasting", href: "/services/agricultural-shot-blasting" },
+        { label: "Plant & Machinery", href: "/services/plant-machinery" },
+        { label: "Industrial Steelwork Restoration", href: "/industrial-steelwork-restoration" },
+        { label: "Rust grade glossary", href: "/glossary/rust-grade" },
+      ],
+      faqs: [
+        { question: "What information helps scope agricultural steelwork or grain-store surface preparation?", answer: "Photographs, dimensions, asset or building details, surface condition, access information, seasonal constraints, and the intended coating or repair stage all help define an initial scope. A Site Visit can confirm practical details." },
+        { question: "Does the approved farm-machinery project record also document a grain-store project?", answer: "No. It documents preparation of 14 pieces of farm machinery before protective coating. Grain-store structures and agricultural buildings need their own condition assessment, scope, access plan, and specification review." },
+      ],
+    },
   };
   const pillar = pillarPages[pillarPath];
   if (pillar) {
@@ -7734,7 +7752,10 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
         .map(s => `<li>${escHtml(s)} shot blasting services — mobile, on-site, SA2.5/SA3 standard</li>`).join('');
       const industryCountyLinks = (industryCountiesMap[industrySlug] || []).slice(0, 8)
         .map(c => `<li><a href="${SITE_URL}/counties/${c.slug}">${escHtml(c.name)} ${escHtml(industry.name)} Shot Blasting</a></li>`).join('');
-      const industryBodyHtml = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/services">Services</a> | <a href="${SITE_URL}/service-areas">Service Areas</a> | <a href="${SITE_URL}/industries">Industries</a> | <a href="${SITE_URL}/about">About</a> | <a href="${SITE_URL}/contact">Contact</a></nav><main><h1>Shot Blasting for the ${escHtml(industry.name)} Industry</h1><p>${escHtml(industry.description)}</p><h2>${escHtml(industry.name)} Shot Blasting Services</h2><ul>${industryServiceLinks}</ul>${industryCountyLinks ? `<h2>Areas Covered for ${escHtml(industry.name)} Shot Blasting</h2><ul>${industryCountyLinks}</ul>` : ''}<p><a href="${SITE_URL}/contact">Request a free site survey</a> | <a href="${SITE_URL}/service-areas">Find your area</a> | Call <a href="tel:${PHONE.replace(/\s/g, '')}">${PHONE}</a></p></main></div>`;
+      const industryPillarLinks = getIndustryPillarResources(industrySlug)
+        .map((resource) => `<li><a href="${SITE_URL}${resource.href}">${escHtml(resource.title)}</a> — ${escHtml(resource.description)}</li>`).join('');
+      const industryPillarHtml = industryPillarLinks ? `<section><h2>${escHtml(industry.name)} Planning Resources</h2><ul>${industryPillarLinks}</ul></section>` : '';
+      const industryBodyHtml = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/services">Services</a> | <a href="${SITE_URL}/service-areas">Service Areas</a> | <a href="${SITE_URL}/industries">Industries</a> | <a href="${SITE_URL}/about">About</a> | <a href="${SITE_URL}/contact">Contact</a></nav><main><h1>Shot Blasting for the ${escHtml(industry.name)} Industry</h1><p>${escHtml(industry.description)}</p><h2>${escHtml(industry.name)} Shot Blasting Services</h2><ul>${industryServiceLinks}</ul>${industryPillarHtml}${industryCountyLinks ? `<h2>Areas Covered for ${escHtml(industry.name)} Shot Blasting</h2><ul>${industryCountyLinks}</ul>` : ''}<p><a href="${SITE_URL}/contact">Request a free site survey</a> | <a href="${SITE_URL}/service-areas">Find your area</a> | Call <a href="tel:${PHONE.replace(/\s/g, '')}">${PHONE}</a></p></main></div>`;
       if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
         modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', industryBodyHtml);
       } else {
