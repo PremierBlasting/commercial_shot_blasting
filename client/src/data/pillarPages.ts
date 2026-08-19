@@ -160,6 +160,50 @@ export const pillarPages: PillarPageData[] = [
       { question: "Does corrosion appearance alone define the required preparation method?", answer: "No. Surface appearance is only one input. The final approach should account for the asset, coating specification, access, condition, environmental controls, and any project-specific requirements." },
     ],
   },
+  {
+    slug: "factory-cladding-restoration",
+    eyebrow: "Industrial building refurbishment hub",
+    title: "Factory Cladding Restoration & Coating Preparation",
+    shortTitle: "Factory Cladding Restoration",
+    description: "Plan factory and warehouse cladding restoration before a protective coating system. Review approved project evidence, scope inputs, cladding services, coating-removal guidance, and Site Visit support.",
+    keywords: "factory cladding restoration, warehouse cladding shot blasting, plastisol coating removal, industrial cladding preparation, factory cladding coating preparation",
+    heroImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3343_ac1c8682.webp",
+    heroAlt: "Approved factory cladding restoration project image showing profiled steel cladding after preparation work",
+    overview: [
+      "This hub is for facilities teams, building owners, refurbishment contractors, and coating specialists planning work on profiled steel factory or warehouse cladding. It connects the cladding service with the scope information needed before a survey, coating-removal considerations, and relevant project evidence.",
+      "The approved factory-cladding project record on this site describes removal of plastisol and failed paint from 2,400 m² of profiled steel cladding at a food-processing plant, with surfaces prepared for a 25-year coating system. This hub uses that documented record without adding a site location, programme, client identity, or unverified preparation standard.",
+    ],
+    scope: [
+      "Profiled steel factory and warehouse cladding panels, elevations, interfaces, flashings, and accessible supporting steelwork",
+      "Assessment of plastisol, paint, corrosion, contamination, and failing coating layers before a new system is specified",
+      "Preparation sequencing alongside access, containment, neighbouring operations, masking, and coating handover discussions",
+      "Commercial refurbishment planning where cladding condition, access, and the coating specification need to be considered together",
+    ],
+    planningInputs: [
+      { title: "Building and elevation information", description: "Share photographs of every elevation, panel profile details, dimensions, access constraints, and any adjacent areas that need protection." },
+      { title: "Existing coating condition", description: "Record flaking paint, plastisol condition, corrosion, surface contamination, repairs, damaged panels, and any known previous coating history." },
+      { title: "Access and operations", description: "Explain working height, access equipment, occupied areas, production or logistics activity, neighbouring properties, and any time restrictions." },
+      { title: "Coating handover", description: "Identify the intended coating contractor or specification owner, required sequence, inspection needs, and any compatibility requirements for the proposed new system." },
+    ],
+    serviceLinks: [
+      { title: "Factory & Warehouse Cladding", href: "/services/factory-cladding", description: "Dedicated service route for cladding restoration and preparation planning." },
+      { title: "Coating Removal", href: "/services/coating-removal", description: "Relevant where an existing coating system must be assessed and removed before refurbishment." },
+      { title: "Steel Sheeting", href: "/services/steel-sheeting", description: "A related service pathway for steel sheets and panels used in commercial construction." },
+      { title: "Structural Steel Frames", href: "/services/structural-steel-frames", description: "Useful where structural steelwork forms part of a wider refurbishment package." },
+    ],
+    resourceLinks: [
+      { title: "Restoring factory and warehouse cladding", href: "/blog/restoring-factory-warehouse-cladding", description: "A practical guide to assessing cladding condition and planning a refurbishment sequence." },
+      { title: "Shot blasting versus chemical stripping", href: "/blog/shot-blasting-vs-chemical-stripping", description: "A decision resource for comparing surface-preparation approaches." },
+      { title: "Surface profile glossary", href: "/glossary/surface-profile", description: "An explanation of a key coating-readiness term." },
+      { title: "Request a Site Visit", href: "/site-survey", description: "Start a structured discussion about cladding condition, access, and the next coating stage." },
+    ],
+    projectIds: ["factory-cladding-yorkshire"],
+    faqs: [
+      { question: "What information helps scope a factory cladding restoration enquiry?", answer: "Provide photographs of all elevations, dimensions where available, access details, operating constraints, existing coating condition, and the intended new coating system. A Site Visit can then confirm practical scope factors." },
+      { question: "Can the cladding project record on this site confirm a preparation standard for every project?", answer: "No. The approved project record documents the stated cladding scope and intended coating system for that project. Preparation requirements should always be confirmed from the relevant project specification and condition assessment." },
+      { question: "Why should access and coating handover be planned before surface preparation begins?", answer: "Access arrangements and the next coating stage affect the safe sequencing of the work, the protection of adjacent areas, inspection arrangements, and how the prepared surface is handed over to the coating contractor." },
+    ],
+  },
 ];
 
 export function getPillarPage(slug: string): PillarPageData | undefined {

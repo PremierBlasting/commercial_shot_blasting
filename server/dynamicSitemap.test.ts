@@ -27,7 +27,7 @@ describe("dynamic full-site sitemap", () => {
 
   it("includes core canonical pages alongside the full areas catalogue", async () => {
     const xml = await buildSitemap();
-    for (const path of ["/", "/contact", "/site-survey", "/counties", "/service-areas", "/privacy-policy", "/blog", "/steel-fabrication-surface-preparation", "/steel-chimney-process-stack-surface-preparation", "/industrial-steelwork-restoration"]) {
+    for (const path of ["/", "/contact", "/site-survey", "/counties", "/service-areas", "/privacy-policy", "/blog", "/steel-fabrication-surface-preparation", "/steel-chimney-process-stack-surface-preparation", "/industrial-steelwork-restoration", "/factory-cladding-restoration"]) {
       expect(xml).toContain(`https://commercialshotblasting.co.uk${path}`);
     }
   });

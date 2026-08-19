@@ -11,6 +11,7 @@ import { getTownSpotlight } from "@shared/townSpotlight";
 import { countyOgImageUrl, townOgImageUrl } from "./ogImage";
 import { locationSlugIndex } from "../client/src/data/locationSlugIndex";
 import { countyData as clientCountyData } from "../client/src/data/countyData";
+import { getTierAPillarResources } from "@shared/tierAPillarResources";
 
 // County chunk preload manifest (loaded once at startup in production)
 let countyChunkManifest: Record<string, string> | null = null;
@@ -6310,6 +6311,10 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
   const description = loc.description;
   const faqs = loc.faqs;
   const countySlug = loc.countySlug;
+  const tierAPillarResources = getTierAPillarResources(locationSlug, (loc as { industries?: string[] }).industries ?? []);
+  const tierAPillarHtml = tierAPillarResources.length > 0
+    ? `<section aria-label="Commercial Project Planning Resources"><h2>Specialist Surface-Preparation Resources for ${escHtml(name)}</h2><p>For larger fabrication, industrial refurbishment, or cladding programmes, these planning hubs help define the information to prepare before requesting a Site Visit.</p><ul>${tierAPillarResources.map((resource) => `<li><a href="${SITE_URL}${resource.href}">${escHtml(resource.title)}</a> — ${escHtml(resource.description)}</li>`).join("")}</ul></section>`
+    : "";
 
   const services = [
     "Structural Steelwork Shot Blasting — beams, columns, trusses & fabrications",
@@ -6441,6 +6446,7 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
       </ul>
       <p><a href="${SITE_URL}/services">View all 19 shot blasting services</a></p>
     </section>
+    ${tierAPillarHtml}
     <section aria-label="Recently Completed Projects">
       <h2>Recently Completed Projects near ${escHtml(name)}</h2>
       <p>A selection of shot blasting projects completed by our team in ${escHtml(county)} and surrounding areas.</p>
@@ -7119,6 +7125,23 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       faqs: [
         { question: "How do you decide which industrial steelwork service is relevant?", answer: "The asset type, existing condition, access, operational environment, coating objective, and programme context guide the service discussion. This hub routes you to the most relevant specialist page before a Site Visit." },
         { question: "Does corrosion appearance alone define the required preparation method?", answer: "No. Surface appearance is only one input. The final approach should account for the asset, coating specification, access, condition, environmental controls, and any project-specific requirements." },
+      ],
+    },
+    "/factory-cladding-restoration": {
+      title: "Factory Cladding Restoration & Coating Preparation | Commercial Shot Blasting",
+      description: "Plan factory and warehouse cladding restoration before a protective coating system. Review approved project evidence, scope inputs, cladding services, and Site Visit guidance.",
+      image: "https://commercialshotblasting.co.uk/manus-storage/IMG_3343_ac1c8682.webp",
+      heading: "Factory Cladding Restoration & Coating Preparation",
+      intro: "A commercial planning hub for factory and warehouse cladding refurbishment. The approved project record on this site documents removal of plastisol and failed paint from 2,400 m² of profiled steel cladding at a food-processing plant, prepared for a 25-year coating system. It does not establish a location, programme, client identity, or unverified preparation standard.",
+      links: [
+        { label: "Factory & Warehouse Cladding", href: "/services/factory-cladding" },
+        { label: "Coating Removal", href: "/services/coating-removal" },
+        { label: "Approved factory cladding project", href: "/our-work#factory-cladding-yorkshire" },
+        { label: "Cladding restoration guide", href: "/blog/restoring-factory-warehouse-cladding" },
+      ],
+      faqs: [
+        { question: "What should be included in a factory cladding restoration enquiry?", answer: "Provide photographs of all elevations, dimensions where available, access details, operating constraints, existing coating condition, and the intended new coating system. A Site Visit can then confirm practical scope factors." },
+        { question: "Can the approved cladding project record confirm the preparation standard for every project?", answer: "No. The documented project record applies to that project only. Preparation requirements should be confirmed from the relevant project specification and condition assessment." },
       ],
     },
   };

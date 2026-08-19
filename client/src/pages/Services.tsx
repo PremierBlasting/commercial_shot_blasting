@@ -90,6 +90,7 @@ const commercialResourceClusters = [
     title: "Plan cladding and coating-removal projects with less disruption",
     description: "Compare preparation options, define the existing coating condition, and plan the right sequence before a building-refurbishment programme begins.",
     links: [
+      { label: "Factory cladding restoration planning hub", href: "/factory-cladding-restoration" },
       { label: "Industrial steelwork restoration hub", href: "/industrial-steelwork-restoration" },
       { label: "Factory cladding blasting", href: "/services/factory-cladding" },
       { label: "Coating removal", href: "/services/coating-removal" },

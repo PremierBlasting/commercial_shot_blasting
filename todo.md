@@ -1650,3 +1650,9 @@
 - [x] Publish the Industrial Steelwork Restoration & Corrosion Preparation pillar with relevant specialist service and verified-project pathways
 - [x] Add all pillar URLs to navigation discovery, dynamic sitemap, HTML sitemap, and contextual internal links without creating duplicate service-page intent
 - [x] Add regression coverage and validate rendered SEO output, TypeScript, full tests, and production build
+
+## Factory Cladding Pillar and Tier A Local Linking (19 August 2026)
+- [x] Publish an evidence-led Factory Cladding Restoration pillar with approved project images, native conversion path, canonical metadata, schema, and crawler-visible SSR content
+- [x] Add the Factory Cladding pillar to route discovery, XML and HTML sitemaps, and the Services hub without duplicating the core service-page intent
+- [x] Add carefully selected, contextual pillar-resource links to Tier A city pages in client and SSR templates
+- [x] Add regression coverage and validate rendered SEO output, TypeScript, the full test suite, and the production build

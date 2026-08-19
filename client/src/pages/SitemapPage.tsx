@@ -83,6 +83,7 @@ const MAIN_PAGES = [
   { href: "/steel-fabrication-surface-preparation", label: "Steel Fabrication & Structural Steel Planning" },
   { href: "/steel-chimney-process-stack-surface-preparation", label: "Steel Chimney & Process Stack Planning" },
   { href: "/industrial-steelwork-restoration", label: "Industrial Steelwork Restoration Planning" },
+  { href: "/factory-cladding-restoration", label: "Factory Cladding Restoration Planning" },
   { href: "/reviews", label: "Customer Reviews" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },

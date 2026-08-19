@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { injectMetaTags } from "./metaTags";
+import { getTierAPillarResources } from "../shared/tierAPillarResources";
 
 const baseHtml = `<!doctype html><html><head>
   <title>Commercial Shot Blasting</title>
@@ -19,6 +20,7 @@ describe("phase-one pillar page SSR", () => {
     ["/steel-fabrication-surface-preparation", "Steel Fabrication & Structural Steel Surface Preparation"],
     ["/steel-chimney-process-stack-surface-preparation", "Steel Chimney, Process Stack & Flue Surface Preparation"],
     ["/industrial-steelwork-restoration", "Industrial Steelwork Restoration & Corrosion Preparation"],
+    ["/factory-cladding-restoration", "Factory Cladding Restoration & Coating Preparation"],
   ] as const;
 
   it.each(pages)("emits canonical metadata, schema, and substantive SSR content for %s", async (path, heading) => {
@@ -38,5 +40,21 @@ describe("phase-one pillar page SSR", () => {
 
     expect(html).toContain("does not establish a location, programme, blast standard, client, or final coating system");
     expect(html).toContain("/our-work#steel-chimney-case-study");
+  });
+
+  it("keeps the factory cladding pillar tied to the approved project record without adding unsupported project claims", async () => {
+    const html = await injectMetaTags(baseHtml, "/factory-cladding-restoration");
+
+    expect(html).toContain("2,400 m² of profiled steel cladding");
+    expect(html).toContain("prepared for a 25-year coating system");
+    expect(html).toContain("does not establish a location, programme, client identity, or unverified preparation standard");
+  });
+
+  it("adds resource links only to Tier A locations and includes the cladding pillar", () => {
+    const tierAResources = getTierAPillarResources("birmingham", ["Manufacturing", "Construction"]);
+    const tierBResources = getTierAPillarResources("truro", ["Construction"]);
+
+    expect(tierAResources.map((resource) => resource.href)).toContain("/factory-cladding-restoration");
+    expect(tierBResources).toEqual([]);
   });
 });

@@ -44,6 +44,7 @@ import { services } from '@/data/services';
 import { getProjectsForCounty } from '@/data/recentProjects';
 import { getCanonicalServicePath } from '@shared/serviceSeoCatalog';
 import { normaliseResponseTimeCopy } from '@shared/seoContentPolicy';
+import { getTierAPillarResources } from '@shared/tierAPillarResources';
 import { trpc } from "@/lib/trpc";
 import { formatUTMForSubmission } from "@/lib/utm";
 export type { LocationData };
@@ -166,6 +167,7 @@ export function LocationPage({ location }: LocationPageProps) {
 
   // Derive nearby towns from same-county locations (up to 12, excluding current)
   const [nearbyTowns, setNearbyTowns] = useState<LocationData[]>([]);
+  const tierAPillarResources = getTierAPillarResources(location.slug, location.industries ?? []);
   useEffect(() => {
     if (!location.countySlug) return;
     loadCountyLocations(location.countySlug).then(countyLocs => {
@@ -771,6 +773,31 @@ export function LocationPage({ location }: LocationPageProps) {
           </div>
         </div>
       </section>
+
+      {tierAPillarResources.length > 0 && (
+        <section className="py-14 bg-white" aria-label="Commercial project planning resources">
+          <div className="container">
+            <div className="max-w-3xl mb-8">
+              <p className="text-[#2C5F7F] font-medium mb-2">Commercial Project Planning</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Specialist Surface-Preparation Resources for {location.name}
+              </h2>
+              <p className="text-gray-600 mt-3">
+                For larger fabrication, industrial refurbishment, or cladding programmes, these planning hubs help define the information to prepare before requesting a Site Visit.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+              {tierAPillarResources.map((resource) => (
+                <a key={resource.href} href={resource.href} className="group rounded-xl border border-slate-200 bg-[#f8fbfd] p-5 transition hover:border-[#2C5F7F] hover:shadow-md">
+                  <h3 className="font-bold text-[#1a3d52] group-hover:text-[#2C5F7F]">{resource.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{resource.description}</p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F]">Explore resource <ArrowRight className="h-4 w-4" /></span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Related Services Section */}
       <section className="py-14 bg-[#f0f6fb]">
