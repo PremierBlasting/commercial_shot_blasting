@@ -86,6 +86,7 @@ const MAIN_PAGES = [
   { href: "/factory-cladding-restoration", label: "Factory Cladding Restoration Planning" },
   { href: "/process-pipework-spools-surface-preparation", label: "Process Pipework & Spools Planning" },
   { href: "/agricultural-steelwork-grain-store-preparation", label: "Agricultural Steelwork & Grain Store Planning" },
+  { href: "/container-restoration-storage-steelwork", label: "Container Restoration & Storage Steelwork Planning" },
   { href: "/reviews", label: "Customer Reviews" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },

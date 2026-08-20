@@ -25,6 +25,7 @@ describe("phase-one pillar page SSR", () => {
     ["/factory-cladding-restoration", "Factory Cladding Restoration & Coating Preparation"],
     ["/process-pipework-spools-surface-preparation", "Process Pipework, Spools & Support Steelwork Surface Preparation"],
     ["/agricultural-steelwork-grain-store-preparation", "Agricultural Steelwork & Grain Store Surface Preparation"],
+    ["/container-restoration-storage-steelwork", "Container Restoration & Storage Steelwork Surface Preparation"],
   ] as const;
 
   it.each(pages)("emits canonical metadata, schema, and substantive SSR content for %s", async (path, heading) => {
@@ -84,13 +85,27 @@ describe("phase-one pillar page SSR", () => {
     expect(html).toContain("14 pieces of farm machinery");
     expect(html).toContain("does not document a grain-store project, a location, a programme, a client, or a specific preparation standard");
     expect(html).toContain("/services/agricultural-shot-blasting");
+    expect(html).toContain("/blog/seasonal-agricultural-steelwork-maintenance-guide");
   });
 
-  it("selects relevant planning resources for agriculture while leaving unrelated industry hubs unchanged", () => {
+  it("keeps the Container Restoration pillar tied to its approved 18-container project record", async () => {
+    const html = await injectMetaTags(baseHtml, "/container-restoration-storage-steelwork");
+
+    expect(html).toContain("18 shipping containers at a logistics depot");
+    expect(html).toContain("returned to Sa 2.5 and recoated on site");
+    expect(html).toContain("does not establish a depot location, programme, client, coating product, or further fleet claims");
+    expect(html).toContain("/services/steel-containers");
+  });
+
+  it("selects industry resources with tailored enquiry prompts while leaving unrelated industry hubs unchanged", () => {
     const agricultureResources = getIndustryPillarResources("agriculture");
+    const manufacturingResources = getIndustryPillarResources("manufacturing");
     const aerospaceResources = getIndustryPillarResources("aerospace");
 
     expect(agricultureResources.map((resource) => resource.href)).toContain("/agricultural-steelwork-grain-store-preparation");
+    expect(agricultureResources.every((resource) => resource.enquiryPrompt.length > 25)).toBe(true);
+    expect(manufacturingResources.map((resource) => resource.href)).toContain("/container-restoration-storage-steelwork");
+    expect(manufacturingResources.find((resource) => resource.href === "/container-restoration-storage-steelwork")?.enquiryPrompt).toContain("container quantities");
     expect(aerospaceResources).toEqual([]);
   });
 });

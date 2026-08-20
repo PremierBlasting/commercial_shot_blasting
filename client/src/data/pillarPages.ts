@@ -281,6 +281,7 @@ export const pillarPages: PillarPageData[] = [
     ],
     resourceLinks: [
       { title: "Industrial steelwork restoration planning", href: "/industrial-steelwork-restoration", description: "A related planning hub for corrosion preparation across steel assets and access systems." },
+      { title: "Seasonal agricultural steelwork maintenance guide", href: "/blog/seasonal-agricultural-steelwork-maintenance-guide", description: "A practical pre-harvest planning guide for condition records, access, weatherproofing checks, and coating preparation." },
       { title: "Shot blasting versus chemical stripping", href: "/blog/shot-blasting-vs-chemical-stripping", description: "A decision guide for comparing surface-preparation routes." },
       { title: "Rust grade glossary", href: "/glossary/rust-grade", description: "Plain-English terminology to help describe observed corrosion condition." },
       { title: "Request a Site Visit", href: "/site-survey", description: "Start a structured discussion about the assets, access, condition, coating, and programme." },
@@ -290,6 +291,50 @@ export const pillarPages: PillarPageData[] = [
       { question: "What information helps scope agricultural steelwork or grain-store surface preparation?", answer: "Photographs, dimensions, asset or building details, surface condition, access information, seasonal constraints, and the intended coating or repair stage all help define an initial scope. A Site Visit can confirm practical details." },
       { question: "Does the approved farm-machinery project record also document a grain-store project?", answer: "No. It documents preparation of 14 pieces of farm machinery before protective coating. Grain-store structures and agricultural buildings need their own condition assessment, scope, access plan, and specification review." },
       { question: "Why should access and seasonal activity be discussed before agricultural preparation work?", answer: "Access routes, equipment handling, working area, surrounding farm activity, seasonal priorities, and the planned coating handover can affect safe sequencing and the practical timing of the work." },
+    ],
+  },
+  {
+    slug: "container-restoration-storage-steelwork",
+    eyebrow: "Industrial storage asset planning hub",
+    title: "Container Restoration & Storage Steelwork Surface Preparation",
+    shortTitle: "Container Restoration & Storage Steelwork",
+    description: "Plan surface preparation for steel containers, storage units, and containerised steelwork before recoating. Review approved container-project evidence, scope inputs, specialist services, and Site Visit guidance.",
+    keywords: "container restoration shot blasting, steel container recoating preparation, shipping container rust removal, container fleet blast cleaning, storage steelwork surface preparation",
+    heroImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3354_caa39ac3.webp",
+    heroAlt: "Approved project image of a steel shipping container prepared for a protective recoating system",
+    overview: [
+      "This planning hub supports logistics operators, facilities teams, storage-asset owners, and refurbishment contractors assessing steel containers, storage units, and containerised structures before a new protective coating stage. It connects the container service, condition-review inputs, project evidence, and Site Visit pathway.",
+      "The approved container project record on this site documents removal of rust and old coatings from 18 shipping containers at a logistics depot, returned to Sa 2.5 and recoated on site. This hub is limited to that documented record and does not add a depot location, programme, client, coating product, or further fleet claims.",
+    ],
+    scope: [
+      "Steel shipping containers, storage units, containerised steelwork, doors, frames, roof areas, corner details, and accessible external surfaces",
+      "Corrosion, failed coatings, rust, surface contamination, repairs, and areas that need assessment before an agreed coating system",
+      "Preparation sequencing alongside access, positioning, surrounding operations, containment, masking, inspection, and recoating handover",
+      "Logistics, construction, manufacturing, and industrial-storage scopes where container condition and operational access need to be planned together",
+    ],
+    planningInputs: [
+      { title: "Container schedule", description: "Share quantities, container types, dimensions, door and frame condition, serial or asset references where appropriate, and identify any excluded surfaces." },
+      { title: "Condition record", description: "Provide photographs of all sides, roof areas, doors, corners, corrosion, old coating, repairs, labels that must be protected, and access constraints." },
+      { title: "Access and operations", description: "Explain the depot or site layout, container movement, lifting arrangements, occupied areas, nearby activities, working restrictions, and any required containment." },
+      { title: "Recoating handover", description: "Identify the intended coating specification owner, coating sequence, inspection requirements, and how prepared surfaces will be protected before recoating." },
+    ],
+    serviceLinks: [
+      { title: "Steel Container Blasting", href: "/services/steel-containers", description: "Dedicated service route for container corrosion, old-coating, and recoating-preparation discussions." },
+      { title: "Coating Removal", href: "/services/coating-removal", description: "Relevant where old container coatings need review before a preparation approach is agreed." },
+      { title: "Industrial Steelwork Restoration", href: "/industrial-steelwork-restoration", description: "Related planning hub for wider industrial steel assets, corrosion, and refurbishment scopes." },
+      { title: "Plant & Machinery", href: "/services/plant-machinery", description: "Useful where containerised assets form part of a wider plant or maintenance package." },
+    ],
+    resourceLinks: [
+      { title: "Shot blasting versus chemical stripping", href: "/blog/shot-blasting-vs-chemical-stripping", description: "A decision guide for comparing surface-preparation routes where coating removal is part of the brief." },
+      { title: "Steel fabrication shot blasting costs and programme guide", href: "/blog/steel-fabrication-shot-blasting-costs-and-programme-guide", description: "Useful scope factors for access, condition, coating handover, and programme planning." },
+      { title: "Rust grade glossary", href: "/glossary/rust-grade", description: "Plain-English terminology for describing visible corrosion before an assessment." },
+      { title: "Request a Site Visit", href: "/site-survey", description: "Start a structured discussion about container quantity, condition, access, and recoating requirements." },
+    ],
+    projectIds: ["container-blasting-midlands"],
+    faqs: [
+      { question: "What information helps scope a container restoration enquiry?", answer: "Useful information includes container quantities and dimensions, photographs of every side and roof where accessible, existing coating condition, corrosion, door and frame details, access arrangements, operational restrictions, and the intended recoating system." },
+      { question: "Does the approved container project record apply to every storage-container project?", answer: "No. It documents 18 shipping containers at a logistics depot, returned to Sa 2.5 and recoated on site. Each container or storage-steelwork scope needs its own condition assessment, access review, and coating specification." },
+      { question: "Why should container access and recoating handover be planned before surface preparation?", answer: "They influence container positioning, protection of adjacent activities, containment, inspection, safe sequencing, and the condition of the prepared surface when it is handed over for recoating." },
     ],
   },
 ];

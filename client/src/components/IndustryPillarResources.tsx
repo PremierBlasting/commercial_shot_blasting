@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen, ClipboardList } from "lucide-react";
 import { getIndustryPillarResources } from "@shared/industryPillarResources";
 
 export function IndustryPillarResources({ industrySlug, industryName }: { industrySlug: string; industryName: string }) {
@@ -20,11 +20,17 @@ export function IndustryPillarResources({ industrySlug, industryName }: { indust
         </div>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {resources.map((resource) => (
-            <Link key={resource.href} href={resource.href} className="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-[#2C5F7F]/40 hover:shadow-md">
-              <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#2C5F7F]">{resource.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-600">{resource.description}</p>
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#2C5F7F]">Explore planning hub <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" /></span>
-            </Link>
+            <article key={resource.href} className="rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-[#2C5F7F]/40 hover:shadow-md">
+              <Link href={resource.href} className="group block p-6">
+                <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#2C5F7F]">{resource.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{resource.description}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#2C5F7F]">Explore planning hub <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" /></span>
+              </Link>
+              <div className="border-t border-slate-100 bg-slate-50/70 px-6 py-4">
+                <p className="flex gap-2 text-xs leading-5 text-slate-600"><ClipboardList className="mt-0.5 h-4 w-4 shrink-0 text-[#2C5F7F]" aria-hidden="true" /><span><strong className="text-slate-800">For a focused Site Visit, tell us:</strong> {resource.enquiryPrompt}</span></p>
+                <Link href="/site-survey" className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#2C5F7F] hover:underline">Request a Site Visit <ArrowRight className="h-4 w-4" /></Link>
+              </div>
+            </article>
           ))}
         </div>
       </div>

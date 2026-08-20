@@ -1668,3 +1668,10 @@
 - [x] Add the Agricultural Steelwork pillar to route discovery, XML and HTML sitemaps, Services hub, and crawler-visible SSR metadata without duplicating core service-page intent
 - [x] Add carefully selected, context-sensitive pillar-resource links to relevant industry hubs in client and SSR templates
 - [x] Add regression coverage and validate rendered SEO output, TypeScript, the full test suite, and the production build
+
+## Container Pillar, Industry Enquiry Prompts, and Agricultural Maintenance Guide (20 August 2026)
+- [x] Publish an evidence-led Container Restoration & Storage Steelwork pillar using only approved container-project imagery and documented scope
+- [x] Add the Container pillar to route discovery, XML and HTML sitemaps, Services hub, and crawler-visible SSR metadata without duplicating core service-page intent
+- [x] Add industry-specific enquiry prompts to contextual resource cards across industry hubs in visible and SSR output
+- [x] Publish a seasonal agricultural steelwork-maintenance guide with direct internal links to the Agricultural pillar and Site Visit flow
+- [x] Add regression coverage and validate rendered SEO output, TypeScript, the full test suite, and production build

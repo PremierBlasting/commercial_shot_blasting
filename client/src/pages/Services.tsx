@@ -121,6 +121,18 @@ const commercialResourceClusters = [
       { label: "Request a site visit", href: "/site-survey" },
     ],
   },
+  {
+    eyebrow: "Container Fleets & Storage Assets",
+    title: "Plan container restoration and storage-steelwork recoating with clearer scope inputs",
+    description: "Use the container planning hub to organise quantities, condition photos, handling, site access, corrosion, and recoating handover before a Site Visit.",
+    links: [
+      { label: "Container restoration & storage steelwork planning hub", href: "/container-restoration-storage-steelwork" },
+      { label: "Steel container blasting", href: "/services/steel-containers" },
+      { label: "Industrial steelwork restoration planning hub", href: "/industrial-steelwork-restoration" },
+      { label: "Shot blasting vs chemical stripping", href: "/blog/shot-blasting-vs-chemical-stripping" },
+      { label: "Request a site visit", href: "/site-survey" },
+    ],
+  },
 ];
 
 export default function Services() {

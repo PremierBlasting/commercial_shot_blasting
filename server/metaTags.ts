@@ -7173,11 +7173,29 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
         { label: "Agricultural Shot Blasting", href: "/services/agricultural-shot-blasting" },
         { label: "Plant & Machinery", href: "/services/plant-machinery" },
         { label: "Industrial Steelwork Restoration", href: "/industrial-steelwork-restoration" },
+        { label: "Seasonal agricultural steelwork maintenance guide", href: "/blog/seasonal-agricultural-steelwork-maintenance-guide" },
         { label: "Rust grade glossary", href: "/glossary/rust-grade" },
       ],
       faqs: [
         { question: "What information helps scope agricultural steelwork or grain-store surface preparation?", answer: "Photographs, dimensions, asset or building details, surface condition, access information, seasonal constraints, and the intended coating or repair stage all help define an initial scope. A Site Visit can confirm practical details." },
         { question: "Does the approved farm-machinery project record also document a grain-store project?", answer: "No. It documents preparation of 14 pieces of farm machinery before protective coating. Grain-store structures and agricultural buildings need their own condition assessment, scope, access plan, and specification review." },
+      ],
+    },
+    "/container-restoration-storage-steelwork": {
+      title: "Container Restoration & Storage Steelwork Surface Preparation | Commercial Shot Blasting",
+      description: "Plan surface preparation for steel containers, storage units, and containerised steelwork before recoating. Review approved container-project evidence and Site Visit guidance.",
+      image: "https://commercialshotblasting.co.uk/manus-storage/IMG_3354_caa39ac3.webp",
+      heading: "Container Restoration & Storage Steelwork Surface Preparation",
+      intro: "The approved project record on this site documents removal of rust and old coatings from 18 shipping containers at a logistics depot, returned to Sa 2.5 and recoated on site. It does not establish a depot location, programme, client, coating product, or further fleet claims.",
+      links: [
+        { label: "Steel Container Blasting", href: "/services/steel-containers" },
+        { label: "Industrial Steelwork Restoration", href: "/industrial-steelwork-restoration" },
+        { label: "Approved container project", href: "/our-work#container-blasting-midlands" },
+        { label: "Shot blasting versus chemical stripping", href: "/blog/shot-blasting-vs-chemical-stripping" },
+      ],
+      faqs: [
+        { question: "What information helps scope a container restoration enquiry?", answer: "Useful information includes container quantities and dimensions, photographs of every side and roof where accessible, existing coating condition, corrosion, door and frame details, access arrangements, operational restrictions, and the intended recoating system." },
+        { question: "Does the approved container project record apply to every storage-container project?", answer: "No. It documents 18 shipping containers at a logistics depot, returned to Sa 2.5 and recoated on site. Each container or storage-steelwork scope needs its own condition assessment, access review, and coating specification." },
       ],
     },
   };
@@ -7753,7 +7771,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       const industryCountyLinks = (industryCountiesMap[industrySlug] || []).slice(0, 8)
         .map(c => `<li><a href="${SITE_URL}/counties/${c.slug}">${escHtml(c.name)} ${escHtml(industry.name)} Shot Blasting</a></li>`).join('');
       const industryPillarLinks = getIndustryPillarResources(industrySlug)
-        .map((resource) => `<li><a href="${SITE_URL}${resource.href}">${escHtml(resource.title)}</a> — ${escHtml(resource.description)}</li>`).join('');
+        .map((resource) => `<li><a href="${SITE_URL}${resource.href}">${escHtml(resource.title)}</a> — ${escHtml(resource.description)} For a focused Site Visit, tell us: ${escHtml(resource.enquiryPrompt)} <a href="${SITE_URL}/site-survey">Request A Site Visit</a>.</li>`).join('');
       const industryPillarHtml = industryPillarLinks ? `<section><h2>${escHtml(industry.name)} Planning Resources</h2><ul>${industryPillarLinks}</ul></section>` : '';
       const industryBodyHtml = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/services">Services</a> | <a href="${SITE_URL}/service-areas">Service Areas</a> | <a href="${SITE_URL}/industries">Industries</a> | <a href="${SITE_URL}/about">About</a> | <a href="${SITE_URL}/contact">Contact</a></nav><main><h1>Shot Blasting for the ${escHtml(industry.name)} Industry</h1><p>${escHtml(industry.description)}</p><h2>${escHtml(industry.name)} Shot Blasting Services</h2><ul>${industryServiceLinks}</ul>${industryPillarHtml}${industryCountyLinks ? `<h2>Areas Covered for ${escHtml(industry.name)} Shot Blasting</h2><ul>${industryCountyLinks}</ul>` : ''}<p><a href="${SITE_URL}/contact">Request a free site survey</a> | <a href="${SITE_URL}/service-areas">Find your area</a> | Call <a href="tel:${PHONE.replace(/\s/g, '')}">${PHONE}</a></p></main></div>`;
       if (modifiedHtml.includes('<!--SSR_CONTENT-->')) {
