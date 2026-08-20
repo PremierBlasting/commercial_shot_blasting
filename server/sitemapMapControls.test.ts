@@ -38,6 +38,19 @@ describe("sitemap map controls and Site Visit options", () => {
     expect(quotePopup).not.toContain("within 24 hours");
   });
 
+  it("adds the required multi-asset selector to the contact Site Visit flow and preserves it in the lead summary", () => {
+    const contactPage = readFileSync(resolve(projectRoot, "client/src/pages/Contact.tsx"), "utf8");
+    const leadForm = readFileSync(resolve(projectRoot, "client/src/components/LeadForm.tsx"), "utf8");
+
+    expect(contactPage).toContain("showAssetSelector={true}");
+    expect(leadForm).toContain('"Container Fleets"');
+    expect(leadForm).toContain('"Factory Cladding"');
+    expect(leadForm).toContain('"Pipework & Spools"');
+    expect(leadForm).toContain('"Other"');
+    expect(leadForm).toContain("Primary Asset Category: ${assetCategory}");
+    expect(leadForm).toContain("required");
+  });
+
   it("provides clickable regional filters and an opt-in Locate Me control", () => {
     const sitemapPage = readFileSync(resolve(projectRoot, "client/src/pages/SitemapPage.tsx"), "utf8");
     const coverageMap = readFileSync(resolve(projectRoot, "client/src/components/SitemapCoverageMap.tsx"), "utf8");

@@ -131,6 +131,7 @@ export default function Contact() {
                 heading="Request A Site Visit"
                 subheading="We'll arrange a site visit and get back to you promptly."
                 showWhatsApp={true}
+                showAssetSelector={true}
               />
             </div>
           </div>

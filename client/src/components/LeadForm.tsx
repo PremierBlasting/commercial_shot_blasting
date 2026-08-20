@@ -29,6 +29,8 @@ export interface LeadFormProps {
   subheading?: string;
   /** Show WhatsApp fallback link */
   showWhatsApp?: boolean;
+  /** Require a primary asset category before submitting this form */
+  showAssetSelector?: boolean;
   /** Callback on successful submission */
   onSuccess?: () => void;
 }
@@ -40,6 +42,13 @@ const SERVICE_OPTIONS = [
   "Machinery & Equipment",
   "Floors & Surfaces",
   "Other / Not Sure",
+];
+
+const ASSET_CATEGORY_OPTIONS = [
+  "Container Fleets",
+  "Factory Cladding",
+  "Pipework & Spools",
+  "Other",
 ];
 
 const COMPLETION_DATE_OPTIONS = [
@@ -58,6 +67,7 @@ export function LeadForm({
   heading,
   subheading,
   showWhatsApp = true,
+  showAssetSelector = false,
   onSuccess,
 }: LeadFormProps) {
   const [firstName, setFirstName] = useState("");
@@ -65,6 +75,7 @@ export function LeadForm({
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [postalCode, setPostalCode] = useState("");
+  const [assetCategory, setAssetCategory] = useState("");
   const [serviceType, setServiceType] = useState("");
   const [completionDate, setCompletionDate] = useState("");
   const [projectSummary, setProjectSummary] = useState("");
@@ -117,6 +128,7 @@ export function LeadForm({
 
     // Build a structured message that mirrors the HubSpot form fields
     const messageParts = [
+      showAssetSelector && assetCategory && `Primary Asset Category: ${assetCategory}`,
       serviceType && `Service Required: ${serviceType}`,
       visitDate && `Preferred Site Visit Date: ${visitDate}`,
       completionDate && `Preferred Completion: ${completionDate}`,
@@ -283,6 +295,36 @@ export function LeadForm({
         />
       </div>
 
+      {showAssetSelector && (
+        <div>
+          <label className={`block text-xs font-medium mb-1 ${labelColor}`} htmlFor="lf-asset-category">
+            What is the main asset for this Site Visit? *
+          </label>
+          <p className={`text-xs mb-2 ${subColor}`}>
+            Select the closest option. Choose Other and describe it below if none apply.
+          </p>
+          <div className="relative">
+            <select
+              id="lf-asset-category"
+              value={assetCategory}
+              onChange={(e) => setAssetCategory(e.target.value)}
+              required
+              className={selectClass}
+            >
+              <option value="">— Select an asset category —</option>
+              {ASSET_CATEGORY_OPTIONS.map((option) => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
+            <div className={`pointer-events-none absolute inset-y-0 right-3 flex items-center ${isDark ? "text-white/60" : "text-gray-400"}`}>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Preferred Site Visit Date */}
       <div>
         <label className={`block text-xs font-medium mb-1 ${labelColor}`} htmlFor="lf-visitdate">
@@ -409,7 +451,7 @@ export function LeadForm({
           </div>
           <a
             href={`https://wa.me/447721375756?text=${encodeURIComponent(
-              `Hi, I'd like a quote for shot blasting${locationName ? ` in ${locationName}` : ""}. Could you help?`
+              `Hi, I'd like a quote for shot blasting${assetCategory ? ` for ${assetCategory.toLowerCase()}` : ""}${locationName ? ` in ${locationName}` : ""}. Could you help?`
             )}`}
             target="_blank"
             rel="noopener noreferrer"

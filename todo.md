@@ -1675,3 +1675,9 @@
 - [x] Add industry-specific enquiry prompts to contextual resource cards across industry hubs in visible and SSR output
 - [x] Publish a seasonal agricultural steelwork-maintenance guide with direct internal links to the Agricultural pillar and Site Visit flow
 - [x] Add regression coverage and validate rendered SEO output, TypeScript, the full test suite, and production build
+
+## Logistics Guide and Multi-Asset Contact Selector (20 August 2026)
+- [x] Publish a logistics and depot-maintenance guide with direct links to the Container Restoration pillar and Site Visit flow
+- [x] Add an accessible multi-asset selector to the contact-page Site Visit flow for Container Fleets, Factory Cladding, Pipework & Spools, and Other
+- [x] Preserve the selected asset category in validation, email notifications, CRM payloads, lead-sheet output, and staff-facing enquiry summaries
+- [x] Add regression coverage and validate TypeScript, full test suite, rendered contact flow, and production build
