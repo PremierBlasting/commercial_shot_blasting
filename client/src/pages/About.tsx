@@ -88,7 +88,7 @@ export default function About() {
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
                   { icon: Shield, text: "Fully Insured" },
-                  { icon: Award, text: "Quality Assured" },
+                  { icon: Award, text: "Premier Blasting CHAS Elite" },
                   { icon: Clock, text: "Fast Turnaround" },
                   { icon: Users, text: "Expert Team" },
                 ].map((item, i) => (
@@ -98,6 +98,9 @@ export default function About() {
                   </div>
                 ))}
               </div>
+              <a href="/chas-elite" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#2C5F7F] hover:text-[#1a3d52]">
+                Learn about our CHAS Elite assurance pathway <CheckCircle className="h-4 w-4" />
+              </a>
             </div>
             <div className="relative">
               <BeforeAfterSlider
@@ -179,6 +182,9 @@ export default function About() {
               </p>
               <p className="text-gray-600 leading-relaxed">
                 While Premier Blasting serves domestic and smaller-scale clients, Commercial Shot Blasting was established to focus exclusively on large-scale commercial, industrial, and agricultural contracts — bringing the same trusted team, equipment, and quality standards to every project, regardless of size or complexity.
+              </p>
+              <p className="mt-3 text-gray-600 leading-relaxed">
+                Premier Blasting holds CHAS Elite status. <a href="/chas-elite" className="font-semibold text-[#2C5F7F] underline decoration-[#2C5F7F]/40 hover:decoration-[#2C5F7F]">Read how this relationship supports commercial project planning.</a>
               </p>
             </div>
           </div>

@@ -31,6 +31,8 @@ export interface LeadFormProps {
   showWhatsApp?: boolean;
   /** Require a primary asset category before submitting this form */
   showAssetSelector?: boolean;
+  /** Mark the enquiry as a request for the current approved capability statement */
+  capabilityStatementRequest?: boolean;
   /** Callback on successful submission */
   onSuccess?: () => void;
 }
@@ -68,6 +70,7 @@ export function LeadForm({
   subheading,
   showWhatsApp = true,
   showAssetSelector = false,
+  capabilityStatementRequest = false,
   onSuccess,
 }: LeadFormProps) {
   const [firstName, setFirstName] = useState("");
@@ -128,6 +131,7 @@ export function LeadForm({
 
     // Build a structured message that mirrors the HubSpot form fields
     const messageParts = [
+      capabilityStatementRequest && "Request: Commercial Shot Blasting capability statement",
       showAssetSelector && assetCategory && `Primary Asset Category: ${assetCategory}`,
       serviceType && `Service Required: ${serviceType}`,
       visitDate && `Preferred Site Visit Date: ${visitDate}`,
@@ -179,9 +183,9 @@ export function LeadForm({
     return (
       <div className={`${bg} border ${border} rounded-xl p-8 text-center`}>
         <CheckCircle className={`w-12 h-12 mx-auto mb-4 ${isDark ? "text-[#7ec8e3]" : "text-[#2C5F7F]"}`} />
-        <h3 className={`font-bold text-lg mb-2 ${headingColor}`}>Site Visit Requested!</h3>
+        <h3 className={`font-bold text-lg mb-2 ${headingColor}`}>{capabilityStatementRequest ? "Capability Statement Requested!" : "Site Visit Requested!"}</h3>
         <p className={`text-sm ${subColor}`}>
-          Thanks, {firstName}. We'll be in touch shortly to confirm your site visit.
+          Thanks, {firstName}. {capabilityStatementRequest ? "We will get back to you promptly about the approved capability statement and your project requirements." : "We will get back to you promptly to confirm your site visit."}
           {" "}For urgent jobs, call us directly on{" "}
           <a href="tel:07721375756" className={`font-semibold ${isDark ? "text-[#7ec8e3]" : "text-[#2C5F7F]"} hover:underline`}>
             07721 375756
@@ -202,6 +206,12 @@ export function LeadForm({
             {heading ?? `Request A Site Visit${locationName ? ` in ${locationName}` : ""}`}
           </h3>
           <p className={`text-xs mt-0.5 ${subColor}`}>{subheading || "We'll get back to you promptly"}</p>
+        </div>
+      )}
+
+      {capabilityStatementRequest && (
+        <div className={`rounded-lg border p-3 text-xs leading-relaxed ${isDark ? "border-white/15 bg-white/10 text-blue-100" : "border-[#2C5F7F]/20 bg-[#2C5F7F]/5 text-gray-600"}`}>
+          <strong className={headingColor}>Capability statement request.</strong> Share your project details so the team can provide the current approved document in the right commercial context.
         </div>
       )}
 
@@ -433,7 +443,7 @@ export function LeadForm({
         {contactMutation.isPending ? (
           <span>Sending…</span>
         ) : (
-          <><ArrowRight className="w-4 h-4" /> Request A Site Visit</>
+          <><ArrowRight className="w-4 h-4" /> {capabilityStatementRequest ? "Request Capability Statement" : "Request A Site Visit"}</>
         )}
       </button>
 

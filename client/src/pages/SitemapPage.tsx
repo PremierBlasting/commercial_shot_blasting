@@ -75,6 +75,7 @@ const INDUSTRY_SLUGS: { slug: string; name: string }[] = [
 const MAIN_PAGES = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
+  { href: "/chas-elite", label: "CHAS Elite Assurance" },
   { href: "/services", label: "All Services" },
   { href: "/industries", label: "All Industries" },
   { href: "/service-areas", label: "Service Areas" },

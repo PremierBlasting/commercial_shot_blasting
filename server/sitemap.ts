@@ -24,6 +24,7 @@ const CATALOGUE_BASELINE_LASTMOD = "2026-02-18";
 const STATIC_PAGES = [
   { loc: "/", changefreq: "weekly", priority: "1.0" },
   { loc: "/about", changefreq: "monthly", priority: "0.7" },
+  { loc: "/chas-elite", changefreq: "monthly", priority: "0.7" },
   { loc: "/contact", changefreq: "monthly", priority: "0.8" },
   { loc: "/services", changefreq: "weekly", priority: "0.9" },
   { loc: "/industries", changefreq: "weekly", priority: "0.9" },

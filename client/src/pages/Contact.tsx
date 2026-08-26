@@ -15,6 +15,7 @@ export default function Contact() {
   useSEO({ title: "Contact Us | Commercial Shot Blasting", description: "Get in touch with Commercial Shot Blasting for a site visit. Call 07721 375756 or fill out our contact form for expert surface preparation services.", canonical: "https://commercialshotblasting.co.uk/contact" });
 
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+  const capabilityStatementRequest = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("request") === "capability-statement";
 
   const openQuotePopup = () => setQuotePopupOpen(true);
 
@@ -55,7 +56,7 @@ export default function Contact() {
                 Let's Discuss Your Project
               </h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form and our team will get back to you promptly with a detailed quote for your project.
+                {capabilityStatementRequest ? "Request the current approved capability statement and tell us about the project or tender it supports. We will get back to you promptly." : "Fill out the form and our team will get back to you promptly with a detailed quote for your project."}
               </p>
 
               {/* Contact Information */}
@@ -116,8 +117,8 @@ export default function Contact() {
                       <Award className="w-4 h-4 text-[#2C5F7F]" />
                     </div>
                     <div>
-                      <p className="font-medium text-[#2C2C2C]">Expert Team</p>
-                      <p className="text-sm text-gray-600">Years of industry experience</p>
+                      <p className="font-medium text-[#2C2C2C]">Premier Blasting CHAS Elite</p>
+                      <p className="text-sm text-gray-600">Commercial Shot Blasting is the commercial arm of Premier Blasting. <a href="/chas-elite" className="font-semibold text-[#2C5F7F] hover:underline">Learn more</a></p>
                     </div>
                   </div>
                 </div>
@@ -129,9 +130,10 @@ export default function Contact() {
               <LeadForm
                 variant="light"
                 heading="Request A Site Visit"
-                subheading="We'll arrange a site visit and get back to you promptly."
+                subheading={capabilityStatementRequest ? "Request the current approved capability statement and get project-specific support." : "We'll arrange a site visit and get back to you promptly."}
                 showWhatsApp={true}
                 showAssetSelector={true}
+                capabilityStatementRequest={capabilityStatementRequest}
               />
             </div>
           </div>

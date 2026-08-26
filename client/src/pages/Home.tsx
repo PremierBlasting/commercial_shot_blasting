@@ -392,6 +392,9 @@ export default function Home() {
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
               UK-wide mobile shot blasting services for commercial and industrial clients. We bring our equipment to you — removing rust, mill scale, paint, and coatings from structural steel, factory cladding, machinery, and more, on your site, anywhere in the UK.
             </p>
+            <Link href="/chas-elite" className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/15">
+              <Shield className="h-4 w-4" /> Premier Blasting holds CHAS Elite status
+            </Link>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>
                 Request A Site Visit
@@ -618,7 +621,7 @@ export default function Home() {
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
                   { icon: Shield, text: "Fully Insured" },
-                  { icon: Award, text: "Quality Assured" },
+                  { icon: Award, text: "Premier Blasting CHAS Elite" },
                   { icon: Clock, text: "Fast Turnaround" },
                   { icon: Users, text: "Expert Team" },
                 ].map((item, i) => (
@@ -628,6 +631,9 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+              <Link href="/chas-elite" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#2C5F7F] hover:text-[#1a3d52]">
+                Learn about our CHAS Elite assurance pathway <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
             <div className="relative">
               <Suspense fallback={<div className="aspect-video bg-gray-100 rounded-lg" />}>

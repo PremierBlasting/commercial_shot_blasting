@@ -58,6 +58,7 @@ const CarParkPage = lazy(() => import("./pages/CarParkPage"));
 const IntumescentPaintingPage = lazy(() => import("./pages/IntumescentPaintingPage"));
 const Glossary = lazy(() => import("./pages/Glossary"));
 const GlossaryTerm = lazy(() => import("./pages/GlossaryTerm"));
+const ChasElitePage = lazy(() => import("./pages/ChasElitePage"));
 
 // Lazy-loaded service area pages
 const BirminghamServiceArea = lazy(() => import("./pages/BirminghamServiceArea"));
@@ -245,6 +246,7 @@ function Router() {
         <Route path={"/"} component={Home} />
         <Route path={"/contact"} component={Contact} />
         <Route path={"/about"} component={About} />
+        <Route path={"/chas-elite"} component={ChasElitePage} />
         <Route path={"/preparation-cleanup"} component={PreparationCleanup} />
         <Route path={"/our-work"} component={OurWork} />
         <Route path={"/gallery"} component={() => { window.location.replace('/our-work'); return null; }} />

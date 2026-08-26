@@ -563,6 +563,9 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
                 <Link href="/about" className="flex items-center gap-2.5 border-b border-gray-100 px-4 py-2.5 text-sm font-semibold text-gray-800 hover:bg-[#2C5F7F]/5" onClick={() => setAboutOpen(false)} onMouseEnter={() => prefetch('/about')} onMouseLeave={cancelPrefetch}>
                   About Commercial Shot Blasting
                 </Link>
+                <Link href="/chas-elite" className="flex items-center gap-2.5 border-b border-gray-100 px-4 py-2.5 text-sm text-gray-700 hover:bg-[#2C5F7F]/5" onClick={() => setAboutOpen(false)} onMouseEnter={() => prefetch('/chas-elite')} onMouseLeave={cancelPrefetch}>
+                  CHAS Elite Assurance
+                </Link>
                 <Link href="/blog" className="flex items-center justify-between border-b border-gray-100 px-4 py-2.5 text-sm text-gray-700 hover:bg-[#2C5F7F]/5 group" onClick={() => setAboutOpen(false)} onMouseEnter={() => prefetch('/blog')} onMouseLeave={cancelPrefetch}>
                   <span>Blog &amp; Guides</span><ChevronRight className="h-3.5 w-3.5 text-gray-400 transition group-hover:text-[#2C5F7F]" />
                 </Link>
@@ -758,6 +761,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
             <div className="border-b border-white/10 py-3">
               <Link href="/about" onClick={closeMobileMenu} className="block font-semibold hover:text-white/80 transition">About</Link>
               <div className="mt-2 flex flex-wrap gap-2 pl-1">
+                <Link href="/chas-elite" onClick={closeMobileMenu} className="rounded-full bg-white/10 px-2.5 py-1 text-xs transition hover:bg-white/20">CHAS Elite Assurance</Link>
                 <Link href="/blog" onClick={closeMobileMenu} className="rounded-full bg-white/10 px-2.5 py-1 text-xs transition hover:bg-white/20">Blog &amp; Guides</Link>
                 <Link href="/glossary" onClick={closeMobileMenu} className="rounded-full bg-white/10 px-2.5 py-1 text-xs transition hover:bg-white/20">Glossary</Link>
               </div>

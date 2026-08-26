@@ -7067,6 +7067,27 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     return modifiedHtml;
   }
 
+  // ── CHAS Elite assurance page ──────────────────────────────────────────────
+  if (url === "/chas-elite" || url === "/chas-elite/") {
+    const chasUrl = `${SITE_URL}/chas-elite`;
+    const title = "CHAS Elite Assurance | Commercial Shot Blasting";
+    const description = "Commercial Shot Blasting is the commercial shot blasting arm of Premier Blasting, which holds CHAS Elite status. Learn what this means for commercial project planning.";
+    const breadcrumbSchema = JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL }, { "@type": "ListItem", "position": 2, "name": "CHAS Elite Assurance", "item": chasUrl }] });
+    const webPageSchema = JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", "@id": `${chasUrl}#webpage`, "name": title, "description": description, "url": chasUrl, "inLanguage": "en-GB" });
+    const faqSchema = JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "Who holds CHAS Elite status?", "acceptedAnswer": { "@type": "Answer", "text": "Premier Blasting holds CHAS Elite status. Commercial Shot Blasting is Premier Blasting’s commercial shot blasting arm and uses that relationship within its commercial assurance pathway." } }, { "@type": "Question", "name": "Does CHAS Elite replace a project-specific assessment?", "acceptedAnswer": { "@type": "Answer", "text": "No. The asset, access, surface condition, coating requirements, programme, and project documentation still need to be reviewed for the individual scope." } }] });
+    let modifiedHtml = html;
+    modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${description}" />`);
+    const canonicalTags = `<link rel="canonical" href="${chasUrl}" />\n    <link rel="alternate" hreflang="en-gb" href="${chasUrl}" />\n    <link rel="alternate" hreflang="en" href="${chasUrl}" />`;
+    modifiedHtml = /<link rel="canonical"[^>]*>/.test(modifiedHtml) ? modifiedHtml.replace(/<link rel="canonical"[^>]*>/, canonicalTags) : modifiedHtml.replace("</head>", `${canonicalTags}\n</head>`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${title}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${description}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${chasUrl}" />`);
+    const ssrBody = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/about">About</a> | <a href="${SITE_URL}/services">Services</a> | <a href="${SITE_URL}/contact?request=capability-statement">Request capability statement</a> | <a href="${SITE_URL}/site-survey">Request A Site Visit</a></nav><main><h1>CHAS Elite assurance for commercial surface-preparation planning</h1><p>Commercial Shot Blasting is the commercial shot blasting arm of Premier Blasting. Premier Blasting holds CHAS Elite status.</p><p>CHAS describes Elite membership as a recognised route to completing the Common Assessment Standard. CHAS Elite does not replace a project-specific assessment: scope, access, surface condition, coating requirements, programme, and relevant documentation still need individual review.</p><h2>Capability statement</h2><p><a href="${SITE_URL}/contact?request=capability-statement">Request the current approved capability statement</a> for a project file, tender process, or internal review.</p><p><a href="${SITE_URL}/site-survey">Request A Site Visit</a> | <a href="tel:07721375756">07721 375756</a></p></main></div>`;
+    modifiedHtml = modifiedHtml.replace("</head>", `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n<script type="application/ld+json">${faqSchema}</script>\n</head>`);
+    return modifiedHtml.replace("<!--SSR_CONTENT-->", ssrBody);
+  }
+
   // ── Phase-one pillar pages ─────────────────────────────────────────────────
   const pillarPath = url.replace(/\/$/, "");
   const pillarPages: Record<string, {

@@ -1681,3 +1681,14 @@
 - [x] Add an accessible multi-asset selector to the contact-page Site Visit flow for Container Fleets, Factory Cladding, Pipework & Spools, and Other
 - [x] Preserve the selected asset category in validation, email notifications, CRM payloads, lead-sheet output, and staff-facing enquiry summaries
 - [x] Add regression coverage and validate TypeScript, full test suite, rendered contact flow, and production build
+
+## Next Website Improvement Priorities (20 August 2026)
+- [x] Assess and rank the next ten highest-value SEO, conversion, usability, content, and lead-handling improvements
+
+## CHAS Elite Trust Programme and Capability Statement (20 August 2026)
+- [x] Add accurate CHAS Elite messaging that identifies Commercial Shot Blasting as the commercial arm of Premier Blasting across high-intent conversion pathways
+- [x] Create an evidence-led CHAS Elite assurance page with appropriate commercial assurance and Site Visit pathways
+- [x] Publish a factual blog article explaining Premier Blasting’s CHAS Elite status and what it means for Commercial Shot Blasting clients
+- [x] Add targeted “Request capability statement” conversion placements and preserve these requests in the existing lead summary
+- [ ] Publish the approved capability-statement download once the current document is supplied
+- [x] Add regression coverage and validate rendered output, TypeScript, full tests, and production build
