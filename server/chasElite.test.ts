@@ -22,12 +22,15 @@ describe("CHAS Elite assurance pathway", () => {
     const app = readFileSync(resolve(projectRoot, "client/src/App.tsx"), "utf8");
     const header = readFileSync(resolve(projectRoot, "client/src/components/Header.tsx"), "utf8");
     const footer = readFileSync(resolve(projectRoot, "client/src/components/Footer.tsx"), "utf8");
+    const home = readFileSync(resolve(projectRoot, "client/src/pages/Home.tsx"), "utf8");
     const xmlSitemap = readFileSync(resolve(projectRoot, "server/sitemap.ts"), "utf8");
     const htmlSitemap = readFileSync(resolve(projectRoot, "client/src/pages/SitemapPage.tsx"), "utf8");
 
     expect(app).toContain('path={"/chas-elite"}');
     expect(header).toContain("CHAS Elite Assurance");
     expect(footer).toContain("CHAS Elite Assurance");
+    expect(home).toContain('/manus-storage/chas-elite-accreditation_29937620.png');
+    expect(home).toContain('alt="CHAS Accreditation Elite logo"');
     expect(xmlSitemap).toContain('{ loc: "/chas-elite"');
     expect(htmlSitemap).toContain('{ href: "/chas-elite", label: "CHAS Elite Assurance" }');
   });
