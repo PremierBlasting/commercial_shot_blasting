@@ -1699,3 +1699,7 @@
 - [x] Refine the supporting CHAS Elite article and key conversion copy to use the same client-benefit framing without overstating accreditation scope
 - [x] Validate the assurance route, capability-statement request path, TypeScript, full tests, and production build
 - [ ] Publish the approved capability-statement download when supplied
+
+## CHAS Elite Hero Cleanup (26 August 2026)
+- [x] Remove the visible breadcrumb bar from the CHAS Elite hero while retaining accessible page context and crawler breadcrumbs
+- [x] Revalidate the client-focused assurance route, supporting article, capability-statement request path, TypeScript, full tests, and production build

@@ -3,7 +3,6 @@ import { Link } from "wouter";
 import { ArrowRight, CheckCircle2, ClipboardCheck, FileText, ShieldCheck } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Breadcrumb } from "@/components/Breadcrumb";
 import { QuotePopup } from "@/components/QuotePopup";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -37,7 +36,6 @@ export default function ChasElitePage() {
       <main>
         <section className="bg-gradient-to-br from-[#1a3d52] via-[#2C5F7F] to-[#25546f] py-16 text-white md:py-24">
           <div className="container max-w-5xl">
-            <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "CHAS Elite Assurance", href: "/chas-elite", isCurrentPage: true }]} className="mb-8 text-white/75 [&_a]:text-white/75 [&_span]:text-white" />
             <div className="max-w-3xl">
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold">
                 <ShieldCheck className="h-4 w-4" />

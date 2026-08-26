@@ -33,6 +33,9 @@ describe("CHAS Elite assurance pathway", () => {
     expect(footer).toContain("CHAS Elite Assurance");
     expect(home).toContain('/manus-storage/chas-elite-accreditation_29937620.png');
     expect(home).toContain('alt="CHAS Accreditation Elite logo"');
+    const chasPage = readFileSync(resolve(projectRoot, "client/src/pages/ChasElitePage.tsx"), "utf8");
+    expect(chasPage).not.toContain('from "@/components/Breadcrumb"');
+    expect(chasPage).not.toContain("<Breadcrumb");
     expect(xmlSitemap).toContain('{ loc: "/chas-elite"');
     expect(htmlSitemap).toContain('{ href: "/chas-elite", label: "CHAS Elite Assurance" }');
   });
