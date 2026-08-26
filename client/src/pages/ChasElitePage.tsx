@@ -9,16 +9,16 @@ import { useSEO } from "@/hooks/useSEO";
 
 const assurancePoints = [
   {
-    title: "A recognised pre-qualification route",
-    description: "CHAS describes Elite membership as a route to completing the Common Assessment Standard through one recognised assessment process.",
+    title: "A recognised safety pre-qualification standard",
+    description: "CHAS Elite enables Premier Blasting to complete the Common Assessment Standard through one consistent assessment. The standard covers 13 risk-management areas.",
   },
   {
-    title: "Relevant to commercial buying teams",
-    description: "The Common Assessment Standard is intended to provide a consistent pre-qualification benchmark for construction and related supply chains.",
+    title: "A more confident procurement starting point",
+    description: "For commercial buyers, it provides evidence that recognised pre-qualification checks have been completed before project-specific information is reviewed.",
   },
   {
-    title: "Project requirements still come first",
-    description: "Every scope is reviewed individually. Access, containment, surface condition, coating requirements, programme, and project documents remain essential to planning.",
+    title: "More focus on your actual project",
+    description: "With supplier assurance information available, discussions can focus on access, containment, surface condition, programme, coating handover, and the controls your site needs.",
   },
 ];
 
@@ -26,8 +26,8 @@ export default function ChasElitePage() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   useSEO({
-    title: "CHAS Elite Assurance | Commercial Shot Blasting",
-    description: "Commercial Shot Blasting is the commercial shot blasting arm of Premier Blasting, which holds CHAS Elite status. Learn what this means for commercial project planning.",
+    title: "CHAS Elite: What It Means for Your Project | Commercial Shot Blasting",
+    description: "See how Premier Blasting’s CHAS Elite status can support safety pre-qualification, procurement readiness, and project planning for Commercial Shot Blasting clients.",
     canonical: "https://commercialshotblasting.co.uk/chas-elite",
   });
 
@@ -45,10 +45,10 @@ export default function ChasElitePage() {
               </div>
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-[#B8D4E3]">Commercial Shot Blasting, part of Premier Blasting</p>
               <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl" style={{ fontFamily: "'Playfair Display', serif" }}>
-                CHAS Elite assurance for commercial surface-preparation planning
+                What CHAS Elite can mean for your commercial project
               </h1>
               <p className="text-lg leading-relaxed text-white/90">
-                Commercial Shot Blasting is the commercial shot blasting arm of Premier Blasting. Premier Blasting holds CHAS Elite status, giving commercial clients a recognised pre-qualification route alongside a properly scoped site visit and project review.
+                Commercial Shot Blasting is the commercial shot blasting arm of Premier Blasting. Premier Blasting holds CHAS Elite status, helping give your team a recognised safety pre-qualification starting point before we focus on the practical controls, access, programme, and surface-preparation scope for your site.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <button onClick={() => setQuotePopupOpen(true)} className="rounded-lg bg-white px-5 py-3 font-semibold text-[#1a3d52] transition hover:bg-white/90">
@@ -77,13 +77,13 @@ export default function ChasElitePage() {
         <section className="py-16 md:py-20">
           <div className="container grid max-w-6xl gap-12 lg:grid-cols-[1.25fr_0.75fr]">
             <div>
-              <p className="mb-2 font-semibold text-[#2C5F7F]">What this means for your enquiry</p>
-              <h2 className="mb-5 text-3xl font-bold text-[#1a3d52]" style={{ fontFamily: "'Playfair Display', serif" }}>Assurance should support—not replace—project planning</h2>
+              <p className="mb-2 font-semibold text-[#2C5F7F]">What this means for your team</p>
+              <h2 className="mb-5 text-3xl font-bold text-[#1a3d52]" style={{ fontFamily: "'Playfair Display', serif" }}>Less uncertainty at the supplier-review stage</h2>
               <p className="mb-5 leading-relaxed text-gray-600">
-                For fabricators, principal contractors, facilities teams, and asset owners, pre-qualification information can be an important part of selecting a contractor. It sits alongside the practical project information needed to plan blast cleaning safely and effectively: asset details, site access, existing surface condition, operating constraints, drawings, photographs, and the intended coating or next stage.
+                For fabricators, principal contractors, facilities teams, and asset owners, pre-qualification information can be an important part of reviewing a supplier. CHAS Elite gives your team a recognised assurance reference to include in your procurement or project file, so the conversation can move sooner to the practical information needed to plan blast cleaning safely and effectively.
               </p>
               <p className="mb-7 leading-relaxed text-gray-600">
-                We use the Site Visit process to understand those project-specific requirements. CHAS Elite status does not make a project automatically compliant or confirm a particular preparation standard; the relevant scope, specification, and controls must always be agreed for the work in question.
+                We still use the Site Visit process to understand your asset, site access, existing surface condition, operating constraints, drawings, photographs, and intended coating or next stage. CHAS Elite does not make a project automatically compliant or confirm a particular preparation standard; the right scope, specification, and controls must always be agreed for the individual project.
               </p>
               <Link href="/site-survey" className="inline-flex items-center gap-2 font-semibold text-[#2C5F7F] hover:text-[#1a3d52]">
                 Plan a Site Visit <ArrowRight className="h-4 w-4" />
@@ -110,6 +110,14 @@ export default function ChasElitePage() {
               <details className="rounded-xl border border-gray-200 p-5">
                 <summary className="cursor-pointer font-semibold text-[#1a3d52]">Who holds CHAS Elite status?</summary>
                 <p className="mt-3 text-sm leading-relaxed text-gray-600">Premier Blasting holds CHAS Elite status. Commercial Shot Blasting is Premier Blasting’s commercial shot blasting arm and uses that relationship within its commercial assurance pathway.</p>
+              </details>
+              <details className="rounded-xl border border-gray-200 p-5">
+                <summary className="cursor-pointer font-semibold text-[#1a3d52]">What safety criteria does CHAS Elite relate to?</summary>
+                <p className="mt-3 text-sm leading-relaxed text-gray-600">CHAS describes the Common Assessment Standard as covering 13 risk-management areas through a consistent assessment process. It gives your procurement team a recognised pre-qualification reference, but it does not replace project-specific risk assessment, method statements, access planning, or agreed site controls.</p>
+              </details>
+              <details className="rounded-xl border border-gray-200 p-5">
+                <summary className="cursor-pointer font-semibold text-[#1a3d52]">Can it help our procurement process?</summary>
+                <p className="mt-3 text-sm leading-relaxed text-gray-600">It can support your supplier-review and tender-file process by providing a recognised pre-qualification reference. Your organisation should still apply its own procurement requirements and confirm the documentation needed for the individual contract.</p>
               </details>
               <details className="rounded-xl border border-gray-200 p-5">
                 <summary className="cursor-pointer font-semibold text-[#1a3d52]">Does CHAS Elite replace a project-specific assessment?</summary>

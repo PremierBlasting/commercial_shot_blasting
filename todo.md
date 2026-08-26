@@ -1693,3 +1693,9 @@
 - [x] Upload and place the supplied official CHAS Elite accreditation logo in the homepage hero with responsive, accessible linking to the assurance page
 - [ ] Publish the approved capability-statement download once the current document is supplied
 - [x] Add regression coverage and validate rendered output, TypeScript, full tests, and production build
+
+## Client-Focused CHAS Elite Assurance Refinement (26 August 2026)
+- [x] Rewrite the CHAS Elite assurance page around practical client benefits: safety prequalification, procurement readiness, project-planning confidence, and the continued need for project-specific assessment
+- [x] Refine the supporting CHAS Elite article and key conversion copy to use the same client-benefit framing without overstating accreditation scope
+- [x] Validate the assurance route, capability-statement request path, TypeScript, full tests, and production build
+- [ ] Publish the approved capability-statement download when supplied

@@ -13,6 +13,8 @@ describe("CHAS Elite assurance pathway", () => {
     expect(html).toContain("<link rel=\"canonical\" href=\"https://commercialshotblasting.co.uk/chas-elite\"");
     expect(html).toContain("Commercial Shot Blasting is the commercial shot blasting arm of Premier Blasting");
     expect(html).toContain("Premier Blasting holds CHAS Elite status");
+    expect(html).toContain("What CHAS Elite can mean for your commercial project");
+    expect(html).toContain("The Common Assessment Standard covers 13 risk-management areas");
     expect(html).toContain("CHAS Elite does not replace a project-specific assessment");
     expect(html).toContain("FAQPage");
     expect(html).toContain("contact?request=capability-statement");
