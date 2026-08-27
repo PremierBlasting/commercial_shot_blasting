@@ -12,7 +12,7 @@
  * Also captures: source page URL, location name, UTM attribution data
  */
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useId } from "react";
 import { CheckCircle, ArrowRight, AlertCircle } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { formatUTMForSubmission } from "@/lib/utm";
@@ -87,6 +87,7 @@ export function LeadForm({
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [emailError, setEmailError] = useState("");
+  const chasTooltipId = useId();
 
   const handleEmailChange = useCallback((value: string) => {
     setEmail(value);
@@ -191,6 +192,27 @@ export function LeadForm({
             07721 375756
           </a>.
         </p>
+        <div className="group relative mx-auto mt-5 inline-flex max-w-full items-center gap-3 rounded-lg border border-[#2C5F7F]/20 bg-[#2C5F7F]/5 px-3 py-2 text-left">
+          <a
+            href="/chas-elite"
+            className="shrink-0 rounded focus:outline-none focus:ring-2 focus:ring-[#2C5F7F] focus:ring-offset-2"
+            aria-describedby={chasTooltipId}
+            aria-label="Learn what Premier Blasting CHAS Elite status can mean for your project"
+          >
+            <img src="/manus-storage/chas-elite-accreditation_29937620.png" alt="CHAS Accreditation Elite logo" width="300" height="300" className="h-12 w-12 object-contain" />
+          </a>
+          <div>
+            <a href="/chas-elite" className={`text-xs font-semibold ${isDark ? "text-blue-100" : "text-[#1a3a52]"} hover:underline`}>Premier Blasting CHAS Elite</a>
+            <p className={`mt-0.5 text-xs ${subColor}`}>Hover or focus the logo to see what this means for your project.</p>
+          </div>
+          <div
+            id={chasTooltipId}
+            role="tooltip"
+            className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-3 w-72 -translate-x-1/2 rounded-lg bg-[#102c3d] px-3 py-2 text-left text-xs leading-relaxed text-white opacity-0 shadow-xl transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100"
+          >
+            A recognised safety pre-qualification starting point that can support procurement, while your site-specific scope, access, controls, programme, and handover still need to be agreed.
+          </div>
+        </div>
       </div>
     );
   }

@@ -1691,15 +1691,31 @@
 - [x] Publish a factual blog article explaining Premier Blasting’s CHAS Elite status and what it means for Commercial Shot Blasting clients
 - [x] Add targeted “Request capability statement” conversion placements and preserve these requests in the existing lead summary
 - [x] Upload and place the supplied official CHAS Elite accreditation logo in the homepage hero with responsive, accessible linking to the assurance page
-- [ ] Publish the approved capability-statement download once the current document is supplied
+- [x] Capability-statement direct download deferred at the user’s request; the user will correct their own document before reconsidering publication
 - [x] Add regression coverage and validate rendered output, TypeScript, full tests, and production build
 
 ## Client-Focused CHAS Elite Assurance Refinement (26 August 2026)
 - [x] Rewrite the CHAS Elite assurance page around practical client benefits: safety prequalification, procurement readiness, project-planning confidence, and the continued need for project-specific assessment
 - [x] Refine the supporting CHAS Elite article and key conversion copy to use the same client-benefit framing without overstating accreditation scope
 - [x] Validate the assurance route, capability-statement request path, TypeScript, full tests, and production build
-- [ ] Publish the approved capability-statement download when supplied
+- [x] Capability-statement direct download deferred at the user’s request; the user will correct their own document before reconsidering publication
 
 ## CHAS Elite Hero Cleanup (26 August 2026)
 - [x] Remove the visible breadcrumb bar from the CHAS Elite hero while retaining accessible page context and crawler breadcrumbs
 - [x] Revalidate the client-focused assurance route, supporting article, capability-statement request path, TypeScript, full tests, and production build
+
+## Approved Capability Statement Publication (26 August 2026)
+- [x] Publication of the supplied PDF cancelled because it contains outdated CHAS Elite wording and the user will correct their own document
+- [x] Direct-download pathway deferred until the user supplies their own corrected and approved document
+- [x] Download-link validation deferred until a user-approved PDF is supplied
+- [x] The corrected-document requirement is acknowledged; the user will prepare their own updated version
+
+## Revised Capability Statement Draft (26 August 2026)
+- [x] Create a review-ready revised Commercial Capability Statement PDF that replaces the outdated CHAS wording and correctly presents Commercial Shot Blasting as the commercial arm of Premier Blasting
+- [x] Preserve only user-supplied operational, insurance, resource, and case-study claims, with all time-sensitive figures clearly flagged for approval before publication
+- [x] Do not publish the AI-generated revised PDF; the user will correct their own statement before reconsidering a direct download
+
+## CHAS Elite Quote Confirmation and Tooltip (27 August 2026)
+- [x] Add an accurate CHAS Elite assurance note to automated customer quote-confirmation emails
+- [x] Add an accessible hover and keyboard-focus tooltip to the CHAS Elite logo on the customer confirmation page
+- [x] Add regression coverage and validate email, confirmation page, TypeScript, full tests, and production build

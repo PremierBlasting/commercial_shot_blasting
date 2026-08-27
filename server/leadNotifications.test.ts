@@ -138,6 +138,11 @@ describe("Lead Channel Exports", () => {
     expect(typeof mod.sendLeadNotificationEmail).toBe("function");
   });
 
+  it("sendCustomerQuoteConfirmationEmail is exported", async () => {
+    const mod = await import("./leadNotifications");
+    expect(typeof mod.sendCustomerQuoteConfirmationEmail).toBe("function");
+  });
+
   it("enrollInJanuary26Workflow is exported", async () => {
     const mod = await import("./leadNotifications");
     expect(typeof mod.enrollInJanuary26Workflow).toBe("function");
@@ -192,4 +197,14 @@ describe("notifyNewLead()", () => {
       })
     ).resolves.toBeUndefined();
   }, 5000);
+});
+
+describe("Customer CHAS Elite confirmation", () => {
+  it("includes a transactional client reassurance note and excludes phone-only placeholder addresses", () => {
+    const __filename = fileURLToPath(import.meta.url);
+    const src = readFileSync(join(dirname(__filename), "leadNotifications.ts"), "utf-8");
+    expect(src).toContain("CHAS Elite assurance");
+    expect(src).toContain("recognised safety pre-qualification starting point");
+    expect(src).toContain('!lead.email.endsWith("@sms.placeholder")');
+  });
 });

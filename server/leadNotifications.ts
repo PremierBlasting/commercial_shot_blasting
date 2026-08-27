@@ -1,12 +1,13 @@
 /**
  * Lead Notifications
  *
- * Handles five actions when a new contact form submission arrives:
+ * Handles six actions when a new contact form submission arrives:
  *  1. Send an email notification to all four CSB/PB notification addresses via Resend
- *  2. Create a contact in the CSB HubSpot account (tagged "CSB Website")
- *  3. Create a contact in the Premier Blasting HubSpot account (tagged "CSB Website")
- *  4. Append the lead directly to the Google Sheets "2026 Leads" and "COMMERCIAL SHOT BLASTING LEADS 26" tabs
- *  5. POST the lead as JSON to the cloud computer lead log endpoint
+ *  2. Send a transactional request-confirmation email to the customer when a deliverable email is available
+ *  3. Create a contact in the CSB HubSpot account (tagged "CSB Website")
+ *  4. Create a contact in the Premier Blasting HubSpot account (tagged "CSB Website")
+ *  5. Append the lead directly to the Google Sheets "2026 Leads" and "COMMERCIAL SHOT BLASTING LEADS 26" tabs
+ *  6. POST the lead as JSON to the cloud computer lead log endpoint
  */
 
 import { Resend } from "resend";
@@ -174,6 +175,40 @@ This lead was submitted via commercialshotblasting.co.uk`;
     return true;
   } catch (err) {
     console.error("[LeadNotifications] Failed to send email notification:", err);
+    return false;
+  }
+}
+
+/**
+ * Sends a transactional request confirmation. This is not a marketing email and
+ * does not depend on optional marketing consent. Phone-only placeholder addresses
+ * are deliberately excluded from delivery.
+ */
+export async function sendCustomerQuoteConfirmationEmail(lead: LeadData): Promise<boolean> {
+  const isDeliverableEmail = lead.email && !lead.email.endsWith("@sms.placeholder");
+  if (!RESEND_API_KEY || !isDeliverableEmail) return false;
+
+  const resend = new Resend(RESEND_API_KEY);
+  const firstName = escapeHtml(lead.name.trim().split(/\s+/)[0] || "there");
+  const recipient = escapeHtml(lead.email);
+  const html = `<!DOCTYPE html><html><head><meta charset="utf-8"></head><body style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:20px;color:#24333d;background:#f6f8f9;"><div style="background:#1a3a5c;padding:24px;border-radius:10px 10px 0 0;"><p style="margin:0 0 6px;color:#b8d4e3;font-size:12px;font-weight:bold;letter-spacing:.08em;text-transform:uppercase;">Commercial Shot Blasting</p><h1 style="margin:0;color:#fff;font-size:24px;line-height:1.25;">We have received your request</h1></div><div style="background:#fff;padding:26px;border:1px solid #dbe3e8;border-top:0;border-radius:0 0 10px 10px;"><p style="margin:0 0 14px;font-size:16px;line-height:1.6;">Hi ${firstName},</p><p style="margin:0 0 16px;font-size:15px;line-height:1.6;">Thank you for contacting Commercial Shot Blasting. We have received your request and will get back to you promptly about the next appropriate step for your project.</p><div style="margin:20px 0;padding:16px;border-left:4px solid #d8ae43;background:#fff8e6;border-radius:6px;"><p style="margin:0 0 7px;font-weight:bold;color:#1a3a5c;font-size:15px;">CHAS Elite assurance</p><p style="margin:0;color:#4b5560;font-size:14px;line-height:1.55;">Premier Blasting holds CHAS Elite status. For Commercial Shot Blasting clients, this provides a recognised safety pre-qualification starting point while your individual site scope, access, risk controls, programme, and coating handover are reviewed separately.</p></div><p style="margin:0 0 18px;font-size:14px;line-height:1.6;">If anything changes before we speak, simply reply to this email or call <a href="tel:07721375756" style="color:#1a3a5c;font-weight:bold;">07721 375756</a>.</p><p style="margin:0;font-size:13px;color:#64748b;">This confirmation was sent to ${recipient} because you contacted Commercial Shot Blasting.</p></div></body></html>`;
+  const text = `Hi ${lead.name.trim().split(/\s+/)[0] || "there"},\n\nThank you for contacting Commercial Shot Blasting. We have received your request and will get back to you promptly about the next appropriate step for your project.\n\nCHAS Elite assurance: Premier Blasting holds CHAS Elite status. For Commercial Shot Blasting clients, this provides a recognised safety pre-qualification starting point while your individual site scope, access, risk controls, programme, and coating handover are reviewed separately.\n\nIf anything changes before we speak, call 07721 375756.`;
+
+  try {
+    const { error } = await resend.emails.send({
+      from: FROM_ADDRESS,
+      to: lead.email,
+      subject: "We have received your Commercial Shot Blasting request",
+      html,
+      text,
+    });
+    if (error) {
+      console.error("[LeadNotifications] Customer confirmation email error:", error);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error("[LeadNotifications] Customer confirmation email failed:", err);
     return false;
   }
 }
@@ -541,9 +576,11 @@ export async function notifyNewLead(lead: LeadData): Promise<void> {
     return;
   }
 
-  // Run all five core channels in parallel
+  // Run all core channels in parallel. The customer confirmation is transactional
+  // and skips phone-only placeholder addresses.
   await Promise.allSettled([
     sendLeadNotificationEmail(lead),
+    sendCustomerQuoteConfirmationEmail(lead),
     createHubSpotContact(lead),
     createPBHubSpotContact(lead),
     appendLeadToGoogleSheets(lead),
