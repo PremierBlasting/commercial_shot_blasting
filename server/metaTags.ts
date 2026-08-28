@@ -5063,8 +5063,8 @@ function generateServiceBodyHTML(serviceId: string): string {
       </div>
 	  </div>`).join("");
 
-	const caseStudyCalloutHtml = serviceId === "structural-steel-frames"
-	  ? `<section class="ssr-case-study-callout"><h2>End-to-end blasting and intumescent coating project evidence</h2><p>See how a five-person specialist team delivered abrasive blasting, immediate primer protection and intumescent fire-protective painting as one coordinated scope for the HB Tunnelling Doncaster warehouse refurbishment.</p><p>Keeping surface preparation and fire protection together reduced handovers between trades and supported continuous progress through the refurbishment programme.</p><p><a href="${SITE_URL}/case-studies/hb-tunnelling-doncaster">View the HB Tunnelling Doncaster end-to-end delivery case study</a>.</p></section>`
+  const caseStudyCalloutHtml = ["structural-steel-frames", "intumescent-painting"].includes(serviceId)
+    ? `<section class="ssr-case-study-callout"><h2>End-to-end blasting and intumescent coating project evidence</h2><p>See how a five-person specialist team delivered abrasive blasting, immediate primer protection and intumescent fire-protective painting as one coordinated scope for the HB Tunnelling Doncaster warehouse refurbishment.</p><p>Keeping surface preparation and fire protection together reduced handovers between trades and supported continuous progress through the refurbishment programme.</p><p><a href="${SITE_URL}/case-studies/hb-tunnelling-doncaster">View the HB Tunnelling Doncaster end-to-end delivery case study</a>.</p></section>`
 	  : "";
 
 	return `

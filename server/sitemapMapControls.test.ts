@@ -31,7 +31,7 @@ describe("sitemap map controls and Site Visit options", () => {
     const surveyFlow = readFileSync(resolve(projectRoot, "client/src/components/SurveyBookingFlow.tsx"), "utf8");
     const quotePopup = readFileSync(resolve(projectRoot, "client/src/components/QuotePopup.tsx"), "utf8");
 
-    expect(surveyFlow).toContain('"End-to-End Blasting & Coating"');
+    expect(surveyFlow).toContain('"End-to-End Blasting & Intumescent Coating"');
     expect(surveyFlow).toContain('"Containers, Tanks & Vessels"');
     expect(surveyFlow).toContain('"Paint & Coating Removal"');
     expect(surveyFlow).not.toContain("within 24 hours");

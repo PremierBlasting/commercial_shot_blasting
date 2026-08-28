@@ -1746,3 +1746,9 @@
 - [x] Add a prominent end-to-end blasting and intumescent-coating callout to the Structural Steel Frames service page with a direct HB Tunnelling case-study link
 - [x] Mirror the contextual case-study link in the crawler-visible Structural Steel Frames SSR content
 - [x] Add regression coverage and validate the service page, TypeScript, full tests, and production build
+
+## HB Video, Intumescent Callout, and End-to-End Site Visit Option (28 August 2026)
+- [x] Embed a compact accessible HB Tunnelling video preview on the Structural Steel Frames service page with a link to the full case study
+- [x] Add an evidence-led rapid end-to-end blasting and intumescent-coating callout to Intumescent Painting visible and SSR service content
+- [x] Add End-to-End Blasting & Intumescent Coating as a Site Visit service selector option and preserve it in delivered lead context
+- [x] Add regression coverage and validate TypeScript, full tests, service pages, Site Visit flow, and production build

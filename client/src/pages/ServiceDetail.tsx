@@ -528,6 +528,30 @@ export default function ServiceDetail() {
                 <IntumescentQuoteForm onOpenQuotePopup={openQuotePopup} />
               )}
 
+              {service.id === 'intumescent-painting' && (
+                <section className="mb-12 overflow-hidden rounded-2xl border border-[#2C5F7F]/20 bg-gradient-to-br from-[#183c52] to-[#2C5F7F] p-6 text-white shadow-lg md:p-8" aria-labelledby="hb-intumescent-callout-heading">
+                  <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+                    <div className="max-w-2xl">
+                      <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#f1c76e]">
+                        <Flame className="h-4 w-4" /> End-to-end project evidence
+                      </div>
+                      <h2 id="hb-intumescent-callout-heading" className="text-2xl font-bold leading-tight md:text-3xl" style={{ fontFamily: "'Playfair Display', serif" }}>
+                        Surface preparation and fire protection delivered under one coordinated plan.
+                      </h2>
+                      <p className="mt-4 leading-relaxed text-white/85">
+                        At HB Tunnelling in Doncaster, our five-person specialist team abrasive blasted the exposed structural steel, applied primer straight after preparation, and completed the intumescent fire-protective coating as one end-to-end delivery.
+                      </p>
+                      <p className="mt-3 text-sm leading-relaxed text-white/70">
+                        This reduced handovers between separate trades and helped maintain continuous progress through the warehouse refurbishment programme.
+                      </p>
+                    </div>
+                    <Link href="/case-studies/hb-tunnelling-doncaster" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#f1c76e] px-5 py-3 font-bold text-[#183c52] transition hover:bg-white active:scale-[0.98]">
+                      View the HB Tunnelling case study <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </section>
+              )}
+
               {/* Structural Steel Frames — Sa 2.5 Near-White Metal Section */}
               {service.id === 'structural-steel-frames' && (
                 <div className="mb-12">
@@ -615,7 +639,7 @@ export default function ServiceDetail() {
                     </div>
 
                     <section className="overflow-hidden rounded-2xl border border-[#2C5F7F]/20 bg-gradient-to-br from-[#183c52] to-[#2C5F7F] p-6 text-white shadow-lg md:p-8" aria-labelledby="hb-tunnelling-callout-heading">
-                      <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-center">
                         <div className="max-w-2xl">
                           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#f1c76e]">
                             <Flame className="h-4 w-4" /> End-to-end project evidence
@@ -630,9 +654,24 @@ export default function ServiceDetail() {
                             Keeping preparation and fire protection together reduced handovers between trades and helped maintain continuous progress through the refurbishment programme.
                           </p>
                         </div>
-                        <Link href="/case-studies/hb-tunnelling-doncaster" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#f1c76e] px-5 py-3 font-bold text-[#183c52] transition hover:bg-white active:scale-[0.98]">
-                          View the HB Tunnelling case study <ArrowRight className="h-4 w-4" />
-                        </Link>
+                        <div className="overflow-hidden rounded-xl border border-white/20 bg-[#102d3e] shadow-xl">
+                          <video
+                            controls
+                            playsInline
+                            preload="metadata"
+                            poster="https://commercialshotblasting.co.uk/manus-storage/hb-tunnelling-video-still-25_e27be683.webp"
+                            className="aspect-video w-full object-cover"
+                            aria-label="HB Tunnelling end-to-end blasting and intumescent coating project film"
+                          >
+                            <source src="https://commercialshotblasting.co.uk/manus-storage/hb-tunnelling-doncaster-surface-preparation_0f209a96.mp4" type="video/mp4" />
+                          </video>
+                          <div className="p-3">
+                            <p className="text-xs font-semibold text-white/75">HB Tunnelling project film</p>
+                            <Link href="/case-studies/hb-tunnelling-doncaster" className="mt-2 inline-flex items-center gap-2 text-sm font-bold text-[#f1c76e] transition hover:text-white">
+                              View the full case study <ArrowRight className="h-4 w-4" />
+                            </Link>
+                          </div>
+                        </div>
                       </div>
                     </section>
                   </div>

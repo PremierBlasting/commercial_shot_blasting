@@ -29,6 +29,7 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
     const app = readFileSync(resolve(projectRoot, "client/src/App.tsx"), "utf8");
     const page = readFileSync(resolve(projectRoot, "client/src/pages/HBTunnellingCaseStudy.tsx"), "utf8");
     const serviceDetail = readFileSync(resolve(projectRoot, "client/src/pages/ServiceDetail.tsx"), "utf8");
+    const surveyFlow = readFileSync(resolve(projectRoot, "client/src/components/SurveyBookingFlow.tsx"), "utf8");
     const work = readFileSync(resolve(projectRoot, "client/src/pages/OurWork.tsx"), "utf8");
     const xmlSitemap = readFileSync(resolve(projectRoot, "server/sitemap.ts"), "utf8");
     const htmlSitemap = readFileSync(resolve(projectRoot, "client/src/pages/SitemapPage.tsx"), "utf8");
@@ -48,6 +49,9 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
     expect(page).toContain("Applied the intumescent fire-protection coating");
     expect(serviceDetail).toContain("See rapid blasting and intumescent coating delivered as one coordinated scope.");
     expect(serviceDetail).toContain('/case-studies/hb-tunnelling-doncaster');
+    expect(serviceDetail).toContain("hb-tunnelling-doncaster-surface-preparation_0f209a96.mp4");
+    expect(serviceDetail).toContain("Surface preparation and fire protection delivered under one coordinated plan.");
+    expect(surveyFlow).toContain("End-to-End Blasting & Intumescent Coating");
     expect(work).toContain('/case-studies/hb-tunnelling-doncaster');
     expect(xmlSitemap).toContain('{ loc: "/case-studies/hb-tunnelling-doncaster"');
     expect(htmlSitemap).toContain('{ href: "/case-studies/hb-tunnelling-doncaster"');
@@ -59,5 +63,9 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
     expect(html).toContain("End-to-end blasting and intumescent coating project evidence");
     expect(html).toContain("View the HB Tunnelling Doncaster end-to-end delivery case study");
     expect(html).toContain('/case-studies/hb-tunnelling-doncaster');
+
+    const intumescentHtml = await injectMetaTags(baseHtml, "/services/intumescent-painting");
+    expect(intumescentHtml).toContain("End-to-end blasting and intumescent coating project evidence");
+    expect(intumescentHtml).toContain("HB Tunnelling Doncaster end-to-end delivery case study");
   });
 });

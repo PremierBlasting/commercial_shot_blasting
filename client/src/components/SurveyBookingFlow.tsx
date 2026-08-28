@@ -14,7 +14,7 @@ import { getCanonicalServicePath } from "@shared/serviceSeoCatalog";
 
 const SERVICE_OPTIONS = [
   "Structural Steelwork",
-  "End-to-End Blasting & Coating",
+  "End-to-End Blasting & Intumescent Coating",
   "Intumescent Painting",
   "Factory, Cladding & Roofing",
   "Machinery & Equipment",
@@ -90,7 +90,7 @@ export function SurveyBookingFlow({ defaults, onSuccess }: SurveyBookingFlowProp
     : [];
   const nearbyProjectServices = Array.from(new Set(nearbyProjects.map((project) => project.serviceLabel)));
   const featuredChimneyProject = recentProjects.find((project) => project.id === "steel-chimney-surface-preparation");
-  const isChimneyRelevant = serviceType === "Structural Steelwork" || serviceType === "Containers, Tanks & Vessels";
+  const isChimneyRelevant = serviceType === "Structural Steelwork" || serviceType === "End-to-End Blasting & Intumescent Coating" || serviceType === "Containers, Tanks & Vessels";
   const activeProjectServiceFilter = projectServiceFilter === "All examples" || nearbyProjectServices.includes(projectServiceFilter)
     ? projectServiceFilter
     : "All examples";
