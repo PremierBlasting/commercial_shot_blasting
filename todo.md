@@ -1727,3 +1727,7 @@
 - [x] Add campaign-specific WhatsApp CTAs that initiate a prefilled message to 07970 566409 without changing other existing site contact routes
 - [x] Add canonical SEO metadata, Article/Video/Breadcrumb structured data, internal discovery links, and regression coverage; validate TypeScript, full tests, rendered page, and production build
 - [x] Publish the client display name as HB Tunnelling, as directly supplied by the user for this campaign page
+
+## HB Tunnelling Contractor-Focused Copy (28 August 2026)
+- [x] Replace evidence-audit wording with direct, contractor-focused project, sequencing, and outcome language across the HB Tunnelling case study
+- [x] Add regression coverage and validate the rewritten case study, TypeScript, full tests, and production build

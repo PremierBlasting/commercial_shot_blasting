@@ -35,6 +35,9 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
     expect(page).toContain("Request A Site Visit");
     expect(page).toContain("wa.me/447970566409");
     expect(page).not.toContain("Screenshot2026-08-28");
+    expect(page).not.toContain("The supplied project record");
+    expect(page).not.toContain("Supplied footage");
+    expect(page).toContain("Need a steelwork refurbishment plan that fits your programme?");
     expect(work).toContain('/case-studies/hb-tunnelling-doncaster');
     expect(xmlSitemap).toContain('{ loc: "/case-studies/hb-tunnelling-doncaster"');
     expect(htmlSitemap).toContain('{ href: "/case-studies/hb-tunnelling-doncaster"');

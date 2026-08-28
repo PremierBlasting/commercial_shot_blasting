@@ -43,22 +43,22 @@ const processGallery: GalleryImage[] = [
   {
     src: assets.blastingClose,
     alt: "Abrasive blasting work taking place from a mobile elevated work platform",
-    caption: "Active abrasive blasting shown in the supplied project video.",
+    caption: "Abrasive blasting underway on the warehouse steelwork.",
   },
   {
     src: assets.ppe,
     alt: "Operator in protective equipment carrying out blasting work on steelwork",
-    caption: "Surface-preparation activity with protective equipment visible in the supplied footage.",
+    caption: "Our team preparing the steelwork safely from elevated access equipment.",
   },
   {
     src: assets.structure,
     alt: "Low-angle view of the steel-framed warehouse structure during works",
-    caption: "A video-derived view showing the scale of the steelwork under refurbishment.",
+    caption: "The steel-framed warehouse during the refurbishment works.",
   },
   {
     src: assets.coating,
     alt: "Operator applying a white protective coating from a raised work platform",
-    caption: "Protective coating application shown in the supplied project video.",
+    caption: "Protective coating applied once the steelwork had been prepared.",
   },
   {
     src: assets.spray,
@@ -68,7 +68,7 @@ const processGallery: GalleryImage[] = [
   {
     src: assets.aerial,
     alt: "Aerial view of the Doncaster warehouse refurbishment site",
-    caption: "Video-derived aerial context of the refurbishment site.",
+    caption: "Aerial view of the Doncaster warehouse refurbishment site.",
   },
 ];
 
@@ -76,22 +76,22 @@ const deliverySteps = [
   {
     number: "01",
     title: "Plan the sequence around the refurbishment programme",
-    body: "The supplied project record identifies a newly acquired warehouse being prepared for occupation, with roof works and steelwork refurbishment forming part of the programme. The delivery sequence was planned around those linked activities.",
+    body: "The warehouse was being prepared for use, with roof works and steelwork refurbishment forming part of the same programme. We planned the blasting and coating stages around those linked activities to keep the work moving.",
   },
   {
     number: "02",
     title: "Prepare the exposed steelwork",
-    body: "Supplied footage shows the team abrasive blasting the existing steelwork from elevated access equipment, removing the deteriorated surface condition and preparing it for the next protective stage.",
+    body: "Our team abrasive blasted the exposed steelwork from elevated access equipment, removing corrosion and old coatings and leaving it clean and ready for protection.",
   },
   {
     number: "03",
     title: "Protect freshly prepared surfaces promptly",
-    body: "The supplied case-study record states that steelwork was primed immediately after blasting to help prevent surface contamination and maintain coating performance.",
+    body: "Once the steelwork had been blasted, we applied primer immediately to protect it from flash rust and contamination before the next coating stage.",
   },
   {
     number: "04",
     title: "Coordinate the fire-protection finish",
-    body: "The project combined surface preparation with fireproof paint application in carefully planned stages, keeping blasting and coating coordination under one delivery approach.",
+    body: "We coordinated surface preparation and fireproof paint application in planned stages, simplifying handovers and helping the wider refurbishment programme stay on track.",
   },
 ];
 
@@ -202,24 +202,24 @@ export default function HBTunnellingCaseStudy() {
         <section className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-7 lg:grid-cols-[0.85fr_1.15fr] lg:px-10 lg:py-24">
           <aside className="rounded-2xl bg-[#eaf3f6] p-7 lg:p-9">
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">The brief</p>
-            <h2 className="mt-3 text-3xl font-bold leading-tight text-[#183c52]" style={{ fontFamily: "'Playfair Display', serif" }}>Ready the steelwork for a new operational chapter.</h2>
-            <p className="mt-5 leading-relaxed text-slate-600">The supplied project record describes a newly acquired warehouse being prepared for use. Before the building could move forward, the steelwork required surface preparation, fireproof painting and coordination with the wider roof and refurbishment programme.</p>
+            <h2 className="mt-3 text-3xl font-bold leading-tight text-[#183c52]" style={{ fontFamily: "'Playfair Display', serif" }}>Prepare the warehouse steelwork for refurbishment.</h2>
+            <p className="mt-5 leading-relaxed text-slate-600">HB Tunnelling had recently acquired the Doncaster warehouse and needed the existing steelwork prepared before the building could be brought back into use. The scope included abrasive blasting, prompt priming and fireproof paint application, coordinated with roof works and the wider refurbishment programme.</p>
             <div className="mt-7 border-t border-[#2c5f7f]/15 pt-6">
-              <p className="text-sm font-semibold text-[#183c52]">Need a coordinated blast-and-coat plan?</p>
+              <p className="text-sm font-semibold text-[#183c52]">Need a steelwork refurbishment plan that fits your programme?</p>
               <button onClick={() => setQuotePopupOpen(true)} className="mt-3 inline-flex items-center gap-2 font-bold text-[#2c5f7f] hover:text-[#183c52]">
                 Request A Site Visit <ArrowRight className="h-4 w-4" />
               </button>
             </div>
           </aside>
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Why the sequence mattered</p>
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Why it mattered to the programme</p>
             <h2 className="mt-3 text-3xl font-bold text-[#183c52] sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>A finish is only as dependable as the surface beneath it.</h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {[
-                "Existing steelwork needed preparing before the next protective layer could be applied.",
-                "Freshly prepared surfaces needed prompt protection as part of the overall sequence.",
-                "Elevated access and active-site coordination had to be planned around the wider programme.",
-                "One delivery approach reduced handover points between preparation and fire-protection stages.",
+                "Existing steelwork needed to be cleaned and prepared before its new protective coating could be applied.",
+                "Primer protected each freshly blasted area before rust or contamination could affect the coating.",
+                "Elevated access and the active refurbishment programme required careful coordination.",
+                "One team managed blasting, priming and fireproof-paint coordination, simplifying handovers.",
               ].map((point) => (
                 <div key={point} className="flex gap-3 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
                   <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#b48324]" />
@@ -256,8 +256,8 @@ export default function HBTunnellingCaseStudy() {
         <section className="mx-auto max-w-7xl px-5 py-16 sm:px-7 lg:px-10 lg:py-24">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Delivery approach</p>
-            <h2 className="mt-3 text-3xl font-bold text-[#183c52] sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>One practical sequence from preparation through to protection.</h2>
-            <p className="mt-5 leading-relaxed text-slate-600">The supplied project record describes carefully planned stages that brought surface preparation and fireproof paint application into a coordinated delivery approach.</p>
+            <h2 className="mt-3 text-3xl font-bold text-[#183c52] sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>A practical sequence from surface preparation to fire protection.</h2>
+            <p className="mt-5 leading-relaxed text-slate-600">For HB Tunnelling, the work had to fit the wider warehouse refurbishment. We coordinated the blasting, primer and fireproof-paint stages so each trade could move into the next part of the programme with confidence.</p>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2">
             {deliverySteps.map((step) => (
@@ -277,7 +277,7 @@ export default function HBTunnellingCaseStudy() {
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Visible change</p>
                 <h2 className="mt-3 text-3xl font-bold text-[#183c52] sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>From exposed steelwork to a finished painted site.</h2>
-                <p className="mt-5 leading-relaxed text-slate-600">The supplied before image and finished drone image show the project’s visual transformation. The detail images below document coating activity from the supplied project media.</p>
+                <p className="mt-5 leading-relaxed text-slate-600">The before image and aerial completion image show the change from exposed steelwork to a finished painted site. The detail images show the coating work that followed surface preparation.</p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <button onClick={() => setQuotePopupOpen(true)} className="inline-flex items-center gap-2 rounded-lg bg-[#183c52] px-5 py-3 font-bold text-white transition hover:bg-[#2c5f7f] active:scale-[0.97]">
                     Plan your Site Visit <ArrowRight className="h-4 w-4" />
@@ -290,7 +290,7 @@ export default function HBTunnellingCaseStudy() {
               <div className="grid gap-3 sm:grid-cols-2">
                 <figure className="overflow-hidden rounded-2xl bg-slate-100 shadow-sm">
                   <img src={assets.before} alt="Steelwork before the supplied refurbishment project" className="aspect-[4/3] w-full object-cover" loading="lazy" />
-                  <figcaption className="bg-slate-900 px-4 py-3 text-sm font-semibold text-white">Before: supplied project image</figcaption>
+                  <figcaption className="bg-slate-900 px-4 py-3 text-sm font-semibold text-white">Before: steelwork ahead of surface preparation</figcaption>
                 </figure>
                 <figure className="overflow-hidden rounded-2xl bg-slate-100 shadow-sm">
                   <img src={assets.after} alt="Finished painted Doncaster warehouse site viewed from above" className="aspect-[4/3] w-full object-cover" loading="lazy" />
