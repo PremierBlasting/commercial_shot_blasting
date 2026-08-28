@@ -15,10 +15,12 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
     expect(html).toContain("£150,000");
     expect(html).toContain("six-week programme");
     expect(html).toContain("primer was applied straight after abrasive blasting");
-    expect(html).toContain("five-person specialist team");
-    expect(html).toContain("reduced the handover gap between separate blasting and coating contractors");
-    expect(html).toContain("What we delivered: one end-to-end blast-and-coat scope");
-    expect(html).toContain("Intumescent fire-protective painting and coordinated completion");
+    expect(html).toContain("five-person multi-skilled team");
+    expect(html).toContain("one-stop delivery for the warehouse steelwork");
+    expect(html).toContain("completing each section within a single day");
+    expect(html).toContain("prevent surface contamination or deterioration that could compromise coating adhesion");
+    expect(html).toContain("What we delivered: carefully planned same-day stages");
+    expect(html).toContain("Continuous progress through to intumescent fire protection");
     expect(html).toContain("VideoObject");
     expect(html).toContain("BreadcrumbList");
     expect(html).toContain("hb-tunnelling-doncaster-surface-preparation_0f209a96.mp4");
@@ -44,7 +46,8 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
     expect(page).not.toContain("The supplied project record");
     expect(page).not.toContain("Supplied footage");
     expect(page).toContain("Need rapid blasting and protective coating under one delivery plan?");
-    expect(page).toContain("A five-person specialist team delivered abrasive blasting");
+    expect(page).toContain("HB Tunnelling needed a one-stop solution for the warehouse steelwork");
+    expect(page).toContain("A five-person multi-skilled team");
     expect(page).toContain("Delivered one end-to-end blast-and-coat scope");
     expect(page).toContain("Applied the intumescent fire-protection coating");
     expect(serviceDetail).toContain("See rapid blasting and intumescent coating delivered as one coordinated scope.");

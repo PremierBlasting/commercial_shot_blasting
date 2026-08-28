@@ -1752,3 +1752,8 @@
 - [x] Add an evidence-led rapid end-to-end blasting and intumescent-coating callout to Intumescent Painting visible and SSR service content
 - [x] Add End-to-End Blasting & Intumescent Coating as a Site Visit service selector option and preserve it in delivered lead context
 - [x] Add regression coverage and validate TypeScript, full tests, service pages, Site Visit flow, and production build
+
+## HB Tunnelling Central Client-Requirement Narrative (28 August 2026)
+- [x] Make the client’s one-stop delivery requirement, immediate-primer rationale, five-person multi-skilled team, planned same-day stages, continuous progress, and on-schedule completion the central HB Tunnelling case-study narrative
+- [x] Align the visible page, video context, conversion messages, crawler-rendered page, and regression coverage with this evidence-led delivery account
+- [x] Validate the revised case study, TypeScript, full tests, and production build
