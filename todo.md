@@ -1736,3 +1736,13 @@
 - [x] Reframe the HB Tunnelling case study around rapid end-to-end abrasive blasting, immediate primer, and fire-protective intumescent-paint delivery
 - [x] Make the five-person specialist team, same-day handover between preparation and coating, continuous progress, reduced downtime, and programme protection clear across relevant page sections
 - [x] Add regression coverage and validate the revised contractor messaging, TypeScript, full tests, and production build
+
+## HB Tunnelling Factual Delivery Stages (28 August 2026)
+- [x] Replace generic project-planning stage wording with a factual sequence of work completed: abrasive blasting, immediate priming, intumescent fire-protection painting, and coordinated completion
+- [x] Make the five-person team and rapid end-to-end delivery benefits clear without overstating unverified project outcomes
+- [x] Add regression coverage and validate the revised delivery stages, TypeScript, full tests, and production build
+
+## Structural Steel Frames Case-Study Callout (28 August 2026)
+- [x] Add a prominent end-to-end blasting and intumescent-coating callout to the Structural Steel Frames service page with a direct HB Tunnelling case-study link
+- [x] Mirror the contextual case-study link in the crawler-visible Structural Steel Frames SSR content
+- [x] Add regression coverage and validate the service page, TypeScript, full tests, and production build

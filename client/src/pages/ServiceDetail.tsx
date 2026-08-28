@@ -600,9 +600,9 @@ export default function ServiceDetail() {
                   </div>
 
                   {/* What happens without Sa 2.5 */}
-                  <div className="bg-red-50 border-l-4 border-red-400 rounded-r-xl p-6 mb-8">
-                    <h3 className="font-bold text-red-800 mb-3 text-lg">What Happens If Steel Isn't Prepared to Sa 2.5?</h3>
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-red-50 border-l-4 border-red-400 rounded-r-xl p-6 mb-8">
+                      <h3 className="font-bold text-red-800 mb-3 text-lg">What Happens If Steel Isn't Prepared to Sa 2.5?</h3>
+                      <div className="grid md:grid-cols-2 gap-4">
                       <ul className="space-y-2 text-sm text-red-700">
                         <li className="flex items-start gap-2"><span className="mt-1 w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />Coatings applied over mill scale will delaminate — mill scale contracts at a different rate to steel and takes the coating with it</li>
                         <li className="flex items-start gap-2"><span className="mt-1 w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />Intumescent paint applied without Sa 2.5 will not achieve its specified fire resistance performance</li>
@@ -611,10 +611,32 @@ export default function ServiceDetail() {
                         <li className="flex items-start gap-2"><span className="mt-1 w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />Coating warranties are voided if the substrate preparation is not documented to the required standard</li>
                         <li className="flex items-start gap-2"><span className="mt-1 w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />Premature corrosion under the coating is invisible until it has already caused structural damage</li>
                       </ul>
+                      </div>
                     </div>
+
+                    <section className="overflow-hidden rounded-2xl border border-[#2C5F7F]/20 bg-gradient-to-br from-[#183c52] to-[#2C5F7F] p-6 text-white shadow-lg md:p-8" aria-labelledby="hb-tunnelling-callout-heading">
+                      <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                        <div className="max-w-2xl">
+                          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#f1c76e]">
+                            <Flame className="h-4 w-4" /> End-to-end project evidence
+                          </div>
+                          <h2 id="hb-tunnelling-callout-heading" className="text-2xl font-bold leading-tight md:text-3xl" style={{ fontFamily: "'Playfair Display', serif" }}>
+                            See rapid blasting and intumescent coating delivered as one coordinated scope.
+                          </h2>
+                          <p className="mt-4 leading-relaxed text-white/85">
+                            On the HB Tunnelling Doncaster warehouse refurbishment, our five-person specialist team abrasive blasted the exposed steelwork, applied primer straight after preparation, and completed the intumescent fire-protective coating as one coordinated delivery.
+                          </p>
+                          <p className="mt-3 text-sm leading-relaxed text-white/70">
+                            Keeping preparation and fire protection together reduced handovers between trades and helped maintain continuous progress through the refurbishment programme.
+                          </p>
+                        </div>
+                        <Link href="/case-studies/hb-tunnelling-doncaster" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#f1c76e] px-5 py-3 font-bold text-[#183c52] transition hover:bg-white active:scale-[0.98]">
+                          View the HB Tunnelling case study <ArrowRight className="h-4 w-4" />
+                        </Link>
+                      </div>
+                    </section>
                   </div>
-                </div>
-              )}
+                )}
 
               {/* Related Reading: Preparation Guide — shown on structural steel pages */}
               {['structural-steel-frames', 'fire-escapes', 'bridge-steelwork', 'steel-containers', 'steel-sheeting'].includes(service.id) && (

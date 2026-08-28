@@ -5055,15 +5055,19 @@ function generateServiceBodyHTML(serviceId: string): string {
 
   const appsHtml = d.applications.map(a => `<li>${escHtml(a)}</li>`).join("");
 
-  const faqsHtml = d.faqs.map(f => `
-    <div class="ssr-faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+	const faqsHtml = d.faqs.map(f => `
+	  <div class="ssr-faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
       <h3 itemprop="name">${escHtml(f.q)}</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
         <p itemprop="text">${escHtml(f.a)}</p>
       </div>
-    </div>`).join("");
+	  </div>`).join("");
 
-  return `
+	const caseStudyCalloutHtml = serviceId === "structural-steel-frames"
+	  ? `<section class="ssr-case-study-callout"><h2>End-to-end blasting and intumescent coating project evidence</h2><p>See how a five-person specialist team delivered abrasive blasting, immediate primer protection and intumescent fire-protective painting as one coordinated scope for the HB Tunnelling Doncaster warehouse refurbishment.</p><p>Keeping surface preparation and fire protection together reduced handovers between trades and supported continuous progress through the refurbishment programme.</p><p><a href="${SITE_URL}/case-studies/hb-tunnelling-doncaster">View the HB Tunnelling Doncaster end-to-end delivery case study</a>.</p></section>`
+	  : "";
+
+	return `
 <div id="ssr-service-content" aria-hidden="true" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;" itemscope itemtype="https://schema.org/Service">
   <nav aria-label="Breadcrumb"><ol itemscope itemtype="https://schema.org/BreadcrumbList">
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="${SITE_URL}"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"/></li>
@@ -5089,10 +5093,11 @@ function generateServiceBodyHTML(serviceId: string): string {
     <h2>Industries We Serve</h2>
     <ul>${indItems}</ul>
     <h2>When to Choose Shot Blasting</h2>
-    <p>${escHtml(proof.decisionNote)}</p>
-  </section>`;
-  })()}
-  <section class="ssr-faqs" itemscope itemtype="https://schema.org/FAQPage"><h2>Frequently Asked Questions</h2>${faqsHtml}</section>
+	    <p>${escHtml(proof.decisionNote)}</p>
+	  </section>`;
+	})()}
+	  ${caseStudyCalloutHtml}
+	  <section class="ssr-faqs" itemscope itemtype="https://schema.org/FAQPage"><h2>Frequently Asked Questions</h2>${faqsHtml}</section>
   <section class="ssr-coverage" id="service-coverage">
     <h2>Where We Offer ${escHtml(d.title)}</h2>
     <p>Our mobile units deliver ${escHtml(d.title.toLowerCase())} services across 35 counties in the UK. Select a county to see all the towns and areas we cover.</p>
@@ -7107,7 +7112,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     modifiedHtml = modifiedHtml.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${description}" />`);
     modifiedHtml = modifiedHtml.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${caseStudyUrl}" />`);
     modifiedHtml = modifiedHtml.replace(/<meta property="og:image"[^>]*>/, `<meta property="og:image" content="${image}" />`);
-    const ssrBody = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/our-work">Our Work</a> | <a href="${SITE_URL}/services/structural-steel-frames">Structural Steel Frames</a> | <a href="${SITE_URL}/services/intumescent-painting">Intumescent Painting</a> | <a href="${SITE_URL}/service-areas/doncaster">Shot Blasting in Doncaster</a> | <a href="${SITE_URL}/site-survey">Request A Site Visit</a></nav><main><h1>HB Tunnelling Doncaster: Rapid End-to-End Blasting and Intumescent Painting</h1><p>This Doncaster warehouse refurbishment was delivered on a £150,000 contract over a six-week programme by a five-person specialist team.</p><h2>One coordinated route from blasting to fire protection</h2><p>HB Tunnelling needed warehouse steelwork prepared and protected as part of a wider roof and refurbishment programme. Our team delivered abrasive blasting, immediate primer protection and intumescent fire-protective painting as one coordinated scope, reducing handovers between trades.</p><h2>Primer applied straight after surface preparation</h2><p>The steelwork was primed immediately after abrasive blasting to help prevent flash rust and surface contamination before the next coating stage. This same-day sequence helped keep freshly prepared steel protected while the programme moved forward.</p><h2>Rapid end-to-end delivery</h2><p>A five-person specialist team worked from elevated access equipment to keep surface preparation, primer protection and fire-protective coating coordinated. Combining those stages under one delivery approach supported continuous progress and reduced downtime risk.</p><h2>Project film and before-and-after views</h2><p>Watch the project film for blasting, coating and aerial site views. The case study also shows the steelwork before work began and the finished painted warehouse site.</p><h2>Planning a similar project?</h2><p><a href="${SITE_URL}/site-survey">Request A Site Visit</a> to discuss surface condition, access, containment, programme and intended coating handover. For campaign enquiries, <a href="https://wa.me/447970566409?text=Hello%2C%20I%20am%20interested%20in%20a%20warehouse%20steelwork%20refurbishment%20similar%20to%20the%20HB%20Tunnelling%20Doncaster%20project.%20I%20would%20like%20to%20arrange%20a%20site%20visit.">contact the team on WhatsApp</a>.</p></main></div>`;
+    const ssrBody = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/our-work">Our Work</a> | <a href="${SITE_URL}/services/structural-steel-frames">Structural Steel Frames</a> | <a href="${SITE_URL}/services/intumescent-painting">Intumescent Painting</a> | <a href="${SITE_URL}/service-areas/doncaster">Shot Blasting in Doncaster</a> | <a href="${SITE_URL}/site-survey">Request A Site Visit</a></nav><main><h1>HB Tunnelling Doncaster: Rapid End-to-End Blasting and Intumescent Painting</h1><p>This Doncaster warehouse refurbishment was delivered on a £150,000 contract over a six-week programme by a five-person specialist team.</p><h2>What we delivered: one end-to-end blast-and-coat scope</h2><p>Our five-person team took responsibility for the structural-steel package from abrasive surface preparation through to immediate primer application and intumescent fire-protective painting. Keeping these stages together reduced the handover gap between separate blasting and coating contractors.</p><h2>Abrasive blasting from elevated access</h2><p>The team worked from elevated access equipment to abrasive blast the existing steelwork, removing corrosion and old coatings and preparing the surface for its protective paint system.</p><h2>Primer applied immediately after blasting</h2><p>As each area was prepared, primer was applied straight after abrasive blasting to help prevent flash rust and surface contamination before the fire-protection stage. This same-day sequence kept freshly prepared steel protected.</p><h2>Intumescent fire-protective painting and coordinated completion</h2><p>Intumescent fire-protective paint was then applied as part of the same coordinated delivery. Keeping surface preparation, primer and fire protection under one five-person team supported continuous progress, reduced trade handovers and helped protect the wider refurbishment programme.</p><h2>Project film and before-and-after views</h2><p>Watch the project film for blasting, coating and aerial site views. The case study also shows the steelwork before work began and the finished painted warehouse site.</p><h2>Planning a similar project?</h2><p><a href="${SITE_URL}/site-survey">Request A Site Visit</a> to discuss surface condition, access, containment, programme and intended coating handover. For campaign enquiries, <a href="https://wa.me/447970566409?text=Hello%2C%20I%20am%20interested%20in%20a%20warehouse%20steelwork%20refurbishment%20similar%20to%20the%20HB%20Tunnelling%20Doncaster%20project.%20I%20would%20like%20to%20arrange%20a%20site%20visit.">contact the team on WhatsApp</a>.</p></main></div>`;
     modifiedHtml = modifiedHtml.replace("</head>", `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${articleSchema}</script>\n<script type="application/ld+json">${videoSchema}</script>\n</head>`);
     return modifiedHtml.replace("<!--SSR_CONTENT-->", ssrBody);
   }

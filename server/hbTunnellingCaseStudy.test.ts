@@ -14,9 +14,11 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
     expect(html).toContain("HB Tunnelling Doncaster: Rapid End-to-End Blasting and Intumescent Painting");
     expect(html).toContain("£150,000");
     expect(html).toContain("six-week programme");
-    expect(html).toContain("primed immediately after abrasive blasting");
+    expect(html).toContain("primer was applied straight after abrasive blasting");
     expect(html).toContain("five-person specialist team");
-    expect(html).toContain("reducing handovers between trades");
+    expect(html).toContain("reduced the handover gap between separate blasting and coating contractors");
+    expect(html).toContain("What we delivered: one end-to-end blast-and-coat scope");
+    expect(html).toContain("Intumescent fire-protective painting and coordinated completion");
     expect(html).toContain("VideoObject");
     expect(html).toContain("BreadcrumbList");
     expect(html).toContain("hb-tunnelling-doncaster-surface-preparation_0f209a96.mp4");
@@ -26,6 +28,7 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
   it("uses approved video-derived assets, campaign CTAs, and discoverable site pathways", () => {
     const app = readFileSync(resolve(projectRoot, "client/src/App.tsx"), "utf8");
     const page = readFileSync(resolve(projectRoot, "client/src/pages/HBTunnellingCaseStudy.tsx"), "utf8");
+    const serviceDetail = readFileSync(resolve(projectRoot, "client/src/pages/ServiceDetail.tsx"), "utf8");
     const work = readFileSync(resolve(projectRoot, "client/src/pages/OurWork.tsx"), "utf8");
     const xmlSitemap = readFileSync(resolve(projectRoot, "server/sitemap.ts"), "utf8");
     const htmlSitemap = readFileSync(resolve(projectRoot, "client/src/pages/SitemapPage.tsx"), "utf8");
@@ -41,8 +44,20 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
     expect(page).not.toContain("Supplied footage");
     expect(page).toContain("Need rapid blasting and protective coating under one delivery plan?");
     expect(page).toContain("A five-person specialist team delivered abrasive blasting");
+    expect(page).toContain("Delivered one end-to-end blast-and-coat scope");
+    expect(page).toContain("Applied the intumescent fire-protection coating");
+    expect(serviceDetail).toContain("See rapid blasting and intumescent coating delivered as one coordinated scope.");
+    expect(serviceDetail).toContain('/case-studies/hb-tunnelling-doncaster');
     expect(work).toContain('/case-studies/hb-tunnelling-doncaster');
     expect(xmlSitemap).toContain('{ loc: "/case-studies/hb-tunnelling-doncaster"');
     expect(htmlSitemap).toContain('{ href: "/case-studies/hb-tunnelling-doncaster"');
+  });
+
+  it("links Structural Steel Frames crawler content to the end-to-end HB Tunnelling project evidence", async () => {
+    const html = await injectMetaTags(baseHtml, "/services/structural-steel-frames");
+
+    expect(html).toContain("End-to-end blasting and intumescent coating project evidence");
+    expect(html).toContain("View the HB Tunnelling Doncaster end-to-end delivery case study");
+    expect(html).toContain('/case-studies/hb-tunnelling-doncaster');
   });
 });

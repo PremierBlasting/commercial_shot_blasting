@@ -75,23 +75,23 @@ const processGallery: GalleryImage[] = [
 const deliverySteps = [
   {
     number: "01",
-    title: "Plan the sequence around the refurbishment programme",
-    body: "The warehouse was being prepared for use, with roof works and steelwork refurbishment forming part of the same programme. We planned the blasting and coating stages around those linked activities to keep the work moving.",
+    title: "Delivered one end-to-end blast-and-coat scope",
+    body: "We took responsibility for the steelwork from surface preparation through to fire-protective coating, coordinating our work around the roof and refurbishment programme instead of creating a gap between separate blasting and coating contractors.",
   },
   {
     number: "02",
-    title: "Prepare the exposed steelwork",
-    body: "Our team abrasive blasted the exposed steelwork from elevated access equipment, removing corrosion and old coatings and leaving it clean and ready for protection.",
+    title: "Abrasive blasted the exposed steelwork",
+    body: "Our five-person specialist team worked from elevated access equipment to abrasive blast the existing steelwork, removing corrosion and old coatings and preparing the surface for the protective paint system.",
   },
   {
     number: "03",
-    title: "Protect freshly prepared surfaces promptly",
-    body: "Once the steelwork had been blasted, we applied primer immediately to protect it from flash rust and contamination before the next coating stage.",
+    title: "Applied primer straight after blasting",
+    body: "As each area was prepared, we applied primer immediately to help prevent flash rust and surface contamination, keeping the steelwork protected and ready for the fire-protection stage without delay.",
   },
   {
     number: "04",
-    title: "Coordinate the fire-protection finish",
-    body: "We coordinated surface preparation and fireproof paint application in planned stages, simplifying handovers and helping the wider refurbishment programme stay on track.",
+    title: "Applied the intumescent fire-protection coating",
+    body: "We then applied the intumescent fire-protective paint as part of the same coordinated delivery. This kept progress continuous, reduced trade handovers and helped protect the refurbishment programme.",
   },
 ];
 
@@ -255,9 +255,9 @@ export default function HBTunnellingCaseStudy() {
 
         <section className="mx-auto max-w-7xl px-5 py-16 sm:px-7 lg:px-10 lg:py-24">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Delivery approach</p>
-            <h2 className="mt-3 text-3xl font-bold text-[#183c52] sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>Rapid delivery from blasting through to fire-protective coating.</h2>
-            <p className="mt-5 leading-relaxed text-slate-600">For HB Tunnelling, the work had to fit the wider warehouse programme. By bringing blasting, primer protection and intumescent painting together, our team kept newly prepared steel protected and maintained continuous progress.</p>
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">What we delivered</p>
+            <h2 className="mt-3 text-3xl font-bold text-[#183c52] sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>From blast clean to intumescent fire protection—one coordinated delivery.</h2>
+            <p className="mt-5 leading-relaxed text-slate-600">Our five-person team completed the steelwork package from abrasive blasting through to immediate primer application and intumescent fire-protective painting. Keeping those stages together meant the steelwork stayed protected while the refurbishment programme kept moving.</p>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2">
             {deliverySteps.map((step) => (
