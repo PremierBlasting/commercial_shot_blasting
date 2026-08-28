@@ -102,8 +102,8 @@ export default function HBTunnellingCaseStudy() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useSEO({
-    title: "HB Tunnelling Doncaster Case Study | Warehouse Steelwork Refurbishment",
-    description: "Explore a Doncaster warehouse steelwork refurbishment for HB Tunnelling: abrasive blasting, immediate priming and fireproof paint application coordinated in planned stages. View the project film and before-and-after imagery.",
+    title: "HB Tunnelling Doncaster | End-to-End Blasting & Intumescent Painting",
+    description: "See how a five-person specialist team delivered rapid abrasive blasting, same-day primer protection and intumescent fire-protective coating for an HB Tunnelling warehouse refurbishment in Doncaster.",
     canonical: CASE_STUDY_URL,
     image: assets.aerial,
   });
@@ -152,10 +152,10 @@ export default function HBTunnellingCaseStudy() {
               </div>
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.14em] text-[#bdd9e8]">HB Tunnelling · Doncaster</p>
               <h1 className="max-w-xl text-4xl font-bold leading-[1.05] sm:text-5xl lg:text-6xl" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Steelwork refurbishment built around the programme.
+                Rapid end-to-end blasting and intumescent coating.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">
-                A warehouse transformation combining abrasive blasting, prompt primer application and fireproof paint coordination—so the steelwork was ready for the next stage of refurbishment.
+                A five-person specialist team delivered abrasive blasting, immediate primer protection and intumescent fire-protective painting as one coordinated scope—keeping the steelwork protected and the refurbishment moving.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <button onClick={() => setQuotePopupOpen(true)} className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#f1c76e] px-5 py-3.5 font-bold text-[#112f43] transition hover:bg-[#f7d98f] active:scale-[0.97]">
@@ -176,8 +176,8 @@ export default function HBTunnellingCaseStudy() {
                 Watch project film · 44 sec
               </span>
               <span className="absolute inset-x-5 bottom-5">
-                <span className="block text-xl font-bold text-white">From surface preparation to protective finish</span>
-                <span className="mt-1 block text-sm text-white/75">Watch blasting, coating and the full site context.</span>
+                <span className="block text-xl font-bold text-white">From blasting to intumescent protection</span>
+                <span className="mt-1 block text-sm text-white/75">Watch one team take the steelwork from surface preparation to protective finish.</span>
               </span>
             </button>
           </div>
@@ -202,24 +202,24 @@ export default function HBTunnellingCaseStudy() {
         <section className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-7 lg:grid-cols-[0.85fr_1.15fr] lg:px-10 lg:py-24">
           <aside className="rounded-2xl bg-[#eaf3f6] p-7 lg:p-9">
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">The brief</p>
-            <h2 className="mt-3 text-3xl font-bold leading-tight text-[#183c52]" style={{ fontFamily: "'Playfair Display', serif" }}>Prepare the warehouse steelwork for refurbishment.</h2>
-            <p className="mt-5 leading-relaxed text-slate-600">HB Tunnelling had recently acquired the Doncaster warehouse and needed the existing steelwork prepared before the building could be brought back into use. The scope included abrasive blasting, prompt priming and fireproof paint application, coordinated with roof works and the wider refurbishment programme.</p>
+            <h2 className="mt-3 text-3xl font-bold leading-tight text-[#183c52]" style={{ fontFamily: "'Playfair Display', serif" }}>One team. One coordinated route to protected steelwork.</h2>
+            <p className="mt-5 leading-relaxed text-slate-600">HB Tunnelling needed the Doncaster warehouse steelwork brought back into service as part of a wider refurbishment and roof programme. Our five-person specialist team delivered the surface preparation, immediate primer protection and intumescent fire-protective painting as one coordinated scope—rather than passing newly blasted steel between separate contractors.</p>
             <div className="mt-7 border-t border-[#2c5f7f]/15 pt-6">
-              <p className="text-sm font-semibold text-[#183c52]">Need a steelwork refurbishment plan that fits your programme?</p>
+              <p className="text-sm font-semibold text-[#183c52]">Need rapid blasting and protective coating under one delivery plan?</p>
               <button onClick={() => setQuotePopupOpen(true)} className="mt-3 inline-flex items-center gap-2 font-bold text-[#2c5f7f] hover:text-[#183c52]">
                 Request A Site Visit <ArrowRight className="h-4 w-4" />
               </button>
             </div>
           </aside>
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Why it mattered to the programme</p>
-            <h2 className="mt-3 text-3xl font-bold text-[#183c52] sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>A finish is only as dependable as the surface beneath it.</h2>
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Why an end-to-end approach mattered</p>
+            <h2 className="mt-3 text-3xl font-bold text-[#183c52] sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>Freshly blasted steel needs protecting without delay.</h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {[
-                "Existing steelwork needed to be cleaned and prepared before its new protective coating could be applied.",
-                "Primer protected each freshly blasted area before rust or contamination could affect the coating.",
-                "Elevated access and the active refurbishment programme required careful coordination.",
-                "One team managed blasting, priming and fireproof-paint coordination, simplifying handovers.",
+                "Abrasive blasting removed old coatings and corrosion so the intumescent system had a properly prepared surface.",
+                "Primer was applied straight after blasting, helping prevent flash rust and contamination before the protective coating stage.",
+                "A five-person specialist team kept progress continuous while working from elevated access around the wider refurbishment programme.",
+                "One coordinated team managed surface preparation, primer and intumescent-coating handover, reducing delays between trades.",
               ].map((point) => (
                 <div key={point} className="flex gap-3 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
                   <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#b48324]" />
@@ -256,8 +256,8 @@ export default function HBTunnellingCaseStudy() {
         <section className="mx-auto max-w-7xl px-5 py-16 sm:px-7 lg:px-10 lg:py-24">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Delivery approach</p>
-            <h2 className="mt-3 text-3xl font-bold text-[#183c52] sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>A practical sequence from surface preparation to fire protection.</h2>
-            <p className="mt-5 leading-relaxed text-slate-600">For HB Tunnelling, the work had to fit the wider warehouse refurbishment. We coordinated the blasting, primer and fireproof-paint stages so each trade could move into the next part of the programme with confidence.</p>
+            <h2 className="mt-3 text-3xl font-bold text-[#183c52] sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>Rapid delivery from blasting through to fire-protective coating.</h2>
+            <p className="mt-5 leading-relaxed text-slate-600">For HB Tunnelling, the work had to fit the wider warehouse programme. By bringing blasting, primer protection and intumescent painting together, our team kept newly prepared steel protected and maintained continuous progress.</p>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2">
             {deliverySteps.map((step) => (

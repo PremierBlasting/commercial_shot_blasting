@@ -11,10 +11,12 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
     const html = await injectMetaTags(baseHtml, "/case-studies/hb-tunnelling-doncaster");
 
     expect(html).toContain('<link rel="canonical" href="https://commercialshotblasting.co.uk/case-studies/hb-tunnelling-doncaster"');
-    expect(html).toContain("HB Tunnelling Doncaster: Warehouse Steelwork Refurbishment");
+    expect(html).toContain("HB Tunnelling Doncaster: Rapid End-to-End Blasting and Intumescent Painting");
     expect(html).toContain("£150,000");
     expect(html).toContain("six-week programme");
-    expect(html).toContain("primed immediately after blasting");
+    expect(html).toContain("primed immediately after abrasive blasting");
+    expect(html).toContain("five-person specialist team");
+    expect(html).toContain("reducing handovers between trades");
     expect(html).toContain("VideoObject");
     expect(html).toContain("BreadcrumbList");
     expect(html).toContain("hb-tunnelling-doncaster-surface-preparation_0f209a96.mp4");
@@ -37,7 +39,8 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
     expect(page).not.toContain("Screenshot2026-08-28");
     expect(page).not.toContain("The supplied project record");
     expect(page).not.toContain("Supplied footage");
-    expect(page).toContain("Need a steelwork refurbishment plan that fits your programme?");
+    expect(page).toContain("Need rapid blasting and protective coating under one delivery plan?");
+    expect(page).toContain("A five-person specialist team delivered abrasive blasting");
     expect(work).toContain('/case-studies/hb-tunnelling-doncaster');
     expect(xmlSitemap).toContain('{ loc: "/case-studies/hb-tunnelling-doncaster"');
     expect(htmlSitemap).toContain('{ href: "/case-studies/hb-tunnelling-doncaster"');

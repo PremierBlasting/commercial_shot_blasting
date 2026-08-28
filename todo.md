@@ -1731,3 +1731,8 @@
 ## HB Tunnelling Contractor-Focused Copy (28 August 2026)
 - [x] Replace evidence-audit wording with direct, contractor-focused project, sequencing, and outcome language across the HB Tunnelling case study
 - [x] Add regression coverage and validate the rewritten case study, TypeScript, full tests, and production build
+
+## HB Tunnelling End-to-End Delivery Message (28 August 2026)
+- [x] Reframe the HB Tunnelling case study around rapid end-to-end abrasive blasting, immediate primer, and fire-protective intumescent-paint delivery
+- [x] Make the five-person specialist team, same-day handover between preparation and coating, continuous progress, reduced downtime, and programme protection clear across relevant page sections
+- [x] Add regression coverage and validate the revised contractor messaging, TypeScript, full tests, and production build
