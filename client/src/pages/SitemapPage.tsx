@@ -81,6 +81,7 @@ const MAIN_PAGES = [
   { href: "/service-areas", label: "Service Areas" },
   { href: "/counties", label: "Counties" },
   { href: "/our-work", label: "Our Work" },
+  { href: "/case-studies/hb-tunnelling-doncaster", label: "HB Tunnelling Doncaster Warehouse Case Study" },
   { href: "/steel-fabrication-surface-preparation", label: "Steel Fabrication & Structural Steel Planning" },
   { href: "/steel-chimney-process-stack-surface-preparation", label: "Steel Chimney & Process Stack Planning" },
   { href: "/industrial-steelwork-restoration", label: "Industrial Steelwork Restoration Planning" },

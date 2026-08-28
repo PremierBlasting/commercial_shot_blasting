@@ -1719,3 +1719,11 @@
 - [x] Add an accurate CHAS Elite assurance note to automated customer quote-confirmation emails
 - [x] Add an accessible hover and keyboard-focus tooltip to the CHAS Elite logo on the customer confirmation page
 - [x] Add regression coverage and validate email, confirmation page, TypeScript, full tests, and production build
+
+## HB Tunnelling Doncaster Campaign Case Study (28 August 2026)
+- [x] Verify and extract only approved facts from the supplied capability statement, video, and reference material for the HB Tunnelling Doncaster case study
+- [x] Create durable web assets from the specified Premier Blasting video, including optimised video-derived stills; exclude supplied reference screenshots from the published page
+- [x] Build a dedicated responsive HB Tunnelling Doncaster case-study landing page with evidence-led project detail, before/after treatment, video centrepiece, and repeated Site Visit CTAs
+- [x] Add campaign-specific WhatsApp CTAs that initiate a prefilled message to 07970 566409 without changing other existing site contact routes
+- [x] Add canonical SEO metadata, Article/Video/Breadcrumb structured data, internal discovery links, and regression coverage; validate TypeScript, full tests, rendered page, and production build
+- [x] Publish the client display name as HB Tunnelling, as directly supplied by the user for this campaign page

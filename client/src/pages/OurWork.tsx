@@ -695,6 +695,27 @@ export default function OurWork() {
         </div>
       </section>
 
+      <section className="border-b border-[#2C5F7F]/10 bg-white py-10">
+        <div className="container">
+          <div className="grid overflow-hidden rounded-2xl border border-[#2C5F7F]/15 bg-[#eaf3f6] shadow-sm md:grid-cols-[0.75fr_1.25fr]">
+            <img
+              src="/manus-storage/hb-tunnelling-video-still-25_e27be683.webp"
+              alt="Aerial view of the Doncaster warehouse refurbishment site"
+              className="h-56 w-full object-cover md:h-full"
+              loading="lazy"
+            />
+            <div className="p-7 md:p-9">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#2C5F7F]">New campaign case study · Doncaster</p>
+              <h2 className="mt-3 text-2xl font-bold text-[#1a3a52]" style={{ fontFamily: "'Playfair Display', serif" }}>HB Tunnelling warehouse steelwork refurbishment</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600">See the supplied project film and video-derived stills documenting abrasive blasting, prompt primer protection and fireproof paint coordination during a Doncaster warehouse refurbishment.</p>
+              <Link href="/case-studies/hb-tunnelling-doncaster" className="mt-5 inline-flex items-center gap-2 rounded-lg bg-[#2C5F7F] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#1a3a52]">
+                View the Doncaster case study <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="steel-chimney-case-study" className="border-y border-sky-100 bg-sky-50 py-16">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">
