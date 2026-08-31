@@ -1008,6 +1008,12 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
           </div>
           
           <Link 
+            href="/carer-hub" 
+            className="hover:text-white/80 transition font-medium"
+            onMouseEnter={() => prefetch('/carer-hub')}
+            onMouseLeave={cancelPrefetch}
+          >CarerHub</Link>
+          <Link 
             href="/about" 
             className="hover:text-white/80 transition"
             onMouseEnter={() => prefetch('/about')}
@@ -1172,6 +1178,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
               </Link>
             </div>
             
+            <a href="/carer-hub" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10 font-medium">CarerHub</a>
             <a href="/about" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">About</a>
             <a href="/contact" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Contact</a>
             

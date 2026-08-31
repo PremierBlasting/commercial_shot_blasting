@@ -45,6 +45,20 @@ const About = lazy(() => import("./pages/About"));
 const PreparationCleanup = lazy(() => import("./pages/PreparationCleanup"));
 const FreeSiteSurvey = lazy(() => import("./pages/FreeSiteSurvey"));
 const CallAnalytics = lazy(() => import("./pages/CallAnalytics"));
+// CarerHub (Newsletter replacement) pages
+const CarerHub = lazy(() => import("./pages/CarerHub"));
+const CarerHub100Club = lazy(() => import("./pages/CarerHub100Club"));
+const CarerHubFamilyFeedback = lazy(() => import("./pages/CarerHubFamilyFeedback"));
+const CarerHubTeam = lazy(() => import("./pages/CarerHubTeam"));
+const CarerHubSuperCrums = lazy(() => import("./pages/CarerHubSuperCrums"));
+const CarerHubAttendanceClub = lazy(() => import("./pages/CarerHubAttendanceClub"));
+const CarerHubWorkiversaries = lazy(() => import("./pages/CarerHubWorkiversaries"));
+const CarerHubBirthdays = lazy(() => import("./pages/CarerHubBirthdays"));
+const CarerHubMagicMoments = lazy(() => import("./pages/CarerHubMagicMoments"));
+const CarerHubOnCallRota = lazy(() => import("./pages/CarerHubOnCallRota"));
+const CarerHubPayroll = lazy(() => import("./pages/CarerHubPayroll"));
+const CarerHubQuickLinks = lazy(() => import("./pages/CarerHubQuickLinks"));
+const CarerHubBehindTheScenes = lazy(() => import("./pages/CarerHubBehindTheScenes"));
 
 // Lazy-loaded service area pages
 const BirminghamServiceArea = lazy(() => import("./pages/BirminghamServiceArea"));
@@ -227,6 +241,20 @@ function Router() {
         <Route path="/industries/transport-logistics" component={TransportLogisticsIndustry} />
         <Route path="/industries/heritage-restoration" component={HeritageRestorationIndustry} />
         <Route path="/free-site-survey" component={FreeSiteSurvey} />
+        {/* CarerHub Routes */}
+        <Route path="/carer-hub" component={CarerHub} />
+        <Route path="/carer-hub/100-club" component={CarerHub100Club} />
+        <Route path="/carer-hub/family-feedback" component={CarerHubFamilyFeedback} />
+        <Route path="/carer-hub/team" component={CarerHubTeam} />
+        <Route path="/carer-hub/super-crums" component={CarerHubSuperCrums} />
+        <Route path="/carer-hub/attendance-club" component={CarerHubAttendanceClub} />
+        <Route path="/carer-hub/workiversaries" component={CarerHubWorkiversaries} />
+        <Route path="/carer-hub/birthdays" component={CarerHubBirthdays} />
+        <Route path="/carer-hub/magic-moments" component={CarerHubMagicMoments} />
+        <Route path="/carer-hub/on-call-rota" component={CarerHubOnCallRota} />
+        <Route path="/carer-hub/payroll" component={CarerHubPayroll} />
+        <Route path="/carer-hub/quick-links" component={CarerHubQuickLinks} />
+        <Route path="/carer-hub/behind-the-scenes" component={CarerHubBehindTheScenes} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/terms" component={Terms} />
         <Route path="/blog" component={Blog} />
