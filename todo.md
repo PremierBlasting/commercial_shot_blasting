@@ -544,6 +544,13 @@
 - [x] Remove "Industrial" category from categories array in OurWork.tsx
 - [x] Save checkpoint with Industrial category removed
 
+## Forward-only WhatsApp lead attribution (August 31, 2026)
+- [x] Add a consent-gated, opaque click-reference ledger with strict unique reference and export guards.
+- [x] Add a public click-reference creation procedure and a signed exact-match status-update procedure with no HubSpot writes.
+- [x] Update both WhatsApp click entry points to request a reference only after analytics consent, preserving the current opening behaviour if reference creation fails.
+- [x] Generate and review the database migration, then validate the new ledger and reference rules with Vitest, TypeScript, and a production build.
+- [ ] Commit the verified tracker to the designated commercial_shot_blasting repository without enabling Google Ads export.
+
 ## Update Steel Container Service Image (January 28, 2026)
 - [x] Copy new cylindrical container image to public directory
 - [x] Update steel-containers service image in services.ts

@@ -1,0 +1,22 @@
+CREATE TABLE `whatsapp_click_events` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`trackerRef` varchar(48) NOT NULL,
+	`status` enum('clicked','matched','exported','discarded') NOT NULL DEFAULT 'clicked',
+	`clickLocation` enum('whatsapp_widget','floating_whatsapp_button') NOT NULL,
+	`landingPath` varchar(512) NOT NULL,
+	`gclid` varchar(255),
+	`utmSource` varchar(255),
+	`utmMedium` varchar(255),
+	`utmCampaign` varchar(255),
+	`firstTouchSource` varchar(255),
+	`firstTouchMedium` varchar(255),
+	`firstTouchCampaign` varchar(255),
+	`hubspotThreadId` varchar(128),
+	`matchedAt` timestamp,
+	`exportedAt` timestamp,
+	`exportKey` varchar(96),
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	CONSTRAINT `whatsapp_click_events_id` PRIMARY KEY(`id`),
+	CONSTRAINT `whatsapp_click_events_trackerRef_unique` UNIQUE(`trackerRef`),
+	CONSTRAINT `whatsapp_click_events_exportKey_unique` UNIQUE(`exportKey`)
+);

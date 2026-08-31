@@ -1,15 +1,48 @@
 import { useState } from "react";
 import { X } from "lucide-react";
+import { trpc } from "@/lib/trpc";
+import {
+  buildConsentGatedWhatsAppLink,
+  getCurrentWhatsAppClickTrackerInput,
+} from "@/lib/whatsappTracking";
+import { trackEvent } from "@/lib/analytics";
 
 export function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const createReference = trpc.whatsappTracking.createReference.useMutation();
   const phoneNumber = "447721375756"; // 07721 375 756 in international format
-  const message = encodeURIComponent(
-    "Hello, I'm interested in your shot blasting services. Please send me a quote."
-  );
+  const message = "Hello, I'm interested in your shot blasting services. Please send me a quote.";
 
   const handleWhatsAppClick = () => {
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+    if (createReference.isPending) return;
+
+    trackEvent("whatsapp_click", {
+      event_category: "Contact",
+      event_label: "WhatsApp Widget",
+      click_location: "WhatsApp Widget",
+    });
+
+    const popup = window.open("", "_blank");
+    const trackerInput = getCurrentWhatsAppClickTrackerInput("whatsapp_widget");
+    const openChat = (trackerRef?: string) => {
+      const url = buildConsentGatedWhatsAppLink(phoneNumber, message, trackerRef);
+      if (popup) {
+        popup.opener = null;
+        popup.location.href = url;
+      } else {
+        window.open(url, "_blank", "noopener,noreferrer");
+      }
+    };
+
+    if (!trackerInput) {
+      openChat();
+      return;
+    }
+
+    createReference.mutate(trackerInput, {
+      onSuccess: ({ trackerRef }) => openChat(trackerRef),
+      onError: () => openChat(),
+    });
   };
 
   return (
@@ -100,6 +133,7 @@ export function WhatsAppWidget() {
           <div className="p-4 bg-gray-50">
             <button
               onClick={handleWhatsAppClick}
+              disabled={createReference.isPending}
               className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold py-4 px-6 rounded-full flex items-center justify-center gap-3 transition-colors shadow-md hover:shadow-lg"
             >
               <svg

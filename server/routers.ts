@@ -36,6 +36,9 @@ import {
 import { storagePut } from "./storage";
 import { nanoid } from "nanoid";
 import { sitemapRouter } from "./sitemap";
+import { timingSafeEqual } from "node:crypto";
+import { ENV } from "./_core/env";
+import { createWhatsAppTrackerReference, isValidWhatsAppTrackerReference } from "./whatsappTracker";
 
 // Admin check middleware
 const adminProcedure = protectedProcedure.use(({ ctx, next }) => {
@@ -44,6 +47,21 @@ const adminProcedure = protectedProcedure.use(({ ctx, next }) => {
   }
   return next({ ctx });
 });
+
+const trackerReference = z.string().refine(isValidWhatsAppTrackerReference, {
+  message: "Invalid WhatsApp tracker reference",
+});
+const optionalTrackerValue = z.string().max(255).optional();
+
+function hasValidTrackerCallbackSecret(headerValue: string | string[] | undefined): boolean {
+  const expected = ENV.whatsappTrackerCallbackSecret;
+  const supplied = Array.isArray(headerValue) ? headerValue[0] : headerValue;
+  if (!expected || !supplied) return false;
+
+  const expectedBuffer = Buffer.from(expected);
+  const suppliedBuffer = Buffer.from(supplied);
+  return expectedBuffer.length === suppliedBuffer.length && timingSafeEqual(expectedBuffer, suppliedBuffer);
+}
 
 export const appRouter = router({
   system: systemRouter,
@@ -57,6 +75,50 @@ export const appRouter = router({
         success: true,
       } as const;
     }),
+  }),
+
+  // This starts empty on deployment and stores only consented post-deployment
+  // click attribution. It never creates or updates a HubSpot record.
+  whatsappTracking: router({
+    createReference: publicProcedure
+      .input(z.object({
+        clickLocation: z.enum(["whatsapp_widget", "floating_whatsapp_button"]),
+        landingPath: z.string().startsWith("/").max(512),
+        gclid: optionalTrackerValue,
+        utmSource: optionalTrackerValue,
+        utmMedium: optionalTrackerValue,
+        utmCampaign: optionalTrackerValue,
+        firstTouchSource: optionalTrackerValue,
+        firstTouchMedium: optionalTrackerValue,
+        firstTouchCampaign: optionalTrackerValue,
+      }))
+      .mutation(async ({ input }) => {
+        const { createWhatsAppClickEvent } = await import("./db");
+        const trackerRef = createWhatsAppTrackerReference();
+        await createWhatsAppClickEvent({
+          ...input,
+          trackerRef,
+          status: "clicked",
+        });
+        return { trackerRef, accepted: true };
+      }),
+
+    // Used only by the new-cloud HubSpot API matcher. The secret is absent until
+    // private configuration is supplied, so this callback remains fail-closed.
+    markExactReply: publicProcedure
+      .input(z.object({
+        trackerRef: trackerReference,
+        hubspotThreadId: z.string().min(1).max(128),
+      }))
+      .mutation(async ({ input, ctx }) => {
+        if (!hasValidTrackerCallbackSecret(ctx.req.headers["x-whatsapp-tracker-secret"])) {
+          throw new TRPCError({ code: "UNAUTHORIZED", message: "Tracker callback is not authorised" });
+        }
+
+        const { markWhatsAppClickEventMatched } = await import("./db");
+        const matched = await markWhatsAppClickEventMatched(input.trackerRef, input.hubspotThreadId);
+        return { matched };
+      }),
   }),
 
   // Upload endpoint for S3 images

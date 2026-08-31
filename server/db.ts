@@ -17,7 +17,9 @@ import {
   BlogPost,
   pageContentSections,
   InsertPageContentSection,
-  PageContentSection
+  PageContentSection,
+  whatsappClickEvents,
+  InsertWhatsAppClickEvent
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -395,4 +397,42 @@ export async function upsertPageContentSection(
       ...section
     });
   }
+}
+
+// ==================== Forward-only WhatsApp click attribution ====================
+
+export async function createWhatsAppClickEvent(event: InsertWhatsAppClickEvent): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  // The client reference is an opaque UUID-derived value. Duplicate retries retain
+  // the original immutable attribution and must not create another event.
+  await db.insert(whatsappClickEvents).values(event).onDuplicateKeyUpdate({
+    set: { trackerRef: event.trackerRef },
+  });
+}
+
+export async function markWhatsAppClickEventMatched(
+  trackerRef: string,
+  hubspotThreadId: string,
+): Promise<boolean> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  // Atomically allow the first exact message match only. Later attempts are no-ops.
+  const result = await db.update(whatsappClickEvents)
+    .set({
+      status: "matched",
+      hubspotThreadId,
+      matchedAt: new Date(),
+    })
+    .where(and(
+      eq(whatsappClickEvents.trackerRef, trackerRef),
+      eq(whatsappClickEvents.status, "clicked"),
+    ));
+
+  const updateResult = Array.isArray(result)
+    ? result[0] as { affectedRows?: number }
+    : result as unknown as { affectedRows?: number };
+  return Number(updateResult.affectedRows ?? 0) === 1;
 }

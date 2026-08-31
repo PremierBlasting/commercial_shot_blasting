@@ -202,3 +202,31 @@ export const callTrackingEvents = mysqlTable("call_tracking_events", {
 
 export type CallTrackingEvent = typeof callTrackingEvents.$inferSelect;
 export type InsertCallTrackingEvent = typeof callTrackingEvents.$inferInsert;
+
+/**
+ * Forward-only ledger for consented WhatsApp click attribution. The opaque tracker
+ * reference can be included in a new outbound WhatsApp message, while click IDs
+ * remain server-side. Existing leads and historic conversations are never imported.
+ */
+export const whatsappClickEvents = mysqlTable("whatsapp_click_events", {
+  id: int("id").autoincrement().primaryKey(),
+  trackerRef: varchar("trackerRef", { length: 48 }).notNull().unique(),
+  status: mysqlEnum("status", ["clicked", "matched", "exported", "discarded"]).default("clicked").notNull(),
+  clickLocation: mysqlEnum("clickLocation", ["whatsapp_widget", "floating_whatsapp_button"]).notNull(),
+  landingPath: varchar("landingPath", { length: 512 }).notNull(),
+  gclid: varchar("gclid", { length: 255 }),
+  utmSource: varchar("utmSource", { length: 255 }),
+  utmMedium: varchar("utmMedium", { length: 255 }),
+  utmCampaign: varchar("utmCampaign", { length: 255 }),
+  firstTouchSource: varchar("firstTouchSource", { length: 255 }),
+  firstTouchMedium: varchar("firstTouchMedium", { length: 255 }),
+  firstTouchCampaign: varchar("firstTouchCampaign", { length: 255 }),
+  hubspotThreadId: varchar("hubspotThreadId", { length: 128 }),
+  matchedAt: timestamp("matchedAt"),
+  exportedAt: timestamp("exportedAt"),
+  exportKey: varchar("exportKey", { length: 96 }).unique(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type WhatsAppClickEvent = typeof whatsappClickEvents.$inferSelect;
+export type InsertWhatsAppClickEvent = typeof whatsappClickEvents.$inferInsert;
