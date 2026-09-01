@@ -549,7 +549,12 @@
 - [x] Add a public click-reference creation procedure and a signed exact-match status-update procedure with no HubSpot writes.
 - [x] Update both WhatsApp click entry points to request a reference only after analytics consent, preserving the current opening behaviour if reference creation fails.
 - [x] Generate and review the database migration, then validate the new ledger and reference rules with Vitest, TypeScript, and a production build.
-- [ ] Commit the verified tracker to the designated commercial_shot_blasting repository without enabling Google Ads export.
+- [x] Commit the verified tracker to the designated commercial_shot_blasting repository without enabling Google Ads export.
+
+## Single-fire HubSpot form conversion callback (September 1, 2026)
+- [x] Process only the successful `onFormSubmitted` callback for the Commercial Shot Blasting form, not the pre-submit callback.
+- [x] Guard the same browser callback event globally so multiple mounted form instances cannot emit duplicate lead events.
+- [x] Validate the callback guard with focused Vitest coverage, TypeScript, and a production build without invoking a live form or tracking event.
 
 ## Update Steel Container Service Image (January 28, 2026)
 - [x] Copy new cylindrical container image to public directory

@@ -1,6 +1,10 @@
 import { useEffect, useRef } from "react";
 import { trackFormSubmission, trackQuoteFormSubmission } from "@/lib/analytics";
 import { getUTMData, getFirstTouchUTM } from "@/lib/utm";
+import {
+  COMMERCIAL_SHOT_BLASTING_FORM_ID,
+  shouldTrackHubSpotFormSuccess,
+} from "@/lib/hubspotFormTracking";
 
 interface HubSpotFormProps {
   className?: string;
@@ -25,7 +29,7 @@ export function HubSpotForm({ className = "", locationName }: HubSpotFormProps) 
       const formFrame = document.createElement('div');
       formFrame.className = 'hs-form-frame';
       formFrame.setAttribute('data-region', 'eu1');
-      formFrame.setAttribute('data-form-id', 'b6f4f2e0-afe6-4351-9a63-5a9663bf6f37');
+      formFrame.setAttribute('data-form-id', COMMERCIAL_SHOT_BLASTING_FORM_ID);
       formFrame.setAttribute('data-portal-id', '147618128');
       
       // Add location name as data attribute if provided
@@ -55,7 +59,7 @@ export function HubSpotForm({ className = "", locationName }: HubSpotFormProps) 
 
       // Listen for HubSpot form submission events
       const handleMessage = (event: MessageEvent) => {
-        if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmit') {
+        if (shouldTrackHubSpotFormSuccess(event)) {
           // Get UTM data for attribution logging
           const lastTouch = getUTMData();
           const firstTouch = getFirstTouchUTM();
