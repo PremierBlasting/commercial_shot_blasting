@@ -1,4 +1,4 @@
-import { CheckCircle2, Send } from "lucide-react";
+import { CheckCircle2, FileImage, LoaderCircle, Send, Upload } from "lucide-react";
 import { useId, useState, type FormEvent, type ReactNode } from "react";
 import { trackCapabilityStatementDownload } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
@@ -23,24 +23,67 @@ type CapabilityStatementSiteVisitFormProps = {
   tone: "light" | "dark";
 };
 
+const MAX_PROJECT_PHOTO_BYTES = 8 * 1024 * 1024;
+const ACCEPTED_PROJECT_PHOTO_TYPES = ["image/jpeg", "image/png", "image/webp"];
+
+function readFileAsBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result !== "string") {
+        reject(new Error("The selected file could not be read."));
+        return;
+      }
+      const base64 = reader.result.split(",")[1];
+      if (!base64) {
+        reject(new Error("The selected file could not be read."));
+        return;
+      }
+      resolve(base64);
+    };
+    reader.onerror = () => reject(new Error("The selected file could not be read."));
+    reader.readAsDataURL(file);
+  });
+}
+
 /** A short lead form that uses the established contact submission route. */
 function CapabilityStatementSiteVisitForm({ placement, tone }: CapabilityStatementSiteVisitFormProps) {
   const [firstName, setFirstName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [postcode, setPostcode] = useState("");
+  const [projectPhoto, setProjectPhoto] = useState<File | null>(null);
+  const [photoError, setPhotoError] = useState("");
   const [marketingConsent, setMarketingConsent] = useState(false);
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const fieldId = useId();
   const isDark = tone === "dark";
 
-  const contactMutation = trpc.contact.submit.useMutation({
-    onSuccess: () => setSubmitted(true),
-    onError: (submissionError) => setError(submissionError.message || "Something went wrong. Please call us directly on 07721 375756."),
-  });
+  const contactMutation = trpc.contact.submit.useMutation();
+  const attachmentUpload = trpc.contact.uploadAttachments.useMutation();
+  const isSubmitting = contactMutation.isPending || attachmentUpload.isPending;
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0] ?? null;
+    setPhotoError("");
+    setProjectPhoto(null);
+
+    if (!file) return;
+    if (!ACCEPTED_PROJECT_PHOTO_TYPES.includes(file.type)) {
+      setPhotoError("Choose a JPG, PNG, or WebP project photo.");
+      event.target.value = "";
+      return;
+    }
+    if (file.size > MAX_PROJECT_PHOTO_BYTES) {
+      setPhotoError("Project photos must be no larger than 8 MB.");
+      event.target.value = "";
+      return;
+    }
+    setProjectPhoto(file);
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError("");
 
@@ -57,22 +100,37 @@ function CapabilityStatementSiteVisitForm({ placement, tone }: CapabilityStateme
       }
     }
 
-    const utmData = formatUTMForSubmission();
-    const messageParts = [
-      "Request: Site Visit after Commercial Capability Statement download",
-      `Download placement: ${placement}`,
-      postcode.trim() && `Postal Code: ${postcode.trim()}`,
-    ].filter(Boolean);
+    try {
+      const photo = projectPhoto
+        ? (await attachmentUpload.mutateAsync({
+            attachments: [{
+              fileName: projectPhoto.name,
+              fileData: await readFileAsBase64(projectPhoto),
+              contentType: projectPhoto.type as "image/jpeg" | "image/png" | "image/webp",
+            }],
+          }))[0]
+        : undefined;
+      const utmData = formatUTMForSubmission();
+      const messageParts = [
+        "Request: Site Visit after Commercial Capability Statement download",
+        `Download Source: ${placement}`,
+        postcode.trim() && `Postal Code: ${postcode.trim()}`,
+        photo && `Project Photo: ${photo.url}`,
+      ].filter(Boolean);
 
-    contactMutation.mutate({
-      name: firstName.trim(),
-      email: email.trim() || `${phone.replace(/\s/g, "")}@sms.placeholder`,
-      phone: phone.trim(),
-      message: messageParts.join("\n"),
-      sourcePage: typeof window !== "undefined" ? window.location.href : undefined,
-      utmData: Object.keys(utmData).length > 0 ? utmData : undefined,
-      marketingConsent,
-    });
+      await contactMutation.mutateAsync({
+        name: firstName.trim(),
+        email: email.trim() || `${phone.replace(/\s/g, "")}@sms.placeholder`,
+        phone: phone.trim(),
+        message: messageParts.join("\n"),
+        sourcePage: typeof window !== "undefined" ? window.location.href : undefined,
+        utmData: Object.keys(utmData).length > 0 ? utmData : undefined,
+        marketingConsent,
+      });
+      setSubmitted(true);
+    } catch (submissionError) {
+      setError(submissionError instanceof Error ? submissionError.message : "Something went wrong. Please call us directly on 07721 375756.");
+    }
   };
 
   const fieldClassName = cn(
@@ -84,8 +142,8 @@ function CapabilityStatementSiteVisitForm({ placement, tone }: CapabilityStateme
 
   if (submitted) {
     return (
-      <div role="status" aria-live="polite" className={cn("rounded-lg border p-3 text-sm leading-relaxed", isDark ? "border-[#f7d98f]/40 bg-white/10 text-white" : "border-[#2C5F7F]/20 bg-white text-[#1a3d52]")}>
-        <span className="flex items-start gap-2"><CheckCircle2 className={cn("mt-0.5 h-4 w-4 shrink-0", isDark ? "text-[#f7d98f]" : "text-[#2C5F7F]")} aria-hidden="true" />Thank you — your Site Visit request has been sent. We&apos;ll get back to you promptly.</span>
+      <div role="status" aria-live="polite" className={cn("animate-in fade-in zoom-in-95 duration-200 motion-reduce:animate-none rounded-lg border p-3 text-sm leading-relaxed", isDark ? "border-[#f7d98f]/40 bg-white/10 text-white" : "border-[#2C5F7F]/20 bg-white text-[#1a3d52]")}>
+        <span className="flex items-start gap-2"><CheckCircle2 className={cn("mt-0.5 h-4 w-4 shrink-0 motion-safe:animate-[ping_0.45s_ease-out_1]", isDark ? "text-[#f7d98f]" : "text-[#2C5F7F]")} aria-hidden="true" />Thank you — your Site Visit request has been sent. We&apos;ll get back to you promptly.</span>
       </div>
     );
   }
@@ -97,6 +155,7 @@ function CapabilityStatementSiteVisitForm({ placement, tone }: CapabilityStateme
         <p className={cn("mt-0.5 text-xs leading-relaxed", isDark ? "text-white/80" : "text-gray-600")}>Share your details and we&apos;ll get back to you promptly.</p>
       </div>
       <div className="grid gap-2 sm:grid-cols-2">
+        <input type="hidden" name="downloadSource" value={placement} />
         <label className="sr-only" htmlFor={`${fieldId}-name`}>First name</label>
         <input id={`${fieldId}-name`} required autoComplete="given-name" value={firstName} onChange={(event) => setFirstName(event.target.value)} placeholder="First name *" className={fieldClassName} />
         <label className="sr-only" htmlFor={`${fieldId}-phone`}>Phone number</label>
@@ -106,13 +165,22 @@ function CapabilityStatementSiteVisitForm({ placement, tone }: CapabilityStateme
         <label className="sr-only" htmlFor={`${fieldId}-postcode`}>Site postcode</label>
         <input id={`${fieldId}-postcode`} autoComplete="postal-code" value={postcode} onChange={(event) => setPostcode(event.target.value)} placeholder="Site postcode (optional)" className={fieldClassName} />
       </div>
+      <div className="mt-3">
+        <label htmlFor={`${fieldId}-project-photo`} className={cn("flex cursor-pointer items-center justify-between gap-3 rounded-md border border-dashed px-3 py-2.5 text-xs transition hover:border-[#2C5F7F]/60", isDark ? "border-white/35 text-white/90 hover:bg-white/10" : "border-[#2C5F7F]/30 text-[#1a3d52] hover:bg-[#2C5F7F]/5")}>
+          <span className="flex min-w-0 items-center gap-2"><FileImage className="h-4 w-4 shrink-0 text-[#2C5F7F]" aria-hidden="true" /><span className="truncate">{projectPhoto ? projectPhoto.name : "Add a project photo (optional)"}</span></span>
+          <span className="flex shrink-0 items-center gap-1 font-semibold"><Upload className="h-3.5 w-3.5" aria-hidden="true" /> JPG, PNG, WebP</span>
+        </label>
+        <input id={`${fieldId}-project-photo`} type="file" accept="image/jpeg,image/png,image/webp" onChange={handlePhotoChange} className="sr-only" />
+        <p className={cn("mt-1 text-[11px]", isDark ? "text-white/65" : "text-gray-500")}>Optional, maximum 8 MB. This helps us understand the current condition.</p>
+        {photoError && <p role="alert" className="mt-1 text-xs font-medium text-red-600">{photoError}</p>}
+      </div>
       <label className={cn("mt-3 flex items-start gap-2 text-[11px] leading-relaxed", isDark ? "text-white/75" : "text-gray-600")}> 
         <input type="checkbox" checked={marketingConsent} onChange={(event) => setMarketingConsent(event.target.checked)} className="mt-0.5 h-3.5 w-3.5 shrink-0 accent-[#2C5F7F]" />
         <span>I agree to receive other communications from Premier Blasting, the commercial surface-preparation arm of which is Commercial Shot Blasting. <a href="/privacy-policy" className="font-semibold underline underline-offset-2">Privacy Policy</a>.</span>
       </label>
       {error && <p role="alert" className="mt-2 text-xs font-medium text-red-600">{error}</p>}
-      <button type="submit" disabled={contactMutation.isPending} className={cn("mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-bold transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70", isDark ? "bg-[#f1c76e] text-[#16394f] hover:bg-[#f7d98f]" : "bg-[#2C5F7F] text-white hover:bg-[#1a3d52]")}> 
-        <Send className="h-4 w-4" aria-hidden="true" /> {contactMutation.isPending ? "Sending…" : "Request A Site Visit"}
+      <button type="submit" disabled={isSubmitting} aria-busy={isSubmitting} className={cn("mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-bold transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70", isDark ? "bg-[#f1c76e] text-[#16394f] hover:bg-[#f7d98f]" : "bg-[#2C5F7F] text-white hover:bg-[#1a3d52]")}> 
+        {isSubmitting ? <><LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" /> Sending Site Visit request…</> : <><Send className="h-4 w-4" aria-hidden="true" /> Request A Site Visit</>}
       </button>
     </form>
   );

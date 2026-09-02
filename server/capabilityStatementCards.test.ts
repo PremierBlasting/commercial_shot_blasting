@@ -24,10 +24,28 @@ describe("Capability-statement card coverage", () => {
     expect(download).toContain('aria-live="polite"');
     expect(download).toContain("Thank you — your download should now begin.");
     expect(download).toContain("trpc.contact.submit.useMutation");
+    expect(download).toContain("trpc.contact.uploadAttachments.useMutation");
     expect(download).toContain("Request: Site Visit after Commercial Capability Statement download");
+    expect(download).toContain("Download Source: ${placement}");
+    expect(download).toContain('name="downloadSource"');
+    expect(download).toContain("Project Photo: ${photo.url}");
     expect(download).toContain("Request A Site Visit");
     expect(download).toContain("marketingConsent");
     expect(download).toContain('href="/privacy-policy"');
+  });
+
+  it("validates optional project photos and gives accessible loading and restrained success feedback", () => {
+    const download = readFileSync(resolve(projectRoot, "client/src/components/CapabilityStatementDownload.tsx"), "utf8");
+
+    expect(download).toContain("MAX_PROJECT_PHOTO_BYTES = 8 * 1024 * 1024");
+    expect(download).toContain('accept="image/jpeg,image/png,image/webp"');
+    expect(download).toContain("Choose a JPG, PNG, or WebP project photo.");
+    expect(download).toContain("Project photos must be no larger than 8 MB.");
+    expect(download).toContain("LoaderCircle");
+    expect(download).toContain('aria-busy={isSubmitting}');
+    expect(download).toContain("Sending Site Visit request…");
+    expect(download).toContain("motion-safe:animate-[ping_0.45s_ease-out_1]");
+    expect(download).toContain("motion-reduce:animate-none");
   });
 
   it("uses a subtle reduced-motion-safe hover treatment and includes the approved About Us placement", () => {
