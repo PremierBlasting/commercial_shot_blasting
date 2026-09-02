@@ -23,8 +23,23 @@ describe("Capability-statement card coverage", () => {
     expect(download).toContain('role="status"');
     expect(download).toContain('aria-live="polite"');
     expect(download).toContain("Thank you — your download should now begin.");
-    expect(download).toContain('href="/site-survey"');
+    expect(download).toContain("trpc.contact.submit.useMutation");
+    expect(download).toContain("Request: Site Visit after Commercial Capability Statement download");
     expect(download).toContain("Request A Site Visit");
+    expect(download).toContain("marketingConsent");
+    expect(download).toContain('href="/privacy-policy"');
+  });
+
+  it("uses a subtle reduced-motion-safe hover treatment and includes the approved About Us placement", () => {
+    const download = readFileSync(resolve(projectRoot, "client/src/components/CapabilityStatementDownload.tsx"), "utf8");
+    const about = readFileSync(resolve(projectRoot, "client/src/pages/About.tsx"), "utf8");
+
+    expect(download).toContain("hover:-translate-y-0.5");
+    expect(download).toContain("hover:shadow-lg");
+    expect(download).toContain("motion-reduce:transform-none");
+    expect(about).toContain("CapabilityStatementDownload");
+    expect(about).toContain("About Us page supplier information card");
+    expect(about).toContain("Download capability statement");
   });
 
   it("places the disclosure beside every current capability-statement card and maps the two new service pages", () => {

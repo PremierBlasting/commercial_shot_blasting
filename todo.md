@@ -1738,6 +1738,11 @@
 - [x] Show a shared accessible thank-you message with a direct Request A Site Visit link after a capability-statement download is initiated
 - [x] Add regression coverage and validate the new card, download confirmation, TypeScript, full tests, production build, and responsive layouts
 
+## About and Contact Capability Statement Conversion Enhancements (2 September 2026)
+- [x] Add the approved, tracked capability-statement download card to the About Us page and retain the Contact-page card
+- [x] Replace the post-download navigation-only prompt with a compact on-page Site Visit form that reuses existing lead-routing and GDPR consent handling
+- [x] Add a subtle reduced-motion-safe hover treatment to capability-statement download cards and validate interaction, routes, TypeScript, full tests, production build, and responsive layouts; focused affected suites pass, while an unrelated live HubSpot PB credential check returned 401 in the full suite
+
 ## Revised Capability Statement Draft (26 August 2026)
 - [x] Create a review-ready revised Commercial Capability Statement PDF that replaces the outdated CHAS wording and correctly presents Commercial Shot Blasting as the commercial arm of Premier Blasting
 - [x] Preserve only user-supplied operational, insurance, resource, and case-study claims, with all time-sensitive figures clearly flagged for approval before publication

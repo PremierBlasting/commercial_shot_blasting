@@ -1,8 +1,10 @@
-import { CheckCircle2 } from "lucide-react";
-import { useState, type ReactNode } from "react";
-import { Link } from "wouter";
+import { CheckCircle2, Send } from "lucide-react";
+import { useId, useState, type FormEvent, type ReactNode } from "react";
 import { trackCapabilityStatementDownload } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
+import { trpc } from "@/lib/trpc";
+import { formatUTMForSubmission } from "@/lib/utm";
+import { validateLeadEmailClient } from "@shared/emailValidation";
 
 export const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-02_308ee57e.pdf";
 
@@ -15,6 +17,106 @@ type CapabilityStatementDownloadProps = {
   ariaLabel?: string;
   tone?: "light" | "dark";
 };
+
+type CapabilityStatementSiteVisitFormProps = {
+  placement: string;
+  tone: "light" | "dark";
+};
+
+/** A short lead form that uses the established contact submission route. */
+function CapabilityStatementSiteVisitForm({ placement, tone }: CapabilityStatementSiteVisitFormProps) {
+  const [firstName, setFirstName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [postcode, setPostcode] = useState("");
+  const [marketingConsent, setMarketingConsent] = useState(false);
+  const [error, setError] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const fieldId = useId();
+  const isDark = tone === "dark";
+
+  const contactMutation = trpc.contact.submit.useMutation({
+    onSuccess: () => setSubmitted(true),
+    onError: (submissionError) => setError(submissionError.message || "Something went wrong. Please call us directly on 07721 375756."),
+  });
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setError("");
+
+    if (!firstName.trim() || !phone.trim()) {
+      setError("Please enter your first name and phone number.");
+      return;
+    }
+
+    if (email.trim()) {
+      const emailResult = validateLeadEmailClient(email);
+      if (!emailResult.valid) {
+        setError(emailResult.reason || "Please enter a valid email address.");
+        return;
+      }
+    }
+
+    const utmData = formatUTMForSubmission();
+    const messageParts = [
+      "Request: Site Visit after Commercial Capability Statement download",
+      `Download placement: ${placement}`,
+      postcode.trim() && `Postal Code: ${postcode.trim()}`,
+    ].filter(Boolean);
+
+    contactMutation.mutate({
+      name: firstName.trim(),
+      email: email.trim() || `${phone.replace(/\s/g, "")}@sms.placeholder`,
+      phone: phone.trim(),
+      message: messageParts.join("\n"),
+      sourcePage: typeof window !== "undefined" ? window.location.href : undefined,
+      utmData: Object.keys(utmData).length > 0 ? utmData : undefined,
+      marketingConsent,
+    });
+  };
+
+  const fieldClassName = cn(
+    "w-full rounded-md border px-3 py-2 text-sm outline-none transition focus:ring-2",
+    isDark
+      ? "border-white/30 bg-white/10 text-white placeholder:text-white/55 focus:border-[#f7d98f] focus:ring-[#f7d98f]/30"
+      : "border-[#2C5F7F]/25 bg-white text-[#1a3d52] placeholder:text-gray-400 focus:border-[#2C5F7F] focus:ring-[#2C5F7F]/25"
+  );
+
+  if (submitted) {
+    return (
+      <div role="status" aria-live="polite" className={cn("rounded-lg border p-3 text-sm leading-relaxed", isDark ? "border-[#f7d98f]/40 bg-white/10 text-white" : "border-[#2C5F7F]/20 bg-white text-[#1a3d52]")}>
+        <span className="flex items-start gap-2"><CheckCircle2 className={cn("mt-0.5 h-4 w-4 shrink-0", isDark ? "text-[#f7d98f]" : "text-[#2C5F7F]")} aria-hidden="true" />Thank you — your Site Visit request has been sent. We&apos;ll get back to you promptly.</span>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className={cn("rounded-lg border p-3", isDark ? "border-white/25 bg-white/10" : "border-[#2C5F7F]/20 bg-white")}> 
+      <div className="mb-3">
+        <p className={cn("text-sm font-bold", isDark ? "text-white" : "text-[#1a3d52]")}>Request A Site Visit</p>
+        <p className={cn("mt-0.5 text-xs leading-relaxed", isDark ? "text-white/80" : "text-gray-600")}>Share your details and we&apos;ll get back to you promptly.</p>
+      </div>
+      <div className="grid gap-2 sm:grid-cols-2">
+        <label className="sr-only" htmlFor={`${fieldId}-name`}>First name</label>
+        <input id={`${fieldId}-name`} required autoComplete="given-name" value={firstName} onChange={(event) => setFirstName(event.target.value)} placeholder="First name *" className={fieldClassName} />
+        <label className="sr-only" htmlFor={`${fieldId}-phone`}>Phone number</label>
+        <input id={`${fieldId}-phone`} required type="tel" autoComplete="tel" value={phone} onChange={(event) => setPhone(event.target.value)} placeholder="Phone number *" className={fieldClassName} />
+        <label className="sr-only" htmlFor={`${fieldId}-email`}>Email address</label>
+        <input id={`${fieldId}-email`} type="email" autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Email address (optional)" className={fieldClassName} />
+        <label className="sr-only" htmlFor={`${fieldId}-postcode`}>Site postcode</label>
+        <input id={`${fieldId}-postcode`} autoComplete="postal-code" value={postcode} onChange={(event) => setPostcode(event.target.value)} placeholder="Site postcode (optional)" className={fieldClassName} />
+      </div>
+      <label className={cn("mt-3 flex items-start gap-2 text-[11px] leading-relaxed", isDark ? "text-white/75" : "text-gray-600")}> 
+        <input type="checkbox" checked={marketingConsent} onChange={(event) => setMarketingConsent(event.target.checked)} className="mt-0.5 h-3.5 w-3.5 shrink-0 accent-[#2C5F7F]" />
+        <span>I agree to receive other communications from Premier Blasting, the commercial surface-preparation arm of which is Commercial Shot Blasting. <a href="/privacy-policy" className="font-semibold underline underline-offset-2">Privacy Policy</a>.</span>
+      </label>
+      {error && <p role="alert" className="mt-2 text-xs font-medium text-red-600">{error}</p>}
+      <button type="submit" disabled={contactMutation.isPending} className={cn("mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-bold transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70", isDark ? "bg-[#f1c76e] text-[#16394f] hover:bg-[#f7d98f]" : "bg-[#2C5F7F] text-white hover:bg-[#1a3d52]")}> 
+        <Send className="h-4 w-4" aria-hidden="true" /> {contactMutation.isPending ? "Sending…" : "Request A Site Visit"}
+      </button>
+    </form>
+  );
+}
 
 /**
  * Starts the approved document download, records non-conversion engagement,
@@ -44,12 +146,12 @@ export function CapabilityStatementDownload({
         download="Commercial-Capability-Statement.pdf"
         onClick={handleDownload}
         aria-label={ariaLabel}
-        className={linkClassName}
+        className={cn("transition-[transform,box-shadow,border-color,background-color] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transform-none motion-reduce:transition-none", linkClassName)}
       >
         {children}
       </a>
       {hasInitiatedDownload && (
-        <p
+        <div
           role="status"
           aria-live="polite"
           className={cn(
@@ -59,12 +161,10 @@ export function CapabilityStatementDownload({
           )}
         >
           <CheckCircle2 className={cn("mt-0.5 h-4 w-4 shrink-0", isDark ? "text-[#f7d98f]" : "text-[#2C5F7F]")} aria-hidden="true" />
-          <span>
-            Thank you — your download should now begin. Need project-specific support?{" "}
-            <Link href="/site-survey" className={cn("font-bold underline underline-offset-2", isDark ? "text-white hover:text-[#f7d98f]" : "text-[#2C5F7F] hover:text-[#1a3d52]")}>Request A Site Visit</Link>.
-          </span>
-        </p>
+          <span>Thank you — your download should now begin. You can request a Site Visit below without leaving this page.</span>
+        </div>
       )}
+      {hasInitiatedDownload && <CapabilityStatementSiteVisitForm placement={placement} tone={tone} />}
     </div>
   );
 }

@@ -1,12 +1,14 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
-import { Shield, Award, Clock, Users, CheckCircle, Phone } from "lucide-react";
+import { Shield, Award, Clock, Users, CheckCircle, Phone, Download } from "lucide-react";
 import { useState } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { QuotePopup } from "@/components/QuotePopup";
 import { trackPhoneCall } from "@/lib/analytics";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { CapabilityStatementContents } from "@/components/CapabilityStatementContents";
+import { CapabilityStatementDownload } from "@/components/CapabilityStatementDownload";
 
 export default function About() {
   // Set SEO metadata
@@ -101,6 +103,25 @@ export default function About() {
               <a href="/chas-elite" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#2C5F7F] hover:text-[#1a3d52]">
                 Learn about our CHAS Elite assurance pathway <CheckCircle className="h-4 w-4" />
               </a>
+              <section className="mt-7 rounded-2xl border border-[#2C5F7F]/20 bg-[#F5F1E8] p-5 shadow-sm" aria-labelledby="about-capability-statement-heading">
+                <div className="flex items-start gap-3">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#2C5F7F]/10 text-[#2C5F7F]">
+                    <Download className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs font-bold uppercase tracking-[0.11em] text-[#2C5F7F]">Supplier information</p>
+                    <h2 id="about-capability-statement-heading" className="mt-1 text-xl font-bold text-[#1a3d52]">Commercial capability statement</h2>
+                    <p className="mt-1 text-sm leading-relaxed text-gray-600">Download the approved PDF for procurement review, tender files, and project planning.</p>
+                    <CapabilityStatementDownload
+                      placement="About Us page supplier information card"
+                      linkClassName="mt-4 inline-flex items-center justify-center gap-2 rounded-lg bg-[#2C5F7F] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#1a3d52] focus:outline-none focus:ring-4 focus:ring-[#2C5F7F]/30"
+                    >
+                      <Download className="h-4 w-4" aria-hidden="true" /> Download capability statement
+                    </CapabilityStatementDownload>
+                    <CapabilityStatementContents className="mt-2" />
+                  </div>
+                </div>
+              </section>
             </div>
             <div className="relative">
               <BeforeAfterSlider
