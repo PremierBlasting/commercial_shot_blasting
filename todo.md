@@ -1715,6 +1715,10 @@
 - [x] Replace deferred capability-statement request-only placements with an accessible download pathway without changing existing Site Visit or lead-routing behaviour
 - [x] Add regression coverage and validate visible, crawler-facing, download, TypeScript, test-suite, build, and responsive behaviours before publication
 
+## Homepage Capability Statement Download Card (2 September 2026)
+- [x] Add a compact accessible capability-statement download card to the homepage CHAS Elite trust section using the approved PDF
+- [x] Add regression coverage and validate the homepage at desktop and mobile sizes, TypeScript, full tests, and production build
+
 ## Revised Capability Statement Draft (26 August 2026)
 - [x] Create a review-ready revised Commercial Capability Statement PDF that replaces the outdated CHAS wording and correctly presents Commercial Shot Blasting as the commercial arm of Premier Blasting
 - [x] Preserve only user-supplied operational, insurance, resource, and case-study claims, with all time-sensitive figures clearly flagged for approval before publication

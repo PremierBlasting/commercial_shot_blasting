@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Star, Quote, X, Volume2, VolumeX, Play, Pause } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Star, Quote, X, Volume2, VolumeX, Play, Pause, Download } from "lucide-react";
 import { useState, useMemo, useEffect, useRef, lazy, Suspense } from "react";
 import { QuotePopup } from "@/components/QuotePopup";
 import { CompactSurveyCapture } from "@/components/CompactSurveyCapture";
@@ -40,6 +40,8 @@ const testimonials = [
     isNew: true,
   },
 ];
+
+const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-02_308ee57e.pdf";
 
 export default function Home() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -392,10 +394,26 @@ export default function Home() {
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
               UK-wide mobile shot blasting services for commercial and industrial clients. We bring our equipment to you — removing rust, mill scale, paint, and coatings from structural steel, factory cladding, machinery, and more, on your site, anywhere in the UK.
             </p>
-            <Link href="/chas-elite" aria-label="Learn about Premier Blasting CHAS Elite assurance" className="mb-7 inline-flex max-w-full items-center gap-3 rounded-xl border border-white/25 bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-white/15">
-              <img src="/manus-storage/chas-elite-accreditation_29937620.png" alt="CHAS Accreditation Elite logo" width="300" height="300" className="h-12 w-12 shrink-0 object-contain" fetchPriority="high" />
-              <span className="text-left leading-snug"><span className="block">Premier Blasting holds CHAS Elite status</span><span className="text-xs font-normal text-white/75">Learn about our commercial assurance pathway</span></span>
-            </Link>
+            <div className="mb-7 flex max-w-2xl flex-col items-start gap-3 sm:flex-row sm:items-stretch">
+              <Link href="/chas-elite" aria-label="Learn about Premier Blasting CHAS Elite assurance" className="inline-flex max-w-full items-center gap-3 rounded-xl border border-white/25 bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-white/15">
+                <img src="/manus-storage/chas-elite-accreditation_29937620.png" alt="CHAS Accreditation Elite logo" width="300" height="300" className="h-12 w-12 shrink-0 object-contain" fetchPriority="high" />
+                <span className="text-left leading-snug"><span className="block">Premier Blasting holds CHAS Elite status</span><span className="text-xs font-normal text-white/75">Learn about our commercial assurance pathway</span></span>
+              </Link>
+              <a
+                href={CAPABILITY_STATEMENT_URL}
+                download="Commercial-Capability-Statement.pdf"
+                aria-label="Download the current Commercial Shot Blasting capability statement PDF"
+                className="group inline-flex max-w-full items-center gap-2.5 rounded-xl border border-[#f1c76e]/50 bg-[#f1c76e]/10 px-3 py-2 text-left text-white shadow-sm transition hover:border-[#f1c76e] hover:bg-[#f1c76e]/20 focus:outline-none focus:ring-4 focus:ring-[#f1c76e]/60"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#f1c76e] text-[#16394f]">
+                  <Download className="h-4 w-4" aria-hidden="true" />
+                </span>
+                <span className="leading-snug">
+                  <span className="block text-xs font-bold uppercase tracking-[0.11em] text-[#f7d98f]">Capability statement</span>
+                  <span className="block text-sm font-semibold group-hover:text-[#f7d98f]">Download the approved PDF</span>
+                </span>
+              </a>
+            </div>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>
                 Request A Site Visit
