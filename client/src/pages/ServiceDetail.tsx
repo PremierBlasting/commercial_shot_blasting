@@ -147,6 +147,26 @@ export default function ServiceDetail() {
             {service.title}
           </h1>
           <p className="text-xl text-white/90 mb-6 max-w-2xl">{service.tagline}</p>
+          {service.id === "structural-steel-frames" && (
+            <aside className="mb-6 max-w-3xl rounded-xl border border-white/25 bg-[#102d3e]/75 p-4 shadow-lg backdrop-blur-sm" aria-label="HB Tunnelling client testimonial">
+              <div className="flex items-center gap-3">
+                <img
+                  src="/manus-storage/hb-tunnelling-logo-official_1acf5938.png"
+                  alt="HB Tunnelling logo"
+                  width="400"
+                  height="400"
+                  className="h-11 w-11 shrink-0 rounded-full bg-white object-contain p-1"
+                />
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#f1c76e]">HB Tunnelling client feedback</p>
+                  <blockquote className="mt-1 text-base font-semibold leading-snug text-white md:text-lg">
+                    “They mobilised a large team and completed a substantial scope of work within a relatively short programme, minimising disruption to our operations.”
+                  </blockquote>
+                  <p className="mt-1 text-xs text-white/75">— Mark McGeady, HB Tunnelling Limited</p>
+                </div>
+              </div>
+            </aside>
+          )}
           <div className="flex flex-wrap gap-4">
             <Button className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>
               Request A Site Visit

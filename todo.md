@@ -1768,6 +1768,11 @@
 - [x] Preserve the quote and attribution exactly as supplied, avoiding fabricated review data or unsupported claims
 - [x] Add regression coverage, validate responsive rendering, and publish the testimonial placements
 
+## HB Tunnelling Testimonial Enhancement (2 September 2026)
+- [x] Locate and use only the official HB Tunnelling company logo beside the verified testimonial across all current placements
+- [x] Create a concise, attributed testimonial excerpt for the Structural Steel Frames hero without assigning an unverified rating
+- [x] Add an accessible, reduced-motion-safe fade-in scroll treatment to the testimonial sections and validate responsive rendering
+
 ## Scoped WhatsApp Tracker Release (28 August 2026)
 - [x] Source state verified read-only against origin/main commit 9ba5eabed1f77ea99a4680e209a627e444447d5b; no active-workspace sync or deployment change was made
 - [x] Migration task deferred by explicit user instruction; drizzle/0003_amused_invisible_woman.sql was reviewed but not applied

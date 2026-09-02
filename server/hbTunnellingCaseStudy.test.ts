@@ -34,6 +34,7 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
     const home = readFileSync(resolve(projectRoot, "client/src/pages/Home.tsx"), "utf8");
     const leadForm = readFileSync(resolve(projectRoot, "client/src/components/LeadForm.tsx"), "utf8");
     const testimonial = readFileSync(resolve(projectRoot, "client/src/components/HBTunnellingTestimonial.tsx"), "utf8");
+    const scrollReveal = readFileSync(resolve(projectRoot, "client/src/hooks/useScrollReveal.ts"), "utf8");
     const surveyFlow = readFileSync(resolve(projectRoot, "client/src/components/SurveyBookingFlow.tsx"), "utf8");
     const work = readFileSync(resolve(projectRoot, "client/src/pages/OurWork.tsx"), "utf8");
     const xmlSitemap = readFileSync(resolve(projectRoot, "server/sitemap.ts"), "utf8");
@@ -59,6 +60,10 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
     expect(serviceDetail).toContain("hb-tunnelling-doncaster-surface-preparation_0f209a96.mp4");
     expect(serviceDetail).toContain("Surface preparation and fire protection delivered under one coordinated plan.");
     expect(serviceDetail).toContain('<HBTunnellingTestimonial variant="service" />');
+    expect(serviceDetail).toContain("HB Tunnelling client feedback");
+    expect(serviceDetail).toContain("They mobilised a large team and completed a substantial scope of work");
+    expect(serviceDetail).toContain("— Mark McGeady, HB Tunnelling Limited");
+    expect(serviceDetail).toContain("hb-tunnelling-logo-official_1acf5938.png");
     expect(surveyFlow).toContain("End-to-End Blasting & Intumescent Coating");
     expect(home).toContain('displayTestimonials[0].rating > 0');
     expect(home).toContain("Client testimonial");
@@ -66,6 +71,9 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
     expect(testimonial).toContain("trpc.testimonials.list.useQuery()");
     expect(testimonial).toContain('item.company === "HB Tunnelling Limited"');
     expect(testimonial).toContain("testimonial.text");
+    expect(testimonial).toContain("HB Tunnelling logo");
+    expect(testimonial).toContain("<ScrollReveal");
+    expect(scrollReveal).toContain("prefers-reduced-motion: reduce");
     expect(work).toContain('/case-studies/hb-tunnelling-doncaster');
     expect(xmlSitemap).toContain('{ loc: "/case-studies/hb-tunnelling-doncaster"');
     expect(htmlSitemap).toContain('{ href: "/case-studies/hb-tunnelling-doncaster"');

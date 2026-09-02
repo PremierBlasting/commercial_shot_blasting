@@ -1,6 +1,7 @@
 import { Quote } from "lucide-react";
 import { Link } from "wouter";
 import { trpc } from "@/lib/trpc";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 type TestimonialVariant = "case-study" | "service" | "confirmation";
 
@@ -23,9 +24,19 @@ export function HBTunnellingTestimonial({ variant = "case-study" }: HBTunnelling
   const compact = variant === "confirmation";
 
   return (
-    <section className={`rounded-2xl border ${VARIANT_CLASSES[variant]}`} aria-labelledby="hb-tunnelling-testimonial-heading">
-      <div className="flex items-start gap-4">
-        <Quote className={`shrink-0 ${compact ? "h-7 w-7" : "h-10 w-10"} text-[#b48324]`} aria-hidden="true" />
+    <ScrollReveal duration={500} threshold={0.12} rootMargin="0px 0px -24px 0px">
+      <section className={`rounded-2xl border ${VARIANT_CLASSES[variant]}`} aria-labelledby="hb-tunnelling-testimonial-heading">
+        <div className="flex items-start gap-4">
+          <div className="shrink-0">
+            <img
+              src="/manus-storage/hb-tunnelling-logo-official_1acf5938.png"
+              alt="HB Tunnelling logo"
+              width="400"
+              height="400"
+              className={`${compact ? "h-10 w-10" : "h-16 w-16"} rounded-full bg-white object-contain p-1 shadow-sm`}
+            />
+            <Quote className={`mt-2 ${compact ? "h-6 w-6" : "h-8 w-8"} text-[#b48324]`} aria-hidden="true" />
+          </div>
         <div className="min-w-0">
           <p className={`font-bold uppercase tracking-[0.14em] text-[#2c5f7f] ${compact ? "text-[0.65rem]" : "text-xs"}`}>
             Client testimonial
@@ -46,7 +57,8 @@ export function HBTunnellingTestimonial({ variant = "case-study" }: HBTunnelling
             </Link>
           )}
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </ScrollReveal>
   );
 }
