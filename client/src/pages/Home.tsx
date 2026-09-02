@@ -15,6 +15,7 @@ import { useHomepagePreload } from "@/hooks/useHomepagePreload";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { ProjectDetailModal, type ProjectDetailItem } from "@/components/ProjectDetailModal";
 import { BeforeAfterCard } from "@/components/BeforeAfterCard";
+import { CapabilityStatementContents } from "@/components/CapabilityStatementContents";
 
 // Below-the-fold components: lazy-loaded to reduce initial JS bundle and improve LCP
 const LeadFormLazy = lazy(() => import("@/components/LeadForm").then(m => ({ default: m.LeadForm })));
@@ -414,6 +415,7 @@ export default function Home() {
                 </span>
               </a>
             </div>
+            <CapabilityStatementContents tone="dark" className="-mt-4 mb-7 max-w-[20rem]" />
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-white/90" onClick={openQuotePopup}>
                 Request A Site Visit

@@ -23,6 +23,7 @@ import { trpc } from "@/lib/trpc";
 import { BeforeAfterCard } from "@/components/BeforeAfterCard";
 import { StickyServiceButton } from "@/components/StickyServiceButton";
 import { HBTunnellingTestimonial } from "@/components/HBTunnellingTestimonial";
+import { CapabilityStatementContents } from "@/components/CapabilityStatementContents";
 
 const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-02_308ee57e.pdf";
 const capabilityStatementPlacementByServiceId: Record<string, string> = {
@@ -30,6 +31,8 @@ const capabilityStatementPlacementByServiceId: Record<string, string> = {
   "intumescent-painting": "Intumescent Painting service page",
   "factory-cladding": "Factory Cladding service page",
   "pipework": "Process Pipework service page",
+  "steel-chimney-surface-preparation": "Steel Chimney service page",
+  "steel-containers": "Container Restoration service page",
 };
 
 export default function ServiceDetail() {
@@ -723,6 +726,7 @@ export default function ServiceDetail() {
                         <p className="text-xs font-bold uppercase tracking-[0.11em] text-[#2C5F7F]">Supplier &amp; tender information</p>
                         <h2 id="capability-statement-download-heading" className="mt-1 text-lg font-bold text-[#1a3d52]">Commercial capability statement</h2>
                         <p className="mt-1 text-sm leading-relaxed text-gray-600">Download the approved PDF for procurement review, tender files, and project planning.</p>
+                        <CapabilityStatementContents className="mt-2" />
                       </div>
                     </div>
                     <a

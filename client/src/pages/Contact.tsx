@@ -8,6 +8,7 @@ import { Header } from "@/components/Header";
 import { QuotePopup } from "@/components/QuotePopup";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
+import { CapabilityStatementContents } from "@/components/CapabilityStatementContents";
 
 import { Footer } from "@/components/Footer";
 
@@ -77,6 +78,7 @@ export default function Contact() {
                   >
                     Download capability statement (PDF)
                   </a>
+                  <CapabilityStatementContents className="mt-2" />
                 </div>
               </div>
 

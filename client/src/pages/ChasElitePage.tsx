@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { QuotePopup } from "@/components/QuotePopup";
 import { useSEO } from "@/hooks/useSEO";
+import { CapabilityStatementContents } from "@/components/CapabilityStatementContents";
 
 const assurancePoints = [
   {
@@ -108,6 +109,7 @@ export default function ChasElitePage() {
               >
                 <Download className="h-4 w-4" aria-hidden="true" /> Download capability statement
               </a>
+              <CapabilityStatementContents tone="dark" className="mt-3" />
             </aside>
           </div>
         </section>
