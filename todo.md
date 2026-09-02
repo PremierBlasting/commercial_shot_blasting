@@ -1769,7 +1769,7 @@
 - [x] Add regression coverage, validate responsive rendering, and publish the testimonial placements
 
 ## Scoped WhatsApp Tracker Release (28 August 2026)
-- [ ] Sync only the requested repository state at commit 9ba5eab and inspect the exact change set before publishing
-- [ ] Apply only drizzle/0003_amused_invisible_woman.sql after reviewing its schema impact
-- [ ] Request WHATSAPP_TRACKER_CALLBACK_SECRET through private input and validate its presence without exposing its value
-- [ ] Verify that Google Ads export remains disabled and publish the scoped release only after migration and validation succeed
+- [x] Source state verified read-only against origin/main commit 9ba5eabed1f77ea99a4680e209a627e444447d5b; no active-workspace sync or deployment change was made
+- [x] Migration task deferred by explicit user instruction; drizzle/0003_amused_invisible_woman.sql was reviewed but not applied
+- [x] Secret task deferred by explicit user instruction; WHATSAPP_TRACKER_CALLBACK_SECRET was not requested or set
+- [x] Publication and Google Ads export task deferred by explicit user instruction; no publish occurred and export remains disabled
