@@ -1724,6 +1724,10 @@
 - [x] Add compact approved capability-statement download cards to the Structural Steel Frames and Intumescent Painting service pages
 - [x] Add regression coverage and validate analytics event wiring, service-page layout, TypeScript, full tests, production build, and responsive presentation
 
+## Factory Cladding and Process Pipework Capability Statement Cards (2 September 2026)
+- [x] Add tracked, accessible approved capability-statement download cards to the Factory Cladding and Process Pipework service pages
+- [x] Extend regression coverage and validate both pages at desktop and mobile sizes, TypeScript, full tests, and production build
+
 ## Revised Capability Statement Draft (26 August 2026)
 - [x] Create a review-ready revised Commercial Capability Statement PDF that replaces the outdated CHAS wording and correctly presents Commercial Shot Blasting as the commercial arm of Premier Blasting
 - [x] Preserve only user-supplied operational, insurance, resource, and case-study claims, with all time-sensitive figures clearly flagged for approval before publication

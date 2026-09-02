@@ -25,6 +25,12 @@ import { StickyServiceButton } from "@/components/StickyServiceButton";
 import { HBTunnellingTestimonial } from "@/components/HBTunnellingTestimonial";
 
 const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-02_308ee57e.pdf";
+const capabilityStatementPlacementByServiceId: Record<string, string> = {
+  "structural-steel-frames": "Structural Steel Frames service page",
+  "intumescent-painting": "Intumescent Painting service page",
+  "factory-cladding": "Factory Cladding service page",
+  "pipework": "Process Pipework service page",
+};
 
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
@@ -106,6 +112,7 @@ export default function ServiceDetail() {
         ...otherServicesRaw.filter(s => s.id !== 'intumescent-painting'),
       ]
     : otherServicesRaw;
+  const capabilityStatementPlacement = capabilityStatementPlacementByServiceId[service.id];
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
@@ -705,7 +712,7 @@ export default function ServiceDetail() {
                 <HBTunnellingTestimonial variant="service" />
               )}
 
-              {['structural-steel-frames', 'intumescent-painting'].includes(service.id) && (
+              {capabilityStatementPlacement && (
                 <section className="rounded-2xl border border-[#2C5F7F]/20 bg-[#F5F1E8] p-5 shadow-sm md:p-6" aria-labelledby="capability-statement-download-heading">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex items-start gap-3">
@@ -721,7 +728,7 @@ export default function ServiceDetail() {
                     <a
                       href={CAPABILITY_STATEMENT_URL}
                       download="Commercial-Capability-Statement.pdf"
-                      onClick={() => trackCapabilityStatementDownload(service.id === "structural-steel-frames" ? "Structural Steel Frames service page" : "Intumescent Painting service page")}
+                      onClick={() => trackCapabilityStatementDownload(capabilityStatementPlacement)}
                       aria-label={`Download the Commercial Capability Statement PDF from the ${service.title} service page`}
                       className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#2C5F7F] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#1a3d52] focus:outline-none focus:ring-4 focus:ring-[#2C5F7F]/30"
                     >

@@ -43,6 +43,8 @@ describe("CHAS Elite assurance pathway", () => {
     expect(serviceDetail).toContain("trackCapabilityStatementDownload");
     expect(serviceDetail).toContain("Structural Steel Frames service page");
     expect(serviceDetail).toContain("Intumescent Painting service page");
+    expect(serviceDetail).toContain('"factory-cladding": "Factory Cladding service page"');
+    expect(serviceDetail).toContain('"pipework": "Process Pipework service page"');
     expect(serviceDetail).toContain("Download PDF");
     const chasPage = readFileSync(resolve(projectRoot, "client/src/pages/ChasElitePage.tsx"), "utf8");
     expect(chasPage).not.toContain('from "@/components/Breadcrumb"');
