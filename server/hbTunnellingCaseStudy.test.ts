@@ -55,6 +55,12 @@ describe("HB Tunnelling Doncaster campaign case study", () => {
     expect(page).toContain("Delivered one end-to-end blast-and-coat scope");
     expect(page).toContain("Applied the intumescent fire-protection coating");
     expect(page).toContain('<HBTunnellingTestimonial variant="case-study" />');
+    expect(page).toContain("hb-tunnelling-logo-official_1acf5938.png");
+    expect(page).toContain('href="https://www.hbtunnelling.co.uk/"');
+    expect(page).toContain('target="_blank"');
+    expect(page).toContain('rel="noopener noreferrer"');
+    expect(page).toContain('aria-label="Visit HB Tunnelling website (opens in a new tab)"');
+    expect(page).toContain("Visit HB Tunnelling's website");
     expect(serviceDetail).toContain("See rapid blasting and intumescent coating delivered as one coordinated scope.");
     expect(serviceDetail).toContain('/case-studies/hb-tunnelling-doncaster');
     expect(serviceDetail).toContain("hb-tunnelling-doncaster-surface-preparation_0f209a96.mp4");

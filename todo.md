@@ -1773,6 +1773,10 @@
 - [x] Create a concise, attributed testimonial excerpt for the Structural Steel Frames hero without assigning an unverified rating
 - [x] Add an accessible, reduced-motion-safe fade-in scroll treatment to the testimonial sections and validate responsive rendering
 
+## Linked HB Tunnelling Case-Study Logo (2 September 2026)
+- [x] Link the verified HB Tunnelling logo on the dedicated case-study page to the official HB Tunnelling website with safe external-link behaviour and an accessible name
+- [x] Add regression coverage and validate the case-study route, TypeScript, full tests, production build, and responsive presentation
+
 ## Scoped WhatsApp Tracker Release (28 August 2026)
 - [x] Source state verified read-only against origin/main commit 9ba5eabed1f77ea99a4680e209a627e444447d5b; no active-workspace sync or deployment change was made
 - [x] Migration task deferred by explicit user instruction; drizzle/0003_amused_invisible_woman.sql was reviewed but not applied

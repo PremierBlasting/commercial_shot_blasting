@@ -7,6 +7,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ClipboardCheck,
+  ExternalLink,
   MessageCircle,
   Play,
   ShieldCheck,
@@ -36,6 +37,7 @@ const assets = {
   site: "/manus-storage/hb-tunnelling-video-still-20_b092b929.webp",
   spray: "/manus-storage/hb-tunnelling-video-still-22_6aa77de3.webp",
   aerial: "/manus-storage/hb-tunnelling-video-still-25_e27be683.webp",
+  logo: "/manus-storage/hb-tunnelling-logo-official_1acf5938.png",
 };
 
 type GalleryImage = { src: string; alt: string; caption: string };
@@ -158,6 +160,23 @@ export default function HBTunnellingCaseStudy() {
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">
                 HB Tunnelling needed a one-stop solution for the warehouse steelwork. Our five-person multi-skilled team abrasive blasted the structure, primed each area straight after preparation and applied the intumescent fire-protective coating in carefully planned same-day stages.
               </p>
+              <a
+                href="https://www.hbtunnelling.co.uk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit HB Tunnelling website (opens in a new tab)"
+                className="group mt-6 inline-flex items-center gap-3 rounded-xl border border-white/25 bg-white/10 px-3 py-2.5 text-left transition hover:border-[#f1c76e]/70 hover:bg-white/15 focus:outline-none focus:ring-4 focus:ring-[#f1c76e]/60"
+              >
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white p-1.5 shadow-sm">
+                  <img src={assets.logo} alt="HB Tunnelling logo" className="h-full w-full object-contain" />
+                </span>
+                <span>
+                  <span className="block text-xs font-bold uppercase tracking-[0.13em] text-[#f1c76e]">Project client</span>
+                  <span className="mt-0.5 inline-flex items-center gap-1 text-sm font-semibold text-white group-hover:text-[#f7d98f]">
+                    Visit HB Tunnelling's website <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                  </span>
+                </span>
+              </a>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <button onClick={() => setQuotePopupOpen(true)} className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#f1c76e] px-5 py-3.5 font-bold text-[#112f43] transition hover:bg-[#f7d98f] active:scale-[0.97]">
                   <CalendarDays className="h-5 w-5" /> Request A Site Visit
