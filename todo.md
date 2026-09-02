@@ -1719,6 +1719,11 @@
 - [x] Add a compact accessible capability-statement download card to the homepage CHAS Elite trust section using the approved PDF
 - [x] Add regression coverage and validate the homepage at desktop and mobile sizes, TypeScript, full tests, and production build
 
+## Capability Statement Download Tracking and Service Cards (2 September 2026)
+- [x] Add a lightweight, privacy-conscious capability-statement download-click event that records placement context without collecting form or personal data
+- [x] Add compact approved capability-statement download cards to the Structural Steel Frames and Intumescent Painting service pages
+- [x] Add regression coverage and validate analytics event wiring, service-page layout, TypeScript, full tests, production build, and responsive presentation
+
 ## Revised Capability Statement Draft (26 August 2026)
 - [x] Create a review-ready revised Commercial Capability Statement PDF that replaces the outdated CHAS wording and correctly presents Commercial Shot Blasting as the commercial arm of Premier Blasting
 - [x] Preserve only user-supplied operational, insurance, resource, and case-study claims, with all time-sensitive figures clearly flagged for approval before publication

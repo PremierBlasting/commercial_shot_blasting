@@ -38,12 +38,13 @@ describe('GA4 Conversion Tracking', () => {
   });
 
   it('should have tracking functions available', async () => {
-    const { trackPhoneCall, trackEvent, trackFormSubmission, trackQuoteFormSubmission } = await import('../client/src/lib/analytics');
+    const { trackCapabilityStatementDownload, trackPhoneCall, trackEvent, trackFormSubmission, trackQuoteFormSubmission } = await import('../client/src/lib/analytics');
     
     expect(trackPhoneCall).toBeDefined();
     expect(trackEvent).toBeDefined();
     expect(trackFormSubmission).toBeDefined();
     expect(trackQuoteFormSubmission).toBeDefined();
+    expect(trackCapabilityStatementDownload).toBeDefined();
   });
 
   it('should track phone calls with correct parameters', async () => {
@@ -177,6 +178,29 @@ describe('GA4 Conversion Tracking', () => {
         currency: 'GBP',
       })
     );
+  });
+
+  it('tracks capability-statement downloads as document engagement without firing a Google Ads conversion', async () => {
+    const { trackCapabilityStatementDownload } = await import('../client/src/lib/analytics');
+
+    trackCapabilityStatementDownload('Structural Steel Frames service page');
+
+    expect(window.gtag).toHaveBeenCalledWith(
+      'event',
+      'capability_statement_download',
+      expect.objectContaining({
+        event_category: 'Document',
+        event_label: 'Commercial Capability Statement',
+        document_name: 'Commercial Capability Statement',
+        document_type: 'pdf',
+        placement: 'Structural Steel Frames service page',
+      })
+    );
+
+    const conversionCalls = (window.gtag as ReturnType<typeof vi.fn>).mock.calls.filter(
+      (call: any[]) => call[0] === 'event' && call[1] === 'conversion'
+    );
+    expect(conversionCalls).toHaveLength(0);
   });
 
   it('should fire Google Ads lead-form conversion event on quote form submission', async () => {

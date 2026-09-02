@@ -162,6 +162,20 @@ export function trackCTAClick(buttonName: string, destination?: string) {
 }
 
 /**
+ * Track interest in the approved capability statement without treating a
+ * document download as a lead or firing a Google Ads conversion.
+ */
+export function trackCapabilityStatementDownload(placement: string) {
+  trackEvent('capability_statement_download', {
+    event_category: 'Document',
+    event_label: 'Commercial Capability Statement',
+    document_name: 'Commercial Capability Statement',
+    document_type: 'pdf',
+    placement,
+  });
+}
+
+/**
  * Track page view (useful for SPA navigation)
  */
 export function trackPageView(pagePath: string, pageTitle?: string) {

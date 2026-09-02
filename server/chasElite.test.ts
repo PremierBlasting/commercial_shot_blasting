@@ -38,6 +38,12 @@ describe("CHAS Elite assurance pathway", () => {
     expect(home).toContain('download="Commercial-Capability-Statement.pdf"');
     expect(home).toContain('aria-label="Download the current Commercial Shot Blasting capability statement PDF"');
     expect(home).toContain("Download the approved PDF");
+    const serviceDetail = readFileSync(resolve(projectRoot, "client/src/pages/ServiceDetail.tsx"), "utf8");
+    expect(serviceDetail).toContain("commercial-capability-statement-approved-2026-09-02_308ee57e.pdf");
+    expect(serviceDetail).toContain("trackCapabilityStatementDownload");
+    expect(serviceDetail).toContain("Structural Steel Frames service page");
+    expect(serviceDetail).toContain("Intumescent Painting service page");
+    expect(serviceDetail).toContain("Download PDF");
     const chasPage = readFileSync(resolve(projectRoot, "client/src/pages/ChasElitePage.tsx"), "utf8");
     expect(chasPage).not.toContain('from "@/components/Breadcrumb"');
     expect(chasPage).not.toContain("<Breadcrumb");

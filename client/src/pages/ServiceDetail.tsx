@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link, useParams } from "wouter";
-import { Phone, Mail, MapPin, CheckCircle, ArrowRight, ArrowLeft, Clock, Shield, Award, ChevronDown, ChevronUp, Star, Flame } from "lucide-react";
+import { Phone, Mail, MapPin, CheckCircle, ArrowRight, ArrowLeft, Clock, Shield, Award, ChevronDown, ChevronUp, Star, Flame, Download } from "lucide-react";
 import { useState } from "react";
 import { getServiceSEO, useSEO } from "@/hooks/useSEO";
-import { trackPhoneCall } from "@/lib/analytics";
+import { trackCapabilityStatementDownload, trackPhoneCall } from "@/lib/analytics";
 import { getServiceById, services } from "@/data/services";
 import { getServiceGallery, getServiceGalleries } from "@/data/serviceGalleries";
 import { QuotePopup } from "@/components/QuotePopup";
@@ -23,6 +23,9 @@ import { trpc } from "@/lib/trpc";
 import { BeforeAfterCard } from "@/components/BeforeAfterCard";
 import { StickyServiceButton } from "@/components/StickyServiceButton";
 import { HBTunnellingTestimonial } from "@/components/HBTunnellingTestimonial";
+
+const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-02_308ee57e.pdf";
+
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -700,6 +703,32 @@ export default function ServiceDetail() {
 
               {['structural-steel-frames', 'intumescent-painting'].includes(service.id) && (
                 <HBTunnellingTestimonial variant="service" />
+              )}
+
+              {['structural-steel-frames', 'intumescent-painting'].includes(service.id) && (
+                <section className="rounded-2xl border border-[#2C5F7F]/20 bg-[#F5F1E8] p-5 shadow-sm md:p-6" aria-labelledby="capability-statement-download-heading">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex items-start gap-3">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#2C5F7F]/10 text-[#2C5F7F]">
+                        <Download className="h-5 w-5" aria-hidden="true" />
+                      </span>
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-[0.11em] text-[#2C5F7F]">Supplier &amp; tender information</p>
+                        <h2 id="capability-statement-download-heading" className="mt-1 text-lg font-bold text-[#1a3d52]">Commercial capability statement</h2>
+                        <p className="mt-1 text-sm leading-relaxed text-gray-600">Download the approved PDF for procurement review, tender files, and project planning.</p>
+                      </div>
+                    </div>
+                    <a
+                      href={CAPABILITY_STATEMENT_URL}
+                      download="Commercial-Capability-Statement.pdf"
+                      onClick={() => trackCapabilityStatementDownload(service.id === "structural-steel-frames" ? "Structural Steel Frames service page" : "Intumescent Painting service page")}
+                      aria-label={`Download the Commercial Capability Statement PDF from the ${service.title} service page`}
+                      className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#2C5F7F] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#1a3d52] focus:outline-none focus:ring-4 focus:ring-[#2C5F7F]/30"
+                    >
+                      <Download className="h-4 w-4" aria-hidden="true" /> Download PDF
+                    </a>
+                  </div>
+                </section>
               )}
 
               {/* Related Reading: Preparation Guide — shown on structural steel pages */}
