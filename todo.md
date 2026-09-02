@@ -1757,3 +1757,19 @@
 - [x] Make the client’s one-stop delivery requirement, immediate-primer rationale, five-person multi-skilled team, planned same-day stages, continuous progress, and on-schedule completion the central HB Tunnelling case-study narrative
 - [x] Align the visible page, video context, conversion messages, crawler-rendered page, and regression coverage with this evidence-led delivery account
 - [x] Validate the revised case study, TypeScript, full tests, and production build
+
+## Read-Only Origin/Main WhatsApp Tracker Review (28 August 2026)
+- [x] Synchronise the requested source in an isolated origin/main checkout and verify the exact requested commit 9ba5eabed1f77ea99a4680e209a627e444447d5b without migration, secret configuration, deployment, or Google Ads export
+- [x] Review the new empty WhatsApp tracker table and migration definition read-only, including schema, indexes, and expected operational boundaries
+- [x] Report source-verification and table-review findings without applying the migration, setting secrets, publishing, or enabling Google Ads export
+
+## Verified HB Tunnelling Testimonial Placement (31 August 2026)
+- [x] Add the user-supplied, attributed HB Tunnelling testimonial to prominent, contextually relevant homepage, case-study, service, and enquiry trust sections
+- [x] Preserve the quote and attribution exactly as supplied, avoiding fabricated review data or unsupported claims
+- [x] Add regression coverage, validate responsive rendering, and publish the testimonial placements
+
+## Scoped WhatsApp Tracker Release (28 August 2026)
+- [ ] Sync only the requested repository state at commit 9ba5eab and inspect the exact change set before publishing
+- [ ] Apply only drizzle/0003_amused_invisible_woman.sql after reviewing its schema impact
+- [ ] Request WHATSAPP_TRACKER_CALLBACK_SECRET through private input and validate its presence without exposing its value
+- [ ] Verify that Google Ads export remains disabled and publish the scoped release only after migration and validation succeed

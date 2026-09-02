@@ -731,11 +731,15 @@ export default function Home() {
                 {displayTestimonials[0].isNew && (
                   <span className="bg-[#2C5F7F] text-white text-xs px-2 py-1 rounded font-medium">NEW</span>
                 )}
-                <div className="flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className={`w-5 h-5 ${i < displayTestimonials[0].rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} />
-                  ))}
-                </div>
+                {displayTestimonials[0].rating > 0 ? (
+                  <div className="flex gap-1" aria-label={`${displayTestimonials[0].rating} out of 5 stars`}>
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className={`w-5 h-5 ${i < displayTestimonials[0].rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} />
+                    ))}
+                  </div>
+                ) : (
+                  <span className="rounded-full bg-[#2C5F7F]/10 px-3 py-1 text-xs font-semibold text-[#2C5F7F]">Client testimonial</span>
+                )}
               </div>
               <Quote className="absolute top-4 right-4 w-12 h-12 text-[#2C5F7F]/10" />
               <p className="text-gray-700 mb-6 leading-relaxed italic text-lg">"{displayTestimonials[0].text}"</p>
@@ -764,6 +768,11 @@ export default function Home() {
                   {displayTestimonials[0].project}
                 </span>
               </div>
+              {displayTestimonials[0].company === "HB Tunnelling Limited" && (
+                <Link href="/case-studies/hb-tunnelling-doncaster" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#2C5F7F] hover:underline">
+                  View the HB Tunnelling case study <ArrowRight className="h-4 w-4" />
+                </Link>
+              )}
             </Card>
           )}
 

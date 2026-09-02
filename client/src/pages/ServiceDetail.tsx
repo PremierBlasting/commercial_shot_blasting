@@ -22,6 +22,7 @@ import { IntumescentQuoteForm } from "@/components/IntumescentQuoteForm";
 import { trpc } from "@/lib/trpc";
 import { BeforeAfterCard } from "@/components/BeforeAfterCard";
 import { StickyServiceButton } from "@/components/StickyServiceButton";
+import { HBTunnellingTestimonial } from "@/components/HBTunnellingTestimonial";
 export default function ServiceDetail() {
   const params = useParams<{ id: string }>();
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -676,6 +677,10 @@ export default function ServiceDetail() {
                     </section>
                   </div>
                 )}
+
+              {['structural-steel-frames', 'intumescent-painting'].includes(service.id) && (
+                <HBTunnellingTestimonial variant="service" />
+              )}
 
               {/* Related Reading: Preparation Guide — shown on structural steel pages */}
               {['structural-steel-frames', 'fire-escapes', 'bridge-steelwork', 'steel-containers', 'steel-sheeting'].includes(service.id) && (

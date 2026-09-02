@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { HBTunnellingTestimonial } from "@/components/HBTunnellingTestimonial";
 import { QuotePopup } from "@/components/QuotePopup";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -228,6 +229,10 @@ export default function HBTunnellingCaseStudy() {
               ))}
             </div>
           </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-7 lg:px-10 lg:pb-24">
+          <HBTunnellingTestimonial variant="case-study" />
         </section>
 
         <section className="bg-[#183c52] py-16 text-white lg:py-24">

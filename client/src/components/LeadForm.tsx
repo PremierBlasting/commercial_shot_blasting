@@ -17,6 +17,7 @@ import { CheckCircle, ArrowRight, AlertCircle } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { formatUTMForSubmission } from "@/lib/utm";
 import { validateLeadEmailClient } from "@shared/emailValidation";
+import { HBTunnellingTestimonial } from "@/components/HBTunnellingTestimonial";
 
 export interface LeadFormProps {
   /** Visual variant — 'dark' for location page dark bg, 'light' for contact/popup */
@@ -212,6 +213,9 @@ export function LeadForm({
           >
             A recognised safety pre-qualification starting point that can support procurement, while your site-specific scope, access, controls, programme, and handover still need to be agreed.
           </div>
+        </div>
+        <div className="mx-auto mt-5 max-w-2xl">
+          <HBTunnellingTestimonial variant="confirmation" />
         </div>
       </div>
     );
