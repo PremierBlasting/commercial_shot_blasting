@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { ArrowRight, CheckCircle2, ClipboardCheck, FileText, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2, ClipboardCheck, Download, FileText, ShieldCheck } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { QuotePopup } from "@/components/QuotePopup";
@@ -20,6 +20,8 @@ const assurancePoints = [
     description: "With supplier assurance information available, discussions can focus on access, containment, surface condition, programme, coating handover, and the controls your site needs.",
   },
 ];
+
+const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-02_308ee57e.pdf";
 
 export default function ChasElitePage() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -52,9 +54,14 @@ export default function ChasElitePage() {
                 <button onClick={() => setQuotePopupOpen(true)} className="rounded-lg bg-white px-5 py-3 font-semibold text-[#1a3d52] transition hover:bg-white/90">
                   Request A Site Visit
                 </button>
-                <Link href="/contact?request=capability-statement" className="inline-flex items-center gap-2 rounded-lg border border-white/40 px-5 py-3 font-semibold text-white transition hover:bg-white/10">
-                  <FileText className="h-4 w-4" /> Request capability statement
-                </Link>
+                <a
+                  href={CAPABILITY_STATEMENT_URL}
+                  download="Commercial-Capability-Statement.pdf"
+                  className="inline-flex items-center gap-2 rounded-lg border border-white/40 px-5 py-3 font-semibold text-white transition hover:bg-white/10"
+                  aria-label="Download the current Commercial Shot Blasting capability statement PDF"
+                >
+                  <Download className="h-4 w-4" aria-hidden="true" /> Download capability statement
+                </a>
               </div>
             </div>
           </div>
@@ -91,11 +98,16 @@ export default function ChasElitePage() {
               <ShieldCheck className="mb-4 h-9 w-9 text-[#E8B84A]" />
               <h2 className="mb-3 text-2xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>Need supplier information?</h2>
               <p className="mb-6 text-sm leading-relaxed text-white/80">
-                Request the current Commercial Shot Blasting capability statement for your project file, tender process, or internal review. We will provide the approved document once it is available for your enquiry.
+                Download the current Commercial Shot Blasting capability statement for your project file, tender process, or internal review. For project-specific information, you can still request a Site Visit.
               </p>
-              <Link href="/contact?request=capability-statement" className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-sm font-bold text-[#1a3d52] transition hover:bg-[#F5F1E8]">
-                <FileText className="h-4 w-4" /> Request capability statement
-              </Link>
+              <a
+                href={CAPABILITY_STATEMENT_URL}
+                download="Commercial-Capability-Statement.pdf"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-sm font-bold text-[#1a3d52] transition hover:bg-[#F5F1E8]"
+                aria-label="Download the current Commercial Shot Blasting capability statement PDF"
+              >
+                <Download className="h-4 w-4" aria-hidden="true" /> Download capability statement
+              </a>
             </aside>
           </div>
         </section>
@@ -122,8 +134,8 @@ export default function ChasElitePage() {
                 <p className="mt-3 text-sm leading-relaxed text-gray-600">No. The asset, access, surface condition, coating requirements, programme, and any project documentation still need to be reviewed for the individual scope.</p>
               </details>
               <details className="rounded-xl border border-gray-200 p-5">
-                <summary className="cursor-pointer font-semibold text-[#1a3d52]">How do I request a capability statement?</summary>
-                <p className="mt-3 text-sm leading-relaxed text-gray-600">Use the request button on this page or contact the team with your project details. The current approved document will be supplied when available for your enquiry.</p>
+                <summary className="cursor-pointer font-semibold text-[#1a3d52]">How do I download the capability statement?</summary>
+                <p className="mt-3 text-sm leading-relaxed text-gray-600">Use either download button on this page to save the current approved Commercial Shot Blasting capability statement. For project-specific information, contact the team or request a Site Visit.</p>
               </details>
             </div>
           </div>

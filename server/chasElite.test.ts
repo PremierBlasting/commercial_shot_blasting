@@ -17,7 +17,8 @@ describe("CHAS Elite assurance pathway", () => {
     expect(html).toContain("The Common Assessment Standard covers 13 risk-management areas");
     expect(html).toContain("CHAS Elite does not replace a project-specific assessment");
     expect(html).toContain("FAQPage");
-    expect(html).toContain("contact?request=capability-statement");
+    expect(html).toContain("commercial-capability-statement-approved-2026-09-02_308ee57e.pdf");
+    expect(html).toContain("Download the current approved capability statement PDF");
   });
 
   it("exposes the assurance route in application, navigation, and both sitemap discovery paths", () => {
@@ -36,6 +37,9 @@ describe("CHAS Elite assurance pathway", () => {
     const chasPage = readFileSync(resolve(projectRoot, "client/src/pages/ChasElitePage.tsx"), "utf8");
     expect(chasPage).not.toContain('from "@/components/Breadcrumb"');
     expect(chasPage).not.toContain("<Breadcrumb");
+    expect(chasPage).toContain("commercial-capability-statement-approved-2026-09-02_308ee57e.pdf");
+    expect(chasPage).toContain('download="Commercial-Capability-Statement.pdf"');
+    expect(chasPage).toContain('aria-label="Download the current Commercial Shot Blasting capability statement PDF"');
     const leadForm = readFileSync(resolve(projectRoot, "client/src/components/LeadForm.tsx"), "utf8");
     expect(leadForm).toContain('/manus-storage/chas-elite-accreditation_29937620.png');
     expect(leadForm).toContain('role="tooltip"');
@@ -52,5 +56,7 @@ describe("CHAS Elite assurance pathway", () => {
     expect(leadForm).toContain("Request: Commercial Shot Blasting capability statement");
     expect(contact).toContain('get("request") === "capability-statement"');
     expect(contact).toContain("capabilityStatementRequest={capabilityStatementRequest}");
+    expect(contact).toContain("commercial-capability-statement-approved-2026-09-02_308ee57e.pdf");
+    expect(contact).toContain("Download capability statement (PDF)");
   });
 });

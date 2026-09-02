@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock, Shield, Award } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Shield, Award, FileText } from "lucide-react";
 import { useState } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { LeadForm } from "@/components/LeadForm";
@@ -10,6 +10,9 @@ import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
 
 import { Footer } from "@/components/Footer";
+
+const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-02_308ee57e.pdf";
+
 export default function Contact() {
   // Set SEO metadata
   useSEO({ title: "Contact Us | Commercial Shot Blasting", description: "Get in touch with Commercial Shot Blasting for a site visit. Call 07721 375756 or fill out our contact form for expert surface preparation services.", canonical: "https://commercialshotblasting.co.uk/contact" });
@@ -56,8 +59,26 @@ export default function Contact() {
                 Let's Discuss Your Project
               </h2>
               <p className="text-gray-600 mb-8">
-                {capabilityStatementRequest ? "Request the current approved capability statement and tell us about the project or tender it supports. We will get back to you promptly." : "Fill out the form and our team will get back to you promptly with a detailed quote for your project."}
+                {capabilityStatementRequest ? "The current approved capability statement is ready to download. Use the form if you would like project-specific information or a Site Visit." : "Fill out the form and our team will get back to you promptly with a detailed quote for your project."}
               </p>
+
+              <div className="mb-8 flex items-start gap-3 rounded-xl border border-[#2C5F7F]/20 bg-[#F5F1E8] p-4">
+                <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#2C5F7F]/10 text-[#2C5F7F]">
+                  <FileText className="h-4 w-4" aria-hidden="true" />
+                </div>
+                <div>
+                  <p className="font-semibold text-[#1a3d52]">Current capability statement</p>
+                  <p className="mt-1 text-sm leading-relaxed text-gray-600">Download the approved commercial booklet for supplier review, tender files, and internal project planning.</p>
+                  <a
+                    href={CAPABILITY_STATEMENT_URL}
+                    download="Commercial-Capability-Statement.pdf"
+                    className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-[#2C5F7F] transition hover:text-[#1a3d52] hover:underline"
+                    aria-label="Download the current Commercial Shot Blasting capability statement PDF"
+                  >
+                    Download capability statement (PDF)
+                  </a>
+                </div>
+              </div>
 
               {/* Contact Information */}
               <div className="space-y-6 mb-8">

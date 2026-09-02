@@ -1710,6 +1710,11 @@
 - [x] Download-link validation deferred until a user-approved PDF is supplied
 - [x] The corrected-document requirement is acknowledged; the user will prepare their own updated version
 
+## Approved Capability Statement Replacement (2 September 2026)
+- [x] Inspect and host the user-supplied approved Commercial Capability Statement PDF as a durable web asset
+- [x] Replace deferred capability-statement request-only placements with an accessible download pathway without changing existing Site Visit or lead-routing behaviour
+- [x] Add regression coverage and validate visible, crawler-facing, download, TypeScript, test-suite, build, and responsive behaviours before publication
+
 ## Revised Capability Statement Draft (26 August 2026)
 - [x] Create a review-ready revised Commercial Capability Statement PDF that replaces the outdated CHAS wording and correctly presents Commercial Shot Blasting as the commercial arm of Premier Blasting
 - [x] Preserve only user-supplied operational, insurance, resource, and case-study claims, with all time-sensitive figures clearly flagged for approval before publication
