@@ -29,6 +29,7 @@ describe("Capability-statement card coverage", () => {
     expect(download).toContain("Download Source: ${placement}");
     expect(download).toContain('name="downloadSource"');
     expect(download).toContain("Project Photo: ${photo.url}");
+    expect(download).toContain("Project Summary:\\n${projectSummary.trim()}");
     expect(download).toContain("Request A Site Visit");
     expect(download).toContain("marketingConsent");
     expect(download).toContain('href="/privacy-policy"');
@@ -46,6 +47,18 @@ describe("Capability-statement card coverage", () => {
     expect(download).toContain("Sending Site Visit request…");
     expect(download).toContain("motion-safe:animate-[ping_0.45s_ease-out_1]");
     expect(download).toContain("motion-reduce:animate-none");
+  });
+
+  it("captures an optional project summary and allows a selected photo to be cleared before submission", () => {
+    const download = readFileSync(resolve(projectRoot, "client/src/components/CapabilityStatementDownload.tsx"), "utf8");
+
+    expect(download).toContain("Brief project summary (optional)");
+    expect(download).toContain("maxLength={2000}");
+    expect(download).toContain("Tell us what needs preparing");
+    expect(download).toContain("const removeProjectPhoto");
+    expect(download).toContain("projectPhotoInputRef.current.value = \"\"");
+    expect(download).toContain("Remove selected photo");
+    expect(download).toContain("Remove selected project photo:");
   });
 
   it("uses a subtle reduced-motion-safe hover treatment and includes the approved About Us placement", () => {

@@ -1748,6 +1748,11 @@
 - [x] Add the capability-card placement as hidden download-source attribution in the post-download lead summary
 - [x] Add accessible loading feedback and a restrained reduced-motion-safe success animation to the post-download form, then validate upload, attribution, TypeScript, tests, build, and responsive presentation; focused affected suites pass, while an unrelated live HubSpot PB credential check returned 401 in the full suite
 
+## Post-Download Project Summary and Photo Control (2 September 2026)
+- [x] Add an optional project-summary field to the post-download Site Visit form and include it in the existing lead message
+- [x] Add an accessible remove-selected-photo control that clears the local upload state before submission
+- [x] Add regression coverage and validate summary capture, photo removal, TypeScript, focused tests, production build, and responsive layouts; the unrelated live HubSpot PB credential check remains 401 in the full suite
+
 ## Revised Capability Statement Draft (26 August 2026)
 - [x] Create a review-ready revised Commercial Capability Statement PDF that replaces the outdated CHAS wording and correctly presents Commercial Shot Blasting as the commercial arm of Premier Blasting
 - [x] Preserve only user-supplied operational, insurance, resource, and case-study claims, with all time-sensitive figures clearly flagged for approval before publication

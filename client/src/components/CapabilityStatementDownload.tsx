@@ -1,5 +1,5 @@
-import { CheckCircle2, FileImage, LoaderCircle, Send, Upload } from "lucide-react";
-import { useId, useState, type FormEvent, type ReactNode } from "react";
+import { CheckCircle2, FileImage, LoaderCircle, Send, Upload, X } from "lucide-react";
+import { useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { trackCapabilityStatementDownload } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import { trpc } from "@/lib/trpc";
@@ -52,12 +52,14 @@ function CapabilityStatementSiteVisitForm({ placement, tone }: CapabilityStateme
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [postcode, setPostcode] = useState("");
+  const [projectSummary, setProjectSummary] = useState("");
   const [projectPhoto, setProjectPhoto] = useState<File | null>(null);
   const [photoError, setPhotoError] = useState("");
   const [marketingConsent, setMarketingConsent] = useState(false);
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const fieldId = useId();
+  const projectPhotoInputRef = useRef<HTMLInputElement>(null);
   const isDark = tone === "dark";
 
   const contactMutation = trpc.contact.submit.useMutation();
@@ -81,6 +83,14 @@ function CapabilityStatementSiteVisitForm({ placement, tone }: CapabilityStateme
       return;
     }
     setProjectPhoto(file);
+  };
+
+  const removeProjectPhoto = () => {
+    setProjectPhoto(null);
+    setPhotoError("");
+    if (projectPhotoInputRef.current) {
+      projectPhotoInputRef.current.value = "";
+    }
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -115,6 +125,7 @@ function CapabilityStatementSiteVisitForm({ placement, tone }: CapabilityStateme
         "Request: Site Visit after Commercial Capability Statement download",
         `Download Source: ${placement}`,
         postcode.trim() && `Postal Code: ${postcode.trim()}`,
+        projectSummary.trim() && `Project Summary:\n${projectSummary.trim()}`,
         photo && `Project Photo: ${photo.url}`,
       ].filter(Boolean);
 
@@ -166,12 +177,18 @@ function CapabilityStatementSiteVisitForm({ placement, tone }: CapabilityStateme
         <input id={`${fieldId}-postcode`} autoComplete="postal-code" value={postcode} onChange={(event) => setPostcode(event.target.value)} placeholder="Site postcode (optional)" className={fieldClassName} />
       </div>
       <div className="mt-3">
+        <label className="sr-only" htmlFor={`${fieldId}-project-summary`}>Brief project summary</label>
+        <textarea id={`${fieldId}-project-summary`} value={projectSummary} onChange={(event) => setProjectSummary(event.target.value)} maxLength={2000} rows={3} placeholder="Brief project summary (optional)" className={cn(fieldClassName, "resize-y")} />
+        <p className={cn("mt-1 text-[11px]", isDark ? "text-white/65" : "text-gray-500")}>Tell us what needs preparing, its condition, and anything that affects site access or programme planning.</p>
+      </div>
+      <div className="mt-3">
         <label htmlFor={`${fieldId}-project-photo`} className={cn("flex cursor-pointer items-center justify-between gap-3 rounded-md border border-dashed px-3 py-2.5 text-xs transition hover:border-[#2C5F7F]/60", isDark ? "border-white/35 text-white/90 hover:bg-white/10" : "border-[#2C5F7F]/30 text-[#1a3d52] hover:bg-[#2C5F7F]/5")}>
           <span className="flex min-w-0 items-center gap-2"><FileImage className="h-4 w-4 shrink-0 text-[#2C5F7F]" aria-hidden="true" /><span className="truncate">{projectPhoto ? projectPhoto.name : "Add a project photo (optional)"}</span></span>
           <span className="flex shrink-0 items-center gap-1 font-semibold"><Upload className="h-3.5 w-3.5" aria-hidden="true" /> JPG, PNG, WebP</span>
         </label>
-        <input id={`${fieldId}-project-photo`} type="file" accept="image/jpeg,image/png,image/webp" onChange={handlePhotoChange} className="sr-only" />
+        <input ref={projectPhotoInputRef} id={`${fieldId}-project-photo`} type="file" accept="image/jpeg,image/png,image/webp" onChange={handlePhotoChange} className="sr-only" />
         <p className={cn("mt-1 text-[11px]", isDark ? "text-white/65" : "text-gray-500")}>Optional, maximum 8 MB. This helps us understand the current condition.</p>
+        {projectPhoto && <button type="button" onClick={removeProjectPhoto} className={cn("mt-2 inline-flex items-center gap-1.5 text-xs font-semibold underline underline-offset-2 transition", isDark ? "text-white hover:text-[#f7d98f]" : "text-[#2C5F7F] hover:text-[#1a3d52]")} aria-label={`Remove selected project photo: ${projectPhoto.name}`}><X className="h-3.5 w-3.5" aria-hidden="true" /> Remove selected photo</button>}
         {photoError && <p role="alert" className="mt-1 text-xs font-medium text-red-600">{photoError}</p>}
       </div>
       <label className={cn("mt-3 flex items-start gap-2 text-[11px] leading-relaxed", isDark ? "text-white/75" : "text-gray-600")}> 
