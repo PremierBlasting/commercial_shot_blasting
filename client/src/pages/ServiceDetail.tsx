@@ -4,7 +4,7 @@ import { Link, useParams } from "wouter";
 import { Phone, Mail, MapPin, CheckCircle, ArrowRight, ArrowLeft, Clock, Shield, Award, ChevronDown, ChevronUp, Star, Flame, Download } from "lucide-react";
 import { useState } from "react";
 import { getServiceSEO, useSEO } from "@/hooks/useSEO";
-import { trackCapabilityStatementDownload, trackPhoneCall } from "@/lib/analytics";
+import { trackPhoneCall } from "@/lib/analytics";
 import { getServiceById, services } from "@/data/services";
 import { getServiceGallery, getServiceGalleries } from "@/data/serviceGalleries";
 import { QuotePopup } from "@/components/QuotePopup";
@@ -24,8 +24,8 @@ import { BeforeAfterCard } from "@/components/BeforeAfterCard";
 import { StickyServiceButton } from "@/components/StickyServiceButton";
 import { HBTunnellingTestimonial } from "@/components/HBTunnellingTestimonial";
 import { CapabilityStatementContents } from "@/components/CapabilityStatementContents";
+import { CapabilityStatementDownload } from "@/components/CapabilityStatementDownload";
 
-const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-02_308ee57e.pdf";
 const capabilityStatementPlacementByServiceId: Record<string, string> = {
   "structural-steel-frames": "Structural Steel Frames service page",
   "intumescent-painting": "Intumescent Painting service page",
@@ -33,6 +33,7 @@ const capabilityStatementPlacementByServiceId: Record<string, string> = {
   "pipework": "Process Pipework service page",
   "steel-chimney-surface-preparation": "Steel Chimney service page",
   "steel-containers": "Container Restoration service page",
+  "agricultural-shot-blasting": "Agricultural Steelwork service page",
 };
 
 export default function ServiceDetail() {
@@ -729,15 +730,13 @@ export default function ServiceDetail() {
                         <CapabilityStatementContents className="mt-2" />
                       </div>
                     </div>
-                    <a
-                      href={CAPABILITY_STATEMENT_URL}
-                      download="Commercial-Capability-Statement.pdf"
-                      onClick={() => trackCapabilityStatementDownload(capabilityStatementPlacement)}
-                      aria-label={`Download the Commercial Capability Statement PDF from the ${service.title} service page`}
-                      className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#2C5F7F] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#1a3d52] focus:outline-none focus:ring-4 focus:ring-[#2C5F7F]/30"
+                    <CapabilityStatementDownload
+                      placement={capabilityStatementPlacement}
+                      ariaLabel={`Download the Commercial Capability Statement PDF from the ${service.title} service page`}
+                      linkClassName="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#2C5F7F] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[#1a3d52] focus:outline-none focus:ring-4 focus:ring-[#2C5F7F]/30"
                     >
                       <Download className="h-4 w-4" aria-hidden="true" /> Download PDF
-                    </a>
+                    </CapabilityStatementDownload>
                   </div>
                 </section>
               )}

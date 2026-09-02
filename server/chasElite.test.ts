@@ -34,13 +34,10 @@ describe("CHAS Elite assurance pathway", () => {
     expect(footer).toContain("CHAS Elite Assurance");
     expect(home).toContain('/manus-storage/chas-elite-accreditation_29937620.png');
     expect(home).toContain('alt="CHAS Accreditation Elite logo"');
-    expect(home).toContain("commercial-capability-statement-approved-2026-09-02_308ee57e.pdf");
-    expect(home).toContain('download="Commercial-Capability-Statement.pdf"');
-    expect(home).toContain('aria-label="Download the current Commercial Shot Blasting capability statement PDF"');
+    expect(home).toContain("CapabilityStatementDownload");
     expect(home).toContain("Download the approved PDF");
     const serviceDetail = readFileSync(resolve(projectRoot, "client/src/pages/ServiceDetail.tsx"), "utf8");
-    expect(serviceDetail).toContain("commercial-capability-statement-approved-2026-09-02_308ee57e.pdf");
-    expect(serviceDetail).toContain("trackCapabilityStatementDownload");
+    expect(serviceDetail).toContain("CapabilityStatementDownload");
     expect(serviceDetail).toContain("Structural Steel Frames service page");
     expect(serviceDetail).toContain("Intumescent Painting service page");
     expect(serviceDetail).toContain('"factory-cladding": "Factory Cladding service page"');
@@ -49,9 +46,7 @@ describe("CHAS Elite assurance pathway", () => {
     const chasPage = readFileSync(resolve(projectRoot, "client/src/pages/ChasElitePage.tsx"), "utf8");
     expect(chasPage).not.toContain('from "@/components/Breadcrumb"');
     expect(chasPage).not.toContain("<Breadcrumb");
-    expect(chasPage).toContain("commercial-capability-statement-approved-2026-09-02_308ee57e.pdf");
-    expect(chasPage).toContain('download="Commercial-Capability-Statement.pdf"');
-    expect(chasPage).toContain('aria-label="Download the current Commercial Shot Blasting capability statement PDF"');
+    expect(chasPage).toContain("CapabilityStatementDownload");
     const leadForm = readFileSync(resolve(projectRoot, "client/src/components/LeadForm.tsx"), "utf8");
     expect(leadForm).toContain('/manus-storage/chas-elite-accreditation_29937620.png');
     expect(leadForm).toContain('role="tooltip"');
@@ -68,7 +63,7 @@ describe("CHAS Elite assurance pathway", () => {
     expect(leadForm).toContain("Request: Commercial Shot Blasting capability statement");
     expect(contact).toContain('get("request") === "capability-statement"');
     expect(contact).toContain("capabilityStatementRequest={capabilityStatementRequest}");
-    expect(contact).toContain("commercial-capability-statement-approved-2026-09-02_308ee57e.pdf");
+    expect(contact).toContain("CapabilityStatementDownload");
     expect(contact).toContain("Download capability statement (PDF)");
   });
 });

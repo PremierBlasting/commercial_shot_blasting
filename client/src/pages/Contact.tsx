@@ -9,10 +9,9 @@ import { QuotePopup } from "@/components/QuotePopup";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
 import { CapabilityStatementContents } from "@/components/CapabilityStatementContents";
+import { CapabilityStatementDownload } from "@/components/CapabilityStatementDownload";
 
 import { Footer } from "@/components/Footer";
-
-const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-02_308ee57e.pdf";
 
 export default function Contact() {
   // Set SEO metadata
@@ -70,14 +69,12 @@ export default function Contact() {
                 <div>
                   <p className="font-semibold text-[#1a3d52]">Current capability statement</p>
                   <p className="mt-1 text-sm leading-relaxed text-gray-600">Download the approved commercial booklet for supplier review, tender files, and internal project planning.</p>
-                  <a
-                    href={CAPABILITY_STATEMENT_URL}
-                    download="Commercial-Capability-Statement.pdf"
-                    className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-[#2C5F7F] transition hover:text-[#1a3d52] hover:underline"
-                    aria-label="Download the current Commercial Shot Blasting capability statement PDF"
+                  <CapabilityStatementDownload
+                    placement="Contact page capability statement card"
+                    linkClassName="mt-3 inline-flex items-center gap-2 text-sm font-bold text-[#2C5F7F] transition hover:text-[#1a3d52] hover:underline"
                   >
                     Download capability statement (PDF)
-                  </a>
+                  </CapabilityStatementDownload>
                   <CapabilityStatementContents className="mt-2" />
                 </div>
               </div>

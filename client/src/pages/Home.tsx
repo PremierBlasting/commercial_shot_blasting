@@ -16,6 +16,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { ProjectDetailModal, type ProjectDetailItem } from "@/components/ProjectDetailModal";
 import { BeforeAfterCard } from "@/components/BeforeAfterCard";
 import { CapabilityStatementContents } from "@/components/CapabilityStatementContents";
+import { CapabilityStatementDownload } from "@/components/CapabilityStatementDownload";
 
 // Below-the-fold components: lazy-loaded to reduce initial JS bundle and improve LCP
 const LeadFormLazy = lazy(() => import("@/components/LeadForm").then(m => ({ default: m.LeadForm })));
@@ -41,8 +42,6 @@ const testimonials = [
     isNew: true,
   },
 ];
-
-const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-02_308ee57e.pdf";
 
 export default function Home() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -400,11 +399,11 @@ export default function Home() {
                 <img src="/manus-storage/chas-elite-accreditation_29937620.png" alt="CHAS Accreditation Elite logo" width="300" height="300" className="h-12 w-12 shrink-0 object-contain" fetchPriority="high" />
                 <span className="text-left leading-snug"><span className="block">Premier Blasting holds CHAS Elite status</span><span className="text-xs font-normal text-white/75">Learn about our commercial assurance pathway</span></span>
               </Link>
-              <a
-                href={CAPABILITY_STATEMENT_URL}
-                download="Commercial-Capability-Statement.pdf"
-                aria-label="Download the current Commercial Shot Blasting capability statement PDF"
-                className="group inline-flex max-w-full items-center gap-2.5 rounded-xl border border-[#f1c76e]/50 bg-[#f1c76e]/10 px-3 py-2 text-left text-white shadow-sm transition hover:border-[#f1c76e] hover:bg-[#f1c76e]/20 focus:outline-none focus:ring-4 focus:ring-[#f1c76e]/60"
+              <CapabilityStatementDownload
+                placement="Homepage CHAS Elite trust section"
+                tone="dark"
+                containerClassName="max-w-full"
+                linkClassName="group inline-flex max-w-full items-center gap-2.5 rounded-xl border border-[#f1c76e]/50 bg-[#f1c76e]/10 px-3 py-2 text-left text-white shadow-sm transition hover:border-[#f1c76e] hover:bg-[#f1c76e]/20 focus:outline-none focus:ring-4 focus:ring-[#f1c76e]/60"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#f1c76e] text-[#16394f]">
                   <Download className="h-4 w-4" aria-hidden="true" />
@@ -413,7 +412,7 @@ export default function Home() {
                   <span className="block text-xs font-bold uppercase tracking-[0.11em] text-[#f7d98f]">Capability statement</span>
                   <span className="block text-sm font-semibold group-hover:text-[#f7d98f]">Download the approved PDF</span>
                 </span>
-              </a>
+              </CapabilityStatementDownload>
             </div>
             <CapabilityStatementContents tone="dark" className="-mt-4 mb-7 max-w-[20rem]" />
             <div className="flex flex-wrap gap-4">

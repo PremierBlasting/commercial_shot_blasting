@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { QuotePopup } from "@/components/QuotePopup";
 import { useSEO } from "@/hooks/useSEO";
 import { CapabilityStatementContents } from "@/components/CapabilityStatementContents";
+import { CapabilityStatementDownload } from "@/components/CapabilityStatementDownload";
 
 const assurancePoints = [
   {
@@ -21,8 +22,6 @@ const assurancePoints = [
     description: "With supplier assurance information available, discussions can focus on access, containment, surface condition, programme, coating handover, and the controls your site needs.",
   },
 ];
-
-const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-02_308ee57e.pdf";
 
 export default function ChasElitePage() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -55,14 +54,13 @@ export default function ChasElitePage() {
                 <button onClick={() => setQuotePopupOpen(true)} className="rounded-lg bg-white px-5 py-3 font-semibold text-[#1a3d52] transition hover:bg-white/90">
                   Request A Site Visit
                 </button>
-                <a
-                  href={CAPABILITY_STATEMENT_URL}
-                  download="Commercial-Capability-Statement.pdf"
-                  className="inline-flex items-center gap-2 rounded-lg border border-white/40 px-5 py-3 font-semibold text-white transition hover:bg-white/10"
-                  aria-label="Download the current Commercial Shot Blasting capability statement PDF"
+                <CapabilityStatementDownload
+                  placement="CHAS Elite assurance hero"
+                  tone="dark"
+                  linkClassName="inline-flex items-center gap-2 rounded-lg border border-white/40 px-5 py-3 font-semibold text-white transition hover:bg-white/10"
                 >
                   <Download className="h-4 w-4" aria-hidden="true" /> Download capability statement
-                </a>
+                </CapabilityStatementDownload>
               </div>
             </div>
           </div>
@@ -101,14 +99,13 @@ export default function ChasElitePage() {
               <p className="mb-6 text-sm leading-relaxed text-white/80">
                 Download the current Commercial Shot Blasting capability statement for your project file, tender process, or internal review. For project-specific information, you can still request a Site Visit.
               </p>
-              <a
-                href={CAPABILITY_STATEMENT_URL}
-                download="Commercial-Capability-Statement.pdf"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-sm font-bold text-[#1a3d52] transition hover:bg-[#F5F1E8]"
-                aria-label="Download the current Commercial Shot Blasting capability statement PDF"
+              <CapabilityStatementDownload
+                placement="CHAS Elite supplier information card"
+                tone="dark"
+                linkClassName="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-sm font-bold text-[#1a3d52] transition hover:bg-[#F5F1E8]"
               >
                 <Download className="h-4 w-4" aria-hidden="true" /> Download capability statement
-              </a>
+              </CapabilityStatementDownload>
               <CapabilityStatementContents tone="dark" className="mt-3" />
             </aside>
           </div>
