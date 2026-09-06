@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { getCanonicalServicePath, LEGACY_SERVICE_REDIRECTS, isCanonicalServiceSlug, normaliseServiceUrls } from "../shared/serviceSeoCatalog";
+import { getCanonicalServiceAreaRedirect } from "./seoUrlNormalisation";
 
 /**
  * Phase 1 GSC Indexing Recovery — Redirect Route Tests
@@ -59,6 +60,13 @@ describe("GSC Phase 1 — Redirect configuration", () => {
     const legacyLink = `/areas/${slug}`;
     expect(correctLink).not.toBe(legacyLink);
     expect(correctLink).toMatch(/^\/service-areas\//);
+  });
+
+  it("redirects trailing-slash service-area duplicates to the canonical URL and preserves query attribution", () => {
+    expect(getCanonicalServiceAreaRedirect("/service-areas/swindon/", "/service-areas/swindon/")).toBe("/service-areas/swindon");
+    expect(getCanonicalServiceAreaRedirect("/service-areas/swindon/", "/service-areas/swindon/?utm_source=google")).toBe("/service-areas/swindon?utm_source=google");
+    expect(getCanonicalServiceAreaRedirect("/service-areas/swindon", "/service-areas/swindon")).toBeNull();
+    expect(getCanonicalServiceAreaRedirect("/locations/corby", "/locations/corby")).toBeNull();
   });
 
   it("redirects legacy service aliases and preserves a single canonical service route", () => {

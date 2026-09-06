@@ -16,6 +16,7 @@ import { registerSitemapRoute } from "../sitemap";
 import { registerOgImageRoute } from "../ogImage";
 import { getActiveTestimonials, getActiveGalleryItems, getPublishedBlogPosts } from "../db";
 import { getCanonicalServicePath, isCanonicalServiceSlug } from "@shared/serviceSeoCatalog";
+import { getCanonicalServiceAreaRedirect } from "../seoUrlNormalisation";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -66,6 +67,18 @@ async function startServer() {
       const rootHost = host.slice(4); // strip 'www.'
       const redirectUrl = `https://${rootHost}${req.originalUrl}`;
       return res.redirect(301, redirectUrl);
+    }
+    next();
+  });
+
+  // Search Console reported alternate canonical copies such as
+  // /service-areas/swindon/. All published internal links, sitemap entries,
+  // and canonical tags use no trailing slash, so consolidate the duplicate at
+  // the HTTP layer rather than relying on a canonical hint alone.
+  app.use((req, res, next) => {
+    const canonicalRedirect = getCanonicalServiceAreaRedirect(req.path, req.originalUrl);
+    if (canonicalRedirect) {
+      return res.redirect(301, canonicalRedirect);
     }
     next();
   });

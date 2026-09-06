@@ -1753,6 +1753,15 @@
 - [x] Add an accessible remove-selected-photo control that clears the local upload state before submission
 - [x] Add regression coverage and validate summary capture, photo removal, TypeScript, focused tests, production build, and responsive layouts; the unrelated live HubSpot PB credential check remains 401 in the full suite
 
+## Structural Steel Case-Study Media Export (2 September 2026)
+- [x] Identify every image and video asset referenced by the Structural Steel case-study page and collect the original files
+- [x] Package the validated media files into a ZIP archive and deliver it in chat
+
+## Search Console Service-Area Coverage Issue (6 September 2026)
+- [x] Inspect the supplied coverage drilldown and diagnose the reported service-area and location URL indexing issue
+- [x] Apply the evidence-based canonical, redirect, sitemap, or crawlability correction without disturbing live location coverage
+- [x] Validate affected live URLs and SEO outputs, publish the fix, and document the outcome
+
 ## Revised Capability Statement Draft (26 August 2026)
 - [x] Create a review-ready revised Commercial Capability Statement PDF that replaces the outdated CHAS wording and correctly presents Commercial Shot Blasting as the commercial arm of Premier Blasting
 - [x] Preserve only user-supplied operational, insurance, resource, and case-study claims, with all time-sensitive figures clearly flagged for approval before publication
