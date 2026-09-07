@@ -110,10 +110,8 @@ describe('Security and SEO Features', () => {
     });
 
     it('should be referenced in main sitemap index', () => {
-      const mainSitemapPath = path.join(__dirname, '../client/public/sitemap.xml');
-      const mainSitemapContent = fs.readFileSync(mainSitemapPath, 'utf-8');
-      
-      expect(mainSitemapContent).toContain('sitemap-images.xml');
+      const sitemapSource = fs.readFileSync(path.join(__dirname, 'sitemap.ts'), 'utf-8');
+      expect(sitemapSource).toContain('sitemap-images.xml');
     });
 
     it('should use correct domain in image URLs', () => {
@@ -141,19 +139,15 @@ describe('Security and SEO Features', () => {
     });
 
     it('should have updated main sitemap with correct sub-sitemap references', () => {
-      const mainSitemapPath = path.join(__dirname, '../client/public/sitemap.xml');
-      const mainSitemapContent = fs.readFileSync(mainSitemapPath, 'utf-8');
+      const sitemapSource = fs.readFileSync(path.join(__dirname, 'sitemap.ts'), 'utf-8');
       
-      // Phase 1 GSC fix: legacy sitemap-locations-1.xml and sitemap-locations-2.xml
-      // were removed because they contained /locations/ URLs that served blank SPA shells.
-      // All location pages now redirect 301 to /service-areas/:slug.
-      expect(mainSitemapContent).toContain('sitemap-main.xml');
-      expect(mainSitemapContent).toContain('sitemap-counties.xml');
-      expect(mainSitemapContent).toContain('sitemap-service-areas.xml');
-      expect(mainSitemapContent).toContain('sitemap-images.xml');
-      // Legacy location sitemaps must NOT be in the index (they caused indexing issues)
-      expect(mainSitemapContent).not.toContain('sitemap-locations-1.xml');
-      expect(mainSitemapContent).not.toContain('sitemap-locations-2.xml');
+      expect(sitemapSource).toContain('sitemap-main.xml');
+      expect(sitemapSource).toContain('sitemap-counties.xml');
+      expect(sitemapSource).toContain('sitemap-service-areas.xml');
+      expect(sitemapSource).toContain('sitemap-blog.xml');
+      expect(sitemapSource).toContain('sitemap-images.xml');
+      expect(sitemapSource).not.toContain('sitemap-locations-1.xml');
+      expect(sitemapSource).not.toContain('sitemap-locations-2.xml');
     });
   });
 });

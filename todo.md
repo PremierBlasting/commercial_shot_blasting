@@ -1767,6 +1767,12 @@
 - [x] Analyse the evidence into prioritised traffic-growth opportunities that protect existing lead and conversion routes
 - [x] Deliver a practical 90-day SEO roadmap with clear ownership, expected impact, and measurement criteria
 
+## Priority SEO Roadmap Implementation (7 September 2026)
+- [x] Replace the single full sitemap response with a sitemap index and distinct current main, county, service-area, blog, and image child sitemaps while retaining safe historic redirects only where appropriate
+- [x] Refresh Bristol, Peterborough, Derbyshire, and Cornwall service coverage with verified, location-specific commercial context and intent-led internal links
+- [x] Build crawler-ready commercial Mobile / On-Site Blasting and Intumescent Paint for Steel hubs with approved evidence, metadata, structured data, relevant internal links, and Request A Site Visit conversion paths
+- [x] Add regression coverage and validate sitemap endpoints, priority locations, new service hubs, TypeScript, focused tests, production build, and responsive routes before publication; focused SEO tests pass, while the unrelated live HubSpot PB credential check remains 401 in the full suite
+
 ## Revised Capability Statement Draft (26 August 2026)
 - [x] Create a review-ready revised Commercial Capability Statement PDF that replaces the outdated CHAS wording and correctly presents Commercial Shot Blasting as the commercial arm of Premier Blasting
 - [x] Preserve only user-supplied operational, insurance, resource, and case-study claims, with all time-sensitive figures clearly flagged for approval before publication

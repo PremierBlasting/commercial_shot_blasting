@@ -16,6 +16,7 @@ import { HeroCarousel } from "@/components/HeroCarousel";
 import { trackPhoneCall } from "@/lib/analytics";
 import { normaliseResponseTimeCopy } from "@shared/seoContentPolicy";
 import { getCountyPillarResources } from "@shared/countyPillarResources";
+import { priorityCountyCommercialContent } from "@shared/priorityLocalSeoContent";
 
 import { Footer } from "@/components/Footer";
 import { countyData, CountyData } from "@/data/countyData";
@@ -286,6 +287,7 @@ export function CountyPage({ county }: CountyPageProps) {
   const [showCountyNav, setShowCountyNav] = useState(false);
   const [activeCountySection, setActiveCountySection] = useState<string | null>(null);
   const countyPillarResources = getCountyPillarResources(county.slug, county.industries);
+  const priorityCommercialContent = priorityCountyCommercialContent[county.slug];
 
   // Show sticky nav + Back to Top after scrolling 400px; track active section
   useEffect(() => {
@@ -466,6 +468,29 @@ export function CountyPage({ county }: CountyPageProps) {
           </div>
         </div>
       </section>
+
+      {priorityCommercialContent && (
+        <section className="border-y border-[#2C5F7F]/10 bg-[#eef7fa] py-16" aria-label={`${county.name} commercial project context`}>
+          <div className="container">
+            <div className="max-w-4xl">
+              <p className="text-[#2C5F7F] font-medium mb-2">{priorityCommercialContent.eyebrow}</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1a3d52]" style={{ fontFamily: "'Playfair Display', serif" }}>{priorityCommercialContent.title}</h2>
+              <div className="mt-5 space-y-4 text-gray-700 leading-relaxed">
+                {priorityCommercialContent.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              </div>
+              <div className="mt-8 grid gap-4 md:grid-cols-3">
+                {priorityCommercialContent.links.map((link) => (
+                  <a key={link.href} href={link.href} className="group rounded-xl border border-[#2C5F7F]/15 bg-white p-5 transition hover:-translate-y-0.5 hover:border-[#2C5F7F] hover:shadow-md">
+                    <h3 className="font-bold text-[#1a3d52] group-hover:text-[#2C5F7F]">{link.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600">{link.description}</p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F]">Explore route <ArrowRight className="h-4 w-4" /></span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {countyPillarResources.length > 0 && (
         <section className="py-16 bg-[#f6fafc]" aria-label="Commercial project planning resources">

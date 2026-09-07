@@ -45,6 +45,7 @@ import { getProjectsForCounty } from '@/data/recentProjects';
 import { getCanonicalServicePath } from '@shared/serviceSeoCatalog';
 import { normaliseResponseTimeCopy } from '@shared/seoContentPolicy';
 import { getTierAPillarResources } from '@shared/tierAPillarResources';
+import { priorityTownCommercialContent } from '@shared/priorityLocalSeoContent';
 import { trpc } from "@/lib/trpc";
 import { formatUTMForSubmission } from "@/lib/utm";
 export type { LocationData };
@@ -188,6 +189,7 @@ export function LocationPage({ location }: LocationPageProps) {
     { label: location.name, href: `/service-areas/${location.slug}`, isCurrentPage: true }
   ];
   const locationSpotlight = location.spotlightText || townSpotlight[location.slug];
+  const priorityCommercialContent = priorityTownCommercialContent[location.slug];
   const displayedFaqs = [
     ...(location.uniqueFaqs || []).slice(0, 3).map((faq) => ({
       question: faq.question,
@@ -365,6 +367,24 @@ export function LocationPage({ location }: LocationPageProps) {
                   </div>
                   <p className="text-gray-700 leading-relaxed">{locationSpotlight}</p>
                 </div>
+              )}
+              {priorityCommercialContent && (
+                <section className="mt-8 rounded-2xl border border-[#2C5F7F]/20 bg-[#eef7fa] p-6" aria-label={`${location.name} commercial project context`}>
+                  <p className="text-sm font-semibold uppercase tracking-wide text-[#2C5F7F]">{priorityCommercialContent.eyebrow}</p>
+                  <h2 className="mt-2 text-2xl font-bold text-[#1a3d52]" style={{ fontFamily: "'Playfair Display', serif" }}>{priorityCommercialContent.title}</h2>
+                  <div className="mt-4 space-y-4 text-base leading-relaxed text-slate-700">
+                    {priorityCommercialContent.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                  </div>
+                  <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                    {priorityCommercialContent.links.map((link) => (
+                      <a key={link.href} href={link.href} className="group rounded-xl border border-[#2C5F7F]/15 bg-white p-4 no-underline transition hover:-translate-y-0.5 hover:border-[#2C5F7F] hover:shadow-sm">
+                        <span className="block font-bold text-[#1a3d52] group-hover:text-[#2C5F7F]">{link.title}</span>
+                        <span className="mt-2 block text-sm leading-relaxed text-slate-600">{link.description}</span>
+                        <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#2C5F7F]">Explore route <ArrowRight className="h-4 w-4" /></span>
+                      </a>
+                    ))}
+                  </div>
+                </section>
               )}
             </div>
           </div>

@@ -1,15 +1,12 @@
 /**
- * Dynamic sitemap.xml generator for commercialshotblasting.co.uk
+ * Dynamic sitemap index and child sitemap generators for commercialshotblasting.co.uk.
  *
- * Covers:
- *  - Static pages (home, about, contact, services index, industries index, areas index, blog, reviews)
- *  - 18 service detail pages
- *  - 8 industry pages
- *  - Every registered county hub
- *  - Every current service-area (town) page
+ * The index is the single discovery endpoint. Child sitemaps separate stable core URLs,
+ * county hubs, service-area pages, published articles, and the static image sitemap so
+ * crawlers can fetch the large location catalogue independently of core commercial pages.
  */
 
-import type { Express } from "express";
+import type { Express, Response } from "express";
 import { getPublishedBlogPosts, getActiveGalleryItems } from "./db";
 import { locationSlugIndex } from "../client/src/data/locationSlugIndex";
 import { countyData } from "../client/src/data/countyData";
@@ -19,8 +16,21 @@ import { getLocationSitemapTier, shouldIncludeLocationInSitemap } from "@shared/
 
 const SITE_URL = "https://commercialshotblasting.co.uk";
 const CATALOGUE_BASELINE_LASTMOD = "2026-02-18";
+const GLOSSARY_SLUGS = [
+  "bs-en-iso-8501-1",
+  "dft",
+  "grit-blasting",
+  "intumescent-paint",
+  "mill-scale",
+  "nace",
+  "rust-grade",
+  "sa-2-5",
+  "sa-3",
+  "shot-blasting",
+  "sspc",
+  "surface-profile",
+];
 
-// ── Static pages ──────────────────────────────────────────────────────────────
 const STATIC_PAGES = [
   { loc: "/", changefreq: "weekly", priority: "1.0" },
   { loc: "/about", changefreq: "monthly", priority: "0.7" },
@@ -46,14 +56,12 @@ const STATIC_PAGES = [
   { loc: "/process-pipework-spools-surface-preparation", changefreq: "weekly", priority: "0.8" },
   { loc: "/agricultural-steelwork-grain-store-preparation", changefreq: "weekly", priority: "0.8" },
   { loc: "/container-restoration-storage-steelwork", changefreq: "weekly", priority: "0.8" },
+  { loc: "/mobile-on-site-shot-blasting", changefreq: "weekly", priority: "0.8" },
+  { loc: "/intumescent-paint-for-steel", changefreq: "weekly", priority: "0.8" },
   { loc: "/external-staircases", changefreq: "weekly", priority: "0.8" },
   { loc: "/sitemap", changefreq: "monthly", priority: "0.5" },
 ];
 
-// ── Service pages ─────────────────────────────────────────────────────────────
-const SERVICE_SLUGS = CANONICAL_SERVICE_SLUGS;
-
-// ── Industry pages ────────────────────────────────────────────────────────────
 const INDUSTRY_SLUGS = [
   "manufacturing",
   "construction",
@@ -65,12 +73,14 @@ const INDUSTRY_SLUGS = [
   "transport-logistics",
 ];
 
-function loadTownSlugs(): string[] {
-  return Object.keys(locationSlugIndex);
+type SitemapEntry = { loc: string; lastmod: string; changefreq: string; priority: string };
+
+function today(): string {
+  return new Date().toISOString().split("T")[0];
 }
 
-function escapeXml(str: string): string {
-  return str
+function escapeXml(value: string): string {
+  return value
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -78,137 +88,111 @@ function escapeXml(str: string): string {
     .replace(/'/g, "&apos;");
 }
 
-export async function buildSitemap(): Promise<string> {
-  const townSlugs = loadTownSlugs();
-  const today = new Date().toISOString().split("T")[0];
+function renderUrlSet(entries: SitemapEntry[]): string {
+  const urls = entries.map((entry) => `  <url>\n    <loc>${escapeXml(`${SITE_URL}${entry.loc}`)}</loc>\n    <lastmod>${entry.lastmod}</lastmod>\n    <changefreq>${entry.changefreq}</changefreq>\n    <priority>${entry.priority}</priority>\n  </url>`);
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>`;
+}
 
-  const urls: string[] = [];
+function coreEntries(lastmod: string): SitemapEntry[] {
+  return [
+    ...STATIC_PAGES.map((page) => ({ ...page, lastmod })),
+    ...CANONICAL_SERVICE_SLUGS.map((slug) => ({ loc: `/services/${slug}`, lastmod, changefreq: "monthly", priority: "0.8" })),
+    ...INDUSTRY_SLUGS.map((slug) => ({ loc: `/industries/${slug}`, lastmod, changefreq: "monthly", priority: "0.8" })),
+    ...GLOSSARY_SLUGS.map((slug) => ({ loc: `/glossary/${slug}`, lastmod: "2026-07-14", changefreq: "monthly", priority: "0.6" })),
+  ];
+}
 
-  // Static pages
-  for (const page of STATIC_PAGES) {
-    urls.push(
-      `  <url>\n    <loc>${escapeXml(SITE_URL + page.loc)}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${page.changefreq}</changefreq>\n    <priority>${page.priority}</priority>\n  </url>`
-    );
-  }
-
-  // Service pages
-  for (const slug of SERVICE_SLUGS) {
-    urls.push(
-      `  <url>\n    <loc>${escapeXml(`${SITE_URL}/services/${slug}`)}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`
-    );
-  }
-
-  // Industry pages
-  for (const slug of INDUSTRY_SLUGS) {
-    urls.push(
-      `  <url>\n    <loc>${escapeXml(`${SITE_URL}/industries/${slug}`)}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>`
-    );
-  }
-
-  // County pages derive directly from the registered county page catalogue.
-  // New county hubs are included automatically without editing a separate sitemap list.
-  for (const slug of Object.keys(countyData)) {
-    const lastmod = countyLastModified[slug] ?? CATALOGUE_BASELINE_LASTMOD;
-    urls.push(
-      `  <url>\n    <loc>${escapeXml(`${SITE_URL}/counties/${slug}`)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`
-    );
-  }
-
-  // Town / service-area pages — Tier A commercial hubs receive the strongest crawl
-  // hint. Pages moved to review are held back until evidence-led local copy is ready.
-  for (const slug of townSlugs) {
-    if (!shouldIncludeLocationInSitemap(slug)) continue;
-    const tier = getLocationSitemapTier(slug);
-    const changefreq = tier === "A" ? "weekly" : "monthly";
-    const priority = tier === "A" ? "0.8" : "0.6";
-    const lastmod = locationLastModified[slug] ?? CATALOGUE_BASELINE_LASTMOD;
-    urls.push(
-      `  <url>\n    <loc>${escapeXml(`${SITE_URL}/service-areas/${slug}`)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`
-    );
-  }
-
-  // Gallery page — use most recent gallery item's updatedAt for lastmod
+export async function buildMainSitemap(): Promise<string> {
+  const entries = coreEntries(today());
   try {
     const galleryRows = await getActiveGalleryItems();
     if (galleryRows.length > 0) {
-      const latestGallery = galleryRows.reduce((a, b) =>
-        new Date(a.updatedAt) > new Date(b.updatedAt) ? a : b
-      );
-      const galleryLastmod = new Date(latestGallery.updatedAt).toISOString().split("T")[0];
-      // Update the /gallery and /our-work static entries with real lastmod
-      const galleryIdx = urls.findIndex(u => u.includes(`${SITE_URL}/gallery`));
-      if (galleryIdx >= 0) {
-        urls[galleryIdx] = urls[galleryIdx].replace(
-          /<lastmod>[^<]+<\/lastmod>/,
-          `<lastmod>${galleryLastmod}</lastmod>`
-        );
-      }
-      const ourWorkIdx = urls.findIndex(u => u.includes(`${SITE_URL}/our-work`));
-      if (ourWorkIdx >= 0) {
-        urls[ourWorkIdx] = urls[ourWorkIdx].replace(
-          /<lastmod>[^<]+<\/lastmod>/,
-          `<lastmod>${galleryLastmod}</lastmod>`
-        );
+      const latest = galleryRows.reduce((a, b) => new Date(a.updatedAt) > new Date(b.updatedAt) ? a : b);
+      const galleryLastmod = new Date(latest.updatedAt).toISOString().split("T")[0];
+      for (const entry of entries) {
+        if (entry.loc === "/our-work") entry.lastmod = galleryLastmod;
       }
     }
   } catch (err) {
     console.error("[Sitemap] Failed to load gallery items:", err);
   }
+  return renderUrlSet(entries);
+}
 
-  // Blog post pages — use real updatedAt for lastmod
+export function buildCountySitemap(): string {
+  return renderUrlSet(Object.keys(countyData).map((slug) => ({
+    loc: `/counties/${slug}`,
+    lastmod: countyLastModified[slug] ?? CATALOGUE_BASELINE_LASTMOD,
+    changefreq: "monthly",
+    priority: "0.7",
+  })));
+}
+
+export function buildServiceAreaSitemap(): string {
+  return renderUrlSet(Object.keys(locationSlugIndex).flatMap((slug) => {
+    if (!shouldIncludeLocationInSitemap(slug)) return [];
+    const tier = getLocationSitemapTier(slug);
+    return [{
+      loc: `/service-areas/${slug}`,
+      lastmod: locationLastModified[slug] ?? CATALOGUE_BASELINE_LASTMOD,
+      changefreq: tier === "A" ? "weekly" : "monthly",
+      priority: tier === "A" ? "0.8" : "0.6",
+    }];
+  }));
+}
+
+export async function buildBlogSitemap(): Promise<string> {
   try {
     const posts = await getPublishedBlogPosts();
-    for (const post of posts) {
-      const lastmod = post.updatedAt
+    return renderUrlSet(posts.map((post) => ({
+      loc: `/blog/${post.slug}`,
+      lastmod: post.updatedAt
         ? new Date(post.updatedAt).toISOString().split("T")[0]
         : post.createdAt
           ? new Date(post.createdAt).toISOString().split("T")[0]
-          : today;
-      urls.push(
-        `  <url>\n    <loc>${escapeXml(`${SITE_URL}/blog/${post.slug}`)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`
-      );
-    }
+          : today(),
+      changefreq: "weekly",
+      priority: "0.7",
+    })));
   } catch (err) {
     console.error("[Sitemap] Failed to load blog posts:", err);
+    return renderUrlSet([]);
   }
+}
 
-  // Glossary term pages
-  const GLOSSARY_SLUGS = [
-    "bs-en-iso-8501-1",
-    "dft",
-    "grit-blasting",
-    "intumescent-paint",
-    "mill-scale",
-    "nace",
-    "rust-grade",
-    "sa-2-5",
-    "sa-3",
-    "shot-blasting",
-    "sspc",
-    "surface-profile",
+export function buildSitemapIndex(): string {
+  const lastmod = today();
+  const children = [
+    "/sitemap-main.xml",
+    "/sitemap-counties.xml",
+    "/sitemap-service-areas.xml",
+    "/sitemap-blog.xml",
+    "/sitemap-images.xml",
   ];
-  for (const slug of GLOSSARY_SLUGS) {
-    urls.push(
-      `  <url>\n    <loc>${escapeXml(`${SITE_URL}/glossary/${slug}`)}</loc>\n    <lastmod>2026-07-14</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`
-    );
-  }
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${children.map((child) => `  <sitemap>\n    <loc>${SITE_URL}${child}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </sitemap>`).join("\n")}\n</sitemapindex>`;
+}
 
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.join("\n")}
-</urlset>`;
+/** Compatibility export retained for callers that previously requested the primary sitemap. */
+export async function buildSitemap(): Promise<string> {
+  return buildSitemapIndex();
+}
+
+function sendXml(res: Response, xml: string): void {
+  res.set("Content-Type", "application/xml; charset=utf-8");
+  res.set("Cache-Control", "public, max-age=3600");
+  res.send(xml);
 }
 
 export function registerSitemapRoute(app: Express): void {
-  app.get("/sitemap.xml", async (_req, res) => {
-    try {
-      const xml = await buildSitemap();
-      res.set("Content-Type", "application/xml; charset=utf-8");
-      res.set("Cache-Control", "public, max-age=3600"); // cache 1 hour
-      res.send(xml);
-    } catch (err) {
-      console.error("[Sitemap] Generation error:", err);
-      res.status(500).send("Sitemap generation failed");
-    }
+  app.get("/sitemap.xml", (_req, res) => sendXml(res, buildSitemapIndex()));
+  app.get("/sitemap-main.xml", async (_req, res) => {
+    try { sendXml(res, await buildMainSitemap()); }
+    catch (err) { console.error("[Sitemap] Main generation error:", err); res.status(500).send("Sitemap generation failed"); }
+  });
+  app.get("/sitemap-counties.xml", (_req, res) => sendXml(res, buildCountySitemap()));
+  app.get("/sitemap-service-areas.xml", (_req, res) => sendXml(res, buildServiceAreaSitemap()));
+  app.get("/sitemap-blog.xml", async (_req, res) => {
+    try { sendXml(res, await buildBlogSitemap()); }
+    catch (err) { console.error("[Sitemap] Blog generation error:", err); res.status(500).send("Sitemap generation failed"); }
   });
 }

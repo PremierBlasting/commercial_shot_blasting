@@ -14,6 +14,7 @@ import { NearbyTowns } from "@/components/NearbyTowns";
 import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
 import { LeadForm } from "@/components/LeadForm";
+import { PriorityLocalCommercialContext } from "@/components/PriorityLocalCommercialContext";
 
 export default function BristolServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -101,18 +102,6 @@ export default function BristolServiceArea() {
     }
   }, []);
 
-  useEffect(() => {
-    const faqSchema = document.createElement('script');
-    faqSchema.type = 'application/ld+json';
-    faqSchema.id = 'faq-schema';
-    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can you provide a quote for Bristol projects?","acceptedAnswer":{"@type":"Answer","text":"We typically provide same-day quotes for Bristol area projects. Contact us with your project details and we'll respond within hours."}},{"@type":"Question","name":"Do you service all areas of Bristol?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide comprehensive coverage throughout Bristol and the surrounding South West region. We handle projects of all sizes from small components to large industrial equipment."}},{"@type":"Question","name":"What types of surfaces can you blast?","acceptedAnswer":{"@type":"Answer","text":"We can blast steel, cast iron, aluminum, concrete, and many other surfaces. Our equipment is versatile and can handle various materials and coating types."}},{"@type":"Question","name":"Are your services environmentally friendly?","acceptedAnswer":{"@type":"Answer","text":"Yes, we fully comply with UK waste management practices and use waste management practices. We can discuss specific project requirements for your project."}},{"@type":"Question","name":"Can you handle urgent or emergency projects?","acceptedAnswer":{"@type":"Answer","text":"We often accommodate urgent projects. Contact us directly to discuss your timeline and we'll do our best to accommodate your needs."}}]}`;
-    document.head.appendChild(faqSchema);
-    return () => {
-      const el = document.getElementById('faq-schema');
-      if (el) el.remove();
-    };
-  }, []);
-
   return (
     <div className="min-h-screen bg-white">
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
@@ -140,7 +129,7 @@ export default function BristolServiceArea() {
             Shot Blasting Services in Bristol
           </h1>
           <p className="text-lg text-white/90 mb-8">
-            Bristol's aerospace and advanced engineering cluster — centred on Filton and the Avonmouth docks — creates specialist demand for high-standard surface preparation. We serve fabricators, marine operators, and construction contractors across the Bristol and South West region.
+            Bristol’s Avonmouth and Severnside Enterprise Area includes established industrial and distribution activity. For commercial steelwork, cladding, plant, and warehouse-maintenance scopes, the practical discussion starts with access, existing condition, containment, and the intended coating handover.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
@@ -161,45 +150,47 @@ export default function BristolServiceArea() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div className="flex items-center gap-3">
               <span className="text-xs font-semibold uppercase tracking-wider text-white/70">Primary sector</span>
-              <span className="text-sm font-semibold text-white bg-white/20 px-3 py-1 rounded-full">Aerospace & Marine</span>
+              <span className="text-sm font-semibold text-white bg-white/20 px-3 py-1 rounded-full">Distribution & Industrial</span>
             </div>
-            <p className="text-sm text-white/90 max-w-2xl">We regularly work with aerospace subcontractors in the Filton corridor, marine operators at Avonmouth Docks, and structural steel contractors on Bristol's Temple Quarter regeneration.</p>
+            <p className="text-sm text-white/90 max-w-2xl">Use a Site Visit to review the asset, access, working area, surface condition, operational interfaces, and the planned next coating or project stage.</p>
             <div className="flex-shrink-0 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-center">
-              <div className="text-xs text-white/70 uppercase tracking-wider">Midlands base</div>
-              <div className="text-sm font-bold text-white">~1 hr 30 mins to Bristol</div>
+              <div className="text-xs text-white/70 uppercase tracking-wider">Project approach</div>
+              <div className="text-sm font-bold text-white">Site-specific planning</div>
             </div>
           </div>
         </div>
-      </section>{/* About Bristol Service Area */}
+      </section>
+      <PriorityLocalCommercialContext locationSlug="bristol" />
+      {/* About Bristol Service Area */}
       <section className="py-16 bg-[#F5F1E8]">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Your Local Shot Blasting Experts in Bristol
+                Commercial Surface Preparation for Bristol Projects
               </h2>
               <p className="text-gray-700 mb-4">
-                Commercial Shot Blasting has been serving Bristol businesses for years, providing professional surface preparation services to the region's leading manufacturers, engineering companies, and industrial facilities.
+                Bristol’s commercial sites range from industrial and distribution areas to fabrication and building-refurbishment projects. The relevant surface-preparation scope depends on the actual asset, access, working area, existing condition, and intended next stage.
               </p>
               <p className="text-gray-700 mb-6">
-                Bristol's growing industrial and aerospace sectors rely on our expertise for precision surface preparation. Whether you need rust removal, paint stripping, or concrete surface profiling, we have the equipment and experience to deliver exceptional results.
+                Sharing clear photographs, drawings or dimensions where available, operational constraints, and coating requirements gives the Site Visit discussion a stronger starting point. We will get back to you promptly.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Same-day quotes for Bristol area projects</span>
+                  <span className="text-gray-700">Project-specific Site Visit discussion</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Flexible scheduling to minimize business disruption</span>
+                  <span className="text-gray-700">Access and operational-interface review</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Professional safety practices</span>
+                  <span className="text-gray-700">Condition and coating-handover planning</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Competitive pricing for Bristol businesses</span>
+                  <span className="text-gray-700">Clear scope inputs before work is agreed</span>
                 </li>
               </ul>
             </div>
@@ -212,8 +203,8 @@ export default function BristolServiceArea() {
                   height={600}
                 />
               <div className="absolute bottom-0 right-0 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg max-w-xs">
-                <p className="font-semibold mb-2">Serving Bristol Since</p>
-                <p className="text-3xl font-bold">2015+</p>
+                <p className="font-semibold mb-2">Commercial project</p>
+                <p className="text-3xl font-bold">planning</p>
               </div>
             </div>
           </div>

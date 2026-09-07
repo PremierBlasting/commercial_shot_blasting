@@ -193,11 +193,6 @@ async function startServer() {
   );
   // Sitemap
   registerSitemapRoute(app);
-  // Static page sitemaps are retained as SEO-safe redirects so prior Search Console
-  // submissions continue to resolve, while crawlers use the current full dynamic sitemap.
-  app.get(["/sitemap-main.xml", "/sitemap-service-areas.xml", "/sitemap-counties.xml"], (_req, res) => {
-    res.redirect(301, "/sitemap.xml");
-  });
   // Dynamic OG images for county and town pages
   registerOgImageRoute(app);
 
@@ -212,9 +207,8 @@ async function startServer() {
       "Disallow: /api/\n" +
       "Disallow: /manus-storage/\n" +
       "\n" +
-      "# Canonical page sitemap and separate image sitemap\n" +
-      "Sitemap: https://commercialshotblasting.co.uk/sitemap.xml\n" +
-      "Sitemap: https://commercialshotblasting.co.uk/sitemap-images.xml\n"
+      "# Sitemap index (lists canonical main, county, service-area, blog, and image child sitemaps)\n" +
+      "Sitemap: https://commercialshotblasting.co.uk/sitemap.xml\n"
     );
   });
 

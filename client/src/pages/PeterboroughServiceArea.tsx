@@ -17,6 +17,7 @@ import { NearbyTowns } from "@/components/NearbyTowns";
 import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
 import { LeadForm } from "@/components/LeadForm";
+import { PriorityLocalCommercialContext } from "@/components/PriorityLocalCommercialContext";
 export default function PeterboroughServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
@@ -102,18 +103,6 @@ export default function PeterboroughServiceArea() {
     }
   }, []);
 
-  useEffect(() => {
-    const faqSchema = document.createElement('script');
-    faqSchema.type = 'application/ld+json';
-    faqSchema.id = 'faq-schema';
-    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can you provide a quote for Peterborough projects?","acceptedAnswer":{"@type":"Answer","text":"We typically provide same-day quotes for Peterborough area projects. Contact us with your project details and we'll respond within hours."}},{"@type":"Question","name":"Do you service all areas of Peterborough?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide comprehensive coverage throughout Peterborough and the surrounding East of England region. We handle projects of all sizes from small components to large industrial equipment."}},{"@type":"Question","name":"What types of surfaces can you blast?","acceptedAnswer":{"@type":"Answer","text":"We can blast steel, cast iron, aluminum, concrete, and many other surfaces. Our equipment is versatile and can handle various materials and coating types."}},{"@type":"Question","name":"Are your services environmentally friendly?","acceptedAnswer":{"@type":"Answer","text":"Yes, we fully comply with UK waste management practices and use waste management practices. We can discuss specific project requirements for your project."}},{"@type":"Question","name":"Can you handle urgent or emergency projects?","acceptedAnswer":{"@type":"Answer","text":"We often accommodate urgent projects. Contact us directly to discuss your timeline and we'll do our best to accommodate your needs."}}]}`;
-    document.head.appendChild(faqSchema);
-    return () => {
-      const el = document.getElementById('faq-schema');
-      if (el) el.remove();
-    };
-  }, []);
-
   return (
     <div className="min-h-screen bg-white">
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
@@ -141,7 +130,7 @@ export default function PeterboroughServiceArea() {
             Shot Blasting Services in Peterborough
           </h1>
           <p className="text-lg text-white/90 mb-8">
-            Peterborough's strategic location at the gateway to the Fens makes it a hub for agricultural machinery, food processing, and logistics operations — all of which require regular surface preparation. We serve farm equipment operators, food manufacturers, and construction contractors across the Peterborough area.
+            Peterborough includes established industrial and warehouse space at Orton Southgate, close to Junction 17 of the A1(M). For a commercial steelwork, cladding, or maintenance scope, access, working area, existing condition, and the intended finish are useful early project inputs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="bg-white text-[#2C5F7F] hover:bg-[#F5F1E8]" onClick={() => setQuotePopupOpen(true)}>
@@ -162,45 +151,47 @@ export default function PeterboroughServiceArea() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div className="flex items-center gap-3">
               <span className="text-xs font-semibold uppercase tracking-wider text-white/70">Primary sector</span>
-              <span className="text-sm font-semibold text-white bg-white/20 px-3 py-1 rounded-full">Agriculture & Food Processing</span>
+              <span className="text-sm font-semibold text-white bg-white/20 px-3 py-1 rounded-full">Industrial & Warehouse</span>
             </div>
-            <p className="text-sm text-white/90 max-w-2xl">We regularly work with agricultural machinery operators across the Cambridgeshire Fens, food processing plants in the Peterborough Gateway corridor, and structural steel contractors on the Fletton Quays development.</p>
+            <p className="text-sm text-white/90 max-w-2xl">A Site Visit can establish the asset, condition, access, material movement, operational interfaces, containment needs, and the planned next coating stage for the specific commercial site.</p>
             <div className="flex-shrink-0 bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-center">
-              <div className="text-xs text-white/70 uppercase tracking-wider">Midlands base</div>
-              <div className="text-sm font-bold text-white">~1 hr to Peterborough</div>
+              <div className="text-xs text-white/70 uppercase tracking-wider">Project approach</div>
+              <div className="text-sm font-bold text-white">Site-specific planning</div>
             </div>
           </div>
         </div>
-      </section>{/* About Peterborough Service Area */}
+      </section>
+      <PriorityLocalCommercialContext locationSlug="peterborough" />
+      {/* About Peterborough Service Area */}
       <section className="py-16 bg-[#F5F1E8]">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Your Local Shot Blasting Experts in Peterborough
+                Commercial Surface Preparation for Peterborough Projects
               </h2>
               <p className="text-gray-700 mb-4">
-                Commercial Shot Blasting has been serving Peterborough businesses for years, providing professional surface preparation services to the region's leading manufacturers, automotive restoration specialists, and industrial facilities.
+                Peterborough’s industrial and warehouse locations include steel-frame and profile-steel-cladding units. The appropriate preparation discussion is specific to the asset, current condition, access arrangement, active operations, and planned coating or project handover.
               </p>
               <p className="text-gray-700 mb-6">
-                Peterborough's thriving manufacturing and automotive sectors rely on our expertise for precision surface preparation. Whether you need rust removal, paint stripping, or concrete surface profiling, we have the equipment and experience to deliver exceptional results.
+                Provide photographs, drawings or dimensions where available, access notes, material-movement considerations, and the intended next stage to make the initial Site Visit conversation more specific. We will get back to you promptly.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Same-day quotes for Peterborough area projects</span>
+                  <span className="text-gray-700">Project-specific Site Visit discussion</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Flexible scheduling to minimize business disruption</span>
+                  <span className="text-gray-700">Access and operational-interface review</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Professional safety practices</span>
+                  <span className="text-gray-700">Condition and coating-handover planning</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Competitive pricing for Peterborough businesses</span>
+                  <span className="text-gray-700">Clear scope inputs before work is agreed</span>
                 </li>
               </ul>
             </div>
@@ -213,8 +204,8 @@ export default function PeterboroughServiceArea() {
                   height={600}
                 />
               <div className="absolute bottom-0 right-0 bg-[#2C5F7F] text-white p-6 rounded-lg shadow-lg max-w-xs">
-                <p className="font-semibold mb-2">Serving Peterborough Since</p>
-                <p className="text-3xl font-bold">2015+</p>
+                <p className="font-semibold mb-2">Commercial project</p>
+                <p className="text-3xl font-bold">planning</p>
               </div>
             </div>
           </div>

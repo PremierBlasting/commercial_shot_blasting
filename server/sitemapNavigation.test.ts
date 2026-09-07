@@ -17,12 +17,14 @@ describe("sitemap navigation and consolidation", () => {
     expect(Object.keys(countyData).length).toBeGreaterThan(40);
   });
 
-  it("redirects stale static page sitemaps while retaining the image sitemap", () => {
+  it("serves distinct child sitemaps from the sitemap index while retaining the image sitemap", () => {
     const serverEntry = readFileSync(resolve(projectRoot, "server/_core/index.ts"), "utf8");
-    expect(serverEntry).toContain('"/sitemap-main.xml", "/sitemap-service-areas.xml", "/sitemap-counties.xml"');
-    expect(serverEntry).toContain('res.redirect(301, "/sitemap.xml")');
-    expect(serverEntry).not.toContain('"/sitemap-images.xml"');
-    expect(serverEntry).toContain("Sitemap: https://commercialshotblasting.co.uk/sitemap-images.xml");
+    const sitemapSource = readFileSync(resolve(projectRoot, "server/sitemap.ts"), "utf8");
+    expect(serverEntry).not.toContain('res.redirect(301, "/sitemap.xml")');
+    for (const child of ["/sitemap-main.xml", "/sitemap-service-areas.xml", "/sitemap-counties.xml", "/sitemap-blog.xml", "/sitemap-images.xml"]) {
+      expect(sitemapSource).toContain(child);
+    }
+    expect(serverEntry).toContain("Sitemap: https://commercialshotblasting.co.uk/sitemap.xml");
   });
 
   it("keeps timestamp generation available without requiring git in production builds", () => {

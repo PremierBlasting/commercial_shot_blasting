@@ -82,7 +82,20 @@ const commercialResourceClusters = [
       { label: "Steel fabrication & structural steel planning hub", href: "/steel-fabrication-surface-preparation" },
       { label: "Structural steel shot blasting", href: "/services/structural-steel-frames" },
       { label: "Intumescent painting preparation", href: "/services/intumescent-painting" },
+      { label: "Intumescent paint for steel planning hub", href: "/intumescent-paint-for-steel" },
       { label: "Prepare structural steel for intumescent paint", href: "/blog/how-to-prepare-structural-steel-for-intumescent-painting" },
+    ],
+  },
+  {
+    eyebrow: "Mobile & On-Site Surface Preparation",
+    title: "Plan commercial on-site blasting around access, operations, and coating handover",
+    description: "Use the mobile-blasting hub to structure a Site Visit around the asset, working area, access, containment, existing condition, and intended next stage.",
+    links: [
+      { label: "Mobile & on-site shot blasting planning hub", href: "/mobile-on-site-shot-blasting" },
+      { label: "Structural steel frames", href: "/services/structural-steel-frames" },
+      { label: "Factory & warehouse cladding", href: "/services/factory-cladding" },
+      { label: "Steel container blasting", href: "/services/steel-containers" },
+      { label: "Request a Site Visit", href: "/site-survey" },
     ],
   },
   {

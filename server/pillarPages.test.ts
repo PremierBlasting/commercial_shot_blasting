@@ -26,6 +26,8 @@ describe("phase-one pillar page SSR", () => {
     ["/process-pipework-spools-surface-preparation", "Process Pipework, Spools & Support Steelwork Surface Preparation"],
     ["/agricultural-steelwork-grain-store-preparation", "Agricultural Steelwork & Grain Store Surface Preparation"],
     ["/container-restoration-storage-steelwork", "Container Restoration & Storage Steelwork Surface Preparation"],
+    ["/mobile-on-site-shot-blasting", "Mobile & On-Site Shot Blasting for Commercial Projects"],
+    ["/intumescent-paint-for-steel", "Intumescent Paint for Steel: Preparation & Handover Planning"],
   ] as const;
 
   it.each(pages)("emits canonical metadata, schema, and substantive SSR content for %s", async (path, heading) => {
@@ -95,6 +97,14 @@ describe("phase-one pillar page SSR", () => {
     expect(html).toContain("returned to Sa 2.5 and recoated on site");
     expect(html).toContain("does not establish a depot location, programme, client, coating product, or further fleet claims");
     expect(html).toContain("/services/steel-containers");
+  });
+
+  it("keeps the intumescent-steel hub tied to the approved HB Tunnelling project evidence", async () => {
+    const html = await injectMetaTags(baseHtml, "/intumescent-paint-for-steel");
+
+    expect(html).toContain("primer applied immediately after preparation to protect coating adhesion");
+    expect(html).toContain("five-person multi-skilled team");
+    expect(html).toContain("/case-studies/hb-tunnelling-doncaster");
   });
 
   it("selects industry resources with tailored enquiry prompts while leaving unrelated industry hubs unchanged", () => {
