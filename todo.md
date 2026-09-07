@@ -1762,6 +1762,11 @@
 - [x] Apply the evidence-based canonical, redirect, sitemap, or crawlability correction without disturbing live location coverage
 - [x] Validate affected live URLs and SEO outputs, publish the fix, and document the outcome
 
+## Full Data-Backed SEO Analysis (7 September 2026)
+- [x] Audit current search visibility, keyword opportunities, competitors, backlinks, and technical SEO using the connected SEO data source and live-site evidence
+- [x] Analyse the evidence into prioritised traffic-growth opportunities that protect existing lead and conversion routes
+- [x] Deliver a practical 90-day SEO roadmap with clear ownership, expected impact, and measurement criteria
+
 ## Revised Capability Statement Draft (26 August 2026)
 - [x] Create a review-ready revised Commercial Capability Statement PDF that replaces the outdated CHAS wording and correctly presents Commercial Shot Blasting as the commercial arm of Premier Blasting
 - [x] Preserve only user-supplied operational, insurance, resource, and case-study claims, with all time-sensitive figures clearly flagged for approval before publication
