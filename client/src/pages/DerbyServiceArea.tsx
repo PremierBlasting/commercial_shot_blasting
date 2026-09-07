@@ -17,6 +17,7 @@ import { locationData } from "@/data/locationData";
 import { LocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { LeadForm } from "@/components/LeadForm";
+import { PriorityLocalCommercialContext } from "@/components/PriorityLocalCommercialContext";
 
 export default function DerbyServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -486,6 +487,8 @@ export default function DerbyServiceArea() {
           </div>
         </div>
       </section>
+
+      <PriorityLocalCommercialContext locationSlug="derby" />
 
       {/* Contact Section (Keep as is) */}
       <section id="contact" className="py-20 bg-white">

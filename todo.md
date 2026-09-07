@@ -1773,6 +1773,13 @@
 - [x] Build crawler-ready commercial Mobile / On-Site Blasting and Intumescent Paint for Steel hubs with approved evidence, metadata, structured data, relevant internal links, and Request A Site Visit conversion paths
 - [x] Add regression coverage and validate sitemap endpoints, priority locations, new service hubs, TypeScript, focused tests, production build, and responsive routes before publication; focused SEO tests pass, while the unrelated live HubSpot PB credential check remains 401 in the full suite
 
+## Next SEO Growth Sprint (7 September 2026)
+- [x] Submit the live sitemap index to Google Search Console and record the initial child-sitemap fetch status; Search Console accepted the canonical full sitemap-index URL
+- [ ] Request alternate-canonical validation when Search Console exposes the issue-detail row; the current virtualised report summary did not make its validation control accessible after the authorised submission
+- [x] Publish two evidence-led supporting articles for mobile on-site blasting and intumescent-steel specification intent with contextual links to the new hubs and Site Visit flow
+- [x] Select and refresh Chesterfield, Sheffield, Bradford, and Derby as the next near-page-one local service pages with source-backed commercial context and related internal links
+- [x] Add regression coverage and validate sitemap submission status, article and local-page routes, TypeScript, focused tests, production build, and responsive layouts before publication; 271 tests pass, while the unchanged live HubSpot PB credential check returns 401
+
 ## Revised Capability Statement Draft (26 August 2026)
 - [x] Create a review-ready revised Commercial Capability Statement PDF that replaces the outdated CHAS wording and correctly presents Commercial Shot Blasting as the commercial arm of Premier Blasting
 - [x] Preserve only user-supplied operational, insurance, resource, and case-study claims, with all time-sensitive figures clearly flagged for approval before publication

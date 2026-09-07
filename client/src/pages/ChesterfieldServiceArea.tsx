@@ -16,6 +16,7 @@ import { NearbyTowns } from "@/components/NearbyTowns";
 import { nearbyTownsData } from "@/data/nearbyTowns";
 import { locationData } from "@/data/locationData";
 import { LeadForm } from "@/components/LeadForm";
+import { PriorityLocalCommercialContext } from "@/components/PriorityLocalCommercialContext";
 export default function ChesterfieldServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
@@ -105,7 +106,7 @@ export default function ChesterfieldServiceArea() {
     const faqSchema = document.createElement('script');
     faqSchema.type = 'application/ld+json';
     faqSchema.id = 'faq-schema';
-    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly can you provide a quote for Chesterfield projects?","acceptedAnswer":{"@type":"Answer","text":"We typically provide same-day quotes for Chesterfield area projects. Contact us with your project details and we'll respond within hours."}},{"@type":"Question","name":"Do you service all areas of Chesterfield?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide comprehensive coverage throughout Chesterfield and the surrounding East Midlands region. We handle projects of all sizes from small components to large industrial equipment."}},{"@type":"Question","name":"What types of surfaces can you blast?","acceptedAnswer":{"@type":"Answer","text":"We can blast steel, cast iron, aluminum, concrete, and many other surfaces. Our equipment is versatile and can handle various materials and coating types."}},{"@type":"Question","name":"Are your services environmentally friendly?","acceptedAnswer":{"@type":"Answer","text":"Yes, we fully comply with UK waste management practices and use waste management practices. We can discuss specific project requirements for your project."}},{"@type":"Question","name":"Can you handle urgent or emergency projects?","acceptedAnswer":{"@type":"Answer","text":"We often accommodate urgent projects. Contact us directly to discuss your timeline and we'll do our best to accommodate your needs."}}]}`;
+    faqSchema.textContent = `{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How can I discuss a Chesterfield project?","acceptedAnswer":{"@type":"Answer","text":"Share your project details, photographs, access information, and intended next stage. We will get back to you promptly to discuss the practical scope and a Site Visit where appropriate."}},{"@type":"Question","name":"Do you service all areas of Chesterfield?","acceptedAnswer":{"@type":"Answer","text":"We provide commercial shot blasting coverage throughout Chesterfield and the surrounding East Midlands region. A Site Visit can confirm the asset, access, working area, condition, and next project stage."}},{"@type":"Question","name":"What types of surfaces can you blast?","acceptedAnswer":{"@type":"Answer","text":"Commercial discussions can cover steelwork, cast iron, concrete, and other suitable surfaces. The appropriate preparation route depends on the asset, existing condition, access, intended coating, and project requirements."}},{"@type":"Question","name":"What should be included with a Chesterfield enquiry?","acceptedAnswer":{"@type":"Answer","text":"Photographs, drawings or dimensions, current condition, access notes, working-area constraints, nearby operations, and the intended next stage help make an initial discussion more useful."}},{"@type":"Question","name":"Can urgent programme requirements be discussed?","acceptedAnswer":{"@type":"Answer","text":"Yes. Share the relevant programme constraints, access, asset condition, and project interfaces so the practical requirements can be considered."}}]}`;
     document.head.appendChild(faqSchema);
     return () => {
       const el = document.getElementById('faq-schema');
@@ -187,7 +188,7 @@ export default function ChesterfieldServiceArea() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Same-day quotes for Chesterfield area projects</span>
+                  <span className="text-gray-700">Project-specific Site Visit discussions for Chesterfield commercial work</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-[#2C5F7F] flex-shrink-0 mt-0.5" />
@@ -512,8 +513,8 @@ export default function ChesterfieldServiceArea() {
           <div className="max-w-3xl mx-auto space-y-6">
             {[
               {
-                q: "How quickly can you provide a quote for Chesterfield projects?",
-                a: "We typically provide same-day quotes for Chesterfield area projects. Contact us with your project details and we'll respond within hours."
+                q: "How can I discuss a Chesterfield project?",
+                a: "Share your project details, photographs, access information, and intended next stage. We will get back to you promptly to discuss the practical scope and a Site Visit where appropriate."
               },
               {
                 q: "Do you service all areas of Chesterfield?",
@@ -560,6 +561,8 @@ export default function ChesterfieldServiceArea() {
         locationName={nearbyTownsData["chesterfield"].location}
         towns={nearbyTownsData["chesterfield"].towns}
       />
+
+      <PriorityLocalCommercialContext locationSlug="chesterfield" />
 
       {/* Contact Form Section */}
       <section id="contact" className="py-20 bg-white">

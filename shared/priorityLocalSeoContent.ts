@@ -38,6 +38,58 @@ export const priorityTownCommercialContent: Record<string, PriorityCommercialCon
       { title: "Intumescent Paint for Steel", href: "/intumescent-paint-for-steel", description: "For preparation and handover planning before fire-protective coating work." },
     ],
   },
+  chesterfield: {
+    eyebrow: "Commercial site context",
+    title: "Planning surface preparation around Chesterfield’s industrial and logistics sites",
+    paragraphs: [
+      "Derbyshire County Council describes Markham Vale as an 85-hectare business park with more than 70 businesses, commercial floor space, transport links, and a new motorway junction. That is useful commercial context when a fabrication, warehouse, access-steel, cladding, or plant-maintenance scope needs a practical discussion around the working area and the next project stage.",
+      "A Site Visit can establish the asset, current condition, access, neighbouring operations, protection of adjacent work, containment needs, and intended coating handover before a surface-preparation scope is agreed. The specialist routes below explain the planning information that can help the right project discussion take place.",
+    ],
+    links: [
+      { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For on-site access, containment, and commercial interface planning." },
+      { title: "Structural Steel Frames", href: "/services/structural-steel-frames", description: "For frames, beams, columns, and coating-readiness planning." },
+      { title: "Intumescent Paint for Steel", href: "/intumescent-paint-for-steel", description: "For steel-preparation and fire-protective coating handover planning." },
+    ],
+  },
+  sheffield: {
+    eyebrow: "Commercial manufacturing context",
+    title: "Planning commercial steelwork preparation around Sheffield’s manufacturing cluster",
+    paragraphs: [
+      "South Yorkshire Invest identifies the Advanced Manufacturing Innovation District as the United Kingdom’s largest research-led advanced-manufacturing cluster, with the University of Sheffield Advanced Manufacturing Research Centre among its facilities. This provides useful context for commercial teams planning surface preparation around fabricated steel, structural frames, maintenance assets, and the next protective-coating stage.",
+      "The project-specific discussion should still start with the asset, accessible faces, surface condition, photographs, access, working levels, active operations, containment, inspection requirements, and programme interfaces. A Site Visit can consider those practical conditions before a method or schedule is assumed.",
+    ],
+    links: [
+      { title: "Steel Fabrication Surface Preparation", href: "/steel-fabrication-surface-preparation", description: "Planning support for fabricated steel, mill scale, and coating readiness." },
+      { title: "Intumescent Paint for Steel", href: "/intumescent-paint-for-steel", description: "For coordinated preparation and fire-protective coating handover." },
+      { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For working-area, access, containment, and programme inputs." },
+    ],
+  },
+  bradford: {
+    eyebrow: "Commercial site context",
+    title: "Planning industrial surface preparation across Bradford’s commercial premises",
+    paragraphs: [
+      "Bradford Council states that Invest in Bradford maintains a commercial-premises database and supports businesses moving to or expanding in the district. For industrial and commercial site teams, that is a reminder that access, operational interfaces, asset condition, and the next coating stage should be considered together when a surface-preparation scope is being explored.",
+      "Photographs, drawings or dimensions, current coating condition, access routes, nearby activities, and the intended finish help make an initial Site Visit discussion more useful. The specialist routes below separate the most relevant planning paths without assuming a one-size-fits-all approach for every commercial asset.",
+    ],
+    links: [
+      { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For access, containment, and working-area planning at a live commercial site." },
+      { title: "Factory Cladding Restoration", href: "/factory-cladding-restoration", description: "For coated factory and warehouse-building envelope planning." },
+      { title: "Structural Steel Frames", href: "/services/structural-steel-frames", description: "For commercial steel frames and associated preparation inputs." },
+    ],
+  },
+  derby: {
+    eyebrow: "Commercial manufacturing context",
+    title: "Planning surface preparation around Derby’s advanced-manufacturing setting",
+    paragraphs: [
+      "Derby City Council describes Infinity Park Derby as a commercial and technology development with industrial-distribution plots and links to the city’s advanced-manufacturing setting. That is relevant local context for contractors, fabricators, and facilities teams discussing structural steel, plant, access steel, or coating-preparation work around a commercial project.",
+      "A project-specific review should confirm the steelwork, existing condition, accessible surfaces, access arrangements, active operations, protection of adjacent work, inspection expectations, intended primer or coating stage, and handover process. A Site Visit can then focus on the information that is relevant to the actual scope.",
+    ],
+    links: [
+      { title: "Structural Steel Frames", href: "/services/structural-steel-frames", description: "For steel-frame preparation and coating-readiness planning." },
+      { title: "Intumescent Paint for Steel", href: "/intumescent-paint-for-steel", description: "For preparation and handover before fire-protective coating work." },
+      { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For on-site access, containment, and programme considerations." },
+    ],
+  },
 };
 
 export const priorityCountyCommercialContent: Record<string, PriorityCommercialContent> = {

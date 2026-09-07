@@ -369,9 +369,9 @@ export const pillarPages: PillarPageData[] = [
       { title: "Plant & Machinery", href: "/services/plant-machinery", description: "For plant and equipment where transport, access, and working conditions need review." },
     ],
     resourceLinks: [
+      { title: "Mobile and on-site blasting planning guide", href: "/blog/mobile-on-site-shot-blasting-project-planning-guide", description: "A practical checklist for asset, access, containment, coating-handover, and programme inputs." },
       { title: "Steel fabrication surface-preparation hub", href: "/steel-fabrication-surface-preparation", description: "Planning support for fabricated and structural-steel packages." },
       { title: "Industrial steelwork restoration hub", href: "/industrial-steelwork-restoration", description: "Related guidance for corrosion and refurbishment scopes." },
-      { title: "Shot blasting versus chemical stripping", href: "/blog/shot-blasting-vs-chemical-stripping", description: "A decision guide for comparing preparation routes when coating removal is part of the brief." },
       { title: "Request A Site Visit", href: "/site-survey", description: "Share the asset, access, condition, project photographs, and intended next stage." },
     ],
     projectIds: [],
@@ -413,7 +413,7 @@ export const pillarPages: PillarPageData[] = [
       { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For access, containment, and site-interface planning around a live commercial asset." },
     ],
     resourceLinks: [
-      { title: "Prepare structural steel for intumescent paint", href: "/blog/how-to-prepare-structural-steel-for-intumescent-painting", description: "A focused guide to the information that should be agreed before coating work begins." },
+      { title: "Intumescent steelwork planning guide", href: "/blog/intumescent-steelwork-specification-planning-guide", description: "A focused guide to the information that should be agreed before coating work begins." },
       { title: "Steel fabrication surface-preparation hub", href: "/steel-fabrication-surface-preparation", description: "Related planning support for fabricated sections and structural frames." },
       { title: "Sa 2.5 surface-preparation glossary", href: "/glossary/sa-2-5", description: "Plain-English explanation of a frequently specified surface-preparation term." },
       { title: "Request A Site Visit", href: "/site-survey", description: "Share the steelwork, existing condition, access, specification, and intended coating sequence." },

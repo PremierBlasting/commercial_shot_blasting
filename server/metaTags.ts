@@ -7266,6 +7266,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
         { label: "Structural Steel Frames", href: "/services/structural-steel-frames" },
         { label: "Factory & Warehouse Cladding", href: "/services/factory-cladding" },
         { label: "Steel Container Blasting", href: "/services/steel-containers" },
+        { label: "Mobile and on-site blasting planning guide", href: "/blog/mobile-on-site-shot-blasting-project-planning-guide" },
         { label: "Request A Site Visit", href: "/site-survey" },
       ],
       faqs: [
@@ -7283,6 +7284,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
         { label: "Intumescent Painting", href: "/services/intumescent-painting" },
         { label: "Structural Steel Frames", href: "/services/structural-steel-frames" },
         { label: "HB Tunnelling Doncaster case study", href: "/case-studies/hb-tunnelling-doncaster" },
+        { label: "Intumescent steelwork planning guide", href: "/blog/intumescent-steelwork-specification-planning-guide" },
         { label: "Request A Site Visit", href: "/site-survey" },
       ],
       faqs: [

@@ -107,6 +107,16 @@ describe("phase-one pillar page SSR", () => {
     expect(html).toContain("/case-studies/hb-tunnelling-doncaster");
   });
 
+  it("links each commercial hub to its supporting search-intent article in crawler-visible content", async () => {
+    const [mobileHtml, intumescentHtml] = await Promise.all([
+      injectMetaTags(baseHtml, "/mobile-on-site-shot-blasting"),
+      injectMetaTags(baseHtml, "/intumescent-paint-for-steel"),
+    ]);
+
+    expect(mobileHtml).toContain("/blog/mobile-on-site-shot-blasting-project-planning-guide");
+    expect(intumescentHtml).toContain("/blog/intumescent-steelwork-specification-planning-guide");
+  });
+
   it("selects industry resources with tailored enquiry prompts while leaving unrelated industry hubs unchanged", () => {
     const agricultureResources = getIndustryPillarResources("agriculture");
     const manufacturingResources = getIndustryPillarResources("manufacturing");
