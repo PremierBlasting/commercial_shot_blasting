@@ -23,7 +23,7 @@ export default function ColchesterServiceArea() {
   }, []);
 
   useEffect(() => {
-    document.title = 'Shot Blasting Colchester | Commercial & Industrial';
+    document.title = 'Sandblasting Colchester | Commercial Shot Blasting';
     
     // Set keywords meta tag
     const metaKeywords = document.querySelector('meta[name="keywords"]');
@@ -38,7 +38,7 @@ export default function ColchesterServiceArea() {
   }, []);
 
   useEffect(() => {
-    const description = locationData["colchester"]?.description || "Professional shot blasting services in Colchester. Call 07721 375756";
+    const description = "Commercial sandblasting and shot blasting in Colchester for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.";
     
     // Set meta description
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -54,11 +54,11 @@ export default function ColchesterServiceArea() {
     // Set Open Graph meta tags
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
-      ogTitle.setAttribute('content', 'Shot Blasting Colchester | Commercial & Industrial');
+      ogTitle.setAttribute('content', 'Sandblasting Colchester | Commercial Shot Blasting');
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:title');
-      meta.setAttribute('content', 'Shot Blasting Colchester | Commercial & Industrial');
+      meta.setAttribute('content', 'Sandblasting Colchester | Commercial Shot Blasting');
       document.head.appendChild(meta);
     }
 
@@ -85,11 +85,11 @@ export default function ColchesterServiceArea() {
     // Set Twitter Card meta tags
     const twitterTitle = document.querySelector('meta[name="twitter:title"]');
     if (twitterTitle) {
-      twitterTitle.setAttribute('content', 'Shot Blasting Colchester | Commercial & Industrial');
+      twitterTitle.setAttribute('content', 'Sandblasting Colchester | Commercial Shot Blasting');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'twitter:title';
-      meta.content = 'Shot Blasting Colchester | Commercial & Industrial';
+      meta.content = 'Sandblasting Colchester | Commercial Shot Blasting';
       document.head.appendChild(meta);
     }
 

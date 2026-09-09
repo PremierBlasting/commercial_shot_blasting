@@ -118,7 +118,7 @@ export default function Home() {
 
   // Set SEO title and meta description
   useEffect(() => {
-    document.title = "Shot Blasting Services UK | Commercial & Industrial | Commercial Shot Blasting";
+    document.title = "Commercial Shot Blasting & Sandblasting | England & Wales";
     
     // Update or create meta description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -127,7 +127,7 @@ export default function Home() {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', 'UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Site visit. Call 07721 375756.');
+    metaDescription.setAttribute('content', 'Commercial mobile shot blasting and sandblasting across England and Wales. Metal surface preparation, rust removal, structural steel, cladding, containers and plant. Request A Site Visit.');
 
     // Update or create meta keywords
     let metaKeywords = document.querySelector('meta[name="keywords"]');
@@ -136,7 +136,7 @@ export default function Home() {
       metaKeywords.setAttribute('name', 'keywords');
       document.head.appendChild(metaKeywords);
     }
-    metaKeywords.setAttribute('content', 'shot blasting, commercial shot blasting, industrial shot blasting, surface preparation, steel blasting, concrete blasting, metal blasting, UK shot blasting services, grit blasting, abrasive blasting');
+    metaKeywords.setAttribute('content', 'commercial shot blasting, commercial sandblasting, industrial shot blasting, metal shot blasting, surface preparation, steel blasting, rust removal, mobile blasting, abrasive blasting');
 
     // Set canonical URL for homepage
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
@@ -161,7 +161,7 @@ export default function Home() {
       '@type': 'WebSite',
       'name': 'Commercial Shot Blasting',
       'url': 'https://commercialshotblasting.co.uk',
-      'description': 'UK-wide mobile shot blasting services for commercial and industrial clients.',
+      'description': 'Commercial mobile shot blasting and sandblasting services across England and Wales.',
       'potentialAction': {
         '@type': 'SearchAction',
         'target': {
@@ -185,7 +185,7 @@ export default function Home() {
       '@context': 'https://schema.org',
       '@type': 'VideoObject',
       'name': 'Commercial Shot Blasting Services — UK Industrial Surface Preparation',
-      'description': '30-second showreel of commercial and industrial shot blasting work across the UK. Rust removal, coating removal, and surface preparation for structural steel, factory cladding, and machinery.',
+      'description': '30-second showreel of commercial and industrial shot blasting work across England and Wales. Rust removal, coating removal, and surface preparation for structural steel, factory cladding, and machinery.',
       'thumbnailUrl': 'https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YScoptyBJOkODpiP.webp',
       'contentUrl': '/manus-storage/hero_video_30s_83819d35.mp4',
       'uploadDate': '2026-06-11',
@@ -200,7 +200,7 @@ export default function Home() {
         }
       },
       'embedUrl': 'https://commercialshotblasting.co.uk',
-      'keywords': 'shot blasting, commercial shot blasting, industrial shot blasting, surface preparation, UK'
+      'keywords': 'commercial shot blasting, commercial sandblasting, industrial shot blasting, metal surface preparation, England and Wales'
     });
 
     return () => {

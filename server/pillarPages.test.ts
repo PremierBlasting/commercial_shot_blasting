@@ -28,6 +28,7 @@ describe("phase-one pillar page SSR", () => {
     ["/container-restoration-storage-steelwork", "Container Restoration & Storage Steelwork Surface Preparation"],
     ["/mobile-on-site-shot-blasting", "Mobile & On-Site Shot Blasting for Commercial Projects"],
     ["/intumescent-paint-for-steel", "Intumescent Paint for Steel: Preparation & Handover Planning"],
+    ["/commercial-shot-blasting-sandblasting", "Commercial Shot Blasting & Sandblasting for Metal Surface Preparation"],
   ] as const;
 
   it.each(pages)("emits canonical metadata, schema, and substantive SSR content for %s", async (path, heading) => {
@@ -108,13 +109,17 @@ describe("phase-one pillar page SSR", () => {
   });
 
   it("links each commercial hub to its supporting search-intent article in crawler-visible content", async () => {
-    const [mobileHtml, intumescentHtml] = await Promise.all([
+    const [mobileHtml, intumescentHtml, sandblastingHtml] = await Promise.all([
       injectMetaTags(baseHtml, "/mobile-on-site-shot-blasting"),
       injectMetaTags(baseHtml, "/intumescent-paint-for-steel"),
+      injectMetaTags(baseHtml, "/commercial-shot-blasting-sandblasting"),
     ]);
 
     expect(mobileHtml).toContain("/blog/mobile-on-site-shot-blasting-project-planning-guide");
+    expect(mobileHtml).toContain("/blog/iso-8501-1-sa-2-5-sa-3-surface-preparation-guide");
     expect(intumescentHtml).toContain("/blog/intumescent-steelwork-specification-planning-guide");
+    expect(sandblastingHtml).toContain("/services/rust-removal");
+    expect(sandblastingHtml).toContain("/blog/iso-8501-1-sa-2-5-sa-3-surface-preparation-guide");
   });
 
   it("selects industry resources with tailored enquiry prompts while leaving unrelated industry hubs unchanged", () => {

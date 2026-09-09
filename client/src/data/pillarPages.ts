@@ -342,12 +342,13 @@ export const pillarPages: PillarPageData[] = [
     eyebrow: "Commercial site-planning hub",
     title: "Mobile & On-Site Shot Blasting for Commercial Projects",
     shortTitle: "Mobile & On-Site Shot Blasting",
-    description: "Plan commercial mobile and on-site shot blasting for structural steel, cladding, containers, plant, and industrial assets. Explore scope inputs, specialist routes, access planning, and Site Visit guidance.",
-    keywords: "mobile shot blasting, on site shot blasting, mobile blasting contractor, on site abrasive blasting, commercial mobile shot blasting, industrial surface preparation on site",
+    description: "Plan commercial mobile and on-site shot blasting for structural steel, cladding, containers, plant, and industrial metal assets. Explore access, containment, surface condition, coating handover, and Site Visit guidance.",
+    keywords: "mobile shot blasting, mobile blasting, mobile sandblasting, on site shot blasting, mobile blasting contractor, on site abrasive blasting, commercial mobile shot blasting, industrial surface preparation on site",
     heroImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3365_56728af1.webp",
     heroAlt: "Documented structural steel prepared for the next protective coating stage",
     overview: [
       "This commercial planning hub is for asset owners, facilities teams, fabricators, and contractors considering whether surface preparation can be assessed and delivered at the working site. It links the site information that affects a practical discussion with routes for structural steel, cladding, containers, pipework, and industrial plant.",
+      "Searchers may use phrases such as mobile blasting, mobile sandblasting, or “mobile shot blasting near me”. The practical approach is confirmed from the asset, condition, working area, access, containment needs, surrounding operations, and the next coating or project stage rather than from a search phrase alone.",
       "An on-site scope is not defined by asset type alone. The working area, access, asset dimensions, surrounding operations, containment needs, material handling, existing condition, intended coating, inspection requirements, and programme interfaces should be reviewed before a detailed method or schedule is assumed.",
     ],
     scope: [
@@ -370,6 +371,8 @@ export const pillarPages: PillarPageData[] = [
     ],
     resourceLinks: [
       { title: "Mobile and on-site blasting planning guide", href: "/blog/mobile-on-site-shot-blasting-project-planning-guide", description: "A practical checklist for asset, access, containment, coating-handover, and programme inputs." },
+      { title: "Commercial shot blasting and sandblasting guide", href: "/commercial-shot-blasting-sandblasting", description: "Clarifies common commercial search terms and the information needed for metal surface-preparation planning." },
+      { title: "ISO 8501-1, Sa 2½ and Sa 3 guide", href: "/blog/iso-8501-1-sa-2-5-sa-3-surface-preparation-guide", description: "A factual guide to preparation-grade terminology and project-specific specification review." },
       { title: "Steel fabrication surface-preparation hub", href: "/steel-fabrication-surface-preparation", description: "Planning support for fabricated and structural-steel packages." },
       { title: "Industrial steelwork restoration hub", href: "/industrial-steelwork-restoration", description: "Related guidance for corrosion and refurbishment scopes." },
       { title: "Request A Site Visit", href: "/site-survey", description: "Share the asset, access, condition, project photographs, and intended next stage." },
@@ -377,6 +380,7 @@ export const pillarPages: PillarPageData[] = [
     projectIds: [],
     faqs: [
       { question: "What information helps assess whether a project is suitable for on-site shot blasting?", answer: "Useful information includes the asset type and dimensions, photographs of the current condition, accessible working areas, access routes, surrounding operations, adjacent surfaces, containment needs, the intended coating stage, and any programme restrictions. A Site Visit can then consider the specific project conditions." },
+      { question: "I am searching for mobile shot blasting near me. What should I send first?", answer: "Start with the site town or postcode, photographs, asset dimensions or drawings where available, existing surface condition, access information, nearby operations, and the intended next stage. Those details help confirm whether a commercial on-site assessment is appropriate." },
       { question: "Can every commercial steel asset be prepared on site?", answer: "Not automatically. The practical approach depends on the asset, site layout, access, condition, safety requirements, protection of surrounding operations, containment, handling, and the next project stage. These details should be assessed before a method is agreed." },
       { question: "Why should coating handover be discussed before on-site surface preparation?", answer: "The planned primer or coating system can affect the preparation requirement, inspection, protection of prepared surfaces, and the sequence between trades. Early coordination helps the project team define the relevant scope inputs." },
     ],
@@ -423,6 +427,50 @@ export const pillarPages: PillarPageData[] = [
       { question: "What should be agreed before steelwork is prepared for intumescent paint?", answer: "The steelwork and accessible areas, existing surface condition, specified fire-protective system, preparation requirement, primer sequence, inspection points, access, containment, and handover process should be clarified before a project-specific method is assumed." },
       { question: "Why does the interval between preparation and primer matter?", answer: "The approved HB Tunnelling case study states that primer was applied immediately after blasting to protect coating adhesion. The required sequence for another project depends on its specification, condition, environment, access, and coating-system requirements." },
       { question: "Does the HB Tunnelling case study define the programme for every intumescent coating project?", answer: "No. It documents a specific Doncaster warehouse refurbishment with a five-person multi-skilled team and carefully planned same-day stages. Each project needs its own review of steelwork, preparation, coating specification, access, operational interfaces, and programme." },
+    ],
+  },
+  {
+    slug: "commercial-shot-blasting-sandblasting",
+    eyebrow: "Commercial surface-preparation hub",
+    title: "Commercial Shot Blasting & Sandblasting for Metal Surface Preparation",
+    shortTitle: "Commercial Shot Blasting & Sandblasting",
+    description: "Plan commercial shot blasting, commonly searched as sandblasting, for metal surface preparation, rust removal, coating removal, structural steel, plant, cladding, and industrial assets across England and Wales.",
+    keywords: "commercial shot blasting, commercial sandblasting, commercial shot blaster, metal shot blasting, metal sandblasting, industrial blasting service, rust removal surface preparation",
+    heroImage: "https://commercialshotblasting.co.uk/manus-storage/IMG_3365_56728af1.webp",
+    heroAlt: "Documented commercial steelwork at the surface-preparation stage before its next coating process",
+    overview: [
+      "This hub is for commercial buyers, fabricators, facilities teams, asset owners, and contractors planning commercial metal shot blasting and surface preparation on steel and other accessible metal assets. It brings together the established routes for structural steel, plant, cladding, containers, rust removal, coating removal, and mobile site planning.",
+      "“Sandblasting” is commonly used in searches to describe abrasive surface preparation. The suitable project method, media, containment, protection of adjacent work, preparation requirement, and coating handover must be confirmed from the specific asset, its condition, working environment, access, and specification. This page does not prescribe a method from a search term alone.",
+    ],
+    scope: [
+      "Commercial structural steel, fabricated sections, plant, machinery, containers, cladding, access steel, gates, railings, and other accessible metal assets",
+      "Rust, failed coating, mill scale, contamination, repair areas, and existing surface condition before an agreed coating or refurbishment stage",
+      "On-site working areas, access, containment, masking, isolation, protection of adjacent operations, inspection, cleaning, and practical handover planning",
+      "Commercial refurbishment, maintenance, fabrication, and construction packages where preparation needs to align with the next project stage",
+    ],
+    planningInputs: [
+      { title: "Asset and condition record", description: "Share photographs, drawings or dimensions where available, the asset type, accessible faces, visible corrosion, old coatings, repairs, and any excluded surfaces." },
+      { title: "Working-area information", description: "Explain the site town or postcode, access routes, handling space, occupied areas, nearby operations, height or elevation, and any restrictions around the proposed working area." },
+      { title: "Protection and containment", description: "Identify adjacent assets, sensitive surfaces, plant, public or occupied areas, containment expectations, cleaning requirements, and waste-management arrangements." },
+      { title: "Preparation and coating handover", description: "Provide the relevant specification owner, intended primer or coating stage, inspection requirements, and the planned sequence after surface preparation." },
+    ],
+    serviceLinks: [
+      { title: "Rust Removal", href: "/services/rust-removal", description: "For commercial steel and metalwork where corrosion condition needs a project-specific preparation discussion." },
+      { title: "Structural Steel Frames", href: "/services/structural-steel-frames", description: "For fabricated frames, beams, columns, connections, and steelwork packages." },
+      { title: "Plant & Machinery", href: "/services/plant-machinery", description: "For accessible machinery and industrial plant where access, masking, and site conditions need review." },
+      { title: "Coating Removal", href: "/services/coating-removal", description: "For scopes where existing coating condition must be understood before a preparation route is agreed." },
+    ],
+    resourceLinks: [
+      { title: "Mobile & on-site shot blasting", href: "/mobile-on-site-shot-blasting", description: "Plan a site-based commercial assessment around access, operations, containment, and the next stage." },
+      { title: "ISO 8501-1, Sa 2½ and Sa 3 guide", href: "/blog/iso-8501-1-sa-2-5-sa-3-surface-preparation-guide", description: "Understand the terminology that may appear in a coating or surface-preparation specification." },
+      { title: "Shot blasting service areas", href: "/service-areas", description: "Find the relevant England or Wales location page and start a local commercial discussion." },
+      { title: "Request A Site Visit", href: "/site-survey", description: "Share the asset, access, condition, project photographs, and intended next stage." },
+    ],
+    projectIds: [],
+    faqs: [
+      { question: "Do you provide commercial sandblasting?", answer: "Many buyers use “sandblasting” as a general search term for abrasive surface preparation. We discuss commercial shot blasting and related preparation requirements against the actual asset, condition, access, containment needs, working environment, and coating or refurbishment specification before a project-specific scope is agreed." },
+      { question: "What information helps scope commercial metal shot blasting or rust removal?", answer: "Useful starting information includes photographs, drawings or dimensions, the asset type and accessible surfaces, corrosion or coating condition, site town or postcode, access and operating constraints, nearby areas needing protection, and the intended next stage after preparation." },
+      { question: "Can you identify a blast-cleaning grade from a photograph or search term?", answer: "No. A preparation requirement should be confirmed against the relevant project specification, coating manufacturer guidance, surface condition, and inspection process. The ISO 8501-1 guide explains common terms, but it is not a substitute for project-specific specification review." },
     ],
   },
 ];

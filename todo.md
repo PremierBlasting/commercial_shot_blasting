@@ -1780,6 +1780,12 @@
 - [x] Select and refresh Chesterfield, Sheffield, Bradford, and Derby as the next near-page-one local service pages with source-backed commercial context and related internal links
 - [x] Add regression coverage and validate sitemap submission status, article and local-page routes, TypeScript, focused tests, production build, and responsive layouts before publication; 271 tests pass, while the unchanged live HubSpot PB credential check returns 401
 
+## Search Console Query Click-Growth Optimisation (9 September 2026)
+- [x] Audit every supplied high-impression query against its current landing page, title, snippet, query intent, local coverage, and supported commercial evidence
+- [x] Strengthen or create intent-matched landing-page content for commercial, mobile/on-site, standards, near-me, and named-location search themes without unsupported claims
+- [x] Improve search-facing titles, meta descriptions, headings, internal links, structured data, and local discovery pathways for the supplied click-growth queries
+- [x] Add regression coverage and validate query-target routes, crawlable metadata, desktop/mobile layouts, TypeScript, focused tests, production build, and live route checks; 31 suites / 277 tests pass, while the unchanged external HubSpot PB credential check returns 401 in the full suite
+
 ## Revised Capability Statement Draft (26 August 2026)
 - [x] Create a review-ready revised Commercial Capability Statement PDF that replaces the outdated CHAS wording and correctly presents Commercial Shot Blasting as the commercial arm of Premier Blasting
 - [x] Preserve only user-supplied operational, insurance, resource, and case-study claims, with all time-sensitive figures clearly flagged for approval before publication

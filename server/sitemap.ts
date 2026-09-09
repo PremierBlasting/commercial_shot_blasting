@@ -58,6 +58,7 @@ const STATIC_PAGES = [
   { loc: "/container-restoration-storage-steelwork", changefreq: "weekly", priority: "0.8" },
   { loc: "/mobile-on-site-shot-blasting", changefreq: "weekly", priority: "0.8" },
   { loc: "/intumescent-paint-for-steel", changefreq: "weekly", priority: "0.8" },
+  { loc: "/commercial-shot-blasting-sandblasting", changefreq: "weekly", priority: "0.8" },
   { loc: "/external-staircases", changefreq: "weekly", priority: "0.8" },
   { loc: "/sitemap", changefreq: "monthly", priority: "0.5" },
 ];

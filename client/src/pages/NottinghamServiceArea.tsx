@@ -72,7 +72,7 @@ export default function NottinghamServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   useEffect(() => {
-    document.title = "Shot Blasting Nottingham | Industrial Services";
+    document.title = "Shot Blasting Nottingham | Commercial Metal Surface Preparation";
     
     // Set keywords meta tag
     const metaKeywords = document.querySelector('meta[name="keywords"]');
@@ -87,7 +87,7 @@ export default function NottinghamServiceArea() {
   }, []);
 
   useEffect(() => {
-    const description = locationData["nottingham"].description;
+    const description = "Commercial shot blasting in Nottingham for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.";
     
     // Set meta description
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -103,11 +103,11 @@ export default function NottinghamServiceArea() {
     // Set Open Graph meta tags
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
-      ogTitle.setAttribute('content', 'Shot Blasting Nottingham');
+      ogTitle.setAttribute('content', 'Shot Blasting Nottingham | Commercial Metal Surface Preparation');
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:title');
-      meta.setAttribute('content', 'Shot Blasting Nottingham');
+      meta.setAttribute('content', 'Shot Blasting Nottingham | Commercial Metal Surface Preparation');
       document.head.appendChild(meta);
     }
 
@@ -134,11 +134,11 @@ export default function NottinghamServiceArea() {
     // Set Twitter Card meta tags
     const twitterTitle = document.querySelector('meta[name="twitter:title"]');
     if (twitterTitle) {
-      twitterTitle.setAttribute('content', 'Shot Blasting Nottingham');
+      twitterTitle.setAttribute('content', 'Shot Blasting Nottingham | Commercial Metal Surface Preparation');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'twitter:title';
-      meta.content = 'Shot Blasting Nottingham';
+      meta.content = 'Shot Blasting Nottingham | Commercial Metal Surface Preparation';
       document.head.appendChild(meta);
     }
 

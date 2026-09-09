@@ -27,7 +27,7 @@ export default function ChesterServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   useEffect(() => {
-    document.title = "Shot Blasting Chester | Commercial & Industrial";
+    document.title = "Sandblasting & Shot Blasting Chester | Commercial Surface Preparation";
     
     // Set keywords meta tag
     const metaKeywords = document.querySelector('meta[name="keywords"]');
@@ -42,7 +42,7 @@ export default function ChesterServiceArea() {
   }, []);
 
   useEffect(() => {
-    const description = locationData["chester"].description;
+    const description = "Commercial sandblasting and shot blasting in Chester for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.";
     
     // Set meta description
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -175,7 +175,7 @@ export default function ChesterServiceArea() {
         <div className="max-w-3xl">
           <p className="text-[#F5F1E8] font-medium mb-2">Professional Shot Blasting Services</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Professional Shot Blasting Services in Chester
+              Commercial Shot Blasting & Sandblasting in Chester
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
             Specialist precision shot blasting company serving Chester and the wider Cheshire region. We provide expert surface preparation for local industries, from historic restoration to modern engineering.

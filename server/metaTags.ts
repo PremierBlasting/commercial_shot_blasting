@@ -48,6 +48,25 @@ interface LocationMeta {
   url: string;
 }
 
+/**
+ * Search Console highlights these towns for commercially relevant shot blasting
+ * and sandblasting searches. Keep their canonical server-side snippet copy exact,
+ * factual, and distinct from generic legacy location records.
+ */
+const highImpressionLocationMeta: Record<string, LocationMeta> = {
+  "chester": { title: "Sandblasting & Shot Blasting Chester | Commercial Surface Preparation", description: "Commercial sandblasting and shot blasting in Chester for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.", url: "https://commercialshotblasting.co.uk/service-areas/chester" },
+  "bury-st-edmunds": { title: "Sandblasting Bury St Edmunds | Commercial Shot Blasting", description: "Commercial sandblasting and shot blasting in Bury St Edmunds for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.", url: "https://commercialshotblasting.co.uk/service-areas/bury-st-edmunds" },
+  "nottingham": { title: "Shot Blasting Nottingham | Commercial Metal Surface Preparation", description: "Commercial shot blasting in Nottingham for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.", url: "https://commercialshotblasting.co.uk/service-areas/nottingham" },
+  "coventry": { title: "Shot Blasting Coventry | Commercial Metal Surface Preparation", description: "Commercial shot blasting in Coventry for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.", url: "https://commercialshotblasting.co.uk/service-areas/coventry" },
+  "carlisle": { title: "Shot Blasting Carlisle | Commercial Metal Surface Preparation", description: "Commercial shot blasting in Carlisle for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.", url: "https://commercialshotblasting.co.uk/service-areas/carlisle" },
+  "colchester": { title: "Sandblasting Colchester | Commercial Shot Blasting", description: "Commercial sandblasting and shot blasting in Colchester for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.", url: "https://commercialshotblasting.co.uk/service-areas/colchester" },
+  "wolverhampton": { title: "Shot Blasting Wolverhampton | Commercial Surface Preparation", description: "Commercial shot blasting in Wolverhampton for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.", url: "https://commercialshotblasting.co.uk/service-areas/wolverhampton" },
+  "stoke-on-trent": { title: "Shot Blasting Stoke-on-Trent | Commercial Surface Preparation", description: "Commercial shot blasting in Stoke-on-Trent for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.", url: "https://commercialshotblasting.co.uk/service-areas/stoke-on-trent" },
+  "stoke": { title: "Shot Blasting Stoke-on-Trent | Commercial Surface Preparation", description: "Commercial shot blasting in Stoke-on-Trent for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.", url: "https://commercialshotblasting.co.uk/service-areas/stoke" },
+  "wirral": { title: "Sandblasting Wirral | Commercial Shot Blasting", description: "Commercial sandblasting and shot blasting in Wirral for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.", url: "https://commercialshotblasting.co.uk/service-areas/wirral" },
+  "hitchin": { title: "Sandblasting Hitchin | Commercial Shot Blasting", description: "Commercial sandblasting and shot blasting in Hitchin for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.", url: "https://commercialshotblasting.co.uk/service-areas/hitchin" },
+};
+
 // Coordinates for all locations (must match client/public/jsonld-inject.js)
 const locCoords: Record<string, [number, number]> = {
   "birmingham": [52.4862, -1.8904], "wolverhampton": [52.587, -2.1288], "coventry": [52.4068, -1.5197],
@@ -6543,13 +6562,13 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
       .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
     const homeMetaTags = `
-    <title>Shot Blasting Services UK | Commercial & Industrial | ${BUSINESS_NAME}</title>
+    <title>Commercial Shot Blasting &amp; Sandblasting | England &amp; Wales | ${BUSINESS_NAME}</title>
     <link rel="canonical" href="${SITE_URL}/" />
     <link rel="alternate" hreflang="en-gb" href="${SITE_URL}/" />
     <link rel="alternate" hreflang="en" href="${SITE_URL}/" />
-    <meta name="description" content="UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Free quote. Call 07721 375756." />
-    <meta property="og:title" content="Shot Blasting Services UK | Commercial & Industrial | ${BUSINESS_NAME}" />
-    <meta property="og:description" content="UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Free quote." />
+    <meta name="description" content="Commercial mobile shot blasting and sandblasting across England and Wales. Metal surface preparation, rust removal, structural steel, cladding, containers and plant. Request A Site Visit." />
+    <meta property="og:title" content="Commercial Shot Blasting &amp; Sandblasting | England &amp; Wales | ${BUSINESS_NAME}" />
+    <meta property="og:description" content="Commercial mobile shot blasting and sandblasting across England and Wales for metal surface preparation, rust removal, structural steel, cladding, containers and plant." />
     <meta property="og:url" content="${SITE_URL}/" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${LOGO}" />
@@ -6558,14 +6577,14 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Shot Blasting Services UK | Commercial & Industrial | ${BUSINESS_NAME}" />
-    <meta name="twitter:description" content="UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep & more. Free quote." />
+    <meta name="twitter:title" content="Commercial Shot Blasting &amp; Sandblasting | England &amp; Wales | ${BUSINESS_NAME}" />
+    <meta name="twitter:description" content="Commercial mobile shot blasting and sandblasting across England and Wales for metal surface preparation, rust removal, structural steel, cladding, containers and plant." />
     <meta name="twitter:image" content="${LOGO}" />
-    <meta name="twitter:image:alt" content="Commercial Shot Blasting — professional mobile shot blasting services across the UK" />
+    <meta name="twitter:image:alt" content="Commercial Shot Blasting — mobile shot blasting and sandblasting services across England and Wales" />
     ${generateHomepageSchemas()}
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, homeMetaTags);
-    modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="https://commercialshotblasting.co.uk/">Home</a> | <a href="https://commercialshotblasting.co.uk/services">Services</a> | <a href="https://commercialshotblasting.co.uk/service-areas">Service Areas</a> | <a href="https://commercialshotblasting.co.uk/about">About</a> | <a href="https://commercialshotblasting.co.uk/contact">Contact</a> | <a href="https://commercialshotblasting.co.uk/blog">Blog</a> | <a href="https://commercialshotblasting.co.uk/industries">Industries</a> | <a href="https://commercialshotblasting.co.uk/glossary">Glossary</a> | <a href="https://commercialshotblasting.co.uk/site-survey">Free Site Survey</a></nav><main><h1>Commercial Shot Blasting Services UK</h1><p>UK-wide mobile shot blasting services for commercial and industrial clients. Rust removal, surface preparation, structural steel, factory cladding, floor prep and more. Free quote. Call 07721 375756.</p><ul><li><a href="https://commercialshotblasting.co.uk/services/structural-steel-frames">Structural Steel Frames Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/steel-containers">Steel Container Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/factory-cladding">Factory &amp; Warehouse Cladding Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/fire-escapes">Fire Escape Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/staircases">Staircase Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/bridge-steelwork">Bridge Steelwork Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/ladders">Ladder Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/warehouse-racking">Warehouse Racking Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/pipework">Pipework Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/floor-preparation">Floor Preparation Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/rust-removal">Rust Removal Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/mill-scale-removal">Mill Scale Removal</a></li><li><a href="https://commercialshotblasting.co.uk/services/paint-stripping">Paint Stripping Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/coating-removal">Coating Removal Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/marine-shot-blasting">Marine Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/intumescent-painting">Intumescent Painting</a></li><li><a href="https://commercialshotblasting.co.uk/services/commercial-vehicles">Commercial Vehicle Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/agricultural-shot-blasting">Agricultural Shot Blasting</a></li></ul><ul><li><a href="https://commercialshotblasting.co.uk/service-areas/birmingham">Shot Blasting Birmingham</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/manchester">Shot Blasting Manchester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/sheffield">Shot Blasting Sheffield</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/leeds">Shot Blasting Leeds</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/nottingham">Shot Blasting Nottingham</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/leicester">Shot Blasting Leicester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/derby">Shot Blasting Derby</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/coventry">Shot Blasting Coventry</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/bristol">Shot Blasting Bristol</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/cardiff">Shot Blasting Cardiff</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/liverpool">Shot Blasting Liverpool</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/wolverhampton">Shot Blasting Wolverhampton</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/stoke-on-trent">Shot Blasting Stoke-on-Trent</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/oxford">Shot Blasting Oxford</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/cambridge">Shot Blasting Cambridge</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/northampton">Shot Blasting Northampton</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/peterborough">Shot Blasting Peterborough</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/worcester">Shot Blasting Worcester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/gloucester">Shot Blasting Gloucester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/shrewsbury">Shot Blasting Shrewsbury</a></li></ul></main></div>`);
+    modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="https://commercialshotblasting.co.uk/">Home</a> | <a href="https://commercialshotblasting.co.uk/services">Services</a> | <a href="https://commercialshotblasting.co.uk/service-areas">Service Areas</a> | <a href="https://commercialshotblasting.co.uk/about">About</a> | <a href="https://commercialshotblasting.co.uk/contact">Contact</a> | <a href="https://commercialshotblasting.co.uk/blog">Blog</a> | <a href="https://commercialshotblasting.co.uk/industries">Industries</a> | <a href="https://commercialshotblasting.co.uk/glossary">Glossary</a> | <a href="https://commercialshotblasting.co.uk/site-survey">Request A Site Visit</a></nav><main><h1>Commercial Shot Blasting &amp; Sandblasting in England and Wales</h1><p>Commercial mobile shot blasting and sandblasting for metal surface preparation, rust removal, structural steel, factory cladding, containers, plant and other industrial assets. Request A Site Visit.</p><ul><li><a href="https://commercialshotblasting.co.uk/services/structural-steel-frames">Structural Steel Frames Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/steel-containers">Steel Container Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/factory-cladding">Factory &amp; Warehouse Cladding Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/fire-escapes">Fire Escape Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/staircases">Staircase Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/bridge-steelwork">Bridge Steelwork Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/ladders">Ladder Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/warehouse-racking">Warehouse Racking Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/pipework">Pipework Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/floor-preparation">Floor Preparation Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/rust-removal">Rust Removal Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/mill-scale-removal">Mill Scale Removal</a></li><li><a href="https://commercialshotblasting.co.uk/services/paint-stripping">Paint Stripping Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/coating-removal">Coating Removal Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/marine-shot-blasting">Marine Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/intumescent-painting">Intumescent Painting</a></li><li><a href="https://commercialshotblasting.co.uk/services/commercial-vehicles">Commercial Vehicle Shot Blasting</a></li><li><a href="https://commercialshotblasting.co.uk/services/agricultural-shot-blasting">Agricultural Shot Blasting</a></li></ul><p><a href="https://commercialshotblasting.co.uk/commercial-shot-blasting-sandblasting">Commercial shot blasting and sandblasting planning guide</a> | <a href="https://commercialshotblasting.co.uk/service-areas">Find a service area</a></p></main></div>`);
     return modifiedHtml;
   }
 
@@ -6579,13 +6598,13 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
       .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
     const metaTags = `
-    <title>Shot Blasting Services UK | Commercial &amp; Industrial | ${BUSINESS_NAME}</title>
+    <title>Commercial Shot Blasting &amp; Sandblasting Services | England &amp; Wales | ${BUSINESS_NAME}</title>
     <link rel="canonical" href="${servicesUrl}" />
     <link rel="alternate" hreflang="en-gb" href="${servicesUrl}" />
     <link rel="alternate" hreflang="en" href="${servicesUrl}" />
-    <meta name="description" content="Professional shot blasting services UK-wide — 18 specialist services including structural steel, factory cladding, containers, floor preparation, rust removal, plant &amp; machinery and more. Mobile service to your site. SA2.5/SA3 standard. Free quote." />
-    <meta property="og:title" content="Shot Blasting Services UK | Commercial &amp; Industrial | ${BUSINESS_NAME}" />
-    <meta property="og:description" content="Professional shot blasting services UK-wide — 18 specialist services including structural steel, factory cladding, containers, floor preparation, rust removal, plant &amp; machinery and more. Mobile service to your site. SA2.5/SA3 standard. Free quote." />
+    <meta name="description" content="Commercial shot blasting and sandblasting services across England and Wales for structural steel, cladding, containers, floor preparation, rust removal, plant and machinery. Request A Site Visit." />
+    <meta property="og:title" content="Commercial Shot Blasting &amp; Sandblasting Services | England &amp; Wales | ${BUSINESS_NAME}" />
+    <meta property="og:description" content="Commercial shot blasting and sandblasting services across England and Wales for structural steel, cladding, containers, floor preparation, rust removal, plant and machinery." />
     <meta property="og:url" content="${servicesUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${LOGO}" />
@@ -6594,8 +6613,8 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Shot Blasting Services UK | Commercial &amp; Industrial | ${BUSINESS_NAME}" />
-    <meta name="twitter:description" content="Professional shot blasting services UK-wide — 18 specialist services including structural steel, factory cladding, containers, floor preparation, rust removal, plant &amp; machinery and more. Mobile service. SA2.5/SA3 standard." />
+    <meta name="twitter:title" content="Commercial Shot Blasting &amp; Sandblasting Services | England &amp; Wales | ${BUSINESS_NAME}" />
+    <meta name="twitter:description" content="Commercial shot blasting and sandblasting services across England and Wales for structural steel, cladding, containers, floor preparation, rust removal, plant and machinery." />
     <meta name="twitter:image" content="${LOGO}" />
     <meta name="twitter:image:alt" content="Shot blasting services UK — 18 commercial and industrial services by Commercial Shot Blasting" />
     ${generateServicesIndexSchemas()}
@@ -6633,13 +6652,13 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
       .replace(/<meta\s+property="twitter:[^"]*"[^>]*>/gi, '')
       .replace(/<link\s+rel="canonical"[^>]*>/gi, '');
     const areaMetaTags = `
-    <title>Shot Blasting Services Near Me | Mobile Contractor All Areas | ${BUSINESS_NAME}</title>
+    <title>Shot Blasting Near You | Commercial Mobile Service Areas | ${BUSINESS_NAME}</title>
     <link rel="canonical" href="${serviceAreasUrl}" />
     <link rel="alternate" hreflang="en-gb" href="${serviceAreasUrl}" />
     <link rel="alternate" hreflang="en" href="${serviceAreasUrl}" />
-    <meta name="description" content="Looking for a shot blasting contractor near you? Commercial Shot Blasting operates 12 mobile units across the UK — covering the Midlands, North West, Yorkshire, South West, Wales, and more. Same-week availability. Free quote." />
-    <meta property="og:title" content="Shot Blasting Services Near Me | Mobile Contractor All Areas | ${BUSINESS_NAME}" />
-    <meta property="og:description" content="Looking for a shot blasting contractor near you? 12 mobile units covering the UK — Midlands, North West, Yorkshire, South West, Wales, and more. Free quote: 07721 375756." />
+    <meta name="description" content="Looking for commercial shot blasting near you? Find service areas across England and Wales, share the asset, access and surface condition, then request a Site Visit." />
+    <meta property="og:title" content="Shot Blasting Near You | Commercial Mobile Service Areas | ${BUSINESS_NAME}" />
+    <meta property="og:description" content="Find commercial mobile shot blasting and sandblasting service areas across England and Wales. Search your town or county, then request a Site Visit." />
     <meta property="og:url" content="${serviceAreasUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${LOGO}" />
@@ -6648,23 +6667,22 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Shot Blasting Services Near Me | Mobile Contractor All Areas | ${BUSINESS_NAME}" />
-    <meta name="twitter:description" content="Looking for a shot blasting contractor near you? 12 mobile units covering the UK. Same-week availability. Free quote: 07721 375756." />
+    <meta name="twitter:title" content="Shot Blasting Near You | Commercial Mobile Service Areas | ${BUSINESS_NAME}" />
+    <meta name="twitter:description" content="Find commercial mobile shot blasting and sandblasting service areas across England and Wales. Search your town or county, then request a Site Visit." />
     <meta name="twitter:image" content="${LOGO}" />
-    <meta name="twitter:image:alt" content="Commercial Shot Blasting service areas across the UK Midlands, North West, Yorkshire and more" />
+    <meta name="twitter:image:alt" content="Commercial Shot Blasting service areas across England and Wales" />
     ${generateServiceAreasIndexSchemas()}
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-      {"@type":"Question","name":"Do you offer mobile shot blasting services near me?","acceptedAnswer":{"@type":"Answer","text":"Yes — our shot blasting services are fully mobile. We travel directly to your site anywhere in the UK. We cover the Midlands, North West, Yorkshire, South East, South West, East Anglia, Wales, and the North East. There is no need to transport your materials — we bring all equipment to you."}},
-      {"@type":"Question","name":"Which areas do you cover for shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"We provide shot blasting services across the whole of the UK, including Birmingham, Manchester, Leeds, Sheffield, Bristol, Cardiff, Liverpool, Nottingham, Leicester, Derby, Coventry, and hundreds of towns and cities. Browse our service areas page to find your nearest location."}},
-      {"@type":"Question","name":"How far do you travel for shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"We travel throughout the UK for shot blasting services. Our mobile units are based in the Midlands and regularly cover a radius of 150+ miles, reaching locations from Cornwall to Northumberland and from East Anglia to West Wales. Call 07721 375756 to confirm coverage for your specific location."}},
-      {"@type":"Question","name":"Can you carry out shot blasting services on-site at my premises?","acceptedAnswer":{"@type":"Answer","text":"Yes — all our shot blasting services are carried out on-site at your premises. Our mobile units are fully self-contained with all equipment, abrasive media, and containment. We do not require you to transport materials to a workshop."}},
-      {"@type":"Question","name":"How do I find out if you cover my area for shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"Browse our service areas page to find your town or county, or call us directly on 07721 375756. We cover 600+ towns and cities across the UK and can usually confirm coverage within minutes."}}
+      {"@type":"Question","name":"Do you offer mobile shot blasting services near me?","acceptedAnswer":{"@type":"Answer","text":"We provide commercial mobile shot blasting across England and Wales. Search your town or county, then share the asset, condition, access and intended next stage so the project can be assessed."}},
+      {"@type":"Question","name":"Which areas do you cover for shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"The service-area directory covers commercial locations across England and Wales, including the Midlands, North West, Yorkshire, East Midlands, East Anglia, South West, the Welsh Borders and Wales."}},
+      {"@type":"Question","name":"Can you carry out shot blasting services on-site at my premises?","acceptedAnswer":{"@type":"Answer","text":"A project-specific site assessment considers the asset, access, working area, surrounding operations, containment needs, condition and the intended next stage before an approach is agreed."}},
+      {"@type":"Question","name":"How do I find out if you cover my area for shot blasting services?","acceptedAnswer":{"@type":"Answer","text":"Search the service-area directory for your town or county, then use Request A Site Visit to share project photographs, access information and the intended next stage. We will get back to you promptly."}}
     ]}
     </script>
   `;
     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, areaMetaTags);
-    modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="https://commercialshotblasting.co.uk/">Home</a> | <a href="https://commercialshotblasting.co.uk/services">Services</a> | <a href="https://commercialshotblasting.co.uk/service-areas">Service Areas</a> | <a href="https://commercialshotblasting.co.uk/about">About</a> | <a href="https://commercialshotblasting.co.uk/contact">Contact</a> | <a href="https://commercialshotblasting.co.uk/blog">Blog</a> | <a href="https://commercialshotblasting.co.uk/industries">Industries</a> | <a href="https://commercialshotblasting.co.uk/glossary">Glossary</a> | <a href="https://commercialshotblasting.co.uk/site-survey">Free Site Survey</a></nav><main><h1>Shot Blasting Services Near Me — the UK</h1><p>Looking for a shot blasting contractor near you? Commercial Shot Blasting operates 12 mobile units across the UK. Same-week availability. Free quote.</p><ul><li><a href="https://commercialshotblasting.co.uk/service-areas/birmingham">Shot Blasting Birmingham</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/manchester">Shot Blasting Manchester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/sheffield">Shot Blasting Sheffield</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/leeds">Shot Blasting Leeds</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/nottingham">Shot Blasting Nottingham</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/leicester">Shot Blasting Leicester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/derby">Shot Blasting Derby</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/coventry">Shot Blasting Coventry</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/bristol">Shot Blasting Bristol</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/cardiff">Shot Blasting Cardiff</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/liverpool">Shot Blasting Liverpool</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/wolverhampton">Shot Blasting Wolverhampton</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/stoke-on-trent">Shot Blasting Stoke-on-Trent</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/oxford">Shot Blasting Oxford</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/cambridge">Shot Blasting Cambridge</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/northampton">Shot Blasting Northampton</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/peterborough">Shot Blasting Peterborough</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/worcester">Shot Blasting Worcester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/gloucester">Shot Blasting Gloucester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/shrewsbury">Shot Blasting Shrewsbury</a></li></ul></main></div>`);
+    modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="https://commercialshotblasting.co.uk/">Home</a> | <a href="https://commercialshotblasting.co.uk/services">Services</a> | <a href="https://commercialshotblasting.co.uk/service-areas">Service Areas</a> | <a href="https://commercialshotblasting.co.uk/about">About</a> | <a href="https://commercialshotblasting.co.uk/contact">Contact</a> | <a href="https://commercialshotblasting.co.uk/blog">Blog</a> | <a href="https://commercialshotblasting.co.uk/industries">Industries</a> | <a href="https://commercialshotblasting.co.uk/glossary">Glossary</a> | <a href="https://commercialshotblasting.co.uk/site-survey">Request A Site Visit</a></nav><main><h1>Commercial Shot Blasting Near You — England and Wales</h1><p>Search commercial mobile shot blasting and sandblasting service areas across England and Wales. Find your town or county, then share the asset, access, surface condition and intended next stage through Request A Site Visit.</p><ul><li><a href="https://commercialshotblasting.co.uk/service-areas/birmingham">Shot Blasting Birmingham</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/manchester">Shot Blasting Manchester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/sheffield">Shot Blasting Sheffield</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/leeds">Shot Blasting Leeds</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/nottingham">Shot Blasting Nottingham</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/leicester">Shot Blasting Leicester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/derby">Shot Blasting Derby</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/coventry">Shot Blasting Coventry</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/bristol">Shot Blasting Bristol</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/cardiff">Shot Blasting Cardiff</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/liverpool">Shot Blasting Liverpool</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/wolverhampton">Shot Blasting Wolverhampton</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/stoke-on-trent">Shot Blasting Stoke-on-Trent</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/oxford">Shot Blasting Oxford</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/cambridge">Shot Blasting Cambridge</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/northampton">Shot Blasting Northampton</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/peterborough">Shot Blasting Peterborough</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/worcester">Shot Blasting Worcester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/gloucester">Shot Blasting Gloucester</a></li><li><a href="https://commercialshotblasting.co.uk/service-areas/shrewsbury">Shot Blasting Shrewsbury</a></li></ul></main></div>`);
     return modifiedHtml;
   }
 
@@ -7258,7 +7276,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     },
     "/mobile-on-site-shot-blasting": {
       title: "Mobile & On-Site Shot Blasting for Commercial Projects | Commercial Shot Blasting",
-      description: "Plan commercial mobile and on-site shot blasting for structural steel, cladding, containers, plant, and industrial assets. Explore scope inputs, access planning, specialist routes, and Site Visit guidance.",
+      description: "Plan commercial mobile and on-site shot blasting for structural steel, cladding, containers, plant, and industrial metal assets. Explore access, containment, surface condition, coating handover, and Site Visit guidance.",
       image: "https://commercialshotblasting.co.uk/manus-storage/IMG_3365_56728af1.webp",
       heading: "Mobile & On-Site Shot Blasting for Commercial Projects",
       intro: "A commercial planning hub for asset owners, facilities teams, fabricators, and contractors considering on-site surface preparation. The working area, access, asset dimensions, surrounding operations, containment needs, material handling, existing condition, intended coating, inspection requirements, and programme interfaces should be reviewed before a detailed method or schedule is assumed.",
@@ -7267,11 +7285,31 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
         { label: "Factory & Warehouse Cladding", href: "/services/factory-cladding" },
         { label: "Steel Container Blasting", href: "/services/steel-containers" },
         { label: "Mobile and on-site blasting planning guide", href: "/blog/mobile-on-site-shot-blasting-project-planning-guide" },
+        { label: "Commercial shot blasting and sandblasting guide", href: "/commercial-shot-blasting-sandblasting" },
+        { label: "ISO 8501-1, Sa 2½ and Sa 3 guide", href: "/blog/iso-8501-1-sa-2-5-sa-3-surface-preparation-guide" },
         { label: "Request A Site Visit", href: "/site-survey" },
       ],
       faqs: [
         { question: "What information helps assess whether a project is suitable for on-site shot blasting?", answer: "Useful information includes the asset type and dimensions, photographs of the current condition, accessible working areas, access routes, surrounding operations, adjacent surfaces, containment needs, the intended coating stage, and any programme restrictions. A Site Visit can then consider the specific project conditions." },
         { question: "Can every commercial steel asset be prepared on site?", answer: "Not automatically. The practical approach depends on the asset, site layout, access, condition, safety requirements, protection of surrounding operations, containment, handling, and the next project stage. These details should be assessed before a method is agreed." },
+      ],
+    },
+    "/commercial-shot-blasting-sandblasting": {
+      title: "Commercial Shot Blasting & Sandblasting | Metal Surface Preparation | Commercial Shot Blasting",
+      description: "Plan commercial shot blasting, commonly searched as sandblasting, for metal surface preparation, rust removal, coating removal, structural steel, plant, cladding, and industrial assets across England and Wales.",
+      image: "https://commercialshotblasting.co.uk/manus-storage/IMG_3365_56728af1.webp",
+      heading: "Commercial Shot Blasting & Sandblasting for Metal Surface Preparation",
+      intro: "A commercial planning hub for metal surface preparation, rust removal, coating removal, structural steel, plant, cladding, and industrial assets. “Sandblasting” is commonly used as a search term, but the project-appropriate preparation route must be confirmed from the asset, condition, site environment, access, containment needs, and the next coating or refurbishment stage.",
+      links: [
+        { label: "Rust Removal", href: "/services/rust-removal" },
+        { label: "Structural Steel Frames", href: "/services/structural-steel-frames" },
+        { label: "Mobile & On-Site Shot Blasting", href: "/mobile-on-site-shot-blasting" },
+        { label: "ISO 8501-1, Sa 2½ and Sa 3 guide", href: "/blog/iso-8501-1-sa-2-5-sa-3-surface-preparation-guide" },
+        { label: "Request A Site Visit", href: "/site-survey" },
+      ],
+      faqs: [
+        { question: "Do you provide commercial sandblasting?", answer: "Many buyers use “sandblasting” as a general search term for abrasive surface preparation. The practical approach is discussed against the actual asset, condition, access, containment needs, working environment, and coating or refurbishment specification before a project-specific scope is agreed." },
+        { question: "What information helps scope commercial metal shot blasting or rust removal?", answer: "Useful starting information includes photographs, drawings or dimensions, the asset type and accessible surfaces, corrosion or coating condition, site town or postcode, access and operating constraints, nearby areas needing protection, and the intended next stage after preparation." },
       ],
     },
     "/intumescent-paint-for-steel": {
@@ -8046,7 +8084,7 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
   }
   
   const locationSlug = serviceAreaMatch[1];
-  const meta = locationMeta[locationSlug];
+  const meta = highImpressionLocationMeta[locationSlug] ?? locationMeta[locationSlug];
   
   if (!meta) {
     // Location not found in our predefined list
@@ -8070,14 +8108,14 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     // Build meta tags and JSON-LD
     const countyStr = dynCountyName ? `, ${dynCountyName}` : '';
     const metaTags = `
-    <title>Shot Blasting ${locationName} | Mobile Contractor Near Me | Commercial Shot Blasting</title>
+    <title>Shot Blasting &amp; Sandblasting in ${locationName} | Commercial Surface Preparation</title>
     <link rel="canonical" href="${fullUrl}" />
     <link rel="alternate" hreflang="en-gb" href="${fullUrl}" />
     <link rel="alternate" hreflang="en" href="${fullUrl}" />
-    <meta name="description" content="Shot blasting contractor in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors &amp; more. Free quote: ${PHONE}" />
-    <meta name="keywords" content="shot blasting ${locationName}, ${locationName} shot blasting, mobile shot blasting ${locationName}, rust removal ${locationName}, surface preparation ${locationName}${dynCountyName ? `, shot blasting ${dynCountyName}` : ''}" />
-    <meta property="og:title" content="Shot Blasting ${locationName} | Mobile Contractor Near Me | Commercial Shot Blasting" />
-    <meta property="og:description" content="Shot blasting contractor in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard, same-week availability. Structural steel, cladding, containers, floors &amp; more. Free quote: ${PHONE}" />
+    <meta name="description" content="Commercial shot blasting and sandblasting in ${locationName}${countyStr} for metal surface preparation, rust removal, structural steel, cladding, containers, plant and coating handover. Request A Site Visit." />
+    <meta name="keywords" content="shot blasting ${locationName}, sandblasting ${locationName}, sand blasting ${locationName}, ${locationName} shot blasting, mobile shot blasting ${locationName}, rust removal ${locationName}, surface preparation ${locationName}${dynCountyName ? `, shot blasting ${dynCountyName}` : ''}" />
+    <meta property="og:title" content="Shot Blasting &amp; Sandblasting in ${locationName} | Commercial Surface Preparation" />
+    <meta property="og:description" content="Commercial shot blasting and sandblasting in ${locationName}${countyStr} for metal surface preparation, rust removal, structural steel, cladding, containers, plant and coating handover." />
     <meta property="og:url" content="${fullUrl}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="${townOgImageUrl(locationName, dynCountyName || '')}" />
@@ -8088,8 +8126,8 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="${BUSINESS_NAME}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Shot Blasting ${locationName} | Mobile Contractor Near Me | Commercial Shot Blasting" />
-    <meta name="twitter:description" content="Shot blasting in ${locationName}${countyStr} — 12 mobile units, SA2.5/SA3 standard, same-week availability. Free quote: ${PHONE}" />
+    <meta name="twitter:title" content="Shot Blasting &amp; Sandblasting in ${locationName} | Commercial Surface Preparation" />
+    <meta name="twitter:description" content="Commercial shot blasting and sandblasting in ${locationName}${countyStr} for metal surface preparation, rust removal, structural steel, cladding, containers, plant and coating handover." />
     <meta name="twitter:image" content="${townOgImageUrl(locationName, dynCountyName || '')}" />
     <meta name="twitter:image:alt" content="Shot Blasting in ${locationName}${countyStr} — Commercial Shot Blasting" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />

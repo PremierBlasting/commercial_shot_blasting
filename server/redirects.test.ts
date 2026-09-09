@@ -65,6 +65,7 @@ describe("GSC Phase 1 — Redirect configuration", () => {
   it("redirects trailing-slash service-area duplicates to the canonical URL and preserves query attribution", () => {
     expect(getCanonicalServiceAreaRedirect("/service-areas/swindon/", "/service-areas/swindon/")).toBe("/service-areas/swindon");
     expect(getCanonicalServiceAreaRedirect("/service-areas/swindon/", "/service-areas/swindon/?utm_source=google")).toBe("/service-areas/swindon?utm_source=google");
+    expect(getCanonicalServiceAreaRedirect("/service-areas/stoke", "/service-areas/stoke?utm_source=search-console")).toBe("/service-areas/stoke-on-trent?utm_source=search-console");
     expect(getCanonicalServiceAreaRedirect("/service-areas/swindon", "/service-areas/swindon")).toBeNull();
     expect(getCanonicalServiceAreaRedirect("/locations/corby", "/locations/corby")).toBeNull();
   });

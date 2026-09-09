@@ -64,7 +64,7 @@ export default function CoventryServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   useEffect(() => {
-    document.title = "Shot Blasting Coventry | Commercial & Industrial";
+    document.title = "Shot Blasting Coventry | Commercial Metal Surface Preparation";
     
     // Set keywords meta tag
     const metaKeywords = document.querySelector('meta[name="keywords"]');
@@ -79,7 +79,7 @@ export default function CoventryServiceArea() {
   }, []);
 
   useEffect(() => {
-    const description = locationData["coventry"].description;
+    const description = "Commercial shot blasting in Coventry for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.";
     
     // Set meta description
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -95,11 +95,11 @@ export default function CoventryServiceArea() {
     // Set Open Graph meta tags
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
-      ogTitle.setAttribute('content', 'Shot Blasting Coventry');
+      ogTitle.setAttribute('content', 'Shot Blasting Coventry | Commercial Metal Surface Preparation');
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:title');
-      meta.setAttribute('content', 'Shot Blasting Coventry');
+      meta.setAttribute('content', 'Shot Blasting Coventry | Commercial Metal Surface Preparation');
       document.head.appendChild(meta);
     }
 
@@ -126,11 +126,11 @@ export default function CoventryServiceArea() {
     // Set Twitter Card meta tags
     const twitterTitle = document.querySelector('meta[name="twitter:title"]');
     if (twitterTitle) {
-      twitterTitle.setAttribute('content', 'Shot Blasting Coventry');
+      twitterTitle.setAttribute('content', 'Shot Blasting Coventry | Commercial Metal Surface Preparation');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'twitter:title';
-      meta.content = 'Shot Blasting Coventry';
+      meta.content = 'Shot Blasting Coventry | Commercial Metal Surface Preparation';
       document.head.appendChild(meta);
     }
 

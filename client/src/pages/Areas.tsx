@@ -495,7 +495,7 @@ export default function Areas() {
       
       <Breadcrumb items={[
         { label: "Home", href: "/" },
-        { label: "Areas", href: "/areas", isCurrentPage: true }
+        { label: "Service Areas", href: "/service-areas", isCurrentPage: true }
       ]} className="container mt-6" />
 
       {/* Hero Section */}
@@ -519,10 +519,10 @@ export default function Areas() {
               <span className="text-sm font-medium">{totalLocations}+ Service Locations</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Shot Blasting Services Near Me — All Areas
+              Commercial Shot Blasting Near You — England & Wales
             </h1>
             <p className="text-xl text-white/80 mb-8">
-              Looking for a shot blasting contractor near you? Our 12 mobile teams cover 650+ towns and cities across the UK, delivering professional on-site shot blasting services directly to your premises.
+              Find commercial mobile shot blasting and sandblasting across England and Wales. Search your town or county, then share the asset, access, surface condition, and intended next stage through a Site Visit request.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -550,7 +550,7 @@ export default function Areas() {
               Interactive Coverage Map
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Explore our service coverage across the UK. Click on any marker to see location details.
+              Explore commercial service coverage across England and Wales. Click on any marker to see location details.
             </p>
           </div>
           
@@ -568,7 +568,7 @@ export default function Areas() {
               All Service Locations
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-              Browse all {totalLocations}+ locations we serve across the UK. Click on any location to view detailed information about our services in that area.
+              Browse all {totalLocations}+ service locations across England and Wales. Click on any location to view detailed information about commercial surface-preparation planning in that area.
             </p>
             
             {/* Region Filter Buttons */}
@@ -1790,7 +1790,7 @@ export default function Areas() {
               Shot Blasting by County
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We cover {countiesForAreas.length} counties across the UK. Click your county for local service details, towns covered, and FAQs.
+              We cover {countiesForAreas.length} county areas across England and Wales. Click your county for local service details, towns covered, and FAQs.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">

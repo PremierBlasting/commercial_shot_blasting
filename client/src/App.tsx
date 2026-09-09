@@ -266,6 +266,7 @@ function Router() {
         <Route path={"/container-restoration-storage-steelwork"} component={PillarPage} />
         <Route path={"/mobile-on-site-shot-blasting"} component={PillarPage} />
         <Route path={"/intumescent-paint-for-steel"} component={PillarPage} />
+        <Route path={"/commercial-shot-blasting-sandblasting"} component={PillarPage} />
         <Route path={"/external-staircases"} component={ExternalStaircasesPage} />
         <Route path={"/services/car-park-paint-removal"} component={CarParkPage} />
         <Route path={"/services/intumescent-painting"} component={IntumescentPaintingPage} />
@@ -358,7 +359,7 @@ function Router() {
         <Route path="/service-areas/nottingham" component={NottinghamServiceArea} />
         <Route path="/service-areas/shrewsbury" component={ShrewsburyServiceArea} />
         <Route path="/service-areas/st-albans" component={StAlbansServiceArea} />
-        <Route path="/service-areas/stoke" component={StokeServiceArea} />
+        <Route path="/service-areas/stoke-on-trent" component={StokeServiceArea} />
         <Route path="/service-areas/swindon" component={SwindonServiceArea} />
         <Route path="/service-areas/stratford-upon-avon" component={StratfordUponAvonServiceArea} />
         <Route path="/service-areas/wolverhampton" component={WolverhamtonServiceArea} />

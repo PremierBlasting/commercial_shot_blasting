@@ -92,6 +92,7 @@ const commercialResourceClusters = [
     description: "Use the mobile-blasting hub to structure a Site Visit around the asset, working area, access, containment, existing condition, and intended next stage.",
     links: [
       { label: "Mobile & on-site shot blasting planning hub", href: "/mobile-on-site-shot-blasting" },
+      { label: "Commercial shot blasting & sandblasting guide", href: "/commercial-shot-blasting-sandblasting" },
       { label: "Structural steel frames", href: "/services/structural-steel-frames" },
       { label: "Factory & warehouse cladding", href: "/services/factory-cladding" },
       { label: "Steel container blasting", href: "/services/steel-containers" },

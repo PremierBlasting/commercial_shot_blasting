@@ -83,7 +83,7 @@ export default function StokeServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   useEffect(() => {
-    document.title = "Shot Blasting Stoke-on-Trent | Industrial Services";
+    document.title = "Shot Blasting Stoke-on-Trent | Commercial Surface Preparation";
     
     // Set keywords meta tag
     const metaKeywords = document.querySelector('meta[name="keywords"]');
@@ -98,8 +98,7 @@ export default function StokeServiceArea() {
   }, []);
 
   useEffect(() => {
-    const locationInfo = locationData["stoke"];
-    const description = locationInfo?.description || "Professional shot blasting services. Expert surface preparation & rust removal. Call 07721 375756";
+    const description = "Commercial shot blasting in Stoke-on-Trent for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.";
     
     // Set meta description
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -115,11 +114,11 @@ export default function StokeServiceArea() {
     // Set Open Graph meta tags
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
-      ogTitle.setAttribute('content', 'Shot Blasting Stoke');
+      ogTitle.setAttribute('content', 'Shot Blasting Stoke-on-Trent | Commercial Surface Preparation');
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:title');
-      meta.setAttribute('content', 'Shot Blasting Stoke');
+      meta.setAttribute('content', 'Shot Blasting Stoke-on-Trent | Commercial Surface Preparation');
       document.head.appendChild(meta);
     }
 
@@ -146,11 +145,11 @@ export default function StokeServiceArea() {
     // Set Twitter Card meta tags
     const twitterTitle = document.querySelector('meta[name="twitter:title"]');
     if (twitterTitle) {
-      twitterTitle.setAttribute('content', 'Shot Blasting Stoke');
+      twitterTitle.setAttribute('content', 'Shot Blasting Stoke-on-Trent | Commercial Surface Preparation');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'twitter:title';
-      meta.content = 'Shot Blasting Stoke';
+      meta.content = 'Shot Blasting Stoke-on-Trent | Commercial Surface Preparation';
       document.head.appendChild(meta);
     }
 

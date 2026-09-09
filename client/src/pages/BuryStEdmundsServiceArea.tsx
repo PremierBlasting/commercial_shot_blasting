@@ -23,7 +23,7 @@ export default function BuryStEdmundsServiceArea() {
   }, []);
 
   useEffect(() => {
-    document.title = 'Shot Blasting Bury St Edmunds | Commercial & Industrial';
+    document.title = 'Sandblasting Bury St Edmunds | Commercial Shot Blasting';
     
     // Set keywords meta tag
     const metaKeywords = document.querySelector('meta[name="keywords"]');
@@ -38,7 +38,7 @@ export default function BuryStEdmundsServiceArea() {
   }, []);
 
   useEffect(() => {
-    const description = locationData["bury-st-edmunds"]?.description || "Professional shot blasting services in Bury St Edmunds. Call 07721 375756";
+    const description = "Commercial sandblasting and shot blasting in Bury St Edmunds for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.";
     
     // Set meta description
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -54,11 +54,11 @@ export default function BuryStEdmundsServiceArea() {
     // Set Open Graph meta tags
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
-      ogTitle.setAttribute('content', 'Shot Blasting Bury St Edmunds | Commercial & Industrial');
+      ogTitle.setAttribute('content', 'Sandblasting Bury St Edmunds | Commercial Shot Blasting');
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:title');
-      meta.setAttribute('content', 'Shot Blasting Bury St Edmunds | Commercial & Industrial');
+      meta.setAttribute('content', 'Sandblasting Bury St Edmunds | Commercial Shot Blasting');
       document.head.appendChild(meta);
     }
 
@@ -85,11 +85,11 @@ export default function BuryStEdmundsServiceArea() {
     // Set Twitter Card meta tags
     const twitterTitle = document.querySelector('meta[name="twitter:title"]');
     if (twitterTitle) {
-      twitterTitle.setAttribute('content', 'Shot Blasting Bury St Edmunds | Commercial & Industrial');
+      twitterTitle.setAttribute('content', 'Sandblasting Bury St Edmunds | Commercial Shot Blasting');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'twitter:title';
-      meta.content = 'Shot Blasting Bury St Edmunds | Commercial & Industrial';
+      meta.content = 'Sandblasting Bury St Edmunds | Commercial Shot Blasting';
       document.head.appendChild(meta);
     }
 

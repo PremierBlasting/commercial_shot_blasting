@@ -41,7 +41,7 @@ export default function WolverhamptonServiceArea() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   useEffect(() => {
-    document.title = "Shot Blasting Wolverhampton | Industrial Services";
+    document.title = "Shot Blasting Wolverhampton | Commercial Surface Preparation";
     
     // Set keywords meta tag
     const metaKeywords = document.querySelector('meta[name="keywords"]');
@@ -56,8 +56,7 @@ export default function WolverhamptonServiceArea() {
   }, []);
 
   useEffect(() => {
-    const locationInfo = locationData["wolverhamton"];
-    const description = locationInfo?.description || "Professional shot blasting services. Expert surface preparation & rust removal. Call 07721 375756";
+    const description = "Commercial shot blasting in Wolverhampton for metal surface preparation, rust and coating removal, structural steel, plant and cladding. Request A Site Visit.";
     
     // Set meta description
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -73,11 +72,11 @@ export default function WolverhamptonServiceArea() {
     // Set Open Graph meta tags
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
-      ogTitle.setAttribute('content', 'Shot Blasting Wolverhamton');
+      ogTitle.setAttribute('content', 'Shot Blasting Wolverhampton | Commercial Surface Preparation');
     } else {
       const meta = document.createElement('meta');
       meta.setAttribute('property', 'og:title');
-      meta.setAttribute('content', 'Shot Blasting Wolverhamton');
+      meta.setAttribute('content', 'Shot Blasting Wolverhampton | Commercial Surface Preparation');
       document.head.appendChild(meta);
     }
 
@@ -104,11 +103,11 @@ export default function WolverhamptonServiceArea() {
     // Set Twitter Card meta tags
     const twitterTitle = document.querySelector('meta[name="twitter:title"]');
     if (twitterTitle) {
-      twitterTitle.setAttribute('content', 'Shot Blasting Wolverhamton');
+      twitterTitle.setAttribute('content', 'Shot Blasting Wolverhampton | Commercial Surface Preparation');
     } else {
       const meta = document.createElement('meta');
       meta.name = 'twitter:title';
-      meta.content = 'Shot Blasting Wolverhamton';
+      meta.content = 'Shot Blasting Wolverhampton | Commercial Surface Preparation';
       document.head.appendChild(meta);
     }
 
