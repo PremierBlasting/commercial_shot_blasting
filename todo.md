@@ -1775,7 +1775,7 @@
 
 ## Next SEO Growth Sprint (7 September 2026)
 - [x] Submit the live sitemap index to Google Search Console and record the initial child-sitemap fetch status; Search Console accepted the canonical full sitemap-index URL
-- [ ] Request alternate-canonical validation when Search Console exposes the issue-detail row; the current virtualised report summary did not make its validation control accessible after the authorised submission
+- [x] Request alternate-canonical validation after opening the issue-detail row in Search Console; validation started on 11 September 2026 and is now awaiting Google’s recrawl assessment
 - [x] Publish two evidence-led supporting articles for mobile on-site blasting and intumescent-steel specification intent with contextual links to the new hubs and Site Visit flow
 - [x] Select and refresh Chesterfield, Sheffield, Bradford, and Derby as the next near-page-one local service pages with source-backed commercial context and related internal links
 - [x] Add regression coverage and validate sitemap submission status, article and local-page routes, TypeScript, focused tests, production build, and responsive layouts before publication; 271 tests pass, while the unchanged live HubSpot PB credential check returns 401
