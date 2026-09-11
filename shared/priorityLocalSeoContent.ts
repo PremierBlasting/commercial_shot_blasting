@@ -12,6 +12,58 @@ export type PriorityCommercialContent = {
 };
 
 export const priorityTownCommercialContent: Record<string, PriorityCommercialContent> = {
+  birmingham: {
+    eyebrow: "Commercial engineering context",
+    title: "Planning commercial sandblasting around Birmingham’s advanced-engineering economy",
+    paragraphs: [
+      "Invest West Midlands identifies Birmingham as a leading UK core city for advanced engineering and future mobility. For commercial teams planning steelwork, plant, cladding, or access-steel maintenance, that is useful local context for setting out the asset, current condition, working area, access, adjacent operations, and intended coating or repair stage before a scope is agreed.",
+      "A Site Visit can focus on the actual commercial asset and the practical project interfaces, rather than assuming a standard method or programme. The linked specialist routes help separate on-site work, steel-frame preparation, and broader commercial sandblasting requirements before the next step is planned.",
+    ],
+    links: [
+      { title: "Commercial Sandblasting", href: "/commercial-shot-blasting-sandblasting", description: "A planning route for commercial metal preparation, coating removal, and surface condition review." },
+      { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For access, containment, and working-area considerations at a live site." },
+      { title: "Structural Steel Frames", href: "/services/structural-steel-frames", description: "For frames, beams, columns, and coating-readiness planning." },
+    ],
+  },
+  liverpool: {
+    eyebrow: "Commercial logistics context",
+    title: "Planning commercial sand blasting around Liverpool City Region’s logistics and manufacturing setting",
+    paragraphs: [
+      "Invest Liverpool City Region describes the regional Freeport context as supporting advanced manufacturing, logistics, clean energy, and innovation, with the Port of Liverpool, rail freight terminals, and major road networks part of the wider connectivity picture. This is useful background when a commercial team is assessing warehouse steelwork, plant, cladding, containers, or maintenance assets in and around the city.",
+      "Each project still needs a site-specific review of the asset, accessible surfaces, existing condition, access, protection of nearby operations, containment, and the next coating or repair stage. The specialist routes below support that discussion without implying a relationship with any named regional site or organisation.",
+    ],
+    links: [
+      { title: "Commercial Sandblasting", href: "/commercial-shot-blasting-sandblasting", description: "For commercial metal surface-preparation and coating-removal planning." },
+      { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For practical on-site access, containment, and operational-interface inputs." },
+      { title: "Container Restoration & Storage Steelwork", href: "/container-restoration-storage-steelwork", description: "For container and storage-steelwork condition and coating planning." },
+    ],
+  },
+  northampton: {
+    eyebrow: "Commercial logistics context",
+    title: "Planning commercial sandblasting around Northampton’s logistics setting",
+    paragraphs: [
+      "Invest in West Northants identifies advanced logistics as a regional sector and describes the area’s connection to the M1 and wider Midlands logistics network. For warehouse, distribution, fabrication, or facilities teams, this provides useful context for considering surface preparation around active commercial operations and the next protective-coating stage.",
+      "A Site Visit can establish the asset, current surface condition, accessible faces, working levels, loading or pedestrian interfaces, containment needs, and intended finish before the most suitable scope is discussed. The routes below offer focused planning information for commercial sandblasting, on-site work, and steel-frame preparation.",
+    ],
+    links: [
+      { title: "Commercial Sandblasting", href: "/commercial-shot-blasting-sandblasting", description: "For commercial metal preparation, rust and coating removal, and surface condition review." },
+      { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For live-site access, containment, and programme-interface planning." },
+      { title: "Structural Steel Frames", href: "/services/structural-steel-frames", description: "For structural steel and coating-readiness project discussions." },
+    ],
+  },
+  leicester: {
+    eyebrow: "Commercial building context",
+    title: "Planning commercial sandblasting across Leicester’s business and commercial-space setting",
+    paragraphs: [
+      "Leicester City Council’s investment information highlights business investment areas, commercial space, and support for businesses looking to relocate, expand, or invest in the city. That is useful neutral context when a commercial team is reviewing steelwork, plant, cladding, containers, or building-maintenance assets ahead of a surface-preparation or coating stage.",
+      "The practical starting point remains the project itself: the asset and condition, accessible faces, access arrangements, nearby activities, containment, protection of adjacent work, inspection requirements, and intended finish. A Site Visit can then focus on the information relevant to the individual commercial scope.",
+    ],
+    links: [
+      { title: "Commercial Sandblasting", href: "/commercial-shot-blasting-sandblasting", description: "For commercial metal surface-preparation and coating-removal planning." },
+      { title: "Factory Cladding Restoration", href: "/factory-cladding-restoration", description: "For coated factory and warehouse-building envelope planning." },
+      { title: "Structural Steel Frames", href: "/services/structural-steel-frames", description: "For commercial steel frames and associated preparation inputs." },
+    ],
+  },
   bristol: {
     eyebrow: "Commercial site context",
     title: "Planning surface preparation around Bristol’s industrial and distribution estates",

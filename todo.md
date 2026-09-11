@@ -1786,6 +1786,11 @@
 - [x] Improve search-facing titles, meta descriptions, headings, internal links, structured data, and local discovery pathways for the supplied click-growth queries
 - [x] Add regression coverage and validate query-target routes, crawlable metadata, desktop/mobile layouts, TypeScript, focused tests, production build, and live route checks; 31 suites / 277 tests pass, while the unchanged external HubSpot PB credential check returns 401 in the full suite
 
+## Next High-Impression Town Page Refresh Batch (11 September 2026)
+- [x] Identify Birmingham, Liverpool, Northampton, and Leicester as the next commercially relevant high-impression town queries from current SEO data after completed priority-page work
+- [x] Gather authoritative local commercial evidence and refresh the selected town pages in visible and crawler-facing content without unsupported delivery claims
+- [x] Improve titles, descriptions, query-to-page internal links, and local discovery pathways; add regression coverage and validate TypeScript, focused tests, build, responsive routes, and crawler output before publication; 280 of 281 full-suite tests pass, while the unchanged live HubSpot PB credential check returns 401
+
 ## Revised Capability Statement Draft (26 August 2026)
 - [x] Create a review-ready revised Commercial Capability Statement PDF that replaces the outdated CHAS wording and correctly presents Commercial Shot Blasting as the commercial arm of Premier Blasting
 - [x] Preserve only user-supplied operational, insurance, resource, and case-study claims, with all time-sensitive figures clearly flagged for approval before publication

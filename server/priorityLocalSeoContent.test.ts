@@ -26,6 +26,17 @@ describe("priority local commercial context", () => {
     expect(priorityTownCommercialContent.peterborough.links.map((link) => link.href)).toContain("/intumescent-paint-for-steel");
   });
 
+  it("holds source-backed commercial context and relevant specialist links for Birmingham, Liverpool, Northampton, and Leicester", () => {
+    expect(priorityTownCommercialContent.birmingham.paragraphs.join(" ")).toContain("advanced engineering and future mobility");
+    expect(priorityTownCommercialContent.liverpool.paragraphs.join(" ")).toContain("advanced manufacturing, logistics, clean energy, and innovation");
+    expect(priorityTownCommercialContent.northampton.paragraphs.join(" ")).toContain("advanced logistics as a regional sector");
+    expect(priorityTownCommercialContent.leicester.paragraphs.join(" ")).toContain("business investment areas, commercial space");
+    expect(priorityTownCommercialContent.birmingham.links.map((link) => link.href)).toContain("/commercial-shot-blasting-sandblasting");
+    expect(priorityTownCommercialContent.liverpool.links.map((link) => link.href)).toContain("/container-restoration-storage-steelwork");
+    expect(priorityTownCommercialContent.northampton.links.map((link) => link.href)).toContain("/mobile-on-site-shot-blasting");
+    expect(priorityTownCommercialContent.leicester.links.map((link) => link.href)).toContain("/factory-cladding-restoration");
+  });
+
   it("holds source-backed ranking-page context and specialist links for Chesterfield, Sheffield, Bradford, and Derby", () => {
     expect(priorityTownCommercialContent.chesterfield.paragraphs.join(" ")).toContain("Markham Vale");
     expect(priorityTownCommercialContent.sheffield.paragraphs.join(" ")).toContain("Advanced Manufacturing Innovation District");
@@ -76,6 +87,22 @@ describe("priority local commercial context", () => {
     expect(sheffield).toContain("/intumescent-paint-for-steel");
   });
 
+  it("mirrors the current four source-backed local refreshes in crawler-visible content", async () => {
+    const [birmingham, liverpool, northampton, leicester] = await Promise.all([
+      injectMetaTags(baseHtml, "/service-areas/birmingham"),
+      injectMetaTags(baseHtml, "/service-areas/liverpool"),
+      injectMetaTags(baseHtml, "/service-areas/northampton"),
+      injectMetaTags(baseHtml, "/service-areas/leicester"),
+    ]);
+
+    expect(birmingham).toContain("Planning commercial sandblasting around Birmingham’s advanced-engineering economy");
+    expect(liverpool).toContain("Planning commercial sand blasting around Liverpool City Region’s logistics and manufacturing setting");
+    expect(northampton).toContain("Planning commercial sandblasting around Northampton’s logistics setting");
+    expect(leicester).toContain("Planning commercial sandblasting across Leicester’s business and commercial-space setting");
+    expect(birmingham).toContain("Sandblasting Birmingham | Commercial Shot Blasting & Surface Preparation");
+    expect(liverpool).toContain("Sand Blasting Liverpool | Commercial Shot Blasting");
+  });
+
   it("renders the verified priority context on Bristol and Peterborough’s dedicated visible page templates", () => {
     const projectRoot = resolve(import.meta.dirname, "..");
     const bristol = readFileSync(resolve(projectRoot, "client/src/pages/BristolServiceArea.tsx"), "utf8");
@@ -96,5 +123,21 @@ describe("priority local commercial context", () => {
     expect(chesterfield).toContain('<PriorityLocalCommercialContext locationSlug="chesterfield" />');
     expect(sheffield).toContain('<PriorityLocalCommercialContext locationSlug="sheffield" />');
     expect(derby).toContain('<PriorityLocalCommercialContext locationSlug="derby" />');
+  });
+
+  it("uses the shared evidence-led location route for the current town refresh batch", () => {
+    const projectRoot = resolve(import.meta.dirname, "..");
+    const app = readFileSync(resolve(projectRoot, "client/src/App.tsx"), "utf8");
+    const prefetch = readFileSync(resolve(projectRoot, "client/src/hooks/usePrefetch.ts"), "utf8");
+
+    expect(app).not.toContain("const BirminghamServiceArea");
+    expect(app).not.toContain("const LiverpoolServiceArea");
+    expect(app).not.toContain("const NorthamptonServiceArea");
+    expect(app).not.toContain("const LeicesterServiceArea");
+    expect(app).toContain('path="/service-areas/:slug"');
+    expect(prefetch).not.toContain("BirminghamServiceArea");
+    expect(prefetch).not.toContain("LiverpoolServiceArea");
+    expect(prefetch).not.toContain("NorthamptonServiceArea");
+    expect(prefetch).not.toContain("LeicesterServiceArea");
   });
 });
