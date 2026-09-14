@@ -246,6 +246,29 @@ export default function ExternalStaircasesPage() {
                 </p>
               </div>
 
+              <section className="overflow-hidden rounded-2xl border border-[#2C5F7F]/20 bg-white shadow-sm" aria-labelledby="bromsgrove-staircase-case-study">
+                <div className="grid md:grid-cols-[0.9fr_1.1fr]">
+                  <img
+                    src="/manus-storage/bromsgrove-staircase-after_ae521dcd.png"
+                    alt="Finished black external spiral staircase at Bromsgrove School"
+                    className="h-full min-h-72 w-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="p-6 sm:p-8">
+                    <p className="text-sm font-semibold uppercase tracking-wide text-[#2C5F7F]">Project evidence</p>
+                    <h2 id="bromsgrove-staircase-case-study" className="mt-2 text-3xl font-bold text-[#2C5F7F]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      Bromsgrove School external spiral staircase restoration
+                    </h2>
+                    <p className="mt-4 leading-relaxed text-gray-700">
+                      See how flaking paint and rust-affected areas on an external spiral staircase were brought back to life with a black finish, including black anti-slip paint on the steps.
+                    </p>
+                    <Link href="/case-studies/bromsgrove-school-staircase" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#2C5F7F] px-5 py-3 font-semibold text-white transition hover:bg-[#234a63] focus:outline-none focus:ring-2 focus:ring-[#2C5F7F] focus:ring-offset-2">
+                      Explore the Bromsgrove School case study <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+              </section>
+
               {/* Key Benefits */}
               <div>
                 <h2 className="text-3xl font-bold text-[#2C5F7F] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>

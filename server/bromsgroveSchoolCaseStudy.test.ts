@@ -24,6 +24,8 @@ describe("Bromsgrove School spiral staircase case study", () => {
   it("uses the supplied before-and-after media and registers all discovery paths", () => {
     const app = readFileSync(resolve(projectRoot, "client/src/App.tsx"), "utf8");
     const page = readFileSync(resolve(projectRoot, "client/src/pages/BromsgroveSchoolCaseStudy.tsx"), "utf8");
+    const comparison = readFileSync(resolve(projectRoot, "client/src/components/BeforeAfterProjectSlider.tsx"), "utf8");
+    const externalStaircases = readFileSync(resolve(projectRoot, "client/src/pages/ExternalStaircasesPage.tsx"), "utf8");
     const work = readFileSync(resolve(projectRoot, "client/src/pages/OurWork.tsx"), "utf8");
     const xmlSitemap = readFileSync(resolve(projectRoot, "server/sitemap.ts"), "utf8");
     const htmlSitemap = readFileSync(resolve(projectRoot, "client/src/pages/SitemapPage.tsx"), "utf8");
@@ -35,8 +37,23 @@ describe("Bromsgrove School spiral staircase case study", () => {
     expect(page).not.toContain("bromsgrove-staircase-before-01_9ba57d63.jpg");
     expect(page).toContain("bromsgrove-staircase-after_ae521dcd.png");
     expect(page).toContain("Watch before footage");
+    expect(page).toContain("BeforeAfterProjectSlider");
+    expect(page).toContain('aspectRatio="portrait"');
+    expect(page).toContain("bromsgrove-before-video-progress");
+    expect(page).toContain("Play before footage");
+    expect(page).toContain("Pause before footage");
+    expect(page).toContain("Mute before footage");
+    expect(page).toContain("Replay");
+    expect(page).not.toContain("autoPlay controls");
+    expect(comparison).toContain('aspectRatio?: "landscape" | "portrait"');
+    expect(comparison).toContain("View full-screen comparison");
+    expect(comparison).toContain(">After</span>");
+    expect(comparison).toContain(">Before</span>");
     expect(page).toContain("black anti-slip paint to the steps");
     expect(page).toContain("Request A Site Visit");
+    expect(externalStaircases).toContain('href="/case-studies/bromsgrove-school-staircase"');
+    expect(externalStaircases).toContain("Bromsgrove School external spiral staircase restoration");
+    expect(externalStaircases).toContain("bromsgrove-staircase-after_ae521dcd.png");
     expect(work).toContain('/case-studies/bromsgrove-school-staircase');
     expect(xmlSitemap).toContain('{ loc: "/case-studies/bromsgrove-school-staircase"');
     expect(htmlSitemap).toContain('{ href: "/case-studies/bromsgrove-school-staircase"');

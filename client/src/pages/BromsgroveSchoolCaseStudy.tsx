@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import {
   ArrowRight,
@@ -7,10 +7,15 @@ import {
   ChevronLeft,
   ChevronRight,
   ClipboardCheck,
+  Pause,
   Play,
+  RotateCcw,
   ShieldCheck,
+  Volume2,
+  VolumeX,
   X,
 } from "lucide-react";
+import { BeforeAfterProjectSlider } from "@/components/BeforeAfterProjectSlider";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { QuotePopup } from "@/components/QuotePopup";
@@ -103,6 +108,124 @@ const deliverySteps = [
     body: "The stair treads received black anti-slip paint as part of the finished staircase treatment.",
   },
 ];
+
+function formatVideoTime(seconds: number) {
+  if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60).toString().padStart(2, "0");
+  return `${minutes}:${remainingSeconds}`;
+}
+
+function BromsgroveBeforeVideoPlayer({ onClose }: { onClose: () => void }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  useEffect(() => () => videoRef.current?.pause(), []);
+
+  const togglePlayback = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      try {
+        await video.play();
+      } catch {
+        setIsPlaying(false);
+      }
+    } else {
+      video.pause();
+    }
+  };
+
+  const seek = (nextTime: number) => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.currentTime = nextTime;
+    setCurrentTime(nextTime);
+  };
+
+  const replay = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.currentTime = 0;
+    setCurrentTime(0);
+    try {
+      await video.play();
+    } catch {
+      setIsPlaying(false);
+    }
+  };
+
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
+  };
+
+  const closePlayer = () => {
+    videoRef.current?.pause();
+    onClose();
+  };
+
+  return (
+    <div className="relative w-full max-w-md overflow-hidden rounded-2xl bg-black shadow-2xl" onClick={(event) => event.stopPropagation()}>
+      <button onClick={closePlayer} className="absolute right-3 top-3 z-20 inline-flex min-h-11 min-w-11 items-center justify-center rounded-full bg-black/75 p-2 text-white transition hover:bg-black focus:outline-none focus:ring-2 focus:ring-white" aria-label="Close before footage">
+        <X className="h-5 w-5" />
+      </button>
+      <video
+        ref={videoRef}
+        playsInline
+        preload="metadata"
+        poster={assets.before}
+        className="aspect-[9/16] w-full bg-black"
+        onLoadedMetadata={(event) => setDuration(Number.isFinite(event.currentTarget.duration) ? event.currentTarget.duration : 0)}
+        onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onEnded={() => setIsPlaying(false)}
+        onVolumeChange={(event) => setIsMuted(event.currentTarget.muted)}
+      >
+        <source src={assets.beforeVideo} type="video/mp4" />
+        Your browser does not support this video.
+      </video>
+      <div className="border-t border-white/15 bg-slate-950 px-3 py-3 text-white sm:px-4">
+        <p className="mb-3 text-sm font-semibold">Before footage: recorded staircase condition</p>
+        <div className="flex items-center gap-2">
+          <button type="button" onClick={togglePlayback} className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full bg-[#f1c76e] text-[#112f43] transition hover:bg-[#f7d98f] focus:outline-none focus:ring-2 focus:ring-white" aria-label={isPlaying ? "Pause before footage" : "Play before footage"}>
+            {isPlaying ? <Pause className="h-5 w-5 fill-current" /> : <Play className="h-5 w-5 fill-current" />}
+          </button>
+          <label className="sr-only" htmlFor="bromsgrove-before-video-progress">Before footage playback position</label>
+          <input
+            id="bromsgrove-before-video-progress"
+            type="range"
+            min="0"
+            max={duration || 0}
+            step="0.1"
+            value={Math.min(currentTime, duration || 0)}
+            onChange={(event) => seek(Number(event.target.value))}
+            className="h-2 w-full cursor-pointer accent-[#f1c76e]"
+            aria-valuetext={`${formatVideoTime(currentTime)} of ${formatVideoTime(duration)}`}
+          />
+          <span className="min-w-[4.75rem] text-right font-mono text-xs text-white/75" aria-hidden="true">{formatVideoTime(currentTime)} / {formatVideoTime(duration)}</span>
+        </div>
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <button type="button" onClick={toggleMute} className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/25 px-3 text-sm font-semibold transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white" aria-label={isMuted ? "Unmute before footage" : "Mute before footage"}>
+            {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+            {isMuted ? "Unmute" : "Mute"}
+          </button>
+          <button type="button" onClick={replay} className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/25 px-3 text-sm font-semibold transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white">
+            <RotateCcw className="h-4 w-4" /> Replay
+          </button>
+          <span className="sr-only" aria-live="polite">Before footage is {isPlaying ? "playing" : "paused"}.</span>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function BromsgroveSchoolCaseStudy() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -296,16 +419,13 @@ export default function BromsgroveSchoolCaseStudy() {
                   </Link>
                 </div>
               </div>
-              <div className="grid gap-3 sm:grid-cols-2">
-                <figure className="overflow-hidden rounded-2xl bg-slate-100 shadow-sm">
-                  <img src={assets.before} alt="Bromsgrove School external spiral staircase before restoration" className="aspect-[3/4] w-full object-cover" loading="lazy" />
-                  <figcaption className="bg-slate-900 px-4 py-3 text-sm font-semibold text-white">Before: flaking paint and rust-affected areas</figcaption>
-                </figure>
-                <figure className="overflow-hidden rounded-2xl bg-slate-100 shadow-sm">
-                  <img src={assets.after} alt="Bromsgrove School external spiral staircase after restoration in black" className="aspect-[3/4] w-full object-cover" loading="lazy" />
-                  <figcaption className="bg-[#2c5f7f] px-4 py-3 text-sm font-semibold text-white">After: black finish and anti-slip stair treatment</figcaption>
-                </figure>
-              </div>
+              <BeforeAfterProjectSlider
+                beforeImage={assets.before}
+                afterImage={assets.after}
+                title="Bromsgrove School external spiral staircase"
+                caption="Drag the divider to compare the supplied definitive Before image with the approved finished After image. The completed black treatment includes black anti-slip paint on the steps."
+                aspectRatio="portrait"
+              />
             </div>
           </div>
         </section>
@@ -344,12 +464,7 @@ export default function BromsgroveSchoolCaseStudy() {
 
       {videoOpen && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/95 p-4" role="dialog" aria-modal="true" aria-label="Bromsgrove School staircase before footage" onClick={() => setVideoOpen(false)}>
-          <div className="relative w-full max-w-md overflow-hidden rounded-2xl bg-black shadow-2xl" onClick={(event) => event.stopPropagation()}>
-            <button onClick={() => setVideoOpen(false)} className="absolute right-3 top-3 z-10 rounded-full bg-black/70 p-2 text-white transition hover:bg-black" aria-label="Close before footage"><X className="h-5 w-5" /></button>
-            <video autoPlay controls playsInline poster={assets.before} className="aspect-[9/16] w-full bg-black">
-              <source src={assets.beforeVideo} type="video/mp4" />
-            </video>
-          </div>
+          <BromsgroveBeforeVideoPlayer onClose={() => setVideoOpen(false)} />
         </div>
       )}
 

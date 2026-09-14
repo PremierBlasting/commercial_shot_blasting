@@ -1911,3 +1911,10 @@
 - [x] Replace the prior before-photo gallery with the definitive supplied Before image, the approved before video, and selected video-derived stills only
 - [x] Retain the existing supplied finished After image and all evidence-led restoration wording without changing verified scope
 - [x] Validate asset delivery, before-and-after sequencing, responsive presentation, TypeScript, 33 suites / 288 tests, live provider credentials, and production build before publication
+
+## Bromsgrove School Comparison, Playback, and Discovery Links (14 September 2026)
+- [x] Replace the static visible-change pair with an accessible interactive slider using only the definitive Before image and approved finished After image, including a full-screen comparison option
+- [x] Replace native autoplay video controls with accessible custom before-footage controls for play/pause, seek, sound, timing, and replay on mobile and desktop
+- [x] Add a prominent evidence-led Bromsgrove School case-study callout to the External Staircases service page
+- [x] Add a crawler-visible Bromsgrove local-page context block and direct link to the Bromsgrove School case study
+- [x] Extend regression coverage, validate desktop/mobile interactions and crawl output, then publish the completed update

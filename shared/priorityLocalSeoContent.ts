@@ -194,6 +194,19 @@ export const priorityTownCommercialContent: Record<string, PriorityCommercialCon
       { title: "Factory Cladding Restoration", href: "/factory-cladding-restoration", description: "For coated factory and warehouse-building envelope planning." },
     ],
   },
+  bromsgrove: {
+    eyebrow: "Local project evidence",
+    title: "An external spiral staircase restoration in Bromsgrove",
+    paragraphs: [
+      "Our published Bromsgrove School case study documents an external spiral staircase restoration in the town. The supplied before record shows flaking paint and rust-affected areas; the completed after image shows the staircase returned to a black finish, with black anti-slip paint applied to the steps.",
+      "For a similar external staircase or access-steel project in Bromsgrove, a Site Visit can start with the specific asset, existing surface condition, access, surrounding activity, and finish requirements. The links below provide the detailed project record and relevant service-planning routes.",
+    ],
+    links: [
+      { title: "Bromsgrove School Staircase Case Study", href: "/case-studies/bromsgrove-school-staircase", description: "View the definitive before image, recorded before footage, and completed black finish." },
+      { title: "External Staircases", href: "/external-staircases", description: "Explore planning support for external staircases, fire escapes, and access steelwork." },
+      { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For site-specific access, containment, and working-area considerations." },
+    ],
+  },
 };
 
 export const priorityCountyCommercialContent: Record<string, PriorityCommercialContent> = {

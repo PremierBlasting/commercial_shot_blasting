@@ -59,6 +59,16 @@ describe("priority local commercial context", () => {
     expect(priorityTownCommercialContent["milton-keynes"].links.map((link) => link.href)).toContain("/container-restoration-storage-steelwork");
   });
 
+  it("adds verified Bromsgrove project evidence and a direct staircase case-study route", () => {
+    const bromsgrove = priorityTownCommercialContent.bromsgrove;
+
+    expect(bromsgrove.title).toContain("external spiral staircase restoration in Bromsgrove");
+    expect(bromsgrove.paragraphs.join(" ")).toContain("flaking paint and rust-affected areas");
+    expect(bromsgrove.paragraphs.join(" ")).toContain("black anti-slip paint applied to the steps");
+    expect(bromsgrove.links.map((link) => link.href)).toContain("/case-studies/bromsgrove-school-staircase");
+    expect(bromsgrove.links.map((link) => link.href)).toContain("/external-staircases");
+  });
+
   it("holds source-backed commercial context and relevant specialist links for Derbyshire and Cornwall", () => {
     expect(priorityCountyCommercialContent.derbyshire.paragraphs.join(" ")).toContain("manufacturing as a key local sector");
     expect(priorityCountyCommercialContent.cornwall.paragraphs.join(" ")).toContain("Penzance Harbour");
@@ -128,6 +138,15 @@ describe("priority local commercial context", () => {
     expect(miltonKeynes).toContain("Planning commercial sandblasting around Milton Keynes’ logistics setting");
     expect(leeds).toContain("Leeds Shot Blasting & Sandblasting | Commercial Surface Preparation");
     expect(miltonKeynes).toContain("Milton Keynes Shot Blasting & Sandblasting | Commercial Surface Preparation");
+  });
+
+  it("mirrors Bromsgrove project evidence and the case-study link in crawler-visible local content", async () => {
+    const bromsgrove = await injectMetaTags(baseHtml, "/service-areas/bromsgrove");
+
+    expect(bromsgrove).toContain("An external spiral staircase restoration in Bromsgrove");
+    expect(bromsgrove).toContain("Bromsgrove School Staircase Case Study");
+    expect(bromsgrove).toContain("/case-studies/bromsgrove-school-staircase");
+    expect(bromsgrove).toContain("black anti-slip paint applied to the steps");
   });
 
   it("renders the verified priority context on Bristol and Peterborough’s dedicated visible page templates", () => {
