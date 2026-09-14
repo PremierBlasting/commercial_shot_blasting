@@ -716,6 +716,27 @@ export default function OurWork() {
         </div>
       </section>
 
+      <section className="border-b border-[#2C5F7F]/10 bg-[#f8f7f4] py-10">
+        <div className="container">
+          <div className="grid overflow-hidden rounded-2xl border border-[#2C5F7F]/15 bg-white shadow-sm md:grid-cols-[0.68fr_1.32fr]">
+            <img
+              src="/manus-storage/bromsgrove-staircase-after_ae521dcd.png"
+              alt="Finished black external spiral staircase at Bromsgrove School"
+              className="h-64 w-full object-cover object-top md:h-full"
+              loading="lazy"
+            />
+            <div className="p-7 md:p-9">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#2C5F7F]">Featured case study · Bromsgrove School</p>
+              <h2 className="mt-3 text-2xl font-bold text-[#1a3a52]" style={{ fontFamily: "'Playfair Display', serif" }}>External spiral staircase restoration</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600">Explore the before footage and photographs documenting flaking paint and rust-affected areas, then see the staircase restored in black with black anti-slip paint applied to the steps.</p>
+              <Link href="/case-studies/bromsgrove-school-staircase" className="mt-5 inline-flex items-center gap-2 rounded-lg bg-[#2C5F7F] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#1a3a52]">
+                View the Bromsgrove School case study <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="steel-chimney-case-study" className="border-y border-sky-100 bg-sky-50 py-16">
         <div className="container">
           <div className="mx-auto max-w-3xl text-center">

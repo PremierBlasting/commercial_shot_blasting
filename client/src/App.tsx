@@ -60,6 +60,7 @@ const Glossary = lazy(() => import("./pages/Glossary"));
 const GlossaryTerm = lazy(() => import("./pages/GlossaryTerm"));
 const ChasElitePage = lazy(() => import("./pages/ChasElitePage"));
 const HBTunnellingCaseStudy = lazy(() => import("./pages/HBTunnellingCaseStudy"));
+const BromsgroveSchoolCaseStudy = lazy(() => import("./pages/BromsgroveSchoolCaseStudy"));
 
 // Lazy-loaded service area pages
 const SheffieldServiceArea = lazy(() => import("./pages/SheffieldServiceArea"));
@@ -248,6 +249,7 @@ function Router() {
         <Route path={"/reviews"} component={Reviews} />
         <Route path={"/case-studies/structural-steel"} component={StructuralSteelCaseStudy} />
         <Route path={"/case-studies/hb-tunnelling-doncaster"} component={HBTunnellingCaseStudy} />
+        <Route path={"/case-studies/bromsgrove-school-staircase"} component={BromsgroveSchoolCaseStudy} />
         <Route path={"/steel-fabrications"} component={SteelFabricationsPage} />
         <Route path={"/steel-fabrication-surface-preparation"} component={PillarPage} />
         <Route path={"/steel-chimney-process-stack-surface-preparation"} component={PillarPage} />

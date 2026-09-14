@@ -48,6 +48,7 @@ const STATIC_PAGES = [
   { loc: "/prep-and-cleanup", changefreq: "monthly", priority: "0.6" },
   { loc: "/our-work", changefreq: "monthly", priority: "0.6" },
   { loc: "/case-studies/hb-tunnelling-doncaster", changefreq: "monthly", priority: "0.8" },
+  { loc: "/case-studies/bromsgrove-school-staircase", changefreq: "monthly", priority: "0.8" },
   { loc: "/steel-fabrications", changefreq: "weekly", priority: "0.8" },
   { loc: "/steel-fabrication-surface-preparation", changefreq: "weekly", priority: "0.8" },
   { loc: "/steel-chimney-process-stack-surface-preparation", changefreq: "weekly", priority: "0.8" },

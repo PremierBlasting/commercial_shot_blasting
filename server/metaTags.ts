@@ -7147,6 +7147,30 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     return modifiedHtml.replace("<!--SSR_CONTENT-->", ssrBody);
   }
 
+  // ── Bromsgrove School spiral staircase restoration case study ────────────────
+  if (url === "/case-studies/bromsgrove-school-staircase" || url === "/case-studies/bromsgrove-school-staircase/") {
+    const caseStudyUrl = `${SITE_URL}/case-studies/bromsgrove-school-staircase`;
+    const title = "Bromsgrove School Staircase Restoration | Commercial Shot Blasting";
+    const description = "See the Bromsgrove School external spiral staircase restoration: flaking paint and rust-affected areas restored with a black finish, including black anti-slip paint to the steps.";
+    const image = `${SITE_URL}/manus-storage/bromsgrove-staircase-after_ae521dcd.png`;
+    const video = `${SITE_URL}/manus-storage/bromsgrove-school-staircase-before_96c645cd.mp4`;
+    const breadcrumbSchema = JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL }, { "@type": "ListItem", "position": 2, "name": "Our Work", "item": `${SITE_URL}/our-work` }, { "@type": "ListItem", "position": 3, "name": "Bromsgrove School Staircase Restoration", "item": caseStudyUrl }] });
+    const articleSchema = JSON.stringify({ "@context": "https://schema.org", "@type": "Article", "@id": `${caseStudyUrl}#article`, "headline": "Bromsgrove School External Spiral Staircase Restoration", "description": description, "mainEntityOfPage": { "@type": "WebPage", "@id": caseStudyUrl }, "image": [image], "author": { "@type": "Organization", "name": "Commercial Shot Blasting", "url": SITE_URL }, "publisher": { "@type": "Organization", "name": "Commercial Shot Blasting", "url": SITE_URL }, "about": ["external staircase restoration", "rust-affected steelwork", "anti-slip stair paint", "Bromsgrove School"] });
+    const videoSchema = JSON.stringify({ "@context": "https://schema.org", "@type": "VideoObject", "name": "Bromsgrove School external spiral staircase before restoration", "description": "Before footage of the Bromsgrove School external spiral staircase showing the recorded existing condition prior to restoration.", "thumbnailUrl": `${SITE_URL}/manus-storage/bromsgrove-staircase-before-01_9ba57d63.jpg`, "contentUrl": video, "embedUrl": caseStudyUrl, "duration": "PT1M56S", "publisher": { "@type": "Organization", "name": "Commercial Shot Blasting", "url": SITE_URL } });
+    let modifiedHtml = html;
+    modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${description}" />`);
+    const canonicalTags = `<link rel="canonical" href="${caseStudyUrl}" />\n    <link rel="alternate" hreflang="en-gb" href="${caseStudyUrl}" />\n    <link rel="alternate" hreflang="en" href="${caseStudyUrl}" />`;
+    modifiedHtml = /<link rel="canonical"[^>]*>/.test(modifiedHtml) ? modifiedHtml.replace(/<link rel="canonical"[^>]*>/, canonicalTags) : modifiedHtml.replace("</head>", `${canonicalTags}\n</head>`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${title}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${description}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${caseStudyUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:image"[^>]*>/, `<meta property="og:image" content="${image}" />`);
+    const ssrBody = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/our-work">Our Work</a> | <a href="${SITE_URL}/external-staircases">External Staircases</a> | <a href="${SITE_URL}/service-areas/bromsgrove">Shot Blasting in Bromsgrove</a> | <a href="${SITE_URL}/site-survey">Request A Site Visit</a></nav><main><h1>Bromsgrove School: External Spiral Staircase Restoration</h1><p>This case study documents the restoration of an external spiral staircase at Bromsgrove School. The supplied before record shows flaking paint and rust-affected areas on the stair structure.</p><h2>The restoration brief</h2><p>The required outcome was to bring the staircase back to life with a black finish, including black anti-slip paint on the steps.</p><h2>Recorded existing condition</h2><p>The supplied before images and footage show the external spiral flights, landings and guardrails ahead of the restoration work, with flaking paint and rust in areas.</p><h2>Finished black staircase</h2><p>The completed after image records the restored external spiral staircase finished in black. Black anti-slip paint was added to the steps as part of the completed treatment.</p><h2>Planning a similar external staircase project?</h2><p><a href="${SITE_URL}/site-survey">Request A Site Visit</a> to discuss existing condition, access, stair flights or landings, and the finish required for your project.</p></main></div>`;
+    modifiedHtml = modifiedHtml.replace("</head>", `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${articleSchema}</script>\n<script type="application/ld+json">${videoSchema}</script>\n</head>`);
+    return modifiedHtml.replace("<!--SSR_CONTENT-->", ssrBody);
+  }
+
   // ── Phase-one pillar pages ─────────────────────────────────────────────────
   const pillarPath = url.replace(/\/$/, "");
   const pillarPages: Record<string, {

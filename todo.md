@@ -1900,3 +1900,9 @@
 - [x] Add a small accessible copied-link confirmation toast beside the share control when the clipboard fallback succeeds
 - [x] Automatically dismiss the toast after a short interval while retaining reduced-motion-safe feedback and native-share behaviour
 - [x] Add regression coverage and validate TypeScript, complete tests, and production build before publication
+
+## Bromsgrove School Spiral Staircase Case Study (14 September 2026)
+- [x] Inspect the existing case-study structure and supplied media metadata without re-viewing the user-provided images
+- [x] Publish the supplied before images and footage plus the finished after image as a clearly sequenced, evidence-led Bromsgrove School staircase restoration case study
+- [x] Use only the verified scope: flaking paint and rust-affected areas restored with a black finish, including black anti-slip paint to the steps
+- [x] Add routes, internal links, sitemap and crawler metadata, structured data, regression coverage, asset delivery checks, desktop/mobile validation, TypeScript, full tests, and production build before publication
