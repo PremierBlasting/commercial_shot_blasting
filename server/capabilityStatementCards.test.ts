@@ -94,6 +94,9 @@ describe("Capability-statement card coverage", () => {
     expect(download).toContain("Share this booklet");
     expect(download).toContain("trackCapabilityStatementPreview(placement)");
     expect(download).toContain("trackCapabilityStatementShare(placement");
+    expect(download).toContain("Booklet link copied.");
+    expect(download).toContain("bottom-full right-0");
+    expect(download).toContain("setTimeout(() => setShareStatus(\"\"), 3200)");
   });
 
   it("places the disclosure beside every current capability-statement card and maps the two new service pages", () => {

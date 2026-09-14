@@ -1895,3 +1895,8 @@
 - [x] Record distinct non-conversion engagement events for opening the preview and downloading the PDF, including card placement
 - [x] Add a concise accessible table of contents to the preview modal to help visitors navigate the booklet sections
 - [x] Add regression coverage and validate preview, sharing, tracking, and responsive behaviour before publication
+
+## Capability Statement Copied-Link Confirmation (14 September 2026)
+- [x] Add a small accessible copied-link confirmation toast beside the share control when the clipboard fallback succeeds
+- [x] Automatically dismiss the toast after a short interval while retaining reduced-motion-safe feedback and native-share behaviour
+- [x] Add regression coverage and validate TypeScript, complete tests, and production build before publication

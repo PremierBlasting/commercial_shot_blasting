@@ -259,6 +259,12 @@ export function CapabilityStatementDownload({
     return () => mobileQuery.removeEventListener("change", setPreferredDownloadUrl);
   }, []);
 
+  useEffect(() => {
+    if (!shareStatus) return;
+    const timeout = window.setTimeout(() => setShareStatus(""), 3200);
+    return () => window.clearTimeout(timeout);
+  }, [shareStatus]);
+
   const handleDownload = () => {
     trackCapabilityStatementDownload(placement);
     setHasInitiatedDownload(true);
@@ -359,11 +365,13 @@ export function CapabilityStatementDownload({
               <DialogFooter className="border-t border-slate-200 px-5 py-3 sm:justify-between">
                 <p className="text-xs text-slate-500"><time dateTime={CAPABILITY_STATEMENT_LAST_UPDATED_ISO}>Last updated: {CAPABILITY_STATEMENT_LAST_UPDATED}</time></p>
                 <div className="flex flex-wrap items-center gap-2">
-                  <button type="button" onClick={handleShare} className="inline-flex items-center justify-center gap-1.5 rounded-md border border-[#2C5F7F]/30 px-3 py-2 text-sm font-bold text-[#1a3d52] transition hover:bg-[#edf4f7]"><Share2 className="h-4 w-4" aria-hidden="true" /> Share this booklet</button>
+                  <div className="relative">
+                    {shareStatus && <p role="status" aria-live="polite" className="animate-in fade-in zoom-in-95 motion-reduce:animate-none absolute bottom-full right-0 z-10 mb-2 w-max max-w-[15rem] rounded-md bg-[#16394f] px-3 py-2 text-xs font-semibold text-white shadow-lg"><Copy className="mr-1 inline h-3.5 w-3.5" aria-hidden="true" />{shareStatus}</p>}
+                    <button type="button" onClick={handleShare} className="inline-flex items-center justify-center gap-1.5 rounded-md border border-[#2C5F7F]/30 px-3 py-2 text-sm font-bold text-[#1a3d52] transition hover:bg-[#edf4f7]"><Share2 className="h-4 w-4" aria-hidden="true" /> Share this booklet</button>
+                  </div>
                   <a href={downloadUrl} download="Commercial-Capability-Statement.pdf" onClick={handleDownload} className="inline-flex items-center justify-center rounded-md bg-[#2C5F7F] px-4 py-2 text-sm font-bold text-white transition hover:bg-[#1a3d52]">Download PDF</a>
                 </div>
               </DialogFooter>
-              {shareStatus && <p role="status" aria-live="polite" className="border-t border-slate-100 px-5 py-2 text-xs text-[#1a3d52]"><Copy className="mr-1 inline h-3.5 w-3.5" aria-hidden="true" />{shareStatus}</p>}
             </DialogContent>
           )}
         </Dialog>
