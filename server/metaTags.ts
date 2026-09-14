@@ -7147,6 +7147,28 @@ export async function injectMetaTags(html: string, url: string): Promise<string>
     return modifiedHtml.replace("<!--SSR_CONTENT-->", ssrBody);
   }
 
+  // ── Provisional fire-escape project record (pending approved media) ─────────
+  if (url === "/case-studies/fire-escape-multi-storey-office" || url === "/case-studies/fire-escape-multi-storey-office/") {
+    const caseStudyUrl = `${SITE_URL}/case-studies/fire-escape-multi-storey-office`;
+    const title = "Fire Escape Project Record (Provisional) | Commercial Shot Blasting";
+    const description = "A provisional record for a multi-storey office fire-escape restoration. Final approved project media will be added when available.";
+    const image = `${SITE_URL}/manus-storage/fireescape1before_b56bfae9.jpg`;
+    const breadcrumbSchema = JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL }, { "@type": "ListItem", "position": 2, "name": "Our Work", "item": `${SITE_URL}/our-work` }, { "@type": "ListItem", "position": 3, "name": "Fire Escape Project Record (Provisional)", "item": caseStudyUrl }] });
+    const webPageSchema = JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", "@id": `${caseStudyUrl}#webpage`, "name": title, "description": description, "url": caseStudyUrl, "inLanguage": "en-GB" });
+    let modifiedHtml = html;
+    modifiedHtml = modifiedHtml.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`);
+    modifiedHtml = modifiedHtml.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${description}" />`);
+    const canonicalTags = `<link rel="canonical" href="${caseStudyUrl}" />\n    <meta name="robots" content="noindex, follow" />`;
+    modifiedHtml = /<link rel="canonical"[^>]*>/.test(modifiedHtml) ? modifiedHtml.replace(/<link rel="canonical"[^>]*>/, canonicalTags) : modifiedHtml.replace("</head>", `${canonicalTags}\n</head>`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:title"[^>]*>/, `<meta property="og:title" content="${title}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:description"[^>]*>/, `<meta property="og:description" content="${description}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:url"[^>]*>/, `<meta property="og:url" content="${caseStudyUrl}" />`);
+    modifiedHtml = modifiedHtml.replace(/<meta property="og:image"[^>]*>/, `<meta property="og:image" content="${image}" />`);
+    const ssrBody = `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="${SITE_URL}/">Home</a> | <a href="${SITE_URL}/our-work?category=Staircases#staircases">Our Work: Staircases</a> | <a href="${SITE_URL}/services/fire-escapes">Fire Escapes &amp; Stair Towers</a> | <a href="${SITE_URL}/external-staircases">External Staircases</a> | <a href="${SITE_URL}/site-survey">Request A Site Visit</a></nav><main><h1>Fire Escape Restoration — Multi-Storey Office (Provisional Project Record)</h1><p>This is a provisional record for a multi-storey office external fire-escape project. The currently published image is a non-project-specific placeholder service image, not evidence from the individual project.</p><h2>What is recorded today</h2><p>The existing project summary identifies rust and failed coating removal from the external fire escape. Full approved project photography, video and verified delivery detail have not yet been supplied for publication.</p><h2>Media and information status</h2><p>This page is intentionally marked noindex while the approved project-media set is pending. It will be expanded or replaced once the final evidence is available.</p><h2>Planning fire-escape work?</h2><p><a href="${SITE_URL}/services/fire-escapes">Explore fire-escape and stair-tower surface-preparation support</a>, or <a href="${SITE_URL}/site-survey">Request A Site Visit</a> to discuss current condition, access and intended finish.</p></main></div>`;
+    modifiedHtml = modifiedHtml.replace("</head>", `<script type="application/ld+json">${breadcrumbSchema}</script>\n<script type="application/ld+json">${webPageSchema}</script>\n</head>`);
+    return modifiedHtml.replace("<!--SSR_CONTENT-->", ssrBody);
+  }
+
   // ── Bromsgrove School spiral staircase restoration case study ────────────────
   if (url === "/case-studies/bromsgrove-school-staircase" || url === "/case-studies/bromsgrove-school-staircase/") {
     const caseStudyUrl = `${SITE_URL}/case-studies/bromsgrove-school-staircase`;

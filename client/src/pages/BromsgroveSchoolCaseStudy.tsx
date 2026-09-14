@@ -447,6 +447,9 @@ export default function BromsgroveSchoolCaseStudy() {
           <div className="mb-5 max-w-2xl">
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Related staircase work</p>
             <h2 className="mt-2 text-2xl font-bold text-[#183c52]" style={{ fontFamily: "'Playfair Display', serif" }}>Continue exploring external access-steel projects and services.</h2>
+            <Link href="/our-work?category=Staircases#staircases" className="mt-4 inline-flex items-center gap-2 rounded-full border border-[#2c5f7f]/25 bg-white px-4 py-2 text-sm font-bold text-[#2c5f7f] transition hover:border-[#2c5f7f] hover:bg-[#eaf3f6] focus:outline-none focus:ring-2 focus:ring-[#2c5f7f] focus:ring-offset-2">
+              More staircase work <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {[

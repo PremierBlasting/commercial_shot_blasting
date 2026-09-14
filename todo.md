@@ -1928,3 +1928,9 @@
 - [x] Track Staircases-filter Bromsgrove case-study-card clicks as a distinct non-conversion content-engagement event
 - [x] Identify an approved fire-escape project record and add a second compact evidence-led card to the Staircases filter
 - [x] Extend regression coverage, validate analytics isolation and desktop/mobile presentation, then publish
+
+## Provisional Fire-Escape Case Study and Staircase Navigation (14 September 2026)
+- [x] Create a dedicated transparent provisional fire-escape project page using a clearly labelled non-project-specific placeholder service image until the full approved project-media set is available
+- [x] Add route, internal discovery links, sitemap and crawler support that accurately identifies the page as provisional rather than a completed evidence-led case study
+- [x] Add a More staircase work filter chip to the Bromsgrove School case-study page with accessible navigation to the Staircases filter on Our Work
+- [x] Add regression coverage, validate desktop/mobile routes and publication readiness, then publish

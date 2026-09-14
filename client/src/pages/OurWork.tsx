@@ -515,14 +515,14 @@ const staircaseFilterCards = [
   },
   {
     id: "fire-escape-multi-storey-office",
-    eyebrow: "Project example",
+    eyebrow: "Provisional project record",
     badge: "Fire escape work",
     title: "Fire Escape Restoration — Multi-Storey Office",
-    description: "Rust and failed coatings removed from a six-storey external fire escape. View the fire-escape service route and related project information.",
+    description: "A transparent project record for a multi-storey external fire escape. Final approved project media will be added when available.",
     image: "https://commercialshotblasting.co.uk/manus-storage/IMG_3339_a869318b.webp",
-    alt: "Multi-storey external fire escape after restoration work",
-    href: "/services/fire-escapes",
-    cta: "Explore fire escape work",
+    alt: "Fire-escape project placeholder image pending approved project media",
+    href: "/case-studies/fire-escape-multi-storey-office",
+    cta: "View provisional record",
   },
 ];
 
@@ -546,7 +546,7 @@ export default function OurWork() {
   // Set SEO metadata
   useSEO({ title: "Our Work | Commercial Shot Blasting Gallery", description: "View our portfolio of commercial shot blasting projects. Before and after photos showcasing our expert surface preparation work across the UK.", canonical: "https://commercialshotblasting.co.uk/our-work" });
 
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState(() => new URLSearchParams(window.location.search).get("category") === "Staircases" ? "Staircases" : "All");
 
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxImages, setLightboxImages] = useState<string[]>([]);
@@ -815,7 +815,7 @@ export default function OurWork() {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-16 bg-[#F5F1E8] flex-1">
+      <section id="staircases" className="py-16 bg-[#F5F1E8] flex-1">
         <div className="container">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {selectedCategory === "Staircases" && staircaseFilterCards.map((card, cardIndex) => (

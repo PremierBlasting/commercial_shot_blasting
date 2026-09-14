@@ -24,6 +24,7 @@ describe("Bromsgrove School spiral staircase case study", () => {
   it("uses the supplied before-and-after media and registers all discovery paths", () => {
     const app = readFileSync(resolve(projectRoot, "client/src/App.tsx"), "utf8");
     const page = readFileSync(resolve(projectRoot, "client/src/pages/BromsgroveSchoolCaseStudy.tsx"), "utf8");
+    const fireEscapePage = readFileSync(resolve(projectRoot, "client/src/pages/FireEscapeProvisionalCaseStudy.tsx"), "utf8");
     const comparison = readFileSync(resolve(projectRoot, "client/src/components/BeforeAfterProjectSlider.tsx"), "utf8");
     const externalStaircases = readFileSync(resolve(projectRoot, "client/src/pages/ExternalStaircasesPage.tsx"), "utf8");
     const work = readFileSync(resolve(projectRoot, "client/src/pages/OurWork.tsx"), "utf8");
@@ -53,6 +54,8 @@ describe("Bromsgrove School spiral staircase case study", () => {
     expect(page).toContain("Request A Site Visit");
     expect(page).toContain("Related staircase work");
     expect(page).toContain("Fire Escapes & Stair Towers");
+    expect(page).toContain('/our-work?category=Staircases#staircases');
+    expect(page).toContain("More staircase work");
     expect(externalStaircases).toContain('href="/case-studies/bromsgrove-school-staircase"');
     expect(externalStaircases).toContain("Bromsgrove School external spiral staircase restoration");
     expect(externalStaircases).toContain("bromsgrove-staircase-after_ae521dcd.png");
@@ -62,10 +65,31 @@ describe("Bromsgrove School spiral staircase case study", () => {
     expect(work).toContain("View case study");
     expect(work).toContain("External spiral staircase restoration");
     expect(work).toContain("Fire Escape Restoration — Multi-Storey Office");
-    expect(work).toContain("/services/fire-escapes");
+    expect(work).toContain("/case-studies/fire-escape-multi-storey-office");
     expect(work).toContain("trackCaseStudyCardClick");
     expect(work).toContain("Our Work Staircases filter");
+    expect(work).toContain('get("category") === "Staircases"');
+    expect(app).toContain('path={"/case-studies/fire-escape-multi-storey-office"}');
+    expect(fireEscapePage).toContain("Provisional project record");
+    expect(fireEscapePage).toContain("Placeholder service image");
+    expect(fireEscapePage).toContain("not presented as media from the individual office fire-escape project");
+    expect(fireEscapePage).toContain('noindex, follow');
+    expect(fireEscapePage).not.toContain("before-and-after");
     expect(xmlSitemap).toContain('{ loc: "/case-studies/bromsgrove-school-staircase"');
     expect(htmlSitemap).toContain('{ href: "/case-studies/bromsgrove-school-staircase"');
+  });
+
+  it("marks the provisional fire-escape project record noindex while exposing transparent crawler content", async () => {
+    const html = await injectMetaTags(baseHtml, "/case-studies/fire-escape-multi-storey-office");
+
+    expect(html).toContain('<link rel="canonical" href="https://commercialshotblasting.co.uk/case-studies/fire-escape-multi-storey-office"');
+    expect(html).toContain('<meta name="robots" content="noindex, follow"');
+    expect(html).toContain("Fire Escape Restoration — Multi-Storey Office (Provisional Project Record)");
+    expect(html).toContain("non-project-specific placeholder service image");
+    expect(html).toContain("Full approved project photography, video and verified delivery detail have not yet been supplied");
+    expect(html).toContain("WebPage");
+    expect(html).toContain("BreadcrumbList");
+    expect(html).toContain("/services/fire-escapes");
+    expect(html).not.toContain("VideoObject");
   });
 });
