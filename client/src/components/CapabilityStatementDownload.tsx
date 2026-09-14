@@ -6,7 +6,7 @@ import { trpc } from "@/lib/trpc";
 import { formatUTMForSubmission } from "@/lib/utm";
 import { validateLeadEmailClient } from "@shared/emailValidation";
 
-export const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-02_308ee57e.pdf";
+export const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-14_a3b45775.pdf";
 
 type CapabilityStatementDownloadProps = {
   placement: string;

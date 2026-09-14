@@ -1869,3 +1869,8 @@
 - [x] Migration task deferred by explicit user instruction; drizzle/0003_amused_invisible_woman.sql was reviewed but not applied
 - [x] Secret task deferred by explicit user instruction; WHATSAPP_TRACKER_CALLBACK_SECRET was not requested or set
 - [x] Publication and Google Ads export task deferred by explicit user instruction; no publish occurred and export remains disabled
+
+## Site-Wide Capability Statement Replacement (14 September 2026)
+- [x] Inspect and host the newly supplied Commercial Capability Statement PDF as the approved replacement asset
+- [x] Update the shared download configuration so every capability-statement card and post-download form uses the new PDF
+- [x] Validate all download placements and PDF delivery, then publish the replacement
