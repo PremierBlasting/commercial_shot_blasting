@@ -1874,3 +1874,8 @@
 - [x] Inspect and host the newly supplied Commercial Capability Statement PDF as the approved replacement asset
 - [x] Update the shared download configuration so every capability-statement card and post-download form uses the new PDF
 - [x] Validate all download placements and PDF delivery, then publish the replacement
+
+## Mobile Capability Statement Optimisation (14 September 2026)
+- [x] Create and compare a quality-preserving compressed copy of the approved capability statement for mobile downloads
+- [x] Route mobile download actions to the compressed PDF while retaining the full-quality file for wider screens
+- [x] Validate PDF integrity, desktop/mobile selection, download tracking, and deployment before publishing and delivering the compressed file

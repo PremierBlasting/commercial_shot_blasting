@@ -73,6 +73,16 @@ describe("Capability-statement card coverage", () => {
     expect(about).toContain("Download capability statement");
   });
 
+  it("selects the compressed statement on mobile while retaining the full-quality statement for wider screens", () => {
+    const download = readFileSync(resolve(projectRoot, "client/src/components/CapabilityStatementDownload.tsx"), "utf8");
+
+    expect(download).toContain("MOBILE_CAPABILITY_STATEMENT_URL");
+    expect(download).toContain("commercial-capability-statement-mobile-2026-09-14_8152ef15.pdf");
+    expect(download).toContain('window.matchMedia("(max-width: 767px)")');
+    expect(download).toContain("mobileQuery.matches ? MOBILE_CAPABILITY_STATEMENT_URL : CAPABILITY_STATEMENT_URL");
+    expect(download).toContain("href={downloadUrl}");
+  });
+
   it("places the disclosure beside every current capability-statement card and maps the two new service pages", () => {
     const home = readFileSync(resolve(projectRoot, "client/src/pages/Home.tsx"), "utf8");
     const chasElite = readFileSync(resolve(projectRoot, "client/src/pages/ChasElitePage.tsx"), "utf8");

@@ -1,5 +1,5 @@
 import { CheckCircle2, FileImage, LoaderCircle, Send, Upload, X } from "lucide-react";
-import { useId, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { trackCapabilityStatementDownload } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import { trpc } from "@/lib/trpc";
@@ -7,6 +7,7 @@ import { formatUTMForSubmission } from "@/lib/utm";
 import { validateLeadEmailClient } from "@shared/emailValidation";
 
 export const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-14_a3b45775.pdf";
+export const MOBILE_CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-mobile-2026-09-14_8152ef15.pdf";
 
 type CapabilityStatementDownloadProps = {
   placement: string;
@@ -217,7 +218,19 @@ export function CapabilityStatementDownload({
   tone = "light",
 }: CapabilityStatementDownloadProps) {
   const [hasInitiatedDownload, setHasInitiatedDownload] = useState(false);
+  const [downloadUrl, setDownloadUrl] = useState(CAPABILITY_STATEMENT_URL);
   const isDark = tone === "dark";
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
+    const setPreferredDownloadUrl = () => {
+      setDownloadUrl(mobileQuery.matches ? MOBILE_CAPABILITY_STATEMENT_URL : CAPABILITY_STATEMENT_URL);
+    };
+
+    setPreferredDownloadUrl();
+    mobileQuery.addEventListener("change", setPreferredDownloadUrl);
+    return () => mobileQuery.removeEventListener("change", setPreferredDownloadUrl);
+  }, []);
 
   const handleDownload = () => {
     trackCapabilityStatementDownload(placement);
@@ -227,7 +240,7 @@ export function CapabilityStatementDownload({
   return (
     <div className={cn("min-w-0", containerClassName)}>
       <a
-        href={CAPABILITY_STATEMENT_URL}
+        href={downloadUrl}
         download="Commercial-Capability-Statement.pdf"
         onClick={handleDownload}
         aria-label={ariaLabel}
