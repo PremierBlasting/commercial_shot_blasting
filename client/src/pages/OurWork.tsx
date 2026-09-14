@@ -594,6 +594,7 @@ export default function OurWork() {
   const filteredItems = selectedCategory === "All" 
     ? displayGalleryItems 
     : displayGalleryItems.filter(item => item.category === selectedCategory);
+  const displayedProjectCount = filteredItems.length + (selectedCategory === "Staircases" ? 1 : 0);
 
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "'Open Sans', sans-serif" }}>
@@ -631,7 +632,7 @@ export default function OurWork() {
         <div className="container">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold text-[#2C2C2C]">Filter by Category</h2>
-            <span className="text-sm text-gray-500">{filteredItems.length} project{filteredItems.length !== 1 ? 's' : ''}</span>
+            <span className="text-sm text-gray-500">{displayedProjectCount} project{displayedProjectCount !== 1 ? 's' : ''}</span>
           </div>
           <div className="flex flex-wrap gap-3">
             {categories.map((category) => {
@@ -791,6 +792,29 @@ export default function OurWork() {
       <section className="py-16 bg-[#F5F1E8] flex-1">
         <div className="container">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {selectedCategory === "Staircases" && (
+              <ScrollReveal delay={0}>
+                <Link href="/case-studies/bromsgrove-school-staircase" className="group block h-full rounded-2xl border border-[#2C5F7F]/25 bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#2C5F7F] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#2C5F7F] focus:ring-offset-2">
+                  <article className="flex h-full flex-col overflow-hidden rounded-2xl">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[#183c52]">
+                      <img
+                        src="/manus-storage/bromsgrove-staircase-after_ae521dcd.png"
+                        alt="Finished black external spiral staircase at Bromsgrove School"
+                        className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      <span className="absolute left-3 top-3 rounded-full bg-[#f1c76e] px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#183c52]">Case study</span>
+                    </div>
+                    <div className="flex flex-1 flex-col p-5">
+                      <p className="text-xs font-bold uppercase tracking-[0.13em] text-[#2C5F7F]">Bromsgrove School</p>
+                      <h3 className="mt-2 text-xl font-bold leading-tight text-[#183c52]" style={{ fontFamily: "'Playfair Display', serif" }}>External spiral staircase restoration</h3>
+                      <p className="mt-3 text-sm leading-relaxed text-slate-600">See the definitive before-and-after comparison and recorded before footage of the completed black staircase finish, including black anti-slip paint on the steps.</p>
+                      <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#2C5F7F]">View case study <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" /></span>
+                    </div>
+                  </article>
+                </Link>
+              </ScrollReveal>
+            )}
             {filteredItems.map((item, idx) => (
               <ScrollReveal key={item.id} delay={Math.min(idx % 3, 2) * 80}>
                 <BeforeAfterCard

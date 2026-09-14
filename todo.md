@@ -1918,3 +1918,7 @@
 - [x] Add a prominent evidence-led Bromsgrove School case-study callout to the External Staircases service page
 - [x] Add a crawler-visible Bromsgrove local-page context block and direct link to the Bromsgrove School case study
 - [x] Extend regression coverage, validate desktop/mobile interactions and crawl output, then publish the completed update
+
+## Bromsgrove School Our Work Staircase Discovery Card (14 September 2026)
+- [x] Add a compact evidence-led View case study card to the Our Work external-staircase filter, linking directly to the Bromsgrove School project
+- [x] Add regression coverage, validate desktop/mobile filter presentation, and publish the completed card

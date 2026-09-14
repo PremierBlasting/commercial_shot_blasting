@@ -55,6 +55,10 @@ describe("Bromsgrove School spiral staircase case study", () => {
     expect(externalStaircases).toContain("Bromsgrove School external spiral staircase restoration");
     expect(externalStaircases).toContain("bromsgrove-staircase-after_ae521dcd.png");
     expect(work).toContain('/case-studies/bromsgrove-school-staircase');
+    expect(work).toContain('selectedCategory === "Staircases"');
+    expect(work).toContain("displayedProjectCount");
+    expect(work).toContain("View case study");
+    expect(work).toContain("External spiral staircase restoration");
     expect(xmlSitemap).toContain('{ loc: "/case-studies/bromsgrove-school-staircase"');
     expect(htmlSitemap).toContain('{ href: "/case-studies/bromsgrove-school-staircase"');
   });
