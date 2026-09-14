@@ -203,6 +203,37 @@ describe('GA4 Conversion Tracking', () => {
     expect(conversionCalls).toHaveLength(0);
   });
 
+  it('tracks capability-statement previews and shares as document engagement without firing a Google Ads conversion', async () => {
+    const { trackCapabilityStatementPreview, trackCapabilityStatementShare } = await import('../client/src/lib/analytics');
+
+    trackCapabilityStatementPreview('Homepage CHAS Elite trust section');
+    trackCapabilityStatementShare('Homepage CHAS Elite trust section', 'clipboard');
+
+    expect(window.gtag).toHaveBeenCalledWith(
+      'event',
+      'capability_statement_preview',
+      expect.objectContaining({
+        event_category: 'Document',
+        document_name: 'Commercial Capability Statement',
+        placement: 'Homepage CHAS Elite trust section',
+      })
+    );
+    expect(window.gtag).toHaveBeenCalledWith(
+      'event',
+      'capability_statement_share',
+      expect.objectContaining({
+        event_category: 'Document',
+        placement: 'Homepage CHAS Elite trust section',
+        share_method: 'clipboard',
+      })
+    );
+
+    const conversionCalls = (window.gtag as ReturnType<typeof vi.fn>).mock.calls.filter(
+      (call: any[]) => call[0] === 'event' && call[1] === 'conversion'
+    );
+    expect(conversionCalls).toHaveLength(0);
+  });
+
   it('should fire Google Ads lead-form conversion event on quote form submission', async () => {
     const { trackQuoteFormSubmission } = await import('../client/src/lib/analytics');
     

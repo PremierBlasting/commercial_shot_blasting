@@ -176,6 +176,32 @@ export function trackCapabilityStatementDownload(placement: string) {
 }
 
 /**
+ * Track when a visitor opens the on-page document preview. This is an
+ * engagement signal only and intentionally does not fire a lead conversion.
+ */
+export function trackCapabilityStatementPreview(placement: string) {
+  trackEvent('capability_statement_preview', {
+    event_category: 'Document',
+    event_label: 'Commercial Capability Statement preview',
+    document_name: 'Commercial Capability Statement',
+    document_type: 'pdf',
+    placement,
+  });
+}
+
+/** Track visitor-initiated sharing of the capability statement without firing a lead conversion. */
+export function trackCapabilityStatementShare(placement: string, shareMethod: 'native' | 'clipboard') {
+  trackEvent('capability_statement_share', {
+    event_category: 'Document',
+    event_label: 'Commercial Capability Statement share',
+    document_name: 'Commercial Capability Statement',
+    document_type: 'pdf',
+    placement,
+    share_method: shareMethod,
+  });
+}
+
+/**
  * Track page view (useful for SPA navigation)
  */
 export function trackPageView(pagePath: string, pageTitle?: string) {

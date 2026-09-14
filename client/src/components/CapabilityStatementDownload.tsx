@@ -1,6 +1,6 @@
-import { CheckCircle2, Eye, FileImage, LoaderCircle, Send, Upload, X } from "lucide-react";
+import { CheckCircle2, Copy, Eye, FileImage, LoaderCircle, Send, Share2, Upload, X } from "lucide-react";
 import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { trackCapabilityStatementDownload } from "@/lib/analytics";
+import { trackCapabilityStatementDownload, trackCapabilityStatementPreview, trackCapabilityStatementShare } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import { trpc } from "@/lib/trpc";
 import { formatUTMForSubmission } from "@/lib/utm";
@@ -19,6 +19,19 @@ export const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-st
 export const MOBILE_CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-amended-mobile-linked-2026-09-14_e64d3758.pdf";
 export const CAPABILITY_STATEMENT_LAST_UPDATED = "14 September 2026";
 export const CAPABILITY_STATEMENT_LAST_UPDATED_ISO = "2026-09-14";
+
+const CAPABILITY_STATEMENT_CONTENTS: ReadonlyArray<{ page: number; title: string; linkedCaseStudy?: boolean }> = [
+  { page: 1, title: "Cover" },
+  { page: 2, title: "About Us" },
+  { page: 3, title: "Health & Safety" },
+  { page: 4, title: "Services" },
+  { page: 5, title: "Fleet & Equipment" },
+  { page: 6, title: "Case Study 1: Doncaster", linkedCaseStudy: true },
+  { page: 7, title: "Case Study 2: Wigan", linkedCaseStudy: true },
+  { page: 8, title: "Why Premier Blasting?" },
+  { page: 9, title: "What Our Clients Say" },
+  { page: 10, title: "Contact Information" },
+];
 
 type CapabilityStatementDownloadProps = {
   placement: string;
@@ -230,6 +243,8 @@ export function CapabilityStatementDownload({
 }: CapabilityStatementDownloadProps) {
   const [hasInitiatedDownload, setHasInitiatedDownload] = useState(false);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [previewPage, setPreviewPage] = useState(1);
+  const [shareStatus, setShareStatus] = useState("");
   const [downloadUrl, setDownloadUrl] = useState(CAPABILITY_STATEMENT_URL);
   const isDark = tone === "dark";
 
@@ -249,6 +264,40 @@ export function CapabilityStatementDownload({
     setHasInitiatedDownload(true);
   };
 
+  const handlePreviewChange = (open: boolean) => {
+    setIsPreviewOpen(open);
+    if (open) {
+      setPreviewPage(1);
+      setShareStatus("");
+      trackCapabilityStatementPreview(placement);
+    }
+  };
+
+  const handleShare = async () => {
+    const shareUrl = typeof window === "undefined" ? CAPABILITY_STATEMENT_URL : `${window.location.origin}${CAPABILITY_STATEMENT_URL}`;
+    const shareData = {
+      title: "Commercial Capability Statement | Premier Blasting",
+      text: "View the Commercial Capability Statement from Premier Blasting.",
+      url: shareUrl,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        trackCapabilityStatementShare(placement, "native");
+        setShareStatus("Share options opened.");
+        return;
+      }
+
+      await navigator.clipboard.writeText(shareUrl);
+      trackCapabilityStatementShare(placement, "clipboard");
+      setShareStatus("Booklet link copied.");
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      setShareStatus("Unable to open sharing here. You can copy the PDF link from the download button.");
+    }
+  };
+
   return (
     <div className={cn("min-w-0", containerClassName)}>
       <a
@@ -262,7 +311,7 @@ export function CapabilityStatementDownload({
       </a>
       <div className={cn("mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs", isDark ? "text-white/70" : "text-slate-600")}>
         <time dateTime={CAPABILITY_STATEMENT_LAST_UPDATED_ISO}>Last updated: {CAPABILITY_STATEMENT_LAST_UPDATED}</time>
-        <Dialog open={isPreviewOpen} onOpenChange={setIsPreviewOpen}>
+        <Dialog open={isPreviewOpen} onOpenChange={handlePreviewChange}>
           <DialogTrigger asChild>
             <button
               type="button"
@@ -277,19 +326,44 @@ export function CapabilityStatementDownload({
                 <DialogTitle className="text-[#1a3d52]">Commercial Capability Statement</DialogTitle>
                 <DialogDescription id="capability-statement-preview-description">Preview the current 10-page booklet. The two case studies include links to their live project pages.</DialogDescription>
               </DialogHeader>
-              <div className="min-h-[58dvh] bg-slate-100 sm:min-h-[68dvh]">
+              <nav aria-label="Booklet contents" className="border-b border-slate-200 bg-white px-4 py-3">
+                <p className="mb-2 text-xs font-bold tracking-wide text-[#1a3d52] uppercase">Contents</p>
+                <div className="grid grid-cols-2 gap-1 sm:grid-cols-5">
+                  {CAPABILITY_STATEMENT_CONTENTS.map((item) => (
+                    <button
+                      key={item.page}
+                      type="button"
+                      onClick={() => setPreviewPage(item.page)}
+                      aria-current={previewPage === item.page ? "page" : undefined}
+                      className={cn(
+                        "rounded px-2 py-1.5 text-left text-[11px] leading-tight transition focus-visible:ring-2 focus-visible:ring-[#2C5F7F] focus-visible:outline-none",
+                        previewPage === item.page ? "bg-[#2C5F7F] font-semibold text-white" : "text-[#1a3d52] hover:bg-[#edf4f7]"
+                      )}
+                    >
+                      <span className="mr-1 font-bold">{item.page}.</span>{item.title}
+                      {item.linkedCaseStudy && <span className="sr-only"> (contains a live case-study link)</span>}
+                    </button>
+                  ))}
+                </div>
+              </nav>
+              <div className="min-h-[42dvh] bg-slate-100 sm:min-h-[50dvh]">
                 <iframe
-                  src={`${downloadUrl}#view=FitH`}
+                  key={`${downloadUrl}-${previewPage}`}
+                  src={`${downloadUrl}#page=${previewPage}&view=FitH`}
                   title="Commercial Capability Statement PDF preview"
-                  className="h-[58dvh] w-full border-0 sm:h-[68dvh]"
+                  className="h-[42dvh] w-full border-0 sm:h-[50dvh]"
                 >
                   <a href={downloadUrl} target="_blank" rel="noopener noreferrer">Open the capability statement PDF preview</a>
                 </iframe>
               </div>
               <DialogFooter className="border-t border-slate-200 px-5 py-3 sm:justify-between">
                 <p className="text-xs text-slate-500"><time dateTime={CAPABILITY_STATEMENT_LAST_UPDATED_ISO}>Last updated: {CAPABILITY_STATEMENT_LAST_UPDATED}</time></p>
-                <a href={downloadUrl} download="Commercial-Capability-Statement.pdf" onClick={handleDownload} className="inline-flex items-center justify-center rounded-md bg-[#2C5F7F] px-4 py-2 text-sm font-bold text-white transition hover:bg-[#1a3d52]">Download PDF</a>
+                <div className="flex flex-wrap items-center gap-2">
+                  <button type="button" onClick={handleShare} className="inline-flex items-center justify-center gap-1.5 rounded-md border border-[#2C5F7F]/30 px-3 py-2 text-sm font-bold text-[#1a3d52] transition hover:bg-[#edf4f7]"><Share2 className="h-4 w-4" aria-hidden="true" /> Share this booklet</button>
+                  <a href={downloadUrl} download="Commercial-Capability-Statement.pdf" onClick={handleDownload} className="inline-flex items-center justify-center rounded-md bg-[#2C5F7F] px-4 py-2 text-sm font-bold text-white transition hover:bg-[#1a3d52]">Download PDF</a>
+                </div>
               </DialogFooter>
+              {shareStatus && <p role="status" aria-live="polite" className="border-t border-slate-100 px-5 py-2 text-xs text-[#1a3d52]"><Copy className="mr-1 inline h-3.5 w-3.5" aria-hidden="true" />{shareStatus}</p>}
             </DialogContent>
           )}
         </Dialog>

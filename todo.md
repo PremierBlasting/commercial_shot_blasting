@@ -1889,3 +1889,9 @@
 - [x] Add verified live case-study links to both case studies in the amended full and mobile capability-statement PDFs
 - [x] Add an accessible lightweight booklet-preview modal to the shared capability-statement card before download
 - [x] Display a consistent last-updated date beside every capability-statement download action and validate all placements
+
+## Capability Statement Sharing, Analytics, and Contents (14 September 2026)
+- [x] Add a share-this-booklet action to the shared capability-statement preview modal with a safe fallback where native sharing is unavailable
+- [x] Record distinct non-conversion engagement events for opening the preview and downloading the PDF, including card placement
+- [x] Add a concise accessible table of contents to the preview modal to help visitors navigate the booklet sections
+- [x] Add regression coverage and validate preview, sharing, tracking, and responsive behaviour before publication

@@ -86,6 +86,14 @@ describe("Capability-statement card coverage", () => {
     expect(download).toContain("Preview booklet");
     expect(download).toContain("Commercial Capability Statement PDF preview");
     expect(download).toContain("case studies include links to their live project pages");
+    expect(download).toContain('aria-label="Booklet contents"');
+    expect(download).toContain("CAPABILITY_STATEMENT_CONTENTS");
+    expect(download).toContain("Case Study 1: Doncaster");
+    expect(download).toContain("Case Study 2: Wigan");
+    expect(download).toContain('src={`${downloadUrl}#page=${previewPage}&view=FitH`}');
+    expect(download).toContain("Share this booklet");
+    expect(download).toContain("trackCapabilityStatementPreview(placement)");
+    expect(download).toContain("trackCapabilityStatementShare(placement");
   });
 
   it("places the disclosure beside every current capability-statement card and maps the two new service pages", () => {
