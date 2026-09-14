@@ -48,6 +48,17 @@ describe("priority local commercial context", () => {
     expect(priorityTownCommercialContent.derby.links.map((link) => link.href)).toContain("/services/structural-steel-frames");
   });
 
+  it("holds source-backed commercial context and relevant specialist links for Leeds, Manchester, Oxford, and Milton Keynes", () => {
+    expect(priorityTownCommercialContent.leeds.paragraphs.join(" ")).toContain("Leeds City Region Enterprise Zone");
+    expect(priorityTownCommercialContent.manchester.paragraphs.join(" ")).toContain("Graphene, Advanced Materials and Manufacturing Alliance");
+    expect(priorityTownCommercialContent.oxford.paragraphs.join(" ")).toContain("Enterprise Oxfordshire");
+    expect(priorityTownCommercialContent["milton-keynes"].paragraphs.join(" ")).toContain("logistics and warehousing hub");
+    expect(priorityTownCommercialContent.leeds.links.map((link) => link.href)).toContain("/mobile-on-site-shot-blasting");
+    expect(priorityTownCommercialContent.manchester.links.map((link) => link.href)).toContain("/intumescent-paint-for-steel");
+    expect(priorityTownCommercialContent.oxford.links.map((link) => link.href)).toContain("/steel-fabrication-surface-preparation");
+    expect(priorityTownCommercialContent["milton-keynes"].links.map((link) => link.href)).toContain("/container-restoration-storage-steelwork");
+  });
+
   it("holds source-backed commercial context and relevant specialist links for Derbyshire and Cornwall", () => {
     expect(priorityCountyCommercialContent.derbyshire.paragraphs.join(" ")).toContain("manufacturing as a key local sector");
     expect(priorityCountyCommercialContent.cornwall.paragraphs.join(" ")).toContain("Penzance Harbour");
@@ -103,6 +114,22 @@ describe("priority local commercial context", () => {
     expect(liverpool).toContain("Sand Blasting Liverpool | Commercial Shot Blasting");
   });
 
+  it("mirrors the Leeds, Manchester, Oxford, and Milton Keynes refreshes in crawler-visible content", async () => {
+    const [leeds, manchester, oxford, miltonKeynes] = await Promise.all([
+      injectMetaTags(baseHtml, "/service-areas/leeds"),
+      injectMetaTags(baseHtml, "/service-areas/manchester"),
+      injectMetaTags(baseHtml, "/service-areas/oxford"),
+      injectMetaTags(baseHtml, "/service-areas/milton-keynes"),
+    ]);
+
+    expect(leeds).toContain("Planning commercial surface preparation around Leeds’ Enterprise Zone setting");
+    expect(manchester).toContain("Planning commercial steelwork preparation around Greater Manchester’s advanced-materials cluster");
+    expect(oxford).toContain("Planning commercial surface preparation across Oxford’s innovation economy");
+    expect(miltonKeynes).toContain("Planning commercial sandblasting around Milton Keynes’ logistics setting");
+    expect(leeds).toContain("Leeds Shot Blasting & Sandblasting | Commercial Surface Preparation");
+    expect(miltonKeynes).toContain("Milton Keynes Shot Blasting & Sandblasting | Commercial Surface Preparation");
+  });
+
   it("renders the verified priority context on Bristol and Peterborough’s dedicated visible page templates", () => {
     const projectRoot = resolve(import.meta.dirname, "..");
     const bristol = readFileSync(resolve(projectRoot, "client/src/pages/BristolServiceArea.tsx"), "utf8");
@@ -139,5 +166,21 @@ describe("priority local commercial context", () => {
     expect(prefetch).not.toContain("LiverpoolServiceArea");
     expect(prefetch).not.toContain("NorthamptonServiceArea");
     expect(prefetch).not.toContain("LeicesterServiceArea");
+  });
+
+  it("uses the shared evidence-led location route for Leeds, Manchester, Oxford, and Milton Keynes", () => {
+    const projectRoot = resolve(import.meta.dirname, "..");
+    const app = readFileSync(resolve(projectRoot, "client/src/App.tsx"), "utf8");
+    const prefetch = readFileSync(resolve(projectRoot, "client/src/hooks/usePrefetch.ts"), "utf8");
+
+    expect(app).not.toContain("const LeedsServiceArea");
+    expect(app).not.toContain("const ManchesterServiceArea");
+    expect(app).not.toContain("const OxfordServiceArea");
+    expect(app).not.toContain("const MiltonKeynesServiceArea");
+    expect(app).toContain('path="/service-areas/:slug"');
+    expect(prefetch).not.toContain("LeedsServiceArea");
+    expect(prefetch).not.toContain("ManchesterServiceArea");
+    expect(prefetch).not.toContain("OxfordServiceArea");
+    expect(prefetch).not.toContain("MiltonKeynesServiceArea");
   });
 });

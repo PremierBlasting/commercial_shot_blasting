@@ -1791,6 +1791,12 @@
 - [x] Gather authoritative local commercial evidence and refresh the selected town pages in visible and crawler-facing content without unsupported delivery claims
 - [x] Improve titles, descriptions, query-to-page internal links, and local discovery pathways; add regression coverage and validate TypeScript, focused tests, build, responsive routes, and crawler output before publication; 280 of 281 full-suite tests pass, while the unchanged live HubSpot PB credential check returns 401
 
+## Leeds, Manchester, Oxford, Milton Keynes and HubSpot PB Remediation (11 September 2026)
+- [x] Select the next four high-impression local opportunities and collect authoritative local commercial evidence for Leeds, Manchester, Oxford, and Milton Keynes
+- [x] Refresh the four selected town pages with evidence-led visible and crawler-facing commercial context, aligned metadata, and relevant internal links
+- [x] Diagnose the HubSpot PB 401 without disrupting existing lead routes and restore the credential only through the secure project-secret workflow when required
+- [x] Add regression coverage and validate local-page routes, metadata, lead-notification integration, TypeScript, full tests, production build, and responsive layouts before publication
+
 ## Revised Capability Statement Draft (26 August 2026)
 - [x] Create a review-ready revised Commercial Capability Statement PDF that replaces the outdated CHAS wording and correctly presents Commercial Shot Blasting as the commercial arm of Premier Blasting
 - [x] Preserve only user-supplied operational, insurance, resource, and case-study claims, with all time-sensitive figures clearly flagged for approval before publication

@@ -126,14 +126,14 @@ const locationMeta: Record<string, LocationMeta> = {
     url: "https://commercialshotblasting.co.uk/service-areas/sheffield"
   },
   "leeds": {
-    title: "Leeds Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Leeds — manufacturing plant, logistics warehouse structures & construction steelwork. SA2.5/SA3 standard. West Yorkshire coverage — shot blasting near me. Free quote. Call 07721 375756",
+    title: "Leeds Shot Blasting & Sandblasting | Commercial Surface Preparation",
+    description: "Commercial shot blasting and sandblasting in Leeds for steelwork, plant, cladding, containers and coating handover. Request A Site Visit for a project-specific scope.",
     url: "https://commercialshotblasting.co.uk/service-areas/leeds"
   },
   // North West
   "manchester": {
-    title: "Manchester Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Manchester — engineering plant, chemical processing structures & commercial construction. SA2.5/SA3 standard. Greater Manchester coverage — shot blasting near me. Free quote. Call 07721 375756",
+    title: "Manchester Shot Blasting & Sandblasting | Commercial Surface Preparation",
+    description: "Commercial shot blasting and sandblasting in Manchester for fabricated steel, plant, structural frames and coating preparation. Request A Site Visit for a project-specific scope.",
     url: "https://commercialshotblasting.co.uk/service-areas/manchester"
   },
   "liverpool": {
@@ -195,8 +195,8 @@ const locationMeta: Record<string, LocationMeta> = {
   },
   // Oxfordshire
   "oxford": {
-    title: "Oxford Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Oxford — heritage restoration, research facility plant & construction steelwork. SA2.5/SA3 standard. Oxfordshire coverage — shot blasting near me. Free quote. Call 07721 375756",
+    title: "Oxford Shot Blasting & Sandblasting | Commercial Surface Preparation",
+    description: "Commercial shot blasting and sandblasting in Oxford for steelwork, plant, cladding, containers and surface-preparation handover. Request A Site Visit for your scope.",
     url: "https://commercialshotblasting.co.uk/service-areas/oxford"
   },
   // Wiltshire
@@ -207,8 +207,8 @@ const locationMeta: Record<string, LocationMeta> = {
   },
   // Buckinghamshire
   "milton-keynes": {
-    title: "Milton Keynes Shot Blasting | Mobile Contractor Near Me | Commercial Shot Blasting",
-    description: "Mobile shot blasting in Milton Keynes — logistics warehouse structures, manufacturing plant & technology sector steelwork. SA2.5/SA3 standard — shot blasting near me. Free quote. Call 07721 375756",
+    title: "Milton Keynes Shot Blasting & Sandblasting | Commercial Surface Preparation",
+    description: "Commercial shot blasting and sandblasting in Milton Keynes for warehouse steelwork, plant, cladding, containers and coating handover. Request A Site Visit for your scope.",
     url: "https://commercialshotblasting.co.uk/service-areas/milton-keynes"
   },
   // Northamptonshire

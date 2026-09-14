@@ -142,6 +142,58 @@ export const priorityTownCommercialContent: Record<string, PriorityCommercialCon
       { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For on-site access, containment, and programme considerations." },
     ],
   },
+  leeds: {
+    eyebrow: "Commercial manufacturing and logistics context",
+    title: "Planning commercial surface preparation around Leeds’ Enterprise Zone setting",
+    paragraphs: [
+      "Leeds City Council describes the Leeds City Region Enterprise Zone as a location for modern manufacturing and related supply-chain businesses, with motorway access via Junction 45 of the M1 and sites including Logic Leeds and Temple Green. This is useful background when an industrial or commercial team is reviewing warehouse steelwork, plant, cladding, access steel, or storage assets ahead of a preparation or coating stage.",
+      "The project discussion should still begin with the actual asset, current condition, accessible faces, active operations, access restrictions, containment, protection of adjacent work, and intended coating handover. A Site Visit can focus on those project-specific inputs before a method or programme is assumed.",
+    ],
+    links: [
+      { title: "Commercial Sandblasting", href: "/commercial-shot-blasting-sandblasting", description: "For commercial metal surface preparation, coating removal, and condition review." },
+      { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For access, containment, and operational-interface planning at a live site." },
+      { title: "Structural Steel Frames", href: "/services/structural-steel-frames", description: "For frames, beams, columns, and coating-readiness planning." },
+    ],
+  },
+  manchester: {
+    eyebrow: "Commercial advanced-manufacturing context",
+    title: "Planning commercial steelwork preparation around Greater Manchester’s advanced-materials cluster",
+    paragraphs: [
+      "Greater Manchester Combined Authority describes its Graphene, Advanced Materials and Manufacturing Alliance as supporting growth and innovation across the advanced materials and manufacturing sector. That is relevant local context when a commercial team is assessing fabricated steel, structural frames, maintenance assets, plant, or the handover between surface preparation and a protective coating stage.",
+      "Each scope still requires a site-specific review of the asset, existing surface condition, accessible faces, working levels, nearby operations, containment, inspection needs, and intended finish. A Site Visit can establish those practical requirements without assuming a standard method, timescale, or outcome.",
+    ],
+    links: [
+      { title: "Steel Fabrication Surface Preparation", href: "/steel-fabrication-surface-preparation", description: "For fabricated sections, mill scale, surface condition, and coating-readiness planning." },
+      { title: "Intumescent Paint for Steel", href: "/intumescent-paint-for-steel", description: "For coordinated preparation and fire-protective coating handover discussions." },
+      { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For on-site access, containment, and programme-interface considerations." },
+    ],
+  },
+  oxford: {
+    eyebrow: "Commercial innovation and manufacturing context",
+    title: "Planning commercial surface preparation across Oxford’s innovation economy",
+    paragraphs: [
+      "Enterprise Oxfordshire describes a regional business ecosystem that combines research with science and business parks containing laboratory, office, and advanced-manufacturing space. This gives useful neutral context for facilities, engineering, and commercial teams considering structural steel, plant, access steel, cladding, or metal assets before a surface-preparation and coating stage.",
+      "The relevant project information remains asset-specific: surface condition, accessible areas, access arrangements, adjacent activities, protection requirements, containment, inspection expectations, and the intended finish. A Site Visit can use that information to frame the next appropriate project discussion.",
+    ],
+    links: [
+      { title: "Steel Fabrication Surface Preparation", href: "/steel-fabrication-surface-preparation", description: "For fabricated steel, mill scale, rust, and coating-readiness planning." },
+      { title: "Commercial Sandblasting", href: "/commercial-shot-blasting-sandblasting", description: "For commercial metal surface preparation and coating-removal requirements." },
+      { title: "Intumescent Paint for Steel", href: "/intumescent-paint-for-steel", description: "For preparation and handover ahead of fire-protective coating work." },
+    ],
+  },
+  "milton-keynes": {
+    eyebrow: "Commercial logistics context",
+    title: "Planning commercial sandblasting around Milton Keynes’ logistics setting",
+    paragraphs: [
+      "Invest Milton Keynes describes the city as a logistics and warehousing hub with M1 and West Coast Mainline connectivity, while the City Council identifies the area’s transport and logistics connections between London, Birmingham, Oxford, and Cambridge. This is useful background when warehouse, distribution, facilities, or engineering teams are reviewing steelwork, cladding, containers, plant, or storage assets.",
+      "A project-specific Site Visit can establish the asset, surface condition, access routes, active loading or pedestrian interfaces, working area, containment needs, protection of adjacent operations, and intended coating or repair stage before a scope is agreed.",
+    ],
+    links: [
+      { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For practical working-area, access, containment, and operational-interface planning." },
+      { title: "Container Restoration & Storage Steelwork", href: "/container-restoration-storage-steelwork", description: "For container and storage-steelwork condition and recoating planning." },
+      { title: "Factory Cladding Restoration", href: "/factory-cladding-restoration", description: "For coated factory and warehouse-building envelope planning." },
+    ],
+  },
 };
 
 export const priorityCountyCommercialContent: Record<string, PriorityCommercialContent> = {

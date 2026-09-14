@@ -63,9 +63,7 @@ const HBTunnellingCaseStudy = lazy(() => import("./pages/HBTunnellingCaseStudy")
 
 // Lazy-loaded service area pages
 const SheffieldServiceArea = lazy(() => import("./pages/SheffieldServiceArea"));
-const ManchesterServiceArea = lazy(() => import("./pages/ManchesterServiceArea"));
 const BristolServiceArea = lazy(() => import("./pages/BristolServiceArea"));
-const LeedsServiceArea = lazy(() => import("./pages/LeedsServiceArea"));
 const CambridgeServiceArea = lazy(() => import("./pages/CambridgeServiceArea"));
 const CardiffServiceArea = lazy(() => import("./pages/CardiffServiceArea"));
 const ChesterServiceArea = lazy(() => import("./pages/ChesterServiceArea"));
@@ -75,7 +73,6 @@ const GloucesterServiceArea = lazy(() => import("./pages/GloucesterServiceArea")
 const HerefordServiceArea = lazy(() => import("./pages/HerefordServiceArea"));
 const IpswichServiceArea = lazy(() => import("./pages/IpswichServiceArea"));
 const LincolnServiceArea = lazy(() => import("./pages/LincolnServiceArea"));
-const MiltonKeynesServiceArea = lazy(() => import("./pages/MiltonKeynesServiceArea"));
 const NorwichServiceArea = lazy(() => import("./pages/NorwichServiceArea"));
 const NottinghamServiceArea = lazy(() => import("./pages/NottinghamServiceArea"));
 const ShrewsburyServiceArea = lazy(() => import("./pages/ShrewsburyServiceArea"));
@@ -85,7 +82,6 @@ const SwindonServiceArea = lazy(() => import("./pages/SwindonServiceArea"));
 const StratfordUponAvonServiceArea = lazy(() => import("./pages/StratfordUponAvonServiceArea"));
 const WolverhamtonServiceArea = lazy(() => import("./pages/WolverhamtonServiceArea"));
 const WorcesterServiceArea = lazy(() => import("./pages/WorcesterServiceArea"));
-const OxfordServiceArea = lazy(() => import("./pages/OxfordServiceArea"));
 const PeterboroughServiceArea = lazy(() => import("./pages/PeterboroughServiceArea"));
 const ChesterfieldServiceArea = lazy(() => import("./pages/ChesterfieldServiceArea"));
 const WrexhamServiceArea = lazy(() => import("./pages/WrexhamServiceArea"));
@@ -335,9 +331,7 @@ function Router() {
         {/* Dynamic Location Pages (605 towns and villages) */}
         <Route path="/locations/:slug" component={LocationRouter} />
         <Route path="/service-areas/sheffield" component={SheffieldServiceArea} />
-        <Route path="/service-areas/manchester" component={ManchesterServiceArea} />
         <Route path="/service-areas/bristol" component={BristolServiceArea} />
-        <Route path="/service-areas/leeds" component={LeedsServiceArea} />
         <Route path="/service-areas/cambridge" component={CambridgeServiceArea} />
         <Route path="/service-areas/cardiff" component={CardiffServiceArea} />
         <Route path="/service-areas/chester" component={ChesterServiceArea} />
@@ -347,7 +341,6 @@ function Router() {
         <Route path="/service-areas/hereford" component={HerefordServiceArea} />
         <Route path="/service-areas/ipswich" component={IpswichServiceArea} />
         <Route path="/service-areas/lincoln" component={LincolnServiceArea} />
-        <Route path="/service-areas/milton-keynes" component={MiltonKeynesServiceArea} />
         <Route path="/service-areas/norwich" component={NorwichServiceArea} />
         <Route path="/service-areas/nottingham" component={NottinghamServiceArea} />
         <Route path="/service-areas/shrewsbury" component={ShrewsburyServiceArea} />
@@ -357,7 +350,6 @@ function Router() {
         <Route path="/service-areas/stratford-upon-avon" component={StratfordUponAvonServiceArea} />
         <Route path="/service-areas/wolverhampton" component={WolverhamtonServiceArea} />
         <Route path="/service-areas/worcester" component={WorcesterServiceArea} />
-        <Route path="/service-areas/oxford" component={OxfordServiceArea} />
         <Route path="/service-areas/peterborough" component={PeterboroughServiceArea} />
         <Route path="/service-areas/chesterfield" component={ChesterfieldServiceArea} />
         <Route path="/service-areas/wrexham" component={WrexhamServiceArea} />
