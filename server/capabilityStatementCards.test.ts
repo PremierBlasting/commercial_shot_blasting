@@ -77,10 +77,15 @@ describe("Capability-statement card coverage", () => {
     const download = readFileSync(resolve(projectRoot, "client/src/components/CapabilityStatementDownload.tsx"), "utf8");
 
     expect(download).toContain("MOBILE_CAPABILITY_STATEMENT_URL");
-    expect(download).toContain("commercial-capability-statement-amended-mobile-2026-09-14_99115e4e.pdf");
+    expect(download).toContain("commercial-capability-statement-amended-mobile-linked-2026-09-14_e64d3758.pdf");
     expect(download).toContain('window.matchMedia("(max-width: 767px)")');
     expect(download).toContain("mobileQuery.matches ? MOBILE_CAPABILITY_STATEMENT_URL : CAPABILITY_STATEMENT_URL");
     expect(download).toContain("href={downloadUrl}");
+    expect(download).toContain("CAPABILITY_STATEMENT_LAST_UPDATED");
+    expect(download).toContain("Last updated:");
+    expect(download).toContain("Preview booklet");
+    expect(download).toContain("Commercial Capability Statement PDF preview");
+    expect(download).toContain("case studies include links to their live project pages");
   });
 
   it("places the disclosure beside every current capability-statement card and maps the two new service pages", () => {

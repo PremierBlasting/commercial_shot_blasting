@@ -1,13 +1,24 @@
-import { CheckCircle2, FileImage, LoaderCircle, Send, Upload, X } from "lucide-react";
+import { CheckCircle2, Eye, FileImage, LoaderCircle, Send, Upload, X } from "lucide-react";
 import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { trackCapabilityStatementDownload } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import { trpc } from "@/lib/trpc";
 import { formatUTMForSubmission } from "@/lib/utm";
 import { validateLeadEmailClient } from "@shared/emailValidation";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
-export const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-amended-2026-09-14_13f602b5.pdf";
-export const MOBILE_CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-amended-mobile-2026-09-14_99115e4e.pdf";
+export const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-amended-linked-2026-09-14_9cee6eda.pdf";
+export const MOBILE_CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-amended-mobile-linked-2026-09-14_e64d3758.pdf";
+export const CAPABILITY_STATEMENT_LAST_UPDATED = "14 September 2026";
+export const CAPABILITY_STATEMENT_LAST_UPDATED_ISO = "2026-09-14";
 
 type CapabilityStatementDownloadProps = {
   placement: string;
@@ -218,6 +229,7 @@ export function CapabilityStatementDownload({
   tone = "light",
 }: CapabilityStatementDownloadProps) {
   const [hasInitiatedDownload, setHasInitiatedDownload] = useState(false);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState(CAPABILITY_STATEMENT_URL);
   const isDark = tone === "dark";
 
@@ -248,6 +260,40 @@ export function CapabilityStatementDownload({
       >
         {children}
       </a>
+      <div className={cn("mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs", isDark ? "text-white/70" : "text-slate-600")}>
+        <time dateTime={CAPABILITY_STATEMENT_LAST_UPDATED_ISO}>Last updated: {CAPABILITY_STATEMENT_LAST_UPDATED}</time>
+        <Dialog open={isPreviewOpen} onOpenChange={setIsPreviewOpen}>
+          <DialogTrigger asChild>
+            <button
+              type="button"
+              className={cn("inline-flex items-center gap-1 font-semibold underline underline-offset-2 transition", isDark ? "text-[#f7d98f] hover:text-white" : "text-[#2C5F7F] hover:text-[#1a3d52]")}
+            >
+              <Eye className="h-3.5 w-3.5" aria-hidden="true" /> Preview booklet
+            </button>
+          </DialogTrigger>
+          {isPreviewOpen && (
+            <DialogContent className="max-h-[calc(100dvh-2rem)] max-w-5xl gap-0 overflow-hidden p-0 sm:max-w-5xl" aria-describedby="capability-statement-preview-description">
+              <DialogHeader className="border-b border-slate-200 px-5 py-4 pr-12 text-left">
+                <DialogTitle className="text-[#1a3d52]">Commercial Capability Statement</DialogTitle>
+                <DialogDescription id="capability-statement-preview-description">Preview the current 10-page booklet. The two case studies include links to their live project pages.</DialogDescription>
+              </DialogHeader>
+              <div className="min-h-[58dvh] bg-slate-100 sm:min-h-[68dvh]">
+                <iframe
+                  src={`${downloadUrl}#view=FitH`}
+                  title="Commercial Capability Statement PDF preview"
+                  className="h-[58dvh] w-full border-0 sm:h-[68dvh]"
+                >
+                  <a href={downloadUrl} target="_blank" rel="noopener noreferrer">Open the capability statement PDF preview</a>
+                </iframe>
+              </div>
+              <DialogFooter className="border-t border-slate-200 px-5 py-3 sm:justify-between">
+                <p className="text-xs text-slate-500"><time dateTime={CAPABILITY_STATEMENT_LAST_UPDATED_ISO}>Last updated: {CAPABILITY_STATEMENT_LAST_UPDATED}</time></p>
+                <a href={downloadUrl} download="Commercial-Capability-Statement.pdf" onClick={handleDownload} className="inline-flex items-center justify-center rounded-md bg-[#2C5F7F] px-4 py-2 text-sm font-bold text-white transition hover:bg-[#1a3d52]">Download PDF</a>
+              </DialogFooter>
+            </DialogContent>
+          )}
+        </Dialog>
+      </div>
       {hasInitiatedDownload && (
         <div
           role="status"

@@ -17,7 +17,7 @@ describe("CHAS Elite assurance pathway", () => {
     expect(html).toContain("The Common Assessment Standard covers 13 risk-management areas");
     expect(html).toContain("CHAS Elite does not replace a project-specific assessment");
     expect(html).toContain("FAQPage");
-    expect(html).toContain("commercial-capability-statement-amended-2026-09-14_13f602b5.pdf");
+    expect(html).toContain("commercial-capability-statement-amended-linked-2026-09-14_9cee6eda.pdf");
     expect(html).toContain("Download the current approved capability statement PDF");
   });
 

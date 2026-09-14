@@ -1884,3 +1884,8 @@
 - [x] Verify the supplied amended capability statement includes the updated quote and host it as the new full-quality download
 - [x] Generate and validate a quality-preserving mobile-optimised copy from the amended source document
 - [x] Replace all existing full and mobile capability-statement download assets and validate every shared placement before publishing
+
+## Capability Statement Links, Preview, and Revision Date (14 September 2026)
+- [x] Add verified live case-study links to both case studies in the amended full and mobile capability-statement PDFs
+- [x] Add an accessible lightweight booklet-preview modal to the shared capability-statement card before download
+- [x] Display a consistent last-updated date beside every capability-statement download action and validate all placements
