@@ -20,12 +20,12 @@ const CASE_STUDY_URL = "https://commercialshotblasting.co.uk/case-studies/bromsg
 
 const assets = {
   beforeVideo: "/manus-storage/bromsgrove-school-staircase-before_96c645cd.mp4",
-  before01: "/manus-storage/bromsgrove-staircase-before-01_9ba57d63.jpg",
-  before02: "/manus-storage/bromsgrove-staircase-before-02_f01e73d1.jpg",
-  before03: "/manus-storage/bromsgrove-staircase-before-03_66fa8243.jpg",
-  before04: "/manus-storage/bromsgrove-staircase-before-04_d08a4fb6.jpg",
-  before05: "/manus-storage/bromsgrove-staircase-before-05_2bd2b313.jpg",
-  before06: "/manus-storage/bromsgrove-staircase-before-06_2409d9fe.jpg",
+  before: "/manus-storage/bromsgrove-school-staircase-before-definitive-2026-09-14_dca201c9.png",
+  videoStill01: "/manus-storage/bromsgrove-school-before-video-still-01-2026-09-14_8c21d250.jpg",
+  videoStill02: "/manus-storage/bromsgrove-school-before-video-still-02-2026-09-14_44c03384.jpg",
+  videoStill03: "/manus-storage/bromsgrove-school-before-video-still-03-2026-09-14_c302bcf7.jpg",
+  videoStill04: "/manus-storage/bromsgrove-school-before-video-still-04-2026-09-14_c5180565.jpg",
+  videoStill05: "/manus-storage/bromsgrove-school-before-video-still-05-2026-09-14_00850011.jpg",
   after: "/manus-storage/bromsgrove-staircase-after_ae521dcd.png",
 };
 
@@ -38,39 +38,39 @@ type GalleryImage = {
 
 const projectGallery: GalleryImage[] = [
   {
-    src: assets.before01,
+    src: assets.before,
     alt: "External metal spiral staircase at Bromsgrove School before restoration",
-    caption: "Before: flaking coating and weathered areas were visible on the external staircase.",
+    caption: "Before: the supplied definitive image records flaking paint and rust-affected areas on the external staircase.",
     stage: "Before",
   },
   {
-    src: assets.before02,
-    alt: "Underside and landing of the Bromsgrove School spiral staircase before restoration",
-    caption: "Before: the supplied record shows the stair structure, landings and existing coating condition.",
+    src: assets.videoStill01,
+    alt: "Bromsgrove School spiral staircase before restoration, from supplied project footage",
+    caption: "Before footage: a video-derived view of the recorded staircase condition.",
     stage: "Before",
   },
   {
-    src: assets.before03,
-    alt: "Wide view of the Bromsgrove School external spiral staircase before restoration",
-    caption: "Before: a full-height view of the staircase before the refurbishment work.",
+    src: assets.videoStill02,
+    alt: "Bromsgrove School external spiral staircase before restoration, from supplied project footage",
+    caption: "Before footage: the supplied video documents the stair structure and existing coating condition.",
     stage: "Before",
   },
   {
-    src: assets.before04,
-    alt: "Spiral stair flights and balustrades at Bromsgrove School before restoration",
-    caption: "Before: the supplied images record flaking paint and rust-affected areas around the staircase.",
+    src: assets.videoStill03,
+    alt: "Bromsgrove School spiral staircase before restoration, from supplied project footage",
+    caption: "Before footage: a recorded view of the stair flights and balustrades before the restoration work.",
     stage: "Before",
   },
   {
-    src: assets.before05,
-    alt: "Lower section of the Bromsgrove School spiral staircase before restoration",
-    caption: "Before: the lower stair flights and balustrades ahead of the restoration work.",
+    src: assets.videoStill04,
+    alt: "Bromsgrove School spiral staircase before restoration, from supplied project footage",
+    caption: "Before footage: the supplied video captures the external metalwork ahead of the finished black treatment.",
     stage: "Before",
   },
   {
-    src: assets.before06,
-    alt: "External spiral staircase against the Bromsgrove School brick building before restoration",
-    caption: "Before: a wider view of the existing staircase condition.",
+    src: assets.videoStill05,
+    alt: "Bromsgrove School staircase before restoration, from supplied project footage",
+    caption: "Before footage: a final video-derived view of the existing staircase before refurbishment.",
     stage: "Before",
   },
   {
@@ -298,7 +298,7 @@ export default function BromsgroveSchoolCaseStudy() {
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
                 <figure className="overflow-hidden rounded-2xl bg-slate-100 shadow-sm">
-                  <img src={assets.before03} alt="Bromsgrove School external spiral staircase before restoration" className="aspect-[3/4] w-full object-cover" loading="lazy" />
+                  <img src={assets.before} alt="Bromsgrove School external spiral staircase before restoration" className="aspect-[3/4] w-full object-cover" loading="lazy" />
                   <figcaption className="bg-slate-900 px-4 py-3 text-sm font-semibold text-white">Before: flaking paint and rust-affected areas</figcaption>
                 </figure>
                 <figure className="overflow-hidden rounded-2xl bg-slate-100 shadow-sm">
@@ -346,7 +346,7 @@ export default function BromsgroveSchoolCaseStudy() {
         <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/95 p-4" role="dialog" aria-modal="true" aria-label="Bromsgrove School staircase before footage" onClick={() => setVideoOpen(false)}>
           <div className="relative w-full max-w-md overflow-hidden rounded-2xl bg-black shadow-2xl" onClick={(event) => event.stopPropagation()}>
             <button onClick={() => setVideoOpen(false)} className="absolute right-3 top-3 z-10 rounded-full bg-black/70 p-2 text-white transition hover:bg-black" aria-label="Close before footage"><X className="h-5 w-5" /></button>
-            <video autoPlay controls playsInline poster={assets.before01} className="aspect-[9/16] w-full bg-black">
+            <video autoPlay controls playsInline poster={assets.before} className="aspect-[9/16] w-full bg-black">
               <source src={assets.beforeVideo} type="video/mp4" />
             </video>
           </div>

@@ -30,7 +30,9 @@ describe("Bromsgrove School spiral staircase case study", () => {
 
     expect(app).toContain('path={"/case-studies/bromsgrove-school-staircase"}');
     expect(page).toContain("bromsgrove-school-staircase-before_96c645cd.mp4");
-    expect(page).toContain("bromsgrove-staircase-before-01_9ba57d63.jpg");
+    expect(page).toContain("bromsgrove-school-staircase-before-definitive-2026-09-14_dca201c9.png");
+    expect(page).toContain("bromsgrove-school-before-video-still-01-2026-09-14_8c21d250.jpg");
+    expect(page).not.toContain("bromsgrove-staircase-before-01_9ba57d63.jpg");
     expect(page).toContain("bromsgrove-staircase-after_ae521dcd.png");
     expect(page).toContain("Watch before footage");
     expect(page).toContain("black anti-slip paint to the steps");

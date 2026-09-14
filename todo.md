@@ -1906,3 +1906,8 @@
 - [x] Publish the supplied before images and footage plus the finished after image as a clearly sequenced, evidence-led Bromsgrove School staircase restoration case study
 - [x] Use only the verified scope: flaking paint and rust-affected areas restored with a black finish, including black anti-slip paint to the steps
 - [x] Add routes, internal links, sitemap and crawler metadata, structured data, regression coverage, asset delivery checks, desktop/mobile validation, TypeScript, full tests, and production build before publication
+
+## Bromsgrove School Approved Before-Media Refinement (14 September 2026)
+- [x] Replace the prior before-photo gallery with the definitive supplied Before image, the approved before video, and selected video-derived stills only
+- [x] Retain the existing supplied finished After image and all evidence-led restoration wording without changing verified scope
+- [x] Validate asset delivery, before-and-after sequencing, responsive presentation, TypeScript, 33 suites / 288 tests, live provider credentials, and production build before publication
