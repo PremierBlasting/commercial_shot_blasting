@@ -162,6 +162,20 @@ export function trackCTAClick(buttonName: string, destination?: string) {
 }
 
 /**
+ * Track navigation from a content card to a published case study. This is an
+ * engagement-only event and deliberately does not fire a Google Ads conversion.
+ */
+export function trackCaseStudyCardClick(caseStudy: string, placement: string, destination: string) {
+  trackEvent('case_study_card_click', {
+    event_category: 'Content engagement',
+    event_label: caseStudy,
+    case_study: caseStudy,
+    placement,
+    destination,
+  });
+}
+
+/**
  * Track interest in the approved capability statement without treating a
  * document download as a lead or firing a Google Ads conversion.
  */

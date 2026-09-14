@@ -1922,3 +1922,9 @@
 ## Bromsgrove School Our Work Staircase Discovery Card (14 September 2026)
 - [x] Add a compact evidence-led View case study card to the Our Work external-staircase filter, linking directly to the Bromsgrove School project
 - [x] Add regression coverage, validate desktop/mobile filter presentation, and publish the completed card
+
+## Staircase Case-Study Engagement and Fire-Escape Discovery (14 September 2026)
+- [x] Add a relevant related-staircase-work route at the end of the Bromsgrove School case study
+- [x] Track Staircases-filter Bromsgrove case-study-card clicks as a distinct non-conversion content-engagement event
+- [x] Identify an approved fire-escape project record and add a second compact evidence-led card to the Staircases filter
+- [x] Extend regression coverage, validate analytics isolation and desktop/mobile presentation, then publish

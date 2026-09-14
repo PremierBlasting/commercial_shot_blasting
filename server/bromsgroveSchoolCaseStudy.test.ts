@@ -51,6 +51,8 @@ describe("Bromsgrove School spiral staircase case study", () => {
     expect(comparison).toContain(">Before</span>");
     expect(page).toContain("black anti-slip paint to the steps");
     expect(page).toContain("Request A Site Visit");
+    expect(page).toContain("Related staircase work");
+    expect(page).toContain("Fire Escapes & Stair Towers");
     expect(externalStaircases).toContain('href="/case-studies/bromsgrove-school-staircase"');
     expect(externalStaircases).toContain("Bromsgrove School external spiral staircase restoration");
     expect(externalStaircases).toContain("bromsgrove-staircase-after_ae521dcd.png");
@@ -59,6 +61,10 @@ describe("Bromsgrove School spiral staircase case study", () => {
     expect(work).toContain("displayedProjectCount");
     expect(work).toContain("View case study");
     expect(work).toContain("External spiral staircase restoration");
+    expect(work).toContain("Fire Escape Restoration — Multi-Storey Office");
+    expect(work).toContain("/services/fire-escapes");
+    expect(work).toContain("trackCaseStudyCardClick");
+    expect(work).toContain("Our Work Staircases filter");
     expect(xmlSitemap).toContain('{ loc: "/case-studies/bromsgrove-school-staircase"');
     expect(htmlSitemap).toContain('{ href: "/case-studies/bromsgrove-school-staircase"');
   });

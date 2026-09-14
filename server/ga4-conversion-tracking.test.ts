@@ -38,13 +38,14 @@ describe('GA4 Conversion Tracking', () => {
   });
 
   it('should have tracking functions available', async () => {
-    const { trackCapabilityStatementDownload, trackPhoneCall, trackEvent, trackFormSubmission, trackQuoteFormSubmission } = await import('../client/src/lib/analytics');
+    const { trackCapabilityStatementDownload, trackCaseStudyCardClick, trackPhoneCall, trackEvent, trackFormSubmission, trackQuoteFormSubmission } = await import('../client/src/lib/analytics');
     
     expect(trackPhoneCall).toBeDefined();
     expect(trackEvent).toBeDefined();
     expect(trackFormSubmission).toBeDefined();
     expect(trackQuoteFormSubmission).toBeDefined();
     expect(trackCapabilityStatementDownload).toBeDefined();
+    expect(trackCaseStudyCardClick).toBeDefined();
   });
 
   it('should track phone calls with correct parameters', async () => {
@@ -199,6 +200,32 @@ describe('GA4 Conversion Tracking', () => {
 
     const conversionCalls = (window.gtag as ReturnType<typeof vi.fn>).mock.calls.filter(
       (call: any[]) => call[0] === 'event' && call[1] === 'conversion'
+    );
+    expect(conversionCalls).toHaveLength(0);
+  });
+
+  it('tracks the Bromsgrove Staircases-filter card as content engagement without firing a Google Ads conversion', async () => {
+    const { trackCaseStudyCardClick } = await import('../client/src/lib/analytics');
+
+    trackCaseStudyCardClick(
+      'Bromsgrove School external spiral staircase restoration',
+      'Our Work Staircases filter',
+      '/case-studies/bromsgrove-school-staircase',
+    );
+
+    expect(window.gtag).toHaveBeenCalledWith(
+      'event',
+      'case_study_card_click',
+      expect.objectContaining({
+        event_category: 'Content engagement',
+        case_study: 'Bromsgrove School external spiral staircase restoration',
+        placement: 'Our Work Staircases filter',
+        destination: '/case-studies/bromsgrove-school-staircase',
+      }),
+    );
+
+    const conversionCalls = (window.gtag as ReturnType<typeof vi.fn>).mock.calls.filter(
+      (call: any[]) => call[0] === 'event' && call[1] === 'conversion',
     );
     expect(conversionCalls).toHaveLength(0);
   });

@@ -444,9 +444,14 @@ export default function BromsgroveSchoolCaseStudy() {
         </section>
 
         <section className="mx-auto max-w-7xl px-5 py-14 sm:px-7 lg:px-10">
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="mb-5 max-w-2xl">
+            <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Related staircase work</p>
+            <h2 className="mt-2 text-2xl font-bold text-[#183c52]" style={{ fontFamily: "'Playfair Display', serif" }}>Continue exploring external access-steel projects and services.</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {[
               { href: "/services/external-staircases", label: "External Staircases", text: "Explore commercial staircase preparation and restoration support." },
+              { href: "/services/fire-escapes", label: "Fire Escapes & Stair Towers", text: "Explore surface-preparation support for external fire-escape and access-steel structures." },
               { href: "/industrial-steelwork-restoration", label: "Industrial Steelwork Restoration", text: "Plan surface condition, access and finish requirements for weathered steelwork." },
               { href: "/service-areas/bromsgrove", label: "Shot Blasting in Bromsgrove", text: "Explore commercial Site Visit support in the Bromsgrove area." },
             ].map((link) => (
