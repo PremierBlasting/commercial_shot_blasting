@@ -6,8 +6,8 @@ import { trpc } from "@/lib/trpc";
 import { formatUTMForSubmission } from "@/lib/utm";
 import { validateLeadEmailClient } from "@shared/emailValidation";
 
-export const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-approved-2026-09-14_a3b45775.pdf";
-export const MOBILE_CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-mobile-2026-09-14_8152ef15.pdf";
+export const CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-amended-2026-09-14_13f602b5.pdf";
+export const MOBILE_CAPABILITY_STATEMENT_URL = "/manus-storage/commercial-capability-statement-amended-mobile-2026-09-14_99115e4e.pdf";
 
 type CapabilityStatementDownloadProps = {
   placement: string;

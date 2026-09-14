@@ -1879,3 +1879,8 @@
 - [x] Create and compare a quality-preserving compressed copy of the approved capability statement for mobile downloads
 - [x] Route mobile download actions to the compressed PDF while retaining the full-quality file for wider screens
 - [x] Validate PDF integrity, desktop/mobile selection, download tracking, and deployment before publishing and delivering the compressed file
+
+## Amended Capability Statement With Updated Quote (14 September 2026)
+- [x] Verify the supplied amended capability statement includes the updated quote and host it as the new full-quality download
+- [x] Generate and validate a quality-preserving mobile-optimised copy from the amended source document
+- [x] Replace all existing full and mobile capability-statement download assets and validate every shared placement before publishing

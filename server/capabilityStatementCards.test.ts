@@ -77,7 +77,7 @@ describe("Capability-statement card coverage", () => {
     const download = readFileSync(resolve(projectRoot, "client/src/components/CapabilityStatementDownload.tsx"), "utf8");
 
     expect(download).toContain("MOBILE_CAPABILITY_STATEMENT_URL");
-    expect(download).toContain("commercial-capability-statement-mobile-2026-09-14_8152ef15.pdf");
+    expect(download).toContain("commercial-capability-statement-amended-mobile-2026-09-14_99115e4e.pdf");
     expect(download).toContain('window.matchMedia("(max-width: 767px)")');
     expect(download).toContain("mobileQuery.matches ? MOBILE_CAPABILITY_STATEMENT_URL : CAPABILITY_STATEMENT_URL");
     expect(download).toContain("href={downloadUrl}");
