@@ -126,17 +126,6 @@ const allCaseStudies: CaseStudy[] = [
     duration: "3 days",
     results: "Engine block restored to bare metal across all surfaces. Client proceeded immediately with inspection and recoating, significantly extending the engine's operational lifespan.",
   },
-  {
-    id: 25,
-    title: "Marine Engine Block — Side Profile",
-    category: "Marine & Offshore",
-    description: "Side view before and after — paint build-up and corrosion fully removed from marine engine block casting.",
-    before: "/manus-storage/marine-before-2_c23a76dd.jpg",
-    after: "/manus-storage/marine-after-2_30cf45df.jpg",
-    location: "UK",
-    duration: "3 days",
-    results: "Complete paint and corrosion removal achieved across the side profile with all casting detail preserved. Ready for marine-grade coating specification.",
-  },
 ];
 
 const categories = [

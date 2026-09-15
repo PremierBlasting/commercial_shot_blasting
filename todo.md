@@ -1938,3 +1938,8 @@
 ## Bromsgrove Completed-Finish Label Overlap Fix (15 September 2026)
 - [x] Correct the completed-finish label placement so it does not overlap the image content at desktop or mobile widths
 - [x] Validate the revised image card visually, then publish the focused layout fix
+
+## Homepage Project-Card Deduplication and Staircase Lightbox (15 September 2026)
+- [x] Remove the duplicate marine diesel engine project card from the homepage while retaining one accurate project example
+- [x] Add accessible full-screen lightbox viewing to the Bromsgrove staircase images, including clear image controls and keyboard close behaviour
+- [x] Extend regression coverage, validate desktop/mobile interactions, and publish without changing lead or conversion behaviour

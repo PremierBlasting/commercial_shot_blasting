@@ -7,6 +7,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ClipboardCheck,
+  Maximize2,
   Pause,
   Play,
   RotateCcw,
@@ -305,6 +306,7 @@ export default function BromsgroveSchoolCaseStudy() {
             <button onClick={() => openImage(projectGallery[6], 6)} className="group relative overflow-hidden rounded-2xl border border-white/25 bg-slate-950 text-left shadow-2xl transition hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-[#f1c76e]/60" aria-label="Open the Bromsgrove School finished staircase image">
               <img src={assets.after} alt="Finished black Bromsgrove School spiral staircase" className="aspect-[3/4] w-full object-cover opacity-95 transition duration-500 group-hover:scale-105" />
               <span className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent" />
+              <span className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-full bg-slate-950/80 px-3 py-2 text-xs font-bold text-white opacity-100 shadow-sm transition sm:opacity-0 sm:group-hover:opacity-100"><Maximize2 className="h-3.5 w-3.5" /> View full-screen</span>
               <span className="absolute inset-x-5 bottom-5">
                 <span className="block text-xl font-bold text-white">Black staircase restoration</span>
                 <span className="mt-1 block text-sm text-white/75">Finished black coating and black anti-slip paint on the stair treads.</span>
@@ -366,6 +368,7 @@ export default function BromsgroveSchoolCaseStudy() {
               <div className="max-w-2xl">
                 <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#f1c76e]">Before the restoration</p>
                 <h2 className="mt-3 text-3xl font-bold sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>Supplied project footage and images showing the original staircase condition.</h2>
+                <p className="mt-3 text-sm leading-relaxed text-white/75">Select any staircase image to view it full-screen. Use the on-screen controls or the left and right arrow keys to move through the project gallery.</p>
               </div>
               <button onClick={() => setVideoOpen(true)} className="inline-flex items-center gap-2 self-start rounded-lg border border-white/35 px-4 py-3 text-sm font-bold transition hover:bg-white/10">
                 <Play className="h-4 w-4 fill-current" /> Play before footage
@@ -377,6 +380,7 @@ export default function BromsgroveSchoolCaseStudy() {
                   <img src={image.src} alt={image.alt} className={`w-full object-cover transition duration-500 group-hover:scale-105 ${index === 0 ? "aspect-[3/4] h-full" : "aspect-[3/4]"}`} loading={index > 1 ? "lazy" : "eager"} />
                   <span className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent opacity-80 transition group-hover:opacity-100" />
                   <span className="absolute left-3 top-3 rounded bg-slate-950/75 px-2 py-1 text-[11px] font-bold uppercase tracking-wide text-white">Before</span>
+                  <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded bg-slate-950/75 px-2 py-1 text-[11px] font-bold text-white"><Maximize2 className="h-3.5 w-3.5" /> <span className="hidden sm:inline">Full-screen</span></span>
                   <span className="absolute inset-x-3 bottom-3 text-xs font-semibold leading-snug text-white sm:text-sm">{image.caption}</span>
                 </button>
               ))}
@@ -478,7 +482,7 @@ export default function BromsgroveSchoolCaseStudy() {
       {activeImage && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-950/95 p-4" role="dialog" aria-modal="true" aria-label="Bromsgrove School staircase image gallery" onClick={() => setActiveImage(null)}>
           <div className="relative w-full max-w-3xl" onClick={(event) => event.stopPropagation()}>
-            <button onClick={() => setActiveImage(null)} className="absolute -top-12 right-0 rounded-full p-2 text-white transition hover:bg-white/10" aria-label="Close gallery"><X className="h-6 w-6" /></button>
+            <button onClick={() => setActiveImage(null)} className="absolute right-3 top-3 z-10 inline-flex min-h-11 min-w-11 items-center justify-center rounded-full bg-slate-950/85 p-2 text-white transition hover:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-white" aria-label="Close full-screen image gallery"><X className="h-6 w-6" /></button>
             <img src={activeImage.src} alt={activeImage.alt} className="max-h-[78vh] w-full rounded-xl object-contain" />
             <p className="mx-auto mt-4 max-w-3xl text-center text-sm text-white/80"><span className="mr-2 rounded bg-white/15 px-2 py-1 text-xs font-bold uppercase tracking-wide text-white">{activeImage.stage}</span>{activeImage.caption}</p>
             <div className="mt-4 flex justify-center gap-3">

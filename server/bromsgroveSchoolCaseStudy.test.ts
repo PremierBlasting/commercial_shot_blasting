@@ -24,6 +24,7 @@ describe("Bromsgrove School spiral staircase case study", () => {
   it("uses the supplied before-and-after media and registers all discovery paths", () => {
     const app = readFileSync(resolve(projectRoot, "client/src/App.tsx"), "utf8");
     const page = readFileSync(resolve(projectRoot, "client/src/pages/BromsgroveSchoolCaseStudy.tsx"), "utf8");
+    const homepageCaseStudies = readFileSync(resolve(projectRoot, "client/src/components/CaseStudies.tsx"), "utf8");
     const fireEscapePage = readFileSync(resolve(projectRoot, "client/src/pages/FireEscapeProvisionalCaseStudy.tsx"), "utf8");
     const comparison = readFileSync(resolve(projectRoot, "client/src/components/BeforeAfterProjectSlider.tsx"), "utf8");
     const externalStaircases = readFileSync(resolve(projectRoot, "client/src/pages/ExternalStaircasesPage.tsx"), "utf8");
@@ -57,6 +58,10 @@ describe("Bromsgrove School spiral staircase case study", () => {
     expect(page).toContain("Fire Escapes & Stair Towers");
     expect(page).toContain('/our-work?category=Staircases#staircases');
     expect(page).toContain("More staircase work");
+    expect(page).toContain("Select any staircase image to view it full-screen");
+    expect(page).toContain("View full-screen");
+    expect(page).toContain("Close full-screen image gallery");
+    expect(page).toContain("Maximize2");
     expect(externalStaircases).toContain('href="/case-studies/bromsgrove-school-staircase"');
     expect(externalStaircases).toContain("Bromsgrove School external spiral staircase restoration");
     expect(externalStaircases).toContain("bromsgrove-staircase-after_ae521dcd.png");
@@ -69,6 +74,8 @@ describe("Bromsgrove School spiral staircase case study", () => {
     expect(work).toContain("/case-studies/fire-escape-multi-storey-office");
     expect(work).toContain("trackCaseStudyCardClick");
     expect(work).toContain("Our Work Staircases filter");
+    expect(homepageCaseStudies).toContain("Marine Diesel Engine Block Restoration");
+    expect(homepageCaseStudies).not.toContain("Marine Engine Block — Side Profile");
     expect(work).toContain('get("category") === "Staircases"');
     expect(app).toContain('path={"/case-studies/fire-escape-multi-storey-office"}');
     expect(fireEscapePage).toContain("Provisional project record");
