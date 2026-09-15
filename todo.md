@@ -1955,3 +1955,8 @@
 - [x] Restore the former structural-steel project gallery and both previously published project-video experiences beneath the new supplied Wigan before-and-after lead section
 - [x] Keep the new Wigan page title, canonical URL, header/navigation, before-and-after lead images, and verified case-study facts unchanged
 - [x] Extend regression coverage, validate desktop/mobile media viewing, and publish the correction without changing lead or conversion behaviour
+
+## Wigan Local Case-Study Discovery (15 September 2026)
+- [x] Add a prominent evidence-led ISS Property — Former Bakkavor Foods Facility, Wigan case-study callout to the Wigan local service-area page
+- [x] Mirror the case-study discovery and verified project context in crawler-visible Wigan local-page content
+- [x] Extend regression coverage, validate desktop/mobile display and crawler output, then publish without changing lead or conversion behaviour

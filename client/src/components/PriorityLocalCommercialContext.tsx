@@ -14,6 +14,20 @@ export function PriorityLocalCommercialContext({ locationSlug }: { locationSlug:
           <div className="mt-5 space-y-4 leading-relaxed text-slate-700">
             {content.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </div>
+          {content.featuredCaseStudy && (
+            <a href={content.featuredCaseStudy.href} className="group mt-8 grid overflow-hidden rounded-2xl border border-[#2C5F7F]/20 bg-white no-underline shadow-sm transition hover:-translate-y-0.5 hover:border-[#2C5F7F] hover:shadow-md md:grid-cols-[0.8fr_1.2fr]">
+              <div className="relative min-h-52 overflow-hidden">
+                <img src={content.featuredCaseStudy.imageSrc} alt={content.featuredCaseStudy.imageAlt} className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                <span className="absolute left-4 top-4 rounded bg-[#f1c76e] px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-[#17394f]">{content.featuredCaseStudy.eyebrow}</span>
+              </div>
+              <div className="p-6 md:p-8">
+                <p className="text-sm font-semibold uppercase tracking-wide text-[#2C5F7F]">Local project evidence</p>
+                <h3 className="mt-2 text-2xl font-bold text-[#1a3d52]" style={{ fontFamily: "'Playfair Display', serif" }}>{content.featuredCaseStudy.title}</h3>
+                <p className="mt-3 leading-relaxed text-slate-600">{content.featuredCaseStudy.description}</p>
+                <span className="mt-5 inline-flex items-center gap-2 rounded-lg bg-[#2C5F7F] px-4 py-2.5 text-sm font-bold text-white transition group-hover:bg-[#1a3d52]">{content.featuredCaseStudy.ctaLabel} <ArrowRight className="h-4 w-4" /></span>
+              </div>
+            </a>
+          )}
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {content.links.map((link) => (
               <a key={link.href} href={link.href} className="group rounded-xl border border-[#2C5F7F]/15 bg-white p-5 no-underline transition hover:-translate-y-0.5 hover:border-[#2C5F7F] hover:shadow-md">

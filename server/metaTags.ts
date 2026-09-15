@@ -6416,7 +6416,10 @@ function generateServiceAreaBodyHTML(locationSlug: string): string {
   const priorityCommercialHtml = (() => {
     const priorityContent = priorityTownCommercialContent[locationSlug];
     if (!priorityContent) return "";
-    return `<section aria-label="Commercial project context"><h2>${escHtml(priorityContent.title)}</h2>${priorityContent.paragraphs.map((paragraph) => `<p>${escHtml(paragraph)}</p>`).join("")}<ul>${priorityContent.links.map((link) => `<li><a href="${SITE_URL}${link.href}">${escHtml(link.title)}</a> — ${escHtml(link.description)}</li>`).join("")}</ul></section>`;
+    const featuredCaseStudyHtml = priorityContent.featuredCaseStudy
+      ? `<aside aria-label="${escHtml(priorityContent.featuredCaseStudy.eyebrow)}"><img src="${escHtml(priorityContent.featuredCaseStudy.imageSrc)}" alt="${escHtml(priorityContent.featuredCaseStudy.imageAlt)}" /><h3>${escHtml(priorityContent.featuredCaseStudy.title)}</h3><p>${escHtml(priorityContent.featuredCaseStudy.description)}</p><p><a href="${SITE_URL}${priorityContent.featuredCaseStudy.href}">${escHtml(priorityContent.featuredCaseStudy.ctaLabel)}</a></p></aside>`
+      : "";
+    return `<section aria-label="Commercial project context"><h2>${escHtml(priorityContent.title)}</h2>${priorityContent.paragraphs.map((paragraph) => `<p>${escHtml(paragraph)}</p>`).join("")}${featuredCaseStudyHtml}<ul>${priorityContent.links.map((link) => `<li><a href="${SITE_URL}${link.href}">${escHtml(link.title)}</a> — ${escHtml(link.description)}</li>`).join("")}</ul></section>`;
   })();
 
   return `

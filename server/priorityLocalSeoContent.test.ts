@@ -69,6 +69,25 @@ describe("priority local commercial context", () => {
     expect(bromsgrove.links.map((link) => link.href)).toContain("/external-staircases");
   });
 
+  it("adds the ISS Property Wigan project record as a prominent local case-study discovery route", async () => {
+    const wigan = priorityTownCommercialContent.wigan;
+    const html = await injectMetaTags(baseHtml, "/service-areas/wigan");
+    const projectRoot = resolve(import.meta.dirname, "..");
+    const component = readFileSync(resolve(projectRoot, "client/src/components/PriorityLocalCommercialContext.tsx"), "utf8");
+
+    expect(wigan.title).toContain("structural-steel preparation and coating project in Wigan");
+    expect(wigan.paragraphs.join(" ")).toContain("former Bakkavor Foods facility in Wigan");
+    expect(wigan.paragraphs.join(" ")).toContain("Sa 2.5 surface finish");
+    expect(wigan.featuredCaseStudy?.href).toBe("/case-studies/iss-property-former-bakkavor-foods-facility-wigan");
+    expect(wigan.featuredCaseStudy?.imageSrc).toContain("iss-property-former-bakkavor-wigan-after-2026-09-15_21aa25d4.png");
+    expect(wigan.featuredCaseStudy?.description).toContain("completed in 10 days");
+    expect(component).toContain("featuredCaseStudy");
+    expect(wigan.featuredCaseStudy?.eyebrow).toBe("Featured Wigan case study");
+    expect(html).toContain("ISS Property — Former Bakkavor Foods Facility");
+    expect(html).toContain("/case-studies/iss-property-former-bakkavor-foods-facility-wigan");
+    expect(html).toContain("completed in 10 days");
+  });
+
   it("holds source-backed commercial context and relevant specialist links for Derbyshire and Cornwall", () => {
     expect(priorityCountyCommercialContent.derbyshire.paragraphs.join(" ")).toContain("manufacturing as a key local sector");
     expect(priorityCountyCommercialContent.cornwall.paragraphs.join(" ")).toContain("Penzance Harbour");

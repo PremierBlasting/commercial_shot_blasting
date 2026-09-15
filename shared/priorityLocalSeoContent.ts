@@ -8,6 +8,15 @@ export type PriorityCommercialContent = {
   eyebrow: string;
   title: string;
   paragraphs: string[];
+  featuredCaseStudy?: {
+    eyebrow: string;
+    title: string;
+    href: string;
+    imageSrc: string;
+    imageAlt: string;
+    description: string;
+    ctaLabel: string;
+  };
   links: PriorityCommercialLink[];
 };
 
@@ -205,6 +214,28 @@ export const priorityTownCommercialContent: Record<string, PriorityCommercialCon
       { title: "Bromsgrove School Staircase Case Study", href: "/case-studies/bromsgrove-school-staircase", description: "View the definitive before image, recorded before footage, and completed black finish." },
       { title: "External Staircases", href: "/external-staircases", description: "Explore planning support for external staircases, fire escapes, and access steelwork." },
       { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For site-specific access, containment, and working-area considerations." },
+    ],
+  },
+  wigan: {
+    eyebrow: "Local project evidence",
+    title: "A documented structural-steel preparation and coating project in Wigan",
+    paragraphs: [
+      "Our ISS Property case study records work at the former Bakkavor Foods facility in Wigan. The project record describes structural steel prepared to an Sa 2.5 surface finish before the specified intumescent fire-protection coating stage, with primer and topcoat applied immediately after blasting to protect freshly prepared steel.",
+      "That project record does not define the correct approach for another Wigan site. A Site Visit can establish the actual steelwork, existing condition, exposed areas, access, weather considerations, required surface standard, programme, and coating-handover requirements before a scope is agreed.",
+    ],
+    featuredCaseStudy: {
+      eyebrow: "Featured Wigan case study",
+      title: "ISS Property — Former Bakkavor Foods Facility",
+      href: "/case-studies/iss-property-former-bakkavor-foods-facility-wigan",
+      imageSrc: "/manus-storage/iss-property-former-bakkavor-wigan-after-2026-09-15_21aa25d4.png",
+      imageAlt: "ISS Property Former Bakkavor Foods Facility structural steelwork in Wigan after the preparation and coating sequence",
+      description: "See the supplied before-and-after project images and the recorded £40,000 structural-steel preparation and fire-protection coating sequence, completed in 10 days.",
+      ctaLabel: "View the Wigan case study",
+    },
+    links: [
+      { title: "Structural Steel Frames", href: "/services/structural-steel-frames", description: "For steel frames, columns, beams, and coating-readiness planning." },
+      { title: "Intumescent Paint for Steel", href: "/intumescent-paint-for-steel", description: "For coordinated preparation and fire-protective coating handover discussions." },
+      { title: "Mobile & On-Site Blasting", href: "/mobile-on-site-shot-blasting", description: "For access, containment, exposure, and programme-interface planning at a live site." },
     ],
   },
 };
