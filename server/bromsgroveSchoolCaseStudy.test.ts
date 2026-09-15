@@ -37,6 +37,7 @@ describe("Bromsgrove School spiral staircase case study", () => {
     expect(page).toContain("bromsgrove-school-before-video-still-01-2026-09-14_8c21d250.jpg");
     expect(page).not.toContain("bromsgrove-staircase-before-01_9ba57d63.jpg");
     expect(page).toContain("bromsgrove-staircase-after_ae521dcd.png");
+    expect(page).not.toContain('absolute left-5 top-5 rounded-full bg-[#f1c76e]');
     expect(page).toContain("Watch before footage");
     expect(page).toContain("BeforeAfterProjectSlider");
     expect(page).toContain('aspectRatio="portrait"');

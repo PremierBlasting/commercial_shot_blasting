@@ -305,7 +305,6 @@ export default function BromsgroveSchoolCaseStudy() {
             <button onClick={() => openImage(projectGallery[6], 6)} className="group relative overflow-hidden rounded-2xl border border-white/25 bg-slate-950 text-left shadow-2xl transition hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-[#f1c76e]/60" aria-label="Open the Bromsgrove School finished staircase image">
               <img src={assets.after} alt="Finished black Bromsgrove School spiral staircase" className="aspect-[3/4] w-full object-cover opacity-95 transition duration-500 group-hover:scale-105" />
               <span className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent" />
-              <span className="absolute left-5 top-5 rounded-full bg-[#f1c76e] px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-[#112f43]">Completed finish</span>
               <span className="absolute inset-x-5 bottom-5">
                 <span className="block text-xl font-bold text-white">Black staircase restoration</span>
                 <span className="mt-1 block text-sm text-white/75">Finished black coating and black anti-slip paint on the stair treads.</span>

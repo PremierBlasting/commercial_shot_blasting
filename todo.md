@@ -1934,3 +1934,7 @@
 - [x] Add route, internal discovery links, sitemap and crawler support that accurately identifies the page as provisional rather than a completed evidence-led case study
 - [x] Add a More staircase work filter chip to the Bromsgrove School case-study page with accessible navigation to the Staircases filter on Our Work
 - [x] Add regression coverage, validate desktop/mobile routes and publication readiness, then publish
+
+## Bromsgrove Completed-Finish Label Overlap Fix (15 September 2026)
+- [x] Correct the completed-finish label placement so it does not overlap the image content at desktop or mobile widths
+- [x] Validate the revised image card visually, then publish the focused layout fix
