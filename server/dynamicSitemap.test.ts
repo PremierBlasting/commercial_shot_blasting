@@ -39,9 +39,10 @@ describe("dynamic sitemap index and child sitemaps", () => {
 
   it("keeps core canonical pages in the main child sitemap", async () => {
     const xml = await buildMainSitemap();
-    for (const path of ["/", "/contact", "/site-survey", "/counties", "/service-areas", "/privacy-policy", "/blog", "/steel-fabrication-surface-preparation", "/steel-chimney-process-stack-surface-preparation", "/industrial-steelwork-restoration", "/factory-cladding-restoration", "/process-pipework-spools-surface-preparation"]) {
+    for (const path of ["/", "/contact", "/site-survey", "/counties", "/service-areas", "/privacy-policy", "/blog", "/case-studies/iss-property-former-bakkavor-foods-facility-wigan", "/steel-fabrication-surface-preparation", "/steel-chimney-process-stack-surface-preparation", "/industrial-steelwork-restoration", "/factory-cladding-restoration", "/process-pipework-spools-surface-preparation"]) {
       expect(xml).toContain(`https://commercialshotblasting.co.uk${path}`);
     }
+    expect(xml).not.toContain("https://commercialshotblasting.co.uk/case-studies/structural-steel");
   });
 
   it("lists only canonical live service URLs", async () => {

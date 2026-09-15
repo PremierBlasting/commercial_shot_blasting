@@ -197,12 +197,12 @@ export function CaseStudies() {
           <div className="flex-1 p-5 md:p-7 flex flex-col justify-center">
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-600 mb-1.5">Featured Project</span>
             <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-1.5" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Commercial Building Structural Steel Shot Blasting
+              ISS Property — Former Bakkavor Foods Facility, Wigan
             </h3>
             <p className="text-gray-600 text-sm mb-4 max-w-lg">
-              Complete coating removal from all structural steel columns across a large commercial building — achieved to Sa 2.5 near-white metal standard. Documented with 25 real on-site photographs.
+              A Wigan structural-steel preparation and fire-protection coating sequence: steelwork prepared to Sa 2.5 before the specified coating stage, with the project completed in 10 days.
             </p>
-            <Link href="/case-studies/structural-steel">
+            <Link href="/case-studies/iss-property-former-bakkavor-foods-facility-wigan">
               <button className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors w-fit">
                 View Full Case Study <ArrowRight className="w-4 h-4" />
               </button>

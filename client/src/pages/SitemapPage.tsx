@@ -81,6 +81,7 @@ const MAIN_PAGES = [
   { href: "/service-areas", label: "Service Areas" },
   { href: "/counties", label: "Counties" },
   { href: "/our-work", label: "Our Work" },
+  { href: "/case-studies/iss-property-former-bakkavor-foods-facility-wigan", label: "ISS Property — Former Bakkavor Foods Facility, Wigan Case Study" },
   { href: "/case-studies/hb-tunnelling-doncaster", label: "HB Tunnelling Doncaster Warehouse Case Study" },
   { href: "/case-studies/bromsgrove-school-staircase", label: "Bromsgrove School Spiral Staircase Restoration Case Study" },
   { href: "/steel-fabrication-surface-preparation", label: "Steel Fabrication & Structural Steel Planning" },

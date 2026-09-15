@@ -697,8 +697,8 @@ export default function OurWork() {
           <div className="rounded-2xl overflow-hidden border border-amber-300/60 bg-gradient-to-r from-amber-50 to-white flex flex-col md:flex-row items-stretch shadow-sm">
             <div className="relative md:w-72 h-48 md:h-auto flex-shrink-0 overflow-hidden">
               <img
-                src="https://commercialshotblasting.co.uk/manus-storage/IMG_3365_53136e5c.webp"
-                alt="Structural steel shot blasting case study"
+                src="/manus-storage/iss-property-former-bakkavor-wigan-after-2026-09-15_21aa25d4.png"
+                alt="ISS Property Former Bakkavor Foods Facility structural steelwork in Wigan"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -707,12 +707,12 @@ export default function OurWork() {
             <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
               <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">Featured Case Study</span>
               <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Commercial Building Structural Steel Shot Blasting
+                ISS Property — Former Bakkavor Foods Facility, Wigan
               </h3>
               <p className="text-gray-600 text-sm mb-4 max-w-xl">
-                Full documentation of a large commercial refurbishment project — complete coating removal from all structural steel columns, achieved to Sa 2.5 near-white metal standard. 25 real on-site photographs.
+                Explore the supplied before-and-after project images and the recorded one-stop preparation and fire-protection coating sequence for this former food-facility refurbishment.
               </p>
-              <Link href="/case-studies/structural-steel">
+              <Link href="/case-studies/iss-property-former-bakkavor-foods-facility-wigan">
                 <button className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors w-fit">
                   View Full Case Study <span aria-hidden="true">&rarr;</span>
                 </button>

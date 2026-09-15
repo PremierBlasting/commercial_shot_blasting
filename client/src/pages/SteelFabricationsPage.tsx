@@ -589,7 +589,7 @@ export default function SteelFabricationsPage() {
                     { title: "Intumescent Painting", href: "/services/intumescent-painting", tagline: "Fire protection coatings applied after Sa 2.5 blasting" },
                     { title: "Rust Removal", href: "/services/rust-removal", tagline: "Complete rust removal to bare metal standard" },
                     { title: "Mill Scale Removal", href: "/services/mill-scale-removal", tagline: "Mill scale removal for optimal coating adhesion" },
-                    { title: "Case Study: Commercial Building", href: "/case-studies/structural-steel", tagline: "25 real photos from a large structural steel project" },
+                    { title: "Case Study: ISS Property Wigan", href: "/case-studies/iss-property-former-bakkavor-foods-facility-wigan", tagline: "Structural steel preparation and fire-protection coating sequencing" },
                   ].map((s) => (
                     <Link key={s.href} href={s.href} className="group flex gap-3 bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow border border-gray-100 p-3">
                       <div className="flex flex-col justify-center min-w-0">

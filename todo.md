@@ -1943,3 +1943,10 @@
 - [x] Remove the duplicate marine diesel engine project card from the homepage while retaining one accurate project example
 - [x] Add accessible full-screen lightbox viewing to the Bromsgrove staircase images, including clear image controls and keyboard close behaviour
 - [x] Extend regression coverage, validate desktop/mobile interactions, and publish without changing lead or conversion behaviour
+
+## ISS Property Former Bakkavor Foods Facility Wigan Case Study (15 September 2026)
+- [x] Convert the existing structural-steel case-study page into an evidence-led ISS Property — Former Bakkavor Foods Facility, Wigan case study using only the supplied capability-statement details
+- [x] Prepare the two supplied project images as durable website assets and lead the case study with clear before-and-after presentation and accessible image viewing
+- [x] Add the shared site header/navigation and footer to the Wigan case-study page
+- [x] Move the canonical page to a permanent Wigan case-study route, preserve the former structural-steel URL with a permanent redirect, and update internal discovery, sitemap, metadata and schema
+- [x] Add regression coverage, validate redirects, crawler content and desktop/mobile presentation, then publish without affecting lead or conversion behaviour

@@ -248,7 +248,8 @@ function Router() {
         <Route path={"/admin"} component={Admin} />
         <Route path={"/call-analytics"} component={CallAnalytics} />
         <Route path={"/reviews"} component={Reviews} />
-        <Route path={"/case-studies/structural-steel"} component={StructuralSteelCaseStudy} />
+        <Route path={"/case-studies/iss-property-former-bakkavor-foods-facility-wigan"} component={StructuralSteelCaseStudy} />
+        <Route path={"/case-studies/structural-steel"}>{() => { window.location.replace("/case-studies/iss-property-former-bakkavor-foods-facility-wigan"); return null; }}</Route>
         <Route path={"/case-studies/hb-tunnelling-doncaster"} component={HBTunnellingCaseStudy} />
         <Route path={"/case-studies/bromsgrove-school-staircase"} component={BromsgroveSchoolCaseStudy} />
         <Route path={"/case-studies/fire-escape-multi-storey-office"} component={FireEscapeProvisionalCaseStudy} />

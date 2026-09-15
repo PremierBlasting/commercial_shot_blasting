@@ -88,6 +88,12 @@ async function startServer() {
     res.redirect(301, "/site-survey");
   });
 
+  // 301 redirect: legacy structural-steel case study → the named ISS Property Wigan record.
+  // This retains discovery value for existing internal links and external references.
+  app.get("/case-studies/structural-steel", (_req, res) => {
+    res.redirect(301, "/case-studies/iss-property-former-bakkavor-foods-facility-wigan");
+  });
+
   // Canonical service routing: redirects historic aliases and returns a genuine
   // 404 for unknown service paths instead of a 200-status SPA error screen.
   app.get("/services/:slug", (req, res, next) => {
