@@ -25,11 +25,41 @@ const images = {
   after: "/manus-storage/iss-property-former-bakkavor-wigan-after-2026-09-15_21aa25d4.png",
 };
 
+const legacyProjectMedia = {
+  hero: "/manus-storage/IMG_3365_56728af1.webp",
+  overview1: "/manus-storage/IMG_3363_b23b32da.webp",
+  overview2: "/manus-storage/IMG_3291_59833f26.webp",
+  challenge1: "/manus-storage/IMG_3339_a869318b.webp",
+  challenge2: "/manus-storage/IMG_3355_362d1f7f.webp",
+  challenge3: "/manus-storage/IMG_3349_cb9e8c4d.webp",
+  process1: "/manus-storage/IMG_3292_7bee69d3.webp",
+  process2: "/manus-storage/IMG_3293_6ba36e99.webp",
+  process3: "/manus-storage/IMG_3334_2858c684.webp",
+  detail1: "/manus-storage/IMG_3354_caa39ac3.webp",
+  detail2: "/manus-storage/IMG_3350_31ece4f3.webp",
+  detail3: "/manus-storage/IMG_3335_66ca0def.webp",
+  detail4: "/manus-storage/IMG_3340_d53be3b8.webp",
+  detail5: "/manus-storage/IMG_3341_2a6bee76.webp",
+  detail6: "/manus-storage/IMG_3342_aa872ff8.webp",
+  detail7: "/manus-storage/IMG_3343_ac1c8682.webp",
+  detail8: "/manus-storage/IMG_3346_8ac6e144.webp",
+  detail9: "/manus-storage/IMG_3351_e881450f.webp",
+  detail10: "/manus-storage/IMG_3353_30cb94a2.webp",
+  detail11: "/manus-storage/IMG_3356_0e439bba.webp",
+  detail12: "/manus-storage/IMG_3357_75c3a571.webp",
+  wide1: "/manus-storage/IMG_3358_fa5ea2cf.webp",
+  wide2: "/manus-storage/IMG_3359_d748791d.webp",
+  wide3: "/manus-storage/IMG_3360_63bedb19.webp",
+  wide4: "/manus-storage/IMG_3366_af09464b.webp",
+  previewVideo: "/manus-storage/hero_video_15s_4219ca94.mp4",
+  fullVideo: "/manus-storage/hero_video_30s_83819d35.mp4",
+};
+
 type GalleryImage = {
   src: string;
   alt: string;
   caption: string;
-  stage: "Before" | "After";
+  stage: "Before" | "After" | "Supporting project image";
 };
 
 const projectGallery: GalleryImage[] = [
@@ -46,6 +76,56 @@ const projectGallery: GalleryImage[] = [
     stage: "After",
   },
 ];
+
+const legacyGalleryGroups: Array<{ label: string; items: GalleryImage[] }> = [
+  {
+    label: "Site overview",
+    items: [
+      { src: legacyProjectMedia.hero, alt: "Structural steel within the former facility", caption: "Previously published project image: structural steel within the former facility.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.overview1, alt: "Open-plan building space with structural steel columns", caption: "Previously published project image: open-plan building space and structural steel columns.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.wide1, alt: "Multiple bays of structural steelwork", caption: "Previously published project image: multiple bays of structural steelwork across the building footprint.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.wide2, alt: "Commercial unit showing the structural steel column grid", caption: "Previously published project image: column grid and the extent of the structural steelwork.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.wide3, alt: "Site view during works with barriers in position", caption: "Previously published project image: site view during works with safety barriers and equipment in position.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.wide4, alt: "Commercial space showing the depth of the building", caption: "Previously published project image: a second view showing the depth of the commercial space.", stage: "Supporting project image" },
+    ],
+  },
+  {
+    label: "Existing coatings and steel condition",
+    items: [
+      { src: legacyProjectMedia.challenge1, alt: "Structural steel column with existing coating and rust patches", caption: "Previously published project image: existing coating and rust patches on a structural steel column.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.challenge2, alt: "Structural steel column showing existing industrial coating", caption: "Previously published project image: existing industrial coating on structural steelwork.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.challenge3, alt: "Structural steel column with rust and peeling paint", caption: "Previously published project image: rust and peeling paint on a structural steel column.", stage: "Supporting project image" },
+    ],
+  },
+  {
+    label: "Active preparation works",
+    items: [
+      { src: legacyProjectMedia.process1, alt: "Operators working on structural steel columns", caption: "Previously published project image: operators working on adjacent structural steel columns.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.process2, alt: "Team wearing blast PPE during structural steel preparation", caption: "Previously published project image: team members in blast PPE during preparation work.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.process3, alt: "Operator preparing a structural steel column", caption: "Previously published project image: operator preparing a column within the building interior.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.overview2, alt: "Active site work with barriers in place", caption: "Previously published project image: active work area with safety cones and barriers in place.", stage: "Supporting project image" },
+    ],
+  },
+  {
+    label: "Surface preparation progress",
+    items: [
+      { src: legacyProjectMedia.detail1, alt: "Structural steel column showing preparation progress", caption: "Previously published project image: preparation progress on a structural steel column.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.detail2, alt: "Structural steel showing remaining coating and a prepared surface", caption: "Previously published project image: contrast between the existing coating and freshly prepared steelwork.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.detail3, alt: "Prepared structural steel column base", caption: "Previously published project image: prepared structural steel column base.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.detail4, alt: "Structural steel column at an intermediate preparation stage", caption: "Previously published project image: consistent preparation progress on structural steelwork.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.detail5, alt: "Structural steel during surface preparation", caption: "Previously published project image: structural steel during surface preparation.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.detail6, alt: "Close-up of a prepared structural steel surface", caption: "Previously published project image: close-up of the prepared structural steel surface.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.detail7, alt: "Prepared structural steel column base", caption: "Previously published project image: column base after surface preparation.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.detail8, alt: "Multiple structural steel columns under preparation", caption: "Previously published project image: multiple columns showing a consistent prepared condition.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.detail9, alt: "Prepared structural steel surface profile", caption: "Previously published project image: prepared structural steel surface profile.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.detail10, alt: "Prepared structural steel column", caption: "Previously published project image: prepared structural steel column.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.detail11, alt: "Structural steel column grid under preparation", caption: "Previously published project image: structural steel column grid under preparation.", stage: "Supporting project image" },
+      { src: legacyProjectMedia.detail12, alt: "Wide view of surface preparation progress", caption: "Previously published project image: wide view of surface preparation progress.", stage: "Supporting project image" },
+    ],
+  },
+];
+
+const allGalleryImages = [...projectGallery, ...legacyGalleryGroups.flatMap((group) => group.items)];
 
 const deliveryStages = [
   {
@@ -102,7 +182,7 @@ function ProjectImageLightbox({ image, index, onClose, onMove }: {
           <button type="button" onClick={() => onMove(-1)} className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/25 px-4 py-2 text-sm font-bold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white" aria-label="Previous project image">
             <ChevronLeft className="h-4 w-4" /> Previous
           </button>
-          <span className="text-sm text-white/70" aria-live="polite">{index + 1} of {projectGallery.length}</span>
+          <span className="text-sm text-white/70" aria-live="polite">{index + 1} of {allGalleryImages.length}</span>
           <button type="button" onClick={() => onMove(1)} className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/25 px-4 py-2 text-sm font-bold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white" aria-label="Next project image">
             Next <ChevronRight className="h-4 w-4" />
           </button>
@@ -127,15 +207,15 @@ export default function StructuralSteelCaseStudy() {
     if (activeIndex === null) return;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setActiveIndex(null);
-      if (event.key === "ArrowLeft") setActiveIndex((current) => current === null ? null : (current + projectGallery.length - 1) % projectGallery.length);
-      if (event.key === "ArrowRight") setActiveIndex((current) => current === null ? null : (current + 1) % projectGallery.length);
+      if (event.key === "ArrowLeft") setActiveIndex((current) => current === null ? null : (current + allGalleryImages.length - 1) % allGalleryImages.length);
+      if (event.key === "ArrowRight") setActiveIndex((current) => current === null ? null : (current + 1) % allGalleryImages.length);
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [activeIndex]);
 
   const moveImage = (direction: number) => {
-    setActiveIndex((current) => current === null ? null : (current + direction + projectGallery.length) % projectGallery.length);
+    setActiveIndex((current) => current === null ? null : (current + direction + allGalleryImages.length) % allGalleryImages.length);
   };
 
   return (
@@ -230,6 +310,64 @@ export default function StructuralSteelCaseStudy() {
           </div>
         </section>
 
+        <section className="border-y border-slate-200 bg-[#eef5f7] py-16 lg:py-24">
+          <div className="mx-auto max-w-7xl px-5 sm:px-7 lg:px-10">
+            <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Project films</p>
+                <h2 className="mt-3 text-3xl font-bold text-[#183c52] sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>Previously published footage from the structural-steel work.</h2>
+                <p className="mt-5 leading-relaxed text-slate-600">The original project videos have been retained as supporting media beneath the supplied Wigan before-and-after lead images. Use the player controls to watch either version without autoplay.</p>
+                <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-[#183c52] shadow-sm"><ShieldCheck className="h-4 w-4 text-[#2c5f7f]" /> Native playback controls available</div>
+              </div>
+              <div className="grid gap-5 md:grid-cols-2">
+                <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                  <video controls playsInline preload="metadata" poster={legacyProjectMedia.hero} className="aspect-video w-full bg-slate-950">
+                    <source src={legacyProjectMedia.previewVideo} type="video/mp4" />
+                    Your browser does not support HTML video.
+                  </video>
+                  <div className="p-4"><p className="font-bold text-[#183c52]">Project film preview</p><p className="mt-1 text-sm text-slate-600">Previously published short project video.</p></div>
+                </article>
+                <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+                  <video controls playsInline preload="metadata" poster={legacyProjectMedia.hero} className="aspect-video w-full bg-slate-950">
+                    <source src={legacyProjectMedia.fullVideo} type="video/mp4" />
+                    Your browser does not support HTML video.
+                  </video>
+                  <div className="p-4"><p className="font-bold text-[#183c52]">Extended project film</p><p className="mt-1 text-sm text-slate-600">Previously published longer project video.</p></div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-5 py-16 sm:px-7 lg:px-10 lg:py-24">
+          <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <div className="max-w-3xl">
+              <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Supporting project gallery</p>
+              <h2 className="mt-3 text-3xl font-bold text-[#183c52] sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>The complete previously published project image collection.</h2>
+              <p className="mt-4 leading-relaxed text-slate-600">All supporting images from the former structural-steel case-study page are retained here. Select an image to view it full-screen and browse the full collection with the keyboard or on-screen controls.</p>
+            </div>
+            <span className="rounded-full border border-[#2c5f7f]/20 bg-[#eef5f7] px-4 py-2 text-sm font-bold text-[#183c52]">{legacyGalleryGroups.reduce((total, group) => total + group.items.length, 0)} supporting images</span>
+          </div>
+          <div className="mt-12 space-y-12">
+            {legacyGalleryGroups.map((group, groupIndex) => {
+              const groupStart = projectGallery.length + legacyGalleryGroups.slice(0, groupIndex).reduce((total, previousGroup) => total + previousGroup.items.length, 0);
+              return (
+                <section key={group.label} aria-labelledby={`gallery-group-${groupIndex}`}>
+                  <h3 id={`gallery-group-${groupIndex}`} className="flex items-center gap-3 text-xl font-bold text-[#183c52]"><span className="h-7 w-1 rounded-full bg-[#f1c76e]" />{group.label}</h3>
+                  <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
+                    {group.items.map((image, imageIndex) => (
+                      <button key={image.src} type="button" onClick={() => setActiveIndex(groupStart + imageIndex)} className="group relative overflow-hidden rounded-xl bg-slate-200 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#2c5f7f] focus:ring-offset-2" aria-label={`Open full-screen image: ${image.alt}`}>
+                        <img src={image.src} alt={image.alt} className="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
+                        <span className="absolute bottom-2 right-2 inline-flex items-center gap-1 rounded bg-slate-950/75 px-2 py-1 text-[11px] font-bold text-white"><Maximize2 className="h-3.5 w-3.5" /> View</span>
+                      </button>
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        </section>
+
         <section className="mx-auto max-w-7xl px-5 py-16 sm:px-7 lg:px-10 lg:py-24">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Delivery approach</p>
@@ -283,7 +421,7 @@ export default function StructuralSteelCaseStudy() {
       </main>
       <Footer />
       <QuotePopup open={quotePopupOpen} onOpenChange={setQuotePopupOpen} />
-      {activeIndex !== null && <ProjectImageLightbox image={projectGallery[activeIndex]} index={activeIndex} onClose={() => setActiveIndex(null)} onMove={moveImage} />}
+      {activeIndex !== null && <ProjectImageLightbox image={allGalleryImages[activeIndex]} index={activeIndex} onClose={() => setActiveIndex(null)} onMove={moveImage} />}
     </div>
   );
 }

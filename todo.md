@@ -1950,3 +1950,8 @@
 - [x] Add the shared site header/navigation and footer to the Wigan case-study page
 - [x] Move the canonical page to a permanent Wigan case-study route, preserve the former structural-steel URL with a permanent redirect, and update internal discovery, sitemap, metadata and schema
 - [x] Add regression coverage, validate redirects, crawler content and desktop/mobile presentation, then publish without affecting lead or conversion behaviour
+
+## ISS Property Wigan Supporting Media Restoration (15 September 2026)
+- [x] Restore the former structural-steel project gallery and both previously published project-video experiences beneath the new supplied Wigan before-and-after lead section
+- [x] Keep the new Wigan page title, canonical URL, header/navigation, before-and-after lead images, and verified case-study facts unchanged
+- [x] Extend regression coverage, validate desktop/mobile media viewing, and publish the correction without changing lead or conversion behaviour
