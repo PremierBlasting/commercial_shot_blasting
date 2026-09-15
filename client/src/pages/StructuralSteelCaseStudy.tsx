@@ -268,7 +268,7 @@ export default function StructuralSteelCaseStudy() {
               { label: "Contract value", value: "£40,000" },
               { label: "Recorded duration", value: "150 hours" },
             ].map((item) => (
-              <div key={item.label} className="border-r border-slate-200 py-5 pr-4 last:border-r-0 sm:py-6 sm:pr-6">
+              <div key={item.label} className="flex min-h-32 flex-col items-center justify-center border-r border-slate-200 px-4 py-5 text-center last:border-r-0 sm:px-6 sm:py-6">
                 <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">{item.label}</p>
                 <p className="mt-1 text-sm font-bold text-[#183c52] sm:text-base">{item.value}</p>
               </div>

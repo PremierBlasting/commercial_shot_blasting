@@ -1960,3 +1960,7 @@
 - [x] Add a prominent evidence-led ISS Property — Former Bakkavor Foods Facility, Wigan case-study callout to the Wigan local service-area page
 - [x] Mirror the case-study discovery and verified project context in crawler-visible Wigan local-page content
 - [x] Extend regression coverage, validate desktop/mobile display and crawler output, then publish without changing lead or conversion behaviour
+
+## Wigan Case-Study Project-Stat Alignment (15 September 2026)
+- [x] Centre the project-stat labels and values within all four Wigan case-study fact panels while retaining their dividers and responsive grid
+- [x] Validate desktop and mobile presentation, then publish without changing content, lead, or conversion behaviour
