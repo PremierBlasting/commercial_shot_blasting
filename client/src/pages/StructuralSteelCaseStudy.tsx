@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import {
   ArrowRight,
+  Banknote,
+  Building2,
   Check,
   ChevronLeft,
   ChevronRight,
   ClipboardCheck,
+  MapPin,
   Maximize2,
   ShieldCheck,
   Timer,
@@ -150,6 +153,21 @@ const deliveryStages = [
   },
 ];
 
+const projectFacts = [
+  { label: "Project", value: "Former Bakkavor Foods Facility", icon: Building2 },
+  { label: "Location", value: "Wigan", icon: MapPin },
+  { label: "Contract value", value: "£40,000", icon: Banknote },
+  { label: "Recorded duration", value: "150 hours", icon: Timer },
+];
+
+const compactTimeline = [
+  { number: "01", title: "Site survey & measure", detail: "Steel sections measured to plan the work." },
+  { number: "02", title: "Prepare to Sa 2.5", detail: "Structural steel prepared for the specified coating stage." },
+  { number: "03", title: "Protect immediately", detail: "Certified primer and topcoat applied after blasting." },
+  { number: "04", title: "Work the weather window", detail: "Extended hours and weekends for exposed steelwork." },
+  { number: "05", title: "Complete the programme", detail: "10 days total, five days ahead of programme." },
+];
+
 function ProjectImageLightbox({ image, index, onClose, onMove }: {
   image: GalleryImage;
   index: number;
@@ -242,8 +260,8 @@ export default function StructuralSteelCaseStudy() {
                   <button type="button" onClick={() => setQuotePopupOpen(true)} className="inline-flex items-center gap-2 rounded-lg bg-[#f1c76e] px-5 py-3 font-bold text-[#112f43] transition hover:bg-[#f7d98f] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#112f43]">
                     Request A Site Visit <ArrowRight className="h-4 w-4" />
                   </button>
-                  <Link href="#project-images" className="inline-flex items-center gap-2 rounded-lg border border-white/35 px-5 py-3 font-bold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white">
-                    View project images <ArrowRight className="h-4 w-4" />
+                  <Link href="#before-after-comparison" className="inline-flex items-center gap-2 rounded-lg border border-white/35 px-5 py-3 font-bold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white">
+                    Compare before &amp; after <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               </div>
@@ -262,17 +280,34 @@ export default function StructuralSteelCaseStudy() {
 
         <section className="border-b border-slate-200 bg-white">
           <div className="mx-auto grid max-w-7xl grid-cols-2 gap-0 px-5 sm:px-7 lg:grid-cols-4 lg:px-10">
-            {[
-              { label: "Project", value: "Former Bakkavor Foods Facility" },
-              { label: "Location", value: "Wigan" },
-              { label: "Contract value", value: "£40,000" },
-              { label: "Recorded duration", value: "150 hours" },
-            ].map((item) => (
+            {projectFacts.map((item) => (
               <div key={item.label} className="flex min-h-32 flex-col items-center justify-center border-r border-slate-200 px-4 py-5 text-center last:border-r-0 sm:px-6 sm:py-6">
+                <span className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#eef5f7] text-[#2c5f7f]" aria-hidden="true"><item.icon className="h-4 w-4" /></span>
                 <p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-500">{item.label}</p>
                 <p className="mt-1 text-sm font-bold text-[#183c52] sm:text-base">{item.value}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="border-b border-slate-200 bg-[#eef5f7] py-7 sm:py-9" aria-labelledby="delivery-timeline-heading">
+          <div className="mx-auto max-w-7xl px-5 sm:px-7 lg:px-10">
+            <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Delivery timeline</p>
+                <h2 id="delivery-timeline-heading" className="mt-1 text-xl font-bold text-[#183c52] sm:text-2xl" style={{ fontFamily: "'Playfair Display', serif" }}>The approved Wigan project stages, kept in sequence.</h2>
+              </div>
+              <p className="text-sm font-semibold text-slate-600">10 days total · five days ahead of programme</p>
+            </div>
+            <ol className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5" aria-label="Wigan project delivery timeline">
+              {compactTimeline.map((stage) => (
+                <li key={stage.number} className="relative rounded-xl border border-white bg-white/85 p-4 shadow-sm">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#183c52] text-xs font-bold text-white">{stage.number}</span>
+                  <h3 className="mt-3 text-sm font-bold text-[#183c52]">{stage.title}</h3>
+                  <p className="mt-1 text-xs leading-relaxed text-slate-600">{stage.detail}</p>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
@@ -305,7 +340,9 @@ export default function StructuralSteelCaseStudy() {
                   ))}
                 </div>
               </div>
-              <BeforeAfterProjectSlider beforeImage={images.before} afterImage={images.after} title="ISS Property — Former Bakkavor Foods Facility, Wigan" caption="Drag the divider to compare the supplied before image with the supplied after image from the Wigan project." />
+              <div id="before-after-comparison" className="scroll-mt-24">
+                <BeforeAfterProjectSlider beforeImage={images.before} afterImage={images.after} title="ISS Property — Former Bakkavor Foods Facility, Wigan" caption="Drag the divider to compare the supplied before image with the supplied after image from the Wigan project." />
+              </div>
             </div>
           </div>
         </section>

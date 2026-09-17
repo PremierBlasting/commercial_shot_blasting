@@ -580,9 +580,10 @@ export default function Home() {
                   muted
                   playsInline
                   preload="none"
+                  aria-label="Steel-sheet surface preparation video"
                   poster="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/iWbuUjSLLiAZNRee.webp"
                 >
-                  <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663300283832/CICKcOChLeIGkWWG.mp4" type="video/mp4" />
+                  <source src="/manus-storage/homepage-steel-sheets-middle-04-to-15_5434cd44.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
                 

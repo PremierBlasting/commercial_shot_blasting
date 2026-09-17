@@ -54,6 +54,17 @@ describe("ISS Property Former Bakkavor Foods Facility Wigan case study", () => {
     expect(page).toContain("Native playback controls available");
     expect(page).toContain("flex min-h-32 flex-col items-center justify-center");
     expect(page).toContain("text-center last:border-r-0");
+    expect(page).toContain('href="#before-after-comparison"');
+    expect(page).toContain('id="before-after-comparison"');
+    expect(page).toContain("Compare before &amp; after");
+    expect(page).toContain("Delivery timeline");
+    expect(page).toContain("The approved Wigan project stages, kept in sequence.");
+    expect(page).toContain("Site survey & measure");
+    expect(page).toContain("Prepare to Sa 2.5");
+    expect(page).toContain("Complete the programme");
+    expect(page).toContain("Building2");
+    expect(page).toContain("MapPin");
+    expect(page).toContain("Banknote");
     expect(app).toContain(`path={"${canonicalPath}"}`);
     expect(app).toContain('window.location.replace("/case-studies/iss-property-former-bakkavor-foods-facility-wigan")');
     expect(server).toContain('app.get("/case-studies/structural-steel"');
