@@ -1966,8 +1966,8 @@
 - [x] Validate desktop and mobile presentation, then publish without changing content, lead, or conversion behaviour
 
 ## Homepage Video and Wigan Case-Study Enhancements (17 September 2026)
-- [ ] Identify the approved middle sequence in the homepage steel-sheets video and replace the loop with a trimmed asset that omits the ladder footage
-- [ ] Add an accessible compact timeline directly beneath the Wigan project-stat panels, limited to the verified delivery stages
-- [ ] Add small decorative icons to the four Wigan project-stat panels without changing the verified facts
-- [ ] Add a hero anchor that jumps directly to the Wigan before-and-after comparison section
-- [ ] Extend regression coverage, validate desktop/mobile presentation and media playback, then checkpoint and publish without changing lead, campaign, conversion, or operational behaviour
+- [x] Identify the approved middle sequence in the homepage steel-sheets video and replace the loop with a trimmed asset that omits the ladder footage
+- [x] Add an accessible compact timeline directly beneath the Wigan project-stat panels, limited to the verified delivery stages
+- [x] Add small decorative icons to the four Wigan project-stat panels without changing the verified facts
+- [x] Add a hero anchor that jumps directly to the Wigan before-and-after comparison section
+- [x] Extend regression coverage, validate desktop/mobile presentation and media playback, then checkpoint and publish without changing lead, campaign, conversion, or operational behaviour
