@@ -1,5 +1,9 @@
 import { useEffect, useRef } from "react";
-import { trackFormSubmission, trackQuoteFormSubmission } from "@/lib/analytics";
+import {
+  trackCommercialShotBlastingGoogleAdsLead,
+  trackFormSubmission,
+  trackQuoteFormSubmission,
+} from "@/lib/analytics";
 import { getUTMData, getFirstTouchUTM } from "@/lib/utm";
 import {
   COMMERCIAL_SHOT_BLASTING_FORM_ID,
@@ -67,6 +71,7 @@ export function HubSpotForm({ className = "", locationName }: HubSpotFormProps) 
           // Track form submission with UTM data (already included via analytics.ts)
           trackFormSubmission('HubSpot Contact Form', window.location.pathname);
           trackQuoteFormSubmission();
+          trackCommercialShotBlastingGoogleAdsLead();
           
           // Log UTM attribution to console for debugging
           if (lastTouch || firstTouch) {

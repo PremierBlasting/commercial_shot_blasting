@@ -114,6 +114,19 @@ export function trackQuoteFormSubmission() {
 }
 
 /**
+ * Record a completed Commercial Shot Blasting HubSpot form as the dedicated
+ * Google Ads lead action. This must only be called after HubSpot confirms a
+ * successful submission; it is intentionally separate from engagement events.
+ */
+export function trackCommercialShotBlastingGoogleAdsLead() {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'conversion', {
+      send_to: 'AW-16481669131/nOlECJeFnNccEIugibM9',
+    });
+  }
+}
+
+/**
  * Track CTA button clicks
  */
 export function trackCTAClick(buttonName: string, destination?: string) {
