@@ -25,7 +25,7 @@ const HERO_VIDEO = "/manus-storage/DJI_hero_web_a4e24131.mp4";
 const VIDEO_ALL3 = "/manus-storage/all3_3c7034df.mp4";
 
 // ── JSON-LD rich schema graph ─────────────────────────────────────────────────
-const JSONLD_GRAPH = {
+export const INTUMESCENT_JSONLD_GRAPH = {
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -138,6 +138,7 @@ const JSONLD_GRAPH = {
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://commercialshotblasting.co.uk/services/intumescent-painting#breadcrumb",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://commercialshotblasting.co.uk/" },
         { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://commercialshotblasting.co.uk/services" },
@@ -230,7 +231,7 @@ export default function IntumescentPaintingPage() {
     <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(JSONLD_GRAPH) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(INTUMESCENT_JSONLD_GRAPH) }}
       />
       <Header />
 

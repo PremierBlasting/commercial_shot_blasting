@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { Link } from "wouter";
 import {
   ArrowRight,
@@ -236,6 +236,17 @@ export default function StructuralSteelCaseStudy() {
     setActiveIndex((current) => current === null ? null : (current + direction + allGalleryImages.length) % allGalleryImages.length);
   };
 
+  const scrollToComparison = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const target = document.getElementById("before-after-comparison");
+    if (!target) return;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.focus({ preventScroll: true });
+    target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+    window.history.replaceState(null, "", "#before-after-comparison");
+  };
+
   return (
     <div className="min-h-screen bg-[#f8f7f4] text-slate-900" style={{ fontFamily: "'Open Sans', sans-serif" }}>
       <Header onOpenQuotePopup={() => setQuotePopupOpen(true)} />
@@ -260,7 +271,7 @@ export default function StructuralSteelCaseStudy() {
                   <button type="button" onClick={() => setQuotePopupOpen(true)} className="inline-flex items-center gap-2 rounded-lg bg-[#f1c76e] px-5 py-3 font-bold text-[#112f43] transition hover:bg-[#f7d98f] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#112f43]">
                     Request A Site Visit <ArrowRight className="h-4 w-4" />
                   </button>
-                  <Link href="#before-after-comparison" className="inline-flex items-center gap-2 rounded-lg border border-white/35 px-5 py-3 font-bold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white">
+                  <Link href="#before-after-comparison" onClick={scrollToComparison} className="inline-flex items-center gap-2 rounded-lg border border-white/35 px-5 py-3 font-bold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white">
                     Compare before &amp; after <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -324,12 +335,12 @@ export default function StructuralSteelCaseStudy() {
           </div>
         </section>
 
-        <section id="project-images" className="border-y border-slate-200 bg-white py-16 lg:py-24">
+        <section id="before-after-comparison" tabIndex={-1} aria-labelledby="before-after-heading" className="scroll-mt-24 border-y border-slate-200 bg-white py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-5 sm:px-7 lg:px-10">
             <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.14em] text-[#2c5f7f]">Before and after</p>
-                <h2 className="mt-3 text-3xl font-bold text-[#183c52] sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>See the supplied project images side by side.</h2>
+                <h2 id="before-after-heading" className="mt-3 text-3xl font-bold text-[#183c52] sm:text-4xl" style={{ fontFamily: "'Playfair Display', serif" }}>See the supplied project images side by side.</h2>
                 <p className="mt-5 leading-relaxed text-slate-600">Drag the divider to compare the supplied before and after project images. Select either image to open the full-screen gallery.</p>
                 <div className="mt-7 grid gap-3 sm:grid-cols-2">
                   {projectGallery.map((image, index) => (
@@ -340,7 +351,7 @@ export default function StructuralSteelCaseStudy() {
                   ))}
                 </div>
               </div>
-              <div id="before-after-comparison" className="scroll-mt-24">
+              <div>
                 <BeforeAfterProjectSlider beforeImage={images.before} afterImage={images.after} title="ISS Property — Former Bakkavor Foods Facility, Wigan" caption="Drag the divider to compare the supplied before image with the supplied after image from the Wigan project." />
               </div>
             </div>

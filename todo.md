@@ -1971,3 +1971,8 @@
 - [x] Add small decorative icons to the four Wigan project-stat panels without changing the verified facts
 - [x] Add a hero anchor that jumps directly to the Wigan before-and-after comparison section
 - [x] Extend regression coverage, validate desktop/mobile presentation and media playback, then checkpoint and publish without changing lead, campaign, conversion, or operational behaviour
+
+## Intumescent Breadcrumb Schema and Wigan Smooth-Scroll Repair (23 September 2026)
+- [x] Repair the unresolved Intumescent Painting breadcrumb identifier so every BreadcrumbList entity has itemListElement data
+- [x] Add reduced-motion-aware smooth scrolling to the Wigan Compare before & after anchor
+- [x] Add regression coverage, validate crawler-facing structured data and desktop/mobile interaction, then checkpoint and publish without changing lead, campaign, conversion, analytics, or operational behaviour
