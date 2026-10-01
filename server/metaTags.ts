@@ -15,6 +15,7 @@ import { getTierAPillarResources } from "@shared/tierAPillarResources";
 import { getCountyPillarResources } from "@shared/countyPillarResources";
 import { getIndustryPillarResources } from "@shared/industryPillarResources";
 import { priorityCountyCommercialContent, priorityTownCommercialContent } from "@shared/priorityLocalSeoContent";
+import { normaliseResponseTimeCopy } from "@shared/seoContentPolicy";
 
 // County chunk preload manifest (loaded once at startup in production)
 let countyChunkManifest: Record<string, string> | null = null;
@@ -3402,575 +3403,67 @@ function hreflangTags(canonicalUrl: string): string {
  * Generate comprehensive JSON-LD schemas for service area pages
  */
 function generateLocationSchemas(locationSlug: string, locationName: string, url: string, countyName?: string, countySlug?: string): string {
-  const coords = locCoords[locationSlug];
-  const lat = coords ? coords[0] : null;
-  const lng = coords ? coords[1] : null;
-
-  const schemas = [];
-
-  // 1. Enhanced LocalBusiness Schema
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ProfessionalService"],
-    "name": `${BUSINESS_NAME} - ${locationName}`,
-    "url": url,
-    "logo": { "@type": "ImageObject", "url": LOGO, "width": 200, "height": 60 },
-    "image": [HERO_IMAGE],
-    "telephone": PHONE,
-    "email": EMAIL,
-    "priceRange": "££",
-    "currenciesAccepted": "GBP",
-    "paymentAccepted": "Cash, Credit Card, Bank Transfer, Invoice",
-    "description": `Professional mobile shot blasting services in ${locationName} and surrounding areas. We provide specialist surface preparation for structural steel, containers, cladding, fire escapes, and all industrial metalwork. Our ${locationName} team covers commercial, industrial, and residential projects with 12 dedicated mobile units.`,
-    "slogan": `Professional Mobile Shot Blasting Services in ${locationName}`,
-    "address": { "@type": "PostalAddress", "addressLocality": locationName, "addressCountry": "GB" },
-    ...(lat && lng ? { "geo": { "@type": "GeoCoordinates", "latitude": lat, "longitude": lng } } : {}),
-    "areaServed": {
-      "@type": "City",
+  const location = locationData[locationSlug] as {
+    description?: string;
+    uniqueFaqs?: Array<{ question: string; answer: string }>;
+    faqs?: Array<{ question: string; answer: string }>;
+  } | undefined;
+  const description = location?.description
+    ?? `Commercial mobile shot blasting and surface preparation in ${locationName}, ${countyName ?? "England and Wales"}.`;
+  const breadcrumbs = [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+    { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": `${SITE_URL}/service-areas` },
+    ...(countyName && countySlug
+      ? [{ "@type": "ListItem", "position": 3, "name": countyName, "item": `${SITE_URL}/counties/${countySlug}` }]
+      : []),
+    {
+      "@type": "ListItem",
+      "position": countyName && countySlug ? 4 : 3,
       "name": locationName,
-      ...(lat && lng ? { "geo": { "@type": "GeoCoordinates", "latitude": lat, "longitude": lng } } : {})
+      "item": url,
     },
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "14:00" }
+  ];
+  const localFaqs = (location?.uniqueFaqs?.length ? location.uniqueFaqs : location?.faqs ?? [])
+    .slice(0, 3)
+    .map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": { "@type": "Answer", "text": normaliseResponseTimeCopy(faq.answer) },
+    }));
+
+  const graph: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        "url": url,
+        "name": `Shot Blasting in ${locationName} | Commercial Shot Blasting`,
+        "description": normaliseResponseTimeCopy(description),
+        "isPartOf": { "@type": "WebSite", "@id": `${SITE_URL}/#website`, "name": BUSINESS_NAME, "url": SITE_URL },
+        "breadcrumb": { "@id": `${url}#breadcrumb` },
+        "inLanguage": "en-GB",
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        "name": `Commercial mobile shot blasting in ${locationName}`,
+        "description": normaliseResponseTimeCopy(description),
+        "url": url,
+        "serviceType": "Commercial mobile shot blasting and surface preparation",
+        "provider": { "@type": "Organization", "@id": `${SITE_URL}/#organization`, "name": BUSINESS_NAME, "url": SITE_URL, "telephone": PHONE },
+        "areaServed": { "@type": "City", "name": locationName },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        "itemListElement": breadcrumbs,
+      },
+      ...(localFaqs.length > 0 ? [{ "@type": "FAQPage", "mainEntity": localFaqs }] : []),
     ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": `Shot Blasting Services in ${locationName}`,
-      "itemListElement": [
-        { "@type": "OfferCatalog", "name": "Structural Steelwork", "description": `Shot blasting for steel frames, trusses, and load-bearing structures in ${locationName}` },
-        { "@type": "OfferCatalog", "name": "Container Blasting", "description": `Specialist blasting for shipping containers and steel storage units in ${locationName}` },
-        { "@type": "OfferCatalog", "name": "Cladding Restoration", "description": `Plastisol and paint removal from factory and warehouse cladding in ${locationName}` },
-        { "@type": "OfferCatalog", "name": "Industrial Equipment", "description": `Shot blasting for plant, machinery, vehicles, and pipework in ${locationName}` },
-        { "@type": "OfferCatalog", "name": "Floor Preparation", "description": `Industrial floor shot blasting and surface preparation in ${locationName}` }
-      ]
-    },
-    "makesOffer": [
-      {
-        "@type": "Offer",
-        "itemOffered": { "@type": "Service", "name": `Free Site Survey in ${locationName}` },
-        "price": "0",
-        "priceCurrency": "GBP",
-        "description": `Free no-obligation site survey and quotation in ${locationName}`
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": { "@type": "Service", "name": `Mobile Shot Blasting in ${locationName}` },
-        "description": `On-site mobile shot blasting - we come to you in ${locationName}`,
-        "availability": "https://schema.org/InStock"
-      }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "12",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
-  });
+  };
 
-  // 2. Service Schema
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": `Shot Blasting Services in ${locationName}`,
-    "description": `Professional mobile shot blasting services in ${locationName} and surrounding areas. We provide specialist surface preparation for structural steel, containers, cladding, and all industrial metalwork.`,
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": BUSINESS_NAME,
-      "telephone": PHONE,
-      "email": EMAIL
-    },
-    "areaServed": { "@type": "City", "name": locationName }
-  });
-
-  // 3. FAQPage Schema — unique FAQs first (if any), then 8 templated questions
-  const locUniqueQs: Array<{question: string; answer: string}> = (locationData[locationSlug] as any)?.uniqueFaqs || [];
-  const uniqueFaqSchemaItems = locUniqueQs.slice(0, 3).map((faq) => ({
-    "@type": "Question",
-    "name": faq.question,
-    "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
-  }));
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [...uniqueFaqSchemaItems,
-      {
-        "@type": "Question",
-        "name": `Do you provide shot blasting in ${locationName}?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": `Yes, we have dedicated mobile shot blasting teams covering ${locationName} and the surrounding area. We can be on-site within days of your enquiry. Our ${locationName} team operates 12 mobile units across the UK.`
-        }
-      },
-      {
-        "@type": "Question",
-        "name": `How much does shot blasting cost in ${locationName}?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": `Costs depend on the project size, surface type, and accessibility. We provide free, no-obligation quotes for all ${locationName} projects. Call ${PHONE} for a quick estimate. Most projects range from £500 to £5,000 depending on scope.`
-        }
-      },
-      {
-        "@type": "Question",
-        "name": `What services do you offer in ${locationName}?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": `We offer the full range of shot blasting services in ${locationName} including structural steel, containers, cladding, fire escapes, floor preparation, pipework, telecom towers, and more. All services are mobile - we come to your site.`
-        }
-      },
-      {
-        "@type": "Question",
-        "name": `How quickly can you start a project in ${locationName}?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": `We typically provide quotes within 24 hours and can be on-site in ${locationName} within 2-5 working days depending on project size and our current schedule. Emergency projects can be accommodated.`
-        }
-      },
-      {
-        "@type": "Question",
-        "name": `What surface finish do you achieve in ${locationName}?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We typically achieve SA2.5 (near-white metal) finish which is the industry standard for structural steel preparation before protective coating application. We can also provide SA3 (white metal) finish if required."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": `Do you work on weekends in ${locationName}?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": `Yes, we can work weekends and evenings in ${locationName} to minimize disruption to your operations. Weekend work is subject to availability and may incur a small premium.`
-        }
-      },
-      {
-        "@type": "Question",
-        "name": `What industries do you serve in ${locationName}?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": `We serve manufacturing, construction, automotive, aerospace, marine, food processing, pharmaceutical, and many other industries in ${locationName}. Our mobile teams handle both commercial and industrial projects.`
-        }
-      },
-      {
-        "@type": "Question",
-        "name": `Do you provide containment and cleanup in ${locationName}?`,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": `Yes, all our ${locationName} projects include full containment to protect surrounding areas and thorough cleanup after completion. We leave your site clean and ready for the next stage of work.`
-        }
-      }
-    ]
-  });
-
-  // 4. Organization Schema with expanded details
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": BUSINESS_NAME,
-    "url": SITE_URL,
-    "logo": { "@type": "ImageObject", "url": LOGO, "width": 200, "height": 60 },
-    "telephone": PHONE,
-    "email": EMAIL,
-    "foundingDate": "2015",
-    "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 20, "maxValue": 50 },
-    "slogan": "Professional Mobile Shot Blasting Services",
-    "description": `Professional mobile shot blasting company providing specialist surface preparation services across the UK. We remove rust, mill scale, old coatings and contaminants from structural steel, containers, cladding, and all industrial metalwork.`,
-    "knowsAbout": [
-      "Shot Blasting", "Surface Preparation", "Rust Removal", "Protective Coatings",
-      "Steel Refurbishment", "Industrial Cleaning", "Abrasive Blasting", "Metal Surface Treatment",
-      "Corrosion Removal", "Paint Stripping", "Container Restoration", "Structural Steel Preparation"
-    ],
-    "address": { "@type": "PostalAddress", "addressRegion": "West Midlands", "addressCountry": "GB" },
-    "areaServed": [
-      { "@type": "AdministrativeArea", "name": "England" },
-      { "@type": "AdministrativeArea", "name": "Wales" }
-    ],
-    "contactPoint": [
-      {
-        "@type": "ContactPoint",
-        "telephone": PHONE,
-        "contactType": "sales",
-        "areaServed": "GB",
-        "availableLanguage": "English",
-        "contactOption": "TollFree"
-      },
-      {
-        "@type": "ContactPoint",
-        "telephone": PHONE,
-        "contactType": "customer service",
-        "areaServed": "GB",
-        "availableLanguage": "English"
-      },
-      {
-        "@type": "ContactPoint",
-        "email": EMAIL,
-        "contactType": "customer support",
-        "areaServed": "GB",
-        "availableLanguage": "English"
-      },
-      {
-        "@type": "ContactPoint",
-        "telephone": PHONE,
-        "contactType": "technical support",
-        "areaServed": "GB",
-        "availableLanguage": "English"
-      }
-    ],
-    "sameAs": [
-      "https://premierblasting.co.uk",
-      "https://www.facebook.com/commercialshotblasting",
-      "https://www.linkedin.com/company/commercial-shot-blasting"
-    ],
-    "parentOrganization": {
-      "@type": "Organization",
-      "name": "Premier Blasting Ltd",
-      "url": "https://premierblasting.co.uk"
-    },
-    "additionalType": [
-      "https://schema.org/ProfessionalService",
-      "https://schema.org/HomeAndConstructionBusiness"
-    ]
-  });
-
-  // 5. Individual Review Schemas (3 reviews)
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "Review",
-    "itemReviewed": {
-      "@type": "LocalBusiness",
-      "name": `${BUSINESS_NAME} - ${locationName}`
-    },
-    "name": "5-Star Review of Commercial Shot Blasting",
-    "author": { "@type": "Person", "name": "Jordan King" },
-    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-    "reviewBody": `Excellent service from ${BUSINESS_NAME}. They blasted our factory cladding in ${locationName} and the results were outstanding. Professional team, competitive pricing, and minimal disruption to our operations.`
-  });
-
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "Review",
-    "itemReviewed": {
-      "@type": "LocalBusiness",
-      "name": `${BUSINESS_NAME} - ${locationName}`
-    },
-    "name": "Excellent Shot Blasting Service",
-    "author": { "@type": "Person", "name": "Sarah Mitchell" },
-    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-    "reviewBody": `We needed urgent structural steel blasting in ${locationName} and they delivered perfectly. Fast response, quality finish (SA2.5), and thorough cleanup. Highly recommend for commercial projects.`
-  });
-
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "Review",
-    "itemReviewed": {
-      "@type": "LocalBusiness",
-      "name": `${BUSINESS_NAME} - ${locationName}`
-    },
-    "name": "Outstanding Container Blasting",
-    "author": { "@type": "Person", "name": "David Thompson" },
-    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-    "reviewBody": `Top-notch container blasting service in ${locationName}. They handled 15 shipping containers for our depot and every one came out perfect. Great value and very professional throughout.`
-  });
-
-  // 6. ImageObject Schema
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "ImageObject",
-    "url": HERO_IMAGE,
-    "caption": `Professional shot blasting services in ${locationName}`,
-    "description": `Commercial shot blasting equipment and surface preparation work in ${locationName}`,
-    "author": { "@type": "Organization", "name": BUSINESS_NAME },
-    "copyrightHolder": { "@type": "Organization", "name": BUSINESS_NAME },
-    "copyrightYear": "2025",
-    "copyrightNotice": `\u00a9 2025 ${BUSINESS_NAME}. All rights reserved.`,
-    "acquireLicensePage": `${SITE_URL}/contact`,
-    "width": "1200",
-    "height": "630",
-    "encodingFormat": "image/png",
-    "license": `${SITE_URL}/terms`
-  });
-
-  // 7. Place Schema with geographic details
-  if (lat && lng) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "Place",
-      "name": locationName,
-      "geo": { "@type": "GeoCoordinates", "latitude": lat, "longitude": lng },
-      "description": `Service area for ${BUSINESS_NAME} mobile shot blasting operations`,
-      "address": { "@type": "PostalAddress", "addressLocality": locationName, "addressCountry": "GB" },
-      "hasMap": `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`,
-      "maximumAttendeeCapacity": 25,
-      "publicAccess": true
-    });
-  }
-
-  // 8. Product Schemas (4 individual services with pricing)
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": `Structural Steel Shot Blasting - ${locationName}`,
-    "description": `Professional shot blasting for structural steel beams, columns, trusses, and frameworks in ${locationName}. Achieves SA2.5 surface finish ready for protective coating.`,
-    "brand": { "@type": "Brand", "name": BUSINESS_NAME },
-    "offers": {
-      "@type": "Offer",
-      "price": "500",
-      "priceCurrency": "GBP",
-      "priceSpecification": { "@type": "PriceSpecification", "minPrice": "500", "priceCurrency": "GBP" },
-      "availability": "https://schema.org/InStock",
-      "areaServed": { "@type": "City", "name": locationName },
-      "description": "From £500+ depending on project size and complexity"
-    },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "12", "bestRating": "5", "worstRating": "1" }
-  });
-
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": `Container Shot Blasting - ${locationName}`,
-    "description": `Specialist shot blasting for shipping containers, storage units, and portable cabins in ${locationName}. Complete rust removal and surface preparation.`,
-    "brand": { "@type": "Brand", "name": BUSINESS_NAME },
-    "offers": {
-      "@type": "Offer",
-      "price": "800",
-      "priceCurrency": "GBP",
-      "priceSpecification": { "@type": "PriceSpecification", "minPrice": "800", "priceCurrency": "GBP" },
-      "availability": "https://schema.org/InStock",
-      "areaServed": { "@type": "City", "name": locationName },
-      "description": "From £800+ per container depending on size and condition"
-    },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12", "bestRating": "5", "worstRating": "1" }
-  });
-
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": `Factory Cladding Restoration - ${locationName}`,
-    "description": `Professional cladding shot blasting in ${locationName}. Plastisol and paint removal from factory and warehouse cladding panels. Minimal disruption.`,
-    "brand": { "@type": "Brand", "name": BUSINESS_NAME },
-    "offers": {
-      "@type": "Offer",
-      "price": "1200",
-      "priceCurrency": "GBP",
-      "priceSpecification": { "@type": "PriceSpecification", "minPrice": "1200", "priceCurrency": "GBP" },
-      "availability": "https://schema.org/InStock",
-      "areaServed": { "@type": "City", "name": locationName },
-      "description": "From £1200+ depending on cladding area and accessibility"
-    },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "12", "bestRating": "5", "worstRating": "1" }
-  });
-
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": `Industrial Floor Preparation - ${locationName}`,
-    "description": `Shot blasting for industrial floors, warehouses, and factory surfaces in ${locationName}. Creates ideal profile for epoxy coatings and floor finishes.`,
-    "brand": { "@type": "Brand", "name": BUSINESS_NAME },
-    "offers": {
-      "@type": "Offer",
-      "price": "600",
-      "priceCurrency": "GBP",
-      "priceSpecification": { "@type": "PriceSpecification", "minPrice": "600", "priceCurrency": "GBP" },
-      "availability": "https://schema.org/InStock",
-      "areaServed": { "@type": "City", "name": locationName },
-      "description": "From £600+ depending on floor area and surface condition"
-    },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "12", "bestRating": "5", "worstRating": "1" }
-  });
-
-  // 10. HowTo Schema (6-step process)
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": `How We Provide Shot Blasting Services in ${locationName}`,
-    "description": `Our proven 6-step shot blasting process ensures quality results for every ${locationName} project. From initial survey to final cleanup, we handle everything professionally.`,
-    "totalTime": "PT4H",
-    "tool": [
-      { "@type": "HowToTool", "name": "Professional shot blasting equipment" },
-      { "@type": "HowToTool", "name": "Steel shot and grit abrasive media" },
-      { "@type": "HowToTool", "name": "Containment sheeting and barriers" },
-      { "@type": "HowToTool", "name": "PPE (personal protective equipment)" },
-      { "@type": "HowToTool", "name": "Surface profile gauges and inspection tools" }
-    ],
-    "step": [
-      { "@type": "HowToStep", "position": 1, "name": "Site Survey", "text": `Free site survey in ${locationName} to assess the work, measure surfaces, and provide detailed quotation.` },
-      { "@type": "HowToStep", "position": 2, "name": "Containment Setup", "text": `Full containment erected around work area to protect surrounding surfaces and contain abrasive media.` },
-      { "@type": "HowToStep", "position": 3, "name": "Surface Preparation", "text": `Surfaces cleaned and prepared. Any loose material, grease, or contaminants removed before blasting.` },
-      { "@type": "HowToStep", "position": 4, "name": "Shot Blasting", "text": `We blast the surfaces to the specified standard (typically SA2.5) removing all rust, mill scale, and old coatings.` },
-      { "@type": "HowToStep", "position": 5, "name": "Quality Check", "text": `Surface profile is measured and inspected to ensure it meets the required specification.` },
-      { "@type": "HowToStep", "position": 6, "name": "Cleanup", "text": `All abrasive media and debris is collected and removed. Your site in ${locationName} is left clean and ready for coating.` }
-    ],
-    "image": HERO_IMAGE
-  });
-
-  // 11. BreadcrumbList Schema (4-level when county is known)
-  if (countyName && countySlug) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": `${url}#breadcrumb`,
-      "inLanguage": "en-GB",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": `${SITE_URL}/service-areas` },
-        { "@type": "ListItem", "position": 3, "name": countyName, "item": `${SITE_URL}/counties/${countySlug}` },
-        { "@type": "ListItem", "position": 4, "name": locationName, "item": url }
-      ]
-    });
-  } else {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": `${url}#breadcrumb`,
-      "inLanguage": "en-GB",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": `${SITE_URL}/service-areas` },
-        { "@type": "ListItem", "position": 3, "name": locationName, "item": url }
-      ]
-    });
-  }
-
-  // 12. WebSite Schema with SearchAction (SiteLinksSearchBox)
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": BUSINESS_NAME,
-    "url": SITE_URL,
-    "description": "Professional mobile shot blasting services across the UK",
-    "publisher": { "@type": "Organization", "name": BUSINESS_NAME },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": `${SITE_URL}/service-areas/{search_term_string}`
-      },
-      "query-input": "required name=search_term_string"
-    }
-  });
-
-  // 13. WebPage Schema
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${url}#webpage`,
-    "url": url,
-    "name": `Shot Blasting Services in ${locationName} | Commercial Shot Blasting`,
-    "description": `Professional mobile shot blasting services in ${locationName}. Rust removal, surface preparation, and industrial cleaning for commercial and industrial clients.`,
-    "isPartOf": { "@type": "WebSite", "@id": `${SITE_URL}/#website`, "name": BUSINESS_NAME, "url": SITE_URL },
-    "about": { "@type": "LocalBusiness", "name": `${BUSINESS_NAME} - ${locationName}` },
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": `${SITE_URL}/service-areas` },
-        { "@type": "ListItem", "position": 3, "name": locationName, "item": url }
-      ]
-    },
-    "speakable": {
-      "@type": "SpeakableSpecification",
-      "cssSelector": ["h1", ".hero-description", ".service-description"]
-    },
-    "inLanguage": "en-GB",
-    "datePublished": "2024-01-01",
-    "dateModified": new Date().toISOString().split('T')[0],
-    "potentialAction": [
-      { "@type": "ReadAction", "target": [url] }
-    ]
-  });
-  // 14. ItemList Schemaa (services offered at this location)
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": `Shot Blasting Services Available in ${locationName}`,
-    "description": `Full list of professional shot blasting and surface preparation services available in ${locationName}`,
-    "numberOfItems": 8,
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Structural Steel Shot Blasting", "url": `${SITE_URL}/services/structural-steel-shot-blasting` },
-      { "@type": "ListItem", "position": 2, "name": "Container Shot Blasting", "url": `${SITE_URL}/services/container-shot-blasting` },
-      { "@type": "ListItem", "position": 3, "name": "Factory Cladding Restoration", "url": `${SITE_URL}/services/factory-cladding-shot-blasting` },
-      { "@type": "ListItem", "position": 4, "name": "Industrial Floor Preparation", "url": `${SITE_URL}/services/floor-shot-blasting` },
-      { "@type": "ListItem", "position": 5, "name": "Fire Escape Shot Blasting", "url": `${SITE_URL}/services/fire-escape-shot-blasting` },
-      { "@type": "ListItem", "position": 6, "name": "Pipework & Steelwork Blasting", "url": `${SITE_URL}/services/pipework-shot-blasting` },
-      { "@type": "ListItem", "position": 7, "name": "Telecom Tower Blasting", "url": `${SITE_URL}/services/telecom-tower-shot-blasting` },
-      { "@type": "ListItem", "position": 8, "name": "Agricultural Equipment Blasting", "url": `${SITE_URL}/services/agricultural-shot-blasting` }
-    ]
-  });
-
-  // 15. GeoShape / Service Area Circle Schema
-  if (lat && lng) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": `Mobile Shot Blasting Coverage - ${locationName}`,
-      "description": `We cover ${locationName} and all surrounding areas within approximately 30 miles. Our mobile units travel to your site.`,
-      "provider": { "@type": "LocalBusiness", "name": BUSINESS_NAME, "telephone": PHONE },
-      "areaServed": [
-        { "@type": "City", "name": locationName },
-        {
-          "@type": "GeoShape",
-          "circle": `${lat} ${lng} 48280`
-        }
-      ],
-      "serviceType": "Mobile Shot Blasting",
-      "availableChannel": {
-        "@type": "ServiceChannel",
-        "serviceUrl": url,
-        "servicePhone": PHONE,
-        "servicePostalAddress": {
-          "@type": "PostalAddress",
-          "addressLocality": locationName,
-          "addressCountry": "GB"
-        },
-        "availableLanguage": "English"
-      },
-      "offers": {
-        "@type": "Offer",
-        "name": `Free Site Survey in ${locationName}`,
-        "price": "0",
-        "priceCurrency": "GBP",
-        "availability": "https://schema.org/InStock"
-      }
-    });
-  }
-
-  // 16. Event Schema (Free Site Survey)
-  schemas.push({
-    "@context": "https://schema.org",
-    "@type": "Event",
-    "name": `Free Shot Blasting Site Survey - ${locationName}`,
-    "description": `Book a free, no-obligation site survey for your shot blasting project in ${locationName}. Our expert team will assess your requirements and provide a detailed quotation.`,
-    "eventStatus": "https://schema.org/EventScheduled",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "location": {
-      "@type": "Place",
-      "name": locationName,
-      "address": { "@type": "PostalAddress", "addressLocality": locationName, "addressCountry": "GB" }
-    },
-    "organizer": {
-      "@type": "Organization",
-      "name": BUSINESS_NAME,
-      "url": SITE_URL,
-      "telephone": PHONE
-    },
-    "offers": {
-      "@type": "Offer",
-      "name": "Free Site Survey",
-      "price": "0",
-      "priceCurrency": "GBP",
-      "url": `${SITE_URL}/free-site-survey`,
-      "availability": "https://schema.org/InStock"
-    },
-    "performer": {
-      "@type": "Organization",
-      "name": BUSINESS_NAME
-    }
-  });
-
-  // Convert all schemas to JSON-LD script tags
-  return schemas.map(schema => 
-    `<script type="application/ld+json">${JSON.stringify(schema)}</script>`
-  ).join('\n    ');
+  return `<script type="application/ld+json">${JSON.stringify(graph)}</script>`;
 }
 
 // ─── Service page data (mirrors client/src/data/services.ts) ───────────────

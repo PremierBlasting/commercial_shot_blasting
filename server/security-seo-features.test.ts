@@ -62,11 +62,16 @@ describe('Security and SEO Features', () => {
       expect(schemaContent).toContain('14:00');
     });
 
-    it('should be integrated in LocationPage component', () => {
+    it('keeps dynamic service-area schema server-owned to avoid duplicate local markup', () => {
       const locationPagePath = path.join(__dirname, '../client/src/components/LocationPage.tsx');
       const locationPageContent = fs.readFileSync(locationPagePath, 'utf-8');
-      
-      expect(locationPageContent).toContain('LocalBusinessSchema');
+      const metaTagsPath = path.join(__dirname, 'metaTags.ts');
+      const metaTagsContent = fs.readFileSync(metaTagsPath, 'utf-8');
+
+      expect(locationPageContent).not.toContain('<LocalBusinessSchema');
+      expect(metaTagsContent).toContain('function generateLocationSchemas');
+      expect(metaTagsContent).toContain('"@graph"');
+      expect(metaTagsContent).toContain('"@type": "Organization"');
     });
   });
 

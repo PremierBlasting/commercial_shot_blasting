@@ -1976,3 +1976,17 @@
 - [x] Repair the unresolved Intumescent Painting breadcrumb identifier so every BreadcrumbList entity has itemListElement data
 - [x] Add reduced-motion-aware smooth scrolling to the Wigan Compare before & after anchor
 - [x] Add regression coverage, validate crawler-facing structured data and desktop/mobile interaction, then checkpoint and publish without changing lead, campaign, conversion, analytics, or operational behaviour
+
+## Area-Page Traffic Improvement Implementation (23 September 2026)
+- [ ] Restore client rendering for all canonical service-area routes by adding the three missing county chunks and correcting county membership in affected chunks
+- [ ] Consolidate legacy static `/service-areas/*.html` URLs with permanent redirects to their canonical area pages
+- [ ] Replace duplicate and unsupported browser-side local structured data with one concise, server-rendered factual schema graph per canonical area page
+- [ ] Strengthen area-page internal navigation by sorting nearby canonical town links by geographic distance and adding a focused, context-relevant resource path
+- [ ] Extend regression coverage, verify crawler HTML/JSON-LD and representative desktop/mobile rendering, run the full suite and production build, then checkpoint and publish without changing any lead, campaign, conversion, analytics, or operational integration
+
+## Search Console Soft-404 Remediation (1 October 2026)
+- [x] Classify every URL from the 1 October Search Console soft-404 export against a live canonical page, a safe topic-level successor or intentional retirement
+- [x] Add permanent redirects only where an equivalent or clearly appropriate successor exists; retain real 404/410 responses for invalid or unsupported URLs
+- [x] Prevent legacy `/areas/`, `/service-area/` and `.html` local-page variants from falling through to indexable soft pages
+- [x] Add regression coverage and verify each exported URL returns the intended response and canonical destination
+- [x] Run focused tests, full suite, TypeScript and production build; checkpoint and publish without changing lead forms, campaigns, conversion actions, analytics or operational integrations

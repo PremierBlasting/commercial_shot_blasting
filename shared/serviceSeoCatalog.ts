@@ -53,6 +53,9 @@ export const LEGACY_SERVICE_REDIRECTS: Record<string, string> = {
   "bridge-steelwork-shot-blasting": "/services/bridge-steelwork",
   "automotive-restoration": "/services/commercial-vehicles",
   "steel-shot-blasting": "/services/structural-steel-frames",
+  "rust-removal-shot-blasting": "/services/rust-removal",
+  "industrial-shot-blasting": "/services",
+  "shot-blasting": "/services",
 };
 
 const canonicalServiceSet = new Set<string>(CANONICAL_SERVICE_SLUGS);

@@ -16,7 +16,7 @@ import { registerSitemapRoute } from "../sitemap";
 import { registerOgImageRoute } from "../ogImage";
 import { getActiveTestimonials, getActiveGalleryItems, getPublishedBlogPosts } from "../db";
 import { getCanonicalServicePath, isCanonicalServiceSlug } from "@shared/serviceSeoCatalog";
-import { getCanonicalServiceAreaRedirect } from "../seoUrlNormalisation";
+import { getCanonicalServiceAreaRedirect, getSoft404PathResolution } from "../seoUrlNormalisation";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -83,6 +83,17 @@ async function startServer() {
     next();
   });
 
+  // Search Console's soft-404 report includes a mix of genuine historic paths,
+  // current URLs and non-existent patterns that previously reached the SPA HTML
+  // fallback. Send a 301 only when the same location or a clear county/page
+  // successor exists; everything else receives a real, noindex 404 response.
+  app.use((req, res, next) => {
+    const resolution = getSoft404PathResolution(req.path, req.originalUrl);
+    if (!resolution) return next();
+    if (resolution.type === "redirect") return res.redirect(301, resolution.destination);
+    return res.status(404).set("Content-Type", "text/html; charset=utf-8").send(`<!doctype html><html lang="en-GB"><head><meta name="robots" content="noindex, follow"><title>Page Not Found | Commercial Shot Blasting</title></head><body><main><h1>Page Not Found</h1><p>The requested page is not available. Browse our <a href="/service-areas">service areas</a>, <a href="/services">services</a> or <a href="/contact">contact page</a>.</p></main></body></html>`);
+  });
+
   // 301 redirect: /free-site-survey → /site-survey (SEO-safe rename)
   app.get("/free-site-survey", (_req, res) => {
     res.redirect(301, "/site-survey");
@@ -105,23 +116,6 @@ async function startServer() {
     if (isCanonicalServiceSlug(slug)) return next();
     return res.status(404).set("Content-Type", "text/html; charset=utf-8").send(`<!doctype html><html lang="en-GB"><head><meta name="robots" content="noindex, follow"><title>Service Not Found | Commercial Shot Blasting</title></head><body><main><h1>Service Not Found</h1><p>The requested service page is not available. Please browse our <a href="/services">shot blasting services</a> or <a href="/contact">contact Commercial Shot Blasting</a>.</p></main></body></html>`);
   });
-  // 301 redirect: /gloucestershire → /counties/gloucestershire
-  app.get("/gloucestershire", (_req, res) => {
-    res.redirect(301, "/counties/gloucestershire");
-  });
-
-  // 301 redirects: /areas/:slug and /locations/:slug → canonical /service-areas/:slug
-  // These legacy URL patterns were crawled by Google but served blank SPA shells
-  // (no SSR content, no location-specific meta). Consolidating to /service-areas/
-  // eliminates duplicate content, passes link equity to indexed pages, and
-  // ensures Googlebot always receives the full SSR-rendered location page.
-  app.get("/areas/:slug", (req, res) => {
-    res.redirect(301, `/service-areas/${req.params.slug}`);
-  });
-  app.get("/locations/:slug", (req, res) => {
-    res.redirect(301, `/service-areas/${req.params.slug}`);
-  });
-
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
