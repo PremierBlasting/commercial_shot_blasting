@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { getNearbyAreas } from "../client/src/hooks/useNearbyAreas";
-import { locationCoordinates } from "../client/src/data/locationCoordinates";
+import { locationCoordinates, sortLocationSlugsByDistance } from "../client/src/data/locationCoordinates";
 
 describe("nearby service area suggestions", () => {
   it("returns the nearest featured Essex service area for an Essex coordinate", () => {
@@ -34,5 +34,11 @@ describe("nearby service area suggestions", () => {
 
     const nearby = getNearbyAreas(53.4808, -2.2426, 5);
     expect(nearby.map((area) => area.distanceMiles)).toEqual([...nearby.map((area) => area.distanceMiles)].sort((a, b) => a - b));
+  });
+
+  it("orders the compact same-county link set by proximity with a stable fallback", () => {
+    const ordered = sortLocationSlugsByDistance("wigan", ["stockport", "leigh", "hindley", "manchester"]);
+    expect(ordered.slice(0, 3)).toEqual(["hindley", "leigh", "manchester"]);
+    expect(sortLocationSlugsByDistance("unknown-town", ["zebra", "alpha"])).toEqual(["alpha", "zebra"]);
   });
 });

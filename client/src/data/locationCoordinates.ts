@@ -90,3 +90,36 @@ export const locationCoordinates: Record<string, { lat: number; lng: number }> =
   littleborough: { lat: 53.6426, lng: -2.0960 },
   ramsbottom: { lat: 53.6473, lng: -2.3163 },
 };
+
+function milesBetween(latA: number, lngA: number, latB: number, lngB: number): number {
+  const radians = (value: number) => (value * Math.PI) / 180;
+  const earthRadiusMiles = 3958.8;
+  const dLat = radians(latB - latA);
+  const dLng = radians(lngB - lngA);
+  const a = Math.sin(dLat / 2) ** 2
+    + Math.cos(radians(latA)) * Math.cos(radians(latB)) * Math.sin(dLng / 2) ** 2;
+  return earthRadiusMiles * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+/**
+ * Orders a controlled set of canonical area slugs by straight-line proximity.
+ * Locations absent from the lightweight coordinate index retain an alphabetical
+ * fallback instead of being dropped from local navigation.
+ */
+export function sortLocationSlugsByDistance(originSlug: string, candidateSlugs: string[]): string[] {
+  const origin = locationCoordinates[originSlug];
+  return [...candidateSlugs].sort((left, right) => {
+    if (!origin) return left.localeCompare(right, "en-GB");
+    const leftCoordinates = locationCoordinates[left];
+    const rightCoordinates = locationCoordinates[right];
+    const leftDistance = leftCoordinates
+      ? milesBetween(origin.lat, origin.lng, leftCoordinates.lat, leftCoordinates.lng)
+      : Number.POSITIVE_INFINITY;
+    const rightDistance = rightCoordinates
+      ? milesBetween(origin.lat, origin.lng, rightCoordinates.lat, rightCoordinates.lng)
+      : Number.POSITIVE_INFINITY;
+    return leftDistance === rightDistance
+      ? left.localeCompare(right, "en-GB")
+      : leftDistance - rightDistance;
+  });
+}

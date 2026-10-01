@@ -1978,11 +1978,11 @@
 - [x] Add regression coverage, validate crawler-facing structured data and desktop/mobile interaction, then checkpoint and publish without changing lead, campaign, conversion, analytics, or operational behaviour
 
 ## Area-Page Traffic Improvement Implementation (23 September 2026)
-- [ ] Restore client rendering for all canonical service-area routes by adding the three missing county chunks and correcting county membership in affected chunks
-- [ ] Consolidate legacy static `/service-areas/*.html` URLs with permanent redirects to their canonical area pages
-- [ ] Replace duplicate and unsupported browser-side local structured data with one concise, server-rendered factual schema graph per canonical area page
-- [ ] Strengthen area-page internal navigation by sorting nearby canonical town links by geographic distance and adding a focused, context-relevant resource path
-- [ ] Extend regression coverage, verify crawler HTML/JSON-LD and representative desktop/mobile rendering, run the full suite and production build, then checkpoint and publish without changing any lead, campaign, conversion, analytics, or operational integration
+- [x] Restore client rendering for all canonical service-area routes by adding the three missing county chunks and correcting county membership in affected chunks
+- [x] Consolidate legacy static `/service-areas/*.html` URLs with permanent redirects to their canonical area pages
+- [x] Replace duplicate and unsupported browser-side local structured data with one concise, server-rendered factual schema graph per canonical area page
+- [x] Strengthen area-page internal navigation by sorting nearby canonical town links by geographic distance and adding a focused, context-relevant resource path
+- [x] Extend regression coverage, verify crawler HTML/JSON-LD and representative desktop/mobile rendering, run the full suite and production build, then checkpoint and publish without changing any lead, campaign, conversion, analytics, or operational integration
 
 ## Search Console Soft-404 Remediation (1 October 2026)
 - [x] Classify every URL from the 1 October Search Console soft-404 export against a live canonical page, a safe topic-level successor or intentional retirement

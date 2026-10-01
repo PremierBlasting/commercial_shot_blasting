@@ -46,6 +46,7 @@ import { getTierAPillarResources } from '@shared/tierAPillarResources';
 import { priorityTownCommercialContent } from '@shared/priorityLocalSeoContent';
 import { trpc } from "@/lib/trpc";
 import { formatUTMForSubmission } from "@/lib/utm";
+import { sortLocationSlugsByDistance } from "@/data/locationCoordinates";
 export type { LocationData };
 
 // Sub-component: renders AI-refreshed content for this location if available
@@ -164,15 +165,19 @@ export function LocationPage({ location }: LocationPageProps) {
     });
   };
 
-  // Derive nearby towns from same-county locations (up to 12, excluding current)
+  // Derive a compact set of same-county links, preferring the nearest canonical
+  // areas where lightweight coordinates are available.
   const [nearbyTowns, setNearbyTowns] = useState<LocationData[]>([]);
   const tierAPillarResources = getTierAPillarResources(location.slug, location.industries ?? []);
   useEffect(() => {
     if (!location.countySlug) return;
     loadCountyLocations(location.countySlug).then(countyLocs => {
-      const nearby = Object.values(countyLocs)
-        .filter(l => l.slug !== location.slug)
-        .slice(0, 12);
+      const candidates = Object.values(countyLocs).filter((town) => town.slug !== location.slug);
+      const townsBySlug = new Map(candidates.map((town) => [town.slug, town]));
+      const nearby = sortLocationSlugsByDistance(location.slug, candidates.map((town) => town.slug))
+        .slice(0, 6)
+        .map((slug) => townsBySlug.get(slug))
+        .filter((town): town is LocationData => Boolean(town));
       setNearbyTowns(nearby);
     });
   }, [location.countySlug, location.slug]);
