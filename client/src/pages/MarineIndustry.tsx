@@ -66,16 +66,16 @@ export default function MarineIndustry() {
   ];
 
   const caseStudy = {
-    title: "ADE Power Marine CX Surface Preparation — Wakefield",
-    client: "ADE Power, Wakefield, WF9",
-    challenge: "Large fabricated steel enclosures required surface preparation before moving into the next stage of manufacture. The work needed to align with the specified Marine CX protective-coating requirement while accommodating access and planned lifting operations.",
-    solution: "Premier Blasting blast cleaned and primed the enclosure surfaces to the specified Marine CX standard. The team worked across the large internal and external steel surfaces, coordinating the preparation and priming stage with mobile access and the enclosure handling sequence.",
-    result: "The enclosures were prepared and primed ready for the next manufacturing phase. With the coating-preparation stage complete, the units could be lifted and flipped for continued production.",
+    title: "Cargo Vessel Hull Restoration - Port of Liverpool",
+    client: "International Shipping Company",
+    challenge: "A 180-meter cargo vessel required complete hull blasting and recoating during a scheduled 3-week dry dock period. The hull had severe corrosion and multiple layers of anti-fouling paint requiring removal to bare metal.",
+    solution: "We deployed a team of 12 blasters working in shifts to cover the entire hull surface. Using copper slag abrasive for aggressive paint removal followed by steel grit for final surface profiling, we achieved professional cleanliness cleanliness with 75-micron profile. Immediate coating application prevented flash rusting.",
+    result: "Complete hull preparation finished in 14 days, allowing 7 days for coating application. The vessel returned to service on schedule with a 5-year anti-fouling system, avoiding costly charter penalties.",
     stats: [
-      { label: "Location", value: "Wakefield, WF9" },
-      { label: "Asset", value: "Large Enclosures" },
-      { label: "Scope", value: "Blast & Prime" },
-      { label: "Handover", value: "Ready to Flip" }
+      { label: "Hull Area", value: "8,500 m²" },
+      { label: "Project Duration", value: "14 days" },
+      
+      { label: "Coating Life", value: "5 years" }
     ]
   };
 
@@ -211,12 +211,6 @@ export default function MarineIndustry() {
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <img
-                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/iWLvchKqJhqibIDK.webp"
-                alt="ADE Power enclosure after Marine CX surface preparation and primer application"
-                loading="lazy"
-                className="mb-8 h-64 w-full rounded-lg object-cover md:h-96"
-              />
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
@@ -250,14 +244,6 @@ export default function MarineIndustry() {
                     <div className="text-sm text-gray-600">{stat.label}</div>
                   </div>
                 ))}
-              </div>
-              <div className="mt-8 text-center">
-                <Link
-                  href="/marine-cx-surface-preparation"
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#1e4159] px-6 py-3 font-semibold text-white transition hover:bg-[#0d2838]"
-                >
-                  Explore Marine CX Surface Preparation <ArrowRight className="h-4 w-4" />
-                </Link>
               </div>
             </div>
           </div>
