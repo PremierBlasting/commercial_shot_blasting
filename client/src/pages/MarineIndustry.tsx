@@ -8,75 +8,82 @@ import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { BackToTop } from "@/components/BackToTop";
 
+const UK_MANAGED_MEDIA_ORIGIN = "https://www.ukshotblastingservices.com";
+
 export default function MarineIndustry() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
 
   const marineServices = [
     {
       title: "Ship Hull Blasting",
-      description: "Complete hull surface preparation for commercial vessels, cargo ships, and tankers. Remove marine growth, rust, and old coatings to bare metal.",
+      description: "Surface-preparation planning for commercial vessels, cargo ships and tankers, with the required scope agreed against the coating and access brief.",
       image: "/marine-ship-cleaning.webp",
       link: "/services/steel-containers",
-      benefits: ["Anti-fouling prep", "Corrosion removal", "Fast turnaround"]
+      benefits: ["Scope review", "Coating brief", "Access planning"]
     },
     {
       title: "Marine Structural Steel",
-      description: "Shot blasting for offshore platforms, port infrastructure, and marine construction projects. Meet marine coating specifications.",
+      description: "Surface preparation for offshore platforms, port infrastructure and marine construction, planned against the client’s required coating specification.",
       image: "/service-structural-steel.webp",
       link: "/services/structural-steel-frames",
-      benefits: ["Offshore approved", "Salt-resistant prep", "C5-M coating ready"]
+      benefits: ["Specification review", "Condition assessment", "Coating-interface planning"]
     },
     {
       title: "Vessel Components",
-      description: "Precision blasting for propellers, rudders, anchors, and deck equipment. Restore marine hardware to specification.",
+      description: "Surface-preparation planning for propellers, rudders, anchors and deck equipment, with component condition and access reviewed first.",
       image: "/service-pipework.webp",
       link: "/services/pipework",
-      benefits: ["Precision cleaning", "Component restoration", "Marine-grade finish"]
+      benefits: ["Component review", "Preparation brief", "Handover records"]
     },
     {
       title: "Port & Harbor Equipment",
-      description: "Shot blasting for cranes, bollards, mooring equipment, and dock infrastructure exposed to harsh marine environments.",
+      description: "Surface-preparation planning for cranes, bollards, mooring equipment and dock infrastructure in exposed environments.",
       image: "/service-ladders.webp",
       link: "/services/ladders",
-      benefits: ["Corrosion protection", "Extended service life", "Minimal downtime"]
+      benefits: ["Condition review", "Access planning", "Scope coordination"]
     }
   ];
 
   const challenges = [
     {
       icon: Clock,
-      title: "Vessel Downtime Costs",
-      description: "Every day a vessel is out of service costs thousands. Our efficient processes minimize turnaround time while delivering marine-grade surface preparation."
+      title: "Access and programme coordination",
+      description: "Marine work may need to align with access windows, lifting plans and the wider coating programme. These constraints are reviewed before scope is agreed."
     },
     {
       icon: Shield,
       title: "Harsh Marine Environment",
-      description: "Saltwater corrosion demands superior surface preparation. We achieve professional cleanliness to Sa 3 cleanliness levels for long-lasting marine coatings."
+      description: "Saltwater exposure, humidity and existing coating condition can affect the preparation and coating brief. The required preparation grade is confirmed for the specific project."
     },
     {
       icon: Anchor,
-      title: "Marine Coating Standards",
-      description: "industry requirements demand precise surface profiles. We meet PSPC, NACE, and industry specifications."
+      title: "Marine coating specifications",
+      description: "The coating manufacturer’s data, client specification and inspection requirements should define the preparation grade, profile, contamination controls and records."
     },
     {
       icon: Ship,
       title: "Large-Scale Projects",
-      description: "Ship hulls and offshore structures require extensive blasting capacity. Our facilities handle components up to 12 meters with consistent quality."
+      description: "Large fabrications can require staged handling, lifting coordination and practical access planning. The proposed sequence is scoped around the fabrication and site conditions."
     }
   ];
 
   const caseStudy = {
-    title: "Cargo Vessel Hull Restoration - Port of Liverpool",
-    client: "International Shipping Company",
-    challenge: "A 180-meter cargo vessel required complete hull blasting and recoating during a scheduled 3-week dry dock period. The hull had severe corrosion and multiple layers of anti-fouling paint requiring removal to bare metal.",
-    solution: "We deployed a team of 12 blasters working in shifts to cover the entire hull surface. Using copper slag abrasive for aggressive paint removal followed by steel grit for final surface profiling, we achieved professional cleanliness cleanliness with 75-micron profile. Immediate coating application prevented flash rusting.",
-    result: "Complete hull preparation finished in 14 days, allowing 7 days for coating application. The vessel returned to service on schedule with a 5-year anti-fouling system, avoiding costly charter penalties.",
+    title: "ADE Power — Wakefield Marine CX Enclosures",
+    client: "Published project record · Wakefield, WF9",
+    challenge: "The supplied ADE Power project update records large fabricated enclosures at the Wakefield, WF9 project, with surface preparation and priming forming part of the stated Marine CX route. The scope is presented from the approved project update and supplied media only.",
+    solution: "The supplied update confirms that the enclosures were blasted and primed to the stated Marine CX standard. The project record does not add an unverified blast-cleaning grade, surface profile, primer product, film thickness, inspection result, final coating-system approval or programme.",
+    result: "The supplied update records the enclosures after blasting and priming, with the next enclosure-flipping stage under way. This is a documented live project stage, not a claim of final coating completion or future performance.",
     stats: [
-      { label: "Hull Area", value: "8,500 m²" },
-      { label: "Project Duration", value: "14 days" },
-      
-      { label: "Coating Life", value: "5 years" }
-    ]
+      { label: "Location", value: "Wakefield, WF9" },
+      { label: "Scope", value: "Large enclosures" },
+      { label: "Recorded route", value: "Marine CX" },
+      { label: "Current stage", value: "Flipping" }
+    ],
+    images: [
+      { src: `${UK_MANAGED_MEDIA_ORIGIN}/manus-storage/ade-power-wakefield-enclosure-01_217cd4e1.webp`, alt: "Large ADE Power enclosure at the Wakefield project after the supplied documented blasting and priming stage" },
+      { src: `${UK_MANAGED_MEDIA_ORIGIN}/manus-storage/ade-power-wakefield-enclosure-03_a150a0c0.webp`, alt: "ADE Power enclosure inside the Wakefield workshop at the supplied documented project stage" },
+      { src: `${UK_MANAGED_MEDIA_ORIGIN}/manus-storage/ade-power-wakefield-enclosure-05_72482b5e.webp`, alt: "Close exterior view of a primed ADE Power enclosure at the Wakefield project" },
+    ],
   };
 
   return (
@@ -211,6 +218,11 @@ export default function MarineIndustry() {
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+              <div className="grid gap-4 sm:grid-cols-3 mb-8">
+                {caseStudy.images.map(image => (
+                  <img key={image.src} src={image.src} alt={image.alt} loading="lazy" className="aspect-[4/3] w-full rounded-md object-cover" />
+                ))}
+              </div>
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
@@ -244,6 +256,10 @@ export default function MarineIndustry() {
                     <div className="text-sm text-gray-600">{stat.label}</div>
                   </div>
                 ))}
+              </div>
+              <div className="mt-8 rounded-md border border-[#1e4159]/15 bg-[#1e4159]/5 p-5 text-gray-700">
+                <p className="font-semibold text-[#1e4159]">Marine CX surface-preparation guidance</p>
+                <p className="mt-2 text-sm leading-relaxed">For the wider specification and handover context, read the evidence-led <a href="https://ukshotblastingservices.com/marine-cx-surface-preparation" className="font-semibold text-[#1e4159] underline underline-offset-4">Marine CX surface-preparation guide</a> and the <a href="https://ukshotblastingservices.com/case-studies/ade-power-wakefield-marine-cx-enclosures" className="font-semibold text-[#1e4159] underline underline-offset-4">full ADE Power project record</a>.</p>
               </div>
             </div>
           </div>
