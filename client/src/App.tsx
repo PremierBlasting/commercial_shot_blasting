@@ -186,6 +186,7 @@ const ManufacturingIndustry = lazy(() => import("./pages/ManufacturingIndustry")
 const RetailIndustry = lazy(() => import("./pages/RetailIndustry"));
 const AerospaceIndustry = lazy(() => import("./pages/AerospaceIndustry"));
 const MarineIndustry = lazy(() => import("./pages/MarineIndustry"));
+const MarineCXSurfacePreparation = lazy(() => import("./pages/MarineCXSurfacePreparation"));
 const AgricultureIndustry = lazy(() => import("./pages/AgricultureIndustry"));
 const TransportLogisticsIndustry = lazy(() => import("./pages/TransportLogisticsIndustry"));
 const HeritageRestorationIndustry = lazy(() => import("./pages/HeritageRestorationIndustry"));
@@ -223,6 +224,7 @@ function Router() {
         <Route path="/industries/retail" component={RetailIndustry} />
         <Route path="/industries/aerospace" component={AerospaceIndustry} />
         <Route path="/industries/marine" component={MarineIndustry} />
+        <Route path="/marine-cx-surface-preparation" component={MarineCXSurfacePreparation} />
         <Route path="/industries/agriculture" component={AgricultureIndustry} />
         <Route path="/industries/transport-logistics" component={TransportLogisticsIndustry} />
         <Route path="/industries/heritage-restoration" component={HeritageRestorationIndustry} />

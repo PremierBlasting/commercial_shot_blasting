@@ -40,6 +40,7 @@ const sitemapRoutes = [
   { url: "/industries/retail", changefreq: "monthly", priority: 0.8 },
   { url: "/industries/aerospace", changefreq: "monthly", priority: 0.8 },
   { url: "/industries/marine", changefreq: "monthly", priority: 0.8 },
+  { url: "/marine-cx-surface-preparation", changefreq: "monthly", priority: 0.8 },
   { url: "/industries/agriculture", changefreq: "monthly", priority: 0.8 },
   { url: "/industries/transport-logistics", changefreq: "monthly", priority: 0.8 },
   { url: "/industries/heritage-restoration", changefreq: "monthly", priority: 0.8 },
