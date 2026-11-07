@@ -4,6 +4,7 @@ import { QuotePopup } from "@/components/QuotePopup";
 import { Link } from "wouter";
 import { ArrowLeft, Shield, Cookie, Database, Mail, Phone, MapPin, Lock, Users, Clock } from "lucide-react";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { CookiePreferencesButton } from "@/components/CookiePreferencesButton";
 
 export default function PrivacyPolicy() {
   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
@@ -41,7 +42,7 @@ export default function PrivacyPolicy() {
             Your privacy is important to us. This policy explains how Commercial Shot Blasting collects, uses, and protects your personal information.
           </p>
           <p className="text-white/60 text-sm mt-4">
-            Last updated: January 2026
+            Last updated: 7 November 2026
           </p>
         </div>
       </section>
@@ -119,18 +120,27 @@ export default function PrivacyPolicy() {
                 <div className="bg-gray-50 rounded-lg p-4">
                   <h4 className="font-semibold text-gray-800">Analytics Cookies</h4>
                   <p className="text-gray-600 text-sm mt-1">
-                    These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. This helps us improve our website and services.
+                    If you allow it, Google Analytics helps us understand site use and Google Ads measures accepted HubSpot form enquiries. Telephone and WhatsApp clicks are engagement only: a click is not proof that a call connected or a message was received. Google may use cookies and online identifiers. We do not enable personalised advertising or send your enquiry name, email, telephone number, postcode, message or attachments to Google.
                   </p>
                 </div>
                 
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <h4 className="font-semibold text-gray-800">Marketing Cookies</h4>
+                  <h4 className="font-semibold text-gray-800">Optional Website-Call Measurement</h4>
                   <p className="text-gray-600 text-sm mt-1">
-                    These cookies are used to track visitors across websites. The intention is to display ads that are relevant and engaging for the individual user.
+                    If you separately select the website-call option and allow Google advertising measurement, Google may display a temporary forwarding number after an eligible ad visit. It connects to our normal business number and lets Google measure calls lasting at least 60 seconds. Google may process call time, duration, connection status and caller number or area-code information where available, alongside ad identifiers and cookies. We do not enable call recording. Existing WhatsApp destinations remain unchanged and never use a forwarding number.
                   </p>
                 </div>
               </div>
 
+              <p className="text-gray-700 leading-relaxed mt-4">
+                Earlier analytics or advertising choices do not authorise this new call-measurement purpose. The separate call option is unselected unless you previously selected it. You may allow existing measurement with calls off, or decline without losing access to forms, telephone or WhatsApp links. Withdrawing call permission restores our real website number and blocks subsequent forwarding configuration; it does not erase data already processed by Google. See <a href="https://policies.google.com/privacy" className="underline">Google's privacy policy</a> for their processing and retention.
+              </p>
+              <p className="text-gray-700 leading-relaxed mt-4">
+                Optional Google measurement is blocked until permitted. Use <CookiePreferencesButton className="text-[#2C5F7F]" /> here or in the footer to change or withdraw your choice. An older analytics-only acceptance is not treated as advertising or website-call permission.
+              </p>
+              <p className="text-gray-700 leading-relaxed mt-4">
+                Existing tagged attribution may include campaign names and IDs, ad/group IDs, HubSpot campaign parameters and applicable Google click identifiers. Untagged visit context stays in page memory, or the existing tab's session storage if analytics is allowed; it is not added to long-term storage. A website email link may prefill an optional campaign name and ID only, which you may edit or delete before sending. It contains no individual click identifiers, sends nothing automatically, and cannot identify the origin of an email sent independently of these links. This website continues to use its existing embedded HubSpot forms; no new native enquiry or CRM integration is implied.
+              </p>
               <p className="text-gray-700 leading-relaxed mt-4">
                 You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our website.
               </p>
@@ -299,6 +309,7 @@ export default function PrivacyPolicy() {
                 <li><Link href="/our-work" className="hover:text-white transition">Our Work</Link></li>
                 <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
                 <li><Link href="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link></li>
+                <li><CookiePreferencesButton className="hover:text-white transition" /></li>
               </ul>
             </div>
             <div>

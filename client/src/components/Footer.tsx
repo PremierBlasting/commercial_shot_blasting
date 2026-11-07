@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Phone, Mail } from "lucide-react";
 import { trackPhoneCall, trackEvent } from "@/lib/analytics";
+import { CookiePreferencesButton } from "@/components/CookiePreferencesButton";
 
 export function Footer() {
   return (
@@ -110,6 +111,7 @@ export function Footer() {
             <ul className="space-y-2 text-white/70 text-sm">
               <li><Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-white">Terms & Conditions</Link></li>
+              <li><CookiePreferencesButton className="hover:text-white" /></li>
             </ul>
           </div>
         </div>

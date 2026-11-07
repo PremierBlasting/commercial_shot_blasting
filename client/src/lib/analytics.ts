@@ -1,149 +1,76 @@
-/**
- * Google Analytics Event Tracking Utility
- * Provides functions to track various user interactions with UTM attribution
- */
+/** Existing analytics API, now consent-aware; embedded HubSpot forms stay embedded. */
+import { getUTMData, getFirstTouchUTM } from './utm';
+import { dispatchGoogleEvent, dispatchHubSpotLeadConversion, dispatchPageView, measurementPagePath } from './googleMeasurement';
+import { claimContactClick, isCSBPhone } from './contactClickTracking';
+import { CSB_PHONE } from '@shared/googleMeasurement';
 
-import { getUTMData, getFirstTouchUTM, type UTMData } from './utm';
-
-// Declare gtag as a global function
-declare global {
-  interface Window {
-    gtag: (
-      command: 'event' | 'config' | 'js',
-      action: string,
-      params?: Record<string, any>
-    ) => void;
-    dataLayer: any[];
+/** Never forward enquiry fields, raw query strings or arbitrary telephone numbers. */
+function safeEventParams(params: Record<string, unknown>): Record<string, unknown> {
+  const clean: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(params)) {
+    if (/^(?:name|email|email_address|phone|postcode|postal_code|message|user_data|user_id|send_to|transaction_id)$/i.test(key)) continue;
+    if (key === 'phone_number' && (typeof value !== 'string' || !isCSBPhone(value))) continue;
+    if (value === undefined || value === null) continue;
+    if (typeof value === 'string') {
+      let safe = value;
+      if (/^(?:landing_page|page_path|page_location|destination|form_location|click_location|request_source)$/.test(key) && (/^[a-z]+:/i.test(value) || value.startsWith('/'))) {
+        try { const url = new URL(value, window.location.origin); safe = url.origin === window.location.origin ? url.pathname : url.origin + url.pathname; } catch { continue; }
+      } else if (key === 'referrer') {
+        try { safe = new URL(value).hostname; } catch { continue; }
+      }
+      if (/@|[+]?\d[\d ()-]{8,}\d/.test(safe) && !(key === 'phone_number' || (key === 'event_label' && isCSBPhone(safe)))) continue;
+      clean[key] = safe.slice(0, 200);
+    } else if (typeof value === 'number' || typeof value === 'boolean') clean[key] = value;
   }
+  return clean;
 }
 
-/**
- * Get UTM attribution data to include in events
- */
-function getAttributionParams(): Record<string, string | undefined> {
-  const lastTouch = getUTMData();
-  const firstTouch = getFirstTouchUTM();
-  
+function getAttributionParams(): Record<string, unknown> {
+  const last = getUTMData(); const first = getFirstTouchUTM();
   return {
-    // Last-touch attribution (most recent campaign)
-    utm_source: lastTouch?.utm_source,
-    utm_medium: lastTouch?.utm_medium,
-    utm_campaign: lastTouch?.utm_campaign,
-    utm_term: lastTouch?.utm_term,
-    utm_content: lastTouch?.utm_content,
-    // First-touch attribution (original campaign)
-    first_touch_source: firstTouch?.utm_source,
-    first_touch_medium: firstTouch?.utm_medium,
-    first_touch_campaign: firstTouch?.utm_campaign,
-    // Additional tracking IDs
-    gclid: lastTouch?.gclid,
-    fbclid: lastTouch?.fbclid,
-    msclkid: lastTouch?.msclkid,
-    // Landing page info
-    landing_page: lastTouch?.landing_page,
-    referrer: lastTouch?.referrer,
+    utm_source: last?.utm_source, utm_medium: last?.utm_medium,
+    utm_campaign: last?.utm_campaign, utm_term: last?.utm_term, utm_content: last?.utm_content,
+    first_touch_source: first?.utm_source, first_touch_medium: first?.utm_medium,
+    first_touch_campaign: first?.utm_campaign, gclid: last?.gclid,
+    fbclid: last?.fbclid, msclkid: last?.msclkid,
+    landing_page: last?.landing_page, referrer: last?.referrer,
   };
 }
 
-/**
- * Track a custom event in Google Analytics with UTM attribution
- */
-export function trackEvent(
-  eventName: string,
-  params?: Record<string, any>
-) {
-  if (typeof window !== 'undefined' && window.gtag) {
-    const attribution = getAttributionParams();
-    
-    // Filter out undefined values
-    const cleanAttribution = Object.fromEntries(
-      Object.entries(attribution).filter(([_, v]) => v !== undefined)
-    );
-    
-    window.gtag('event', eventName, {
-      ...cleanAttribution,
-      ...params,
-    });
-  }
+export function trackEvent(eventName: string, params?: Record<string, unknown>) {
+  if (eventName === 'email_click' && !claimContactClick('email')) return;
+  try { dispatchGoogleEvent(eventName, safeEventParams({ ...getAttributionParams(), ...params })); } catch { /* Tracking must never interrupt an enquiry. */ }
 }
 
-/**
- * Track form submission
- */
 export function trackFormSubmission(formName: string, formLocation?: string) {
-  trackEvent('form_submission', {
-    event_category: 'Form',
-    event_label: formName,
-    form_name: formName,
-    form_location: formLocation || window.location.pathname,
-  });
+  trackEvent('form_submission', { event_category: 'Form', event_label: formName, form_name: formName, form_location: formLocation || measurementPagePath() });
 }
 
-/**
- * Track phone call click
- */
+/** A click remains engagement, not a connected or duration-qualified website call. */
 export function trackPhoneCall(phoneNumber: string, location?: string) {
-  trackEvent('phone_call', {
-    event_category: 'Contact',
-    event_label: phoneNumber,
-    phone_number: phoneNumber,
-    click_location: location || window.location.pathname,
-  });
+  if (!isCSBPhone(phoneNumber) || !claimContactClick('phone')) return;
+  trackEvent('phone_call', { event_category: 'Contact', event_label: CSB_PHONE, phone_number: CSB_PHONE, click_location: location || measurementPagePath() });
 }
 
-/**
- * Track quote request (when quote popup opens)
- */
 export function trackQuoteRequest(source?: string) {
-  trackEvent('quote_request', {
-    event_category: 'Lead',
-    event_label: source || 'Quote Button',
-    request_source: source || window.location.pathname,
-  });
+  trackEvent('quote_request', { event_category: 'Lead', event_label: source || 'Quote Button', request_source: source || measurementPagePath() });
 }
 
-/**
- * Track quote form submission
- */
 export function trackQuoteFormSubmission() {
-  trackEvent('generate_lead', {
-    event_category: 'Lead',
-    event_label: 'Quote Form Submitted',
-    currency: 'GBP',
-  });
+  trackEvent('generate_lead', { event_category: 'Lead', event_label: 'Quote Form Submitted', currency: 'GBP' });
 }
 
-/**
- * Record a completed Commercial Shot Blasting HubSpot form as the dedicated
- * Google Ads lead action. This must only be called after HubSpot confirms a
- * successful submission; it is intentionally separate from engagement events.
+/** Called only after the existing accepted HubSpot callback, whose event dedup remains unchanged.
+ * No native contact.submit UUID, transaction token or CRM migration is implied.
  */
 export function trackCommercialShotBlastingGoogleAdsLead() {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', 'conversion', {
-      send_to: 'AW-16481669131/nOlECJeFnNccEIugibM9',
-    });
-  }
+  dispatchHubSpotLeadConversion();
 }
 
-/**
- * Track CTA button clicks
- */
 export function trackCTAClick(buttonName: string, destination?: string) {
-  trackEvent('cta_click', {
-    event_category: 'Engagement',
-    event_label: buttonName,
-    button_name: buttonName,
-    destination: destination,
-  });
+  trackEvent('cta_click', { event_category: 'Engagement', event_label: buttonName, button_name: buttonName, destination });
 }
 
-/**
- * Track page view (useful for SPA navigation)
- */
 export function trackPageView(pagePath: string, pageTitle?: string) {
-  trackEvent('page_view', {
-    page_path: pagePath,
-    page_title: pageTitle || document.title,
-  });
+  dispatchPageView(pagePath, pageTitle || document.title);
 }

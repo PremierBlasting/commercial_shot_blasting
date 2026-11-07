@@ -11,6 +11,7 @@ import { HeroCarousel } from "@/components/HeroCarousel";
 import { Footer } from "@/components/Footer";
 import { ServiceRadiusMap } from "@/components/ServiceRadiusMap";
 import { trackPhoneCall } from "@/lib/analytics";
+import { businessPhoneDialTarget } from "@/lib/businessPhoneTargets";
 import { FAQSchema, generateLocationFAQs } from "@/components/FAQSchema";
 
 export interface LocationData {
@@ -132,7 +133,7 @@ export function LocationPage({ location }: LocationPageProps) {
                 size="lg" 
                 variant="outline" 
                 className="border-white text-white hover:bg-white/10"
-                onClick={() => { trackPhoneCall('07970566409', 'Location Page'); window.location.href = 'tel:07970566409'; }}
+                onClick={() => { trackPhoneCall('07970566409', 'Location Page'); window.location.href = `tel:${businessPhoneDialTarget('07970566409')}`; }}
               >
                 <Phone className="w-5 h-5 mr-2" />
                 07970 566409
@@ -383,7 +384,7 @@ export function LocationPage({ location }: LocationPageProps) {
                 size="lg" 
                 variant="outline" 
                 className="border-white text-white hover:bg-white/10"
-                onClick={() => { trackPhoneCall('07970566409', 'Location Page'); window.location.href = 'tel:07970566409'; }}
+                onClick={() => { trackPhoneCall('07970566409', 'Location Page'); window.location.href = `tel:${businessPhoneDialTarget('07970566409')}`; }}
               >
                 <Phone className="w-5 h-5 mr-2" />
                 Call 07970 566409

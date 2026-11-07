@@ -4,7 +4,8 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch, useLocation } from "wouter";
 import { useEffect, lazy, Suspense } from "react";
 import { prefetchCriticalPages } from "./hooks/usePrefetch";
-import { initUTMTracking } from "./lib/utm";
+import { initUTMTracking, refreshAttributionActivity } from "./lib/utm";
+import { RouteMeasurementReady } from "./components/RouteMeasurementReady";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { CookieConsent } from "./components/CookieConsent";
@@ -196,6 +197,7 @@ function Router() {
   // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
+    refreshAttributionActivity();
   }, [location]);
   
   // Initialize UTM tracking and prefetch critical pages after initial load
@@ -207,6 +209,7 @@ function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Suspense fallback={<PageLoader />}>
+      <RouteMeasurementReady />
       <Switch>
         <Route path={"/"} component={Home} />
         <Route path={"/contact"} component={Contact} />
