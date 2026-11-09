@@ -1,0 +1,2572 @@
+diff --git a/client/src/components/LeadForm.tsx b/client/src/components/LeadForm.tsx
+index 28f5d4421f768b348bbf6bdb3faa53edac07af2b..17d69d90f60f680e649bc30497fb605cd7472544 100644
+--- a/client/src/components/LeadForm.tsx
++++ b/client/src/components/LeadForm.tsx
+@@ -5,6 +5,8 @@ import { formatUTMForSubmission } from "@/lib/utm";
+ import { normaliseUKPostcode, validateLeadEmailClient, validateUKPhone, validateUKPostcode } from "@shared/emailValidation";
+ import { HBTunnellingTestimonial } from "@/components/HBTunnellingTestimonial";
+ import { trackCommercialShotBlastingLead } from "@/lib/analytics";
++import { ENQUIRY_ATTACHMENT_ACCEPT, MAX_ENQUIRY_FILES, selectEnquiryAttachments, formatAttachmentSize } from "@shared/enquiryAttachments";
++import { uploadEnquiryFile, type UploadedEnquiryMedia } from "@/lib/enquiryMediaUpload";
+ 
+ export interface LeadFormProps {
+   /** Visual variant — dark for a dark background, light elsewhere. */
+@@ -31,33 +33,7 @@ export interface LeadFormProps {
+   onSuccess?: () => void;
+ }
+ 
+-const MAX_FILES = 6;
+-// Six 5 MB files remain within the server's 50 MB JSON request limit after base64 encoding.
+-const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024;
+-type AttachmentContentType = "image/jpeg" | "image/png" | "image/webp" | "application/pdf";
+-const ACCEPTED_ATTACHMENT_TYPES = new Set<AttachmentContentType>([
+-  "image/jpeg",
+-  "image/png",
+-  "image/webp",
+-  "application/pdf",
+-]);
+-
+-function readFileAsBase64(file: File): Promise<string> {
+-  return new Promise((resolve, reject) => {
+-    const reader = new FileReader();
+-    reader.onerror = () => reject(new Error("We could not read that file. Please try again."));
+-    reader.onload = () => {
+-      const result = String(reader.result ?? "");
+-      const base64 = result.includes(",") ? result.split(",")[1] : result;
+-      if (!base64) {
+-        reject(new Error("We could not read that file. Please try again."));
+-        return;
+-      }
+-      resolve(base64);
+-    };
+-    reader.readAsDataURL(file);
+-  });
+-}
++interface SelectedEnquiryMedia { id:string;file:File;status:"queued"|"uploading"|"finishing"|"uploaded"|"failed";progress:number;error?:string }
+ 
+ /**
+  * The single public enquiry form used throughout Commercial Shot Blasting.
+@@ -80,7 +56,10 @@ export function LeadForm({
+   const [email, setEmail] = useState("");
+   const [postcode, setPostcode] = useState("");
+   const [message, setMessage] = useState("");
+-  const [attachments, setAttachments] = useState<File[]>([]);
++  const [attachments, setAttachments] = useState<SelectedEnquiryMedia[]>([]);
++  const [attachmentErrors, setAttachmentErrors] = useState<string[]>([]);
++  const [uploadBusy, setUploadBusy] = useState(false);
++  const uploadedFiles = useRef(new Map<string, UploadedEnquiryMedia>());
+   const [marketingConsent, setMarketingConsent] = useState(false);
+   const [submitted, setSubmitted] = useState(false);
+   const [error, setError] = useState("");
+@@ -108,8 +87,12 @@ export function LeadForm({
+       setError(submissionError.message || "Something went wrong. Please call us directly on 07970 566409.");
+     },
+   });
+-  const attachmentUpload = trpc.contact.uploadAttachments.useMutation();
+-  const isSubmitting = contactMutation.isPending || attachmentUpload.isPending;
++  const mediaBegin = trpc.contact.beginMediaUpload.useMutation();
++  const mediaChunk = trpc.contact.uploadMediaChunk.useMutation({ gcTime: 0 });
++  const mediaFinish = trpc.contact.finishMediaUpload.useMutation();
++  const mediaCancel = trpc.contact.cancelMediaUpload.useMutation();
++  const isSubmitting = uploadBusy || contactMutation.isPending;
++  const mediaApi = { begin: mediaBegin.mutateAsync, chunk: mediaChunk.mutateAsync, finish: mediaFinish.mutateAsync, cancel: mediaCancel.mutateAsync };
+ 
+   const validateEmail = useCallback((value: string) => {
+     if (!value.trim()) return "Please enter your email address.";
+@@ -144,29 +127,27 @@ export function LeadForm({
+   }, [validatePostcode]);
+ 
+   const addAttachments = (incoming: FileList | null) => {
+-    if (!incoming) return;
+-    setError("");
+-    const selected = Array.from(incoming);
+-    const invalid = selected.find((file) => !ACCEPTED_ATTACHMENT_TYPES.has(file.type as AttachmentContentType) || file.size > MAX_FILE_SIZE_BYTES);
+-    if (invalid) {
+-      setError("Please add JPG, PNG, WebP or PDF files up to 5 MB each.");
+-      if (attachmentInputRef.current) attachmentInputRef.current.value = "";
+-      return;
+-    }
+-    if (attachments.length + selected.length > MAX_FILES) {
+-      setError(`Please add up to ${MAX_FILES} photos or drawings at a time.`);
+-      if (attachmentInputRef.current) attachmentInputRef.current.value = "";
+-      return;
+-    }
+-    setAttachments((current) => [...current, ...selected]);
++    if (!incoming || submissionBusy.current) return;
++    const selection = selectEnquiryAttachments(attachments.map(item => item.file), Array.from(incoming));
++    setAttachmentErrors(selection.errors);
++    setAttachments(selection.files.map(file => attachments.find(item => item.file === file) || {
++      id: globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`,
++      file, status: "queued", progress: 0,
++    }));
+     if (attachmentInputRef.current) attachmentInputRef.current.value = "";
+   };
+ 
+-  const removeAttachment = (index: number) => {
+-    setAttachments((current) => current.filter((_, currentIndex) => currentIndex !== index));
++  const removeAttachment = (id: string) => {
++    if (submissionBusy.current) return;
++    uploadedFiles.current.delete(id);
++    setAttachments(current => current.filter(item => item.id !== id));
++    setAttachmentErrors([]);
++    setError("");
+   };
+ 
+-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
++  const updateAttachment = (id:string, changes:Partial<SelectedEnquiryMedia>) => setAttachments(current => current.map(item => item.id === id ? {...item, ...changes} : item));
++
++  const handleSubmit = async (event: React.FormEvent | React.MouseEvent, skipFailedFiles = false) => {
+     event.preventDefault();
+     if (submissionBusy.current || submitted) return;
+     setError("");
+@@ -207,13 +188,31 @@ export function LeadForm({
+ 
+     submissionBusy.current = true;
+     try {
+-      const uploaded = attachments.length
+-        ? await Promise.all(attachments.map(async (attachment) => ({
+-            fileName: attachment.name,
+-            contentType: attachment.type as AttachmentContentType,
+-            fileData: await readFileAsBase64(attachment),
+-          }))).then((files) => attachmentUpload.mutateAsync({ attachments: files }))
+-        : [];
++      const uploaded: UploadedEnquiryMedia[] = [];
++      let failures = 0;
++      if (attachments.length) setUploadBusy(true);
++      for (const item of attachments) {
++        const cached = uploadedFiles.current.get(item.id);
++        if (cached) { uploaded.push(cached); continue; }
++        if (skipFailedFiles) continue;
++        updateAttachment(item.id, {status: "uploading", progress: 0, error: undefined});
++        try {
++          const result = await uploadEnquiryFile(item.file, mediaApi, progress => updateAttachment(item.id, {
++            status: progress.phase === "finishing" ? "finishing" : "uploading",
++            progress: Math.min(99, Math.round(progress.sentBytes / progress.totalBytes * 100)),
++          }));
++          uploadedFiles.current.set(item.id, result); uploaded.push(result);
++          updateAttachment(item.id, {status: "uploaded", progress: 100, error: undefined});
++        } catch (uploadError) {
++          failures++;
++          updateAttachment(item.id, {status: "failed", error: uploadError instanceof Error ? uploadError.message : "This file could not upload. Please retry."});
++        }
++      }
++      setUploadBusy(false);
++      if (failures) {
++        setError("Some files could not upload. Your enquiry has not been sent yet. Retry the failed files, remove them, or send without the failed files below. Files already uploaded are kept.");
++        return;
++      }
+       const context = enquiryContext || (capabilityStatementRequest ? "Capability statement follow-up" : "");
+       const messageParts = [
+         context && `Enquiry context: ${context}`,
+@@ -221,6 +220,11 @@ export function LeadForm({
+         trimmedMessage,
+         uploaded.length > 0 && `Attachments:\n${uploaded.map((attachment) => `• ${attachment.fileName}: ${attachment.url}`).join("\n")}`,
+       ].filter(Boolean);
++      const completeMessage = messageParts.join("\n\n");
++      if (completeMessage.length > 20000) {
++        setError("There are too many file links for one enquiry. Please remove a few files, or call us on 07970 566409. Your uploaded files are still selected.");
++        return;
++      }
+       const utmData = formatUTMForSubmission();
+ 
+       // Random, non-PII correlation token echoed only after server acceptance.
+@@ -232,7 +236,7 @@ export function LeadForm({
+         email: trimmedEmail,
+         phone: trimmedPhone,
+         postcode: trimmedPostcode,
+-        message: messageParts.join("\n\n"),
++        message: completeMessage,
+         sourcePage: typeof window !== "undefined" ? window.location.href : undefined,
+         locationName,
+         utmData: Object.keys(utmData).length > 0 ? utmData : undefined,
+@@ -241,6 +245,7 @@ export function LeadForm({
+     } catch (submissionError) {
+       setError(submissionError instanceof Error ? submissionError.message : "We could not send your enquiry. Please call us on 07970 566409.");
+     } finally {
++      setUploadBusy(false);
+       submissionBusy.current = false;
+     }
+   };
+@@ -289,7 +294,7 @@ export function LeadForm({
+   }
+ 
+   return (
+-    <form onSubmit={handleSubmit} className={`${bg} flex flex-col ${isHero ? "gap-3 p-4 shadow-2xl xl:p-5" : "gap-4 p-6"} rounded-xl border ${border}`}>
++    <form onSubmit={event => void handleSubmit(event)} className={`${bg} flex flex-col ${isHero ? "gap-3 p-4 shadow-2xl xl:p-5" : "gap-4 p-6"} rounded-xl border ${border}`}>
+       <div className="mb-1">
+         <h3 className={`${isHero ? "text-xl" : "text-lg"} font-bold ${headingColor}`}>Get In Touch</h3>
+         <p className={`mt-0.5 text-xs ${subColor}`}>{subheading || "Tell us a little about your enquiry and we’ll get back to you promptly."}</p>
+@@ -297,26 +302,26 @@ export function LeadForm({
+ 
+       <div>
+         <label className={`mb-1 block text-xs font-medium ${labelColor}`} htmlFor={`${fieldId}-name`}>Your name <span aria-hidden="true">*</span></label>
+-        <input id={`${fieldId}-name`} type="text" required autoComplete="name" placeholder="e.g. John Smith" value={name} onChange={(event) => setName(event.target.value)} className={inputClass} />
++        <input id={`${fieldId}-name`} type="text" required autoComplete="name" readOnly={isSubmitting} placeholder="e.g. John Smith" value={name} onChange={(event) => setName(event.target.value)} className={inputClass} />
+       </div>
+ 
+       <fieldset className="grid gap-3 sm:grid-cols-2">
+         <legend className={`mb-1 text-xs font-medium ${labelColor}`}>Your contact details <span aria-hidden="true">*</span></legend>
+         <div>
+           <label className={`mb-1 block text-xs font-medium ${labelColor}`} htmlFor={`${fieldId}-email`}>Email address <span aria-hidden="true">*</span></label>
+-          <input id={`${fieldId}-email`} type="email" required autoComplete="email" placeholder="Email address" value={email} onChange={(event) => handleEmailChange(event.target.value)} onBlur={() => setEmailError(validateEmail(email))} aria-describedby={emailError ? `${fieldId}-email-error` : undefined} aria-invalid={!!emailError} className={`${inputClass} ${emailError ? "border-red-400 focus:border-red-400 focus:ring-red-400/20" : ""}`} />
++          <input id={`${fieldId}-email`} type="email" required autoComplete="email" readOnly={isSubmitting} placeholder="Email address" value={email} onChange={(event) => handleEmailChange(event.target.value)} onBlur={() => setEmailError(validateEmail(email))} aria-describedby={emailError ? `${fieldId}-email-error` : undefined} aria-invalid={!!emailError} className={`${inputClass} ${emailError ? "border-red-400 focus:border-red-400 focus:ring-red-400/20" : ""}`} />
+           {emailError && <p id={`${fieldId}-email-error`} role="alert" className="mt-1 flex items-start gap-1.5 text-xs text-red-500"><AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />{emailError}</p>}
+         </div>
+         <div>
+           <label className={`mb-1 block text-xs font-medium ${labelColor}`} htmlFor={`${fieldId}-phone`}>Phone number <span aria-hidden="true">*</span></label>
+-          <input id={`${fieldId}-phone`} type="tel" required autoComplete="tel" inputMode="tel" placeholder="Phone number" value={phone} onChange={(event) => handlePhoneChange(event.target.value)} onBlur={() => setPhoneError(validatePhone(phone))} aria-describedby={phoneError ? `${fieldId}-phone-error` : undefined} aria-invalid={!!phoneError} className={`${inputClass} ${phoneError ? "border-red-400 focus:border-red-400 focus:ring-red-400/20" : ""}`} />
++          <input id={`${fieldId}-phone`} type="tel" required autoComplete="tel" readOnly={isSubmitting} inputMode="tel" placeholder="Phone number" value={phone} onChange={(event) => handlePhoneChange(event.target.value)} onBlur={() => setPhoneError(validatePhone(phone))} aria-describedby={phoneError ? `${fieldId}-phone-error` : undefined} aria-invalid={!!phoneError} className={`${inputClass} ${phoneError ? "border-red-400 focus:border-red-400 focus:ring-red-400/20" : ""}`} />
+           {phoneError && <p id={`${fieldId}-phone-error`} role="alert" className="mt-1 flex items-start gap-1.5 text-xs text-red-500"><AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />{phoneError}</p>}
+         </div>
+       </fieldset>
+ 
+       <div>
+         <label className={`mb-1 block text-xs font-medium ${labelColor}`} htmlFor={`${fieldId}-postcode`}>Site postcode <span aria-hidden="true">*</span></label>
+-        <input id={`${fieldId}-postcode`} type="text" required autoComplete="postal-code" inputMode="text" maxLength={8} placeholder="e.g. WF9 6AA" value={postcode} onChange={(event) => handlePostcodeChange(event.target.value)} onBlur={() => {
++        <input id={`${fieldId}-postcode`} type="text" required autoComplete="postal-code" readOnly={isSubmitting} inputMode="text" maxLength={8} placeholder="e.g. WF9 6AA" value={postcode} onChange={(event) => handlePostcodeChange(event.target.value)} onBlur={() => {
+           const formatted = normaliseUKPostcode(postcode);
+           setPostcode(formatted);
+           setPostcodeError(validatePostcode(formatted));
+@@ -326,26 +331,33 @@ export function LeadForm({
+ 
+       <div>
+         <label className={`mb-1 block text-xs font-medium ${labelColor}`} htmlFor={`${fieldId}-message`}>Your message <span aria-hidden="true">*</span></label>
+-        <textarea id={`${fieldId}-message`} rows={isHero ? 3 : 4} required maxLength={5000} placeholder="Tell us what you need help with... Such as: request a site visit." value={message} onChange={(event) => setMessage(event.target.value)} className={`${inputClass} resize-y`} />
++        <textarea id={`${fieldId}-message`} rows={isHero ? 3 : 4} readOnly={isSubmitting} required maxLength={5000} placeholder="Tell us what you need help with... Such as: request a site visit." value={message} onChange={(event) => setMessage(event.target.value)} className={`${inputClass} resize-y`} />
+       </div>
+ 
+       <div className={`rounded-lg border border-dashed p-3 ${isDark ? "border-white/30 bg-white/5" : "border-[#2C5F7F]/25 bg-[#2C5F7F]/[0.03]"}`}>
+         <div className="flex flex-wrap items-start justify-between gap-3">
+           <div>
+-            <p className={`text-sm font-semibold ${headingColor}`}>Add photos or drawings <span className={`font-normal ${subColor}`}>(optional)</span></p>
+-             <p className={`mt-0.5 text-xs leading-relaxed ${subColor}`}>Upload up to {MAX_FILES} JPG, PNG, WebP or PDF files, 5 MB each.</p>
++            <p className={`text-sm font-semibold ${headingColor}`}>Add photos, videos or drawings <span className={`font-normal ${subColor}`}>(optional)</span></p>
++            <p className={`mt-0.5 text-xs leading-relaxed ${subColor}`}>Up to {MAX_ENQUIRY_FILES} files: photos/PDFs 100 MB each, videos 250 MB each, 500 MB total.</p>
++            <p className={`mt-0.5 text-xs leading-relaxed ${subColor}`}>JPG, PNG, HEIC/iPhone photos, WebP, GIF, TIFF, camera RAW, MP4, MOV and more. Originals are kept.</p>
+           </div>
+-          <button type="button" onClick={() => attachmentInputRef.current?.click()} className={`inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-xs font-semibold transition ${isDark ? "bg-white/10 text-white hover:bg-white/20" : "bg-white text-[#2C5F7F] shadow-sm ring-1 ring-[#2C5F7F]/15 hover:bg-[#edf4f7]"}`}>
++          <button type="button" disabled={isSubmitting} onClick={() => attachmentInputRef.current?.click()} className={`inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-xs font-semibold transition disabled:opacity-50 ${isDark ? "bg-white/10 text-white hover:bg-white/20" : "bg-white text-[#2C5F7F] shadow-sm ring-1 ring-[#2C5F7F]/15 hover:bg-[#edf4f7]"}`}>
+             <Upload className="h-3.5 w-3.5" aria-hidden="true" /> Add files
+           </button>
+         </div>
+-        <input ref={attachmentInputRef} id={`${fieldId}-attachments`} type="file" multiple accept="image/jpeg,image/png,image/webp,application/pdf" onChange={(event) => addAttachments(event.target.files)} className="sr-only" />
++        <input ref={attachmentInputRef} id={`${fieldId}-attachments`} type="file" multiple disabled={isSubmitting} accept={ENQUIRY_ATTACHMENT_ACCEPT} onChange={(event) => addAttachments(event.target.files)} className="sr-only" />
++        {attachmentErrors.length > 0 && <ul role="alert" className={`mt-2 space-y-1 text-xs ${isDark ? "text-red-200" : "text-red-700"}`}>{attachmentErrors.map((problem,index) => <li key={index}>{problem}</li>)}</ul>}
+         {attachments.length > 0 && (
+           <ul className="mt-3 space-y-2" aria-label="Selected attachments">
+-            {attachments.map((attachment, index) => (
+-              <li key={`${attachment.name}-${attachment.lastModified}-${index}`} className={`flex items-center justify-between gap-2 rounded-md px-2.5 py-2 text-xs ${isDark ? "bg-white/10 text-blue-100" : "bg-white text-slate-600"}`}>
+-                <span className="flex min-w-0 items-center gap-1.5"><FileText className="h-3.5 w-3.5 shrink-0 text-[#2C5F7F]" aria-hidden="true" /><span className="truncate">{attachment.name}</span></span>
+-                <button type="button" onClick={() => removeAttachment(index)} aria-label={`Remove ${attachment.name}`} className="rounded p-0.5 text-slate-400 transition hover:bg-red-50 hover:text-red-600"><X className="h-4 w-4" aria-hidden="true" /></button>
++            {attachments.map(item => (
++              <li key={item.id} className={`rounded-md px-2.5 py-2 text-xs ${isDark ? "bg-white/10 text-blue-100" : "bg-white text-slate-600"}`}>
++                <div className="flex items-center justify-between gap-2">
++                  <span className="flex min-w-0 items-center gap-1.5"><FileText className="h-3.5 w-3.5 shrink-0 text-[#2C5F7F]" aria-hidden="true" /><span className="truncate">{item.file.name}</span><span className="shrink-0 opacity-70">{formatAttachmentSize(item.file.size)}</span></span>
++                  <button type="button" disabled={isSubmitting} onClick={() => removeAttachment(item.id)} aria-label={`Remove ${item.file.name}`} className="shrink-0 rounded p-0.5 text-slate-400 transition hover:bg-red-50 hover:text-red-600 disabled:opacity-40"><X className="h-4 w-4" aria-hidden="true" /></button>
++                </div>
++                {(item.status === "uploading" || item.status === "finishing") && <div className="mt-1.5"><div role="progressbar" aria-label={`Uploading ${item.file.name}`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={item.progress} className="h-1.5 overflow-hidden rounded bg-slate-400/25"><div className="h-full bg-[#E8A020]" style={{width:`${item.progress}%`}} /></div><p className="mt-1">{item.status === "finishing" ? "Finishing upload…" : `Uploading ${item.progress}%…`}</p></div>}
++                {item.status === "uploaded" && <p className="mt-1 flex items-center gap-1"><CheckCircle className="h-3 w-3" aria-hidden="true" />Uploaded — kept if you need to retry.</p>}
++                {item.status === "failed" && <p role="alert" className={`mt-1 ${isDark ? "text-red-200" : "text-red-700"}`}>{item.error}</p>}
+               </li>
+             ))}
+           </ul>
+@@ -354,7 +366,7 @@ export function LeadForm({
+ 
+       {showMarketingConsent && (
+         <label className={`flex items-start gap-2.5 rounded-lg border ${isHero ? "p-2.5" : "p-3"} text-xs leading-relaxed ${isDark ? "border-white/10 bg-white/5 text-blue-100/80" : "border-gray-100 bg-gray-50 text-gray-600"}`}>
+-          <input type="checkbox" checked={marketingConsent} onChange={(event) => setMarketingConsent(event.target.checked)} className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-gray-300 accent-[#2C5F7F]" />
++          <input type="checkbox" checked={marketingConsent} disabled={isSubmitting} onChange={(event) => setMarketingConsent(event.target.checked)} className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer rounded border-gray-300 accent-[#2C5F7F]" />
+           {isHero ? (
+             <span>Optional: send me relevant Premier Blasting updates by email or WhatsApp. See our <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className={`underline ${isDark ? "text-blue-200 hover:text-white" : "text-[#2C5F7F] hover:text-[#1a3d52]"}`}>Privacy Policy</a>.</span>
+           ) : (
+@@ -366,8 +378,9 @@ export function LeadForm({
+       {error && <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>}
+ 
+       <button type="submit" disabled={isSubmitting} aria-busy={isSubmitting} className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#E8A020] py-3 text-sm font-bold text-white transition-colors hover:bg-[#d4911a] disabled:cursor-not-allowed disabled:opacity-60">
+-        {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> Sending…</> : <><ArrowRight className="h-4 w-4" aria-hidden="true" /> Send enquiry</>}
++        {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> {uploadBusy ? "Uploading files…" : "Sending…"}</> : <><ArrowRight className="h-4 w-4" aria-hidden="true" /> {attachments.some(item => item.status === "failed") ? "Retry files & send enquiry" : "Send enquiry"}</>}
+       </button>
++      {attachments.some(item => item.status === "failed") && <button type="button" disabled={isSubmitting} onClick={event => void handleSubmit(event, true)} className={`w-full rounded-lg border px-3 py-2 text-xs font-semibold disabled:opacity-50 ${isDark ? "border-white/30 text-white" : "border-[#2C5F7F]/30 text-[#2C5F7F]"}`}>Send enquiry without failed files</button>}
+       <p className={`text-center text-xs ${privacyColor}`}>We&apos;ll only use your details to respond to this enquiry unless you opt in above.</p>
+ 
+       {showWhatsApp && (
+diff --git a/client/src/lib/enquiryMediaUpload.ts b/client/src/lib/enquiryMediaUpload.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..288032c14fa4dcf238c1a6542ece12b24a36df50
+--- /dev/null
++++ b/client/src/lib/enquiryMediaUpload.ts
+@@ -0,0 +1,63 @@
++import { ENQUIRY_CHUNK_BYTES, enquiryMediaFormat, attachmentSelectionError } from "@shared/enquiryAttachments";
++export interface UploadedEnquiryMedia { fileName:string;url:string;key:string }
++export interface EnquiryMediaUploadApi {
++ begin(input:{fileName:string;contentType:string;size:number}):Promise<{uploadId:string;chunkSize:number}>;
++ chunk(input:{uploadId:string;chunkIndex:number;fileData:string}):Promise<{receivedBytes:number}>;
++ finish(input:{uploadId:string}):Promise<UploadedEnquiryMedia>;
++ cancel(input:{uploadId:string}):Promise<unknown>;
++}
++export interface EnquiryUploadProgress { sentBytes:number;totalBytes:number;phase:"uploading"|"finishing" }
++const WAIT_MS=60000;
++export function boundedUploadCall<T>(run:()=>Promise<T>,timeoutMs=WAIT_MS):Promise<T> {
++ return new Promise((resolve,reject)=>{
++  const timer=setTimeout(()=>reject(new Error("The upload took too long. Please retry, or send your enquiry without files.")),timeoutMs);
++  Promise.resolve().then(run).then(value=>{clearTimeout(timer);resolve(value)},error=>{clearTimeout(timer);reject(error)});
++ });
++}
++const transient=(error:unknown):boolean=>{
++ const e=error as {data?:{httpStatus?:number;code?:string}};
++ const status=e?.data?.httpStatus;
++ return !status || status>=500 || status===408 || status===429 || e?.data?.code==="CONFLICT";
++};
++async function retryCall<T>(run:()=>Promise<T>):Promise<T>{
++ for(let attempt=0;;attempt++){
++  try{return await boundedUploadCall(run)}catch(error){if(attempt>=2||!transient(error))throw error;await new Promise(resolve=>setTimeout(resolve,500*(attempt+1)));}
++ }
++}
++export function readEnquiryChunk(blob:Blob):Promise<string>{
++ if(typeof FileReader==="undefined")return blob.arrayBuffer().then(buffer=>{const bytes=new Uint8Array(buffer);let text="";for(let i=0;i<bytes.length;i++)text+=String.fromCharCode(bytes[i]);return btoa(text)});
++ return new Promise((resolve,reject)=>{
++  const reader=new FileReader();const timer=setTimeout(()=>{reader.abort();reject(new Error("We could not read that file. Please choose the original file again."))},30000);
++  reader.onerror=()=>{clearTimeout(timer);reject(new Error("We could not read that file. Please choose the original file again."))};
++  reader.onabort=()=>{clearTimeout(timer);reject(new Error("Reading the file was interrupted. Please try again."))};
++  reader.onload=()=>{clearTimeout(timer);const result=String(reader.result??"");const data=result.slice(result.indexOf(",")+1);if(!data)reject(new Error("This file could not be read. Please try again."));else resolve(data)};
++  reader.readAsDataURL(blob);
++ });
++}
++/** No conversion or whole-file read: originals are sent one 1 MiB slice at a time. */
++export async function uploadEnquiryFile(file:File,api:EnquiryMediaUploadApi,onProgress:(progress:EnquiryUploadProgress)=>void):Promise<UploadedEnquiryMedia>{
++ const problem=attachmentSelectionError(file);if(problem)throw new Error(problem);
++ const format=enquiryMediaFormat(file)!;let uploadId:string|undefined;
++ try{
++  const begun=await boundedUploadCall(()=>api.begin({fileName:file.name,contentType:format.mime,size:file.size}));uploadId=begun.uploadId;
++  if(!uploadId||begun.chunkSize!==ENQUIRY_CHUNK_BYTES)throw new Error("We could not start that upload. Please retry.");
++  onProgress({sentBytes:0,totalBytes:file.size,phase:"uploading"});
++  for(let offset=0,index=0;offset<file.size;offset+=ENQUIRY_CHUNK_BYTES,index++){
++   const fileData=await readEnquiryChunk(file.slice(offset,Math.min(file.size,offset+ENQUIRY_CHUNK_BYTES)));
++   const result=await retryCall(()=>api.chunk({uploadId:uploadId!,chunkIndex:index,fileData}));
++   const expected=Math.min(file.size,offset+ENQUIRY_CHUNK_BYTES);
++   if(!Number.isSafeInteger(result.receivedBytes)||result.receivedBytes<expected||result.receivedBytes>file.size)throw new Error("The upload was interrupted. Please retry that file.");
++   onProgress({sentBytes:expected,totalBytes:file.size,phase:"uploading"});
++  }
++  onProgress({sentBytes:file.size,totalBytes:file.size,phase:"finishing"});
++  const result=await retryCall(()=>api.finish({uploadId:uploadId!}));
++  if(!result.url||!result.key||!result.fileName)throw new Error("The file did not finish uploading. Please retry.");
++  return result;
++ }catch(error){
++  if(uploadId)void api.cancel({uploadId}).catch(()=>undefined);
++  const e=error as {data?:{httpStatus?:number}};
++  if(e?.data?.httpStatus===413)throw new Error("The connection rejected this upload. Please retry or send your enquiry without files.");
++  if(e?.data?.httpStatus&&e.data.httpStatus>=500)throw new Error("We could not upload this file just now. Please retry or send your enquiry without files.");
++  throw error instanceof Error?error:new Error("We could not upload this file. Please retry or send your enquiry without files.");
++ }
++}
+diff --git a/package.json b/package.json
+index 888ee291a85fe0d115ed77281ff802ae8c338be9..ed95d50b387808bf518b22f7b05574c1a0930a0f 100644
+--- a/package.json
++++ b/package.json
+@@ -64,6 +64,7 @@
+     "embla-carousel-react": "^8.6.0",
+     "express": "^4.21.2",
+     "express-rate-limit": "^8.6.0",
++    "file-type": "20.5.0",
+     "framer-motion": "^12.23.22",
+     "helmet": "^8.3.0",
+     "input-otp": "^1.4.2",
+diff --git a/pnpm-lock.yaml b/pnpm-lock.yaml
+index 0a1cb7c2627419ba850a541e4239319bb949ff82..4db385102fd572a845bf2fcb07fb99d540a3fc85 100644
+--- a/pnpm-lock.yaml
++++ b/pnpm-lock.yaml
+@@ -163,6 +163,9 @@ importers:
+       express-rate-limit:
+         specifier: ^8.6.0
+         version: 8.6.0(express@4.21.2)
++      file-type:
++        specifier: 20.5.0
++        version: 20.5.0
+       framer-motion:
+         specifier: ^12.23.22
+         version: 12.23.22(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+@@ -576,6 +579,9 @@ packages:
+     resolution: {integrity: sha512-bkFqkLhh3pMBUQQkpVgWDWq/lqzc2678eUyDlTBhRqhCHFguYYGM0Efga7tYk4TogG/3x0EEl66/OQ+WGbWB/Q==}
+     engines: {node: '>=6.9.0'}
+ 
++  '@borewit/text-codec@0.2.3':
++    resolution: {integrity: sha512-49CycTz1aAZmvFcwkeFyhud1HUmRIB5Tabf7ALV+VA4Iu85MTfz2cUwzPagMFAdVBvrWdkCxG67I30tUwwpKsw==}
++
+   '@braintree/sanitize-url@7.1.1':
+     resolution: {integrity: sha512-i1L7noDNxtFyL5DmZafWy1wRVhGehQmzZaz1HiN5e7iylJMSZR7ekOV7NsIqa5qBldlLrsKv4HbgFUVlQrz8Mw==}
+ 
+@@ -2381,6 +2387,13 @@ packages:
+     peerDependencies:
+       react: ^18 || ^19
+ 
++  '@tokenizer/inflate@0.2.7':
++    resolution: {integrity: sha512-MADQgmZT1eKjp06jpI2yozxaU9uVs4GzzgSL+uEq7bVcJ9V1ZXQkeGNql1fsSI0gMy1vhvNTNbUqrx+pZfJVmg==}
++    engines: {node: '>=18'}
++
++  '@tokenizer/token@0.3.0':
++    resolution: {integrity: sha512-OvjF+z51L3ov0OyAU0duzsYuvO01PH7x4t6DJx+guahgTnBHkhJdG7soQeTSFLWN3efnHyibZ4Z8l2EuWwJN3A==}
++
+   '@trpc/client@11.6.0':
+     resolution: {integrity: sha512-DyWbYk2hd50BaVrXWVkaUnaSwgAF5g/lfBkXtkF1Aqlk6BtSzGUo3owPkgqQO2I5LwWy1+ra9TsSfBBvIZpTwg==}
+     peerDependencies:
+@@ -3310,6 +3323,13 @@ packages:
+       picomatch:
+         optional: true
+ 
++  fflate@0.8.3:
++    resolution: {integrity: sha512-tbZNuJrLwGUp3zshBtdy4W+ORxZuIh8a5ilyIEQDC5rY1f3U20JMry0Ll3WBzU58EZKsEuJFXhb5gwv8CsPvgA==}
++
++  file-type@20.5.0:
++    resolution: {integrity: sha512-BfHZtG/l9iMm4Ecianu7P8HRD2tBHLtjXinm4X62XBOYzi7CYA7jyqfJzOvXHqzVrVPYqBo2/GvbARMaaJkKVg==}
++    engines: {node: '>=18'}
++
+   finalhandler@1.3.1:
+     resolution: {integrity: sha512-6BN9trH7bp3qvnrRyzsBz+g3lZxTNZTbVO2EV1CS0WIcDbawYVdYvGflME/9QP0h0pYlCDBCTjYa9nZzMDpyxQ==}
+     engines: {node: '>= 0.8'}
+@@ -3473,6 +3493,9 @@ packages:
+     resolution: {integrity: sha512-cf6L2Ds3h57VVmkZe+Pn+5APsT7FpqJtEhhieDCvrE2MK5Qk9MyffgQyuxQTm6BChfeZNtcOLHp9IcWRVcIcBQ==}
+     engines: {node: '>=0.10.0'}
+ 
++  ieee754@1.2.1:
++    resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
++
+   inherits@2.0.4:
+     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
+ 
+@@ -4319,6 +4342,10 @@ packages:
+   strnum@2.1.1:
+     resolution: {integrity: sha512-7ZvoFTiCnGxBtDqJ//Cu6fWtZtc7Y3x+QOirG15wztbdngGSkht27o2pyGWrVy0b4WAy3jbKmnoK6g5VlVNUUw==}
+ 
++  strtok3@10.7.0:
++    resolution: {integrity: sha512-iAqrCpp7UXD2FZiHWhLXqdJ6CmNeVzRkkHAyyhhKMVtbVm2KtPX3D/bJNonvtcyLTHS4rwqP2pz9fsjK1K4z0Q==}
++    engines: {node: '>=18'}
++
+   style-to-js@1.1.18:
+     resolution: {integrity: sha512-JFPn62D4kJaPTnhFUI244MThx+FEGbi+9dw1b9yBBQ+1CZpV7QAT8kUtJ7b7EUNdHajjF/0x8fT+16oLJoojLg==}
+ 
+@@ -4383,6 +4410,10 @@ packages:
+     resolution: {integrity: sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==}
+     engines: {node: '>=0.6'}
+ 
++  token-types@6.2.0:
++    resolution: {integrity: sha512-s9euYHM//T3loJtbNUYdbAzsMlvKBeRS+XCLFy+UGosMQH19Hwjap5k19i4PPAEJJBsVIpMpVTxl4fIqCuNfUg==}
++    engines: {node: '>=14.16'}
++
+   trim-lines@3.0.1:
+     resolution: {integrity: sha512-kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==}
+ 
+@@ -4416,6 +4447,10 @@ packages:
+   ufo@1.6.1:
+     resolution: {integrity: sha512-9a4/uxlTWJ4+a5i0ooc1rU7C7YOw3wT+UGqdeNNHWnOF9qcMBgLRS+4IYUqbczewFx4mLEig6gawh7X6mFlEkA==}
+ 
++  uint8array-extras@1.6.0:
++    resolution: {integrity: sha512-8iAasVS4wUx0gPLjH8Xtz2PeDzTSiy8QiLGu2DT3X5GU+egFEQhpnbtkehbAwjvDcxIERmCYcysiODFmE3Ud0Q==}
++    engines: {node: '>=18'}
++
+   undici-types@7.14.0:
+     resolution: {integrity: sha512-QQiYxHuyZ9gQUIrmPo3IA+hUl4KYk8uSA7cHrcKd/l3p1OTpZcM0Tbp9x7FAtXdAYhlasd60ncPpgu6ihG6TOA==}
+ 
+@@ -5270,6 +5305,8 @@ snapshots:
+       '@babel/helper-string-parser': 7.27.1
+       '@babel/helper-validator-identifier': 7.27.1
+ 
++  '@borewit/text-codec@0.2.3': {}
++
+   '@braintree/sanitize-url@7.1.1': {}
+ 
+   '@builder.io/jsx-loc-internals@0.0.1':
+@@ -6923,6 +6960,16 @@ snapshots:
+       '@tanstack/query-core': 5.90.2
+       react: 19.2.1
+ 
++  '@tokenizer/inflate@0.2.7':
++    dependencies:
++      debug: 4.4.3
++      fflate: 0.8.3
++      token-types: 6.2.0
++    transitivePeerDependencies:
++      - supports-color
++
++  '@tokenizer/token@0.3.0': {}
++
+   '@trpc/client@11.6.0(@trpc/server@11.6.0(typescript@5.9.3))(typescript@5.9.3)':
+     dependencies:
+       '@trpc/server': 11.6.0(typescript@5.9.3)
+@@ -7908,6 +7955,17 @@ snapshots:
+     optionalDependencies:
+       picomatch: 4.0.3
+ 
++  fflate@0.8.3: {}
++
++  file-type@20.5.0:
++    dependencies:
++      '@tokenizer/inflate': 0.2.7
++      strtok3: 10.7.0
++      token-types: 6.2.0
++      uint8array-extras: 1.6.0
++    transitivePeerDependencies:
++      - supports-color
++
+   finalhandler@1.3.1:
+     dependencies:
+       debug: 2.6.9
+@@ -8144,6 +8202,8 @@ snapshots:
+     dependencies:
+       safer-buffer: 2.1.2
+ 
++  ieee754@1.2.1: {}
++
+   inherits@2.0.4: {}
+ 
+   inline-style-parser@0.2.4: {}
+@@ -9295,6 +9355,10 @@ snapshots:
+ 
+   strnum@2.1.1: {}
+ 
++  strtok3@10.7.0:
++    dependencies:
++      '@tokenizer/token': 0.3.0
++
+   style-to-js@1.1.18:
+     dependencies:
+       style-to-object: 1.0.11
+@@ -9348,6 +9412,12 @@ snapshots:
+ 
+   toidentifier@1.0.1: {}
+ 
++  token-types@6.2.0:
++    dependencies:
++      '@borewit/text-codec': 0.2.3
++      '@tokenizer/token': 0.3.0
++      ieee754: 1.2.1
++
+   trim-lines@3.0.1: {}
+ 
+   trough@2.2.0: {}
+@@ -9374,6 +9444,8 @@ snapshots:
+ 
+   ufo@1.6.1: {}
+ 
++  uint8array-extras@1.6.0: {}
++
+   undici-types@7.14.0: {}
+ 
+   unified@11.0.5:
+diff --git a/server/capabilityStatementCards.test.ts b/server/capabilityStatementCards.test.ts
+index ebe4b438d74ad22b85e5c59a29bcfa85f7e73b0b..dba35d70afabe0850018d65e0c9907d33d367d3a 100644
+--- a/server/capabilityStatementCards.test.ts
++++ b/server/capabilityStatementCards.test.ts
+@@ -33,10 +33,10 @@ describe("Capability-statement card coverage", () => {
+     const download = readFileSync(resolve(projectRoot, "client/src/components/CapabilityStatementDownload.tsx"), "utf8");
+     const leadForm = readFileSync(resolve(projectRoot, "client/src/components/LeadForm.tsx"), "utf8");
+ 
+-    expect(leadForm).toContain("const MAX_FILES = 6");
+-    expect(leadForm).toContain("const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024");
+-    expect(leadForm).toContain('multiple accept="image/jpeg,image/png,image/webp,application/pdf"');
+-    expect(leadForm).toContain("Add photos or drawings");
++    expect(leadForm).toContain("MAX_ENQUIRY_FILES");
++    expect(leadForm).toContain("videos 250 MB each");
++    expect(leadForm).toContain("accept={ENQUIRY_ATTACHMENT_ACCEPT}");
++    expect(leadForm).toContain("Add photos, videos or drawings");
+     expect(leadForm).toContain("removeAttachment");
+     expect(leadForm).toContain('aria-busy={isSubmitting}');
+     expect(leadForm).toContain("Send enquiry");
+diff --git a/server/contact.test.ts b/server/contact.test.ts
+index 4cdb98773eee0d0c332dedc5747b9ccf95d23d7b..e1a3917084e1f2778fdbbe701f30333425bd4c99 100644
+--- a/server/contact.test.ts
++++ b/server/contact.test.ts
+@@ -52,6 +52,44 @@ describe("contact.submit", () => {
+     vi.clearAllMocks();
+   });
+ 
++  it("accepts generated attachment links beyond the 5,000-character visitor textarea without changing routing", async () => {
++    const message = "Visitor message\n\nAttachments:\n" + "https://files.example.invalid/project.jpg\n".repeat(140);
++    expect(message.length).toBeGreaterThan(5000);
++    const result = await appRouter.createCaller(createPublicContext()).contact.submit({ name: "Synthetic Media Enquiry", email: "synthetic.media@example.test", phone: "07700900123", postcode: "GU5 1SJ", message });
++    expect(result).toEqual({success:true});
++    expect(createContactSubmissionMock.mock.calls[0][0].message).toBe(message);
++    expect(notifyNewLeadMock.mock.calls[0][0].message).toBe(message);
++  });
++
++  it("still bounds the generated-link message envelope at 20,000 characters", async () => {
++    await expect(appRouter.createCaller(createPublicContext()).contact.submit({name:"Synthetic Limit",email:"synthetic.limit@example.test",phone:"07700900123",postcode:"GU5 1SJ",message:"x".repeat(20001)})).rejects.toThrow();
++    expect(createContactSubmissionMock).not.toHaveBeenCalled();
++    expect(notifyNewLeadMock).not.toHaveBeenCalled();
++  });
++
++  it("exposes begin/chunk/finish through the native router without creating a lead during upload", async () => {
++    const bytes = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a3ioAAAAASUVORK5CYII=", "base64");
++    storagePutMock.mockImplementationOnce(async (key:string, blob:Blob, contentType:string) => {
++      expect(blob).toBeInstanceOf(Blob);
++      expect(Buffer.from(await blob.arrayBuffer())).toEqual(bytes);
++      expect(contentType).toBe("image/png");
++      return {key,url:`https://files.example.invalid/${key}`};
++    });
++    const caller=appRouter.createCaller(createPublicContext());
++    const begun=await caller.contact.beginMediaUpload({fileName:"original-photo.png",contentType:"",size:bytes.length});
++    expect(begun.chunkSize).toBe(1048576);
++    expect(await caller.contact.uploadMediaChunk({uploadId:begun.uploadId,chunkIndex:0,fileData:bytes.toString("base64")})).toEqual({receivedBytes:bytes.length});
++    const file=await caller.contact.finishMediaUpload({uploadId:begun.uploadId});
++    expect(file.fileName).toBe("original-photo.png");
++    expect(file.url).toMatch(/^https:\/\/files\.example\.invalid\/survey-attachments\//);
++    expect(storagePutMock).toHaveBeenCalledTimes(1);
++    expect(await caller.contact.finishMediaUpload({uploadId:begun.uploadId})).toEqual(file);
++    expect(storagePutMock).toHaveBeenCalledTimes(1);
++    expect(createContactSubmissionMock).not.toHaveBeenCalled();
++    expect(notifyNewLeadMock).not.toHaveBeenCalled();
++    await caller.contact.cancelMediaUpload({uploadId:begun.uploadId});
++  });
++
+   it("successfully submits a contact form with all fields", async () => {
+     const ctx = createPublicContext();
+     const caller = appRouter.createCaller(ctx);
+diff --git a/server/enquiryAttachmentPolicy.test.ts b/server/enquiryAttachmentPolicy.test.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..1c503c2d528ddd4ac3ffd2e243b4561db141a2f9
+--- /dev/null
++++ b/server/enquiryAttachmentPolicy.test.ts
+@@ -0,0 +1,251 @@
++import { describe, expect, it } from "vitest";
++import {
++  ENQUIRY_ATTACHMENT_ACCEPT,
++  ENQUIRY_CHUNK_BYTES,
++  ENQUIRY_MEDIA_FORMATS,
++  MAX_ENQUIRY_FILES,
++  MAX_ENQUIRY_TOTAL_BYTES,
++  MAX_PHOTO_BYTES,
++  MAX_VIDEO_BYTES,
++  MIB,
++  attachmentSelectionError,
++  enquiryAttachmentLimit,
++  enquiryMediaFormat,
++  selectEnquiryAttachments,
++} from "../shared/enquiryAttachments";
++
++// Metadata only: large limits do not allocate or read customer files.
++const file = (name: string, size = 1, type = "", lastModified = 1) => ({
++  name, size, type, lastModified,
++});
++
++const originalFormats = [
++  ["JPG", "photo", "image/jpeg"],
++  ["JPEG", "photo", "image/jpeg"],
++  ["jpe", "photo", "image/jpeg"],
++  ["jfif", "photo", "image/jpeg"],
++  ["png", "photo", "image/png"],
++  ["apng", "photo", "image/png"],
++  ["HEIC", "photo", "image/heic"],
++  ["HEIF", "photo", "image/heif"],
++  ["hif", "photo", "image/heif"],
++  ["AVIF", "photo", "image/avif"],
++  ["tif", "photo", "image/tiff"],
++  ["TIFF", "photo", "image/tiff"],
++  ["GIF", "photo", "image/gif"],
++  ["BMP", "photo", "image/bmp"],
++  ["dib", "photo", "image/bmp"],
++  ["WebP", "photo", "image/webp"],
++  ["jxl", "photo", "image/jxl"],
++  ["jp2", "photo", "image/jp2"],
++  ["CR2", "photo", "image/x-canon-cr2"],
++  ["cr3", "photo", "image/x-canon-cr3"],
++  ["DNG", "photo", "image/x-adobe-dng"],
++  ["nef", "photo", "image/x-nikon-nef"],
++  ["arw", "photo", "image/x-sony-arw"],
++  ["orf", "photo", "image/x-olympus-orf"],
++  ["rw2", "photo", "image/x-panasonic-rw2"],
++  ["raf", "photo", "image/x-fujifilm-raf"],
++  ["raw", "photo", "image/x-raw"],
++  ["MOV", "video", "video/quicktime"],
++  ["qt", "video", "video/quicktime"],
++  ["MP4", "video", "video/mp4"],
++  ["M4V", "video", "video/mp4"],
++  ["AVI", "video", "video/x-msvideo"],
++  ["WebM", "video", "video/webm"],
++  ["mkv", "video", "video/x-matroska"],
++  ["mpg", "video", "video/mpeg"],
++  ["mpeg", "video", "video/mpeg"],
++  ["mpe", "video", "video/mpeg"],
++  ["m2v", "video", "video/mpeg"],
++  ["3gp", "video", "video/3gpp"],
++  ["3g2", "video", "video/3gpp2"],
++  ["wmv", "video", "video/x-ms-wmv"],
++  ["asf", "video", "video/x-ms-wmv"],
++  ["mts", "video", "video/mp2t"],
++  ["m2ts", "video", "video/mp2t"],
++  ["ts", "video", "video/mp2t"],
++  ["flv", "video", "video/x-flv"],
++  ["PDF", "document", "application/pdf"],
++] as const;
++
++describe("enquiry attachment original-file policy", () => {
++  it("sets binary MiB limits and one-MiB chunks", () => {
++    expect(MIB).toBe(1024 * 1024);
++    expect(MAX_PHOTO_BYTES).toBe(100 * MIB);
++    expect(MAX_VIDEO_BYTES).toBe(250 * MIB);
++    expect(MAX_ENQUIRY_TOTAL_BYTES).toBe(500 * MIB);
++    expect(MAX_ENQUIRY_FILES).toBe(20);
++    expect(ENQUIRY_CHUNK_BYTES).toBe(MIB);
++  });
++
++  it.each(originalFormats)("accepts original .%s files with blank browser MIME", (extension, kind, mime) => {
++    const original = file(`original.${extension}`, 123);
++    expect(enquiryMediaFormat(original)).toMatchObject({ kind, mime });
++    expect(attachmentSelectionError(original)).toBeUndefined();
++    const result = selectEnquiryAttachments([], [original]);
++    expect(result.errors).toEqual([]);
++    expect(result.files).toHaveLength(1);
++    expect(result.files[0]).toBe(original);
++  });
++
++  it.each([
++    [" IMAGE/JPG ", "image/jpeg"],
++    ["image/pjpeg", "image/jpeg"],
++    ["image/x-png", "image/png"],
++    ["video/x-m4v", "video/mp4"],
++    ["video/avi", "video/x-msvideo"],
++    ["image/x-ms-bmp", "image/bmp"],
++    ["image/heic-sequence", "image/heic"],
++    ["image/heif-sequence", "image/heif"],
++    ["video/x-mpeg", "video/mpeg"],
++    ["IMAGE/JPEG; charset=binary", "image/jpeg"],
++  ])("normalizes extensionless MIME alias %s to %s", (type, mime) => {
++    const original = file("original", 12, type);
++    expect(enquiryMediaFormat(original)?.mime).toBe(mime);
++    expect(attachmentSelectionError(original)).toBeUndefined();
++  });
++
++  it.each(["", "application/octet-stream", "binary/octet-stream"])("uses filename fallback for MIME '%s'", type => {
++    expect(enquiryMediaFormat(file("camera.original.HEIC", 1, type)))
++      .toMatchObject({ kind: "photo", mime: "image/heic" });
++    expect(enquiryMediaFormat(file("camera.original.MOV", 1, type)))
++      .toMatchObject({ kind: "video", mime: "video/quicktime" });
++  });
++
++  it.each([
++    ["photo.jpg", "image/jpeg", 100 * MIB],
++    ["camera.dng", "", 100 * MIB],
++    ["document.pdf", "application/pdf", 100 * MIB],
++    ["video.mov", "video/quicktime", 250 * MIB],
++  ])("accepts exactly the cap and rejects one extra byte for %s", (name, type, cap) => {
++    const atCap = file(name, cap, type);
++    const overCap = file(name, cap + 1, type);
++    expect(enquiryAttachmentLimit(enquiryMediaFormat(atCap)!)).toBe(cap);
++    expect(attachmentSelectionError(atCap)).toBeUndefined();
++    expect(attachmentSelectionError(overCap)).toEqual(expect.any(String));
++    const result = selectEnquiryAttachments([], [overCap, atCap]);
++    expect(result.files).toEqual([atCap]);
++    expect(result.errors).toHaveLength(1);
++  });
++
++  it("rejects zero-byte files while retaining the next valid original", () => {
++    const empty = file("empty.jpg", 0);
++    const valid = file("original.heic", 1);
++    expect(attachmentSelectionError(empty)).toMatch(/empty/i);
++    expect(selectEnquiryAttachments([], [empty, valid])).toEqual({
++      files: [valid], errors: [attachmentSelectionError(empty)],
++    });
++  });
++
++  it("accepts 160-character names and rejects 161-character names", () => {
++    const valid = file(`${"a".repeat(156)}.jpg`);
++    const invalid = file(`${"a".repeat(157)}.jpg`);
++    expect(valid.name).toHaveLength(160);
++    expect(invalid.name).toHaveLength(161);
++    expect(attachmentSelectionError(valid)).toBeUndefined();
++    expect(attachmentSelectionError(invalid)).toMatch(/160/);
++    expect(selectEnquiryAttachments([], [invalid, valid]).files).toEqual([valid]);
++  });
++
++  it.each([
++    ["vector.svg", "image/svg+xml"],
++    ["page.html", "text/html"],
++    ["page.htm", "text/html"],
++    ["program.exe", "application/x-msdownload"],
++    ["script.js", "text/javascript"],
++    ["installer.msi", "application/octet-stream"],
++    ["archive.zip", "application/zip"],
++    ["photo.jpg.exe", "image/jpeg"],
++    ["image.svg", "image/jpeg"],
++    ["page.html", "image/jpeg"],
++    ["no-extension", "image/svg+xml"],
++    ["unknown", ""],
++  ])("excludes active or unsupported file %s even with misleading MIME", (name, type) => {
++    const invalid = file(name, 10, type);
++    expect(enquiryMediaFormat(invalid)).toBeUndefined();
++    expect(attachmentSelectionError(invalid)).toMatch(/not supported/);
++    expect(selectEnquiryAttachments([], [invalid]).files).toEqual([]);
++  });
++
++  it("lists each supported extension/MIME in the picker without active wildcard types", () => {
++    const accepted = ENQUIRY_ATTACHMENT_ACCEPT.split(",");
++    expect(new Set(accepted).size).toBe(accepted.length);
++    for (const format of ENQUIRY_MEDIA_FORMATS) {
++      expect(accepted).toContain(format.mime);
++      for (const extension of format.extensions) expect(accepted).toContain(`.${extension}`);
++    }
++    for (const excluded of [".svg", "image/svg+xml", ".html", "text/html", ".exe", "image/*", "video/*"]) {
++      expect(accepted).not.toContain(excluded);
++    }
++  });
++
++  it("retains valid mixed-batch files in order, without cloning or mutating originals", () => {
++    const existing = Object.freeze([Object.freeze(file("retained.pdf", 10))]);
++    const photo = Object.freeze(file("camera.HEIC", 11));
++    const video = Object.freeze(file("clip.MOV", 12));
++    const rejected = file("page.html", 13, "text/html");
++    const incoming = Object.freeze([photo, rejected, video]);
++    const result = selectEnquiryAttachments(existing, incoming);
++    expect(result.files).toEqual([existing[0], photo, video]);
++    expect(result.files[0]).toBe(existing[0]);
++    expect(result.files[1]).toBe(photo);
++    expect(result.files[2]).toBe(video);
++    expect(result.errors).toEqual([attachmentSelectionError(rejected)]);
++    expect(existing).toHaveLength(1);
++    expect(incoming).toHaveLength(3);
++  });
++
++  it("accepts exactly 20 files and rejects the 21st without dropping existing selections", () => {
++    const incoming = Array.from({ length: 21 }, (_, index) => file(`photo-${index}.jpg`));
++    const result = selectEnquiryAttachments([], incoming);
++    expect(result.files).toEqual(incoming.slice(0, 20));
++    expect(result.errors).toHaveLength(1);
++    expect(result.errors[0]).toContain(incoming[20].name);
++    expect(selectEnquiryAttachments(incoming.slice(0, 19), incoming.slice(19)).files)
++      .toEqual(incoming.slice(0, 20));
++  });
++
++  it("accepts exactly 500 MiB total and rejects one extra byte", () => {
++    const first = file("first.mov", 250 * MIB);
++    const second = file("second.mp4", 250 * MIB);
++    const excess = file("excess.jpg", 1);
++    const result = selectEnquiryAttachments([first], [second, excess]);
++    expect(result.files).toEqual([first, second]);
++    expect(result.files.reduce((sum, selected) => sum + selected.size, 0)).toBe(500 * MIB);
++    expect(result.errors).toHaveLength(1);
++    expect(result.errors[0]).toContain(excess.name);
++  });
++
++  it("skips an over-total file but continues accepting smaller valid files", () => {
++    const existing = [file("one.mov", 250 * MIB), file("two.mov", 249 * MIB)];
++    const oversizedBatchMember = file("too-large.jpg", MIB + 1);
++    const fitting = file("fits.jpg", MIB);
++    const result = selectEnquiryAttachments(existing, [oversizedBatchMember, fitting]);
++    expect(result.files).toEqual([...existing, fitting]);
++    expect(result.errors).toHaveLength(1);
++    expect(result.errors[0]).toContain(oversizedBatchMember.name);
++  });
++
++  it("deduplicates matching name/size/lastModified across existing and incoming files", () => {
++    const original = file("original.jpg", 100, "image/jpeg", 10);
++    const same = { ...original, type: "" };
++    const otherSize = { ...original, size: 101 };
++    const otherTime = { ...original, lastModified: 11 };
++    const otherName = { ...original, name: "different.jpg" };
++    const result = selectEnquiryAttachments([original], [same, same, otherSize, otherTime, otherName]);
++    expect(result.errors).toEqual([]);
++    expect(result.files).toEqual([original, otherSize, otherTime, otherName]);
++    expect(result.files[0]).toBe(original);
++    expect(selectEnquiryAttachments([], [original, same]).files).toEqual([original]);
++  });
++
++  it("silently skips duplicates before the count and total caps", () => {
++    const fullCount = Array.from({ length: 20 }, (_, index) => file(`${index}.jpg`));
++    expect(selectEnquiryAttachments(fullCount, [{ ...fullCount[0] }]))
++      .toEqual({ files: fullCount, errors: [] });
++    const fullTotal = [file("one.mov", 250 * MIB), file("two.mov", 250 * MIB)];
++    expect(selectEnquiryAttachments(fullTotal, [{ ...fullTotal[1] }]))
++      .toEqual({ files: fullTotal, errors: [] });
++  });
++});
+diff --git a/server/enquiryMediaUploadClient.test.ts b/server/enquiryMediaUploadClient.test.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..bbe847d8a98422187c3392accc58a1ab1b5b0fee
+--- /dev/null
++++ b/server/enquiryMediaUploadClient.test.ts
+@@ -0,0 +1,501 @@
++import { Blob as NodeBlob, File as NodeFile } from "node:buffer";
++import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
++import {
++  boundedUploadCall,
++  readEnquiryChunk,
++  uploadEnquiryFile,
++  type EnquiryMediaUploadApi,
++  type EnquiryUploadProgress,
++  type UploadedEnquiryMedia,
++} from "../client/src/lib/enquiryMediaUpload";
++import { ENQUIRY_CHUNK_BYTES, MIB } from "../shared/enquiryAttachments";
++
++const UPLOAD_ID = "synthetic-upload-id";
++const completed: UploadedEnquiryMedia = {
++  fileName: "original.MOV",
++  key: "enquiry-media/synthetic-original.mov",
++  url: "https://files.example.invalid/enquiry-media/synthetic-original.mov?token=synthetic",
++};
++
++function originalFile(name = "original.MOV", bytes = new Uint8Array([0, 1, 128, 255]), type = ""): File {
++  return new NodeFile([bytes], name, { type, lastModified: 1 }) as unknown as File;
++}
++
++function mockApi() {
++  const receivedChunks = new Map<number, number>();
++  return {
++    begin: vi.fn<EnquiryMediaUploadApi["begin"]>().mockResolvedValue({ uploadId: UPLOAD_ID, chunkSize: ENQUIRY_CHUNK_BYTES }),
++    chunk: vi.fn<EnquiryMediaUploadApi["chunk"]>().mockImplementation(async ({ chunkIndex, fileData }) => {
++      receivedChunks.set(chunkIndex, Buffer.from(fileData, "base64").byteLength);
++      return { receivedBytes: Array.from(receivedChunks.values()).reduce((sum, bytes) => sum + bytes, 0) };
++    }),
++    finish: vi.fn<EnquiryMediaUploadApi["finish"]>().mockResolvedValue(completed),
++    cancel: vi.fn<EnquiryMediaUploadApi["cancel"]>().mockResolvedValue({ cancelled: true }),
++  };
++}
++
++function httpError(status: number, code?: string): Error {
++  return Object.assign(new Error(`Synthetic HTTP ${status}`), { data: { httpStatus: status, code } });
++}
++
++beforeEach(() => {
++  // Force Node's binary fallback; every transport boundary is a local mock.
++  vi.stubGlobal("FileReader", undefined);
++  vi.stubGlobal("fetch", vi.fn(() => { throw new Error("Real network must not be used in upload helper tests"); }));
++});
++
++afterEach(() => {
++  vi.restoreAllMocks();
++  vi.unstubAllGlobals();
++  vi.useRealTimers();
++});
++
++describe("enquiry original-file chunk upload client", () => {
++  it("sends one MiB followed by the remainder sequentially, preserving every original byte and the exact finished link", async () => {
++    const bytes = Uint8Array.from({ length: MIB + 37 }, (_, index) => index % 256);
++    const file = originalFile("original.MOV", bytes);
++    const wholeFileRead = vi.spyOn(file, "arrayBuffer");
++    const slice = vi.spyOn(file, "slice");
++    const api = mockApi();
++    const progress = vi.fn<(value: EnquiryUploadProgress) => void>();
++    const callOrder: string[] = [];
++    let releaseFirst!: (value: { receivedBytes: number }) => void;
++    const firstChunk = new Promise<{ receivedBytes: number }>(resolve => { releaseFirst = resolve; });
++    api.chunk.mockImplementation(async ({ chunkIndex }) => {
++      callOrder.push(`chunk-${chunkIndex}`);
++      return chunkIndex === 0 ? firstChunk : { receivedBytes: file.size };
++    });
++    api.finish.mockImplementation(async () => {
++      callOrder.push("finish");
++      return completed;
++    });
++
++    const upload = uploadEnquiryFile(file, api, progress);
++    await vi.waitFor(() => expect(api.chunk).toHaveBeenCalledTimes(1));
++    expect(api.finish).not.toHaveBeenCalled();
++    expect(slice).toHaveBeenCalledTimes(1);
++    expect(progress.mock.calls.map(([value]) => value)).toEqual([
++      { sentBytes: 0, totalBytes: bytes.length, phase: "uploading" },
++    ]);
++    releaseFirst({ receivedBytes: MIB });
++    expect(await upload).toBe(completed);
++
++    expect(api.begin.mock.calls).toEqual([[{
++      fileName: "original.MOV", contentType: "video/quicktime", size: bytes.length,
++    }]]);
++    expect(api.chunk).toHaveBeenCalledTimes(2);
++    const chunks = api.chunk.mock.calls.map(([input]) => input);
++    expect(chunks.map(({ uploadId, chunkIndex }) => ({ uploadId, chunkIndex }))).toEqual([
++      { uploadId: UPLOAD_ID, chunkIndex: 0 }, { uploadId: UPLOAD_ID, chunkIndex: 1 },
++    ]);
++    const decoded = chunks.map(({ fileData }) => Buffer.from(fileData, "base64"));
++    expect(decoded.map(chunk => chunk.length)).toEqual([MIB, 37]);
++    expect(Buffer.concat(decoded).equals(Buffer.from(bytes))).toBe(true);
++    expect(slice.mock.calls).toEqual([[0, MIB], [MIB, bytes.length]]);
++    expect(wholeFileRead).not.toHaveBeenCalled();
++    expect(callOrder).toEqual(["chunk-0", "chunk-1", "finish"]);
++    expect(progress.mock.calls.map(([value]) => value)).toEqual([
++      { sentBytes: 0, totalBytes: bytes.length, phase: "uploading" },
++      { sentBytes: MIB, totalBytes: bytes.length, phase: "uploading" },
++      { sentBytes: bytes.length, totalBytes: bytes.length, phase: "uploading" },
++      { sentBytes: bytes.length, totalBytes: bytes.length, phase: "finishing" },
++    ]);
++    expect(api.finish.mock.calls).toEqual([[{ uploadId: UPLOAD_ID }]]);
++    expect(api.cancel).not.toHaveBeenCalled();
++    expect(fetch).not.toHaveBeenCalled();
++  });
++
++  it.each([
++    ["original.HEIC", "", "image/heic"],
++    ["original.DNG", "application/octet-stream", "image/x-adobe-dng"],
++    ["original.M4V", "video/x-m4v", "video/mp4"],
++    ["original.JPEG", "image/pjpeg", "image/jpeg"],
++    ["original.TIFF", "", "image/tiff"],
++    ["original.pdf", "application/pdf", "application/pdf"],
++  ])("begins %s with canonical MIME and sends the original, never a resized/transcoded derivative", async (name, type, contentType) => {
++    const bytes = new Uint8Array([0, 255, 216, 254, 1, 128, 99]);
++    const file = originalFile(name, bytes, type);
++    const api = mockApi();
++    const result = { ...completed, fileName: name };
++    api.finish.mockResolvedValue(result);
++    expect(await uploadEnquiryFile(file, api, vi.fn())).toBe(result);
++    expect(api.begin.mock.calls).toEqual([[{ fileName: name, contentType, size: bytes.length }]]);
++    expect(api.chunk).toHaveBeenCalledTimes(1);
++    expect(Buffer.from(api.chunk.mock.calls[0][0].fileData, "base64").equals(Buffer.from(bytes))).toBe(true);
++    expect(api.finish).toHaveBeenCalledTimes(1);
++    expect(api.cancel).not.toHaveBeenCalled();
++  });
++
++  it("does not send an extra chunk when the file is exactly one MiB", async () => {
++    const api = mockApi();
++    const file = originalFile("exact.mp4", new Uint8Array(MIB));
++    await uploadEnquiryFile(file, api, vi.fn());
++    expect(api.chunk).toHaveBeenCalledTimes(1);
++    expect(Buffer.from(api.chunk.mock.calls[0][0].fileData, "base64")).toHaveLength(MIB);
++    expect(api.finish).toHaveBeenCalledTimes(1);
++  });
++
++  it.each([
++    ["empty.jpg", 0],
++    ["vector.svg", 1],
++    ["page.html", 1],
++    ["program.exe", 1],
++    [`${"x".repeat(157)}.jpg`, 1],
++  ])("rejects invalid %s before starting or reading any upload", async (name, size) => {
++    const file = originalFile(name, new Uint8Array(size));
++    const read = vi.spyOn(file, "slice");
++    const api = mockApi();
++    const progress = vi.fn();
++    await expect(uploadEnquiryFile(file, api, progress)).rejects.toThrow();
++    expect(api.begin).not.toHaveBeenCalled();
++    expect(api.chunk).not.toHaveBeenCalled();
++    expect(api.finish).not.toHaveBeenCalled();
++    expect(api.cancel).not.toHaveBeenCalled();
++    expect(read).not.toHaveBeenCalled();
++    expect(progress).not.toHaveBeenCalled();
++  });
++
++  it.each([500, 502, 503, 408, 429])("retries transient HTTP %s chunk errors without resubmitting the file or duplicating progress", async status => {
++    vi.useFakeTimers();
++    const api = mockApi();
++    api.chunk.mockRejectedValueOnce(httpError(status));
++    const file = originalFile();
++    const progress = vi.fn();
++    const upload = uploadEnquiryFile(file, api, progress);
++    await vi.advanceTimersByTimeAsync(500);
++    expect(await upload).toBe(completed);
++    expect(api.begin).toHaveBeenCalledTimes(1);
++    expect(api.chunk).toHaveBeenCalledTimes(2);
++    expect(api.chunk.mock.calls[0][0]).toEqual(api.chunk.mock.calls[1][0]);
++    expect(api.finish).toHaveBeenCalledTimes(1);
++    expect(api.cancel).not.toHaveBeenCalled();
++    expect(progress.mock.calls.map(([value]) => value)).toEqual([
++      { sentBytes: 0, totalBytes: file.size, phase: "uploading" },
++      { sentBytes: file.size, totalBytes: file.size, phase: "uploading" },
++      { sentBytes: file.size, totalBytes: file.size, phase: "finishing" },
++    ]);
++    expect(vi.getTimerCount()).toBe(0);
++  });
++
++  it.each([
++    new Error("Synthetic network interruption"),
++    httpError(409, "CONFLICT"),
++  ])("retries network and explicit conflict errors", async error => {
++    vi.useFakeTimers();
++    const api = mockApi();
++    api.chunk.mockRejectedValueOnce(error);
++    const upload = uploadEnquiryFile(originalFile(), api, vi.fn());
++    await vi.advanceTimersByTimeAsync(500);
++    expect(await upload).toBe(completed);
++    expect(api.chunk).toHaveBeenCalledTimes(2);
++    expect(api.chunk.mock.calls[1][0]).toEqual(api.chunk.mock.calls[0][0]);
++    expect(api.begin).toHaveBeenCalledTimes(1);
++    expect(api.finish).toHaveBeenCalledTimes(1);
++  });
++
++  it("uses the same chunk index/data after an acknowledgement is lost, so an idempotent receiver gets one original", async () => {
++    vi.useFakeTimers();
++    const bytes = new Uint8Array([0, 128, 255, 1]);
++    const file = originalFile("original.heic", bytes);
++    const api = mockApi();
++    const stored = new Map<number, Buffer>();
++    let lostAcknowledgement = true;
++    api.chunk.mockImplementation(async ({ chunkIndex, fileData }) => {
++      stored.set(chunkIndex, Buffer.from(fileData, "base64"));
++      if (lostAcknowledgement) {
++        lostAcknowledgement = false;
++        throw new Error("Synthetic lost acknowledgement after storing the chunk");
++      }
++      return { receivedBytes: file.size };
++    });
++    const upload = uploadEnquiryFile(file, api, vi.fn());
++    await vi.advanceTimersByTimeAsync(500);
++    await upload;
++    expect(stored.size).toBe(1);
++    expect(stored.get(0)!.equals(Buffer.from(bytes))).toBe(true);
++    expect(api.chunk.mock.calls[1][0]).toEqual(api.chunk.mock.calls[0][0]);
++    expect(api.begin).toHaveBeenCalledTimes(1);
++    expect(api.finish).toHaveBeenCalledTimes(1);
++  });
++
++  it.each([400, 401, 403, 404, 413, 415, 422])("does not retry non-transient HTTP %s and cancels the started upload", async status => {
++    vi.useFakeTimers();
++    const api = mockApi();
++    api.chunk.mockRejectedValue(httpError(status));
++    await expect(uploadEnquiryFile(originalFile(), api, vi.fn())).rejects.toThrow(
++      status === 413 ? /connection rejected/ : /Synthetic HTTP/,
++    );
++    expect(api.chunk).toHaveBeenCalledTimes(1);
++    expect(api.finish).not.toHaveBeenCalled();
++    expect(api.cancel.mock.calls).toEqual([[{ uploadId: UPLOAD_ID }]]);
++    expect(vi.getTimerCount()).toBe(0);
++  });
++
++  it("limits retries to three attempts with 500 ms then 1000 ms backoff", async () => {
++    vi.useFakeTimers();
++    const api = mockApi();
++    api.chunk.mockRejectedValue(httpError(503));
++    const outcome = uploadEnquiryFile(originalFile(), api, vi.fn()).catch(error => error);
++    await vi.advanceTimersByTimeAsync(0);
++    expect(api.chunk).toHaveBeenCalledTimes(1);
++    await vi.advanceTimersByTimeAsync(499);
++    expect(api.chunk).toHaveBeenCalledTimes(1);
++    await vi.advanceTimersByTimeAsync(1);
++    expect(api.chunk).toHaveBeenCalledTimes(2);
++    await vi.advanceTimersByTimeAsync(999);
++    expect(api.chunk).toHaveBeenCalledTimes(2);
++    await vi.advanceTimersByTimeAsync(1);
++    expect((await outcome).message).toMatch(/could not upload this file just now/);
++    expect(api.chunk).toHaveBeenCalledTimes(3);
++    expect(api.finish).not.toHaveBeenCalled();
++    expect(api.cancel.mock.calls).toEqual([[{ uploadId: UPLOAD_ID }]]);
++    expect(vi.getTimerCount()).toBe(0);
++  });
++
++  it("retries finish without reading or sending any chunks again", async () => {
++    vi.useFakeTimers();
++    const file = originalFile();
++    const slice = vi.spyOn(file, "slice");
++    const api = mockApi();
++    api.finish.mockRejectedValueOnce(httpError(503));
++    const progress = vi.fn();
++    const upload = uploadEnquiryFile(file, api, progress);
++    await vi.advanceTimersByTimeAsync(500);
++    expect(await upload).toBe(completed);
++    expect(api.begin).toHaveBeenCalledTimes(1);
++    expect(slice).toHaveBeenCalledTimes(1);
++    expect(api.chunk).toHaveBeenCalledTimes(1);
++    expect(api.finish.mock.calls).toEqual([[{ uploadId: UPLOAD_ID }], [{ uploadId: UPLOAD_ID }]]);
++    expect(progress.mock.calls.filter(([value]) => value.phase === "finishing")).toHaveLength(1);
++    expect(api.cancel).not.toHaveBeenCalled();
++  });
++
++  it.each([400, 503])("cancels after failed finish (HTTP %s) without repeating chunk submission", async status => {
++    vi.useFakeTimers();
++    const api = mockApi();
++    api.finish.mockRejectedValue(httpError(status));
++    const outcome = uploadEnquiryFile(originalFile(), api, vi.fn()).catch(error => error);
++    await vi.advanceTimersByTimeAsync(1500);
++    expect(await outcome).toBeInstanceOf(Error);
++    expect(api.chunk).toHaveBeenCalledTimes(1);
++    expect(api.finish).toHaveBeenCalledTimes(status === 503 ? 3 : 1);
++    expect(api.cancel.mock.calls).toEqual([[{ uploadId: UPLOAD_ID }]]);
++  });
++
++  it("cancels on a binary read failure without sending the unread chunk or finishing", async () => {
++    const file = originalFile();
++    const slice = vi.spyOn(file, "slice").mockReturnValue({
++      arrayBuffer: vi.fn().mockRejectedValue(new Error("Synthetic binary read failure")),
++    } as unknown as Blob);
++    const api = mockApi();
++    const progress = vi.fn();
++    await expect(uploadEnquiryFile(file, api, progress)).rejects.toThrow("Synthetic binary read failure");
++    expect(slice).toHaveBeenCalledTimes(1);
++    expect(api.chunk).not.toHaveBeenCalled();
++    expect(api.finish).not.toHaveBeenCalled();
++    expect(api.cancel.mock.calls).toEqual([[{ uploadId: UPLOAD_ID }]]);
++    expect(progress.mock.calls.map(([value]) => value)).toEqual([
++      { sentBytes: 0, totalBytes: file.size, phase: "uploading" },
++    ]);
++  });
++
++  it.each([
++    { uploadId: "", chunkSize: MIB },
++    { uploadId: UPLOAD_ID, chunkSize: MIB + 1 },
++    { uploadId: UPLOAD_ID, chunkSize: 0 },
++  ])("rejects invalid begin response %j before reading any bytes", async response => {
++    const api = mockApi();
++    api.begin.mockResolvedValue(response);
++    const file = originalFile();
++    const slice = vi.spyOn(file, "slice");
++    await expect(uploadEnquiryFile(file, api, vi.fn())).rejects.toThrow(/could not start/);
++    expect(slice).not.toHaveBeenCalled();
++    expect(api.chunk).not.toHaveBeenCalled();
++    expect(api.finish).not.toHaveBeenCalled();
++    if (response.uploadId) expect(api.cancel.mock.calls).toEqual([[{ uploadId: response.uploadId }]]);
++    else expect(api.cancel).not.toHaveBeenCalled();
++  });
++
++  it.each([0, 3, 5])("rejects incomplete or over-total chunk acknowledgement %s and cancels", async receivedBytes => {
++    const api = mockApi();
++    api.chunk.mockResolvedValue({ receivedBytes });
++    await expect(uploadEnquiryFile(originalFile(), api, vi.fn())).rejects.toThrow(/interrupted/);
++    expect(api.chunk).toHaveBeenCalledTimes(1);
++    expect(api.finish).not.toHaveBeenCalled();
++    expect(api.cancel.mock.calls).toEqual([[{ uploadId: UPLOAD_ID }]]);
++  });
++
++  it.each([NaN, undefined])("rejects a non-numeric chunk acknowledgement (%s) instead of finishing", async receivedBytes => {
++    const api = mockApi();
++    api.chunk.mockResolvedValue({ receivedBytes } as { receivedBytes: number });
++    await expect(uploadEnquiryFile(originalFile(), api, vi.fn())).rejects.toThrow();
++    expect(api.chunk).toHaveBeenCalledTimes(1);
++    expect(api.finish).not.toHaveBeenCalled();
++    expect(api.cancel.mock.calls).toEqual([[{ uploadId: UPLOAD_ID }]]);
++  });
++
++  it.each(["url", "key", "fileName"] as const)("rejects a finish response missing %s instead of returning an unusable attachment", async field => {
++    const api = mockApi();
++    api.finish.mockResolvedValue({ ...completed, [field]: "" });
++    await expect(uploadEnquiryFile(originalFile(), api, vi.fn())).rejects.toThrow(/did not finish/);
++    expect(api.finish).toHaveBeenCalledTimes(1);
++    expect(api.cancel.mock.calls).toEqual([[{ uploadId: UPLOAD_ID }]]);
++  });
++
++  it("preserves the original failure even if best-effort cancellation rejects", async () => {
++    const api = mockApi();
++    api.chunk.mockRejectedValue(httpError(400));
++    api.cancel.mockRejectedValue(new Error("Synthetic cancellation failure"));
++    await expect(uploadEnquiryFile(originalFile(), api, vi.fn())).rejects.toThrow("Synthetic HTTP 400");
++    expect(api.cancel).toHaveBeenCalledTimes(1);
++  });
++
++  it("bounds a stalled begin call at 60 seconds without starting chunks", async () => {
++    vi.useFakeTimers();
++    const api = mockApi();
++    api.begin.mockImplementation(() => new Promise(() => {}));
++    const outcome = uploadEnquiryFile(originalFile(), api, vi.fn()).catch(error => error);
++    await vi.advanceTimersByTimeAsync(59999);
++    expect(api.begin).toHaveBeenCalledTimes(1);
++    expect(api.chunk).not.toHaveBeenCalled();
++    expect(vi.getTimerCount()).toBe(1);
++    await vi.advanceTimersByTimeAsync(1);
++    expect((await outcome).message).toMatch(/took too long/);
++    expect(api.chunk).not.toHaveBeenCalled();
++    expect(api.finish).not.toHaveBeenCalled();
++    expect(api.cancel).not.toHaveBeenCalled();
++    expect(vi.getTimerCount()).toBe(0);
++  });
++
++  it.each(["chunk", "finish"] as const)("bounds a stalled %s to three 60-second attempts then cancels", async stage => {
++    vi.useFakeTimers();
++    const api = mockApi();
++    api[stage].mockImplementation(() => new Promise(() => {}));
++    const outcome = uploadEnquiryFile(originalFile(), api, vi.fn()).catch(error => error);
++    await vi.advanceTimersByTimeAsync(181500);
++    expect((await outcome).message).toMatch(/took too long/);
++    expect(api[stage]).toHaveBeenCalledTimes(3);
++    expect(api.begin).toHaveBeenCalledTimes(1);
++    if (stage === "chunk") expect(api.finish).not.toHaveBeenCalled();
++    else expect(api.chunk).toHaveBeenCalledTimes(1);
++    expect(api.cancel.mock.calls).toEqual([[{ uploadId: UPLOAD_ID }]]);
++    expect(vi.getTimerCount()).toBe(0);
++  });
++});
++
++describe("bounded upload API calls", () => {
++  it("resolves the original value and removes its watchdog timer", async () => {
++    vi.useFakeTimers();
++    const value = { synthetic: true };
++    const run = vi.fn().mockResolvedValue(value);
++    expect(await boundedUploadCall(run, 25)).toBe(value);
++    expect(run).toHaveBeenCalledTimes(1);
++    expect(vi.getTimerCount()).toBe(0);
++  });
++
++  it("preserves rejection and removes its watchdog timer", async () => {
++    vi.useFakeTimers();
++    const error = new Error("Synthetic API failure");
++    await expect(boundedUploadCall(() => Promise.reject(error), 25)).rejects.toBe(error);
++    expect(vi.getTimerCount()).toBe(0);
++  });
++
++  it("rejects exactly at the configured timeout and ignores late success", async () => {
++    vi.useFakeTimers();
++    let resolveLate!: (value: string) => void;
++    const settled = vi.fn();
++    const outcome = boundedUploadCall(() => new Promise<string>(resolve => { resolveLate = resolve; }), 25)
++      .then(value => { settled("resolved"); return value; }, error => { settled("rejected"); return error; });
++    await vi.advanceTimersByTimeAsync(24);
++    expect(settled).not.toHaveBeenCalled();
++    await vi.advanceTimersByTimeAsync(1);
++    expect((await outcome).message).toMatch(/took too long/);
++    resolveLate("too late");
++    await vi.advanceTimersByTimeAsync(0);
++    expect(settled.mock.calls).toEqual([["rejected"]]);
++    expect(vi.getTimerCount()).toBe(0);
++  });
++});
++
++describe("binary chunk reading", () => {
++  it("base64-encodes Node Blob bytes losslessly without FileReader", async () => {
++    const bytes = Uint8Array.from({ length: 256 }, (_, index) => index);
++    const encoded = await readEnquiryChunk(new NodeBlob([bytes]) as unknown as Blob);
++    expect(Buffer.from(encoded, "base64").equals(Buffer.from(bytes))).toBe(true);
++    expect(encoded).not.toContain("data:");
++  });
++
++  it("uses browser FileReader when present and removes the data-URL prefix", async () => {
++    vi.useFakeTimers();
++    const bytes = new Uint8Array([0, 128, 255]);
++    const blob = new NodeBlob([bytes]) as unknown as Blob;
++    const read = vi.fn();
++    class BrowserReader {
++      result: string | null = null;
++      onload: (() => void) | null = null;
++      onerror: (() => void) | null = null;
++      onabort: (() => void) | null = null;
++      abort = vi.fn();
++      readAsDataURL(input: Blob) {
++        read(input);
++        this.result = `data:application/octet-stream;base64,${Buffer.from(bytes).toString("base64")}`;
++        this.onload?.();
++      }
++    }
++    vi.stubGlobal("FileReader", BrowserReader);
++    const fallback = vi.spyOn(blob, "arrayBuffer");
++    expect(Buffer.from(await readEnquiryChunk(blob), "base64").equals(Buffer.from(bytes))).toBe(true);
++    expect(read.mock.calls).toEqual([[blob]]);
++    expect(fallback).not.toHaveBeenCalled();
++    expect(vi.getTimerCount()).toBe(0);
++  });
++
++  it.each(["error", "abort", "empty"] as const)("cancels the upload when browser reading produces %s", async mode => {
++    vi.useFakeTimers();
++    class FailingReader {
++      result = "data:application/octet-stream;base64,";
++      onload: (() => void) | null = null;
++      onerror: (() => void) | null = null;
++      onabort: (() => void) | null = null;
++      abort = vi.fn();
++      readAsDataURL() {
++        if (mode === "error") this.onerror?.();
++        else if (mode === "abort") this.onabort?.();
++        else this.onload?.();
++      }
++    }
++    vi.stubGlobal("FileReader", FailingReader);
++    const api = mockApi();
++    await expect(uploadEnquiryFile(originalFile(), api, vi.fn())).rejects.toThrow(/read|interrupted/i);
++    expect(api.chunk).not.toHaveBeenCalled();
++    expect(api.finish).not.toHaveBeenCalled();
++    expect(api.cancel.mock.calls).toEqual([[{ uploadId: UPLOAD_ID }]]);
++    expect(vi.getTimerCount()).toBe(0);
++  });
++
++  it("aborts a stalled browser read after 30 seconds and cancels the upload", async () => {
++    vi.useFakeTimers();
++    const abort = vi.fn();
++    class StalledReader {
++      result = null;
++      onload: (() => void) | null = null;
++      onerror: (() => void) | null = null;
++      onabort: (() => void) | null = null;
++      readAsDataURL() {}
++      abort() { abort(); this.onabort?.(); }
++    }
++    vi.stubGlobal("FileReader", StalledReader);
++    const api = mockApi();
++    const outcome = uploadEnquiryFile(originalFile(), api, vi.fn()).catch(error => error);
++    await vi.advanceTimersByTimeAsync(29999);
++    expect(abort).not.toHaveBeenCalled();
++    expect(api.cancel).not.toHaveBeenCalled();
++    await vi.advanceTimersByTimeAsync(1);
++    expect(await outcome).toBeInstanceOf(Error);
++    expect(abort).toHaveBeenCalledTimes(1);
++    expect(api.chunk).not.toHaveBeenCalled();
++    expect(api.finish).not.toHaveBeenCalled();
++    expect(api.cancel.mock.calls).toEqual([[{ uploadId: UPLOAD_ID }]]);
++    expect(vi.getTimerCount()).toBe(0);
++  });
++});
+diff --git a/server/enquiryMediaUploads.test.ts b/server/enquiryMediaUploads.test.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..a23fe28c706614cc7c4fb7a658d769a4a8bcc005
+--- /dev/null
++++ b/server/enquiryMediaUploads.test.ts
+@@ -0,0 +1,504 @@
++import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
++import { lstat, mkdtemp, readFile, readdir, rm, symlink, utimes, writeFile } from "node:fs/promises";
++import { tmpdir } from "node:os";
++import { join } from "node:path";
++import sharp from "sharp";
++import { router } from "./_core/trpc";
++import type { TrpcContext } from "./_core/context";
++import { ENQUIRY_CHUNK_BYTES as CHUNK, ENQUIRY_UPLOAD_TTL_MS as TTL, MIB } from "../shared/enquiryAttachments";
++import { cleanupExpiredEnquiryMediaUploads, enquiryMediaUploadProcedures } from "./enquiryMediaUploads";
++
++const storageMock = vi.hoisted(() => vi.fn());
++vi.mock("./storage", () => ({ storagePut: storageMock }));
++// A private test temp root avoids fake-clock housekeeping touching another test worker.
++vi.mock("node:os", async importOriginal => {
++  const actual = await importOriginal<typeof import("node:os")>();
++  const fs = await import("node:fs/promises");
++  const path = await import("node:path");
++  const root = await fs.mkdtemp(path.join(actual.tmpdir(), "csb-media-tests-"));
++  return { ...actual, tmpdir: () => root };
++});
++const testRouter = router(enquiryMediaUploadProcedures);
++function caller(ip = "192.0.2.1", cf?: string) {
++  return testRouter.createCaller({
++    user: null,
++    req: { ip, headers: cf ? { "cf-connecting-ip": cf } : {}, socket: { remoteAddress: ip } },
++    res: {},
++  } as unknown as TrpcContext);
++}
++let now = Date.now();
++let jpeg: Buffer;
++let png: Buffer;
++let webp: Buffer;
++let gif: Buffer;
++let tiff: Buffer;
++let storedBytes: Buffer[] = [];
++const pdf = Buffer.from("%PDF-1.4\n1 0 obj\n<< /Type /Catalog >>\nendobj\ntrailer\n<< /Root 1 0 R >>\n%%EOF\n");
++const privatePrefix = "csb-enquiry-media-v1-";
++async function privateSpools() {
++  const entries = await readdir(tmpdir());
++  return entries.filter(name => name.startsWith(privatePrefix)).map(name => join(tmpdir(), name));
++}
++async function upload(bytes: Buffer, fileName = "site.jpg", contentType = "image/jpeg", api = caller()) {
++  const begun = await api.beginMediaUpload({ fileName, contentType, size: bytes.length });
++  for (let offset = 0; offset < bytes.length; offset += CHUNK) {
++    await api.uploadMediaChunk({ uploadId: begun.uploadId, chunkIndex: offset / CHUNK, fileData: bytes.subarray(offset, offset + CHUNK).toString("base64") });
++  }
++  return { api, ...begun };
++}
++function ftyp(brand: string) {
++  const bytes = Buffer.alloc(32);
++  bytes.writeUInt32BE(32, 0);
++  bytes.write("ftyp", 4);
++  bytes.write(brand.padEnd(4), 8);
++  bytes.write(brand.padEnd(4), 16);
++  return bytes;
++}
++function rawTiff(tag?: number, marker?: Buffer) {
++  const bytes = Buffer.alloc(64);
++  bytes.write("II"); bytes.writeUInt16LE(42, 2); bytes.writeUInt32LE(marker ? 16 : 8, 4);
++  if (marker) marker.copy(bytes, 8);
++  else if (tag) { bytes.writeUInt16LE(1, 8); bytes.writeUInt16LE(tag, 10); }
++  return bytes;
++}
++function riff(type: string) {
++  const bytes = Buffer.alloc(64);
++  bytes.write("RIFF"); bytes.writeUInt32LE(56, 4); bytes.write(type, 8);
++  return bytes;
++}
++function ebml(type: string) {
++  const text = Buffer.from(type);
++  const child = Buffer.concat([Buffer.from([0x42, 0x82, 0x80 | text.length]), text]);
++  return Buffer.concat([Buffer.from([0x1a, 0x45, 0xdf, 0xa3, 0x80 | child.length]), child, Buffer.alloc(32)]);
++}
++function asf(video = true) {
++  const bytes = Buffer.alloc(100);
++  Buffer.from("3026b2758e66cf11a6d900aa0062ce6c", "hex").copy(bytes);
++  bytes.writeBigUInt64LE(BigInt(100), 16);
++  bytes.writeUInt32LE(1, 24);
++  Buffer.from("9107dcb7b7a9cf118ee600c00c205365", "hex").copy(bytes, 30);
++  bytes.writeBigUInt64LE(BigInt(70), 46);
++  Buffer.from(video ? "c0ef19bc4d5bcf11a8fd00805f5c442b" : "409e69f84d5bcf11a8fd00805f5c442b", "hex").copy(bytes, 54);
++  return bytes;
++}
++function transport(bdav = false) {
++  const bytes = Buffer.alloc(384);
++  bytes[bdav ? 4 : 0] = 0x47;
++  bytes[bdav ? 196 : 188] = 0x47;
++  return bytes;
++}
++function deferred<T>() {
++  let resolve!: (value: T) => void;
++  let reject!: (reason: unknown) => void;
++  const promise = new Promise<T>((yes, no) => { resolve = yes; reject = no; });
++  return { promise, resolve, reject };
++}
++async function waitForCalls(count: number) {
++  for (let i = 0; i < 100 && storageMock.mock.calls.length < count; i++) await new Promise(resolve => setTimeout(resolve, 2));
++  expect(storageMock.mock.calls.length).toBe(count);
++}
++
++beforeAll(async () => {
++  const image = sharp({ create: { width: 2, height: 2, channels: 3, background: { r: 20, g: 40, b: 60 } } });
++  [jpeg, png, webp, gif, tiff] = await Promise.all([image.clone().jpeg().toBuffer(), image.clone().png().toBuffer(), image.clone().webp().toBuffer(), image.clone().gif().toBuffer(), image.clone().tiff().toBuffer()]);
++});
++beforeEach(() => {
++  vi.spyOn(Date, "now").mockImplementation(() => now);
++  storedBytes = [];
++  storageMock.mockReset().mockImplementation(async (key: string, blob: Blob) => {
++    expect(blob).toBeInstanceOf(Blob);
++    storedBytes.push(Buffer.from(await blob.arrayBuffer()));
++    return { key, url: `https://files.example.test/${key}` };
++  });
++});
++afterEach(async () => {
++  now += TTL + 60_001;
++  await cleanupExpiredEnquiryMediaUploads();
++  vi.restoreAllMocks();
++});
++afterAll(async () => { await rm(tmpdir(), { recursive: true, force: true }); });
++
++describe("original byte detection and canonical storage formats", () => {
++  it.each([
++    ["jpg", () => jpeg, "jpg", "image/jpeg"],
++    ["png", () => png, "png", "image/png"],
++    ["webp", () => webp, "webp", "image/webp"],
++    ["gif", () => gif, "gif", "image/gif"],
++    ["tiff", () => tiff, "tif", "image/tiff"],
++    ["heic", () => ftyp("heic"), "heic", "image/heic"],
++    ["heif", () => ftyp("mif1"), "heif", "image/heif"],
++    ["heic", () => ftyp("hevc"), "heic", "image/heic"],
++    ["heif", () => ftyp("msf1"), "heif", "image/heif"],
++    ["avif", () => ftyp("avif"), "avif", "image/avif"],
++    ["bmp", () => Buffer.concat([Buffer.from("BM"), Buffer.alloc(62)]), "bmp", "image/bmp"],
++    ["jxl", () => Buffer.from([0xff, 0x0a, 0, 0]), "jxl", "image/jxl"],
++    ["jp2", () => Buffer.concat([Buffer.from("0000000c6a5020200d0a870a00000014667479706a703220", "hex"), Buffer.alloc(16)]), "jp2", "image/jp2"],
++    ["cr2", () => rawTiff(undefined, Buffer.from("CR\x02\x00")), "cr2", "image/x-canon-cr2"],
++    ["cr3", () => ftyp("crx"), "cr3", "image/x-canon-cr3"],
++    ["dng", () => rawTiff(50706), "dng", "image/x-adobe-dng"],
++    ["arw", () => rawTiff(50341), "arw", "image/x-sony-arw"],
++    ["nef", () => rawTiff(undefined, Buffer.from([0x1c, 0, 0xfe, 0])), "nef", "image/x-nikon-nef"],
++    ["orf", () => Buffer.concat([Buffer.from([0x49, 0x49, 0x52, 0x4f, 8, 0, 0, 0, 0x18]), Buffer.alloc(32)]), "orf", "image/x-olympus-orf"],
++    ["rw2", () => Buffer.concat([Buffer.from("494955001800000088e774d8", "hex"), Buffer.alloc(32)]), "rw2", "image/x-panasonic-rw2"],
++    ["raf", () => Buffer.concat([Buffer.from("FUJIFILMCCD-RAW"), Buffer.alloc(32)]), "raf", "image/x-fujifilm-raf"],
++    ["mp4", () => ftyp("isom"), "mp4", "video/mp4"],
++    ["mov", () => ftyp("qt"), "mov", "video/quicktime"],
++    ["m4v", () => ftyp("M4V"), "m4v", "video/x-m4v"],
++    ["webm", () => ebml("webm"), "webm", "video/webm"],
++    ["mkv", () => ebml("matroska"), "mkv", "video/x-matroska"],
++    ["avi", () => riff("AVI "), "avi", "video/x-msvideo"],
++    ["mpeg", () => Buffer.from([0, 0, 1, 0xb3, 0, 0, 0, 0]), "mpg", "video/mpeg"],
++    ["mpeg", () => Buffer.from([0, 0, 1, 0xba, 0x21, 0, 0, 0]), "mpg", "video/mpeg"],
++    ["mpeg", () => Buffer.from([0, 0, 1, 0xba, 0x44, 0, 0, 0]), "mpg", "video/mpeg"],
++    ["3gp", () => ftyp("3gp5"), "3gp", "video/3gpp"],
++    ["3g2", () => ftyp("3g2a"), "3g2", "video/3gpp2"],
++    ["wmv", () => asf(), "asf", "video/x-ms-wmv"],
++    ["asf", () => asf(), "asf", "video/x-ms-wmv"],
++    ["ts", () => transport(), "mts", "video/mp2t"],
++    ["mts", () => transport(), "mts", "video/mp2t"],
++    ["m2ts", () => transport(true), "mts", "video/mp2t"],
++    ["flv", () => Buffer.from([0x46, 0x4c, 0x56, 1, 5, 0, 0, 0, 9, 0, 0, 0, 0]), "flv", "video/x-flv"],
++    ["pdf", () => pdf, "pdf", "application/pdf"],
++  ] as const)("sniffs %s originals, stores canonical %s without changing bytes", async (ext, make, canonical, mime) => {
++    const bytes = make();
++    const { api, uploadId } = await upload(bytes, `original.${ext}`, "application/octet-stream");
++    const result = await api.finishMediaUpload({ uploadId });
++    expect(result.key).toMatch(new RegExp(`^survey-attachments/[a-f0-9]{64}\\.${canonical}$`));
++    const [key, blob, type] = storageMock.mock.calls[0];
++    expect(key).toBe(result.key);
++    expect(type).toBe(mime);
++    expect(blob.size).toBe(bytes.length);
++    expect(storedBytes[0]).toEqual(bytes);
++  });
++
++  it("permits generic TIFF-family camera RAW but never claims its user extension as actual format", async () => {
++    const { api, uploadId } = await upload(tiff, "camera.nef", "image/x-nikon-nef");
++    const result = await api.finishMediaUpload({ uploadId });
++    expect(result.key).toMatch(/\.tif$/);
++  });
++  it("accepts blank browser MIME, extension aliases and sanitized display names", async () => {
++    const { api, uploadId, chunkSize } = await upload(jpeg, "../../résumé photo.JPEG", "");
++    expect(chunkSize).toBe(1048576);
++    expect(uploadId).toMatch(/^[a-f0-9]{64}$/);
++    const result = await api.finishMediaUpload({ uploadId });
++    expect(result.fileName).toMatch(/^[a-zA-Z0-9._-]{1,160}$/);
++    expect(result.fileName).not.toMatch(/^\./);
++    expect(result.key).not.toContain("photo");
++  });
++  it("accepts supported MIME when there is no extension", async () => {
++    const { api, uploadId } = await upload(jpeg, "photo", "image/jpeg");
++    expect((await api.finishMediaUpload({ uploadId })).key).toMatch(/\.jpg$/);
++  });
++  it.each([
++    ["HTML", () => Buffer.from("<!doctype html><html><script>alert(1)</script></html>")],
++    ["SVG", () => Buffer.from("<svg xmlns='http://www.w3.org/2000/svg'><script>alert(1)</script></svg>")],
++    ["executable", () => Buffer.concat([Buffer.from("MZ"), Buffer.alloc(128)])],
++    ["unknown", () => Buffer.from("not a photo")],
++    ["audio MP4", () => ftyp("M4A")],
++    ["audio ASF", () => asf(false)],
++  ] as const)("rejects %s despite a supported claimed filename/MIME", async (_label, make) => {
++    const { api, uploadId } = await upload(make());
++    await expect(api.finishMediaUpload({ uploadId })).rejects.toMatchObject({ code: "BAD_REQUEST" });
++    expect(storageMock).not.toHaveBeenCalled();
++    await expect(api.finishMediaUpload({ uploadId })).rejects.toMatchObject({ code: "NOT_FOUND" });
++  });
++  it.each([
++    ["photo", () => jpeg, "site.mp4", "video/mp4"],
++    ["video", () => ftyp("isom"), "site.jpg", "image/jpeg"],
++    ["PDF", () => pdf, "site.jpg", "image/jpeg"],
++    ["photo", () => jpeg, "site.pdf", "application/pdf"],
++  ] as const)("rejects actual %s in a different policy category", async (_label, make, name, type) => {
++    const { api, uploadId } = await upload(make(), name, type);
++    await expect(api.finishMediaUpload({ uploadId })).rejects.toMatchObject({ code: "BAD_REQUEST" });
++    expect(storageMock).not.toHaveBeenCalled();
++  });
++});
++
++describe("strict schema, sizes and bounded sequential chunks", () => {
++  it.each([
++    { fileName: "a.jpg", contentType: "image/jpeg", size: 0 },
++    { fileName: "a.jpg", contentType: "image/jpeg", size: -1 },
++    { fileName: "a.jpg", contentType: "image/jpeg", size: 1.5 },
++    { fileName: "a.jpg", contentType: "image/jpeg", size: 100 * MIB + 1 },
++    { fileName: "a.pdf", contentType: "application/pdf", size: 100 * MIB + 1 },
++    { fileName: "a.mp4", contentType: "video/mp4", size: 250 * MIB + 1 },
++    { fileName: "x".repeat(161) + ".jpg", contentType: "image/jpeg", size: 1 },
++    { fileName: "a.jpg", contentType: "x".repeat(101), size: 1 },
++    { fileName: "a.svg", contentType: "image/jpeg", size: 1 },
++    { fileName: "a.exe", contentType: "video/mp4", size: 1 },
++  ])("rejects invalid begin metadata %#", async input => {
++    await expect(caller().beginMediaUpload(input)).rejects.toMatchObject({ code: "BAD_REQUEST" });
++  });
++  it("permits exact per-file limits with sparse declared reservations", async () => {
++    const api = caller();
++    for (const [fileName, contentType, size] of [["a.jpg", "image/jpeg", 100 * MIB], ["a.pdf", "application/pdf", 100 * MIB], ["a.mp4", "video/mp4", 250 * MIB]] as const) {
++      const begun = await api.beginMediaUpload({ fileName, contentType, size });
++      await api.cancelMediaUpload({ uploadId: begun.uploadId });
++    }
++  });
++  it.each([" YQ==", "YQ==\n", "YQ", "YQ=", "YQ===", "YR==", "YWJ=", "YWJj_===", "data:image/jpeg;base64,YQ==", "", "!!!!"])("rejects noncanonical base64 %j", async fileData => {
++    const api = caller();
++    const { uploadId } = await api.beginMediaUpload({ fileName: "a.jpg", contentType: "image/jpeg", size: 1 });
++    await expect(api.uploadMediaChunk({ uploadId, chunkIndex: 0, fileData })).rejects.toMatchObject({ code: "BAD_REQUEST" });
++  });
++  it("rejects a decoded chunk exceeding 1 MiB even within the encoded length bound", async () => {
++    const api = caller();
++    const { uploadId } = await api.beginMediaUpload({ fileName: "a.jpg", contentType: "image/jpeg", size: 2 * CHUNK });
++    await expect(api.uploadMediaChunk({ uploadId, chunkIndex: 0, fileData: Buffer.alloc(CHUNK + 1).toString("base64") })).rejects.toMatchObject({ code: "BAD_REQUEST" });
++  });
++  it("enforces full chunks, sequential indexes, exact final bytes and hash-identical retries", async () => {
++    const bytes = Buffer.alloc(CHUNK + jpeg.length);
++    jpeg.copy(bytes);
++    const api = caller();
++    const { uploadId } = await api.beginMediaUpload({ fileName: "a.jpg", contentType: "image/jpeg", size: bytes.length });
++    const first = bytes.subarray(0, CHUNK).toString("base64");
++    const second = bytes.subarray(CHUNK).toString("base64");
++    await expect(api.uploadMediaChunk({ uploadId, chunkIndex: 1, fileData: second })).rejects.toMatchObject({ code: "BAD_REQUEST" });
++    await expect(api.uploadMediaChunk({ uploadId, chunkIndex: 0, fileData: "YQ==" })).rejects.toMatchObject({ code: "BAD_REQUEST" });
++    expect(await api.uploadMediaChunk({ uploadId, chunkIndex: 0, fileData: first })).toEqual({ receivedBytes: CHUNK });
++    expect(await api.uploadMediaChunk({ uploadId, chunkIndex: 0, fileData: first })).toEqual({ receivedBytes: CHUNK });
++    const conflict = Buffer.from(bytes.subarray(0, CHUNK)); conflict[100] ^= 1;
++    await expect(api.uploadMediaChunk({ uploadId, chunkIndex: 0, fileData: conflict.toString("base64") })).rejects.toMatchObject({ code: "BAD_REQUEST" });
++    await expect(api.finishMediaUpload({ uploadId })).rejects.toMatchObject({ code: "BAD_REQUEST" });
++    await expect(api.uploadMediaChunk({ uploadId, chunkIndex: 1, fileData: Buffer.alloc(jpeg.length + 1).toString("base64") })).rejects.toMatchObject({ code: "BAD_REQUEST" });
++    expect(await api.uploadMediaChunk({ uploadId, chunkIndex: 1, fileData: second })).toEqual({ receivedBytes: bytes.length });
++    expect(await api.uploadMediaChunk({ uploadId, chunkIndex: 0, fileData: first })).toEqual({ receivedBytes: bytes.length });
++    await expect(api.uploadMediaChunk({ uploadId, chunkIndex: 2, fileData: "YQ==" })).rejects.toMatchObject({ code: "BAD_REQUEST" });
++    await api.finishMediaUpload({ uploadId });
++    expect(storedBytes[0]).toEqual(bytes);
++  });
++  it.each([-1, 0.5, 250])("rejects invalid chunk index %s", async chunkIndex => {
++    const { api, uploadId } = await upload(jpeg);
++    await expect(api.uploadMediaChunk({ uploadId, chunkIndex, fileData: jpeg.toString("base64") })).rejects.toMatchObject({ code: "BAD_REQUEST" });
++  });
++  it("permits genuine bearer capabilities across mobile network changes but rejects unknown tokens/paths", async () => {
++    const { uploadId } = await upload(jpeg);
++    await expect(caller("192.0.2.2").finishMediaUpload({ uploadId: "f".repeat(64) })).rejects.toMatchObject({ code: "NOT_FOUND" });
++    await expect(caller().finishMediaUpload({ uploadId: "../../etc/passwd" })).rejects.toMatchObject({ code: "BAD_REQUEST" });
++    expect(await caller("192.0.2.2").finishMediaUpload({ uploadId })).toHaveProperty("url");
++    expect(await caller("192.0.2.2").cancelMediaUpload({ uploadId })).toEqual({ success: true });
++    await expect(caller().finishMediaUpload({ uploadId })).rejects.toMatchObject({ code: "NOT_FOUND" });
++  });
++  it("continues chunks after WiFi-to-mobile change while reservations remain with original client", async () => {
++    const origin = caller("192.0.2.1");
++    const mobile = caller("198.51.100.1");
++    const { uploadId } = await origin.beginMediaUpload({ fileName: "a.jpg", contentType: "", size: jpeg.length });
++    expect(await mobile.uploadMediaChunk({ uploadId, chunkIndex: 0, fileData: jpeg.toString("base64") })).toEqual({ receivedBytes: jpeg.length });
++    await expect(mobile.finishMediaUpload({ uploadId })).resolves.toHaveProperty("url");
++  });
++});
++
++describe("resource budgets and expiry", () => {
++  it("enforces 500 MiB reserved per client and frees cancelled reservations", async () => {
++    const api = caller();
++    const input = { fileName: "a.mp4", contentType: "video/mp4", size: 250 * MIB };
++    const first = await api.beginMediaUpload(input);
++    await api.beginMediaUpload(input);
++    await expect(api.beginMediaUpload({ ...input, size: 1 })).rejects.toMatchObject({ code: "TOO_MANY_REQUESTS" });
++    await api.cancelMediaUpload({ uploadId: first.uploadId });
++    await expect(api.beginMediaUpload(input)).resolves.toHaveProperty("uploadId");
++  });
++  it("limits active files to 20 per client", async () => {
++    const api = caller();
++    for (let i = 0; i < 20; i++) await api.beginMediaUpload({ fileName: "a.jpg", contentType: "", size: 1 });
++    await expect(api.beginMediaUpload({ fileName: "a.jpg", contentType: "", size: 1 })).rejects.toMatchObject({ code: "TOO_MANY_REQUESTS" });
++  });
++  it("enforces 2 GiB globally across clients before allocating more spools", async () => {
++    for (let i = 0; i < 8; i++) await caller(`192.0.2.${i + 1}`).beginMediaUpload({ fileName: "a.mp4", contentType: "", size: 250 * MIB });
++    await caller("192.0.2.20").beginMediaUpload({ fileName: "a.jpg", contentType: "", size: 48 * MIB });
++    await expect(caller("192.0.2.21").beginMediaUpload({ fileName: "a.jpg", contentType: "", size: 1 })).rejects.toMatchObject({ code: "TOO_MANY_REQUESTS" });
++  });
++  it("enforces 64 active globally even for concurrent begin calls", async () => {
++    await Promise.all(Array.from({ length: 64 }, (_, i) => caller(`192.0.2.${i + 1}`).beginMediaUpload({ fileName: "a.jpg", contentType: "", size: 1 })));
++    await expect(caller("192.0.2.100").beginMediaUpload({ fileName: "a.jpg", contentType: "", size: 1 })).rejects.toMatchObject({ code: "TOO_MANY_REQUESTS" });
++  });
++  it("limits begin attempts to 40/30 minutes even when each upload is cancelled", async () => {
++    const api = caller();
++    for (let i = 0; i < 40; i++) {
++      const begun = await api.beginMediaUpload({ fileName: "a.jpg", contentType: "", size: 1 });
++      await api.cancelMediaUpload({ uploadId: begun.uploadId });
++    }
++    await expect(api.beginMediaUpload({ fileName: "a.jpg", contentType: "", size: 1 })).rejects.toMatchObject({ code: "TOO_MANY_REQUESTS" });
++    now += TTL;
++    await expect(api.beginMediaUpload({ fileName: "a.jpg", contentType: "", size: 1 })).resolves.toHaveProperty("uploadId");
++  });
++  it("accounts by Cloudflare IP when present, without expanding the site rate limiter", async () => {
++    const a = caller("127.0.0.1", "198.51.100.1");
++    const b = caller("127.0.0.1", "198.51.100.2");
++    const input = { fileName: "a.mp4", contentType: "", size: 250 * MIB };
++    await a.beginMediaUpload(input); await a.beginMediaUpload(input);
++    await expect(a.beginMediaUpload(input)).rejects.toMatchObject({ code: "TOO_MANY_REQUESTS" });
++    await expect(b.beginMediaUpload(input)).resolves.toHaveProperty("uploadId");
++  });
++  it("expires inactive partial uploads after 30 minutes and releases budgets", async () => {
++    const api = caller();
++    const begun = await api.beginMediaUpload({ fileName: "a.mp4", contentType: "", size: 250 * MIB });
++    now += TTL;
++    await cleanupExpiredEnquiryMediaUploads();
++    await expect(api.finishMediaUpload({ uploadId: begun.uploadId })).rejects.toMatchObject({ code: "NOT_FOUND" });
++    expect(await api.cancelMediaUpload({ uploadId: begun.uploadId })).toEqual({ success: true });
++    await expect(api.beginMediaUpload({ fileName: "a.mp4", contentType: "", size: 250 * MIB })).resolves.toHaveProperty("uploadId");
++  });
++  it("refreshes inactivity TTL on accepted new and identical duplicate chunks, not invalid chunks", async () => {
++    const api = caller();
++    const { uploadId } = await api.beginMediaUpload({ fileName: "a.jpg", contentType: "", size: jpeg.length });
++    const chunk = { uploadId, chunkIndex: 0, fileData: jpeg.toString("base64") };
++    now += TTL - 1;
++    await api.uploadMediaChunk(chunk);
++    now += TTL - 1;
++    await api.uploadMediaChunk(chunk);
++    now += TTL - 1;
++    await expect(api.uploadMediaChunk({ ...chunk, fileData: Buffer.alloc(jpeg.length).toString("base64") })).rejects.toMatchObject({ code: "BAD_REQUEST" });
++    now++;
++    await expect(api.finishMediaUpload({ uploadId })).rejects.toMatchObject({ code: "NOT_FOUND" });
++  });
++  it("creates exclusive private spools with restrictive permissions and no user paths", async () => {
++    const before = new Set(await privateSpools());
++    const api = caller();
++    const begun = await api.beginMediaUpload({ fileName: "../../private-site.jpg", contentType: "", size: jpeg.length });
++    const added = (await privateSpools()).filter(path => !before.has(path));
++    expect(added).toHaveLength(1);
++    expect((await lstat(added[0])).mode & 0o777).toBe(0o700);
++    const path = join(added[0], "original");
++    expect((await lstat(path)).mode & 0o777).toBe(0o600);
++    expect((await lstat(path)).size).toBe(0);
++    await api.cancelMediaUpload({ uploadId: begun.uploadId });
++    await expect(lstat(added[0])).rejects.toMatchObject({ code: "ENOENT" });
++  });
++  it("sweeps expired restart orphans only under its private prefix, not fresh directories or symlinks", async () => {
++    const stale = await mkdtemp(join(tmpdir(), privatePrefix));
++    const fresh = await mkdtemp(join(tmpdir(), privatePrefix));
++    const foreign = await mkdtemp(join(tmpdir(), "other-app-media-"));
++    const link = join(tmpdir(), `${privatePrefix}symlink-${Math.random()}`);
++    await writeFile(join(stale, "original"), jpeg);
++    await writeFile(join(foreign, "keep"), "safe");
++    await symlink(foreign, link);
++    await utimes(stale, new Date(now - TTL - 1000), new Date(now - TTL - 1000));
++    await utimes(fresh, new Date(now), new Date(now));
++    now += 60_001;
++    await cleanupExpiredEnquiryMediaUploads();
++    await expect(lstat(stale)).rejects.toMatchObject({ code: "ENOENT" });
++    expect((await lstat(fresh)).isDirectory()).toBe(true);
++    expect(await readFile(join(foreign, "keep"), "utf8")).toBe("safe");
++    expect((await lstat(link)).isSymbolicLink()).toBe(true);
++    await Promise.all([rm(fresh, { recursive: true, force: true }), rm(foreign, { recursive: true, force: true }), rm(link)]);
++  });
++});
++
++describe("storage failure isolation and idempotent finalization", () => {
++  it("redacts upstream errors, retains the good spool and retries with the same key", async () => {
++    storageMock.mockRejectedValueOnce(new Error("secret-token private-site.jpg upstream body"));
++    const { api, uploadId } = await upload(jpeg);
++    await expect(api.finishMediaUpload({ uploadId })).rejects.toMatchObject({ code: "INTERNAL_SERVER_ERROR", message: "We could not save this attachment just now. Please retry the upload.", cause: undefined });
++    const result = await api.finishMediaUpload({ uploadId });
++    expect(storageMock).toHaveBeenCalledTimes(2);
++    expect(storageMock.mock.calls[0][0]).toBe(storageMock.mock.calls[1][0]);
++    expect(await api.finishMediaUpload({ uploadId })).toEqual(result);
++    expect(storageMock).toHaveBeenCalledTimes(2);
++  });
++  it.each(["javascript:alert(1)", "data:text/html,a", "//evil.test/x", "https:/evil.test", "https://", "https://user:pass@files.test/x", "https://files.test/x\n", "https://files.test/%0a", "https://files.test/%xx", "/manus-storage/../evil", "/manus-storage/%2e%2e/evil", "/manus-storage/", "/manus-storage/a\\evil", "https://files.test/" + "a".repeat(512), undefined, 42])("rejects unsafe/malformed storage URL %j but keeps spool retryable", async url => {
++    storageMock.mockImplementationOnce(async (key: string) => ({ key, url }));
++    const { api, uploadId } = await upload(jpeg);
++    await expect(api.finishMediaUpload({ uploadId })).rejects.toMatchObject({ code: "INTERNAL_SERVER_ERROR" });
++    await expect(api.finishMediaUpload({ uploadId })).resolves.toHaveProperty("url");
++    expect(storageMock).toHaveBeenCalledTimes(2);
++  });
++  it.each(["https://files.test/a.jpg?signature=good", "http://files.test/a.jpg", "/manus-storage/survey-attachments/a.jpg"])("accepts valid storage URL %s", async url => {
++    storageMock.mockImplementationOnce(async (key: string) => ({ key, url }));
++    const { api, uploadId } = await upload(jpeg);
++    expect((await api.finishMediaUpload({ uploadId })).url).toBe(url.startsWith("/") ? `https://commercialshotblasting.co.uk${url}` : url);
++  });
++  it("passes a bounded abort signal, releases the finalization slot on timeout and retains retryable spool", async () => {
++    const timeout = vi.spyOn(AbortSignal, "timeout").mockImplementation(() => AbortSignal.abort(new Error("timed out secret upstream")));
++    storageMock.mockImplementationOnce(async (_key: string, _blob: Blob, _type: string, options: { signal: AbortSignal }) => {
++      options.signal.throwIfAborted();
++      throw new Error("expected abort");
++    });
++    const { api, uploadId } = await upload(jpeg);
++    await expect(api.finishMediaUpload({ uploadId })).rejects.toMatchObject({ code: "INTERNAL_SERVER_ERROR", cause: undefined });
++    expect(timeout).toHaveBeenCalledWith(180_000);
++    timeout.mockRestore();
++    await expect(api.finishMediaUpload({ uploadId })).resolves.toHaveProperty("url");
++  });
++  it("rejects a storage key mismatch and retries the same private key", async () => {
++    storageMock.mockResolvedValueOnce({ key: "different", url: "https://files.test/a.jpg" });
++    const { api, uploadId } = await upload(jpeg);
++    await expect(api.finishMediaUpload({ uploadId })).rejects.toMatchObject({ code: "INTERNAL_SERVER_ERROR" });
++    await expect(api.finishMediaUpload({ uploadId })).resolves.toHaveProperty("key");
++  });
++  it("retains successful result for 30 minutes without retaining the disk spool", async () => {
++    const before = new Set(await privateSpools());
++    const { api, uploadId } = await upload(jpeg);
++    const result = await api.finishMediaUpload({ uploadId });
++    expect((await privateSpools()).filter(path => !before.has(path))).toHaveLength(0);
++    now += TTL - 1;
++    expect(await api.finishMediaUpload({ uploadId })).toEqual(result);
++    expect(storageMock).toHaveBeenCalledTimes(1);
++    now++;
++    await expect(api.finishMediaUpload({ uploadId })).rejects.toMatchObject({ code: "NOT_FOUND" });
++  });
++  it("serializes duplicate simultaneous chunks without double writing", async () => {
++    const api = caller();
++    const { uploadId } = await api.beginMediaUpload({ fileName: "a.jpg", contentType: "", size: jpeg.length });
++    const input = { uploadId, chunkIndex: 0, fileData: jpeg.toString("base64") };
++    const result = await Promise.all([api.uploadMediaChunk(input), api.uploadMediaChunk(input)]);
++    expect(result).toEqual([{ receivedBytes: jpeg.length }, { receivedBytes: jpeg.length }]);
++    await api.finishMediaUpload({ uploadId });
++    expect(storedBytes[0]).toEqual(jpeg);
++  });
++  it("serializes duplicate finish calls and invokes storage only once", async () => {
++    const gate = deferred<{ key: string; url: string }>();
++    storageMock.mockImplementationOnce(() => gate.promise);
++    const { api, uploadId } = await upload(jpeg);
++    const first = api.finishMediaUpload({ uploadId });
++    await waitForCalls(1);
++    const second = api.finishMediaUpload({ uploadId });
++    gate.resolve({ key: storageMock.mock.calls[0][0], url: "https://files.test/a.jpg" });
++    expect(await first).toEqual(await second);
++    expect(storageMock).toHaveBeenCalledTimes(1);
++  });
++  it("limits storage finalization to two, with a retryable third upload", async () => {
++    const gates = [deferred<{ key: string; url: string }>(), deferred<{ key: string; url: string }>()];
++    storageMock.mockImplementationOnce(() => gates[0].promise).mockImplementationOnce(() => gates[1].promise);
++    const uploads = await Promise.all([upload(jpeg), upload(jpeg), upload(jpeg)]);
++    const first = uploads[0].api.finishMediaUpload({ uploadId: uploads[0].uploadId });
++    const second = uploads[1].api.finishMediaUpload({ uploadId: uploads[1].uploadId });
++    await waitForCalls(2);
++    await expect(uploads[2].api.finishMediaUpload({ uploadId: uploads[2].uploadId })).rejects.toMatchObject({ code: "TOO_MANY_REQUESTS" });
++    gates.forEach((gate, i) => gate.resolve({ key: storageMock.mock.calls[i][0], url: `https://files.test/${i}.jpg` }));
++    await Promise.all([first, second]);
++    await expect(uploads[2].api.finishMediaUpload({ uploadId: uploads[2].uploadId })).resolves.toHaveProperty("url");
++  });
++  it("waits for in-flight finalization before cancellation unlinks the Blob source", async () => {
++    const gate = deferred<void>();
++    storageMock.mockImplementationOnce(async (key: string, blob: Blob) => {
++      await gate.promise;
++      expect(Buffer.from(await blob.arrayBuffer())).toEqual(jpeg);
++      return { key, url: "https://files.test/a.jpg" };
++    });
++    const { api, uploadId } = await upload(jpeg);
++    const finish = api.finishMediaUpload({ uploadId });
++    await waitForCalls(1);
++    const cancel = api.cancelMediaUpload({ uploadId });
++    gate.resolve();
++    await expect(finish).resolves.toHaveProperty("url");
++    expect(await cancel).toEqual({ success: true });
++    await expect(api.finishMediaUpload({ uploadId })).rejects.toMatchObject({ code: "NOT_FOUND" });
++  });
++  it("does not expire/unlink a file under in-flight storage IO", async () => {
++    const gate = deferred<void>();
++    storageMock.mockImplementationOnce(async (key: string, blob: Blob) => {
++      await gate.promise;
++      expect(Buffer.from(await blob.arrayBuffer())).toEqual(jpeg);
++      return { key, url: "https://files.test/a.jpg" };
++    });
++    const { api, uploadId } = await upload(jpeg);
++    const finish = api.finishMediaUpload({ uploadId });
++    await waitForCalls(1);
++    now += TTL + 1;
++    await cleanupExpiredEnquiryMediaUploads();
++    gate.resolve();
++    const result = await finish;
++    expect(await api.finishMediaUpload({ uploadId })).toEqual(result);
++  });
++});
+diff --git a/server/enquiryMediaUploads.ts b/server/enquiryMediaUploads.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..de91b707743cfec2b78f0969fe1102eceb540ec0
+--- /dev/null
++++ b/server/enquiryMediaUploads.ts
+@@ -0,0 +1,416 @@
++import { createHash, randomBytes } from "node:crypto";
++import { openAsBlob } from "node:fs";
++import { lstat, mkdtemp, open, readdir, rm } from "node:fs/promises";
++import { isIP } from "node:net";
++import { tmpdir } from "node:os";
++import { join } from "node:path";
++import { TRPCError } from "@trpc/server";
++import { fileTypeFromFile, type FileTypeResult } from "file-type";
++import { z } from "zod";
++import {
++  ENQUIRY_CHUNK_BYTES,
++  ENQUIRY_UPLOAD_TTL_MS,
++  MAX_ENQUIRY_FILES,
++  MAX_ENQUIRY_TOTAL_BYTES,
++  MIB,
++  enquiryAttachmentLimit,
++  enquiryMediaFormat,
++  type EnquiryMediaKind,
++} from "../shared/enquiryAttachments";
++import type { TrpcContext } from "./_core/context";
++import { publicProcedure } from "./_core/trpc";
++import { storagePut } from "./storage";
++
++// Originals are process-local, never converted or loaded in full into memory.
++// A process restart requires a fresh upload; expired orphan spools are swept below.
++const PRIVATE_PREFIX = "csb-enquiry-media-v1-";
++const GLOBAL_RESERVED_LIMIT = 2 * 1024 * MIB;
++const ACTIVE_LIMIT = 64;
++const BEGIN_ATTEMPT_LIMIT = 40;
++const CLIENT_BUCKET_LIMIT = 4096;
++const SESSION_LIMIT = 4096; // Includes small, TTL-retained successful retry results.
++const MAX_QUEUED_OPERATIONS = 4;
++const MAX_BASE64_CHARS = Math.ceil(ENQUIRY_CHUNK_BYTES / 3) * 4;
++const sessions = new Map<string, UploadSession>();
++const clients = new Map<string, ClientBudget>();
++let reservedBytes = 0;
++let activeUploads = 0;
++let finalizing = 0;
++let sweepPromise: Promise<void> | undefined;
++let lastOrphanSweep = -Infinity;
++
++interface ClientBudget {
++  windowStart: number;
++  attempts: number;
++  reserved: number;
++  active: number;
++}
++interface UploadResult { fileName: string; url: string; key: string }
++interface ChunkReceipt { offset: number; size: number; hash: string }
++interface UploadSession {
++  id: string;
++  client: string;
++  fileName: string;
++  kind: EnquiryMediaKind;
++  size: number;
++  expiresAt: number;
++  directory?: string;
++  path?: string;
++  received: number;
++  chunks: ChunkReceipt[];
++  reserved: boolean;
++  result?: UploadResult;
++  tail: Promise<void>;
++  pending: number;
++}
++
++function badRequest(message: string): TRPCError {
++  return new TRPCError({ code: "BAD_REQUEST", message });
++}
++function busy(): TRPCError {
++  return new TRPCError({
++    code: "TOO_MANY_REQUESTS",
++    message: "Attachment uploads are busy. Please wait a moment and try again.",
++  });
++}
++function missing(): TRPCError {
++  return new TRPCError({
++    code: "NOT_FOUND",
++    message: "This attachment upload has expired or is unavailable. Please choose the file again.",
++  });
++}
++function storageFailure(): TRPCError {
++  // Never attach the storage error/cause: it can contain credentials or upstream bodies.
++  return new TRPCError({
++    code: "INTERNAL_SERVER_ERROR",
++    message: "We could not save this attachment just now. Please retry the upload.",
++  });
++}
++function clientKey(ctx: TrpcContext): string {
++  const cf = ctx.req.headers["cf-connecting-ip"];
++  const address = typeof cf === "string" && isIP(cf) ? cf
++    : ctx.req.ip && isIP(ctx.req.ip) ? ctx.req.ip
++    : ctx.req.socket?.remoteAddress && isIP(ctx.req.socket.remoteAddress)
++      ? ctx.req.socket.remoteAddress : "unknown";
++  // No raw IP addresses, names or image data in log output or accounting keys.
++  return createHash("sha256").update(address).digest("hex");
++}
++function safeDisplayName(name: string): string {
++  // This is display-only. Never use any part of the user name for a disk/storage path.
++  return name.replace(/[^a-zA-Z0-9._-]/g, "-").replace(/^\.+/, "").slice(0, 160) || "attachment";
++}
++function accountBegin(client: string): ClientBudget {
++  const now = Date.now();
++  let budget = clients.get(client);
++  if (!budget) {
++    if (clients.size >= CLIENT_BUCKET_LIMIT) throw busy();
++    budget = { windowStart: now, attempts: 0, reserved: 0, active: 0 };
++    clients.set(client, budget);
++  }
++  if (now - budget.windowStart >= ENQUIRY_UPLOAD_TTL_MS) {
++    budget.windowStart = now;
++    budget.attempts = 0;
++  }
++  if (++budget.attempts > BEGIN_ATTEMPT_LIMIT) {
++    // Keep accounting bounded even for an abusive client's repeated attempts.
++    budget.attempts = BEGIN_ATTEMPT_LIMIT + 1;
++    throw busy();
++  }
++  return budget;
++}
++async function removeSpool(session: UploadSession): Promise<void> {
++  if (session.directory) {
++    // Keep the reservation if removal fails: disk resources must not be undercounted.
++    await rm(session.directory, { recursive: true, force: true });
++    session.directory = undefined;
++    session.path = undefined;
++  }
++  if (session.reserved) {
++    session.reserved = false;
++    reservedBytes -= session.size;
++    activeUploads--;
++    const budget = clients.get(session.client);
++    if (budget) {
++      budget.reserved -= session.size;
++      budget.active--;
++    }
++  }
++}
++async function dispose(session: UploadSession): Promise<void> {
++  await removeSpool(session);
++  if (sessions.get(session.id) === session) sessions.delete(session.id);
++}
++
++/** Lazy and interval housekeeping; also usable for deterministic tests/admin shutdown. */
++export async function cleanupExpiredEnquiryMediaUploads(): Promise<void> {
++  if (sweepPromise) return sweepPromise;
++  sweepPromise = (async () => {
++    const now = Date.now();
++    for (const session of Array.from(sessions.values())) {
++      // In-flight writes/finalization own their files; never unlink underneath a Blob stream.
++      if (session.expiresAt <= now && session.pending === 0) {
++        await dispose(session).catch(() => undefined);
++      } else if (session.result && session.pending === 0 && session.reserved) {
++        await removeSpool(session).catch(() => undefined);
++      }
++    }
++    for (const [key, budget] of Array.from(clients.entries())) {
++      if (budget.active === 0 && now - budget.windowStart >= ENQUIRY_UPLOAD_TTL_MS) clients.delete(key);
++    }
++    if (now - lastOrphanSweep < 60_000) return;
++    lastOrphanSweep = now;
++    const owned = new Set(Array.from(sessions.values()).map(session => session.directory).filter(Boolean));
++    const entries = await readdir(tmpdir(), { withFileTypes: true }).catch(() => []);
++    for (const entry of entries) {
++      // Only our private mkdtemp prefix; never traverse symlinks or delete other app files.
++      if (!entry.isDirectory() || !entry.name.startsWith(PRIVATE_PREFIX)) continue;
++      const directory = join(tmpdir(), entry.name);
++      if (owned.has(directory)) continue;
++      try {
++        const stat = await lstat(directory);
++        if (!stat.isSymbolicLink() && now - stat.mtimeMs >= ENQUIRY_UPLOAD_TTL_MS) {
++          await rm(directory, { recursive: true, force: true });
++        }
++      } catch { /* Best-effort housekeeping; no PII or file paths logged. */ }
++    }
++  })().finally(() => { sweepPromise = undefined; });
++  return sweepPromise;
++}
++const cleanupTimer = setInterval(() => {
++  void cleanupExpiredEnquiryMediaUploads().catch(() => undefined);
++}, 60_000);
++cleanupTimer.unref();
++
++async function withSession<T>(ctx: TrpcContext, id: string, operation: (session: UploadSession) => Promise<T>): Promise<T> {
++  await cleanupExpiredEnquiryMediaUploads();
++  const session = sessions.get(id);
++  // A cryptographically random bearer capability authorizes continuation across mobile networks.
++  // Original-client accounting remains fixed; changing networks never transfers reservations.
++  if (!session || session.expiresAt <= Date.now()) throw missing();
++  if (session.pending >= MAX_QUEUED_OPERATIONS) throw busy();
++  session.pending++;
++  const previous = session.tail;
++  let release!: () => void;
++  session.tail = new Promise<void>(resolve => { release = resolve; });
++  await previous;
++  try {
++    if (sessions.get(id) !== session || session.expiresAt <= Date.now()) throw missing();
++    return await operation(session);
++  } finally {
++    session.pending--;
++    // Clean expiry after an in-flight operation releases its disk/storage resources.
++    if (session.pending === 0 && session.expiresAt <= Date.now()) await dispose(session).catch(() => undefined);
++    release();
++  }
++}
++
++function decodeChunk(data: string): Buffer {
++  if (!data.length || data.length > MAX_BASE64_CHARS || data.length % 4 !== 0
++      || !/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(data)) {
++    throw badRequest("This attachment chunk is invalid. Please choose the file again.");
++  }
++  const bytes = Buffer.from(data, "base64");
++  // Re-encoding checks padding bits as well as canonical alphabet/padding/whitespace.
++  if (!bytes.length || bytes.length > ENQUIRY_CHUNK_BYTES || bytes.toString("base64") !== data) {
++    throw badRequest("This attachment chunk is invalid or too large.");
++  }
++  return bytes;
++}
++
++interface DetectedFormat { kind: EnquiryMediaKind; extension: string; mime: string }
++// Pair extension AND actual sniffed MIME. No MIME/name-only fallback or unknown formats.
++const DETECTED_FORMATS: ReadonlyArray<[string, string, EnquiryMediaKind, string?, string?]> = [
++  ["jpg", "image/jpeg", "photo"], ["png", "image/png", "photo"],
++  ["apng", "image/apng", "photo", "png", "image/png"],
++  ["gif", "image/gif", "photo"], ["webp", "image/webp", "photo"],
++  ["heic", "image/heic", "photo"], ["heic", "image/heic-sequence", "photo", "heic", "image/heic"],
++  ["heic", "image/heif", "photo", "heif", "image/heif"],
++  ["heic", "image/heif-sequence", "photo", "heif", "image/heif"],
++  ["avif", "image/avif", "photo"], ["tif", "image/tiff", "photo"],
++  ["bmp", "image/bmp", "photo"], ["jxl", "image/jxl", "photo"], ["jp2", "image/jp2", "photo"],
++  ["cr2", "image/x-canon-cr2", "photo"], ["cr3", "image/x-canon-cr3", "photo"],
++  ["dng", "image/x-adobe-dng", "photo"], ["nef", "image/x-nikon-nef", "photo"],
++  ["arw", "image/x-sony-arw", "photo"], ["orf", "image/x-olympus-orf", "photo"],
++  ["rw2", "image/x-panasonic-rw2", "photo"], ["raf", "image/x-fujifilm-raf", "photo"],
++  ["mp4", "video/mp4", "video"], ["mov", "video/quicktime", "video"],
++  ["m4v", "video/x-m4v", "video"], ["webm", "video/webm", "video"],
++  ["avi", "video/vnd.avi", "video", "avi", "video/x-msvideo"],
++  ["mkv", "video/x-matroska", "video"], ["mpg", "video/mpeg", "video"],
++  ["mpg", "video/MP1S", "video", "mpg", "video/mpeg"],
++  ["mpg", "video/MP2P", "video", "mpg", "video/mpeg"],
++  ["3gp", "video/3gpp", "video"], ["3g2", "video/3gpp2", "video"],
++  ["asf", "video/x-ms-asf", "video", "asf", "video/x-ms-wmv"],
++  ["asf", "application/vnd.ms-asf", "video", "asf", "video/x-ms-wmv"],
++  ["mts", "video/mp2t", "video"], ["flv", "video/x-flv", "video"],
++  ["pdf", "application/pdf", "document"],
++];
++function detectedFormat(type: FileTypeResult | undefined): DetectedFormat | undefined {
++  const match = type && DETECTED_FORMATS.find(([ext, mime]) => ext === type.ext && mime === type.mime);
++  return match ? { kind: match[2], extension: match[3] ?? match[0], mime: match[4] ?? match[1] } : undefined;
++}
++function validStorageUrl(value: unknown): value is string {
++  if (typeof value !== "string" || !value.length || value.length > 512 || /[\s\\\u0000-\u001f\u007f]/.test(value)) return false;
++  if (/%(?![0-9a-f]{2})|%(?:0[0-9a-f]|1[0-9a-f]|7f|5c)/i.test(value)) return false;
++  if (value.startsWith("/manus-storage/")) {
++    // Reject URL/path normalization ambiguities and encoded controls/backslashes/dot segments.
++    if (/%(?:0[0-9a-f]|1[0-9a-f]|7f|5c|2e|2f)/i.test(value)) return false;
++    const parsed = new URL(value, "https://storage.invalid");
++    return parsed.origin === "https://storage.invalid" && parsed.pathname.startsWith("/manus-storage/")
++      && parsed.pathname.length > "/manus-storage/".length && !parsed.hash;
++  }
++  if (!/^https?:\/\//i.test(value)) return false;
++  try {
++    const url = new URL(value);
++    return (url.protocol === "http:" || url.protocol === "https:") && !!url.hostname
++      && !url.username && !url.password && !url.hash;
++  } catch { return false; }
++}
++
++const uploadIdSchema = z.string().regex(/^[a-f0-9]{64}$/);
++export const enquiryMediaUploadProcedures = {
++  beginMediaUpload: publicProcedure.input(z.object({
++    fileName: z.string().min(1).max(160),
++    contentType: z.string().max(100),
++    size: z.number().int().positive().max(250 * MIB),
++  }).strict()).mutation(async ({ input, ctx }) => {
++    await cleanupExpiredEnquiryMediaUploads();
++    const client = clientKey(ctx);
++    const budget = accountBegin(client);
++    const format = enquiryMediaFormat({ name: input.fileName, type: input.contentType });
++    if (!format) throw badRequest("Please choose a supported photo, video or PDF.");
++    if (input.size > enquiryAttachmentLimit(format)) {
++      throw badRequest("Photos and PDFs can be up to 100 MB each; videos can be up to 250 MB each.");
++    }
++    if (activeUploads >= ACTIVE_LIMIT || sessions.size >= SESSION_LIMIT
++        || reservedBytes + input.size > GLOBAL_RESERVED_LIMIT
++        || budget.reserved + input.size > MAX_ENQUIRY_TOTAL_BYTES
++        || budget.active >= MAX_ENQUIRY_FILES) throw busy();
++    const id = randomBytes(32).toString("hex");
++    const session: UploadSession = {
++      id, client, fileName: safeDisplayName(input.fileName), kind: format.kind,
++      size: input.size, expiresAt: Date.now() + ENQUIRY_UPLOAD_TTL_MS,
++      received: 0, chunks: [], reserved: true, tail: Promise.resolve(), pending: 1,
++    };
++    // Reserve synchronously before any filesystem await; parallel begin cannot bypass limits.
++    sessions.set(id, session);
++    reservedBytes += input.size;
++    activeUploads++;
++    budget.reserved += input.size;
++    budget.active++;
++    try {
++      session.directory = await mkdtemp(join(tmpdir(), PRIVATE_PREFIX));
++      session.path = join(session.directory, "original");
++      const file = await open(session.path, "wx", 0o600);
++      await file.close();
++      return { uploadId: id, chunkSize: ENQUIRY_CHUNK_BYTES };
++    } catch {
++      await dispose(session).catch(() => undefined);
++      throw storageFailure();
++    } finally { session.pending--; }
++  }),
++
++  uploadMediaChunk: publicProcedure.input(z.object({
++    uploadId: uploadIdSchema,
++    chunkIndex: z.number().int().nonnegative().max(249),
++    fileData: z.string().min(1).max(MAX_BASE64_CHARS),
++  }).strict()).mutation(({ input, ctx }) => withSession(ctx, input.uploadId, async session => {
++    if (session.result || !session.path) throw badRequest("This attachment is already complete.");
++    const bytes = decodeChunk(input.fileData);
++    const hash = createHash("sha256").update(bytes).digest("hex");
++    const offset = input.chunkIndex * ENQUIRY_CHUNK_BYTES;
++    if (input.chunkIndex < session.chunks.length) {
++      const receipt = session.chunks[input.chunkIndex];
++      if (receipt.offset !== offset || receipt.size !== bytes.length || receipt.hash !== hash) {
++        throw badRequest("This attachment chunk conflicts with an earlier upload. Please choose the file again.");
++      }
++      session.expiresAt = Date.now() + ENQUIRY_UPLOAD_TTL_MS;
++      return { receivedBytes: session.received };
++    }
++    if (input.chunkIndex !== session.chunks.length || offset !== session.received) {
++      throw badRequest("Please upload attachment chunks in order.");
++    }
++    const expected = Math.min(ENQUIRY_CHUNK_BYTES, session.size - session.received);
++    if (expected <= 0 || bytes.length !== expected) {
++      throw badRequest("This attachment chunk does not match the declared file size.");
++    }
++    try {
++      const file = await open(session.path, "r+");
++      try {
++        if ((await file.stat()).size !== session.received) throw new Error("Spool size mismatch");
++        let written = 0;
++        while (written < bytes.length) {
++          const result = await file.write(bytes, written, bytes.length - written, offset + written);
++          if (!result.bytesWritten) throw new Error("Incomplete spool write");
++          written += result.bytesWritten;
++        }
++      } catch {
++        // A retry must start at the same offset even after a partial write.
++        await file.truncate(session.received);
++        throw storageFailure();
++      } finally { await file.close(); }
++    } catch { throw storageFailure(); }
++    session.chunks.push({ offset, size: bytes.length, hash });
++    session.received += bytes.length;
++    session.expiresAt = Date.now() + ENQUIRY_UPLOAD_TTL_MS;
++    return { receivedBytes: session.received };
++  })),
++
++  finishMediaUpload: publicProcedure.input(z.object({ uploadId: uploadIdSchema }).strict())
++    .mutation(({ input, ctx }) => withSession(ctx, input.uploadId, async session => {
++      if (session.result) {
++        await removeSpool(session).catch(() => undefined);
++        return session.result;
++      }
++      if (!session.path || session.received !== session.size) throw badRequest("Please finish uploading all attachment chunks first.");
++      session.expiresAt = Date.now() + ENQUIRY_UPLOAD_TTL_MS;
++      if (finalizing >= 2) throw busy();
++      finalizing++;
++      try {
++        let actual: DetectedFormat | undefined;
++        try {
++          if ((await lstat(session.path)).size !== session.size) throw new Error("Spool size mismatch");
++          actual = detectedFormat(await fileTypeFromFile(session.path));
++        } catch { /* Malformed/truncated/unsupported originals fail closed. */ }
++        if (!actual || actual.kind !== session.kind) {
++          await dispose(session).catch(() => undefined);
++          throw badRequest("The attachment contents do not match a supported photo, video or PDF. Please choose the original file again.");
++        }
++        // Storage extension and MIME come from actual bytes, never the user's claimed name/type.
++        const key = `survey-attachments/${session.id}.${actual.extension}`;
++        let url: string;
++        try {
++          const blob = await openAsBlob(session.path, { type: actual.mime });
++          if (blob.size !== session.size) throw new Error("Spool size mismatch");
++          const stored = await storagePut(key, blob, actual.mime, { signal: AbortSignal.timeout(180_000) });
++          if (!validStorageUrl(stored.url) || stored.key !== key) throw new Error("Invalid storage result");
++          url = stored.url.startsWith("/manus-storage/")
++            ? new URL(stored.url, "https://commercialshotblasting.co.uk").href : stored.url;
++          if (url.length > 512) throw new Error("Storage URL too long");
++        } catch { throw storageFailure(); }
++        session.result = { fileName: session.fileName, key, url };
++        session.expiresAt = Date.now() + ENQUIRY_UPLOAD_TTL_MS;
++        // Cache the successful result before cleanup. Even a cleanup error cannot duplicate storage.
++        await removeSpool(session).catch(() => undefined);
++        return session.result;
++      } finally {
++        finalizing--;
++        if (sessions.get(session.id) === session) session.expiresAt = Date.now() + ENQUIRY_UPLOAD_TTL_MS;
++      }
++    })),
++
++  cancelMediaUpload: publicProcedure.input(z.object({ uploadId: uploadIdSchema }).strict())
++    .mutation(async ({ input, ctx }) => {
++      // Cancellation of unknown/expired IDs is deliberately idempotent and non-enumerating.
++      try {
++        await withSession(ctx, input.uploadId, async session => {
++          await dispose(session);
++        });
++      } catch (error) {
++        if (!(error instanceof TRPCError) || error.code !== "NOT_FOUND") {
++          if (error instanceof TRPCError) throw error;
++          throw storageFailure();
++        }
++      }
++      return { success: true } as const;
++    }),
++};
+diff --git a/server/homepageInlineEnquiryForm.test.ts b/server/homepageInlineEnquiryForm.test.ts
+index 4e3409a7f63868f9207778ec6d4c512c72cc545c..b5280b0fd67ddd2da493aad59521339845f7d880 100644
+--- a/server/homepageInlineEnquiryForm.test.ts
++++ b/server/homepageInlineEnquiryForm.test.ts
+@@ -37,7 +37,7 @@ describe("homepage Get In Touch form", () => {
+ 
+   it("keeps the universal form simple, with a required message and optional multi-image uploads", () => {
+     expect(leadForm).toContain('presentation?: "standard" | "hero"');
+-    expect(leadForm).toContain('rows={isHero ? 3 : 4} required');
++    expect(leadForm).toContain('rows={isHero ? 3 : 4} readOnly={isSubmitting} required');
+     expect(leadForm).toContain("Tell us what you need help with... Such as: request a site visit.");
+     expect(leadForm).toContain('type="file" multiple');
+     expect(homePage).toContain('showWhatsApp={true}');
+@@ -46,7 +46,7 @@ describe("homepage Get In Touch form", () => {
+ 
+   it("continues to use the existing CSB attribution and lead-delivery contract", () => {
+     expect(leadForm).toContain("trpc.contact.submit.useMutation");
+-    expect(leadForm).toContain("trpc.contact.uploadAttachments.useMutation");
++    expect(leadForm).toContain("trpc.contact.beginMediaUpload.useMutation");
+     expect(leadForm).toContain("formatUTMForSubmission");
+   });
+ 
+diff --git a/server/routers.ts b/server/routers.ts
+index e57b4d35a06681c845ec964b53d6f33b88f3ea4b..7abecf7502b5813dc82e205b6ddcabdc1a427677 100644
+--- a/server/routers.ts
++++ b/server/routers.ts
+@@ -4,6 +4,7 @@ import { systemRouter } from "./_core/systemRouter";
+ import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
+ import { z } from "zod";
+ import { TRPCError } from "@trpc/server";
++import { enquiryMediaUploadProcedures } from "./enquiryMediaUploads";
+ import {
+   getActiveGalleryItems,
+   getAllGalleryItems,
+@@ -271,6 +272,7 @@ export const appRouter = router({
+ 
+   // Contact Form Submissions
+   contact: router({
++    ...enquiryMediaUploadProcedures,
+     uploadAttachments: publicProcedure
+       .input(z.object({
+         attachments: z.array(z.object({
+@@ -305,7 +307,8 @@ export const appRouter = router({
+         email: z.string().email().max(320),
+         phone: z.string().min(1).max(30),
+         postcode: z.string().trim().min(1).max(16),
+-        message: z.string().min(1).max(5000),
++        // The visitor textarea stays at 5,000; allow up to 20 generated media links too.
++        message: z.string().min(1).max(20000),
+         sourcePage: z.string().optional(),
+         locationName: z.string().optional(),
+         utmData: z.record(z.string(), z.string()).optional(),
+diff --git a/server/sitemapMapControls.test.ts b/server/sitemapMapControls.test.ts
+index 134d1c79a646babdde5b468a69b28e6df19a916e..06e139d59939f3ef34f535007630c742e0089bad 100644
+--- a/server/sitemapMapControls.test.ts
++++ b/server/sitemapMapControls.test.ts
+@@ -44,8 +44,8 @@ describe("sitemap map controls and Site Visit options", () => {
+ 
+     expect(contactPage).toContain("<LeadForm");
+     expect(leadForm).toContain("Your message");
+-    expect(leadForm).toContain("Add photos or drawings");
+-    expect(leadForm).toContain("const MAX_FILES = 6");
++    expect(leadForm).toContain("Add photos, videos or drawings");
++    expect(leadForm).toContain("MAX_ENQUIRY_FILES");
+     expect(leadForm).not.toContain("Primary Asset Category");
+     expect(leadForm).not.toContain("Select a service");
+   });
+@@ -93,7 +93,7 @@ describe("sitemap map controls and Site Visit options", () => {
+     expect(surveyFlow).not.toContain("usePostcodeNearbyCoverage");
+     expect(surveyFlow).not.toContain("ProjectImageGallery");
+     expect(leadForm).not.toContain("projectServiceFilter");
+-    expect(leadForm).toContain("Add photos or drawings");
++    expect(leadForm).toContain("Add photos, videos or drawings");
+   });
+ 
+   it("publishes a factual steel-chimney case study with supplied media and no unsupported performance claim", () => {
+diff --git a/server/storage.ts b/server/storage.ts
+index 6cdf86203b8fcac3378b75ddcf6d57b8064c0e74..75306ea4003a73d2e4d78aa1d23955194672b086 100644
+--- a/server/storage.ts
++++ b/server/storage.ts
+@@ -50,14 +50,16 @@ function normalizeKey(relKey: string): string {
+ }
+ 
+ function toFormData(
+-  data: Buffer | Uint8Array | string,
++  data: Buffer | Uint8Array | string | Blob,
+   contentType: string,
+   fileName: string
+ ): FormData {
+   const blob =
+-    typeof data === "string"
+-      ? new Blob([data], { type: contentType })
+-      : new Blob([data as any], { type: contentType });
++    data instanceof Blob
++      ? data
++      : typeof data === "string"
++        ? new Blob([data], { type: contentType })
++        : new Blob([data as any], { type: contentType });
+   const form = new FormData();
+   form.append("file", blob, fileName || "file");
+   return form;
+@@ -69,8 +71,9 @@ function buildAuthHeaders(apiKey: string): HeadersInit {
+ 
+ export async function storagePut(
+   relKey: string,
+-  data: Buffer | Uint8Array | string,
+-  contentType = "application/octet-stream"
++  data: Buffer | Uint8Array | string | Blob,
++  contentType = "application/octet-stream",
++  options?: { signal?: AbortSignal }
+ ): Promise<{ key: string; url: string }> {
+   const { baseUrl, apiKey } = getStorageConfig();
+   const key = normalizeKey(relKey);
+@@ -80,6 +83,7 @@ export async function storagePut(
+     method: "POST",
+     headers: buildAuthHeaders(apiKey),
+     body: formData,
++    ...(options?.signal ? { signal: options.signal } : {}),
+   });
+ 
+   if (!response.ok) {
+diff --git a/server/universalGetInTouchForm.test.ts b/server/universalGetInTouchForm.test.ts
+index 55afe2645aab80c587286d8ca270e6f7bf167c8c..274f573c268616d430cf800315d7fcce5d2dd048 100644
+--- a/server/universalGetInTouchForm.test.ts
++++ b/server/universalGetInTouchForm.test.ts
+@@ -27,18 +27,18 @@ describe("universal Get In Touch enquiry flow", () => {
+     expect(leadForm).not.toContain("What needs blasting?");
+   });
+ 
+-  it("supports optional multiple photos or drawings with the approved type and count limits", () => {
++  it("supports optional multiple photos/videos/drawings through the shared expanded policy", () => {
+     expect(leadForm).toContain("multiple");
+-    expect(leadForm).toContain("const MAX_FILES = 6");
+-    expect(leadForm).toContain("const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024");
+-    expect(leadForm).toContain("image/jpeg,image/png,image/webp,application/pdf");
+-    expect(leadForm).toContain("Upload up to {MAX_FILES} JPG, PNG, WebP or PDF files, 5 MB each.");
++    expect(leadForm).toContain("MAX_ENQUIRY_FILES");
++    expect(leadForm).toContain("photos/PDFs 100 MB each, videos 250 MB each, 500 MB total");
++    expect(leadForm).toContain("accept={ENQUIRY_ATTACHMENT_ACCEPT}");
++    expect(leadForm).toContain("HEIC/iPhone photos");
+   });
+ 
+   it("preserves existing CSB attribution and delivery fields", () => {
+     expect(leadForm).toContain("formatUTMForSubmission");
+     expect(leadForm).toContain("trpc.contact.submit.useMutation");
+-    expect(leadForm).toContain("trpc.contact.uploadAttachments.useMutation");
++    expect(leadForm).toContain("trpc.contact.beginMediaUpload.useMutation");
+     expect(leadForm).toContain("marketingConsent");
+   });
+ 
+diff --git a/shared/enquiryAttachments.ts b/shared/enquiryAttachments.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..d6ccc939f98d71212b46a341f12127ae055e8fda
+--- /dev/null
++++ b/shared/enquiryAttachments.ts
+@@ -0,0 +1,77 @@
++export const MIB = 1024 * 1024;
++export const MAX_ENQUIRY_FILES = 20;
++export const MAX_PHOTO_BYTES = 100 * MIB;
++export const MAX_VIDEO_BYTES = 250 * MIB;
++export const MAX_ENQUIRY_TOTAL_BYTES = 500 * MIB;
++export const ENQUIRY_CHUNK_BYTES = MIB;
++export const ENQUIRY_UPLOAD_TTL_MS = 30 * 60 * 1000;
++export type EnquiryMediaKind = "photo" | "video" | "document";
++export interface EnquiryMediaFormat { kind: EnquiryMediaKind; mime: string; extensions: readonly string[] }
++export const ENQUIRY_MEDIA_FORMATS: readonly EnquiryMediaFormat[] = [
++  {kind:"photo",mime:"image/jpeg",extensions:["jpg","jpeg","jpe","jfif"]},
++  {kind:"photo",mime:"image/png",extensions:["png","apng"]},
++  {kind:"photo",mime:"image/webp",extensions:["webp"]},
++  {kind:"photo",mime:"image/gif",extensions:["gif"]},
++  {kind:"photo",mime:"image/heic",extensions:["heic"]},
++  {kind:"photo",mime:"image/heif",extensions:["heif","hif"]},
++  {kind:"photo",mime:"image/avif",extensions:["avif"]},
++  {kind:"photo",mime:"image/tiff",extensions:["tif","tiff"]},
++  {kind:"photo",mime:"image/bmp",extensions:["bmp","dib"]},
++  {kind:"photo",mime:"image/jxl",extensions:["jxl"]},
++  {kind:"photo",mime:"image/jp2",extensions:["jp2"]},
++  {kind:"photo",mime:"image/x-canon-cr2",extensions:["cr2"]},
++  {kind:"photo",mime:"image/x-canon-cr3",extensions:["cr3"]},
++  {kind:"photo",mime:"image/x-adobe-dng",extensions:["dng"]},
++  {kind:"photo",mime:"image/x-nikon-nef",extensions:["nef"]},
++  {kind:"photo",mime:"image/x-sony-arw",extensions:["arw"]},
++  {kind:"photo",mime:"image/x-olympus-orf",extensions:["orf"]},
++  {kind:"photo",mime:"image/x-panasonic-rw2",extensions:["rw2"]},
++  {kind:"photo",mime:"image/x-fujifilm-raf",extensions:["raf"]},
++  {kind:"photo",mime:"image/x-raw",extensions:["raw"]},
++  {kind:"video",mime:"video/mp4",extensions:["mp4","m4v"]},
++  {kind:"video",mime:"video/quicktime",extensions:["mov","qt"]},
++  {kind:"video",mime:"video/webm",extensions:["webm"]},
++  {kind:"video",mime:"video/x-msvideo",extensions:["avi"]},
++  {kind:"video",mime:"video/x-matroska",extensions:["mkv"]},
++  {kind:"video",mime:"video/mpeg",extensions:["mpg","mpeg","mpe","m2v"]},
++  {kind:"video",mime:"video/3gpp",extensions:["3gp"]},
++  {kind:"video",mime:"video/3gpp2",extensions:["3g2"]},
++  {kind:"video",mime:"video/x-ms-wmv",extensions:["wmv","asf"]},
++  {kind:"video",mime:"video/mp2t",extensions:["mts","m2ts","ts"]},
++  {kind:"video",mime:"video/x-flv",extensions:["flv"]},
++  {kind:"document",mime:"application/pdf",extensions:["pdf"]},
++];
++const MIME_ALIASES: Record<string,string> = {"image/jpg":"image/jpeg","image/pjpeg":"image/jpeg","image/x-png":"image/png","video/x-m4v":"video/mp4","video/avi":"video/x-msvideo","image/x-ms-bmp":"image/bmp","image/heic-sequence":"image/heic","image/heif-sequence":"image/heif","video/x-mpeg":"video/mpeg"};
++export const ENQUIRY_ATTACHMENT_ACCEPT = Array.from(new Set(ENQUIRY_MEDIA_FORMATS.flatMap(f=>[f.mime,...f.extensions.map(e=>`.${e}`)]))).join(",");
++/** Filename fallback fixes missing/generic browser MIME; server verifies actual bytes before storage. */
++export function enquiryMediaFormat(file:{name:string;type?:string}): EnquiryMediaFormat | undefined {
++  const ext=file.name.includes(".")?file.name.split(".").pop()!.toLowerCase():"";
++  if(ext) return ENQUIRY_MEDIA_FORMATS.find(f=>f.extensions.includes(ext));
++  const raw=(file.type??"").split(";")[0].trim().toLowerCase();
++  return ENQUIRY_MEDIA_FORMATS.find(f=>f.mime===(MIME_ALIASES[raw]??raw));
++}
++export function enquiryAttachmentLimit(format:EnquiryMediaFormat):number { return format.kind==="video"?MAX_VIDEO_BYTES:MAX_PHOTO_BYTES; }
++export function formatAttachmentSize(bytes:number):string {
++  if(bytes>=MIB)return `${(bytes/MIB).toFixed(bytes>=10*MIB?0:1)} MB`;
++  return `${Math.max(1,Math.round(bytes/1024))} KB`;
++}
++export function attachmentSelectionError(file:{name:string;type?:string;size:number}):string | undefined {
++ const format=enquiryMediaFormat(file);
++ if(!format)return `${file.name}: please choose a photo, video or PDF. This file type is not supported.`;
++ if(!file.size)return `${file.name}: this file is empty. Please choose the original file again.`;
++ if(file.name.length>160)return `${file.name.slice(0,45)}…: please shorten the filename to 160 characters or fewer.`;
++ const max=enquiryAttachmentLimit(format);
++ if(file.size>max)return `${file.name}: ${format.kind==="video"?"videos":"photos and PDFs"} can be up to ${max/MIB} MB each. This file is ${formatAttachmentSize(file.size)}.`;
++ return undefined;
++}
++export function selectEnquiryAttachments<T extends {name:string;type?:string;size:number;lastModified?:number}>(existing:readonly T[], incoming:readonly T[]):{files:T[];errors:string[]} {
++ const files=[...existing],errors:string[]=[];let total=files.reduce((sum,f)=>sum+f.size,0);
++ for(const file of incoming){
++  const problem=attachmentSelectionError(file);if(problem){errors.push(problem);continue;}
++  if(files.some(f=>f.name===file.name&&f.size===file.size&&f.lastModified===file.lastModified))continue;
++  if(files.length>=MAX_ENQUIRY_FILES){errors.push(`${file.name}: you can add up to ${MAX_ENQUIRY_FILES} files.`);continue;}
++  if(total+file.size>MAX_ENQUIRY_TOTAL_BYTES){errors.push(`${file.name}: please keep the total below 500 MB, or send fewer files.`);continue;}
++  files.push(file);total+=file.size;
++ }
++ return {files,errors};
++}
+diff --git a/shared/privacyPolicyContent.ts b/shared/privacyPolicyContent.ts
+index 0abd6ebe56729d0e1f58f912ddccaa106405e337..d60f125997eb01a1903b6a46e3f82eefcd8c31bd 100644
+--- a/shared/privacyPolicyContent.ts
++++ b/shared/privacyPolicyContent.ts
+@@ -19,7 +19,7 @@ export const websitePrivacySections: AppLegalSection[] = [
+     heading: "Information We Collect",
+     paragraphs: [
+       "Personal Information: We may collect personal information that you voluntarily provide to us when you fill out a contact form or request a quote, subscribe to our newsletter or marketing communications, contact us via email, phone, or other communication channels, or engage with our services.",
+-      "This information may include your name, email address, phone number, company name, site postcode, project details, optional photos or drawings, and any other information you choose to provide.",
++      "This information may include your name, email address, phone number, company name, site postcode, project details, optional photos, videos or drawings, and any other information you choose to provide. Original files may contain metadata supplied by your device, so please avoid uploading sensitive or unnecessary personal information.",
+       "Automatically Collected Information: When you visit our website, we may automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device. Additionally, as you browse the site, we collect information about the individual web pages you view, what websites or search terms referred you to the site, and information about how you interact with the site.",
+       "Enquiry source information: When you send an enquiry, we may include the first page observed in that visit, the page you submitted from, the referring website's hostname where your browser supplies it, and existing campaign tags. This helps us understand which pages generate enquiries. We do not obtain your individual Google organic search phrase from this information. This context is kept with your enquiry under the enquiry-retention policy below and is available to our team through our existing enquiry systems.",
+     ],
+@@ -61,6 +61,7 @@ export const websitePrivacySections: AppLegalSection[] = [
+     paragraphs: [
+       "We implement appropriate technical and organisational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure.",
+       "We will only retain your personal data for as long as necessary to fulfil the purposes we collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements.",
++      "Optional file uploads are transferred in small parts and temporarily assembled on our server. Incomplete upload sessions expire after 30 minutes of inactivity and are cleaned up; cancellation also removes their temporary parts. Completed files are kept in our existing file storage and their links may accompany your enquiry in our existing email, CRM and team systems. Successful files are not automatically erased if you abandon the form after uploading, so contact us if you need an uploaded file removed from our records.",
+     ],
+   },
+   {

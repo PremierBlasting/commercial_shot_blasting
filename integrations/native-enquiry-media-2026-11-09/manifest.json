@@ -1,0 +1,290 @@
+{
+  "authorization": "Explicit parent final-ready authorization on 2026-11-09: copy, one package-only commit, normal exact-branch push; no native edits or live service calls.",
+  "excluded": [
+    "todo.md",
+    "sitemaps",
+    "production media",
+    "build artifacts",
+    "raw logs",
+    "environments",
+    "credentials",
+    "actual enquiry/customer data"
+  ],
+  "files": [
+    {
+      "baseline_sha256": null,
+      "change": "added",
+      "companion_copy": "new-files/shared/enquiryAttachments.ts",
+      "final_sha256": "65d22ad709325b2bb21bba261e6800b17c8a10636d929fbffd54576e5740ec93",
+      "path": "shared/enquiryAttachments.ts"
+    },
+    {
+      "baseline_sha256": null,
+      "change": "added",
+      "companion_copy": "new-files/client/src/lib/enquiryMediaUpload.ts",
+      "final_sha256": "a9016634e4b63e88733a931c3254b9859c64390b9c9d0380e3e8adb7ad7bf419",
+      "path": "client/src/lib/enquiryMediaUpload.ts"
+    },
+    {
+      "baseline_sha256": "c52c494ce0caf014497f28651f0d09c433701b95b6482ed6184dc075d0cc23e5",
+      "change": "modified",
+      "companion_copy": null,
+      "final_sha256": "a9895479ad164478a14b9ada1179b63c925e7c900ef2661c4247e436b563ccf2",
+      "path": "client/src/components/LeadForm.tsx"
+    },
+    {
+      "baseline_sha256": null,
+      "change": "added",
+      "companion_copy": "new-files/server/enquiryMediaUploads.ts",
+      "final_sha256": "2a32fb2850806f9121624881b5356872370df72f5def2aee80e64c9f42c7ef41",
+      "path": "server/enquiryMediaUploads.ts"
+    },
+    {
+      "baseline_sha256": "3188209fe6395442c8e87c7d3d587a1710c8334f048d2cbb688d679b4c43c71f",
+      "change": "modified",
+      "companion_copy": null,
+      "final_sha256": "0e12efccf3fcf2e2b41c6744960eccf3dc988b1fa23c02b1dbf20126886091f3",
+      "path": "server/storage.ts"
+    },
+    {
+      "baseline_sha256": "d7748aace7f4e5b6f307cb3ea2cbbe87efcd5cb21882c476adb4f15b77a89aed",
+      "change": "modified",
+      "companion_copy": null,
+      "final_sha256": "4637406e50bf095120732f07a27f127b0ae3a89b6e9f3fcc61d8cb333a03e127",
+      "path": "server/routers.ts"
+    },
+    {
+      "baseline_sha256": "b7c3378a19af3f59bd7921c08a580d0a84f9aac86d70d76201ca586d537e9a7b",
+      "change": "modified",
+      "companion_copy": null,
+      "final_sha256": "6f5ab069aa527b49d615c9821352e27c33d67e2e16a8694a4883e3d8d05b2697",
+      "path": "shared/privacyPolicyContent.ts"
+    },
+    {
+      "baseline_sha256": "c9bf97f32f633f04822b6423038f5d5f4cd207385a7af2186c236beb1d028d48",
+      "change": "modified",
+      "companion_copy": null,
+      "final_sha256": "d14cd13d251101261ad07e256440f79c2c43f3b778760344fa5c0767bf810092",
+      "path": "package.json"
+    },
+    {
+      "baseline_sha256": "9a98c0bce815637e2f0b671627a3affcfe25b0e6b2324ec86bd9e690b640aa9e",
+      "change": "modified",
+      "companion_copy": null,
+      "final_sha256": "a9dec2d808f9e9a77e785c5ae26731dc9187cc77a9382f2a59faf745d1a8045b",
+      "path": "pnpm-lock.yaml"
+    },
+    {
+      "baseline_sha256": null,
+      "change": "added",
+      "companion_copy": "new-files/server/enquiryAttachmentPolicy.test.ts",
+      "final_sha256": "8d498eb19ee9390ad9b4677df886e3cf036c8f65b534830cf15a67736059c79a",
+      "path": "server/enquiryAttachmentPolicy.test.ts"
+    },
+    {
+      "baseline_sha256": null,
+      "change": "added",
+      "companion_copy": "new-files/server/enquiryMediaUploadClient.test.ts",
+      "final_sha256": "997557cc453103fab170d66bacc0dd5da2ee312bfa72490fa577bf9c3d35add8",
+      "path": "server/enquiryMediaUploadClient.test.ts"
+    },
+    {
+      "baseline_sha256": null,
+      "change": "added",
+      "companion_copy": "new-files/server/enquiryMediaUploads.test.ts",
+      "final_sha256": "67796e6d362dd1036689bb59d0d2e323cac55048ef805882df6802d035b4f88c",
+      "path": "server/enquiryMediaUploads.test.ts"
+    },
+    {
+      "baseline_sha256": "ada32ba8027829ebc20584209ba822114ff1d8f5fca9b909e0256aa3ef25f881",
+      "change": "modified",
+      "companion_copy": null,
+      "final_sha256": "7bdf7fe9739bdb26577cfcf63feb9bffe40743f65f642dc045c103fbcc9f77cc",
+      "path": "server/contact.test.ts"
+    },
+    {
+      "baseline_sha256": "babbbe0dc2c10d5355408719e4b697a559156031c45d6642632d2275b0e21173",
+      "change": "modified",
+      "companion_copy": null,
+      "final_sha256": "5b99b93675621eaa6f4570ebcfa46e97acad4f8d0f931671b3389ea125771319",
+      "path": "server/capabilityStatementCards.test.ts"
+    },
+    {
+      "baseline_sha256": "d1abb432bbb822b8d4b7c2f1a6c2c2e8790e1691f7e448f520327058a88efec5",
+      "change": "modified",
+      "companion_copy": null,
+      "final_sha256": "cb867f03fa7e400b601edf2ecef33fb10b3d9c7713968328d0a596be72c52819",
+      "path": "server/homepageInlineEnquiryForm.test.ts"
+    },
+    {
+      "baseline_sha256": "da26801f9f37aa6a38e565cc2f36690dfbc3c59789be9deda638e32b8ddc68cc",
+      "change": "modified",
+      "companion_copy": null,
+      "final_sha256": "4aa4d5bda7f1e760821c70aea1aa1fdbf8033db1a8425d7b911100132104e753",
+      "path": "server/sitemapMapControls.test.ts"
+    },
+    {
+      "baseline_sha256": "478e2f8e2ffbb7cc7e4baa0dadb4cd83d0cf8c93da88601783172f55830a69e1",
+      "change": "modified",
+      "companion_copy": null,
+      "final_sha256": "65b91bb80a4e08fc97cf32c9c451e6c59a0d54133cb336ef9169ff428021b3a2",
+      "path": "server/universalGetInTouchForm.test.ts"
+    }
+  ],
+  "native_provenance": {
+    "authoritative_checkout": "/home/ubuntu/commercial_shot_blasting_manus",
+    "head_observed_at_snapshot": "c38fbf2342e4763d30c87eadf852e4cfd541438b",
+    "modified_file_count": 11,
+    "new_file_count": 6,
+    "parent_owned_todo_excluded": true,
+    "patch_baseline": "be47be4e1263974881dfe28221aca806af40cfcc",
+    "scoped_file_count": 17,
+    "snapshot_sha256": "603254baebd685813a8a900c9311672bbc0a3b80d069994f0dd65282d4b82215",
+    "source_of_final_bytes": "Final-ready native snapshot, identical to parent native checkpoint c38fbf2342e4763d30c87eadf852e4cfd541438b; separately deployed through managed native system, not this old-target branch."
+  },
+  "native_validation": {
+    "browser": {
+      "real_uploads_leads_events_sent": false,
+      "requests_intercepted": [
+        "storage assembly",
+        "lead delivery",
+        "Google HTTP"
+      ],
+      "scenario_groups_passed": 5,
+      "viewports_px": [
+        390,
+        1440
+      ]
+    },
+    "evidence": [
+      {
+        "bundled": false,
+        "path": "/home/ubuntu/broad-media-uploads-2026-11-09/final-tests.log",
+        "sha256": "3c76c895d6fceea6b8f733856487256ca37b001049e1f38d1bbde6edaa46bcca"
+      },
+      {
+        "bundled": false,
+        "path": "/home/ubuntu/broad-media-uploads-2026-11-09/final-typecheck.log",
+        "sha256": "56f8c7d7e970489fcbcf5d9bfe12b60dc11c6c7f16d4cf73092073d91a4862e6"
+      },
+      {
+        "bundled": false,
+        "path": "/home/ubuntu/broad-media-uploads-2026-11-09/final-build.log",
+        "sha256": "7f0481d2e4e994e2520f756f2b5c8431042573dfc5e72e0d46f60fa322d832f0"
+      },
+      {
+        "bundled": false,
+        "path": "/home/ubuntu/broad-media-uploads-2026-11-09/final-browser.log",
+        "sha256": "597d56dfa2ea48deb42116b4e56b599d2e87e3fbf0ea352271ad6eb1c448d5b2"
+      },
+      {
+        "bundled": false,
+        "path": "/home/ubuntu/broad-media-uploads-2026-11-09/browser-results.json",
+        "sha256": "2a858b7beca4b443af853066f8b7dc066f52c46f6e0ccfa63a921d1de3f4754e"
+      },
+      {
+        "bundled": false,
+        "path": "/home/ubuntu/broad-media-uploads-2026-11-09/protected-parity.json",
+        "sha256": "7e2ecc6d04646813ef33865c55284e660bc13dbf9b7e6af746c89622e68a89be"
+      },
+      {
+        "bundled": false,
+        "path": "/home/ubuntu/broad-media-uploads-2026-11-09/public-status.json",
+        "sha256": "9b014205c1d63f98bd43261240480f30d96c0ff50f13d577cf1fd37fa52935cd"
+      },
+      {
+        "bundled": false,
+        "path": "/home/ubuntu/broad-media-uploads-2026-11-09/transport-results.json",
+        "sha256": "ea157ac7e3f758dd6bea80978ba146ff02298062f7a9c13bb58408a586149708"
+      },
+      {
+        "bundled": false,
+        "path": "/home/ubuntu/broad-media-uploads-2026-11-09/implementation-record.md",
+        "sha256": "e279a6114fab2973ce8266d061db2c15d29fe7f1f11f2d4b0028050be231793e"
+      }
+    ],
+    "limitations": "Offline/mocked/intercepted tests, plus separately parent-reported public native asset/deployment and cancelled temporary staging transport checks. This package task made no public/backend/upload requests. No real permanent-storage, maximum-size receipt, notification/CRM or Google delivery verification; no deployment from the old-target branch.",
+    "offline_safe_vitest": {
+      "files_passed": 82,
+      "tests_passed": 917
+    },
+    "origin": "Parent final-ready handoff; final log summaries and browser JSON inspected during packaging",
+    "pnpm_build": "passed; build completion confirmed in log",
+    "pnpm_check": "passed, as parent supplied; tsc invocation confirmed in log",
+    "protected_native_files_byte_identical_count": 16
+  },
+  "package_status": {
+    "deployed_from_this_branch": false,
+    "inert": true,
+    "merged_into_target_application": false,
+    "native_feature_deployed_separately": true,
+    "public_live_delivery_verified_here": false,
+    "runnable_in_old_target": false
+  },
+  "patch": {
+    "actual_apply_and_all_17_byte_hash_comparisons_pass": true,
+    "added_source_whitespace_check_pass": true,
+    "exact_native_base_apply_check_pass": true,
+    "generation": "git diff --binary --full-index <native baseline> for tracked scoped paths; git diff --no-index /dev/null for still-untracked new files",
+    "numstat_parse_pass": true,
+    "path": "native-source-be47be4.patch",
+    "reverse_apply_check_and_exact_base_restoration_pass": true,
+    "sha256": "2d052ea62920064f99ce0329bf242945a7d6c0746f77b7a3eb4ae7888f7c6f0f"
+  },
+  "prepared_at_utc": "2026-11-09T13:47:17.477796+00:00",
+  "schema_version": 1,
+  "secret_and_data_review": "Scoped source and patch reviewed. No real credentials or user enquiry data included. Synthetic test values, deliberately invalid security fixtures, and pre-existing public business destinations are not live submissions.",
+  "separate_parent_managed_deployment": {
+    "checked_utc": "2026-11-09T13:47:30.088822+00:00",
+    "entry_asset": "index-PPvWAE_m.js",
+    "entry_matches_tested_build": true,
+    "entry_sha256": "b03b77d1d124bfe974140ddd06b10e3c050cf388aa5138a36b220b8232367080",
+    "get_only_mutation_recognised_without_upload_creation": {
+      "http_status": 405,
+      "method": "GET",
+      "recognised_mutation": true,
+      "upload_created": false
+    },
+    "lead_form_asset": "LeadForm-mhNTNvCe.js",
+    "lead_form_matches_tested_build": true,
+    "native_checkpoint": "c38fbf2342e4763d30c87eadf852e4cfd541438b",
+    "native_feature_deployed": true,
+    "origin": "Parent-provided local public-status.json, transport-results.json and implementation-record.md; no public/backend calls by package task",
+    "privacy_optional_videos_and_transient_assembly": true,
+    "public_routes_status": {
+      "/": {
+        "status": 200
+      },
+      "/counties/hampshire": {
+        "status": 200
+      },
+      "/privacy-policy": {
+        "status": 200
+      }
+    },
+    "real_permanent_storage_and_customer_media_receipt_verified": false,
+    "staging_transport": {
+      "finish_invoked": false,
+      "google_events": 0,
+      "idempotent_duplicate": true,
+      "lead_submissions": 0,
+      "permanent_storage_writes": 0,
+      "raw_chunk_bytes": 1048576,
+      "second_chunk_bytes": 13,
+      "staging_native_http": true
+    }
+  },
+  "target": {
+    "branch": "manus/csb-call-attribution-20261107",
+    "package_parent_commit": "a2248fadf90b36c867d22ba3e4f91e5bb7d290ee",
+    "pre_existing_tracked_files_verified_unchanged": 754,
+    "protected_main": "5d0d8ec359837f6a61801463beb6734821515bca",
+    "protected_other_branch": {
+      "name": "manus/soft404-remediation-20261001",
+      "sha": "f74aa0efec78f899330821b555959ed312c52932"
+    },
+    "protected_tracking_ancestor": "728b7bdbfd272e0380f5476956a9967c6d7f29de",
+    "repository": "PremierBlasting/commercial_shot_blasting",
+    "repository_id": 1137065430
+  }
+}
