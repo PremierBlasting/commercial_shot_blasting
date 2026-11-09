@@ -148,9 +148,9 @@ describe('scope and legacy source compatibility', () => {
     expect(source('client/src/components/HubSpotForm.tsx')).toContain('shouldTrackHubSpotFormSuccess');
     for (const file of ['WhatsAppWidget', 'FloatingCallButton']) { const text = source(`client/src/components/${file}.tsx`); expect(text).toContain('447721375756'); expect(text).toContain('createReference.mutate'); expect(text).toContain('onSuccess: ({ trackerRef }) => openChat(trackerRef)'); }
   });
-  it('keeps route readiness inside Suspense and actual-call option separate from allow button', () => {
+  it('keeps route readiness inside Suspense and compact explicit all-purpose choices with separate call Settings', () => {
     expect(source('client/src/App.tsx')).toMatch(/<Suspense[^>]*>[\s\S]*?<RouteMeasurementReady \/>[\s\S]*?<Switch>/);
-    const consent = source('client/src/components/CookieConsent.tsx'); expect(consent).toContain('useState(false)'); expect(consent).toContain('type="checkbox"'); expect(consent).toContain('status === "accepted" && allowWebsiteCalls');
-    expect(source('client/src/pages/PrivacyPolicy.tsx')).toContain('Last updated: 7 November 2026');
+    const consent = source('client/src/components/CookieConsent.tsx'); expect(consent).not.toContain('type="checkbox"'); expect(consent).toContain('saveChoices({ measurements: true, websiteCalls: true })'); expect(consent).toContain('aria-label="Website call measurement"'); expect(consent).toContain('Save choices');
+    expect(source('client/src/pages/PrivacyPolicy.tsx')).toContain('Last updated: 9 November 2026');
   });
 });

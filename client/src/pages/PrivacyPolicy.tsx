@@ -42,7 +42,7 @@ export default function PrivacyPolicy() {
             Your privacy is important to us. This policy explains how Commercial Shot Blasting collects, uses, and protects your personal information.
           </p>
           <p className="text-white/60 text-sm mt-4">
-            Last updated: 7 November 2026
+            Last updated: 9 November 2026
           </p>
         </div>
       </section>
@@ -127,13 +127,13 @@ export default function PrivacyPolicy() {
                 <div className="bg-gray-50 rounded-lg p-4">
                   <h4 className="font-semibold text-gray-800">Optional Website-Call Measurement</h4>
                   <p className="text-gray-600 text-sm mt-1">
-                    If you separately select the website-call option and allow Google advertising measurement, Google may display a temporary forwarding number after an eligible ad visit. It connects to our normal business number and lets Google measure calls lasting at least 60 seconds. Google may process call time, duration, connection status and caller number or area-code information where available, alongside ad identifiers and cookies. We do not enable call recording. Existing WhatsApp destinations remain unchanged and never use a forwarding number.
+                    If you choose Allow all, or enable website-call measurement under Settings with Google advertising measurement, Google may display a temporary forwarding number after an eligible ad visit. It connects to our normal business number and lets Google measure calls lasting at least 60 seconds. Google may process call time, duration, connection status and caller number or area-code information where available, alongside ad identifiers and cookies. We do not enable call recording. Existing WhatsApp destinations remain unchanged and never use a forwarding number.
                   </p>
                 </div>
               </div>
 
               <p className="text-gray-700 leading-relaxed mt-4">
-                Earlier analytics or advertising choices do not authorise this new call-measurement purpose. The separate call option is unselected unless you previously selected it. You may allow existing measurement with calls off, or decline without losing access to forms, telephone or WhatsApp links. Withdrawing call permission restores our real website number and blocks subsequent forwarding configuration; it does not erase data already processed by Google. See <a href="https://policies.google.com/privacy" className="underline">Google's privacy policy</a> for their processing and retention.
+                Earlier analytics or advertising choices do not authorise this call-measurement purpose. Allow all explicitly includes the disclosed analytics, advertising and website-call purposes. Under Settings you can allow existing measurement while leaving website calls off, save your choices, or use No thanks to decline all optional Google measurement without losing access to forms, telephone or WhatsApp links. Choices are not enabled just by opening or closing Settings. Withdrawing website-call measurement through Cookie settings restores our real website number and blocks subsequent forwarding configuration; it does not erase data already processed by Google. See <a href="https://policies.google.com/privacy" className="underline">Google's privacy policy</a> for their processing and retention.
               </p>
               <p className="text-gray-700 leading-relaxed mt-4">
                 Optional Google measurement is blocked until permitted. Use <CookiePreferencesButton className="text-[#2C5F7F]" /> here or in the footer to change or withdraw your choice. An older analytics-only acceptance is not treated as advertising or website-call permission.

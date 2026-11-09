@@ -1,17 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Cookie, X } from "lucide-react";
-import { setGoogleChoiceBlocked, syncGoogleConsent } from "@/lib/googleMeasurement";
-import {
-  COOKIE_CONSENT_CHANGE_EVENT, COOKIE_CONSENT_STORAGE_KEY,
-  GOOGLE_MEASUREMENT_CONSENT_KEY, WEBSITE_CALL_CONSENT_KEY,
-  COOKIE_PREFERENCES_OPEN_EVENT, type CookieConsentStatus,
-} from "@shared/cookieConsent";
+import { readCookieMeasurementChoices, saveCookieMeasurementChoices, type CookieMeasurementChoices } from "@/lib/cookiePreferences";
+import { COOKIE_CONSENT_STORAGE_KEY, GOOGLE_MEASUREMENT_CONSENT_KEY, WEBSITE_CALL_CONSENT_KEY, COOKIE_PREFERENCES_OPEN_EVENT, type CookieConsentStatus } from "@shared/cookieConsent";
 
 export function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [allowWebsiteCalls, setAllowWebsiteCalls] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [choices, setChoices] = useState<CookieMeasurementChoices>({ measurements: false, websiteCalls: false });
   const declineButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -22,69 +19,64 @@ export function CookieConsent() {
       consent = localStorage.getItem(COOKIE_CONSENT_STORAGE_KEY) as CookieConsentStatus;
       scope = localStorage.getItem(GOOGLE_MEASUREMENT_CONSENT_KEY);
       callScope = localStorage.getItem(WEBSITE_CALL_CONSENT_KEY);
-    } catch { /* Blocked storage never implies permission. */ }
-    const show = () => {
-      try { setAllowWebsiteCalls(localStorage.getItem(WEBSITE_CALL_CONSENT_KEY) === "accepted"); } catch { setAllowWebsiteCalls(false); }
+    } catch { /* Unavailable preferences never enable optional Google measurement. */ }
+    const show = (settings = false) => {
+      setChoices(readCookieMeasurementChoices()); setShowSettings(settings);
       setIsVisible(true); requestAnimationFrame(() => setIsAnimating(true));
     };
-    // Earlier generic/advertising acceptance is not new website-call permission.
-    const timer = !consent || (consent === "accepted" && (!scope || !callScope)) ? setTimeout(show, 1000) : undefined;
-    const reopen = () => { if (timer) clearTimeout(timer); show(); requestAnimationFrame(() => declineButton.current?.focus()); };
+    // Earlier choices are not silently expanded to a newly disclosed purpose.
+    const timer = !consent || (consent === "accepted" && (!scope || !callScope)) ? setTimeout(() => show(), 1000) : undefined;
+    const reopen = () => { if (timer) clearTimeout(timer); show(true); requestAnimationFrame(() => declineButton.current?.focus()); };
     window.addEventListener(COOKIE_PREFERENCES_OPEN_EVENT, reopen);
     return () => { if (timer) clearTimeout(timer); window.removeEventListener(COOKIE_PREFERENCES_OPEN_EVENT, reopen); };
   }, []);
 
-  const recordConsent = (status: Exclude<CookieConsentStatus, null>) => {
-    try {
-      localStorage.setItem(COOKIE_CONSENT_STORAGE_KEY, status);
-      localStorage.setItem(GOOGLE_MEASUREMENT_CONSENT_KEY, status);
-      localStorage.setItem(WEBSITE_CALL_CONSENT_KEY, status === "accepted" && allowWebsiteCalls ? "accepted" : "declined");
-      setGoogleChoiceBlocked(status !== "accepted");
-    } catch { setGoogleChoiceBlocked(true); }
-    syncGoogleConsent();
-    window.dispatchEvent(new CustomEvent(COOKIE_CONSENT_CHANGE_EVENT, { detail: { status, source: "interaction" } }));
-  };
   const closeBanner = () => {
     setIsAnimating(false);
-    setTimeout(() => setIsVisible(false), 300);
+    setTimeout(() => { setIsVisible(false); setShowSettings(false); }, 180);
   };
-  const handleAccept = () => { recordConsent("accepted"); closeBanner(); };
-  const handleDecline = () => { recordConsent("declined"); closeBanner(); };
+  const saveChoices = (next: CookieMeasurementChoices) => { saveCookieMeasurementChoices(next); closeBanner(); };
+  const handleAcceptAll = () => saveChoices({ measurements: true, websiteCalls: true });
+  const handleDecline = () => saveChoices({ measurements: false, websiteCalls: false });
 
   if (!isVisible) return null;
+
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-[9999] transition-transform duration-300 ease-out ${isAnimating ? "translate-y-0" : "translate-y-full"}`}
-      role="dialog" aria-label="Cookie preferences" aria-live="polite"
+      className={`fixed bottom-[calc(4.5rem+env(safe-area-inset-bottom))] left-3 right-3 z-[90] mx-auto w-auto max-w-[21rem] transition-[opacity,transform] duration-180 ease-out motion-reduce:transition-none sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-[22rem] ${isAnimating ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"}`}
+      role="dialog" aria-label="Cookie preference" aria-live="polite"
     >
-      <div className="bg-[#2C5F7F] text-white shadow-2xl border-t-4 border-[#F5F1E8]">
-        <div className="container py-4 md:py-5">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-            <div className="flex items-start gap-3 flex-1">
-              <div className="hidden sm:flex w-10 h-10 rounded-full bg-white/10 items-center justify-center flex-shrink-0 mt-0.5">
-                <Cookie className="w-5 h-5" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Cookie Notice</h3>
-                <p className="text-white/90 text-sm leading-relaxed">
-                  Essential cookies are on. Allow Google analytics and advertising measurement? No personalised ads. You can decline without losing access to forms, telephone or WhatsApp links. {" "}
-                  <a href="/privacy-policy" className="underline hover:text-white transition">Learn more</a>
-                </p>
-                <label className="mt-2 flex cursor-pointer items-start gap-2 text-sm text-white/90">
-                  <input type="checkbox" checked={allowWebsiteCalls} onChange={event => setAllowWebsiteCalls(event.target.checked)} className="mt-1 h-4 w-4 shrink-0" />
-                  <span>Also allow Google forwarding numbers to measure website calls and duration. No call recording.</span>
-                </label>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 w-full md:w-auto">
-              <Button variant="outline" ref={declineButton} className="flex-1 md:flex-none border-white/30 text-white hover:bg-white/10 hover:text-white" onClick={handleDecline}>Decline</Button>
-              <Button className="flex-1 md:flex-none bg-white text-[#2C5F7F] hover:bg-white/90" onClick={handleAccept}>Allow selected</Button>
-            </div>
-            <button onClick={handleDecline} className="absolute top-3 right-3 md:hidden p-1 hover:bg-white/10 rounded transition" aria-label="Decline optional cookies and close banner">
-              <X className="w-5 h-5" />
-            </button>
+      <div className="rounded-lg border border-slate-200 bg-white p-2.5 text-slate-900 shadow-md shadow-slate-900/10">
+        <div className="flex items-start gap-1.5 pr-5">
+          <Cookie className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#2C5F7F]" aria-hidden="true" />
+          <div>
+            <h3 className="text-xs font-semibold text-slate-950">Cookies</h3>
+            <p className="mt-0.5 text-[11px] leading-4 text-slate-600">
+              Optional Google measurement helps us track visits, enquiries and calls. No personalised ads or call recording. {" "}
+              <a href="/privacy-policy" className="font-medium text-[#2C5F7F] underline underline-offset-2 hover:text-[#1e4c69]">Privacy</a>
+            </p>
           </div>
         </div>
+        {showSettings && (
+          <div id="csb-cookie-measurement-settings" className="mt-2 space-y-2 rounded-md border border-slate-200 bg-slate-50 p-2 text-[11px] leading-4">
+            <div className="flex items-center justify-between gap-3">
+              <span>Google analytics &amp; ad measurement</span>
+              <button type="button" role="switch" aria-label="Google analytics and ad measurement" aria-checked={choices.measurements} onClick={() => setChoices(current => ({ measurements: !current.measurements, websiteCalls: current.measurements ? false : current.websiteCalls }))} className="shrink-0 rounded border border-slate-300 bg-white px-2 py-1 font-semibold text-[#2C5F7F]">{choices.measurements ? "On" : "Off"}</button>
+            </div>
+            <div className="flex items-center justify-between gap-3">
+              <span>Website call measurement <span className="block text-[10px] text-slate-500">Google forwarding numbers and call duration</span></span>
+              <button type="button" role="switch" aria-label="Website call measurement" aria-checked={choices.websiteCalls} onClick={() => setChoices(current => ({ measurements: current.websiteCalls ? current.measurements : true, websiteCalls: !current.websiteCalls }))} className="shrink-0 rounded border border-slate-300 bg-white px-2 py-1 font-semibold text-[#2C5F7F]">{choices.websiteCalls ? "On" : "Off"}</button>
+            </div>
+            <p className="text-[10px] text-slate-500">Call measurement also needs advertising measurement. You can leave calls off.</p>
+            <Button size="sm" variant="outline" className="h-7 w-full border-slate-300 bg-white text-[11px] text-slate-700" onClick={() => saveChoices(choices)}>Save choices</Button>
+          </div>
+        )}
+        <div className="mt-2 flex items-center gap-1.5">
+          <Button variant="outline" size="sm" ref={declineButton} className="h-7 flex-1 border-slate-300 bg-white px-2 text-[11px] text-slate-700 hover:bg-slate-50 hover:text-slate-950" onClick={handleDecline}>No thanks</Button>
+          <Button variant="outline" size="sm" className="h-7 flex-1 border-slate-300 bg-white px-2 text-[11px] text-slate-700 hover:bg-slate-50 hover:text-slate-950" aria-expanded={showSettings} aria-controls="csb-cookie-measurement-settings" onClick={() => setShowSettings(value => !value)}>Settings</Button>
+          <Button size="sm" className="h-7 flex-1 bg-[#2C5F7F] px-2 text-[11px] text-white hover:bg-[#1e4c69]" onClick={handleAcceptAll}>Allow all</Button>
+        </div>
+        <button type="button" onClick={handleDecline} className="absolute right-1.5 top-1.5 rounded-md p-1 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2C5F7F] focus-visible:ring-offset-2" aria-label="Decline optional cookies and close notice"><X className="h-3.5 w-3.5" aria-hidden="true" /></button>
       </div>
     </div>
   );
