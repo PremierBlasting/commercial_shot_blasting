@@ -42,7 +42,7 @@ export default function PrivacyPolicy() {
             Your privacy is important to us. This policy explains how Commercial Shot Blasting collects, uses, and protects your personal information.
           </p>
           <p className="text-white/60 text-sm mt-4">
-            Last updated: 9 November 2026
+            Last updated: 11 November 2026
           </p>
         </div>
       </section>
@@ -136,7 +136,7 @@ export default function PrivacyPolicy() {
                 Earlier analytics or advertising choices do not authorise this call-measurement purpose. Allow all explicitly includes the disclosed analytics, advertising and website-call purposes. Under Settings you can allow existing measurement while leaving website calls off, save your choices, or use No thanks to decline all optional Google measurement without losing access to forms, telephone or WhatsApp links. Choices are not enabled just by opening or closing Settings. Withdrawing website-call measurement through Cookie settings restores our real website number and blocks subsequent forwarding configuration; it does not erase data already processed by Google. See <a href="https://policies.google.com/privacy" className="underline">Google's privacy policy</a> for their processing and retention.
               </p>
               <p className="text-gray-700 leading-relaxed mt-4">
-                Optional Google measurement is blocked until permitted. Use <CookiePreferencesButton className="text-[#2C5F7F]" /> here or in the footer to change or withdraw your choice. An older analytics-only acceptance is not treated as advertising or website-call permission.
+                We do not show an automatic cookie popup. Optional Google measurement is blocked until permitted. Use <CookiePreferencesButton className="text-[#2C5F7F]" /> here or in the footer to opt in, change or withdraw your choice. Opening or closing Cookie settings does not change your saved choice. An older analytics-only acceptance is not treated as advertising or website-call permission.
               </p>
               <p className="text-gray-700 leading-relaxed mt-4">
                 Existing tagged attribution may include campaign names and IDs, ad/group IDs, HubSpot campaign parameters and applicable Google click identifiers. Untagged visit context stays in page memory, or the existing tab's session storage if analytics is allowed; it is not added to long-term storage. A website email link may prefill an optional campaign name and ID only, which you may edit or delete before sending. It contains no individual click identifiers, sends nothing automatically, and cannot identify the origin of an email sent independently of these links. This website continues to use its existing embedded HubSpot forms; no new native enquiry or CRM integration is implied.

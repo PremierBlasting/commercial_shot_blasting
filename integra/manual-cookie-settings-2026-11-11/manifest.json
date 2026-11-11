@@ -1,0 +1,24 @@
+{
+  "purpose": "Inert native source-continuity archive; not applied to the legacy target root.",
+  "native_base": "e2dcf3481ad3f7c532740d5617f534e194c6aaa1",
+  "native_feature_checkpoint": "2e06ac14d9ce903559e7e8bcd15a0a842e5626f5",
+  "target_base": "d7f792090851ab078014775e52c53bc11a14c1c4",
+  "native_scoped_files_sha256": {
+    "client/src/components/CookieConsent.tsx": "91d5bb601d6a950b406204bcfb883218f6923e44d685d67b29d1f935362080a2",
+    "shared/privacyPolicyContent.ts": "87ccdf126b39249dfc335620381cdda3bfdb53a2f8a9019f1b12fdfd2ba27a35",
+    "server/appLegalPages.test.ts": "d902827cb73c230a8248c17d72316ab890aee34adee6935ea5853264fcab20a4",
+    "server/cookieConsentNotice.test.ts": "8e916e26fb1b8a70f556f4eae8aa4ac291a30ef9efde5a585b102addd06697ce",
+    "server/csbCampaignAttribution.test.ts": "b0c308f31f027793d7e1a0cbb0a167b04d6ad7e7492c2b392e52a9c911e9b1a8"
+  },
+  "patch_sha256": "5f6a09fb04a9ce93ca66eadf176c858506aeaca284ea0fa31c773e53a8de304e",
+  "excluded": [
+    "todo.md",
+    "generated sitemaps",
+    "all unrelated native paths"
+  ],
+  "root_compatibility": "Only CookieConsent.tsx is byte-exact in the target root. Native shared privacy and native policy tests are archive-only and incompatible with the old renderer/HubSpot root.",
+  "publication_status": "Source checkpoint only; no deployment or live-website activation is asserted.",
+  "patch_file": "native-five-path.patch.gz",
+  "archive_sha256": "2576597956ca6b90df5fcdb10fceab4a13b119a1a9e721349c9718af5709e1e1",
+  "archive_encoding": "gzip, deterministic mtime=0; patch_sha256 covers decompressed patch"
+}

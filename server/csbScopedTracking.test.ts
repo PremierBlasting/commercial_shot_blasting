@@ -151,6 +151,6 @@ describe('scope and legacy source compatibility', () => {
   it('keeps route readiness inside Suspense and compact explicit all-purpose choices with separate call Settings', () => {
     expect(source('client/src/App.tsx')).toMatch(/<Suspense[^>]*>[\s\S]*?<RouteMeasurementReady \/>[\s\S]*?<Switch>/);
     const consent = source('client/src/components/CookieConsent.tsx'); expect(consent).not.toContain('type="checkbox"'); expect(consent).toContain('saveChoices({ measurements: true, websiteCalls: true })'); expect(consent).toContain('aria-label="Website call measurement"'); expect(consent).toContain('Save choices');
-    expect(source('client/src/pages/PrivacyPolicy.tsx')).toContain('Last updated: 9 November 2026');
+    expect(source('client/src/pages/PrivacyPolicy.tsx')).toContain('Last updated: 11 November 2026');
   });
 });
