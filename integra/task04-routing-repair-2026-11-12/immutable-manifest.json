@@ -1,0 +1,57 @@
+{
+  "baseline": "fc77da8996665551fb84fab9f4f3055daf047071",
+  "checkpoint": "98d2492ab4eb67410937d1ce58db8e4b3ef1218b",
+  "version": "98d2492a",
+  "paths": [
+    "client/public/sitemap-main.xml",
+    "client/src/App.tsx",
+    "client/src/pages/SitemapPage.tsx",
+    "server/_core/index.ts",
+    "server/_core/vite.ts",
+    "server/canonicalRedirectMatrix.test.ts",
+    "server/contentRouteExistence.test.ts",
+    "server/contentRouteExistence.ts",
+    "server/db.ts",
+    "server/issPropertyWiganCaseStudy.test.ts",
+    "server/metaTags.ts",
+    "server/preparationCanonicalSitemap.test.ts",
+    "server/publicContentRouteGate.test.ts",
+    "server/redirects.test.ts",
+    "server/seoUrlNormalisation.ts",
+    "server/sitemap.ts",
+    "server/soft404Resolution.test.ts",
+    "todo.md"
+  ],
+  "new_paths": [
+    "server/canonicalRedirectMatrix.test.ts",
+    "server/contentRouteExistence.test.ts",
+    "server/contentRouteExistence.ts",
+    "server/preparationCanonicalSitemap.test.ts",
+    "server/publicContentRouteGate.test.ts"
+  ],
+  "sha256": {
+    "client/public/sitemap-main.xml": "7587d95baa9c24ed641c74c44d7144a5b3f5128ee4bd12ed90ba26837f4bd163",
+    "client/src/App.tsx": "c6dee1fbe57ce033865e36552dccb54346f08b1f0dd20af6bcf276c4c08723fe",
+    "client/src/pages/SitemapPage.tsx": "0fbc8aa1e8c654882de807e6f72dafb76a1afaefea8c402ae4e602524cfd2068",
+    "server/_core/index.ts": "e1024d1b0295e755c0d780e24ed2009dd92ecd08c1a0b710beb93b117bf5c3b1",
+    "server/_core/vite.ts": "6f9891bd83a66d98cc604e740b7b95a9cdabd106ab4c1ad3dc2cee6ac54a60f8",
+    "server/canonicalRedirectMatrix.test.ts": "3b2115fdaae45330797fe86ad7fa904c4a66e7179991b1bc4b29423807886152",
+    "server/contentRouteExistence.test.ts": "225b2ba08be0e06242edc6e56f603108eb3f225bbd4bb0db1a3e2659e55bfae6",
+    "server/contentRouteExistence.ts": "d3e0564119c13f7bf3eabe20145c37188921d1138fad84831bb52d17478c63ae",
+    "server/db.ts": "d68ea18ce8dbd94ce62031274242dac98f72e20f26845087e6f82e1b395ead58",
+    "server/issPropertyWiganCaseStudy.test.ts": "3b4ecf51e84d39b2e635dadb3a6f1764d60010f2502d1825747b29f6695760d7",
+    "server/metaTags.ts": "30329f38d85f33a8be4eb4c3c92c2746d4cac6a97f7eef7755677b193718c663",
+    "server/preparationCanonicalSitemap.test.ts": "db4e72354f825a93891707fd463ae6d36a104cfc3cc6dc49498eb308ba170b30",
+    "server/publicContentRouteGate.test.ts": "f657eb53bcfff9cb224998b15933f9647d4999dbe2ac7985fe9ce58799855459",
+    "server/redirects.test.ts": "99ff32bb85c3e57f78d209be82fc837ed802a5f97ec07542dc7eee7879160f8a",
+    "server/seoUrlNormalisation.ts": "773104bbcf60bdc263997e133b7e4b22a2882212ee22228edb6b874d53d9995b",
+    "server/sitemap.ts": "439b3268f973fd787de5edca21edcd8bf71624debdee6347d5972fe533a209e0",
+    "server/soft404Resolution.test.ts": "5839d099b8db796c18c061ee80671d143083257ebca088cf06122f2119fdd056",
+    "todo.md": "77c4c6e1b1742882f364662e3c15f0ceff1b68a60c450183a406bf824a99542b"
+  },
+  "patch_sha256": "c0e76f9781b4156078b52742b1e7dfeaa4ebe0155ba62caaf75a68a78a06cf98",
+  "excluded_generated_metadata": [
+    "client/public/__manus__/version.json"
+  ],
+  "tests": "86 offline-safe files / 1120 passed; TypeScript, build, 94 HTTP, browser390/1440, 271 media and controlled production statuses passed"
+}

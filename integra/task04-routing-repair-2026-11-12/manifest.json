@@ -1,0 +1,389 @@
+{
+  "approved_paths": [
+    "client/public/sitemap-main.xml",
+    "client/src/App.tsx",
+    "client/src/pages/SitemapPage.tsx",
+    "server/_core/index.ts",
+    "server/_core/vite.ts",
+    "server/canonicalRedirectMatrix.test.ts",
+    "server/contentRouteExistence.test.ts",
+    "server/contentRouteExistence.ts",
+    "server/db.ts",
+    "server/issPropertyWiganCaseStudy.test.ts",
+    "server/metaTags.ts",
+    "server/preparationCanonicalSitemap.test.ts",
+    "server/publicContentRouteGate.test.ts",
+    "server/redirects.test.ts",
+    "server/seoUrlNormalisation.ts",
+    "server/sitemap.ts",
+    "server/soft404Resolution.test.ts",
+    "todo.md"
+  ],
+  "deleted_paths": [],
+  "deployment_or_public_release": false,
+  "excluded_generated_metadata": [
+    "client/public/__manus__/version.json"
+  ],
+  "explicit_scope_note": "The final 18-path immutable approval includes todo.md. It is archived only, never installed at the legacy root.",
+  "files": {
+    "client/public/sitemap-main.xml": {
+      "baseline": {
+        "mode": "100644",
+        "oid": "e8265a801396bfe11e980bf6ff27e00d162a86b7",
+        "sha256": "6b614218ea702ffe11e6fb5b251bd5e4e78fd708d5dbe41e036f0e0a0b747ed3",
+        "type": "blob"
+      },
+      "change": "modified",
+      "final": {
+        "bytes": 8622,
+        "mode": "100644",
+        "oid": "941026bf57747b0e7beffc328b0ba547089c088b",
+        "sha256": "7587d95baa9c24ed641c74c44d7144a5b3f5128ee4bd12ed90ba26837f4bd163",
+        "type": "blob"
+      }
+    },
+    "client/src/App.tsx": {
+      "baseline": {
+        "mode": "100644",
+        "oid": "2a85bc6a71ee03480300e159814a25368f1f3795",
+        "sha256": "b7a27e6012c6de9c4ef83e9405b1803506d742e9679b12f73e980a249a40ccb9",
+        "type": "blob"
+      },
+      "change": "modified",
+      "final": {
+        "bytes": 22311,
+        "mode": "100644",
+        "oid": "8f8e5ae9991b1f099112bd8dc45531d72401ea67",
+        "sha256": "c6dee1fbe57ce033865e36552dccb54346f08b1f0dd20af6bcf276c4c08723fe",
+        "type": "blob"
+      }
+    },
+    "client/src/pages/SitemapPage.tsx": {
+      "baseline": {
+        "mode": "100644",
+        "oid": "ce746fd1c6952afcd957e903bef839e3521a636b",
+        "sha256": "400de03a06fdd3c2d88058cb33a9b9b4e9b38b0bbdb08aa8309811ec6bd1b87c",
+        "type": "blob"
+      },
+      "change": "modified",
+      "final": {
+        "bytes": 23407,
+        "mode": "100644",
+        "oid": "455307d97c839b0d742d7da799268f3466a71cc6",
+        "sha256": "0fbc8aa1e8c654882de807e6f72dafb76a1afaefea8c402ae4e602524cfd2068",
+        "type": "blob"
+      }
+    },
+    "server/_core/index.ts": {
+      "baseline": {
+        "mode": "100644",
+        "oid": "0c5f694f93ceb4f49e8ef6afc3ae07efa4c3ce66",
+        "sha256": "55ca2fd352fbfdd4459eb4d1eb8dfcbb3399132b391d41d9ce5856db2de0e89a",
+        "type": "blob"
+      },
+      "change": "modified",
+      "final": {
+        "bytes": 12551,
+        "mode": "100644",
+        "oid": "0087fcc55f295e44af51b54efef7aaddad7e3748",
+        "sha256": "e1024d1b0295e755c0d780e24ed2009dd92ecd08c1a0b710beb93b117bf5c3b1",
+        "type": "blob"
+      }
+    },
+    "server/_core/vite.ts": {
+      "baseline": {
+        "mode": "100644",
+        "oid": "20713573a42400c060b503016abf76a6578b3629",
+        "sha256": "d0ccdb0b2570a11d830e574b729339e331783e6894a5cb35636fdc57de8c47cc",
+        "type": "blob"
+      },
+      "change": "modified",
+      "final": {
+        "bytes": 6593,
+        "mode": "100644",
+        "oid": "8f34a9f3783fe76d36f9966e7d65ac3655d1a199",
+        "sha256": "6f9891bd83a66d98cc604e740b7b95a9cdabd106ab4c1ad3dc2cee6ac54a60f8",
+        "type": "blob"
+      }
+    },
+    "server/canonicalRedirectMatrix.test.ts": {
+      "baseline": null,
+      "change": "added",
+      "final": {
+        "bytes": 15157,
+        "mode": "100644",
+        "oid": "3e0a6f7cd57278b8fb520c661eab6fe04d863031",
+        "sha256": "3b2115fdaae45330797fe86ad7fa904c4a66e7179991b1bc4b29423807886152",
+        "type": "blob"
+      }
+    },
+    "server/contentRouteExistence.test.ts": {
+      "baseline": null,
+      "change": "added",
+      "final": {
+        "bytes": 20647,
+        "mode": "100644",
+        "oid": "768d4b5eebd64c965f3e89b91164416d8360f359",
+        "sha256": "225b2ba08be0e06242edc6e56f603108eb3f225bbd4bb0db1a3e2659e55bfae6",
+        "type": "blob"
+      }
+    },
+    "server/contentRouteExistence.ts": {
+      "baseline": null,
+      "change": "added",
+      "final": {
+        "bytes": 7980,
+        "mode": "100644",
+        "oid": "710a4e765ad0bcc03843eaf6bd28a170d84da7be",
+        "sha256": "d3e0564119c13f7bf3eabe20145c37188921d1138fad84831bb52d17478c63ae",
+        "type": "blob"
+      }
+    },
+    "server/db.ts": {
+      "baseline": {
+        "mode": "100644",
+        "oid": "c73e1bbaf77a98473a2ff00682908f6f08969808",
+        "sha256": "8a9d67aba5b783f654eb6597182e1270c78fa23887cb55e6eb74fb6ccf5f7b20",
+        "type": "blob"
+      },
+      "change": "modified",
+      "final": {
+        "bytes": 14809,
+        "mode": "100644",
+        "oid": "ecc320a7976912c27d6511594ea07df679acf89b",
+        "sha256": "d68ea18ce8dbd94ce62031274242dac98f72e20f26845087e6f82e1b395ead58",
+        "type": "blob"
+      }
+    },
+    "server/issPropertyWiganCaseStudy.test.ts": {
+      "baseline": {
+        "mode": "100644",
+        "oid": "8f42916d84b104efd69825377c2ac735e6b46962",
+        "sha256": "357bfd917b7ed0142f24bd305fafa49a9382ceaae4d16412a61caaed25a5c90c",
+        "type": "blob"
+      },
+      "change": "modified",
+      "final": {
+        "bytes": 8164,
+        "mode": "100644",
+        "oid": "9c826b0514535756c9d33abbaf9a27fd5f0761a5",
+        "sha256": "3b4ecf51e84d39b2e635dadb3a6f1764d60010f2502d1825747b29f6695760d7",
+        "type": "blob"
+      }
+    },
+    "server/metaTags.ts": {
+      "baseline": {
+        "mode": "100644",
+        "oid": "530053844ebb1726bfd9c9f29eb6352cae910f51",
+        "sha256": "445bd011ec22bf89273e8c71c387b201700f670f4d279aec81d1b472353a46fb",
+        "type": "blob"
+      },
+      "change": "modified",
+      "final": {
+        "bytes": 721190,
+        "mode": "100644",
+        "oid": "cf40a8bb68310de78bc7f463971ba004a95ea1fb",
+        "sha256": "30329f38d85f33a8be4eb4c3c92c2746d4cac6a97f7eef7755677b193718c663",
+        "type": "blob"
+      }
+    },
+    "server/preparationCanonicalSitemap.test.ts": {
+      "baseline": null,
+      "change": "added",
+      "final": {
+        "bytes": 1685,
+        "mode": "100644",
+        "oid": "79057e21cb17e5e1cec68a33d40181298dfc7ee9",
+        "sha256": "db4e72354f825a93891707fd463ae6d36a104cfc3cc6dc49498eb308ba170b30",
+        "type": "blob"
+      }
+    },
+    "server/publicContentRouteGate.test.ts": {
+      "baseline": null,
+      "change": "added",
+      "final": {
+        "bytes": 24991,
+        "mode": "100644",
+        "oid": "89c239eb7ae3456c3d3ea5bc67f0e6737f46b123",
+        "sha256": "f657eb53bcfff9cb224998b15933f9647d4999dbe2ac7985fe9ce58799855459",
+        "type": "blob"
+      }
+    },
+    "server/redirects.test.ts": {
+      "baseline": {
+        "mode": "100644",
+        "oid": "37ab089c7f63c4e5cbde4148c40e4416dda18e73",
+        "sha256": "d878fc8eacd1f9d31f0fc41641fa768b905deb855e8e2c7fc03c959a1196b9a6",
+        "type": "blob"
+      },
+      "change": "modified",
+      "final": {
+        "bytes": 6744,
+        "mode": "100644",
+        "oid": "7444729748f13fb85eb6c6a6df92a99c441dcde1",
+        "sha256": "99ff32bb85c3e57f78d209be82fc837ed802a5f97ec07542dc7eee7879160f8a",
+        "type": "blob"
+      }
+    },
+    "server/seoUrlNormalisation.ts": {
+      "baseline": {
+        "mode": "100644",
+        "oid": "bdd5abe9c32353132e4bd7a626df4a25a298f00f",
+        "sha256": "3ba2322f1cfebfe222c3fae4a76e977b33c51614849bff6bd2338e2445f95997",
+        "type": "blob"
+      },
+      "change": "modified",
+      "final": {
+        "bytes": 10807,
+        "mode": "100644",
+        "oid": "47f6967002e55325c63a19c9a30b1418e321c298",
+        "sha256": "773104bbcf60bdc263997e133b7e4b22a2882212ee22228edb6b874d53d9995b",
+        "type": "blob"
+      }
+    },
+    "server/sitemap.ts": {
+      "baseline": {
+        "mode": "100644",
+        "oid": "0f80bb8aad228dc71c6bb688ee01c5b7640816a6",
+        "sha256": "a7e1cc80278ec46905a9262ce5b2063ad9b5ecadaf532731616fc6288c5db2ca",
+        "type": "blob"
+      },
+      "change": "modified",
+      "final": {
+        "bytes": 9065,
+        "mode": "100644",
+        "oid": "592aec128c69dbd8b552e416402f64d66f02666c",
+        "sha256": "439b3268f973fd787de5edca21edcd8bf71624debdee6347d5972fe533a209e0",
+        "type": "blob"
+      }
+    },
+    "server/soft404Resolution.test.ts": {
+      "baseline": {
+        "mode": "100644",
+        "oid": "7ce3f5c6fd9d3870b691a77bb49ec2043916f0a9",
+        "sha256": "c50e244b4546f1695b6c45ceefa41efe458e39dc27344fa7622f324d7575b61c",
+        "type": "blob"
+      },
+      "change": "modified",
+      "final": {
+        "bytes": 5234,
+        "mode": "100644",
+        "oid": "6f5f315d588ff5c80290c902de911554e6ff23d9",
+        "sha256": "5839d099b8db796c18c061ee80671d143083257ebca088cf06122f2119fdd056",
+        "type": "blob"
+      }
+    },
+    "todo.md": {
+      "baseline": {
+        "mode": "100644",
+        "oid": "cf9d525484ee3ee69f6055a8234311afe04bb3ba",
+        "sha256": "f6825c7185261b8a9ca4ce20f31d20189ea7e07f82a1c7a8524cf4d508ae0bbb",
+        "type": "blob"
+      },
+      "change": "modified",
+      "final": {
+        "bytes": 271875,
+        "mode": "100644",
+        "oid": "cfe18b3b4a2581bc04ba21d457bf6b3af9140326",
+        "sha256": "77c4c6e1b1742882f364662e3c15f0ceff1b68a60c450183a406bf824a99542b",
+        "type": "blob"
+      }
+    }
+  },
+  "full_index_equivalent": {
+    "archive": "native-full-index.patch.gz",
+    "encoding": "gzip level 9, mtime=0, no filename/comment, OS=255",
+    "gzip_bytes": 33225,
+    "gzip_sha256": "ec22158a77739d9f49d1ba85ff3a12a5fcee920eeaeede1b85c4d4e1a7871f73",
+    "index_format": "Full 40-character blob IDs, --binary capable",
+    "same_final_scoped_blobs": true,
+    "source": "Read-only immutable baseline/checkpoint Git object diff, same approved paths; not managed worktree",
+    "uncompressed_bytes": 127813,
+    "uncompressed_sha256": "7d6977a48586c8016f7afae35c17c07a4466ccd715e3ac7b0266aaa3b6d99d6e"
+  },
+  "full_source_sha256": {
+    "client/public/sitemap-main.xml": "7587d95baa9c24ed641c74c44d7144a5b3f5128ee4bd12ed90ba26837f4bd163",
+    "client/src/App.tsx": "c6dee1fbe57ce033865e36552dccb54346f08b1f0dd20af6bcf276c4c08723fe",
+    "client/src/pages/SitemapPage.tsx": "0fbc8aa1e8c654882de807e6f72dafb76a1afaefea8c402ae4e602524cfd2068",
+    "server/_core/index.ts": "e1024d1b0295e755c0d780e24ed2009dd92ecd08c1a0b710beb93b117bf5c3b1",
+    "server/_core/vite.ts": "6f9891bd83a66d98cc604e740b7b95a9cdabd106ab4c1ad3dc2cee6ac54a60f8",
+    "server/canonicalRedirectMatrix.test.ts": "3b2115fdaae45330797fe86ad7fa904c4a66e7179991b1bc4b29423807886152",
+    "server/contentRouteExistence.test.ts": "225b2ba08be0e06242edc6e56f603108eb3f225bbd4bb0db1a3e2659e55bfae6",
+    "server/contentRouteExistence.ts": "d3e0564119c13f7bf3eabe20145c37188921d1138fad84831bb52d17478c63ae",
+    "server/db.ts": "d68ea18ce8dbd94ce62031274242dac98f72e20f26845087e6f82e1b395ead58",
+    "server/issPropertyWiganCaseStudy.test.ts": "3b4ecf51e84d39b2e635dadb3a6f1764d60010f2502d1825747b29f6695760d7",
+    "server/metaTags.ts": "30329f38d85f33a8be4eb4c3c92c2746d4cac6a97f7eef7755677b193718c663",
+    "server/preparationCanonicalSitemap.test.ts": "db4e72354f825a93891707fd463ae6d36a104cfc3cc6dc49498eb308ba170b30",
+    "server/publicContentRouteGate.test.ts": "f657eb53bcfff9cb224998b15933f9647d4999dbe2ac7985fe9ce58799855459",
+    "server/redirects.test.ts": "99ff32bb85c3e57f78d209be82fc837ed802a5f97ec07542dc7eee7879160f8a",
+    "server/seoUrlNormalisation.ts": "773104bbcf60bdc263997e133b7e4b22a2882212ee22228edb6b874d53d9995b",
+    "server/sitemap.ts": "439b3268f973fd787de5edca21edcd8bf71624debdee6347d5972fe533a209e0",
+    "server/soft404Resolution.test.ts": "5839d099b8db796c18c061ee80671d143083257ebca088cf06122f2119fdd056",
+    "todo.md": "77c4c6e1b1742882f364662e3c15f0ceff1b68a60c450183a406bf824a99542b"
+  },
+  "immutable_manifest_sha256": "70e994ef221e1bc6cb58a45b3be5282249fc0212e16f4bcb6f9a7794c0212baa",
+  "native_baseline": "fc77da8996665551fb84fab9f4f3055daf047071",
+  "native_checkpoint": "98d2492ab4eb67410937d1ce58db8e4b3ef1218b",
+  "native_test_evidence_supplied_by_handoff": "86 offline-safe files / 1120 passed; TypeScript, build, 94 HTTP, browser390/1440, 271 media and controlled production statuses passed",
+  "native_tests_rerun_by_archive_integrator": false,
+  "new_files_sha256": {
+    "server/canonicalRedirectMatrix.test.ts": "3b2115fdaae45330797fe86ad7fa904c4a66e7179991b1bc4b29423807886152",
+    "server/contentRouteExistence.test.ts": "225b2ba08be0e06242edc6e56f603108eb3f225bbd4bb0db1a3e2659e55bfae6",
+    "server/contentRouteExistence.ts": "d3e0564119c13f7bf3eabe20145c37188921d1138fad84831bb52d17478c63ae",
+    "server/preparationCanonicalSitemap.test.ts": "db4e72354f825a93891707fd463ae6d36a104cfc3cc6dc49498eb308ba170b30",
+    "server/publicContentRouteGate.test.ts": "f657eb53bcfff9cb224998b15933f9647d4999dbe2ac7985fe9ce58799855459"
+  },
+  "new_paths": [
+    "server/canonicalRedirectMatrix.test.ts",
+    "server/contentRouteExistence.test.ts",
+    "server/contentRouteExistence.ts",
+    "server/preparationCanonicalSitemap.test.ts",
+    "server/publicContentRouteGate.test.ts"
+  ],
+  "patch": {
+    "ansi_only_removal_exact_immutable_diff": true,
+    "ansi_stripped_bytes": 126625,
+    "ansi_stripped_sha256": "74e5ed6bc1f11790e27358352865f291e7c95c615969f44396687280b37224c0",
+    "archive": "native-approved.patch.gz",
+    "encoding": "gzip level 9, mtime=0, no filename/comment, OS=255",
+    "gzip_bytes": 34039,
+    "gzip_sha256": "4218224868c69583d65d2d1d478ad35dc493fe54712eae4680f7d9460a310660",
+    "index_format": "Exact approved input contains ANSI SGR colour sequences and 7-character abbreviated blob IDs; bytes retained unchanged",
+    "raw_git_applyable": false,
+    "uncompressed_bytes": 163801,
+    "uncompressed_sha256": "c0e76f9781b4156078b52742b1e7dfeaa4ebe0155ba62caaf75a68a78a06cf98"
+  },
+  "purpose": "Inert exact Task04 routing-repair archive; not an active legacy-root port or deployment",
+  "schema_version": 1,
+  "target_branch": "manus/csb-call-attribution-20261107",
+  "target_parent": "1e15244790ccbbbe82041dd25ef7326e5d0adf53",
+  "target_repository": "PremierBlasting/commercial_shot_blasting",
+  "validation": {
+    "apply_and_reverse_inputs": [
+      "ANSI-stripped approved artifact",
+      "native-full-index.patch.gz decompressed"
+    ],
+    "baseline_tree": "24be7551df20b6367e93f4ab1c5f5b06cef5391f",
+    "baseline_tree_restored": true,
+    "decompressed_archive_exact": true,
+    "disposable_external_index_apply": true,
+    "disposable_external_index_apply_check": true,
+    "exact_native_scoped_diff": true,
+    "full_native_checkpoint_hash_validated_files": 1489,
+    "generated_metadata_exception": [
+      "client/public/__manus__/version.json"
+    ],
+    "raw_approved_artifact_apply": "Not valid for Git apply due to ANSI escapes; retained as immutable provenance",
+    "reconstructed_tree": "144792f7eb9a1b91209b81f821101c04d44823db",
+    "reverse_check_and_apply": true,
+    "reverse_tree": "24be7551df20b6367e93f4ab1c5f5b06cef5391f",
+    "scoped_final_source_sha256": true,
+    "staged_whitespace": {
+      "git_diff_check_exit": 2,
+      "immutable_source_retained_without_reformatting": true,
+      "integration_authored_metadata_whitespace_clean": true,
+      "only_in_exact_frozen_source": true,
+      "warning_count": 74
+    }
+  }
+}
