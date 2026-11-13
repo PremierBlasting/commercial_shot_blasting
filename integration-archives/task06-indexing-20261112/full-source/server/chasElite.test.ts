@@ -1,0 +1,70 @@
+import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { injectMetaTags } from "./metaTags";
+
+const baseHtml = `<!doctype html><html><head><title>Commercial Shot Blasting</title><meta name="description" content="Initial description" /><meta property="og:title" content="Initial title" /><meta property="og:description" content="Initial description" /><meta property="og:url" content="https://commercialshotblasting.co.uk/" /></head><body><!--SSR_CONTENT--></body></html>`;
+const projectRoot = resolve(import.meta.dirname, "..");
+
+describe("CHAS Elite assurance pathway", () => {
+  it("renders a canonical, evidence-led CHAS Elite assurance page for crawlers", async () => {
+    const html = await injectMetaTags(baseHtml, "/chas-elite");
+
+    expect(html).toContain("<link rel=\"canonical\" href=\"https://commercialshotblasting.co.uk/chas-elite\"");
+    expect(html).toContain("Commercial Shot Blasting is the commercial shot blasting arm of Premier Blasting");
+    expect(html).toContain("Premier Blasting holds CHAS Elite status");
+    expect(html).toContain("What CHAS Elite can mean for your commercial project");
+    expect(html).toContain("The Common Assessment Standard covers 13 risk-management areas");
+    expect(html).toContain("CHAS Elite does not replace a project-specific assessment");
+    expect(html).toContain("FAQPage");
+    expect(html).toContain("commercial-capability-statement-amended-linked-2026-09-14_9cee6eda.pdf");
+    expect(html).toContain("Download the current approved capability statement PDF");
+  });
+
+  it("exposes the assurance route in application, navigation, and both sitemap discovery paths", () => {
+    const app = readFileSync(resolve(projectRoot, "client/src/App.tsx"), "utf8");
+    const header = readFileSync(resolve(projectRoot, "client/src/components/Header.tsx"), "utf8");
+    const footer = readFileSync(resolve(projectRoot, "client/src/components/Footer.tsx"), "utf8");
+    const home = readFileSync(resolve(projectRoot, "client/src/pages/Home.tsx"), "utf8");
+    const xmlSitemap = readFileSync(resolve(projectRoot, "shared/sitemapPolicy.ts"), "utf8");
+    const htmlSitemap = readFileSync(resolve(projectRoot, "client/src/pages/SitemapPage.tsx"), "utf8");
+
+    expect(app).toContain('path={"/chas-elite"}');
+    expect(header).toContain("CHAS Elite Assurance");
+    expect(footer).toContain("CHAS Elite Assurance");
+    expect(home).toContain('/manus-storage/chas-elite-accreditation_29937620.png');
+    expect(home).toContain('alt="CHAS Accreditation Elite logo"');
+    expect(home).toContain("CapabilityStatementDownload");
+    expect(home).toContain("Download our capability statement");
+    const serviceDetail = readFileSync(resolve(projectRoot, "client/src/pages/ServiceDetail.tsx"), "utf8");
+    expect(serviceDetail).toContain("CapabilityStatementDownload");
+    expect(serviceDetail).toContain("Structural Steel Frames service page");
+    expect(serviceDetail).toContain("Intumescent Painting service page");
+    expect(serviceDetail).toContain('"factory-cladding": "Factory Cladding service page"');
+    expect(serviceDetail).toContain('"pipework": "Process Pipework service page"');
+    expect(serviceDetail).toContain("Download PDF");
+    const chasPage = readFileSync(resolve(projectRoot, "client/src/pages/ChasElitePage.tsx"), "utf8");
+    expect(chasPage).not.toContain('from "@/components/Breadcrumb"');
+    expect(chasPage).not.toContain("<Breadcrumb");
+    expect(chasPage).toContain("CapabilityStatementDownload");
+    const leadForm = readFileSync(resolve(projectRoot, "client/src/components/LeadForm.tsx"), "utf8");
+    expect(leadForm).toContain('/manus-storage/chas-elite-accreditation_29937620.png');
+    expect(leadForm).toContain('role="tooltip"');
+    expect(leadForm).toContain("group-focus-within:opacity-100");
+    expect(xmlSitemap).toContain('{ loc: "/chas-elite"');
+    expect(htmlSitemap).toContain('{ href: "/chas-elite", label: "CHAS Elite Assurance" }');
+  });
+
+  it("preserves capability-statement context in the universal lead-summary pathway", () => {
+    const leadForm = readFileSync(resolve(projectRoot, "client/src/components/LeadForm.tsx"), "utf8");
+    const contact = readFileSync(resolve(projectRoot, "client/src/pages/Contact.tsx"), "utf8");
+
+    expect(leadForm).toContain("capabilityStatementRequest?: boolean");
+    expect(leadForm).toContain('capabilityStatementRequest ? "Capability statement follow-up"');
+    expect(leadForm).toContain("Enquiry context:");
+    expect(contact).toContain('get("request") === "capability-statement"');
+    expect(contact).toContain("capabilityStatementRequest={capabilityStatementRequest}");
+    expect(contact).toContain("CapabilityStatementDownload");
+    expect(contact).toContain("Download capability statement (PDF)");
+  });
+});

@@ -1,0 +1,24 @@
+{
+  "applied_scoped_tree": "23e0612bea0b6f2dbfe01c6c66fbb80c45eb5a75",
+  "baseline_commit": "36cca1f5a119d1e679ebf27900f268e53e1d33cb",
+  "checkpoint_commit": "dc54cdf7f111abbefd108c77fbf9c098cea15e02",
+  "deleted_path_absent_after_apply": true,
+  "exact_scoped_diff_byte_match": true,
+  "excluded_checkpoint_metadata": [
+    "client/public/__manus__/version.json"
+  ],
+  "external_index_worktree_disposed": true,
+  "full_baseline_tree_restored": true,
+  "managed_index_worktree_config_untouched": true,
+  "native_baseline_tree": "b830ce2865861b64b99bed736c004378016abc7b",
+  "native_baseline_tree_entries": 1490,
+  "native_checkpoint_tree": "4164e3156d33c5ae85092f6a90212a34e51dba17",
+  "object_source": "read-only immutable Git objects through disposable external object database alternates",
+  "patch_apply": true,
+  "patch_apply_check": true,
+  "patch_reverse": true,
+  "patch_reverse_check": true,
+  "restored_baseline_tree": "b830ce2865861b64b99bed736c004378016abc7b",
+  "scoped_final_modes_blobs_sha256_match": true,
+  "unapproved_baseline_entries_preserved": true
+}

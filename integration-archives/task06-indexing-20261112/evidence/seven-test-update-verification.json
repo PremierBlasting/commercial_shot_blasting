@@ -1,0 +1,51 @@
+[
+  {
+    "path": "server/adePowerWakefieldCaseStudy.test.ts",
+    "original_assertions": 61,
+    "all_preserved": true,
+    "before_sha256": "d842de21995a03f7f6c8c677bc3a900ccbc7b4746f5c35e387119bc9dcd1986d",
+    "after_sha256": "bef09675d0431b7e230b6d802fefacb42fd95d0d8ffddc5db16ff154c3754efb"
+  },
+  {
+    "path": "server/bromsgroveSchoolCaseStudy.test.ts",
+    "original_assertions": 72,
+    "all_preserved": true,
+    "before_sha256": "b0d22609713413ec4f05721e4456962c8fc68daa1928adcdb5437e9a6cafa605",
+    "after_sha256": "8b6fcbd74fea00eb0d860aec536e3f1f4b8d35870791ab4fc223224b5031935f"
+  },
+  {
+    "path": "server/chasElite.test.ts",
+    "original_assertions": 37,
+    "all_preserved": true,
+    "before_sha256": "a32981e52e3f42015b3b7303ddf9e668d489852262d15d89046052f581bf79bb",
+    "after_sha256": "74e2fab70f5aca1a214a0d6a02628b5c2a930b9ed98fc57309bd2dd407771ab5"
+  },
+  {
+    "path": "server/hbTunnellingCaseStudy.test.ts",
+    "original_assertions": 65,
+    "all_preserved": true,
+    "before_sha256": "eef72716fedf1444d1ebe3d07c935582ed12f7d01ff7d159d05583da176c7658",
+    "after_sha256": "2260684ba2308d1cfc7fb54d725849a4945e0ed5813b8d7630eacb173f0c25e7"
+  },
+  {
+    "path": "server/issPropertyWiganCaseStudy.test.ts",
+    "original_assertions": 80,
+    "all_preserved": true,
+    "before_sha256": "3b4ecf51e84d39b2e635dadb3a6f1764d60010f2502d1825747b29f6695760d7",
+    "after_sha256": "ec68888f92fb91ab35c8a2e7a2a9f94b9ec5d252f94725fe259ee6b11abd5a99"
+  },
+  {
+    "path": "server/security-seo-features.test.ts",
+    "original_assertions": 41,
+    "all_preserved": true,
+    "before_sha256": "2d77b835114759f147b003e0c365630ccd675e762a142b8a30c8861ecd53c7d2",
+    "after_sha256": "592af6396ed07bff7754ce448bf431e120edc1199389719a5d528f48e7c6a1a4"
+  },
+  {
+    "path": "server/sitemapNavigation.test.ts",
+    "original_assertions": 24,
+    "all_preserved": true,
+    "before_sha256": "0cfccb883af0fe6694b130f50a8b8e526b5f9c6f4dff2061bfedbc92b0643a76",
+    "after_sha256": "a1164f9b3146b66c6f30066b3d7974a957c332edf8b3b0d068e217b8d6d62f28"
+  }
+]

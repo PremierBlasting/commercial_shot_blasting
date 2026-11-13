@@ -1,0 +1,138 @@
+[WARN] The "pnpm" field in package.json is no longer read by pnpm. The following keys were ignored: "pnpm.patchedDependencies", "pnpm.overrides". See https://pnpm.io/settings for the new home of each setting.
+
+ RUN  v2.1.9 /home/ubuntu/commercial_shot_blasting_manus
+
+ ✓ server/csbWebsiteCallScaffold.test.ts (40 tests) 849ms
+   ✓ verified production WEBSITE_CALL scaffold > matches the genuine 60-second action and destination in the supplied Google readback 458ms
+ ✓ server/csbGoogleMeasurement.test.ts (34 tests) 1952ms
+   ✓ CSB Google consent and dispatch > preserves legacy optional analytics acceptance without inferring Ads permission 780ms
+   ✓ CSB Google consent and dispatch > drops all activity with analytics=true and new preference=accepted 682ms
+ ✓ server/enquiryMediaUploadClient.test.ts (57 tests) 431ms
+ ✓ server/priorityLocalSeoContent.test.ts (24 tests) 205ms
+ ✓ server/publicContentRouteGate.test.ts (40 tests) 534ms
+ ✓ server/sitemapPolicyConsistency.test.ts (46 tests) 117ms
+ ✓ server/csbContactClicks.test.ts (44 tests) 775ms
+ ✓ server/contentRouteExistence.test.ts (147 tests) 694ms
+   ✓ isolated real DB helper contracts with a fully mocked Drizzle builder > queries slug AND isPublished=true, with limit one, and returns the exact row 539ms
+ ✓ server/routeIndexingLifecycle.test.ts (42 tests) 188ms
+ ✓ server/contact.test.ts (23 tests) 77ms
+ ✓ server/enquiryAttachmentPolicy.test.ts (86 tests) 43ms
+ ✓ server/ga4-conversion-tracking.test.ts (18 tests) 149ms
+ ✓ server/organicLeadAttribution.test.ts (31 tests) 91ms
+ ✓ server/homepageCustomerVoice.test.ts (10 tests) 329ms
+ ✓ server/csbCampaignAttribution.test.ts (30 tests) 215ms
+ ✓ server/pillarPages.test.ts (20 tests) 21ms
+ ✓ server/canonicalRedirectMatrix.test.ts (10 tests) 2133ms
+   ✓ Task04 finite canonical redirect graph > checks every town against all recognised legacy patterns, including final Stoke ownership 478ms
+   ✓ Task04 Express redirect matrix with mocked successors > returns one actual 301 then a direct 200 for every maintained slash and catalogue alias 1296ms
+ ✓ server/enquiryMediaUploads.test.ts (119 tests) 4716ms
+   ✓ strict schema, sizes and bounded sequential chunks > enforces full chunks, sequential indexes, exact final bytes and hash-identical retries 3951ms
+ ✓ server/homepageHeroAboveFold.test.ts (10 tests) 9ms
+ ✓ server/issPropertyWiganCaseStudy.test.ts (2 tests) 25ms
+stdout | server/organicLeadDelivery.test.ts > visitor-safe attribution delivery > adds a readable commercial campaign reference to existing notifications and HubSpot messages only
+[LeadNotifications] Email notification sent for lead: attribution@example.invalid
+[LeadNotifications] CSB HubSpot contact created: attribution@example.invalid (ID: mock-only-contact)
+[LeadNotifications] PB HubSpot contact created: attribution@example.invalid (ID: mock-only-contact)
+
+stdout | server/organicLeadDelivery.test.ts > visitor-safe attribution delivery > renders readable visit context plus unchanged paid details in both email formats
+[LeadNotifications] Email notification sent for lead: attribution@example.invalid
+
+stdout | server/organicLeadDelivery.test.ts > visitor-safe attribution delivery > HTML-escapes source context and leaves customer confirmation unchanged
+[LeadNotifications] Email notification sent for lead: attribution@example.invalid
+
+stdout | server/organicLeadDelivery.test.ts > visitor-safe attribution delivery > adds source context using existing HubSpot message fields with no new custom properties
+[LeadNotifications] CSB HubSpot contact created: attribution@example.invalid (ID: mock-only-contact)
+[LeadNotifications] PB HubSpot contact created: attribution@example.invalid (ID: mock-only-contact)
+
+stdout | server/organicLeadDelivery.test.ts > visitor-safe attribution delivery > retains both Sheets destinations and the entire existing A-S column contract
+[LeadNotifications] Appended lead to Google Sheet tab: "2026 Leads"
+[LeadNotifications] Appended lead to Google Sheet tab: "COMMERCIAL SHOT BLASTING LEADS 26"
+
+stdout | server/organicLeadDelivery.test.ts > visitor-safe attribution delivery > passes the complete attribution record to the unchanged cloud audit route
+[LeadNotifications] Lead logged to cloud computer: attribution@example.invalid
+
+stdout | server/organicLeadDelivery.test.ts > visitor-safe attribution delivery > does not infer an organic source for older leads without current-visit data
+[LeadNotifications] Email notification sent for lead: attribution@example.invalid
+
+ ✓ server/priorityLocalNearMePilot.test.ts (8 tests) 1099ms
+   ✓ Local near-me growth — factual all-area rollout > renders factual crawler metadata, one robots directive, and safe FAQs for every live location 533ms
+stdout | server/organicLeadDelivery.test.ts > visitor-safe attribution delivery > keeps the production-lead test guard, so the combined handler makes no external calls
+[notifyNewLead] Skipping external calls in test environment.
+
+ ✓ server/organicLeadDelivery.test.ts (8 tests) 103ms
+ ✓ server/admin.test.ts (13 tests) 14ms
+ ✓ server/security-seo-features.test.ts (17 tests) 23ms
+ ✓ server/sitemapMapControls.test.ts (11 tests) 11ms
+ ✓ server/redirects.test.ts (9 tests) 15ms
+ ✓ server/hbTunnellingCaseStudy.test.ts (3 tests) 18ms
+ ✓ server/homepageFeaturedProjects.test.ts (6 tests) 16ms
+ ✓ server/bromsgroveSchoolCaseStudy.test.ts (3 tests) 14ms
+ ✓ server/adePowerWakefieldCaseStudy.test.ts (4 tests) 21ms
+ ✓ server/capabilityStatementCards.test.ts (6 tests) 139ms
+ ✓ server/breadcrumb-schema.test.ts (8 tests) 37ms
+ ✓ server/sharedInlineEnquiryFormRollout.test.ts (5 tests) 9ms
+ ✓ server/compactCookieChoices.test.ts (11 tests) 96ms
+ ✓ server/homepageFeaturedVideo.test.ts (7 tests) 16ms
+ ✓ server/preload.test.ts (6 tests) 9ms
+ ✓ server/soft404Resolution.test.ts (10 tests) 11ms
+ ✓ server/rateLimit.test.ts (26 tests) 48ms
+ ✓ server/appLegalPages.test.ts (10 tests) 42ms
+ ✓ server/seoPriorities.test.ts (6 tests) 25ms
+ ✓ server/dynamicSitemap.test.ts (5 tests) 17ms
+ ✓ server/https-redirect.test.ts (5 tests) 8ms
+ ✓ server/emailValidation.test.ts (30 tests) 11ms
+ ✓ server/chasElite.test.ts (3 tests) 13ms
+ ✓ server/coveragePolicy.test.ts (4 tests) 366ms
+ ✓ server/queryClickGrowth.test.ts (5 tests) 18ms
+ ✓ server/commercialPlanningContent.test.ts (4 tests) 16ms
+ ✓ server/faq-schema.test.ts (8 tests) 48ms
+ ✓ server/aeoWaveTwo.test.ts (5 tests) 1008ms
+   ✓ Premier Blasting voice and AEO Wave Two > publishes the visible commercial specification checklist with factual schema and sitemap discovery 988ms
+ ✓ server/sitemapNavigation.test.ts (6 tests) 16ms
+ ✓ server/heroMediaPerformance.test.ts (3 tests) 6ms
+ ✓ server/seoGrowthWaveOne.test.ts (5 tests) 17ms
+ ✓ server/robotsDirectives.test.ts (25 tests) 31ms
+ ✓ server/areaBreadcrumbAndCoordinates.test.ts (4 tests) 20ms
+ ✓ server/webp-upload.test.ts (4 tests) 10ms
+ ✓ server/homepageQueryAlignment.test.ts (5 tests) 13ms
+ ✓ server/marineCxSurfacePreparation.test.ts (3 tests) 307ms
+ ✓ server/locationPageConversionFeatures.test.ts (5 tests) 42ms
+ ✓ server/caseStudyProofUnits.test.ts (3 tests) 11ms
+ ✓ server/homepageIntumescentService.test.ts (4 tests) 17ms
+ ✓ server/homepageInlineEnquiryForm.test.ts (5 tests) 6ms
+ ✓ server/universalGetInTouchForm.test.ts (4 tests) 5ms
+ ✓ server/dynamicImportRecovery.test.ts (4 tests) 5ms
+ ✓ server/upload.test.ts (3 tests) 9ms
+ ✓ server/nearbyAreas.test.ts (6 tests) 40ms
+ ✓ server/localIndexabilityTier.test.ts (5 tests) 17ms
+ ✓ server/cookieConsentNotice.test.ts (6 tests) 6ms
+ ✓ server/publicContentFallback.test.ts (4 tests) 8ms
+ ✓ server/aeoWaveOne.test.ts (4 tests) 15ms
+ ✓ server/crawlerContentPolicy.test.ts (2 tests) 19ms
+ ✓ server/analyticsConsentLoading.test.ts (4 tests) 4ms
+ ✓ server/homepageHeroActionOrder.test.ts (2 tests) 4ms
+ ✓ server/postcodeCapture.test.ts (4 tests) 6ms
+ ✓ server/reviewSnippetSchema.test.ts (3 tests) 81ms
+ ✓ server/commercialPhoneNumber.test.ts (1 test) 911ms
+   ✓ public Commercial Shot Blasting phone number > uses 07970 566409 consistently in active visitor-facing source, SSR data and retained static local pages 910ms
+ ✓ server/capabilityStatementAeo.test.ts (3 tests) 299ms
+ ✓ server/suggestionKeyboard.test.ts (4 tests) 7ms
+ ✓ server/preparationCanonicalSitemap.test.ts (3 tests) 9ms
+ ✓ server/highPopulationLocations.test.ts (2 tests) 25ms
+ ✓ server/publicContentRouterResilience.test.ts (3 tests) 6ms
+ ✓ server/googleBusinessProfileConnection.test.ts (3 tests) 11ms
+ ✓ server/legacyContentBreadcrumbs.test.ts (2 tests) 4ms
+ ✓ server/priorityPagePerformance.test.ts (2 tests) 24ms
+ ✓ server/routePrefetchPolicy.test.ts (3 tests) 4ms
+ ✓ server/locationCatalogueParity.test.ts (2 tests) 352ms
+   ✓ service-area catalogue parity > provides a client chunk containing every sitemap-indexed location 350ms
+ ✓ server/intumescentBreadcrumbSchema.test.ts (1 test) 3ms
+ ✓ server/ga4.test.ts (2 tests) 4ms
+ ✓ server/postcodeLookup.test.ts (2 tests) 3ms
+ ✓ server/auth.logout.test.ts (1 test) 5ms
+
+ Test Files  89 passed (89)
+      Tests  1236 passed (1236)
+   Start at  12:09:39
+   Duration  19.30s (transform 5.84s, setup 0ms, collect 40.86s, tests 19.20s, environment 21ms, prepare 6.72s)
+

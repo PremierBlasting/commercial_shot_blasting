@@ -1,0 +1,11 @@
+{
+  "original_workbook_paths": [
+    "/home/ubuntu/csb-seo-aeo-audit-2026-11-11/CSB_Page_Keyword_and_Rank_Tracking_2026-11-11.xlsx"
+  ],
+  "workbook_sha256": "5a0da515e844befc1345c01a54c6f5152512ba00ddfaeb83da83d43f518f09eb",
+  "config_hashes_only": {
+    ".git/config": "1ef8de3ce9ce66a611fe6b62f9e06ab0f74b994a200a852a5422695984d24be4",
+    "/home/ubuntu/csb-existing-repo-integration-2026-11-07/.git/config": "820bc10b2283997df592d8cd8f2bb7347a0137720ea5f9d55fd2cf60d3ab3691",
+    "/home/ubuntu/.config/gh/hosts.yml": "d91b40d26eed0c55cdfba053b20e4f38e4af3b2a88fac5acff642c4872a66d12"
+  }
+}

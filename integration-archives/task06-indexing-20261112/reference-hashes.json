@@ -1,0 +1,64 @@
+{
+  "Task04_archive_files": 28,
+  "approved_paths": 43,
+  "archive_only": true,
+  "branch": "manus/csb-call-attribution-20261107",
+  "deleted_paths": [
+    "client/public/sitemap-blog.xml"
+  ],
+  "evidence": {
+    "browser-results.json": {
+      "bytes": 10440,
+      "sha256": "75c78feaf340135761cc4ae4608b42217ed538b72f72d0a328071fc819790181"
+    },
+    "build-release.log": {
+      "bytes": 30325,
+      "sha256": "9a7988ca2a71a6f936187e9b8b2966185f76d36b83e94ceede38ca1acaef931f"
+    },
+    "precheckpoint-integrity.json": {
+      "bytes": 594,
+      "sha256": "314cb820a5197c3f32cb306a72ac63bf829fa7c84f59856d3792ecc2606ad569"
+    },
+    "seven-test-update-verification.json": {
+      "bytes": 2065,
+      "sha256": "d4300657318db7fade6f57ee0c582bc23fac24a3ef01e6f99cfae40b3c9a8998"
+    },
+    "staging-http.json": {
+      "bytes": 26190,
+      "sha256": "9e9bc7ba3979c19d4877b309507ed59c341d59a9175b88629221a215a989ba90"
+    },
+    "tests-final.log": {
+      "bytes": 9338,
+      "sha256": "d38ccde66395c45c15f0f562ffdb0c0415df3b16622e813b7f3515c988852879"
+    },
+    "types-release.log": {
+      "bytes": 315,
+      "sha256": "56f8c7d7e970489fcbcf5d9bfe12b60dc11c6c7f16d4cf73092073d91a4862e6"
+    }
+  },
+  "excluded_checkpoint_metadata": [
+    "client/public/__manus__/version.json"
+  ],
+  "final_source_files": 42,
+  "immutable_manifest_sha256": "3205a1454b2e6c15f47eb5736cb0cfc3db1516122326fc29bcf3e869b2c4b7ee",
+  "native_baseline": "36cca1f5a119d1e679ebf27900f268e53e1d33cb",
+  "not_active_legacy_migration_or_deployment": true,
+  "original_target_files": 767,
+  "patch_sha256": "6d08b47927d27703c05b32b6d6618fa66a3db63423853b6e3e5b27ff64e922b4",
+  "protected_target_files": 795,
+  "repository": "PremierBlasting/commercial_shot_blasting",
+  "target_parent": "e8c11d43b6d0c321c6f67725cc77987264b1317b",
+  "test_summary": {
+    "build_passed_parent_report": true,
+    "intercepted_browser_widths": [
+      390,
+      1440
+    ],
+    "offline_safe_test_files_passed": 89,
+    "seven_assertion_only_updates_preserved": true,
+    "staging_http_xml_query_status_all_pass": true,
+    "tests_passed": 1236,
+    "types_passed_parent_report": true
+  },
+  "tested_checkpoint": "dc54cdf7f111abbefd108c77fbf9c098cea15e02"
+}

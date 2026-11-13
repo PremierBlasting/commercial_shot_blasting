@@ -1,0 +1,565 @@
+{
+  "base": "http://127.0.0.1:3000",
+  "observed_utc": "2026-11-13T12:12:34.109242+00:00",
+  "checks": {
+    "town_targets_exact65": true,
+    "counties_exact43": true,
+    "privacy_absent": true,
+    "no_held_town_in_xml": true,
+    "index_child_dates_omitted": true,
+    "image_urls_unchanged": true,
+    "robots_exact_static": true,
+    "robots_restrictions": true,
+    "stable_repeat_xml": true,
+    "status_query_directive_matrix": true
+  },
+  "all_pass": true,
+  "rows": [
+    {
+      "path": "/privacy-policy",
+      "status": 200,
+      "robots": [
+        "noindex, follow"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/privacy-policy?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 200,
+      "robots": [
+        "noindex, follow"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/terms-of-service",
+      "status": 200,
+      "robots": [
+        "noindex, follow"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/terms-of-service?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 200,
+      "robots": [
+        "noindex, follow"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/case-studies/fire-escape-multi-storey-office",
+      "status": 200,
+      "robots": [
+        "noindex, follow"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/case-studies/fire-escape-multi-storey-office?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 200,
+      "robots": [
+        "noindex, follow"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/admin",
+      "status": 200,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/admin?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 200,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/call-analytics",
+      "status": 200,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/call-analytics?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 200,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/service-areas/truro",
+      "status": 200,
+      "robots": [
+        "noindex, follow, max-image-preview:large, max-snippet:-1"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/service-areas/truro?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 200,
+      "robots": [
+        "noindex, follow, max-image-preview:large, max-snippet:-1"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/service-areas/birmingham",
+      "status": 200,
+      "robots": [
+        "index, follow, max-image-preview:large, max-snippet:-1"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/service-areas/birmingham?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 200,
+      "robots": [
+        "index, follow, max-image-preview:large, max-snippet:-1"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/services/structural-steel-frames",
+      "status": 200,
+      "robots": [
+        "index, follow, max-image-preview:large, max-snippet:-1",
+        "index, follow, max-image-preview:large"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/services/structural-steel-frames?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 200,
+      "robots": [
+        "index, follow, max-image-preview:large, max-snippet:-1",
+        "index, follow, max-image-preview:large"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/preparation-cleanup",
+      "status": 200,
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/preparation-cleanup?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 200,
+      "robots": [
+        "index, follow",
+        "index, follow, max-image-preview:large"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/terms",
+      "status": 200,
+      "robots": [
+        "index, follow, max-image-preview:large"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/terms?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 200,
+      "robots": [
+        "index, follow, max-image-preview:large"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/task06-not-real",
+      "status": 404,
+      "robots": [
+        "noindex, follow"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/task06-not-real?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 404,
+      "robots": [
+        "noindex, follow"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/task06-not-real.jpg",
+      "status": 404,
+      "robots": [],
+      "pass": true
+    },
+    {
+      "path": "/task06-not-real.jpg?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 404,
+      "robots": [],
+      "pass": true
+    },
+    {
+      "path": "/glossary/task06-not-real",
+      "status": 404,
+      "robots": [
+        "noindex, follow"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/glossary/task06-not-real?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 404,
+      "robots": [
+        "noindex, follow"
+      ],
+      "pass": true
+    },
+    {
+      "path": "/service-areas/stoke/?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 301,
+      "location": "/service-areas/stoke-on-trent?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "pass": true
+    },
+    {
+      "path": "/prep-and-cleanup?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 301,
+      "location": "/preparation-cleanup?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "pass": true
+    },
+    {
+      "path": "/free-site-survey?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 301,
+      "location": "/site-survey?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "pass": true
+    },
+    {
+      "path": "/gallery?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "status": 301,
+      "location": "/our-work?utm_source=adwords&utm_medium=ppc&gclid=mock%2Bclick&gbraid=x&wbraid=y&ref=a%2Fb&empty=&ref=again",
+      "pass": true
+    }
+  ],
+  "xmls": {
+    "/sitemap.xml": {
+      "status": 200,
+      "page_locs": [],
+      "page_count": 0,
+      "image_loc_count": 0,
+      "lastmods": [],
+      "hash": "b3b6a206ee676b552929bd6fb26f71eff900115fccf8c66d26bf4dd9b4e9c9d2"
+    },
+    "/sitemap-main.xml": {
+      "status": 200,
+      "page_locs": [
+        "https://commercialshotblasting.co.uk/",
+        "https://commercialshotblasting.co.uk/about",
+        "https://commercialshotblasting.co.uk/chas-elite",
+        "https://commercialshotblasting.co.uk/capability-statement",
+        "https://commercialshotblasting.co.uk/contact",
+        "https://commercialshotblasting.co.uk/services",
+        "https://commercialshotblasting.co.uk/industries",
+        "https://commercialshotblasting.co.uk/counties",
+        "https://commercialshotblasting.co.uk/service-areas",
+        "https://commercialshotblasting.co.uk/site-survey",
+        "https://commercialshotblasting.co.uk/blog",
+        "https://commercialshotblasting.co.uk/glossary",
+        "https://commercialshotblasting.co.uk/reviews",
+        "https://commercialshotblasting.co.uk/preparation-cleanup",
+        "https://commercialshotblasting.co.uk/our-work",
+        "https://commercialshotblasting.co.uk/case-studies/iss-property-former-bakkavor-foods-facility-wigan",
+        "https://commercialshotblasting.co.uk/case-studies/hb-tunnelling-doncaster",
+        "https://commercialshotblasting.co.uk/case-studies/bromsgrove-school-staircase",
+        "https://commercialshotblasting.co.uk/case-studies/ade-power-wakefield-marine-cx-enclosures",
+        "https://commercialshotblasting.co.uk/steel-fabrications",
+        "https://commercialshotblasting.co.uk/steel-fabrication-surface-preparation",
+        "https://commercialshotblasting.co.uk/steel-chimney-process-stack-surface-preparation",
+        "https://commercialshotblasting.co.uk/industrial-steelwork-restoration",
+        "https://commercialshotblasting.co.uk/factory-cladding-restoration",
+        "https://commercialshotblasting.co.uk/process-pipework-spools-surface-preparation",
+        "https://commercialshotblasting.co.uk/agricultural-steelwork-grain-store-preparation",
+        "https://commercialshotblasting.co.uk/container-restoration-storage-steelwork",
+        "https://commercialshotblasting.co.uk/mobile-on-site-shot-blasting",
+        "https://commercialshotblasting.co.uk/intumescent-paint-for-steel",
+        "https://commercialshotblasting.co.uk/commercial-shot-blasting-sandblasting",
+        "https://commercialshotblasting.co.uk/commercial-blasting-specification-checklist",
+        "https://commercialshotblasting.co.uk/external-staircases",
+        "https://commercialshotblasting.co.uk/sitemap",
+        "https://commercialshotblasting.co.uk/services/structural-steel-frames",
+        "https://commercialshotblasting.co.uk/services/steel-chimney-surface-preparation",
+        "https://commercialshotblasting.co.uk/services/steel-containers",
+        "https://commercialshotblasting.co.uk/services/factory-cladding",
+        "https://commercialshotblasting.co.uk/services/fire-escapes",
+        "https://commercialshotblasting.co.uk/services/staircases",
+        "https://commercialshotblasting.co.uk/services/bridge-steelwork",
+        "https://commercialshotblasting.co.uk/services/ladders",
+        "https://commercialshotblasting.co.uk/services/warehouse-racking",
+        "https://commercialshotblasting.co.uk/services/pipework",
+        "https://commercialshotblasting.co.uk/services/telecom-towers",
+        "https://commercialshotblasting.co.uk/services/floor-preparation",
+        "https://commercialshotblasting.co.uk/services/powder-coating",
+        "https://commercialshotblasting.co.uk/services/commercial-radiators",
+        "https://commercialshotblasting.co.uk/services/commercial-vehicles",
+        "https://commercialshotblasting.co.uk/services/steel-doors",
+        "https://commercialshotblasting.co.uk/services/steel-sheeting",
+        "https://commercialshotblasting.co.uk/services/steel-gates",
+        "https://commercialshotblasting.co.uk/services/plant-machinery",
+        "https://commercialshotblasting.co.uk/services/intumescent-painting",
+        "https://commercialshotblasting.co.uk/services/marine-shot-blasting",
+        "https://commercialshotblasting.co.uk/services/marine-cx-surface-preparation",
+        "https://commercialshotblasting.co.uk/services/rust-removal",
+        "https://commercialshotblasting.co.uk/services/mill-scale-removal",
+        "https://commercialshotblasting.co.uk/services/paint-stripping",
+        "https://commercialshotblasting.co.uk/services/coating-removal",
+        "https://commercialshotblasting.co.uk/services/agricultural-shot-blasting",
+        "https://commercialshotblasting.co.uk/services/car-park-paint-removal",
+        "https://commercialshotblasting.co.uk/industries/manufacturing",
+        "https://commercialshotblasting.co.uk/industries/construction",
+        "https://commercialshotblasting.co.uk/industries/agriculture",
+        "https://commercialshotblasting.co.uk/industries/aerospace",
+        "https://commercialshotblasting.co.uk/industries/marine",
+        "https://commercialshotblasting.co.uk/industries/heritage-restoration",
+        "https://commercialshotblasting.co.uk/industries/retail",
+        "https://commercialshotblasting.co.uk/industries/transport-logistics",
+        "https://commercialshotblasting.co.uk/glossary/bs-en-iso-8501-1",
+        "https://commercialshotblasting.co.uk/glossary/dft",
+        "https://commercialshotblasting.co.uk/glossary/grit-blasting",
+        "https://commercialshotblasting.co.uk/glossary/intumescent-paint",
+        "https://commercialshotblasting.co.uk/glossary/mill-scale",
+        "https://commercialshotblasting.co.uk/glossary/nace",
+        "https://commercialshotblasting.co.uk/glossary/rust-grade",
+        "https://commercialshotblasting.co.uk/glossary/sa-2-5",
+        "https://commercialshotblasting.co.uk/glossary/sa-3",
+        "https://commercialshotblasting.co.uk/glossary/shot-blasting",
+        "https://commercialshotblasting.co.uk/glossary/sspc",
+        "https://commercialshotblasting.co.uk/glossary/surface-profile"
+      ],
+      "page_count": 81,
+      "image_loc_count": 0,
+      "lastmods": [
+        "2026-08-18"
+      ],
+      "hash": "4824f2b6ac6cdb32b19717b8faee1250310548761db6c526f03ee7209f397d2e"
+    },
+    "/sitemap-counties.xml": {
+      "status": 200,
+      "page_locs": [
+        "https://commercialshotblasting.co.uk/counties/bedfordshire",
+        "https://commercialshotblasting.co.uk/counties/cambridgeshire",
+        "https://commercialshotblasting.co.uk/counties/hertfordshire",
+        "https://commercialshotblasting.co.uk/counties/norfolk",
+        "https://commercialshotblasting.co.uk/counties/suffolk",
+        "https://commercialshotblasting.co.uk/counties/derbyshire",
+        "https://commercialshotblasting.co.uk/counties/leicestershire",
+        "https://commercialshotblasting.co.uk/counties/lincolnshire",
+        "https://commercialshotblasting.co.uk/counties/northamptonshire",
+        "https://commercialshotblasting.co.uk/counties/nottinghamshire",
+        "https://commercialshotblasting.co.uk/counties/herefordshire",
+        "https://commercialshotblasting.co.uk/counties/shropshire",
+        "https://commercialshotblasting.co.uk/counties/staffordshire",
+        "https://commercialshotblasting.co.uk/counties/warwickshire",
+        "https://commercialshotblasting.co.uk/counties/west-midlands",
+        "https://commercialshotblasting.co.uk/counties/worcestershire",
+        "https://commercialshotblasting.co.uk/counties/south-yorkshire",
+        "https://commercialshotblasting.co.uk/counties/west-yorkshire",
+        "https://commercialshotblasting.co.uk/counties/north-yorkshire",
+        "https://commercialshotblasting.co.uk/counties/cheshire",
+        "https://commercialshotblasting.co.uk/counties/gloucestershire",
+        "https://commercialshotblasting.co.uk/counties/north-devon",
+        "https://commercialshotblasting.co.uk/counties/somerset",
+        "https://commercialshotblasting.co.uk/counties/wiltshire",
+        "https://commercialshotblasting.co.uk/counties/buckinghamshire",
+        "https://commercialshotblasting.co.uk/counties/greater-manchester",
+        "https://commercialshotblasting.co.uk/counties/essex",
+        "https://commercialshotblasting.co.uk/counties/berkshire",
+        "https://commercialshotblasting.co.uk/counties/hampshire",
+        "https://commercialshotblasting.co.uk/counties/lancashire",
+        "https://commercialshotblasting.co.uk/counties/east-wales",
+        "https://commercialshotblasting.co.uk/counties/cumbria",
+        "https://commercialshotblasting.co.uk/counties/durham",
+        "https://commercialshotblasting.co.uk/counties/tyne-and-wear",
+        "https://commercialshotblasting.co.uk/counties/northumberland",
+        "https://commercialshotblasting.co.uk/counties/cornwall",
+        "https://commercialshotblasting.co.uk/counties/kent",
+        "https://commercialshotblasting.co.uk/counties/devon",
+        "https://commercialshotblasting.co.uk/counties/merseyside",
+        "https://commercialshotblasting.co.uk/counties/oxfordshire",
+        "https://commercialshotblasting.co.uk/counties/surrey",
+        "https://commercialshotblasting.co.uk/counties/sussex",
+        "https://commercialshotblasting.co.uk/counties/dorset"
+      ],
+      "page_count": 43,
+      "image_loc_count": 0,
+      "lastmods": [],
+      "hash": "532a76a104057821128641c13a110784727f0cb1551424eb10d3cbf2eb6d0f63"
+    },
+    "/sitemap-service-areas.xml": {
+      "status": 200,
+      "page_locs": [
+        "https://commercialshotblasting.co.uk/service-areas/barnsley",
+        "https://commercialshotblasting.co.uk/service-areas/basildon",
+        "https://commercialshotblasting.co.uk/service-areas/bath",
+        "https://commercialshotblasting.co.uk/service-areas/birmingham",
+        "https://commercialshotblasting.co.uk/service-areas/blackburn",
+        "https://commercialshotblasting.co.uk/service-areas/blackpool",
+        "https://commercialshotblasting.co.uk/service-areas/bolton",
+        "https://commercialshotblasting.co.uk/service-areas/bournemouth",
+        "https://commercialshotblasting.co.uk/service-areas/bradford",
+        "https://commercialshotblasting.co.uk/service-areas/brighton-and-hove",
+        "https://commercialshotblasting.co.uk/service-areas/bristol",
+        "https://commercialshotblasting.co.uk/service-areas/bromsgrove",
+        "https://commercialshotblasting.co.uk/service-areas/bury-st-edmunds",
+        "https://commercialshotblasting.co.uk/service-areas/cambridge",
+        "https://commercialshotblasting.co.uk/service-areas/canterbury",
+        "https://commercialshotblasting.co.uk/service-areas/cardiff",
+        "https://commercialshotblasting.co.uk/service-areas/carlisle",
+        "https://commercialshotblasting.co.uk/service-areas/chelmsford",
+        "https://commercialshotblasting.co.uk/service-areas/chepstow",
+        "https://commercialshotblasting.co.uk/service-areas/chester",
+        "https://commercialshotblasting.co.uk/service-areas/chesterfield",
+        "https://commercialshotblasting.co.uk/service-areas/colchester",
+        "https://commercialshotblasting.co.uk/service-areas/coventry",
+        "https://commercialshotblasting.co.uk/service-areas/crewe",
+        "https://commercialshotblasting.co.uk/service-areas/darlington",
+        "https://commercialshotblasting.co.uk/service-areas/derby",
+        "https://commercialshotblasting.co.uk/service-areas/doncaster",
+        "https://commercialshotblasting.co.uk/service-areas/exeter",
+        "https://commercialshotblasting.co.uk/service-areas/gainsborough",
+        "https://commercialshotblasting.co.uk/service-areas/gloucester",
+        "https://commercialshotblasting.co.uk/service-areas/guildford",
+        "https://commercialshotblasting.co.uk/service-areas/heanor",
+        "https://commercialshotblasting.co.uk/service-areas/hitchin",
+        "https://commercialshotblasting.co.uk/service-areas/huddersfield",
+        "https://commercialshotblasting.co.uk/service-areas/leeds",
+        "https://commercialshotblasting.co.uk/service-areas/leicester",
+        "https://commercialshotblasting.co.uk/service-areas/liverpool",
+        "https://commercialshotblasting.co.uk/service-areas/luton",
+        "https://commercialshotblasting.co.uk/service-areas/maidstone",
+        "https://commercialshotblasting.co.uk/service-areas/manchester",
+        "https://commercialshotblasting.co.uk/service-areas/milton-keynes",
+        "https://commercialshotblasting.co.uk/service-areas/newcastle-upon-tyne",
+        "https://commercialshotblasting.co.uk/service-areas/northampton",
+        "https://commercialshotblasting.co.uk/service-areas/norwich",
+        "https://commercialshotblasting.co.uk/service-areas/nottingham",
+        "https://commercialshotblasting.co.uk/service-areas/oldham",
+        "https://commercialshotblasting.co.uk/service-areas/oxford",
+        "https://commercialshotblasting.co.uk/service-areas/peterborough",
+        "https://commercialshotblasting.co.uk/service-areas/plymouth",
+        "https://commercialshotblasting.co.uk/service-areas/portsmouth",
+        "https://commercialshotblasting.co.uk/service-areas/reading",
+        "https://commercialshotblasting.co.uk/service-areas/rochdale",
+        "https://commercialshotblasting.co.uk/service-areas/rotherham",
+        "https://commercialshotblasting.co.uk/service-areas/salford",
+        "https://commercialshotblasting.co.uk/service-areas/sheffield",
+        "https://commercialshotblasting.co.uk/service-areas/southampton",
+        "https://commercialshotblasting.co.uk/service-areas/stockport",
+        "https://commercialshotblasting.co.uk/service-areas/stoke-on-trent",
+        "https://commercialshotblasting.co.uk/service-areas/swindon",
+        "https://commercialshotblasting.co.uk/service-areas/warrington",
+        "https://commercialshotblasting.co.uk/service-areas/weston-super-mare",
+        "https://commercialshotblasting.co.uk/service-areas/wigan",
+        "https://commercialshotblasting.co.uk/service-areas/woking",
+        "https://commercialshotblasting.co.uk/service-areas/wolverhampton",
+        "https://commercialshotblasting.co.uk/service-areas/york"
+      ],
+      "page_count": 65,
+      "image_loc_count": 0,
+      "lastmods": [],
+      "hash": "8b9f6d6835e02018fc4f492bdb8b17df8ba265eb97c85743b42ce95fbe6392ea"
+    },
+    "/sitemap-blog.xml": {
+      "status": 200,
+      "page_locs": [
+        "https://commercialshotblasting.co.uk/blog/iso-8501-1-sa-2-5-sa-3-surface-preparation-guide",
+        "https://commercialshotblasting.co.uk/blog/intumescent-steelwork-specification-planning-guide",
+        "https://commercialshotblasting.co.uk/blog/mobile-on-site-shot-blasting-project-planning-guide",
+        "https://commercialshotblasting.co.uk/blog/premier-blasting-chas-elite-status-commercial-surface-preparation",
+        "https://commercialshotblasting.co.uk/blog/logistics-depot-container-maintenance-guide",
+        "https://commercialshotblasting.co.uk/blog/seasonal-agricultural-steelwork-maintenance-guide",
+        "https://commercialshotblasting.co.uk/blog/steel-fabrication-shot-blasting-costs-and-programme-guide",
+        "https://commercialshotblasting.co.uk/blog/steel-chimney-and-process-stack-surface-preparation",
+        "https://commercialshotblasting.co.uk/blog/how-to-prepare-fabricated-steelwork-for-coating",
+        "https://commercialshotblasting.co.uk/blog/what-is-mill-scale-and-why-remove-it",
+        "https://commercialshotblasting.co.uk/blog/how-to-specify-shot-blasting-construction-contract",
+        "https://commercialshotblasting.co.uk/blog/shot-blasting-vs-chemical-stripping",
+        "https://commercialshotblasting.co.uk/blog/how-long-does-shot-blasting-take-project-timeline",
+        "https://commercialshotblasting.co.uk/blog/sa-2-5-vs-sa-3-surface-preparation-standard",
+        "https://commercialshotblasting.co.uk/blog/shot-blasting-cost-per-square-metre-uk-2026",
+        "https://commercialshotblasting.co.uk/blog/how-to-prepare-structural-steel-for-shot-blasting",
+        "https://commercialshotblasting.co.uk/blog/how-to-prepare-structural-steel-for-intumescent-painting",
+        "https://commercialshotblasting.co.uk/blog/intumescent-painting-structural-steel",
+        "https://commercialshotblasting.co.uk/blog/flash-rust-after-shot-blasting",
+        "https://commercialshotblasting.co.uk/blog/shot-blasting-steel-fabrications-uk",
+        "https://commercialshotblasting.co.uk/blog/shot-blasting-external-staircases",
+        "https://commercialshotblasting.co.uk/blog/shot-blasting-structural-steel-standards-certification",
+        "https://commercialshotblasting.co.uk/blog/shot-blasting-vs-sandblasting-difference",
+        "https://commercialshotblasting.co.uk/blog/how-much-does-shot-blasting-cost-uk",
+        "https://commercialshotblasting.co.uk/blog/shot-blasting-for-shipping-containers",
+        "https://commercialshotblasting.co.uk/blog/shot-blasting-vs-wire-brushing",
+        "https://commercialshotblasting.co.uk/blog/how-to-specify-surface-preparation-for-structural-steel",
+        "https://commercialshotblasting.co.uk/blog/why-shot-blasting-essential-before-intumescent-painting",
+        "https://commercialshotblasting.co.uk/blog/shot-blasting-birmingham-west-midlands-2026",
+        "https://commercialshotblasting.co.uk/blog/shot-blasting-structural-steel-guide",
+        "https://commercialshotblasting.co.uk/blog/factory-warehouse-cladding-restoration",
+        "https://commercialshotblasting.co.uk/blog/shot-blasting-powder-coating-partnership"
+      ],
+      "page_count": 32,
+      "image_loc_count": 0,
+      "lastmods": [
+        "2026-09-09",
+        "2026-09-07",
+        "2026-09-07",
+        "2026-08-26",
+        "2026-08-20",
+        "2026-08-20",
+        "2026-08-18",
+        "2026-08-18",
+        "2026-08-18",
+        "2026-08-07",
+        "2026-08-07",
+        "2026-08-07",
+        "2026-08-07",
+        "2026-08-07",
+        "2026-08-07",
+        "2026-08-06",
+        "2026-07-14",
+        "2026-07-03",
+        "2026-06-30",
+        "2026-06-30",
+        "2026-06-29",
+        "2026-07-01",
+        "2026-07-01",
+        "2026-07-01",
+        "2026-07-01",
+        "2026-07-01",
+        "2026-07-01",
+        "2026-07-01",
+        "2026-06-02",
+        "2026-07-01",
+        "2026-07-01",
+        "2026-07-01"
+      ],
+      "hash": "ccbe5c139df996c9b67e618bc73c709f05c5b4cbd187d3fc0432543232dc511e"
+    },
+    "/sitemap-images.xml": {
+      "status": 200,
+      "page_locs": [
+        "https://commercialshotblasting.co.uk"
+      ],
+      "page_count": 1,
+      "image_loc_count": 271,
+      "lastmods": [],
+      "hash": "93f3d79c7f2d50a085693a1b9d14251171213f127b01ee33e77a3c70af9a2975"
+    }
+  },
+  "entry": null,
+  "no_scripts_or_contact_actions_executed": true
+}

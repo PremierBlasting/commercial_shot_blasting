@@ -1,0 +1,302 @@
+[WARN] The "pnpm" field in package.json is no longer read by pnpm. The following keys were ignored: "pnpm.patchedDependencies", "pnpm.overrides". See https://pnpm.io/settings for the new home of each setting.
+
+> commercial_shot_blasting_manus@1.0.0 build /home/ubuntu/commercial_shot_blasting_manus
+> tsx scripts/generate-sitemap-snapshots.ts && vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && rm -rf dist/public/service-areas dist/public/services dist/public/counties dist/public/industries
+
+[sitemap-snapshots] sitemap.xml
+[sitemap-snapshots] sitemap-main.xml
+[sitemap-snapshots] sitemap-counties.xml
+[sitemap-snapshots] sitemap-service-areas.xml
+[sitemap-snapshots] sitemap-services.xml
+[sitemap-snapshots] sitemap-industries.xml
+vite v7.1.9 building for production...
+transforming...
+✓ 2031 modules transformed.
+rendering chunks...
+computing gzip size...
+../dist/public/county-chunk-manifest.json                                           2.18 kB │ gzip:   0.75 kB
+../dist/public/assets/playfair-display-vietnamese-400-normal-BV2APVTb.woff2         5.58 kB
+../dist/public/assets/playfair-display-vietnamese-700-normal-CaKJSIny.woff2         5.66 kB
+../dist/public/assets/playfair-display-vietnamese-600-normal-ICsRR-qJ.woff2         5.67 kB
+../dist/public/assets/open-sans-hebrew-700-normal-CZc_Q6SQ.woff                     5.94 kB
+../dist/public/assets/open-sans-hebrew-500-normal-BxL5gvA2.woff                     5.96 kB
+../dist/public/assets/open-sans-hebrew-400-normal-Cowz_U6T.woff                     5.96 kB
+../dist/public/assets/open-sans-hebrew-600-normal-D7z6DfF6.woff                     5.98 kB
+../dist/public/assets/open-sans-vietnamese-700-normal-BwQSBZ9d.woff                 6.48 kB
+../dist/public/assets/open-sans-vietnamese-600-normal-CVI-Ycr6.woff                 6.61 kB
+../dist/public/assets/open-sans-vietnamese-400-normal-DCU23d-J.woff                 6.62 kB
+../dist/public/assets/open-sans-vietnamese-500-normal-MWejWSJu.woff                 6.66 kB
+../dist/public/assets/playfair-display-vietnamese-400-normal-BbvUAu4N.woff          7.03 kB
+../dist/public/assets/playfair-display-vietnamese-600-normal-BPJkAZPN.woff          7.14 kB
+../dist/public/assets/playfair-display-vietnamese-700-normal-Cr1rw0mr.woff          7.16 kB
+../dist/public/assets/open-sans-greek-700-normal-bcfTBw-h.woff                      7.18 kB
+../dist/public/assets/open-sans-greek-400-normal-yVf9KAAO.woff                      7.31 kB
+../dist/public/assets/open-sans-greek-500-normal-DSi5u7Na.woff                      7.33 kB
+../dist/public/assets/open-sans-greek-600-normal-Xt_394w2.woff                      7.34 kB
+../dist/public/assets/open-sans-hebrew-700-normal-DnAL3HC_.woff2                    7.88 kB
+../dist/public/assets/open-sans-hebrew-400-normal-C3uFZKNA.woff2                    7.96 kB
+../dist/public/assets/open-sans-hebrew-500-normal-CDpmdBH0.woff2                    8.02 kB
+../dist/public/assets/open-sans-hebrew-600-normal-CQztwT7q.woff2                    8.03 kB
+../dist/public/assets/open-sans-symbols-700-normal-DNvDgxgv.woff                    8.48 kB
+../dist/public/assets/open-sans-vietnamese-700-normal-C0rmKuKj.woff2                8.55 kB
+../dist/public/assets/open-sans-vietnamese-400-normal-Dqpvjuft.woff2                8.61 kB
+../dist/public/assets/open-sans-vietnamese-500-normal-C2c3EQ5t.woff2                8.64 kB
+../dist/public/assets/open-sans-vietnamese-600-normal-cWHhjaNO.woff2                8.68 kB
+../dist/public/assets/open-sans-symbols-600-normal-BiWokiHG.woff                    8.75 kB
+../dist/public/assets/open-sans-symbols-400-normal-B5VgOMNH.woff                    8.77 kB
+../dist/public/assets/open-sans-cyrillic-700-normal-FWckWEfO.woff                   8.79 kB
+../dist/public/assets/open-sans-symbols-500-normal-Caj8aYkE.woff                    8.84 kB
+../dist/public/assets/open-sans-cyrillic-600-normal-C5LXWJm_.woff                   9.04 kB
+../dist/public/assets/open-sans-cyrillic-400-normal-XMp_Qeuo.woff                   9.10 kB
+../dist/public/assets/open-sans-cyrillic-500-normal-K_-1AP7V.woff                   9.10 kB
+../dist/public/assets/open-sans-greek-700-normal-YcFp24oM.woff2                     9.33 kB
+../dist/public/assets/open-sans-greek-400-normal-BKm6CSmU.woff2                     9.34 kB
+../dist/public/assets/open-sans-greek-500-normal-BvKlOb5R.woff2                     9.39 kB
+../dist/public/assets/open-sans-greek-600-normal-CkCBI2Km.woff2                     9.46 kB
+../dist/public/assets/open-sans-symbols-700-normal-DfXrtqu8.woff2                  10.44 kB
+../dist/public/assets/open-sans-symbols-400-normal-OZvd8qMe.woff2                  10.63 kB
+../dist/public/assets/open-sans-symbols-600-normal-DgwZOEXg.woff2                  10.68 kB
+../dist/public/assets/open-sans-symbols-500-normal-CiruYkOL.woff2                  10.76 kB
+../dist/public/assets/open-sans-cyrillic-700-normal-Db4W_Rwa.woff2                 10.88 kB
+../dist/public/assets/open-sans-cyrillic-500-normal-C0pJK5UH.woff2                 11.08 kB
+../dist/public/assets/open-sans-cyrillic-600-normal-BuMhxFId.woff2                 11.10 kB
+../dist/public/assets/open-sans-cyrillic-400-normal-DvjyhnTk.woff2                 11.11 kB
+../dist/public/assets/playfair-display-cyrillic-400-normal-CjW2EstV.woff2          11.44 kB
+../dist/public/assets/playfair-display-cyrillic-600-normal-oLY6jnZ7.woff2          12.22 kB
+../dist/public/assets/playfair-display-latin-ext-400-normal-BxlSGspa.woff2         12.34 kB
+../dist/public/assets/playfair-display-cyrillic-700-normal-Dw3uKy19.woff2          12.36 kB
+../dist/public/assets/playfair-display-latin-ext-600-normal-CEjQclLc.woff2         12.88 kB
+../dist/public/assets/playfair-display-latin-ext-700-normal-C58ejOkc.woff2         12.90 kB
+../dist/public/assets/open-sans-latin-ext-700-normal-IE4yTLg1.woff                 13.55 kB
+../dist/public/assets/playfair-display-cyrillic-400-normal-ZiRag6zj.woff           13.79 kB
+../dist/public/assets/open-sans-latin-ext-600-normal-YZ6Vktkr.woff                 13.89 kB
+../dist/public/assets/open-sans-latin-ext-400-normal-BfzJ9CTS.woff                 14.01 kB
+../dist/public/assets/open-sans-latin-ext-500-normal-Ckq5M21C.woff                 14.02 kB
+../dist/public/assets/playfair-display-cyrillic-600-normal-DbWAkkgN.woff           14.58 kB
+../dist/public/assets/playfair-display-cyrillic-700-normal-Dk1mTcxf.woff           14.65 kB
+../dist/public/assets/open-sans-latin-ext-700-normal-DatbY7Hl.woff2                15.07 kB
+../dist/public/assets/open-sans-cyrillic-ext-700-normal-hbT5P32v.woff              15.20 kB
+../dist/public/assets/open-sans-latin-ext-600-normal-CXDaa6Q7.woff2                15.28 kB
+../dist/public/assets/open-sans-latin-ext-500-normal-BFKxrfUf.woff2                15.36 kB
+../dist/public/assets/open-sans-latin-ext-400-normal-URAvo6nN.woff2                15.38 kB
+../dist/public/assets/playfair-display-latin-ext-400-normal-qdZwdvNS.woff          15.87 kB
+../dist/public/assets/open-sans-cyrillic-ext-600-normal-DX5V8c14.woff              15.88 kB
+../dist/public/assets/open-sans-cyrillic-ext-400-normal-CtkCLoLZ.woff              15.91 kB
+../dist/public/assets/open-sans-cyrillic-ext-500-normal-DnbrCPr9.woff              15.94 kB
+../dist/public/assets/playfair-display-latin-ext-700-normal-D5HUU8GT.woff          16.47 kB
+../dist/public/assets/playfair-display-latin-ext-600-normal-BumBfC1v.woff          16.48 kB
+../dist/public/assets/open-sans-latin-700-normal-CZCQA30i.woff                     16.68 kB
+../dist/public/assets/open-sans-latin-600-normal-C3dWW5mx.woff                     17.19 kB
+../dist/public/assets/open-sans-latin-400-normal-DKniycaP.woff                     17.25 kB
+../dist/public/assets/open-sans-latin-500-normal-BxcNt415.woff                     17.34 kB
+../dist/public/assets/open-sans-cyrillic-ext-700-normal-BWp9aGB1.woff2             17.52 kB
+../dist/public/assets/open-sans-math-700-normal-B7X9EnEK.woff                      17.84 kB
+../dist/public/assets/open-sans-cyrillic-ext-500-normal-DLgW8Edg.woff2             18.01 kB
+../dist/public/assets/open-sans-cyrillic-ext-600-normal-CivhzOCV.woff2             18.01 kB
+../dist/public/assets/open-sans-cyrillic-ext-400-normal-B28g4zcY.woff2             18.03 kB
+../dist/public/assets/open-sans-latin-700-normal-CceUhp2e.woff2                    18.20 kB
+../dist/public/assets/open-sans-math-600-normal-CWMKYWAo.woff                      18.35 kB
+../dist/public/assets/open-sans-math-400-normal-Cs0GbA_j.woff                      18.37 kB
+../dist/public/assets/open-sans-math-500-normal-YuOtWwwG.woff                      18.44 kB
+../dist/public/assets/open-sans-latin-600-normal-Cp4N6AwT.woff2                    18.62 kB
+../dist/public/assets/open-sans-latin-400-normal-Bk63H6sG.woff2                    18.64 kB
+../dist/public/assets/open-sans-latin-500-normal-C0rntwkW.woff2                    18.73 kB
+../dist/public/assets/open-sans-math-700-normal-EYnC2qGX.woff2                     19.26 kB
+../dist/public/assets/open-sans-math-600-normal-DQ8cZjrd.woff2                     19.63 kB
+../dist/public/assets/open-sans-math-400-normal-C76BUjK0.woff2                     19.70 kB
+../dist/public/assets/open-sans-math-500-normal-CIx22CNi.woff2                     19.76 kB
+../dist/public/assets/playfair-display-latin-400-normal-CFtfchNt.woff2             21.86 kB
+../dist/public/assets/playfair-display-latin-700-normal-CuDiGg7c.woff2             23.22 kB
+../dist/public/assets/playfair-display-latin-600-normal-CZLGqjJe.woff2             23.23 kB
+../dist/public/assets/playfair-display-latin-400-normal-DHYHbkg3.woff              26.90 kB
+../dist/public/assets/playfair-display-latin-700-normal-Bc_1Q1cG.woff              28.30 kB
+../dist/public/assets/playfair-display-latin-600-normal-CxxueQ0Z.woff              28.36 kB
+../dist/public/index.html                                                         372.95 kB │ gzip: 107.02 kB
+../dist/public/assets/index-Cd3Efmhz.css                                          272.21 kB │ gzip:  56.79 kB
+../dist/public/assets/postcodeUtils-B4xE_kSu.js                                     0.17 kB │ gzip:   0.16 kB
+../dist/public/assets/usePersistFn-Da3gKQEt.js                                      0.22 kB │ gzip:   0.17 kB
+../dist/public/assets/CookiePreferencesButton-CKHysvjh.js                           0.43 kB │ gzip:   0.30 kB
+../dist/public/assets/LegacyPageBreadcrumbs-MqUwOqde.js                             0.48 kB │ gzip:   0.27 kB
+../dist/public/assets/useRecentlyViewed-ghwwTFhv.js                                 0.61 kB │ gzip:   0.39 kB
+../dist/public/assets/BackToTop-BgAsHnrG.js                                         0.84 kB │ gzip:   0.53 kB
+../dist/public/assets/KentCounty-TLMggZVc.js                                        1.03 kB │ gzip:   0.57 kB
+../dist/public/assets/EssexCounty-DxqiZ5ys.js                                       1.03 kB │ gzip:   0.57 kB
+../dist/public/assets/DevonCounty-D0oVVdqM.js                                       1.03 kB │ gzip:   0.57 kB
+../dist/public/assets/DurhamCounty-D_b8PX5R.js                                      1.03 kB │ gzip:   0.57 kB
+../dist/public/assets/SurreyCounty-2NNhB_6g.js                                      1.03 kB │ gzip:   0.57 kB
+../dist/public/assets/SussexCounty-3dD-SDuO.js                                      1.03 kB │ gzip:   0.57 kB
+../dist/public/assets/DorsetCounty-BNj--1st.js                                      1.03 kB │ gzip:   0.57 kB
+../dist/public/assets/NorfolkCounty-SdxVySTK.js                                     1.03 kB │ gzip:   0.57 kB
+../dist/public/assets/SuffolkCounty-DXzMcdWc.js                                     1.03 kB │ gzip:   0.57 kB
+../dist/public/assets/CumbriaCounty-BytitIDx.js                                     1.03 kB │ gzip:   0.57 kB
+../dist/public/assets/CheshireCounty-ChOLuovK.js                                    1.03 kB │ gzip:   0.57 kB
+../dist/public/assets/SomersetCounty-BxhegLVA.js                                    1.03 kB │ gzip:   0.57 kB
+../dist/public/assets/CornwallCounty-C6Gwv3q2.js                                    1.03 kB │ gzip:   0.57 kB
+../dist/public/assets/WiltshireCounty-BLex7aet.js                                   1.04 kB │ gzip:   0.57 kB
+../dist/public/assets/BerkshireCounty-CyzS1rlr.js                                   1.04 kB │ gzip:   0.57 kB
+../dist/public/assets/HampshireCounty-6XWIJZcT.js                                   1.04 kB │ gzip:   0.57 kB
+../dist/public/assets/DerbyshireCounty-D0uoo37M.js                                  1.04 kB │ gzip:   0.58 kB
+../dist/public/assets/ShropshireCounty-DPoM3vPF.js                                  1.04 kB │ gzip:   0.58 kB
+../dist/public/assets/LancashireCounty-UzCC2PXE.js                                  1.04 kB │ gzip:   0.58 kB
+../dist/public/assets/MerseysideCounty-DPCTJm2Q.js                                  1.04 kB │ gzip:   0.57 kB
+../dist/public/assets/EastWalesCounty-D_JLBQyo.js                                   1.04 kB │ gzip:   0.58 kB
+../dist/public/assets/OxfordshireCounty-DZogG-Tf.js                                 1.04 kB │ gzip:   0.58 kB
+../dist/public/assets/BedfordshireCounty-BNvHY3Gp.js                                1.04 kB │ gzip:   0.58 kB
+../dist/public/assets/LincolnshireCounty-DubISAK-.js                                1.04 kB │ gzip:   0.58 kB
+../dist/public/assets/WarwickshireCounty-D7tSL6vb.js                                1.04 kB │ gzip:   0.58 kB
+../dist/public/assets/NorthDevonCounty-CdNtDlu0.js                                  1.04 kB │ gzip:   0.58 kB
+../dist/public/assets/HertfordshireCounty-Bq723ndS.js                               1.04 kB │ gzip:   0.58 kB
+../dist/public/assets/HerefordshireCounty-CSHL-c5J.js                               1.04 kB │ gzip:   0.58 kB
+../dist/public/assets/StaffordshireCounty-D_2Sv0rJ.js                               1.04 kB │ gzip:   0.58 kB
+../dist/public/assets/TyneAndWearCounty-BCHE9zjc.js                                 1.05 kB │ gzip:   0.59 kB
+../dist/public/assets/CambridgeshireCounty-D-CTzpsk.js                              1.05 kB │ gzip:   0.58 kB
+../dist/public/assets/LeicestershireCounty-DPNF7kwU.js                              1.05 kB │ gzip:   0.58 kB
+../dist/public/assets/WestMidlandsCounty-D4yHg4Tq.js                                1.05 kB │ gzip:   0.58 kB
+../dist/public/assets/WorcestershireCounty-D0Gx5Kc8.js                              1.05 kB │ gzip:   0.58 kB
+../dist/public/assets/NorthumberlandCounty-B9dtodmR.js                              1.05 kB │ gzip:   0.58 kB
+../dist/public/assets/NottinghamshireCounty-CPnhID3I.js                             1.05 kB │ gzip:   0.58 kB
+../dist/public/assets/WestYorkshireCounty-D8JVszU4.js                               1.05 kB │ gzip:   0.58 kB
+../dist/public/assets/GloucestershireCounty-Bv-6HMBL.js                             1.05 kB │ gzip:   0.58 kB
+../dist/public/assets/BuckinghamshireCounty-Cu08VUXD.js                             1.05 kB │ gzip:   0.58 kB
+../dist/public/assets/NorthamptonshireCounty-Bbz6jsU5.js                            1.05 kB │ gzip:   0.58 kB
+../dist/public/assets/SouthYorkshireCounty-CLKVEVIs.js                              1.05 kB │ gzip:   0.58 kB
+../dist/public/assets/NorthYorkshireCounty-C9NSB0Ds.js                              1.05 kB │ gzip:   0.58 kB
+../dist/public/assets/useAuth-Bs78iiL_.js                                           1.05 kB │ gzip:   0.62 kB
+../dist/public/assets/GreaterManchesterCounty-DcIgLIAR.js                           1.06 kB │ gzip:   0.59 kB
+../dist/public/assets/card-Dk74PQMk.js                                              1.18 kB │ gzip:   0.45 kB
+../dist/public/assets/Map-CV9fmlCH.js                                               1.40 kB │ gzip:   0.85 kB
+../dist/public/assets/QuotePopup-DMFgqrZX.js                                        1.52 kB │ gzip:   0.72 kB
+../dist/public/assets/InlineEnquiry-RAHZjEg7.js                                     1.89 kB │ gzip:   0.80 kB
+../dist/public/assets/Breadcrumb-BX4SNsxa.js                                        2.14 kB │ gzip:   0.81 kB
+../dist/public/assets/adePowerWakefieldProject-DPgb5Vex.js                          2.56 kB │ gzip:   0.70 kB
+../dist/public/assets/CountiesWeCover-Zk0eDkAr.js                                   2.76 kB │ gzip:   1.10 kB
+../dist/public/assets/ShareButton-i7iUK_Ao.js                                       3.17 kB │ gzip:   1.30 kB
+../dist/public/assets/dialog-DyM9TNO0.js                                            3.78 kB │ gzip:   1.28 kB
+../dist/public/assets/BeforeAfterSlider-CHfAHe15.js                                 4.06 kB │ gzip:   1.22 kB
+../dist/public/assets/caseStudyProofUnits-DC_p824e.js                               4.22 kB │ gzip:   1.58 kB
+../dist/public/assets/BeforeAfterProjectSlider-B8jozIyK.js                          5.43 kB │ gzip:   1.39 kB
+../dist/public/assets/aeoDecisionAnswers-BIZpjDcQ.js                                5.56 kB │ gzip:   1.98 kB
+../dist/public/assets/loc-oxfordshire-436i0vDI.js                                   5.77 kB │ gzip:   1.97 kB
+../dist/public/assets/BlogPreview-D9kwLKAJ.js                                       5.96 kB │ gzip:   1.56 kB
+../dist/public/assets/IndustryPillarResources-Cquu9E99.js                           7.02 kB │ gzip:   2.01 kB
+../dist/public/assets/AdsAppTermsOfService-DBeNJij6.js                              7.28 kB │ gzip:   2.06 kB
+../dist/public/assets/Industries-B1qMnshR.js                                        7.37 kB │ gzip:   2.47 kB
+../dist/public/assets/loc-cumbria-Df0RQeHd.js                                       7.54 kB │ gzip:   2.34 kB
+../dist/public/assets/BeforeAfterCard-D1uvGrOM.js                                   8.12 kB │ gzip:   2.26 kB
+../dist/public/assets/ReviewCarousel-BP891M8L.js                                    8.27 kB │ gzip:   2.72 kB
+../dist/public/assets/loc-dorset-NDCZPQu2.js                                        8.36 kB │ gzip:   2.79 kB
+../dist/public/assets/useSuggestionKeyboard-CpVq777E.js                             8.92 kB │ gzip:   2.89 kB
+../dist/public/assets/Counties-B6jrt1hy.js                                          8.99 kB │ gzip:   2.92 kB
+../dist/public/assets/Glossary-CTL54x1-.js                                          9.05 kB │ gzip:   2.77 kB
+../dist/public/assets/HomeFAQ-BI2RxV8F.js                                           9.27 kB │ gzip:   3.05 kB
+../dist/public/assets/CallAnalytics-DZ0NbB_a.js                                     9.32 kB │ gzip:   2.01 kB
+../dist/public/assets/Blog-Bt-En-Y3.js                                             10.30 kB │ gzip:   3.20 kB
+../dist/public/assets/CapabilityStatementDownload-DpyVajxr.js                      11.81 kB │ gzip:   3.58 kB
+../dist/public/assets/loc-northumberland-DvqM4QpN.js                               12.05 kB │ gzip:   3.36 kB
+../dist/public/assets/FireEscapeProvisionalCaseStudy-DigVOX83.js                   12.21 kB │ gzip:   3.12 kB
+../dist/public/assets/googleAdsAppLegal-B95KN0eK.js                                12.74 kB │ gzip:   4.28 kB
+../dist/public/assets/CapabilityStatementPage-BcblsIiO.js                          12.90 kB │ gzip:   3.08 kB
+../dist/public/assets/Terms-DmGKU0y9.js                                            13.14 kB │ gzip:   3.17 kB
+../dist/public/assets/ChasElitePage-Dga70pIn.js                                    13.19 kB │ gzip:   3.40 kB
+../dist/public/assets/MarineIndustry-B4kHjvD9.js                                   14.02 kB │ gzip:   3.65 kB
+../dist/public/assets/CaseStudies-Cy3H3O2_.js                                      14.04 kB │ gzip:   4.24 kB
+../dist/public/assets/Contact-DeK-ZbmT.js                                          14.20 kB │ gzip:   3.00 kB
+../dist/public/assets/loc-surrey-C1H6G-zG.js                                       14.45 kB │ gzip:   4.30 kB
+../dist/public/assets/ProjectDetailModal-N_BJrenX.js                               15.57 kB │ gzip:   4.34 kB
+../dist/public/assets/Footer-BjJdzwfF.js                                           16.04 kB │ gzip:   2.66 kB
+../dist/public/assets/TransportLogisticsIndustry-Bd6NbEw9.js                       17.04 kB │ gzip:   4.02 kB
+../dist/public/assets/CommercialBlastingSpecificationChecklistPage-DLRDl5s1.js     17.26 kB │ gzip:   3.92 kB
+../dist/public/assets/HeritageRestorationIndustry-k08gf_eN.js                      17.87 kB │ gzip:   4.27 kB
+../dist/public/assets/loc-sussex-BE8e6yHO.js                                       17.88 kB │ gzip:   4.88 kB
+../dist/public/assets/BlogPost-BOuDaMBZ.js                                         18.01 kB │ gzip:   4.99 kB
+../dist/public/assets/About-DzU0InVH.js                                            18.03 kB │ gzip:   4.52 kB
+../dist/public/assets/loc-merseyside-DamxDGty.js                                   18.88 kB │ gzip:   5.17 kB
+../dist/public/assets/PreparationCleanup-9IrTEuMx.js                               19.54 kB │ gzip:   5.41 kB
+../dist/public/assets/FreeSiteSurvey-pz1dXjSU.js                                   19.56 kB │ gzip:   4.81 kB
+../dist/public/assets/RetailIndustry-DKLZqeVr.js                                   20.04 kB │ gzip:   5.02 kB
+../dist/public/assets/loc-cornwall-C4239w0t.js                                     20.61 kB │ gzip:   5.17 kB
+../dist/public/assets/headerData-DD4efn31.js                                       20.77 kB │ gzip:   4.01 kB
+../dist/public/assets/GlossaryTerm-C6Voq5s5.js                                     20.86 kB │ gzip:   5.11 kB
+../dist/public/assets/loc-devon-ur_uAcaG.js                                        21.97 kB │ gzip:   5.56 kB
+../dist/public/assets/loc-berkshire-BZhM82jB.js                                    22.31 kB │ gzip:   5.13 kB
+../dist/public/assets/AgricultureIndustry-CmE_Ld--.js                              22.35 kB │ gzip:   5.36 kB
+../dist/public/assets/loc-tyne-and-wear-wmhuNzpO.js                                22.85 kB │ gzip:   4.84 kB
+../dist/public/assets/AerospaceIndustry-NrGWFsPU.js                                22.86 kB │ gzip:   5.22 kB
+../dist/public/assets/loc-hampshire-BPujZYyI.js                                    23.07 kB │ gzip:   6.16 kB
+../dist/public/assets/ConstructionIndustry-CYRhndXI.js                             23.13 kB │ gzip:   5.40 kB
+../dist/public/assets/loc-herefordshire-DKSuS_AW.js                                23.86 kB │ gzip:   4.77 kB
+../dist/public/assets/AdePowerWakefieldCaseStudy-Bg82J7vl.js                       24.23 kB │ gzip:   5.49 kB
+../dist/public/assets/PrivacyPolicy-DiZhnd19.js                                    25.38 kB │ gzip:   7.29 kB
+../dist/public/assets/MarineCxSurfacePreparationPage-B4Qb8cAH.js                   27.13 kB │ gzip:   6.03 kB
+../dist/public/assets/DeferredServiceAreasMap-Dd0Cx-zv.js                          27.88 kB │ gzip:   7.31 kB
+../dist/public/assets/Services-DpGl1TpX.js                                         28.36 kB │ gzip:   7.17 kB
+../dist/public/assets/locationCoordinates-C4c73_hh.js                              29.13 kB │ gzip:  10.79 kB
+../dist/public/assets/ManufacturingIndustry-aNqHtMck.js                            30.05 kB │ gzip:   6.30 kB
+../dist/public/assets/useSEO-D1fEGHSk.js                                           31.18 kB │ gzip:   9.52 kB
+../dist/public/assets/loc-durham-DayAnkiP.js                                       32.06 kB │ gzip:   7.24 kB
+../dist/public/assets/HBTunnellingCaseStudy-BNpdxnYn.js                            32.63 kB │ gzip:   7.24 kB
+../dist/public/assets/SitemapPage-D2M1Rpxp.js                                      33.59 kB │ gzip:   8.62 kB
+../dist/public/assets/BromsgroveSchoolCaseStudy-BM2a6PXD.js                        35.79 kB │ gzip:   7.35 kB
+../dist/public/assets/LeadForm-VvY4kWF8.js                                         35.90 kB │ gzip:  11.09 kB
+../dist/public/assets/Header-BtiM64mB.js                                           37.34 kB │ gzip:   7.08 kB
+../dist/public/assets/Reviews-DsJTvQN0.js                                          39.25 kB │ gzip:  11.91 kB
+../dist/public/assets/loc-north-devon-CL1ylS61.js                                  39.26 kB │ gzip:   7.11 kB
+../dist/public/assets/CarParkPage-DZIFYPiz.js                                      40.31 kB │ gzip:   8.45 kB
+../dist/public/assets/loc-north-yorkshire-B6KOXChU.js                              43.89 kB │ gzip:   9.55 kB
+../dist/public/assets/loc-greater-manchester-7r8kCGCA.js                           46.90 kB │ gzip:   9.92 kB
+../dist/public/assets/StructuralSteelCaseStudy-ByjpcbVg.js                         48.09 kB │ gzip:   8.97 kB
+../dist/public/assets/loc-lancashire-FnAbEL4t.js                                   48.96 kB │ gzip:  10.03 kB
+../dist/public/assets/CommercialProjectDecisionBlock-DIjFVWGn.js                   49.69 kB │ gzip:  10.21 kB
+../dist/public/assets/ExternalStaircasesPage-CgnlHQil.js                           50.59 kB │ gzip:  10.06 kB
+../dist/public/assets/loc-worcestershire-BGtWyYuI.js                               51.05 kB │ gzip:   8.91 kB
+../dist/public/assets/SteelFabricationsPage-BuFlIwKd.js                            56.67 kB │ gzip:  10.75 kB
+../dist/public/assets/loc-warwickshire-DjWQMK6f.js                                 57.56 kB │ gzip:   9.67 kB
+../dist/public/assets/ServiceAreas-CM-Uzo6n.js                                     58.61 kB │ gzip:  11.74 kB
+../dist/public/assets/loc-nottinghamshire-CBy3jsOA.js                              59.21 kB │ gzip:  10.05 kB
+../dist/public/assets/glossaryData-O5u1wr0p.js                                     62.46 kB │ gzip:  15.00 kB
+../dist/public/assets/loc-buckinghamshire-egVR_Pux.js                              62.90 kB │ gzip:   9.41 kB
+../dist/public/assets/loc-shropshire-7aGCpG8c.js                                   63.04 kB │ gzip:  11.11 kB
+../dist/public/assets/IntumescentPaintingPage-SePwxk2Z.js                          63.24 kB │ gzip:  11.80 kB
+../dist/public/assets/loc-cheshire-48CGDnsv.js                                     66.80 kB │ gzip:  11.23 kB
+../dist/public/assets/loc-northamptonshire-DF8ceaJB.js                             70.17 kB │ gzip:  11.61 kB
+../dist/public/assets/OurWork-1Gomg9HI.js                                          70.92 kB │ gzip:  15.89 kB
+../dist/public/assets/loc-derbyshire-DIM5TRcF.js                                   73.01 kB │ gzip:  11.59 kB
+../dist/public/assets/loc-staffordshire-DCWlQ8bw.js                                74.41 kB │ gzip:  11.28 kB
+../dist/public/assets/loc-wiltshire-DY1v_3h0.js                                    74.41 kB │ gzip:  11.42 kB
+../dist/public/assets/loc-lincolnshire-BE3CgdVV.js                                 74.51 kB │ gzip:  11.99 kB
+../dist/public/assets/loc-suffolk-CWFZVjka.js                                      77.83 kB │ gzip:  11.58 kB
+../dist/public/assets/loc-essex-CO8pIwfS.js                                        78.30 kB │ gzip:  14.75 kB
+../dist/public/assets/loc-gloucestershire-JSb4cJV2.js                              80.15 kB │ gzip:  13.39 kB
+../dist/public/assets/vendor-trpc-SecG4OMS.js                                      82.58 kB │ gzip:  22.72 kB
+../dist/public/assets/Home-BWxh9HKx.js                                             82.72 kB │ gzip:  18.57 kB
+../dist/public/assets/loc-south-yorkshire-CxVhYAgE.js                              85.30 kB │ gzip:  13.49 kB
+../dist/public/assets/loc-somerset-DIw8X5pM.js                                     85.51 kB │ gzip:  11.92 kB
+../dist/public/assets/Admin-kpR9eJmy.js                                            87.21 kB │ gzip:  15.71 kB
+../dist/public/assets/loc-east-wales-Tn-eHZPy.js                                   88.82 kB │ gzip:  14.51 kB
+../dist/public/assets/PillarPage-f8NQIllj.js                                       88.85 kB │ gzip:  20.28 kB
+../dist/public/assets/loc-norfolk-B0deqPrM.js                                      94.87 kB │ gzip:  13.23 kB
+../dist/public/assets/loc-leicestershire-DwsUak0H.js                               95.02 kB │ gzip:  13.90 kB
+../dist/public/assets/loc-west-midlands-CPN0ZIpe.js                                95.23 kB │ gzip:  16.39 kB
+../dist/public/assets/loc-hertfordshire-BsIHOWXo.js                                96.44 kB │ gzip:  13.67 kB
+../dist/public/assets/loc-cambridgeshire-CorWHjPJ.js                               99.13 kB │ gzip:  14.08 kB
+../dist/public/assets/loc-bedfordshire-IKfXg4Hd.js                                100.47 kB │ gzip:  14.46 kB
+../dist/public/assets/LocationRouter-DUAJU9O8.js                                  104.68 kB │ gzip:  21.31 kB
+../dist/public/assets/loc-west-yorkshire-D4KngyM6.js                              105.24 kB │ gzip:  16.10 kB
+../dist/public/assets/CountyPage-BLrnhOSb.js                                      106.54 kB │ gzip:  21.42 kB
+../dist/public/assets/county-data-BlivX4RZ.js                                     111.35 kB │ gzip:  15.80 kB
+../dist/public/assets/Areas-uj16tzDf.js                                           113.90 kB │ gzip:  16.22 kB
+../dist/public/assets/vendor-ui-B1_5ZVz6.js                                       163.20 kB │ gzip:  48.09 kB
+../dist/public/assets/index-B8gGIdBN.js                                           193.04 kB │ gzip:  52.49 kB
+../dist/public/assets/vendor-react-B3Hv0cOb.js                                    194.27 kB │ gzip:  60.74 kB
+../dist/public/assets/ServiceDetail-DxZhT-NK.js                                   305.13 kB │ gzip:  58.67 kB
+../dist/public/assets/locationData-BbL16asl.js                                  1,164.26 kB │ gzip:  98.87 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 8.12s
+
+  dist/index.js  3.6mb ⚠️
+
+⚡ Done in 154ms
