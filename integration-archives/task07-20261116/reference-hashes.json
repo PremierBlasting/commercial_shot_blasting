@@ -1,0 +1,18 @@
+{
+  "approved_paths": 22,
+  "branch": "manus/csb-call-attribution-20261107",
+  "deleted_paths": [],
+  "evidence_checksum_only": true,
+  "excluded_generated_metadata": [
+    "client/public/__manus__/version.json"
+  ],
+  "frozen_source_files": 22,
+  "inert_archive_only": true,
+  "manifest_sha256": "a677fc857b530376de52262eb244624b060d84fdd10d040ae9e8e7b812a1e4f8",
+  "native_baseline": "9ada0bbb5d477ddb4cc4e247b0eb3516516483a2",
+  "native_checkpoint": "4594c4052db06984998385f5f911bdd2c2f9663b",
+  "patch_sha256": "305ff854aa5bb9f9469600040937c18f30cf88934ad09b4db69467bbcae75e6b",
+  "protected_target_files": 851,
+  "repository": "PremierBlasting/commercial_shot_blasting",
+  "target_parent": "ae8dfc123bc26f10acc7cd68cded13e3273c79a3"
+}

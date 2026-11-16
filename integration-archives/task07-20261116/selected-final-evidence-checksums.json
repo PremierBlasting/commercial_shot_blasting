@@ -1,0 +1,41 @@
+{
+  "files": {
+    "article-browser-final.json": {
+      "bytes": 5114,
+      "checksum_only": true,
+      "sha256": "475f7adb8b188202ca70400d37af221c70258394cee06bcb21011be4a5e99426"
+    },
+    "browser-final.json": {
+      "bytes": 74624,
+      "checksum_only": true,
+      "sha256": "ba36833e557164dce20b26088904b1d6a7c548cdb1c737c565bd3f018ff4934a"
+    },
+    "build-final-approved.log": {
+      "bytes": 30325,
+      "checksum_only": true,
+      "sha256": "7bc617990ead451829b9f94d8b24888e170b43e88ce9b0258a644ccecb4922a8"
+    },
+    "protected-and-scope-final.json": {
+      "bytes": 1190,
+      "checksum_only": true,
+      "sha256": "3f0196f23d3d935e6a2624aba547b8ec077298e7a2698a95c78decce51111bfc"
+    },
+    "staging-http.json": {
+      "bytes": 73306,
+      "checksum_only": true,
+      "sha256": "7ba445277f7f6987ad8575069dd539969484c807100f19386c3ebf060d6bff60"
+    },
+    "tests-final-approved.log": {
+      "bytes": 9561,
+      "checksum_only": true,
+      "sha256": "cf9c923c810a0bf257a93f842272ecafe291086bdba773144ba1ad9b277cf30b"
+    },
+    "types-final-approved.log": {
+      "bytes": 315,
+      "checksum_only": true,
+      "sha256": "56f8c7d7e970489fcbcf5d9bfe12b60dc11c6c7f16d4cf73092073d91a4862e6"
+    }
+  },
+  "raw_evidence_not_archived": true,
+  "secrets_and_PII_not_copied": true
+}
