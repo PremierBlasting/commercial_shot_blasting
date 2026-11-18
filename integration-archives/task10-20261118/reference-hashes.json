@@ -1,0 +1,18 @@
+{
+  "approval_reference": "Task10firstbatchexplicitapproved18Nov14:00",
+  "approved_native_paths": 13,
+  "archive": "integration-archives/task10-20261118",
+  "baseline_commit": "1154c00cde8ba2c784ea32f306e0c8eaeec1c16f",
+  "branch": "manus/csb-call-attribution-20261107",
+  "checkpoint_commit": "8158b902d1788b428a658a6f0ff3a2790a92924b",
+  "evidence_checksum_only": true,
+  "generated_version_excluded": "client/public/__manus__/version.json",
+  "inert_archive_only": true,
+  "manifest_sha256": "9f2c912a0717306f0a1929f7ef50f8f1bac2c9fb4a4c0657bda83286b10d9a18",
+  "patch_sha256": "910f92b6c2e16b07b5d4eb7efcbd650ebe5bca46184ccd718cb05de764decb25",
+  "protected_target_paths": 919,
+  "repository": "PremierBlasting/commercial_shot_blasting",
+  "repository_id": 1137065430,
+  "target_parent": "6a102ef5cfd489be73d572d7688a23d3cd039935",
+  "task": "Task10"
+}

@@ -1,0 +1,41 @@
+{
+  "files": {
+    "browser/GEOMETRY-PASS.json": {
+      "bytes": 589,
+      "checksum_only": true,
+      "sha256": "4a31a799f844f2c7ab93f2ba687a1ba7d6d68e48b5e2e6f6c6f28f84a8f1f524"
+    },
+    "browser/actual-hydration-image-timing/results.json": {
+      "bytes": 106299,
+      "checksum_only": true,
+      "sha256": "6f2213283183ab29fae3d583444a1e02958d860d1557bccede598ecd305180d4"
+    },
+    "browser/public-geometry-bounded/results.json": {
+      "bytes": 716032,
+      "checksum_only": true,
+      "sha256": "e058549cbe9fd51e3df9a807bca75e6fe2623d16101d0f39c7db0217760e2027"
+    },
+    "final-browser-acceptance.json": {
+      "bytes": 2007,
+      "checksum_only": true,
+      "sha256": "fd26f6ca9dd7b17ba5e7cedb95032f90f70c36f98cbf59477b8386dd3b66fa5f"
+    },
+    "public-browser-acceptance.json": {
+      "bytes": 6676,
+      "checksum_only": true,
+      "sha256": "7a4aacffc466020b4db9946e4fcebaae257f88316fd27c5f440603ddd60c395e"
+    },
+    "public-http.json": {
+      "bytes": 35563,
+      "checksum_only": true,
+      "sha256": "2790245cb9fce5bff7fdd32a0d940fd68d2098e035d56336d6a22e5ebdff06fc"
+    },
+    "source-integrity.json": {
+      "bytes": 836,
+      "checksum_only": true,
+      "sha256": "8eeb5798b99c316c90731b60f864b9645857af4a6cda6f9025b5a240ee13721c"
+    }
+  },
+  "raw_evidence_not_archived": true,
+  "secrets_customer_records_configs_not_copied": true
+}

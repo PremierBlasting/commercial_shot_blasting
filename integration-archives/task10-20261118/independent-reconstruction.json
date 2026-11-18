@@ -1,0 +1,16 @@
+{
+  "applied_scoped_tree": "1f0e75e812062ee31f20aada5fc8f3ba29a9ca65",
+  "apply_check_apply_reverse_check_reverse": true,
+  "baseline_commit": "1154c00cde8ba2c784ea32f306e0c8eaeec1c16f",
+  "checkpoint_commit": "8158b902d1788b428a658a6f0ff3a2790a92924b",
+  "exact_scoped_patch_bytes": true,
+  "excluded_generated_metadata": [
+    "client/public/__manus__/version.json"
+  ],
+  "external_reconstruction_disposed": true,
+  "full_baseline_tree_restored": true,
+  "managed_source_index_config_refs_untouched": true,
+  "native_baseline_tree": "1d122d2f4a8bb806c53bf9f5179b7df0609fa145",
+  "native_checkpoint_tree": "daaba09d9ef76e1d7f64b1e58929ffee9250f44f",
+  "restored_baseline_tree": "1d122d2f4a8bb806c53bf9f5179b7df0609fa145"
+}

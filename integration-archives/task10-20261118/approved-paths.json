@@ -1,0 +1,15 @@
+[
+  "client/src/components/Header.tsx",
+  "client/src/components/LeadForm.tsx",
+  "client/src/pages/Services.tsx",
+  "server/fixtures/task10ApprovalBaseline.json",
+  "server/homepageCustomerVoice.test.ts",
+  "server/localAreaLabelPolicy.test.ts",
+  "server/metaTags.ts",
+  "server/renderingBuildContract.test.ts",
+  "server/task10ApprovedMetadata.test.ts",
+  "server/task10SourceScopeGuard.ts",
+  "shared/localAreaLabelPolicy.ts",
+  "shared/routeMetadata.ts",
+  "todo.md"
+]
