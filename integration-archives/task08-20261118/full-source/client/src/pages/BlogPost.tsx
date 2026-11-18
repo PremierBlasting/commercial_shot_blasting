@@ -1,0 +1,480 @@
+import { Button } from "@/components/ui/button";
+import { useMemo, useEffect, Suspense } from "react";
+import { preloadable } from "@/ssr/preloadable";
+import { useAdoptPilotServerSchema, usePilotDateFormatter, usePilotRenderContext } from "@/ssr/PilotRenderContext";
+import { isSafePilotArticle } from "@shared/renderingPilot";
+import { Calendar, Tag, ArrowLeft, Clock, User } from "lucide-react";
+import { ShareButton } from "@/components/ShareButton";
+import { Link, useRoute } from "wouter";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { Breadcrumb } from "@/components/Breadcrumb";
+import { useSEO } from "@/hooks/useSEO";
+import { trpc } from "@/lib/trpc";
+import { useRouteMetadataContext, type MetadataController, type MetadataRouteKey } from "@/components/RouteMetadataOwner";
+
+const LeadFormLazy = preloadable(() => import("@/components/LeadForm").then(m => ({ default: m.LeadForm })), "P0002");
+export async function preloadBlogPostPilot(): Promise<void> { await LeadFormLazy.preload(); }
+
+const SITE_URL = "https://commercialshotblasting.co.uk";
+
+/** TanStack rejects a successfully decoded undefined value with this exact local guard. */
+export function isAmbiguousArticleQuery(isSuccess: boolean, post: unknown, error: unknown, slug: string): boolean {
+  if (post !== undefined) return false;
+  if (isSuccess) return true;
+  if (!(error instanceof Error) || error.name !== "Error" || !error.message.endsWith(" data is undefined")) return false;
+  try {
+    const key = JSON.parse(error.message.slice(0, -" data is undefined".length));
+    return Array.isArray(key) && key.length === 2 && JSON.stringify(key[0]) === '["blog","getBySlug"]' &&
+      key[1]?.type === "query" && key[1]?.input?.slug === slug;
+  } catch { return false; }
+}
+
+/** Existing HTML status gate only; never publishes article data or follows redirects. */
+export function probeAmbiguousArticleMetadata(controller: MetadataController, key: MetadataRouteKey, originalUrl: string, request: typeof fetch = fetch): () => void {
+  const current = new URL(window.location.href);
+  const target = new URL(originalUrl, current);
+  const isCurrent = () => window.location.pathname === key.pathname &&
+    controller.getSnapshot().pathname === key.pathname && controller.getSnapshot().generation === key.generation;
+  if (target.origin !== current.origin || target.pathname !== key.pathname || !/^\/blog\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(key.pathname) || !isCurrent()) return () => {};
+  const abort = new AbortController();
+  let active = true;
+  const finish = (state: "missing" | "unavailable") => {
+    if (!active) return;
+    active = false;
+    clearTimeout(deadline);
+    if (isCurrent()) controller.publish(key, { state });
+  };
+  const deadline = setTimeout(() => { finish("unavailable"); abort.abort(); }, 5000);
+  // StrictMode's synchronous cleanup cancels its first replay before a request starts.
+  Promise.resolve().then(async () => {
+    if (!active || !isCurrent()) return;
+    try {
+      const response = await request(target.href, { method: "HEAD", credentials: "omit", cache: "no-store", redirect: "error", signal: abort.signal });
+      finish(response.status === 404 ? "missing" : "unavailable");
+    } catch { finish("unavailable"); }
+  });
+  return () => { active = false; clearTimeout(deadline); abort.abort(); };
+}
+
+// Glossary terms to auto-link in blog content (ordered longest-first to avoid partial matches)
+const GLOSSARY_TERMS: { term: string; id: string }[] = [
+  { term: "BS EN ISO 8501-1", id: "bs-en-iso-8501-1" },
+  { term: "DFT (Dry Film Thickness)", id: "dft" },
+  { term: "Dry Film Thickness", id: "dft" },
+  { term: "Intumescent Paint", id: "intumescent-paint" },
+  { term: "intumescent paint", id: "intumescent-paint" },
+  { term: "Intumescent paint", id: "intumescent-paint" },
+  { term: "Grit Blasting", id: "grit-blasting" },
+  { term: "grit blasting", id: "grit-blasting" },
+  { term: "Mill Scale", id: "mill-scale" },
+  { term: "mill scale", id: "mill-scale" },
+  { term: "Surface Profile", id: "surface-profile" },
+  { term: "surface profile", id: "surface-profile" },
+  { term: "Rust Grade", id: "rust-grade" },
+  { term: "rust grade", id: "rust-grade" },
+  { term: "Shot Blasting", id: "shot-blasting" },
+  { term: "shot blasting", id: "shot-blasting" },
+  { term: "Sa 2.5", id: "sa-2-5" },
+  { term: "SA 2.5", id: "sa-2-5" },
+  { term: "Sa 3", id: "sa-3" },
+  { term: "SA 3", id: "sa-3" },
+  { term: "SSPC", id: "sspc" },
+  { term: "NACE", id: "nace" },
+];
+
+/**
+ * Inject glossary links into blog HTML content.
+ * Only links the FIRST occurrence of each term to avoid over-linking.
+ * Skips terms that are already inside an <a> tag.
+ */
+function injectGlossaryLinks(html: string): string {
+  let result = html;
+  const linked = new Set<string>(); // track which glossary IDs have been linked
+
+  for (const { term, id } of GLOSSARY_TERMS) {
+    if (linked.has(id)) continue; // already linked this term's target
+    // Escape special regex chars in the term
+    const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    // Match the term only when NOT already inside an <a ...>...</a>
+    // Strategy: split on existing anchor tags, only replace in non-anchor segments
+    const anchorSplit = result.split(/(<a\b[^>]*>[\s\S]*?<\/a>)/i);
+    let replaced = false;
+    const parts = anchorSplit.map((part) => {
+      if (replaced) return part;
+      if (part.startsWith("<a")) return part; // inside existing anchor — skip
+      const regex = new RegExp(`(${escaped})`, "g");
+      let firstMatch = false;
+      return part.replace(regex, (_match, p1) => {
+        if (firstMatch || replaced) return p1;
+        firstMatch = true;
+        replaced = true;
+        return `<a href="/glossary#${id}" class="glossary-link" title="See definition: ${term}">${p1}</a>`;
+      });
+    });
+    result = parts.join("");
+    if (replaced) linked.add(id);
+  }
+  return result;
+}
+
+function estimateReadTime(content: string): number {
+  const words = content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
+function ArticleJsonLd({ post, slug }: { post: { title: string; excerpt: string; author: string; category?: string | null; tags?: string | null; publishedAt: Date | string; updatedAt: Date | string; content: string; featuredImage: string }; slug: string }) {
+  const tags: string[] = post.tags ? (typeof post.tags === "string" ? JSON.parse(post.tags) : post.tags) : [];
+  const wordCount = post.content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.excerpt,
+    "author": {
+      "@type": "Organization",
+      "name": "Commercial Shot Blasting",
+      "url": SITE_URL,
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Commercial Shot Blasting",
+      "url": SITE_URL,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE_URL}/logo.png`,
+      },
+    },
+    "datePublished": new Date(post.publishedAt).toISOString(),
+    "dateModified": new Date(post.updatedAt).toISOString(),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${slug}`,
+    },
+    "url": `${SITE_URL}/blog/${slug}`,
+    "image": {
+      "@type": "ImageObject",
+      "url": post.featuredImage,
+    },
+    "wordCount": wordCount,
+    "keywords": tags.join(", "),
+    "articleSection": post.category || "Shot Blasting",
+    "inLanguage": "en-GB",
+    "isPartOf": {
+      "@type": "Blog",
+      "name": "Commercial Shot Blasting Blog",
+      "url": `${SITE_URL}/blog`,
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export default function BlogPost() {
+  const adoptsServerSchema = useAdoptPilotServerSchema();
+  const formatDate = usePilotDateFormatter();
+  const pilotContext = usePilotRenderContext();
+  const [, params] = useRoute("/blog/:slug");
+  const slug = params?.slug || "";
+  const metadataController = useRouteMetadataContext();
+  const metadataGeneration = metadataController?.getSnapshot().generation;
+
+  const { data: post, isLoading, isError, isSuccess, error } = trpc.blog.getBySlug.useQuery({ slug });
+  if (pilotContext.synchronousPilotId === "P0002" && (isLoading || isError || !isSafePilotArticle(post) || post?.slug !== slug)) {
+    throw new Error("Rendering pilot primary article data is missing or unsafe");
+  }
+  const ambiguousEmpty = isAmbiguousArticleQuery(isSuccess, post, error, slug);
+  const { data: related } = trpc.blog.getRelated.useQuery(
+    { slug, category: post?.category ?? null },
+    { enabled: !!post }
+  );
+
+  // The public query's validated published post is the only dynamic source.
+  // A transient query failure is unavailable, not proof that an article was deleted.
+  const metadataPost = post?.slug === slug && post.isPublished ? post : undefined;
+  const explicitlyUnpublished = post?.slug === slug && post.isPublished === false;
+  let metadataTags: string[] = [];
+  try {
+    const parsed = typeof metadataPost?.tags === "string" ? JSON.parse(metadataPost.tags) : metadataPost?.tags;
+    if (Array.isArray(parsed)) metadataTags = parsed.filter((value): value is string => typeof value === "string");
+  } catch { /* malformed optional metadata tags do not change publication state */ }
+  useSEO(metadataPost ? {
+    state: "published",
+    title: metadataPost.title,
+    description: metadataPost.metaDescription || metadataPost.excerpt,
+    image: metadataPost.featuredImage || null,
+    keywords: metadataTags.join(", ") || null,
+    publishedAt: metadataPost.publishedAt,
+    modifiedAt: metadataPost.updatedAt,
+    articleAuthor: metadataPost.author || null,
+    articleSection: metadataPost.category || null,
+    articleTags: metadataTags,
+  // The existing API masks missing data and read failures with the same undefined
+  // response. Only an explicit unpublished record proves a missing destination.
+  } : { state: isLoading ? "pending" : explicitlyUnpublished ? "missing" : isError || isSuccess ? "unavailable" : "pending" }, { pathname: `/blog/${slug}` });
+  useEffect(() => {
+    if (!metadataController || metadataGeneration === undefined || isLoading || !ambiguousEmpty) return;
+    return probeAmbiguousArticleMetadata(metadataController, { pathname: `/blog/${slug}`, generation: metadataGeneration }, window.location.href);
+  }, [metadataController, metadataGeneration, slug, isLoading, ambiguousEmpty]);
+
+  // Enrich blog content with glossary links (first occurrence of each term only)
+  const enrichedContent = useMemo(
+    () => (post?.content ? injectGlossaryLinks(post.content) : ""),
+    [post?.content]
+  );
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex flex-col bg-[#F8F6F1]">
+        <Header />
+        <div className="flex-grow container py-16">
+          <div className="max-w-3xl mx-auto animate-pulse space-y-6">
+            <div className="h-6 bg-gray-200 rounded w-1/4" />
+            <div className="h-10 bg-gray-200 rounded w-3/4" />
+            <div className="h-80 bg-gray-200 rounded-2xl" />
+            <div className="space-y-3">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className={`h-4 bg-gray-200 rounded ${i % 3 === 2 ? "w-4/5" : "w-full"}`} />
+              ))}
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (!post) {
+    return (
+      <div className="min-h-screen flex flex-col bg-[#F8F6F1]">
+        <Header />
+        <div className="flex-grow container py-16 text-center">
+          <h1 className="text-4xl font-bold text-[#2C2C2C] mb-4">Blog Post Not Found</h1>
+          <p className="text-gray-600 mb-8">The blog post you're looking for doesn't exist.</p>
+          <Link href="/blog">
+            <Button><ArrowLeft className="w-4 h-4 mr-2" />Back to Blog</Button>
+          </Link>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  const tags: string[] = post.tags ? (typeof post.tags === "string" ? JSON.parse(post.tags) : post.tags) : [];
+  const readTime = estimateReadTime(post.content);
+  const publishDate = formatDate(post.publishedAt || post.createdAt, {
+    day: "numeric", month: "long", year: "numeric",
+  });
+
+  return (
+    <div className="min-h-screen flex flex-col bg-[#F8F6F1]">
+      <Header />
+
+      {/* Article JSON-LD injected into <head> via portal-style script tag */}
+      {!adoptsServerSchema && <ArticleJsonLd post={post} slug={slug} />}
+
+      <Breadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Blog", href: "/blog" },
+          { label: post.title, href: `/blog/${slug}`, isCurrentPage: true },
+        ]}
+        className="container mt-6"
+      />
+
+      {/* ── Hero ── */}
+      <div className="relative h-[480px] md:h-[560px] overflow-hidden mt-4">
+        <img
+          loading="eager"
+          src={post.featuredImage}
+          alt={post.title}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 container pb-10 md:pb-14">
+          <div className="max-w-3xl mx-auto text-white">
+            {post.category && (
+              <span className="inline-block bg-[#2C5F7F] text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded mb-4">
+                {post.category}
+              </span>
+            )}
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              {post.title}
+            </h1>
+            <div className="flex flex-wrap items-center gap-4 text-sm text-white/80">
+              <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" />{publishDate}</span>
+              {post.author && <span className="flex items-center gap-1.5"><User className="w-4 h-4" />{post.author}</span>}
+              <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" />{readTime} min read</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Article ── */}
+      <article className="flex-grow py-12 md:py-16">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+
+            {/* Excerpt / lead */}
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 pb-8 border-b border-gray-300 italic font-light">
+              {post.excerpt}
+            </p>
+
+            {/* Nav bar */}
+            <div className="flex justify-between items-center mb-10">
+              <Link href="/blog">
+                <Button variant="outline" className="bg-white">
+                  <ArrowLeft className="w-4 h-4 mr-2" />Back to Blog
+                </Button>
+              </Link>
+              <ShareButton
+                title={post.title}
+                url={`/blog/${slug}`}
+                description={post.excerpt}
+              />
+            </div>
+
+            {/* ── Prose content ── */}
+            <div
+              className="blog-prose"
+              dangerouslySetInnerHTML={{ __html: enrichedContent }}
+            />
+
+            {/* Tags */}
+            {tags.length > 0 && (
+              <div className="mt-12 pt-8 border-t border-gray-200">
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-4">Tagged</h3>
+                <div className="flex flex-wrap gap-2">
+                  {tags.map((tag, i) => (
+                    <span key={i} className="inline-flex items-center gap-1.5 bg-white border border-gray-200 text-gray-700 text-sm px-3 py-1.5 rounded-full shadow-sm">
+                      <Tag className="w-3.5 h-3.5 text-[#2C5F7F]" />{tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* ── Author Bio ── */}
+            <div className="mt-10 p-6 bg-[#F8F6F1] border border-gray-200 rounded-xl flex flex-col sm:flex-row gap-5 items-start">
+              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#2C5F7F] flex items-center justify-center text-white font-bold text-xl select-none">
+                CSB
+              </div>
+              <div>
+                <p className="font-bold text-[#2C2C2C] text-base mb-1">Commercial Shot Blasting</p>
+                <p className="text-xs text-gray-500 mb-2 uppercase tracking-widest">UK Commercial Shot Blasting Contractor</p>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  Commercial Shot Blasting is the commercial and industrial arm of Premier Blasting, operating across the UK. Our team has over 15 years of hands-on experience in abrasive blast cleaning, surface preparation to ISO 8501-1 standards, and specialist coatings removal for structural steel, concrete, and industrial plant. We work directly with contractors, fabricators, and project managers to deliver measurable, specification-compliant results on site.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  <a href="/about" className="text-xs font-semibold text-[#2C5F7F] hover:underline">About Us</a>
+                  <span className="text-gray-300">|</span>
+                  <a href="/reviews" className="text-xs font-semibold text-[#2C5F7F] hover:underline">Client Reviews</a>
+                  <span className="text-gray-300">|</span>
+                  <a href="/our-work" className="text-xs font-semibold text-[#2C5F7F] hover:underline">Our Work</a>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA — native LeadForm */}
+            <div className="mt-14">
+              <Suspense fallback={<div className="h-64 flex items-center justify-center text-gray-400">Loading form…</div>}>
+                <LeadFormLazy variant="light" heading="Get In Touch" subheading="Send a short message and we’ll get back to you promptly." showWhatsApp={true} />
+              </Suspense>
+            </div>
+
+          </div>
+        </div>
+      </article>
+
+      {/* ── Book a Site Survey CTA Banner ── */}
+      <section className="bg-[#1a3d52] py-12">
+        <div className="container">
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Ready to discuss your project?
+              </h2>
+              <p className="text-white/75 text-base max-w-xl">
+                Our team covers Nationwide. Request a free, no-obligation Site Visit to discuss your scope and receive a fixed-price quotation. We&apos;ll get back to you promptly.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+              <a
+                href="/site-survey"
+                className="inline-flex items-center justify-center gap-2 bg-white text-[#1a3d52] font-bold px-7 py-3.5 rounded-lg hover:bg-gray-100 transition-colors text-base whitespace-nowrap shadow-lg"
+              >
+                Request A Site Visit
+              </a>
+              <a
+                href="tel:07970566409"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white/60 text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-white/10 transition-colors text-base whitespace-nowrap"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z" /></svg>
+                07970 566409
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Related Posts ── */}
+      {related && related.length > 0 && (
+        <section className="bg-white py-14 md:py-18 border-t border-gray-200">
+          <div className="container">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2C2C2C] mb-8" style={{ fontFamily: "'Playfair Display', serif" }}>
+                You May Also Like
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {related.map((relPost) => {
+                  const relDate = formatDate(relPost.publishedAt || relPost.createdAt, {
+                    day: "numeric", month: "short", year: "numeric",
+                  });
+                  const relReadTime = estimateReadTime(relPost.content);
+                  return (
+                    <Link key={relPost.id} href={`/blog/${relPost.slug}`}>
+                      <article className="group bg-[#F8F6F1] rounded-xl overflow-hidden border border-gray-200 hover:border-[#2C5F7F] hover:shadow-lg transition-all duration-200 cursor-pointer h-full flex flex-col">
+                        <div className="relative h-44 overflow-hidden">
+                          <img
+                            src={relPost.featuredImage}
+                            alt={relPost.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                          {relPost.category && (
+                            <span className="absolute top-3 left-3 bg-[#2C5F7F] text-white text-xs font-bold uppercase tracking-widest px-2 py-0.5 rounded">
+                              {relPost.category}
+                            </span>
+                          )}
+                        </div>
+                        <div className="p-5 flex flex-col flex-grow">
+                          <h3 className="font-bold text-[#2C2C2C] text-base leading-snug mb-2 group-hover:text-[#2C5F7F] transition-colors line-clamp-3">
+                            {relPost.title}
+                          </h3>
+                          <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-2 flex-grow">
+                            {relPost.excerpt}
+                          </p>
+                          <div className="flex items-center gap-3 text-xs text-gray-500 mt-auto">
+                            <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{relDate}</span>
+                            <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{relReadTime} min</span>
+                          </div>
+                        </div>
+                      </article>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <Footer />
+    </div>
+  );
+}

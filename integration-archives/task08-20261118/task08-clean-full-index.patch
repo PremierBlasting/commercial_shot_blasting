@@ -1,0 +1,2828 @@
+diff --git a/client/index.html b/client/index.html
+index 24e3203798a2fd6ffb7d03c6e6962441729bf95d..7e95f8953f455a478c944b3dd33a3d7e7d847995 100644
+--- a/client/index.html
++++ b/client/index.html
+@@ -94,7 +94,7 @@
+ 
+   <body>
+     <!--SSR_CONTENT-->
+-    <div id="root"></div>
++    <div id="root"><!--RENDERING_PILOT_ROOT--></div>
+     <script type="module" src="/src/main.tsx"></script>
+     <!-- HubSpot script loaded only on Contact page to avoid loading on every page -->
+     <script
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+index 665cace017a00a9418a7738a191aab76fa8265e5..2b2aee51b2601a5331db6f2c7e230d824e07f9fe 100644
+--- a/client/src/App.tsx
++++ b/client/src/App.tsx
+@@ -16,6 +16,8 @@ import { WhatsAppWidget } from "./components/WhatsAppWidget";
+ import { StickyMobileCTA } from "./components/StickyMobileCTA";
+ import { CountyPageSkeleton } from "@/components/CountyPageSkeleton";
+ import { IndustryPageSkeleton } from "@/components/IndustryPageSkeleton";
++import { preloadable } from "./ssr/preloadable";
++import { getRenderingPilot } from "@shared/renderingPilot";
+ 
+ // Loading component for lazy-loaded pages
+ function PageLoader() {
+@@ -30,12 +32,12 @@ function PageLoader() {
+ }
+ 
+ // All pages lazy-loaded for optimal code splitting
+-const Home = lazy(() => import("./pages/Home"));
++const Home = preloadable(() => import("./pages/Home"), "P0001");
+ 
+ // Lazy-loaded pages for code splitting
+ const OurWork = lazy(() => import("./pages/OurWork"));
+ const Admin = lazy(() => import("./pages/Admin"));
+-const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
++const ServiceDetail = preloadable(() => import("./pages/ServiceDetail"), "P0066");
+ const Services = lazy(() => import("./pages/Services"));
+ const Industries = lazy(() => import("./pages/Industries"));
+ const Counties = lazy(() => import("./pages/Counties"));
+@@ -43,7 +45,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+ const Terms = lazy(() => import("./pages/Terms"));
+ const AdsAppTermsOfService = lazy(() => import("./pages/AdsAppTermsOfService"));
+ const Blog = lazy(() => import("./pages/Blog"));
+-const BlogPost = lazy(() => import("./pages/BlogPost"));
++const BlogPost = preloadable(() => import("./pages/BlogPost"), "P0002");
+ const ServiceAreas = lazy(() => import("./pages/ServiceAreas"));
+ const Areas = lazy(() => import("./pages/Areas"));
+ const Contact = lazy(() => import("./pages/Contact"));
+@@ -98,7 +100,7 @@ const EastWalesCounty = lazy(() => import("./pages/counties/EastWalesCounty"));
+ const GreaterManchesterCounty = lazy(() => import("./pages/counties/GreaterManchesterCounty"));
+ const EssexCounty = lazy(() => import("./pages/counties/EssexCounty"));
+ const BerkshireCounty = lazy(() => import("./pages/counties/BerkshireCounty"));
+-const HampshireCounty = lazy(() => import("./pages/counties/HampshireCounty"));
++const HampshireCounty = preloadable(() => import("./pages/counties/HampshireCounty"), "P0116");
+ const LancashireCounty = lazy(() => import("./pages/counties/LancashireCounty"));
+ const CumbriaCounty = lazy(() => import("./pages/counties/CumbriaCounty"));
+ const DurhamCounty = lazy(() => import("./pages/counties/DurhamCounty"));
+@@ -129,6 +131,22 @@ const AgricultureIndustry = lazy(() => import("./pages/AgricultureIndustry"));
+ const TransportLogisticsIndustry = lazy(() => import("./pages/TransportLogisticsIndustry"));
+ const HeritageRestorationIndustry = lazy(() => import("./pages/HeritageRestorationIndustry"));
+ 
++/** Prepare only the exact document route plus its maintained nested lazy tree. */
++export async function preloadSelectedPilot(url: string): Promise<void> {
++  const pilot = getRenderingPilot(url);
++  if (!pilot) throw new Error("Cannot prepare a nonpilot route");
++  if (pilot.id === "P0001") {
++    await Home.preload();
++    const { preloadHomePilot } = await import("./pages/Home");
++    await preloadHomePilot();
++  } else if (pilot.id === "P0002") {
++    await BlogPost.preload();
++    const { preloadBlogPostPilot } = await import("./pages/BlogPost");
++    await preloadBlogPostPilot();
++  } else if (pilot.id === "P0066") await ServiceDetail.preload();
++  else await HampshireCounty.preload();
++}
++
+ function LegacyPageRedirect({ destination }: { destination: string }) {
+   useEffect(() => {
+     window.location.replace(`${destination}${window.location.search}${window.location.hash}`);
+diff --git a/client/src/components/BlogPreview.tsx b/client/src/components/BlogPreview.tsx
+index e44ee383ba01bdb798853230a709db9b043a27c2..45c9bc5766f564161a082846b200fd335b0cbad6 100644
+--- a/client/src/components/BlogPreview.tsx
++++ b/client/src/components/BlogPreview.tsx
+@@ -3,8 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
+ import { ChevronLeft, ChevronRight, Calendar } from "lucide-react";
+ import { useState } from "react";
+ import { Link } from "wouter";
++import { usePilotDateFormatter } from "@/ssr/PilotRenderContext";
+ 
+ export function BlogPreview() {
++  const formatDate = usePilotDateFormatter();
+   const { data: posts, isLoading } = trpc.blog.list.useQuery();
+   const [currentIndex, setCurrentIndex] = useState(0);
+ 
+@@ -109,7 +111,7 @@ export function BlogPreview() {
+                   <CardContent className="p-6">
+                     <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                       <Calendar className="w-4 h-4" />
+-                      <span>{new Date(post.publishedAt || post.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
++                      <span>{formatDate(post.publishedAt || post.createdAt, { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                     </div>
+                     
+                     <h3 className="text-xl font-bold text-[#2C2C2C] mb-3 group-hover:text-[#2C5F7F] transition-colors line-clamp-2">
+diff --git a/client/src/components/Breadcrumb.tsx b/client/src/components/Breadcrumb.tsx
+index c03212e483d36d4e6e06c154a0601088a337a534..b9f0cc41c6c2ed5416192dd0b644d23f18358d95 100644
+--- a/client/src/components/Breadcrumb.tsx
++++ b/client/src/components/Breadcrumb.tsx
+@@ -1,5 +1,6 @@
+ import { Link } from "wouter";
+ import { ChevronRight } from "lucide-react";
++import { useAdoptPilotServerSchema } from "@/ssr/PilotRenderContext";
+ 
+ const SITE_URL = "https://commercialshotblasting.co.uk";
+ 
+@@ -29,6 +30,7 @@ interface BreadcrumbProps {
+  * ]} />
+  */
+ export function Breadcrumb({ items, className = "", bare = false }: BreadcrumbProps) {
++  const adoptsServerSchema = useAdoptPilotServerSchema();
+   // Canonical service-area routes receive one server-rendered BreadcrumbList
+   // alongside their crawler-visible content. Keep this client component
+   // presentational for those pages so it does not emit a competing graph.
+@@ -49,7 +51,7 @@ export function Breadcrumb({ items, className = "", bare = false }: BreadcrumbPr
+   return (
+     <>
+       {/* JSON-LD Schema Markup */}
+-      {!isServiceAreaTrail && (
++      {!isServiceAreaTrail && !adoptsServerSchema && (
+         <script type="application/ld+json">
+           {JSON.stringify(schemaMarkup)}
+         </script>
+diff --git a/client/src/components/CountyPage.tsx b/client/src/components/CountyPage.tsx
+index 8634a8d59bf87938db69e20c619e2a15e5aaf464..2c8f57c233c5bb39cf1c68a69a7ebca330731593 100644
+--- a/client/src/components/CountyPage.tsx
++++ b/client/src/components/CountyPage.tsx
+@@ -26,6 +26,7 @@ import { Footer } from "@/components/Footer";
+ import { countyData, CountyData } from "@/data/countyData";
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+ import { serviceLinks } from "@/components/headerData";
++import { useAdoptPilotServerSchema } from "@/ssr/PilotRenderContext";
+ 
+ const regionColours: Record<string, string> = {
+   "West Midlands": "#2C5F7F",
+@@ -96,6 +97,7 @@ const galleryByCategory: Record<string, { src: string; alt: string; label: strin
+ const galleryFilterLabels = ["All", "Most Recent", "Structural Steel", "Industrial Plant", "Machinery", "Agriculture", "Commercial", "Marine & Offshore"];
+ 
+ export function CountyPage({ county }: CountyPageProps) {
++  const adoptsServerSchema = useAdoptPilotServerSchema();
+   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+   const [galleryFilter, setGalleryFilter] = useState("All");
+   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+@@ -143,6 +145,7 @@ export function CountyPage({ county }: CountyPageProps) {
+ 
+   // BreadcrumbList JSON-LD
+   useEffect(() => {
++    if (adoptsServerSchema) return;
+     const breadcrumbId = 'county-breadcrumb-schema';
+     let el = document.getElementById(breadcrumbId);
+     if (!el) {
+@@ -164,7 +167,7 @@ export function CountyPage({ county }: CountyPageProps) {
+       const s = document.getElementById(breadcrumbId);
+       if (s) s.remove();
+     };
+-  }, [county]);
++  }, [county, adoptsServerSchema]);
+ 
+   // All towns for this county sorted alphabetically
+   const allCountyTowns = Object.values(locationData)
+diff --git a/client/src/components/LeadForm.tsx b/client/src/components/LeadForm.tsx
+index 17d69d90f60f680e649bc30497fb605cd7472544..45aa289b33265f4a7e336deefb620cb952e0f150 100644
+--- a/client/src/components/LeadForm.tsx
++++ b/client/src/components/LeadForm.tsx
+@@ -7,6 +7,7 @@ import { HBTunnellingTestimonial } from "@/components/HBTunnellingTestimonial";
+ import { trackCommercialShotBlastingLead } from "@/lib/analytics";
+ import { ENQUIRY_ATTACHMENT_ACCEPT, MAX_ENQUIRY_FILES, selectEnquiryAttachments, formatAttachmentSize } from "@shared/enquiryAttachments";
+ import { uploadEnquiryFile, type UploadedEnquiryMedia } from "@/lib/enquiryMediaUpload";
++import { usePilotFormInitialValues } from "@/ssr/PilotRenderContext";
+ 
+ export interface LeadFormProps {
+   /** Visual variant — dark for a dark background, light elsewhere. */
+@@ -51,11 +52,14 @@ export function LeadForm({
+   enquiryContext,
+   onSuccess,
+ }: LeadFormProps) {
+-  const [name, setName] = useState("");
+-  const [phone, setPhone] = useState("");
+-  const [email, setEmail] = useState("");
+-  const [postcode, setPostcode] = useState("");
+-  const [message, setMessage] = useState("");
++  // This remains the first useId call, preserving the existing field identities.
++  const fieldId = useId();
++  const initialFields = usePilotFormInitialValues(fieldId);
++  const [name, setName] = useState(() => initialFields.name);
++  const [phone, setPhone] = useState(() => initialFields.phone);
++  const [email, setEmail] = useState(() => initialFields.email);
++  const [postcode, setPostcode] = useState(() => initialFields.postcode);
++  const [message, setMessage] = useState(() => initialFields.message);
+   const [attachments, setAttachments] = useState<SelectedEnquiryMedia[]>([]);
+   const [attachmentErrors, setAttachmentErrors] = useState<string[]>([]);
+   const [uploadBusy, setUploadBusy] = useState(false);
+@@ -66,7 +70,6 @@ export function LeadForm({
+   const [emailError, setEmailError] = useState("");
+   const [phoneError, setPhoneError] = useState("");
+   const [postcodeError, setPostcodeError] = useState("");
+-  const fieldId = useId();
+   const attachmentInputRef = useRef<HTMLInputElement>(null);
+   const chasTooltipId = useId();
+   const isDark = variant === "dark";
+diff --git a/client/src/components/LocalBusinessSchema.tsx b/client/src/components/LocalBusinessSchema.tsx
+index 4e6b7790a0301a94f94848570aca560a2704d760..b0ed536f6e5bf73b618006f48ad8a4393bfda096 100644
+--- a/client/src/components/LocalBusinessSchema.tsx
++++ b/client/src/components/LocalBusinessSchema.tsx
+@@ -1,3 +1,5 @@
++import { useAdoptPilotServerSchema } from "@/ssr/PilotRenderContext";
++
+ interface LocalBusinessSchemaProps {
+   name: string;
+   city: string;
+@@ -25,6 +27,8 @@ export function LocalBusinessSchema({
+   image = "https://shotblast-lwspuaik.manus.spacehttps://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/VuHhVjHScCupXhoA.webp",
+   nearbyAreas = []
+ }: LocalBusinessSchemaProps) {
++  const adoptsServerSchema = useAdoptPilotServerSchema();
++  if (adoptsServerSchema) return null;
+   const schema = {
+     "@context": "https://schema.org",
+     "@type": "LocalBusiness",
+diff --git a/client/src/components/RouteMetadataOwner.tsx b/client/src/components/RouteMetadataOwner.tsx
+index e20cdbf3e39e5a7d304c5cdc180efafea9a44e36..ff8ecb90d1be204312be67b67ffe4ef8b0df6763 100644
+--- a/client/src/components/RouteMetadataOwner.tsx
++++ b/client/src/components/RouteMetadataOwner.tsx
+@@ -1,6 +1,8 @@
+ import { createContext, useContext, useLayoutEffect, useEffect, useState, useSyncExternalStore, type ReactNode } from "react";
+ import { resolveRouteMetadata, getRouteMetadataTags, getRouteMetadataCanonical, ROUTE_METADATA_MANAGED_KEYS, type RouteMetadataRecord, type RouteMetadataInput } from "@shared/routeMetadata";
+ 
++import { usePilotRenderContext } from "@/ssr/PilotRenderContext";
++
+ export interface MetadataRouteKey { pathname: string; generation: number }
+ export interface MetadataSnapshot extends MetadataRouteKey { metadata: RouteMetadataRecord }
+ function actualPathname(url: string): string {
+@@ -150,8 +152,10 @@ export function useRouteMetadataInput(input: RouteMetadataInput | undefined, pat
+ }
+ 
+ export function RouteMetadataOwner({ children }: { children: ReactNode }) {
++  const { initial } = usePilotRenderContext();
+   const [controller] = useState(() => createMetadataController({
+-    url: typeof window === "undefined" ? "/" : window.location.href,
++    url: typeof window === "undefined" ? initial?.url ?? initial?.pathname ?? "/" : window.location.href,
++    boot: initial?.metadata,
+     document: typeof document === "undefined" ? undefined : document,
+     getUrl: typeof window === "undefined" ? undefined : () => window.location.href,
+   }));
+diff --git a/client/src/main.tsx b/client/src/main.tsx
+index aed1fe97bf6f752a7340b9d378728cb47df80c53..6f3c18a0e44d03f88dd334b61c7685c29c992f45 100644
+--- a/client/src/main.tsx
++++ b/client/src/main.tsx
+@@ -1,11 +1,13 @@
+ import { trpc } from "@/lib/trpc";
+ import { UNAUTHED_ERR_MSG } from '@shared/const';
+-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
++import { QueryClient, type DehydratedState } from "@tanstack/react-query";
+ import { httpBatchLink, TRPCClientError } from "@trpc/client";
+-import { createRoot } from "react-dom/client";
+-import { HelmetProvider } from "react-helmet-async";
++import { createRoot, hydrateRoot } from "react-dom/client";
+ import superjson from "superjson";
+-import App from "./App";
++import { preloadSelectedPilot } from "./App";
++import { RenderProviders } from "./ssr/RenderProviders";
++import { readRouteMetadataBoot } from "./components/RouteMetadataOwner";
++import { RENDERING_PILOT_MAX_BYTES, validateRenderingPilotBoot, type RenderingPilotBoot } from "@shared/renderingPilot";
+ import { getLoginUrl } from "./const";
+ import { recoverFromStaleDynamicImport } from "./lib/dynamicImportRecovery";
+ import "./index.css";
+@@ -80,15 +82,52 @@ if (typeof window !== "undefined") {
+   });
+ }
+ 
+-createRoot(document.getElementById("root")!).render(
+-  <HelmetProvider>
+-    <trpc.Provider client={trpcClient} queryClient={queryClient}>
+-      <QueryClientProvider client={queryClient}>
+-        <App />
+-      </QueryClientProvider>
+-    </trpc.Provider>
+-  </HelmetProvider>
+-);
++/** Choose one root only at startup; SPA navigation never remounts it. */
++async function startBrowserRoot(): Promise<void> {
++  const rootElement = document.getElementById("root");
++  if (!rootElement) throw new Error("Application root is missing");
++  const marker = document.getElementById("rendering-pilot-boot");
++  const initialPathname = window.location.pathname;
++  let boot: RenderingPilotBoot | null = null;
++  if (marker) {
++    try {
++      if (marker.tagName !== "SCRIPT" || marker.getAttribute("type") !== "application/json" || rootElement.contains(marker)) throw new Error("Invalid pilot marker");
++      const raw = marker.textContent ?? "";
++      if (new TextEncoder().encode(raw).byteLength > RENDERING_PILOT_MAX_BYTES) throw new Error("Oversized pilot marker");
++      boot = validateRenderingPilotBoot(JSON.parse(raw), initialPathname);
++    } catch { boot = null; }
++    if (!boot) console.error("[Rendering Pilot] Invalid cached SSR state; recovering with client rendering (not hydration).");
++  } else if (rootElement.querySelector("h1, form")) {
++    console.error("[Rendering Pilot] SSR content has no valid boot; recovering with client rendering (not hydration).");
++  }
++  if (boot) {
++    try {
++      await preloadSelectedPilot(initialPathname);
++      if (window.location.pathname !== initialPathname || !validateRenderingPilotBoot(boot, window.location.pathname)) {
++        console.error("[Rendering Pilot] Route changed during preparation; recovering with client rendering (not hydration).");
++        boot = null;
++      }
++    } catch (error) {
++      console.error("[Rendering Pilot] Component preparation failed; recovering with client rendering (not hydration).");
++      recoverFromStaleDynamicImport(error);
++      boot = null;
++    }
++  }
++  if (boot) {
++    const state = superjson.deserialize<DehydratedState>(boot.state);
++    const metadata = readRouteMetadataBoot(initialPathname);
++    if (metadata && metadata.pathname === initialPathname && ["ready", "published"].includes(metadata.state) && window.location.pathname === initialPathname) {
++      hydrateRoot(rootElement, <RenderProviders
++        queryClient={queryClient} trpcClient={trpcClient} state={state}
++        pilot={{ pathname: initialPathname, renderValues: boot.renderValues, metadata }}
++      />, { onRecoverableError: error => console.error("[Rendering Pilot] Hydration failed", error) });
++      return;
++    }
++    console.error("[Rendering Pilot] Metadata/path validation failed; recovering with client rendering (not hydration).");
++  }
++  createRoot(rootElement).render(<RenderProviders queryClient={queryClient} trpcClient={trpcClient} />);
++}
++void startBrowserRoot();
+ 
+ // Register Service Worker for PWA caching (cache-first for assets, stale-while-revalidate for CDN images)
+ if ('serviceWorker' in navigator) {
+diff --git a/client/src/pages/BlogPost.tsx b/client/src/pages/BlogPost.tsx
+index 4ebce83a19ce7cfa3a48a2c6d88a8ef5c079d177..76a6a756c812e08d15b4921e78a59e40bfb576df 100644
+--- a/client/src/pages/BlogPost.tsx
++++ b/client/src/pages/BlogPost.tsx
+@@ -1,5 +1,8 @@
+ import { Button } from "@/components/ui/button";
+-import { useMemo, useEffect, lazy, Suspense } from "react";
++import { useMemo, useEffect, Suspense } from "react";
++import { preloadable } from "@/ssr/preloadable";
++import { useAdoptPilotServerSchema, usePilotDateFormatter, usePilotRenderContext } from "@/ssr/PilotRenderContext";
++import { isSafePilotArticle } from "@shared/renderingPilot";
+ import { Calendar, Tag, ArrowLeft, Clock, User } from "lucide-react";
+ import { ShareButton } from "@/components/ShareButton";
+ import { Link, useRoute } from "wouter";
+@@ -10,7 +13,8 @@ import { useSEO } from "@/hooks/useSEO";
+ import { trpc } from "@/lib/trpc";
+ import { useRouteMetadataContext, type MetadataController, type MetadataRouteKey } from "@/components/RouteMetadataOwner";
+ 
+-const LeadFormLazy = lazy(() => import("@/components/LeadForm").then(m => ({ default: m.LeadForm })));
++const LeadFormLazy = preloadable(() => import("@/components/LeadForm").then(m => ({ default: m.LeadForm })), "P0002");
++export async function preloadBlogPostPilot(): Promise<void> { await LeadFormLazy.preload(); }
+ 
+ const SITE_URL = "https://commercialshotblasting.co.uk";
+ 
+@@ -172,12 +176,18 @@ function ArticleJsonLd({ post, slug }: { post: { title: string; excerpt: string;
+ }
+ 
+ export default function BlogPost() {
++  const adoptsServerSchema = useAdoptPilotServerSchema();
++  const formatDate = usePilotDateFormatter();
++  const pilotContext = usePilotRenderContext();
+   const [, params] = useRoute("/blog/:slug");
+   const slug = params?.slug || "";
+   const metadataController = useRouteMetadataContext();
+   const metadataGeneration = metadataController?.getSnapshot().generation;
+ 
+   const { data: post, isLoading, isError, isSuccess, error } = trpc.blog.getBySlug.useQuery({ slug });
++  if (pilotContext.synchronousPilotId === "P0002" && (isLoading || isError || !isSafePilotArticle(post) || post?.slug !== slug)) {
++    throw new Error("Rendering pilot primary article data is missing or unsafe");
++  }
+   const ambiguousEmpty = isAmbiguousArticleQuery(isSuccess, post, error, slug);
+   const { data: related } = trpc.blog.getRelated.useQuery(
+     { slug, category: post?.category ?? null },
+@@ -257,7 +267,7 @@ export default function BlogPost() {
+ 
+   const tags: string[] = post.tags ? (typeof post.tags === "string" ? JSON.parse(post.tags) : post.tags) : [];
+   const readTime = estimateReadTime(post.content);
+-  const publishDate = new Date(post.publishedAt || post.createdAt).toLocaleDateString("en-GB", {
++  const publishDate = formatDate(post.publishedAt || post.createdAt, {
+     day: "numeric", month: "long", year: "numeric",
+   });
+ 
+@@ -266,7 +276,7 @@ export default function BlogPost() {
+       <Header />
+ 
+       {/* Article JSON-LD injected into <head> via portal-style script tag */}
+-      <ArticleJsonLd post={post} slug={slug} />
++      {!adoptsServerSchema && <ArticleJsonLd post={post} slug={slug} />}
+ 
+       <Breadcrumb
+         items={[
+@@ -422,7 +432,7 @@ export default function BlogPost() {
+               </h2>
+               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                 {related.map((relPost) => {
+-                  const relDate = new Date(relPost.publishedAt || relPost.createdAt).toLocaleDateString("en-GB", {
++                  const relDate = formatDate(relPost.publishedAt || relPost.createdAt, {
+                     day: "numeric", month: "short", year: "numeric",
+                   });
+                   const relReadTime = estimateReadTime(relPost.content);
+diff --git a/client/src/pages/Home.tsx b/client/src/pages/Home.tsx
+index d1f583c02414161429f4e87070052dee3e4fd0fe..9c1f30cafec4ed8f050617366ad4b17501eb7c5c 100644
+--- a/client/src/pages/Home.tsx
++++ b/client/src/pages/Home.tsx
+@@ -2,7 +2,9 @@ import { Button } from "@/components/ui/button";
+ import { Link } from "wouter";
+ import { Card, CardContent } from "@/components/ui/card";
+ import { Phone, Mail, MapPin, CheckCircle, ArrowRight, Shield, Clock, Award, Users, Star, Quote, X, Download } from "lucide-react";
+-import { useState, useMemo, useEffect, lazy, Suspense } from "react";
++import { useState, useMemo, useEffect, Suspense } from "react";
++import { preloadable } from "@/ssr/preloadable";
++import { useAdoptPilotServerSchema } from "@/ssr/PilotRenderContext";
+ import { QuotePopup } from "@/components/QuotePopup";
+ import { CompactSurveyCapture } from "@/components/CompactSurveyCapture";
+ import type { SurveyBookingDefaults } from "@/components/SurveyBookingFlow";
+@@ -24,11 +26,15 @@ import { HOMEPAGE_INTUMESCENT_SERVICE } from "@shared/homepageIntumescentService
+ import { HOMEPAGE_CUSTOMER_COPY } from "@shared/homepageCustomerCopy";
+ 
+ // Below-the-fold components: lazy-loaded to reduce initial JS bundle and improve LCP
+-const BlogPreview = lazy(() => import("@/components/BlogPreview").then(m => ({ default: m.BlogPreview })));
+-const BeforeAfterSlider = lazy(() => import("@/components/BeforeAfterSlider").then(m => ({ default: m.BeforeAfterSlider })));
+-const HomeFAQ = lazy(() => import("@/components/HomeFAQ"));
+-const CaseStudies = lazy(() => import("@/components/CaseStudies").then(m => ({ default: m.CaseStudies })));
+-const ReviewCarousel = lazy(() => import("@/components/ReviewCarousel").then(m => ({ default: m.ReviewCarousel })));
++const BlogPreview = preloadable(() => import("@/components/BlogPreview").then(m => ({ default: m.BlogPreview })), "P0001");
++const BeforeAfterSlider = preloadable(() => import("@/components/BeforeAfterSlider").then(m => ({ default: m.BeforeAfterSlider })), "P0001");
++const HomeFAQ = preloadable(() => import("@/components/HomeFAQ"), "P0001");
++const CaseStudies = preloadable(() => import("@/components/CaseStudies").then(m => ({ default: m.CaseStudies })), "P0001");
++const ReviewCarousel = preloadable(() => import("@/components/ReviewCarousel").then(m => ({ default: m.ReviewCarousel })), "P0001");
++
++export async function preloadHomePilot(): Promise<void> {
++  await Promise.all([BlogPreview.preload(), BeforeAfterSlider.preload(), HomeFAQ.preload(), CaseStudies.preload(), ReviewCarousel.preload()]);
++}
+ 
+ const testimonials = [
+   {
+@@ -64,6 +70,7 @@ const HERO_PROOF_POINTS: readonly { label: string; tooltip?: string }[] = [
+ ];
+ 
+ export default function Home() {
++  const adoptsServerSchema = useAdoptPilotServerSchema();
+   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+   const [surveyDefaults, setSurveyDefaults] = useState<SurveyBookingDefaults | undefined>();
+   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+@@ -87,6 +94,7 @@ export default function Home() {
+   // Preserve page schema; complete head metadata belongs to RouteMetadataOwner.
+   useEffect(() => {
+     // WebSite + SiteLinksSearchBox JSON-LD
++    if (adoptsServerSchema) return;
+     const websiteSchemaId = 'home-website-schema';
+     let websiteEl = document.getElementById(websiteSchemaId);
+     if (!websiteEl) {
+@@ -115,7 +123,7 @@ export default function Home() {
+       const s = document.getElementById(websiteSchemaId);
+       if (s) s.remove();
+     };
+-  }, []);
++  }, [adoptsServerSchema]);
+ 
+   const openQuotePopup = () => {
+     setSurveyDefaults(undefined);
+diff --git a/client/src/pages/ServiceDetail.tsx b/client/src/pages/ServiceDetail.tsx
+index efa7c3bf8c7165ba869e4a34d639100fb682f49c..63745a3cb7b03352f2f39a5cfa7d908455a6f7d3 100644
+--- a/client/src/pages/ServiceDetail.tsx
++++ b/client/src/pages/ServiceDetail.tsx
+@@ -25,6 +25,7 @@ import { CapabilityStatementContents } from "@/components/CapabilityStatementCon
+ import { CapabilityStatementDownload } from "@/components/CapabilityStatementDownload";
+ import { ADE_POWER_WAKEFIELD_CASE_STUDY_PATH, adePowerWakefieldProject } from "@shared/adePowerWakefieldProject";
+ import { AEO_DECISION_ANSWERS_BY_SERVICE } from "@shared/aeoDecisionAnswers";
++import { usePilotYear } from "@/ssr/PilotRenderContext";
+ 
+ const capabilityStatementPlacementByServiceId: Record<string, string> = {
+   "structural-steel-frames": "Structural Steel Frames service page",
+@@ -37,6 +38,7 @@ const capabilityStatementPlacementByServiceId: Record<string, string> = {
+ };
+ 
+ export default function ServiceDetail() {
++  const currentYear = usePilotYear();
+   const params = useParams<{ id: string }>();
+   const [quotePopupOpen, setQuotePopupOpen] = useState(false);
+   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+@@ -2238,7 +2240,7 @@ export default function ServiceDetail() {
+             </div>
+           </div>
+           <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/50 text-sm">
+-            © {new Date().getFullYear()} Commercial Shot Blasting. All rights reserved.
++            © {currentYear} Commercial Shot Blasting. All rights reserved.
+           </div>
+         </div>
+       </footer>
+diff --git a/client/src/ssr/PilotRenderContext.tsx b/client/src/ssr/PilotRenderContext.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..6539aa115c38a5e1fd2d911cbd0fe8bad5a709c4
+--- /dev/null
++++ b/client/src/ssr/PilotRenderContext.tsx
+@@ -0,0 +1,102 @@
++import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
++import { useLocation } from "wouter";
++import { getRenderingPilot, type PilotRenderValues } from "@shared/renderingPilot";
++import type { RouteMetadataRecord } from "@shared/routeMetadata";
++
++export type PilotRenderSeed = {
++  pathname: string;
++  renderValues: PilotRenderValues;
++  metadata?: RouteMetadataRecord | null;
++  /** Request URL stays in memory for routing; it is never part of render boot. */
++  url?: string;
++};
++export type PilotRenderContextValue = {
++  initial: PilotRenderSeed | null;
++  synchronousPilotId: string | null;
++  adoptsServerSchema: boolean;
++  deterministicDates: boolean;
++};
++const PilotContext = createContext<PilotRenderContextValue>({
++  initial: null, synchronousPilotId: null, adoptsServerSchema: false, deterministicDates: false,
++});
++
++export function PilotRenderProvider({ seed = null, children }: { seed?: PilotRenderSeed | null; children: ReactNode }) {
++  const [location] = useLocation();
++  const [browserPresentation, setBrowserPresentation] = useState(false);
++  const leftDocumentRoute = useRef(false);
++  // Raw browser path avoids broadening the allowlist through Wouter's decoding.
++  const pathname = typeof window === "undefined" ? location : window.location.pathname;
++  if (seed && pathname !== seed.pathname) leftDocumentRoute.current = true;
++  const documentPilot = seed && pathname === seed.pathname ? getRenderingPilot(pathname) : null;
++  const synchronousPilot = !leftDocumentRoute.current ? documentPilot : null;
++  // Preserve the maintained pages' existing data-ready/ref reconciliation after
++  // their first commit, even when public query results were supplied by SSR.
++  useEffect(() => { setBrowserPresentation(true); }, []);
++  return <PilotContext.Provider value={{
++    initial: seed,
++    synchronousPilotId: synchronousPilot?.id ?? null,
++    // Only the successfully rendered document's existing server graphs are adopted.
++    // They remain owned by the server head after leaving, so adopt them again on
++    // exact document-route history return instead of emitting duplicate scripts.
++    // Other hard loads / SPA destinations keep their legacy schema components.
++    adoptsServerSchema: !!documentPilot,
++    deterministicDates: !!synchronousPilot && !browserPresentation,
++  }}>{children}</PilotContext.Provider>;
++}
++export function usePilotRenderContext() { return useContext(PilotContext); }
++export function useAdoptPilotServerSchema() { return usePilotRenderContext().adoptsServerSchema; }
++export function usePilotDateFormatter() {
++  const { deterministicDates } = usePilotRenderContext();
++  return (value: Date | string | number, options: Intl.DateTimeFormatOptions): string =>
++    new Date(value).toLocaleDateString("en-GB", deterministicDates ? { ...options, timeZone: "Europe/London" } : options);
++}
++export function usePilotYear(): number {
++  const { initial, deterministicDates } = usePilotRenderContext();
++  const [year, setYear] = useState(() => deterministicDates && initial ? initial.renderValues.year : new Date().getFullYear());
++  // React bails out when the browser year equals the initial request year.
++  useEffect(() => { setYear(new Date().getFullYear()); }, [initial?.renderValues.year, deterministicDates]);
++  return year;
++}
++
++export type PilotFormInitialValues = {
++  name: string; phone: string; email: string; postcode: string; message: string;
++};
++/** Read existing browser controls only. Never part of the public render seed. */
++export function readPilotFormInitialValues(
++  fieldId: string, enabled: boolean, doc?: Document,
++): PilotFormInitialValues {
++  const empty = { name: "", phone: "", email: "", postcode: "", message: "" };
++  if (!enabled || !doc) return empty;
++  const root = doc.getElementById("root");
++  if (!root) return empty;
++  const fields = [
++    ["name", "INPUT", "text"], ["phone", "INPUT", "tel"],
++    ["email", "INPUT", "email"], ["postcode", "INPUT", "text"],
++    ["message", "TEXTAREA", null],
++  ] as const;
++  let matchedForm: Element | null = null;
++  const values = { ...empty };
++  for (const [key, tag, type] of fields) {
++    const control = doc.getElementById(`${fieldId}-${key}`) as HTMLInputElement | HTMLTextAreaElement | null;
++    const form = control?.closest("form");
++    if (!control || control.tagName !== tag || !control.required || !control.isConnected ||
++        !root.contains(control) || !form || !root.contains(form) ||
++        (type !== null && control.getAttribute("type") !== type) ||
++        (matchedForm && form !== matchedForm)) return empty;
++    matchedForm = form;
++    values[key] = control.value;
++  }
++  return values;
++}
++/** One private snapshot per form; only a matching hydrated document can supply it. */
++export function usePilotFormInitialValues(fieldId: string): PilotFormInitialValues {
++  const { synchronousPilotId, deterministicDates } = usePilotRenderContext();
++  const snapshot = useRef<PilotFormInitialValues | null>(null);
++  if (snapshot.current === null) {
++    snapshot.current = readPilotFormInitialValues(
++      fieldId, !!synchronousPilotId && deterministicDates && typeof window !== "undefined",
++      typeof document === "undefined" ? undefined : document,
++    );
++  }
++  return snapshot.current;
++}
+diff --git a/client/src/ssr/RenderProviders.tsx b/client/src/ssr/RenderProviders.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..02e6db72b41bb9b734c7ff2352893529180e103f
+--- /dev/null
++++ b/client/src/ssr/RenderProviders.tsx
+@@ -0,0 +1,52 @@
++import { HydrationBoundary, QueryClient, QueryClientProvider, type DehydratedState } from "@tanstack/react-query";
++import { TRPCClientError } from "@trpc/client";
++import { observable } from "@trpc/server/observable";
++import { HelmetProvider } from "react-helmet-async";
++import { Router } from "wouter";
++import type { ReactNode, ComponentProps } from "react";
++import { trpc } from "@/lib/trpc";
++import App from "@/App";
++import { PilotRenderProvider, type PilotRenderSeed } from "./PilotRenderContext";
++
++export type RenderProvidersProps = {
++  queryClient: QueryClient;
++  trpcClient: ReturnType<typeof trpc.createClient>;
++  state?: DehydratedState;
++  pilot?: PilotRenderSeed | null;
++  ssrPath?: string;
++  ssrSearch?: string;
++  helmetContext?: ComponentProps<typeof HelmetProvider>["context"];
++  children?: ReactNode;
++};
++export function RenderProviders({ queryClient, trpcClient, state, pilot, ssrPath, ssrSearch, helmetContext, children }: RenderProvidersProps) {
++  return <HelmetProvider context={helmetContext}>
++    <trpc.Provider client={trpcClient} queryClient={queryClient}>
++      <QueryClientProvider client={queryClient}>
++        <HydrationBoundary state={state}>
++          <Router ssrPath={ssrPath} ssrSearch={ssrSearch}>
++            <PilotRenderProvider seed={pilot}>{children ?? <App />}</PilotRenderProvider>
++          </Router>
++        </HydrationBoundary>
++      </QueryClientProvider>
++    </trpc.Provider>
++  </HelmetProvider>;
++}
++/** New instance per request, never an HTTP fallback or authenticated caller. */
++export function createServerTRPCClient(onDenied?: () => void) {
++  return trpc.createClient({
++    links: [() => () => observable(observer => {
++      onDenied?.();
++      observer.error(new TRPCClientError("Unexpected server rendering transport operation denied"));
++      return () => {};
++    })],
++  });
++}
++/** Match the existing five-minute client freshness for explicitly seeded reads. */
++export function createServerQueryClient(): QueryClient {
++  return new QueryClient({ defaultOptions: { queries: {
++    staleTime: 5 * 60 * 1000,
++    gcTime: 10 * 60 * 1000,
++    retry: false,
++    refetchOnWindowFocus: false,
++  } } });
++}
+diff --git a/client/src/ssr/entry-server.tsx b/client/src/ssr/entry-server.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..ce9b1b8c892ef0fdf32b04ae67afbfecb68a5db9
+--- /dev/null
++++ b/client/src/ssr/entry-server.tsx
+@@ -0,0 +1,67 @@
++import { renderToString } from "react-dom/server";
++import { dehydrate } from "@tanstack/react-query";
++import superjson from "superjson";
++import { preloadSelectedPilot } from "@/App";
++import { getRenderingPilot, splitRenderingUrl, RENDERING_PILOT_MAX_BYTES, RENDERING_PILOT_RELEASE, validatePilotSeeds, validateRenderingPilotBoot, type PilotSeed, type RenderingPilotBoot } from "@shared/renderingPilot";
++import type { RouteMetadataRecord } from "@shared/routeMetadata";
++import { RenderProviders, createServerQueryClient, createServerTRPCClient } from "./RenderProviders";
++
++function assertNotAborted(signal?: AbortSignal) {
++  if (signal?.aborted) throw new Error("Rendering pilot aborted");
++}
++function escapeText(value: string): string {
++  return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\"/g, "&quot;").replace(/'/g, "&#x27;");
++}
++function assertPrimaryHtml(html: string, pilotId: string, seeds: PilotSeed[]) {
++  if (/<!--\$(?:!|\?)-->|data-msg=|data-dgst=/i.test(html) || !/<h1\b/.test(html) || !/<form\b/.test(html)) {
++    throw new Error("Rendering pilot incomplete primary tree or Suspense failure");
++  }
++  if (pilotId === "P0002") {
++    const post = seeds.find(seed => JSON.stringify(seed.queryKey[0]) === '["blog","getBySlug"]')?.data as { title: string; content: string };
++    if (!/<article\b/.test(html) || !html.includes('class="blog-prose"') || !html.includes(escapeText(post.title)) ||
++      !html.includes("Get In Touch") || html.includes("Blog Post Not Found")) throw new Error("Rendering pilot missing article content");
++  } else {
++    const needle = pilotId === "P0116" ? "Shot Blasting Services in" : pilotId === "P0066" ? "Structural Steel Frames" : "Commercial Shot Blasting";
++    if (!html.includes(needle) || (pilotId === "P0116" && !html.includes("Hampshire")) || html.includes("Service Not Found")) {
++      throw new Error("Rendering pilot missing selected primary content");
++    }
++  }
++}
++
++export async function renderPilot(url: string, seeds: PilotSeed[], metadata: RouteMetadataRecord, signal?: AbortSignal): Promise<{ html: string; boot: RenderingPilotBoot }> {
++  // Captured before asynchronous code preparation; first client render reuses it.
++  const year = Number(new Intl.DateTimeFormat("en-GB", { year: "numeric", timeZone: "Europe/London" }).format(new Date()));
++  const queryClient = createServerQueryClient();
++  try {
++    assertNotAborted(signal);
++    const pilot = getRenderingPilot(url);
++    if (!pilot || !validatePilotSeeds(url, seeds) || metadata?.pathname !== pilot.pathname ||
++      (metadata.state !== "ready" && metadata.state !== "published")) throw new Error("Rendering pilot invalid public route state");
++    for (const seed of seeds) queryClient.setQueryData(seed.queryKey, seed.data);
++    await preloadSelectedPilot(url);
++    assertNotAborted(signal);
++    let deniedOperation = false;
++    const trpcClient = createServerTRPCClient(() => { deniedOperation = true; });
++    const { pathname, search } = splitRenderingUrl(url);
++    assertNotAborted(signal);
++    const html = renderToString(<RenderProviders
++      queryClient={queryClient} trpcClient={trpcClient} helmetContext={{}}
++      ssrPath={pathname} ssrSearch={search}
++      pilot={{ pathname, renderValues: { year }, metadata, url }}
++    />);
++    assertNotAborted(signal);
++    if (deniedOperation) throw new Error("Rendering pilot attempted unexpected server transport");
++    assertPrimaryHtml(html, pilot.id, seeds);
++    const state = dehydrate(queryClient, {
++      shouldDehydrateMutation: () => false,
++      shouldDehydrateQuery: query => query.state.status === "success" && seeds.some(seed => JSON.stringify(seed.queryKey) === JSON.stringify(query.queryKey)),
++    });
++    const boot: RenderingPilotBoot = { schemaVersion: 1, release: RENDERING_PILOT_RELEASE, pathname, pilotId: pilot.id, success: true, renderValues: { year }, state: superjson.serialize(state) };
++    if (!validateRenderingPilotBoot(boot, pathname)) throw new Error("Rendering pilot rejected public boot state");
++    if (new TextEncoder().encode(html + JSON.stringify(boot)).byteLength > RENDERING_PILOT_MAX_BYTES) throw new Error("Rendering pilot exceeds buffered size limit");
++    assertNotAborted(signal);
++    return { html, boot };
++  } finally {
++    queryClient.clear();
++  }
++}
+diff --git a/client/src/ssr/preloadable.tsx b/client/src/ssr/preloadable.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..abb31c188a5ad67cd8509c267f019a0737dd9e9b
+--- /dev/null
++++ b/client/src/ssr/preloadable.tsx
+@@ -0,0 +1,36 @@
++import { createElement, lazy, type ComponentType, type ComponentProps } from "react";
++import { usePilotRenderContext } from "./PilotRenderContext";
++
++/** Caches module code only; a loaded module never globally activates substitution. */
++export function preloadable<T extends ComponentType<any>>(
++  loader: () => Promise<{ default: T }>,
++  pilotId: string,
++) {
++  let resolved: T | undefined;
++  let pending: Promise<{ default: T }> | undefined;
++  const load = (): Promise<{ default: T }> => {
++    if (resolved) return Promise.resolve({ default: resolved });
++    if (!pending) {
++      pending = Promise.resolve().then(loader).then(module => {
++        if (!module.default) throw new Error("Pilot component export is missing");
++        resolved = module.default;
++        return module;
++      }).catch(error => {
++        pending = undefined;
++        throw error;
++      });
++    }
++    return pending;
++  };
++  const LazyComponent = lazy(load);
++  function Preloadable(props: ComponentProps<T>) {
++    const context = usePilotRenderContext();
++    if (context.synchronousPilotId === pilotId) {
++      if (!resolved) throw new Error("Selected pilot component was not prepared");
++      return createElement(resolved, props);
++    }
++    return createElement(LazyComponent, props);
++  }
++  Preloadable.preload = (): Promise<void> => load().then(() => {});
++  return Preloadable;
++}
+diff --git a/package.json b/package.json
+index 97f4a21cb01024648e1ed6c238cbb3388514e098..19f61397c7350d5fa517da61d41143c52a24f44b 100644
+--- a/package.json
++++ b/package.json
+@@ -5,7 +5,7 @@
+   "license": "MIT",
+   "scripts": {
+     "dev": "NODE_ENV=development tsx watch server/_core/index.ts",
+-    "build": "tsx scripts/generate-sitemap-snapshots.ts && vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && rm -rf dist/public/service-areas dist/public/services dist/public/counties dist/public/industries",
++    "build": "tsx scripts/generate-sitemap-snapshots.ts && NODE_ENV=production vite build && NODE_ENV=production vite build --config vite.config.ssr.ts && NODE_ENV=production esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && rm -rf dist/public/service-areas dist/public/services dist/public/counties dist/public/industries",
+     "sitemap:lastmod": "node scripts/generate-sitemap-lastmod.mjs",
+     "prerender": "node scripts/export-locations.mjs && node scripts/prerender.mjs && node scripts/prerender-services.mjs && node scripts/prerender-counties.mjs && node scripts/prerender-industries.mjs",
+     "start": "NODE_ENV=production node dist/index.js",
+diff --git a/scripts/verify-ssr.sh b/scripts/verify-ssr.sh
+new file mode 100755
+index 0000000000000000000000000000000000000000..09a6820b05d5d8f45fed934e78103f9aa2d632e4
+--- /dev/null
++++ b/scripts/verify-ssr.sh
+@@ -0,0 +1,176 @@
++#!/usr/bin/env bash
++# Adapted from /home/ubuntu/skills/webdev-ssr-conversion/scripts/verify-ssr.sh.
++# Task08: actual HTTP only; current Task07 head + inert public boot, no JS.
++# Does NOT start a server, seed a DB, follow redirects, or execute measurement.
++# Parent must first confirm the actual fixture/public server and route-gate safety.
++# Usage: PARENT_SERVER_READY=1 BASE=http://localhost:4101 bash scripts/verify-ssr.sh
++# Public use additionally requires TASK08_PUBLIC_HTTP_APPROVED=1.
++# This is raw-HTML acceptance only, not browser/geometry/worker/hydration evidence.
++set -euo pipefail
++: "${PARENT_SERVER_READY:?Set PARENT_SERVER_READY=1 only after parent confirms actual server readiness}"
++[ "$PARENT_SERVER_READY" = "1" ] || { echo "Parent readiness not granted" >&2; exit 2; }
++BASE="${BASE:-http://localhost:4101}"
++BASE="${BASE%/}"
++export BASE
++python3 - <<'PY'
++import json, os, re, subprocess, sys, tempfile
++from html.parser import HTMLParser
++from urllib.parse import urlsplit
++
++base = os.environ['BASE']
++u = urlsplit(base)
++if u.scheme not in ('http', 'https') or not u.hostname or u.username or u.password or u.query or u.fragment or u.path not in ('', '/'):
++    raise SystemExit('BASE must be an explicit origin without credentials, query or path')
++if u.hostname not in ('localhost', '127.0.0.1', '::1') and os.environ.get('TASK08_PUBLIC_HTTP_APPROVED') != '1':
++    raise SystemExit('Nonlocal origin requires TASK08_PUBLIC_HTTP_APPROVED=1 from parent')
++release = 'csb-task08-20261118-v3'
++origin = 'https://commercialshotblasting.co.uk'
++paths = {
++ '/services/structural-steel-frames': ('P0066', 'Structural Steel Frames', 'What Happens If Steel Isn\'t Prepared to Sa 2.5?', ['gallery.list', 'testimonials.list']),
++ '/counties/hampshire': ('P0116', 'Hampshire', 'Request A Site Visit', []),
++ '/blog/factory-warehouse-cladding-restoration': ('P0002', 'Factory', 'UK Commercial Shot Blasting Contractor', ['blog.getBySlug', 'blog.getRelated']),
++ '/': ('P0001', 'Commercial Shot Blasting', 'View Our Work', ['gallery.list', 'testimonials.list', 'blog.list']),
++}
++# Needles above are real existing visible component copy INSIDE #root,
++# never record metadata/excerpt or serialized state. No copied crawler bodies.
++searches = ['', '?', '?adwords=ppc&utm_campaign=fixture&gclid=TASK08_INERT_CLICK&ref=a%2Bb%2Fc%3Dd%20e&plus=a+b&dup=one&dup=two&empty=&bare?second=%ZZ']
++uas = ['Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)']
++if os.environ.get('FULL_UA_MATRIX') == '1': uas += ['Twitterbot/1.0', 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)']
++
++class Document(HTMLParser):
++    def __init__(self):
++        super().__init__(convert_charrefs=True)
++        self.stack=[]; self.root_depth=None; self.root_text=[]; self.root_tags=[]; self.head=False
++        self.titles=[]; self.current_title=None; self.meta={}; self.links=[]; self.boot=[]; self.metadata_boot=[]; self.active_script=None; self.script_chunks=[]
++        self.root_count=0; self.boot_inside=False; self.legacy=[]; self.fallback=False
++    def handle_starttag(self, tag, attrs):
++        a=dict(attrs); self.stack.append(tag)
++        if tag == 'head': self.head=True
++        if a.get('id') == 'root': self.root_count+=1; self.root_depth=len(self.stack)
++        if self.root_depth is not None: self.root_tags.append((tag,a))
++        if a.get('id') in ('ssr-content','ssr-service-content','ssr-county-content','homepage-ssr-content','county-ssr-content','service-ssr-content'): self.legacy.append(a.get('id'))
++        if self.head and tag == 'title': self.current_title=[]
++        if self.head and tag == 'meta': self.meta.setdefault(a.get('name', a.get('property','')).lower(),[]).append(a.get('content',''))
++        if self.head and tag == 'link': self.links.append(a)
++        if tag == 'script' and a.get('id') in ('rendering-pilot-boot','route-metadata-boot'):
++            if a.get('id') == 'rendering-pilot-boot' and self.root_depth is not None: self.boot_inside=True
++            self.active_script=(a.get('id'),a); self.script_chunks=[]
++        if tag in ('meta','link','img','input','source','br','hr','area','base','embed','param','track','wbr'): self.stack.pop()
++    def handle_startendtag(self, tag, attrs): self.handle_starttag(tag,attrs); self.handle_endtag(tag)
++    def handle_endtag(self, tag):
++        if tag == 'script' and self.active_script:
++            ident,a=self.active_script; (self.boot if ident=='rendering-pilot-boot' else self.metadata_boot).append((a,''.join(self.script_chunks))); self.active_script=None
++        if tag == 'title' and self.current_title is not None: self.titles.append(''.join(self.current_title)); self.current_title=None
++        if tag in self.stack:
++            i=len(self.stack)-1-self.stack[::-1].index(tag)
++            if self.root_depth is not None and i+1 <= self.root_depth: self.root_depth=None
++            self.stack=self.stack[:i]
++        if tag == 'head': self.head=False
++    def handle_data(self, data):
++        if self.active_script: self.script_chunks.append(data)
++        if self.current_title is not None: self.current_title.append(data)
++        if self.root_depth is not None and not any(t in ('script','style','template','noscript') for t in self.stack): self.root_text.append(data)
++    def handle_comment(self,data):
++        if data in ('$!', '$?'): self.fallback=True
++
++passes=0; failures=[]; pending=[]
++def check(ok, why):
++    if not ok: raise AssertionError(why)
++def fetch(url, ua):
++    # --path-as-is retains the raw query/path; never -L (would hide status owners).
++    with tempfile.TemporaryDirectory(prefix='task08-http-') as tmp:
++        hp=tmp+'/headers'; bp=tmp+'/body'
++        p=subprocess.run(['curl','--silent','--show-error','--compressed','--path-as-is','--max-time','15','--connect-timeout','5','-D',hp,'-o',bp,'-w','%{http_code}','-A',ua,base+url],capture_output=True,text=True)
++        check(p.returncode==0, 'curl transport: '+p.stderr[:180])
++        text=open(bp,encoding='utf-8').read(); headers={}
++        for line in open(hp,encoding='latin1'):
++            if ':' in line:
++                k,v=line.split(':',1); headers[k.lower()]=v.strip()
++        doc=Document(); doc.feed(text)
++        return int(p.stdout),headers,text,doc
++
++def head(doc,path,title,noindex=False):
++    check(len(doc.titles)==1 and title in doc.titles[0], 'single correct Task07 title')
++    for key in ['description','og:title','og:description','og:url','twitter:card','robots']:
++        check(len(doc.meta.get(key,[]))==1 and doc.meta[key][0], 'single '+key)
++    check(title in doc.meta['og:title'][0], 'og:title value')
++    robots=doc.meta['robots'][0].lower()
++    check(('noindex' in robots)==noindex,'Task07 robots policy')
++    canonical=[a.get('href') for a in doc.links if 'canonical' in a.get('rel','').lower().split()]
++    check(canonical==[origin+path], 'exact canonical without incoming query')
++    check(doc.meta['og:url']==[origin+path], 'exact og:url')
++    check(len(doc.metadata_boot)==1,'retained separate Task07 metadata boot')
++    check(doc.metadata_boot[0][0].get('type')=='application/json','inert Task07 metadata boot')
++    json.loads(doc.metadata_boot[0][1])
++
++def pilot(url,ua,path):
++    ident,title,needle,keys=paths[path]
++    status,h,text,d=fetch(url,ua)
++    check(status==200,'status='+str(status)); check(h.get('x-rendering-pilot')=='rendered','explicit rendered response (rollback is failure)')
++    cache=h.get('cache-control','').lower()
++    check(all(x in cache for x in ('no-cache','no-store','must-revalidate')),'pilot no shared cache')
++    check(d.root_count==1,'one real root'); check(not d.boot_inside,'boot outside root')
++    check(not d.legacy,'no separate clipped copied pilot body '+repr(d.legacy))
++    check(not d.fallback,'unresolved/errored Suspense boundary')
++    body=' '.join(' '.join(d.root_text).split())
++    check(needle in body, 'real root-body copy: '+needle)
++    check(any(tag=='h1' for tag,_ in d.root_tags),'primary h1 in root')
++    check(any(tag=='form' for tag,_ in d.root_tags),'native lead form in root')
++    check(any(tag=='a' and a.get('href')=='/services' for tag,a in d.root_tags),'maintained service link inside root')
++    head(d,path,title)
++    check(len(d.boot)==1,'single rendering-pilot-boot')
++    attrs,raw=d.boot[0]; check(attrs.get('type')=='application/json','inert rendering payload')
++    check(not any(c in raw for c in '<>&\u2028\u2029'),'escaped delimiter/separator payload')
++    b=json.loads(raw)
++    check(set(b)=={'schemaVersion','release','pathname','pilotId','success','renderValues','state'},'strict boot envelope')
++    check((b['schemaVersion'],b['release'],b['pathname'],b['pilotId'],b['success'])==(1,release,path,ident,True),'route/release marker')
++    check(set(b['renderValues'])=={'year'} and isinstance(b['renderValues']['year'],int),'render values')
++    state=b['state']['json']; check(set(state)=={'queries','mutations'} and state['mutations']==[],'public cache, no mutations')
++    seen=[]
++    for q in state['queries']:
++        check(q['state']['status']=='success' and q['state']['error'] is None,'successful public query only')
++        k=q['queryKey']; seen.append('.'.join(k[0])); check(k[1]['type']=='query','query key type')
++        if seen[-1] in ('gallery.list','testimonials.list','blog.list'): check(k[1]=={'type':'query'},'undefined input omits input')
++    check(sorted(seen)==sorted(keys),'exact route public keys')
++    check('TASK08_INERT_CLICK' not in raw and 'utm_campaign' not in raw,'incoming attribution not serialized')
++    for a in d.links:
++        check('server-ssr' not in a.get('href','') and 'entry-server.js' not in a.get('href',''),'no Node renderer chunk browser preload')
++    check(any(a.get('rel')=='stylesheet' for a in d.links),'render-blocking stylesheet retained')
++
++def guard(url,status=200,noindex=False,title=None,path=None,media=False):
++    got,h,text,d=fetch(url,uas[0]); check(got==status,'guard status='+str(got)); check(not d.boot,'guard must not acquire pilot boot')
++    check(h.get('x-rendering-pilot')!='rendered','guard must not be rendered pilot')
++    if not media and status==404: check(any('noindex' in v.lower() for v in d.meta.get('robots',[])),'real 404+noindex')
++    if title: head(d,path,title,noindex)
++    if status==503: check(h.get('retry-after')=='60' and 'no-store' in h.get('cache-control',''),'upstream outage 503 + Retry-After/no-store')
++
++def run(label,fn):
++    global passes
++    try: fn(); passes+=1; print('[PASS]',label)
++    except Exception as e: failures.append((label,str(e))); print('[FAIL]',label,str(e))
++
++print('== Task08 actual raw HTTP verification against',base,'==')
++for path in paths:
++    for search in searches:
++        for i,ua in enumerate(uas): run(path+search+' UA'+str(i),lambda p=path,s=search,a=ua:pilot(p+s,a,p))
++for p,title,noindex in [('/services/intumescent-painting','Intumescent',False),('/counties/kent','Kent',False),('/privacy-policy','Privacy',True),('/service-areas/abbots-bromley','Abbots Bromley',True)]:
++    run('nonpilot '+p,lambda p=p,t=title,n=noindex:guard(p,status=200,noindex=n,title=t,path=p))
++for p in ['/index.html','/index.html?dup=one&dup=two','/404','/definitely-not-a-route','/blog/task08-this-slug-does-not-exist','/services/not-a-real-service','/counties/not-a-real-county']:
++    run('Task04 404 '+p,lambda p=p:guard(p,404))
++# Bare /assets intentionally uses existing static-directory 301 to /assets/;
++# /manus-storage/* intentionally uses the protected CDN 307 handler. Neither is
++# a page/retired-resource 404 guard and routing is not changed for this harness.
++for p in ['/assets/','/assets/task08-retired-chunk.js','/task08-retired-resource.webp']:
++    run('retired resource '+p,lambda p=p:guard(p,404,media=True))
++# Draft/outage routes require a parent's controlled authoritative lookup harness.
++# Never invent a published primary record / live DB outage to manufacture these.
++for env,status in [('TASK08_DRAFT_GUARD_PATH',404),('TASK08_OUTAGE_GUARD_PATH',503)]:
++    p=os.environ.get(env)
++    if p: run(env+' '+p,lambda p=p,s=status:guard(p,s))
++    else:
++        pending.append(env)
++        print('[PENDING]',env,'requires controlled parent route-gate fixture; not counted as passed')
++print('== Result PASS=%d FAIL=%d PENDING=%d; raw HTTP only, real DOM hydration is separate ==' % (passes,len(failures),len(pending)))
++if not passes or failures: sys.exit(1)
++if pending: sys.exit(2)
++PY
+diff --git a/server/_core/vite.ts b/server/_core/vite.ts
+index 2dee40b014908701adbbc213ece4d0071d671f8f..a198189904734da2115ccbe35ce95900fbc809c8 100644
+--- a/server/_core/vite.ts
++++ b/server/_core/vite.ts
+@@ -1,9 +1,9 @@
+-import express, { type Express } from "express";
++import express, { type Express, type Request, type Response } from "express";
+ import fs from "fs";
+ import { type Server } from "http";
+ import { nanoid } from "nanoid";
+ import path from "path";
+-import { fileURLToPath } from "url";
++import { fileURLToPath, pathToFileURL } from "url";
+ // Use fileURLToPath(import.meta.url) for reliable absolute paths in both dev and production
+ // import.meta.dirname can resolve to cwd in some hosting environments
+ const __filename = fileURLToPath(import.meta.url);
+@@ -14,7 +14,166 @@ import { injectMetaTags, composeRouteMetadataHead, resolveServerRouteMetadata }
+ import { createContentRouteGate } from "../contentRouteExistence";
+ import { normaliseServiceUrls } from "@shared/serviceSeoCatalog";
+ import { normaliseResponseTimeCopy } from "@shared/seoContentPolicy";
+-// JSON-LD is now handled entirely by client-side jsonld-inject.js to avoid duplicates
++import { getRenderingPilot, validateRenderingPilotBoot, type PilotSeed, type RenderingPilotBoot } from "../../shared/renderingPilot";
++import type { RouteMetadataRecord } from "../../shared/routeMetadata";
++import type { HtmlContentContext } from "../contentRouteExistence";
++import { prefetchPilot, createTrackedPilotReads, PilotPrefetchError } from "../ssr/pilotPrefetch";
++import { composePilotHtml } from "../ssr/composePilotHtml";
++
++export interface PilotWorkLease {
++  track<T>(promise: Promise<T>): Promise<T>;
++  finish(): void;
++  readonly settled: Promise<void>;
++  readonly pending: number;
++}
++export function createPilotLeasePool(maxOutstanding = 2) {
++  if (!Number.isInteger(maxOutstanding) || maxOutstanding < 1 || maxOutstanding > 2) throw new Error("Pilot leases require a limit of 1 or 2");
++  let outstanding = 0;
++  return {
++    get outstanding() { return outstanding; },
++    tryAcquire(): PilotWorkLease | null {
++      if (outstanding >= maxOutstanding) return null;
++      outstanding++;
++      let pending = 0;
++      let finished = false;
++      let released = false;
++      let resolveSettled!: () => void;
++      const settled = new Promise<void>(resolve => { resolveSettled = resolve; });
++      const releaseIfDrained = () => {
++        if (finished && pending === 0 && !released) {
++          released = true;
++          outstanding--;
++          resolveSettled();
++        }
++      };
++      return {
++        get pending() { return pending; },
++        settled,
++        track<T>(promise: Promise<T>): Promise<T> {
++          if (finished) throw new Error("Pilot lease is closed to new work");
++          pending++;
++          const onSettle = () => { pending--; releaseIfDrained(); };
++          promise.then(onSettle, onSettle);
++          return promise;
++        },
++        finish() { finished = true; releaseIfDrained(); },
++      };
++    },
++  };
++}
++export class PilotLifecycleError extends Error {
++  constructor(public readonly code: "deadline" | "disconnected" | "capacity" | "invalid-renderer" | "invalid-result") {
++    super(`Rendering pilot stopped: ${code}`);
++    this.name = "PilotLifecycleError";
++  }
++}
++export async function runPilotWithDeadline<T>(
++  lease: PilotWorkLease,
++  work: (signal: AbortSignal, track: <V>(promise: Promise<V>) => Promise<V>) => Promise<T>,
++  options: { signal?: AbortSignal; timeoutMs?: number } = {},
++): Promise<T> {
++  const timeoutMs = options.timeoutMs ?? 5000;
++  if (!Number.isFinite(timeoutMs) || timeoutMs <= 0 || timeoutMs > 5000) { lease.finish(); throw new Error("Invalid rendering pilot deadline"); }
++  const deadline = Date.now() + timeoutMs;
++  const controller = new AbortController();
++  let timer: ReturnType<typeof setTimeout> | undefined;
++  let onAbort: (() => void) | undefined;
++  let reason: PilotLifecycleError | undefined;
++  try {
++    if (options.signal?.aborted) throw new PilotLifecycleError("disconnected");
++    const interruption = new Promise<never>((_, reject) => {
++      const stop = (error: PilotLifecycleError) => { reason ??= error; controller.abort(); reject(reason); };
++      timer = setTimeout(() => stop(new PilotLifecycleError("deadline")), timeoutMs);
++      timer.unref?.();
++      onAbort = () => stop(new PilotLifecycleError("disconnected"));
++      options.signal?.addEventListener("abort", onAbort, { once: true });
++      if (options.signal?.aborted) onAbort();
++    });
++    const operation = lease.track(Promise.resolve().then(() => {
++      if (controller.signal.aborted) throw reason ?? new PilotLifecycleError("disconnected");
++      return work(controller.signal, promise => lease.track(promise));
++    }));
++    const result = await Promise.race([operation, interruption]);
++    if (controller.signal.aborted) throw reason ?? new PilotLifecycleError("disconnected");
++    // Timers cannot interrupt synchronous React CPU; reject a late return too.
++    if (Date.now() >= deadline) { controller.abort(); throw new PilotLifecycleError("deadline"); }
++    return result;
++  } catch (error) {
++    controller.abort();
++    throw error;
++  } finally {
++    if (timer) clearTimeout(timer);
++    if (onAbort) options.signal?.removeEventListener("abort", onAbort);
++    lease.finish();
++  }
++}
++
++type PilotRenderer = {
++  renderPilot(url: string, seeds: PilotSeed[], metadata: RouteMetadataRecord, signal?: AbortSignal): Promise<{ html: string; boot: RenderingPilotBoot }>;
++};
++function rendererModule(value: unknown): PilotRenderer {
++  if (!value || typeof value !== "object" || typeof (value as PilotRenderer).renderPilot !== "function") throw new PilotLifecycleError("invalid-renderer");
++  return value as PilotRenderer;
++}
++const pilotLeases = createPilotLeasePool();
++let productionRenderer: Promise<PilotRenderer> | undefined;
++function loadProductionPilotRenderer(): Promise<PilotRenderer> {
++  if (!productionRenderer) {
++    const rendererPath = path.resolve(__dirname_vite, "server-ssr", "entry-server.js");
++    const rendererUrl = pathToFileURL(rendererPath).href;
++    productionRenderer = import(rendererUrl).then(rendererModule).catch(error => { productionRenderer = undefined; throw error; });
++  }
++  return productionRenderer;
++}
++export function createPilotDisconnectSignal(req: Request, res: Response) {
++  const controller = new AbortController();
++  const onAborted = () => controller.abort();
++  const onClose = () => { if (!res.writableFinished) controller.abort(); };
++  req.once("aborted", onAborted);
++  res.once("close", onClose);
++  if (req.aborted || res.destroyed) controller.abort();
++  return { signal: controller.signal, detach() { req.off("aborted", onAborted); res.off("close", onClose); } };
++}
++async function preparePilotResponse(
++  url: string, template: string, content: HtmlContentContext | undefined, req: Request, res: Response,
++  load: () => Promise<PilotRenderer>, transform?: (template: string) => Promise<string>,
++): Promise<string> {
++  const lease = pilotLeases.tryAcquire();
++  if (!lease) throw new PilotLifecycleError("capacity");
++  const disconnect = createPilotDisconnectSignal(req, res);
++  try {
++    return await runPilotWithDeadline(lease, async (signal, track) => {
++      const deadline = Date.now() + 5000;
++      const check = () => {
++        if (signal.aborted) throw new PilotLifecycleError("disconnected");
++        if (Date.now() >= deadline) throw new PilotLifecycleError("deadline");
++      };
++      check();
++      const reads = createTrackedPilotReads(promise => { track(promise); }, undefined, signal);
++      const seeds = await prefetchPilot(url, content, signal, reads);
++      check();
++      const renderer = await load();
++      check();
++      const metadata = resolveServerRouteMetadata(url, content);
++      const result = await renderer.renderPilot(url, seeds, metadata, signal);
++      check();
++      if (!result || !validateRenderingPilotBoot(result.boot, getRenderingPilot(url)!.pathname)) throw new PilotLifecycleError("invalid-result");
++      let page = normaliseResponseTimeCopy(normaliseServiceUrls(await injectMetaTags(template, url, content, { suppressPilotBody: true })));
++      check();
++      if (transform) {
++        page = await transform(page);
++        check();
++        page = page.replace("</head>", () => '<link rel="stylesheet" href="/src/index.css?direct" data-rendering-pilot-dev-css></head>');
++      }
++      page = composeRouteMetadataHead(page, metadata);
++      check();
++      const finalPage = composePilotHtml(page, result);
++      check();
++      return finalPage;
++    }, { signal: disconnect.signal });
++  } finally { disconnect.detach(); }
++}
++
+ 
+ export async function setupVite(app: Express, server: Server) {
+   const serverOptions = {
+@@ -53,11 +212,28 @@ export async function setupVite(app: Express, server: Server) {
+         `src="/src/main.tsx"`,
+         `src="/src/main.tsx?v=${nanoid()}"`
+       );
+-      // Inject meta tags for SEO (service area pages)
++      if ((req.method === "GET" || req.method === "HEAD") && res.statusCode === 200 && getRenderingPilot(url)) {
++        try {
++          const finalPage = await preparePilotResponse(url, template, res.locals.htmlContent, req, res,
++            async () => rendererModule(await vite.ssrLoadModule("/src/ssr/entry-server.tsx")),
++            page => vite.transformIndexHtml(url, page));
++          if (req.aborted || res.destroyed) return;
++          res.set({ "Content-Type": "text/html", "Cache-Control": "no-cache, no-store, must-revalidate", "X-Rendering-Pilot": "rendered" }).end(finalPage);
++          return;
++        } catch (error) {
++          // Preserve availability in preview as in production, without exposing
++          // private errors/search or accepting legacy copied content as SSR.
++          const reason = error instanceof PilotLifecycleError || error instanceof PilotPrefetchError ? error.code : "renderer-or-composition-failure";
++          console.error("[Rendering pilot] legacy availability rollback", { reason, pilotId: getRenderingPilot(url)?.id });
++          if (req.aborted || res.destroyed || res.headersSent) return;
++          res.set({ "X-Rendering-Pilot": "rollback", "Cache-Control": "no-cache, no-store, must-revalidate" });
++        }
++      }
++      // Default legacy branch is unchanged for every other request.
+       template = normaliseResponseTimeCopy(normaliseServiceUrls(await injectMetaTags(template, url, res.locals.htmlContent)));
+       const page = await vite.transformIndexHtml(url, template);
+       const finalPage = composeRouteMetadataHead(page, resolveServerRouteMetadata(url, res.locals.htmlContent));
+-      res.status(200).set({ "Content-Type": "text/html" }).end(finalPage);
++      res.set({ "Content-Type": "text/html" }).end(finalPage);
+     } catch (e) {
+       vite.ssrFixStacktrace(e as Error);
+       next(e);
+@@ -148,10 +324,26 @@ export function serveStatic(app: Express) {
+   app.use("*", async (req, res) => {
+     const indexPath = path.resolve(distPath, "index.html");
+     let html = fs.readFileSync(indexPath, "utf-8");
+-    // Inject meta tags for SEO (service area pages)
++    const url = req.originalUrl;
++    if ((req.method === "GET" || req.method === "HEAD") && res.statusCode === 200 && getRenderingPilot(url)) {
++      try {
++        const finalPage = await preparePilotResponse(url, html, res.locals.htmlContent, req, res, loadProductionPilotRenderer);
++        if (req.aborted || res.destroyed) return;
++        res.set({ "Content-Type": "text/html", "Cache-Control": "no-cache, no-store, must-revalidate", "X-Rendering-Pilot": "rendered" }).send(finalPage);
++        return;
++      } catch (error) {
++        // Never log URL/search, DB values, credentials or arbitrary renderer errors.
++        const reason = error instanceof PilotLifecycleError || error instanceof PilotPrefetchError ? error.code : "renderer-or-composition-failure";
++        console.error("[Rendering pilot] legacy availability rollback", { reason, pilotId: getRenderingPilot(url)?.id });
++        if (req.aborted || res.destroyed || res.headersSent) return;
++        // Explicit availability rollback, not accepted SSR. Keep upstream status policy.
++        res.set({ "X-Rendering-Pilot": "rollback", "Cache-Control": "no-cache, no-store, must-revalidate" });
++      }
++    }
++    // Inject meta tags for SEO (service area pages); defaults retain copied legacy bodies.
+     html = normaliseResponseTimeCopy(normaliseServiceUrls(await injectMetaTags(html, req.originalUrl, res.locals.htmlContent)));
+     html = composeRouteMetadataHead(html, resolveServerRouteMetadata(req.originalUrl, res.locals.htmlContent));
+-    res.status(200).set({ "Content-Type": "text/html" }).send(html);
++    res.set({ "Content-Type": "text/html" }).send(html);
+   });
+ }
+ // Force redeploy: Tue Apr 21 06:18:54 EDT 2026
+diff --git a/server/metaTags.ts b/server/metaTags.ts
+index 7dd8790baba46ab6b1226bfb76e13bb0aef8a836..b35443ceddcf32a8033e04b24a70e79a21fdbb08 100644
+--- a/server/metaTags.ts
++++ b/server/metaTags.ts
+@@ -5982,8 +5982,11 @@ export function resolveServerRouteMetadata(url: string, content?: HtmlContentCon
+   return resolveRouteMetadata(url);
+ }
+ 
++export type InjectMetaTagsOptions = { suppressPilotBody?: boolean };
++const PILOT_BODY_PATHS = new Set(["/", "/services/structural-steel-frames", "/counties/hampshire", "/blog/factory-warehouse-cladding-restoration"]);
++
+ /** Preserve original URL for routing while all legacy metadata/body branches match pathname. */
+-export async function injectMetaTags(html: string, url: string, content?: HtmlContentContext): Promise<string> {
++export async function injectMetaTags(html: string, url: string, content?: HtmlContentContext, options: InjectMetaTagsOptions = {}): Promise<string> {
+   const detail = getContentDetail(url);
+   // Direct-call compatibility uses the same lookup once; production passes the gate's context.
+   if (detail && !content) {
+@@ -5993,11 +5996,13 @@ export async function injectMetaTags(html: string, url: string, content?: HtmlCo
+     content = decision.content;
+   }
+   if (detail && (content?.kind !== detail.kind || content.slug !== detail.slug)) return renderHtmlRouteError(404, url);
+-  const result = await injectMetaTagsForContent(html, url, content);
++  // Only a completed pilot pipeline requests suppression; raw exact paths cannot broaden via legacy normalization.
++  const suppressPilotBody = options.suppressPilotBody === true && PILOT_BODY_PATHS.has(url.split(/[?#]/, 1)[0]);
++  const result = await injectMetaTagsForContent(html, url, content, suppressPilotBody);
+   return composeRouteMetadataHead(result, resolveServerRouteMetadata(url, content));
+ }
+ 
+-async function injectMetaTagsForContent(html: string, url: string, content?: HtmlContentContext): Promise<string> {
++async function injectMetaTagsForContent(html: string, url: string, content?: HtmlContentContext, suppressPilotBody = false): Promise<string> {
+   const pathname = getHtmlPath(url);
+   const detail = getContentDetail(url);
+   // Request-scoped content from the HTML gate avoids duplicate reads and outage races.
+@@ -6044,6 +6049,7 @@ async function injectMetaTagsForContent(html: string, url: string, content?: Htm
+     ${generateHomepageSchemas()}
+   `;
+     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, homeMetaTags);
++    if (suppressPilotBody) return modifiedHtml;
+     const featuredHBFilmContent = `<section id="ssr-hb-tunnelling-project-film"><p>${HOMEPAGE_HB_FILM.eyebrow}</p><h2>${HOMEPAGE_HB_FILM.heading}</h2><p>${HOMEPAGE_HB_FILM.description}</p><figure><img src="${SITE_URL}${HOMEPAGE_HB_FILM.poster}" alt="${HOMEPAGE_HB_FILM.posterAlt}" width="1600" height="900" loading="lazy" /><figcaption>HB Tunnelling Doncaster full project film with music.</figcaption></figure>${HOMEPAGE_HB_FILM.facts.map(fact => `<h3>${fact.heading}</h3><p>${fact.description}</p>`).join('')}<p><a href="${SITE_URL}${HOMEPAGE_HB_FILM.caseStudyPath}">Read the HB Tunnelling case study</a></p></section>`;
+     const homepageBuyerContent = Object.entries(HOMEPAGE_CUSTOMER_COPY).map(([key, copy]) => {
+       const heading = "heading" in copy ? copy.heading : "Case Studies";
+@@ -6388,6 +6394,7 @@ async function injectMetaTagsForContent(html: string, url: string, content?: Htm
+     ${postFaqs.length > 0 ? `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': postFaqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) })}</script>` : ''}
+   `;
+     modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, blogPostMetaTags);
++    if (suppressPilotBody) return modifiedHtml;
+     modifiedHtml = modifiedHtml.replace('<!--SSR_CONTENT-->', `<div id="ssr-content" aria-hidden="false" style="position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;"><nav aria-label="Site Navigation"><a href="https://commercialshotblasting.co.uk/">Home</a> | <a href="https://commercialshotblasting.co.uk/services">Services</a> | <a href="https://commercialshotblasting.co.uk/service-areas">Service Areas</a> | <a href="https://commercialshotblasting.co.uk/about">About</a> | <a href="https://commercialshotblasting.co.uk/contact">Contact</a> | <a href="https://commercialshotblasting.co.uk/blog">Blog</a> | <a href="https://commercialshotblasting.co.uk/industries">Industries</a> | <a href="https://commercialshotblasting.co.uk/glossary">Glossary</a> | <a href="https://commercialshotblasting.co.uk/site-survey">Free Site Survey</a></nav><main><h1>Shot Blasting Blog Post</h1><p>Expert article on shot blasting and surface preparation from Commercial Shot Blasting — UK mobile shot blasting contractors.</p><p><a href="https://commercialshotblasting.co.uk/blog">Back to Blog</a> | <a href="https://commercialshotblasting.co.uk/contact">Get a Free Quote</a></p></main></div>`);
+     return modifiedHtml;
+   }
+@@ -6432,6 +6439,7 @@ async function injectMetaTagsForContent(html: string, url: string, content?: Htm
+     ${generateServiceSchemas(serviceId)}
+   `;
+       modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
++      if (suppressPilotBody) return modifiedHtml;
+       // Inject SSR body HTML for crawlers
+       const serviceBodyHtml = generateServiceBodyHTML(serviceId);
+       if (serviceBodyHtml) {
+@@ -7194,6 +7202,7 @@ async function injectMetaTagsForContent(html: string, url: string, content?: Htm
+   `;
+       modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/, metaTags);
+ 
++      if (suppressPilotBody) return modifiedHtml;
+       // Inject SSR body content for county pages so Googlebot can crawl location links
+       const countyLocations = Object.values(locationData)
+         .filter(loc => loc.countySlug === countySlug)
+diff --git a/server/renderingBuildContract.test.ts b/server/renderingBuildContract.test.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..c4ef7250d49c8c969e21352cba8311a09f913dd9
+--- /dev/null
++++ b/server/renderingBuildContract.test.ts
+@@ -0,0 +1,138 @@
++import { describe, expect, it } from "vitest";
++import { readFileSync, existsSync } from "node:fs";
++import { createHash } from "node:crypto";
++import { fileURLToPath } from "node:url";
++import path from "node:path";
++
++const root = fileURLToPath(new URL("../", import.meta.url));
++const source = (name: string) => readFileSync(path.join(root, name), "utf8");
++const baseline = "c797ed159e312d9ecd07177ea1cb254974861ca3";
++const allowed = new Set([
++  "client/index.html", "client/src/main.tsx", "client/src/App.tsx", "server/_core/vite.ts", "server/metaTags.ts", "vite.config.ts", "package.json", "todo.md",
++  "client/src/pages/Home.tsx", "client/src/pages/BlogPost.tsx", "client/src/components/CountyPage.tsx", "client/src/pages/ServiceDetail.tsx", "client/src/components/RouteMetadataOwner.tsx", "client/src/components/Breadcrumb.tsx", "client/src/components/LocalBusinessSchema.tsx", "client/src/components/BlogPreview.tsx",
++  "client/src/ssr/entry-server.tsx", "client/src/ssr/RenderProviders.tsx", "client/src/ssr/PilotRenderContext.tsx", "shared/renderingPilot.ts", "server/ssr/pilotPrefetch.ts", "server/ssr/composePilotHtml.ts", "client/src/ssr/preloadable.tsx", "vite.config.ssr.ts",
++  "server/renderingPilot.test.ts", "server/renderingHydration.test.ts", "server/renderingDataBoundary.test.ts", "server/renderingBuildContract.test.ts", "scripts/verify-ssr.sh",
++  // Sole extra path explicitly approved on 18 November at 08:25 UTC.
++  "client/src/components/LeadForm.tsx",
++]);
++const evidenceRoot = process.env.TASK08_EVIDENCE_ROOT ?? "/home/ubuntu/csb-task08-implementation-2026-11-17";
++const evidence = (name: string) => JSON.parse(readFileSync(path.join(evidenceRoot,name),"utf8"));
++const digest = (name: string) => createHash("sha256").update(readFileSync(path.join(root,name))).digest("hex");
++// This suite never invokes repository commands. Parent owns fresh complete
++// changed-path/legacy-test/lockfile/dependency verification; saved evidence is
++// tested explicitly as evidence, not mislabeled a live working-tree inventory.
++
++describe("Task08 additive production artifact commands", () => {
++  it("keeps launch, sitemap generation, client and Express outputs and cleanup, adding isolated SSR leg", () => {
++    const pkg = JSON.parse(source("package.json"));
++    const build: string = pkg.scripts.build;
++    expect(pkg.scripts.start).toBe("NODE_ENV=production node dist/index.js");
++    expect(build).toContain("scripts/generate-sitemap-snapshots.ts");
++    expect(build.split(" && ")[0]).toBe("tsx scripts/generate-sitemap-snapshots.ts");
++    expect(build).toMatch(/NODE_ENV=production\s+vite build(?:\s*&&|\s*$)/);
++    expect(build).toMatch(/NODE_ENV=production\s+vite build --config vite\.config\.ssr\.ts/);
++    expect(build).toMatch(/NODE_ENV=production\s+esbuild server\/_core\/index\.ts/);
++    for (const flag of ["--platform=node", "--packages=external", "--bundle", "--format=esm", "--outdir=dist"]) expect(build).toContain(flag);
++    expect(build).toContain("rm -rf dist/public/service-areas dist/public/services dist/public/counties dist/public/industries");
++    expect(build.indexOf("generate-sitemap-snapshots")).toBeLessThan(build.indexOf("vite build"));
++    expect(build.indexOf("--config vite.config.ssr.ts")).toBeLessThan(build.indexOf("esbuild"));
++    expect(build.indexOf("esbuild")).toBeLessThan(build.indexOf("rm -rf"));
++  });
++  it("separates Node renderer from existing browser root/public output and retains every alias/transform", () => {
++    const ssr = source("vite.config.ssr.ts");
++    for (const token of ["client", "src", "ssr", "entry-server.tsx", "server-ssr", "entry-server.js", "@shared", "@assets", "react()", "tailwindcss()", "envDir", "production"]) expect(ssr).toContain(token);
++    expect(ssr).toMatch(/publicDir\s*:\s*false/);
++    expect(ssr).toMatch(/emptyOutDir\s*:\s*true/);
++    expect(ssr).not.toMatch(/import\s.*from\s*["']\.\/vite\.config/);
++    expect(ssr).not.toContain("main.tsx");
++    const client = source("vite.config.ts");
++    for (const token of ["manualChunks", "public", "react()", "tailwindcss()", "@shared", "@assets", "vitePluginManusRuntime", "county"]) expect(client).toContain(token);
++    for (const config of [ssr,client]) expect(config).toMatch(/ssr:\s*\{\s*noExternal:\s*\["react-helmet-async"\]/);
++  });
++  it("loads dev renderer through Vite, preserves transform/debug/error flow and blocks dev CSS only on pilots", () => {
++    const server = source("server/_core/vite.ts");
++    for (const token of ["configFile: false", "transformIndexHtml", "/src/main.tsx", "/src/ssr/entry-server.tsx", "/src/index.css?direct", "ssrFixStacktrace", "createContentRouteGate", "index: false", "pathToFileURL", "server-ssr", "entry-server.js", "X-Rendering-Pilot", "rollback", "rendered", "no-cache, no-store, must-revalidate"]) expect(server).toContain(token);
++    expect(server).not.toMatch(/path\.resolve\([^;]*["']\.\.\/server-ssr/);
++    expect(server).not.toMatch(/\.redirect\(301,\s*["']\/["']\)/);
++    expect(server).not.toMatch(/import\s.*entry-server.*from/);
++  });
++  it("keeps bounded legacy availability rollback in both dev and production before the unchanged legacy owner", () => {
++    const server = source("server/_core/vite.ts");
++    const dev = server.slice(server.indexOf("export async function setupVite"), server.indexOf("export function serveStatic"));
++    const prod = server.slice(server.indexOf("export function serveStatic"));
++    for (const implementation of [dev, prod]) {
++      expect(implementation).toContain('catch (error)');
++      expect(implementation).toContain('[Rendering pilot] legacy availability rollback');
++      expect(implementation).toContain('"X-Rendering-Pilot": "rollback"');
++      expect(implementation.indexOf('"X-Rendering-Pilot": "rollback"')).toBeLessThan(implementation.lastIndexOf("await injectMetaTags"));
++      expect(implementation).not.toMatch(/status\(200\)/);
++    }
++    expect(dev).toContain("vite.ssrFixStacktrace(e as Error)");
++    expect(dev).toContain("next(e)");
++  });
++});
++
++describe("approved source seams / protected owners", () => {
++  it("checks parent's captured finite approved-path inventory (fresh repository audit remains parent-owned)", () => {
++    const audit = evidence("source-integrity.json");
++    expect(audit.baseline).toBe(baseline);
++    expect(audit.changed_paths.filter((file: string) => !allowed.has(file))).toEqual([]);
++    expect(new Set(evidence("approved-paths.json"))).toEqual(allowed);
++    expect(audit.approved_maximum).toBe(30);
++    expect(allowed.size).toBe(30);
++  });
++  it("preserves every captured read-only auth/data/tracking/worker/CSS/media baseline byte for byte", () => {
++    const captured = evidence("baseline.json");
++    expect(captured.head).toBe(baseline);
++    const protectedFiles = Object.entries(captured.files_sha256).filter(([file]) => !allowed.has(file));
++    // The newly approved LeadForm initialisers leave all 20 other hashes protected.
++    expect(protectedFiles.length).toBeGreaterThanOrEqual(20);
++    for (const [file,hash] of protectedFiles) expect(digest(file),file).toBe(hash);
++    // Captured baseline does not contain legacy-test/lockfile/dependency bytes.
++    // Do not manufacture a before snapshot from current files or report those
++    // separate parent verification gates as tested here.
++  });
++  it("retains Task04 index.html=404 and exact upstream article status owner", () => {
++    const gate = source("server/contentRouteExistence.ts");
++    expect(gate).toContain('"/index.html"'); expect(gate).toContain("status(404)");
++    expect(gate).toContain('"Retry-After", "60"'); expect(gate).toContain("status(503)");
++    expect(gate).toContain("res.locals.htmlContent");
++  });
++  it("keeps one maintained App/provider and one startup root with post-preparation path recheck", () => {
++    const main = source("client/src/main.tsx");
++    const entry = source("client/src/ssr/entry-server.tsx");
++    expect(main).toContain("RenderProviders"); expect(entry).toContain("RenderProviders");
++    expect(main).toContain("hydrateRoot"); expect(main).toContain("createRoot");
++    expect(main).toContain("validateRenderingPilotBoot"); expect(main).toContain("location.pathname");
++    expect(main).toMatch(/staleTime:\s*5\s*\*\s*60\s*\*\s*1000/);
++    expect(main).toMatch(/gcTime:\s*10\s*\*\s*60\s*\*\s*1000/);
++    expect(main).toContain('credentials: "include"'); expect(main).toContain("queryClient.getQueryCache().subscribe");
++    expect(main).toContain("queryClient.getMutationCache().subscribe"); expect(main).toContain("register('/sw.js'");
++    expect(entry).toContain("renderToString"); expect(entry).not.toContain("renderToPipeableStream");
++    expect(entry).toContain("finally"); expect(entry).toContain(".clear()");
++    for (const file of ["client/src/ssr/entry-server.tsx", "client/src/ssr/RenderProviders.tsx", "shared/renderingPilot.ts"]) {
++      expect(source(file), file).not.toMatch(/(?:from|import\()\s*["'][^"']*(?:server\/db|server\/routers|_core\/context|_core\/sdk|storage|notification)/);
++    }
++    expect(source("client/index.html")).toContain('<div id="root"><!--RENDERING_PILOT_ROOT--></div>');
++    expect(source("client/src/App.tsx")).toContain("RouteMetadataOwner");
++  });
++  it("requires real root-body needles in adapted harness, not old generic boot or copied pages", () => {
++    const harness = source("scripts/verify-ssr.sh");
++    for (const token of ["rendering-pilot-boot", "route-metadata-boot", "structural-steel-frames", "counties/hampshire", "factory-warehouse-cladding-restoration", "intumescent-painting", "/index.html", "/assets", "PARENT_SERVER_READY"]) expect(harness).toContain(token);
++    expect(harness).not.toContain("window.__RQ_STATE__");
++    expect(harness).not.toContain('check_301 "/index.html"');
++  });
++});
++
++// Parent confirmed controlled production build. These active assertions inspect
++// emitted artifacts only; this suite never starts a build/application process.
++describe("controlled emitted production artifacts", () => {
++  it("has client, Express and Node renderer, without copied page outputs/SSR browser references", () => {
++    for (const file of ["dist/public/index.html", "dist/index.js", "dist/server-ssr/entry-server.js"]) expect(existsSync(path.join(root, file)), file).toBe(true);
++    for (const dir of ["service-areas", "services", "counties", "industries"]) expect(existsSync(path.join(root, "dist/public", dir))).toBe(false);
++    expect(source("dist/public/index.html")).not.toMatch(/server-ssr|entry-server\.js/);
++    // Browser effects remain in the maintained App graph but never run on SSR.
++    // Reject a development JSX runtime or client bootstrap, not effect closures.
++    expect(source("dist/server-ssr/entry-server.js")).not.toMatch(/jsxDEV|\b(?:hydrateRoot|createRoot)\s*\(/);
++  });
++});
+diff --git a/server/renderingDataBoundary.test.ts b/server/renderingDataBoundary.test.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..feba6fee68841577327a216102fdd5d844a12f22
+--- /dev/null
++++ b/server/renderingDataBoundary.test.ts
+@@ -0,0 +1,273 @@
++import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
++import { EventEmitter } from "node:events";
++import type { BlogPost } from "../drizzle/schema";
++import type { HtmlContentContext } from "./contentRouteExistence";
++
++// Mock the entire DB import: an omitted/accidental read throws, never opens MySQL.
++const denied = vi.hoisted(() => ({ read: vi.fn(() => { throw new Error("TEST DENIED real database/auth/CRM/storage"); }) }));
++vi.mock("./db", () => new Proxy({
++  getActiveGalleryItems: denied.read, getActiveTestimonials: denied.read,
++  getPublishedBlogPosts: denied.read, getRelatedBlogPosts: denied.read,
++  getPublishedBlogPostForHtml: denied.read, getBlogPostBySlug: denied.read,
++}, { get(target, property) { if (property === "then") return undefined; return Reflect.get(target, property) ?? denied.read; } }));
++vi.mock("./routers", () => { throw new Error("TEST DENIED general router"); });
++vi.mock("./_core/context", () => { throw new Error("TEST DENIED authenticated context"); });
++vi.mock("./storage", () => { throw new Error("TEST DENIED storage"); });
++vi.mock("../vite.config", () => ({ default: {} }));
++vi.mock("./metaTags", () => ({ injectMetaTags: denied.read, composeRouteMetadataHead: denied.read, resolveServerRouteMetadata: denied.read }));
++import { prefetchPilot, createTrackedPilotReads, type PilotPublicReads } from "./ssr/pilotPrefetch";
++import { createContentRouteGate } from "./contentRouteExistence";
++
++const slug = "factory-warehouse-cladding-restoration";
++const articleUrl = "/blog/" + slug;
++const date = new Date("2026-01-01T23:30:00Z");
++const gallery = { id: 1, title: "Public steel fixture", category: "structural", description: "Public gallery copy", beforeImage: "/before.webp", afterImage: "/after.webp", isActive: true, sortOrder: 0, createdAt: date, updatedAt: date };
++const testimonial = { id: 2, name: "Public reviewer", company: "HB Tunnelling Limited", rating: 5, text: "Public testimonial", project: "Public project", images: '["/review.webp"]', isNew: false, isActive: true, sortOrder: 0, createdAt: date, updatedAt: date };
++const post: BlogPost = { id: 3, slug, title: "Factory & Warehouse Cladding Restoration", excerpt: "Public article fixture", content: "<p>Public maintained article fixture body.</p>", featuredImage: "/article.webp", author: "Commercial Shot Blasting", category: "Request record category", tags: '["steel"]', faq: null, metaDescription: "Public description", isPublished: true, publishedAt: date, createdAt: date, updatedAt: date };
++const key = (procedure: string, input?: object) => [procedure.split("."), { ...(input === undefined ? {} : { input }), type: "query" }];
++const galleryFields = Object.keys(gallery).sort();
++const testimonialFields = Object.keys(testimonial).sort();
++const blogFields = Object.keys(post).sort();
++
++// These adapter names mirror the existing narrow DB getters; align only to the
++// implementation's real exported interface, never substitute a router caller.
++function reads(overrides: Partial<PilotPublicReads> = {}): PilotPublicReads {
++  return {
++    getActiveGalleryItems: vi.fn().mockResolvedValue([gallery]),
++    getActiveTestimonials: vi.fn().mockResolvedValue([testimonial]),
++    getPublishedBlogPosts: vi.fn().mockResolvedValue([post]),
++    getRelatedBlogPosts: vi.fn().mockResolvedValue([{ ...post, id: 4, slug: "related-public-post" }]),
++    ...overrides,
++  } as PilotPublicReads;
++}
++function content(value: BlogPost = post): HtmlContentContext { return { kind: "blog", slug, post: value }; }
++function data(seeds: { queryKey: unknown[]; data: unknown }[], procedure: string) {
++  return seeds.find(seed => JSON.stringify(seed.queryKey[0]) === JSON.stringify(procedure.split(".")))!.data as any;
++}
++beforeEach(() => {
++  vi.clearAllMocks(); vi.useFakeTimers(); vi.setSystemTime(date);
++  vi.stubGlobal("fetch", vi.fn(() => { throw new Error("TEST DENIED HTTP/Google/CRM/storage/contact"); }));
++});
++afterEach(() => { expect(denied.read).not.toHaveBeenCalled(); vi.useRealTimers(); vi.unstubAllGlobals(); vi.restoreAllMocks(); });
++
++describe("public reads, exact successful tRPC keys and explicit projection", () => {
++  it("seeds all three homepage undefined-input keys, retaining ordered raw public rows/Dates", async () => {
++    const r = reads({ getActiveGalleryItems: vi.fn().mockResolvedValue([gallery, { ...gallery, id: 99, title: "Second public item", sortOrder: 99 }]) } as any);
++    const seeds = await prefetchPilot("/?utm_campaign=PRIVATE_QUERY&gclid=PRIVATE_CLICK?dup=2", undefined, undefined, r);
++    expect(seeds.map(seed => seed.queryKey)).toEqual([key("gallery.list"), key("testimonials.list"), key("blog.list")]);
++    expect(data(seeds, "gallery.list").map((row: any) => row.id)).toEqual([1, 99]);
++    expect(data(seeds, "gallery.list")[0].createdAt).toEqual(date);
++    expect(data(seeds, "blog.list")[0].publishedAt).toEqual(date);
++    expect(data(seeds, "blog.list")[0].tags).toBe(post.tags);
++    expect(data(seeds, "testimonials.list")[0].images).toEqual(["/review.webp"]);
++    expect(JSON.stringify(seeds)).not.toMatch(/PRIVATE_QUERY|PRIVATE_CLICK/);
++    expect((r as any).getRelatedBlogPosts).not.toHaveBeenCalled();
++  });
++  it("projects exact fixed public fields, stripping private and future DB fields", async () => {
++    const additions = { email: "PRIVATE_EMAIL", phone: "PRIVATE_PHONE", token: "PRIVATE_TOKEN", internalNotes: "PRIVATE_INTERNAL", futureColumn: "PRIVATE_FUTURE" };
++    const r = reads({ getActiveGalleryItems: vi.fn().mockResolvedValue([{ ...gallery, ...additions }]), getActiveTestimonials: vi.fn().mockResolvedValue([{ ...testimonial, ...additions }]), getPublishedBlogPosts: vi.fn().mockResolvedValue([{ ...post, ...additions }]) } as any);
++    const seeds = await prefetchPilot("/", undefined, undefined, r);
++    expect(Object.keys(data(seeds, "gallery.list")[0]).sort()).toEqual(galleryFields);
++    expect(Object.keys(data(seeds, "testimonials.list")[0]).sort()).toEqual(testimonialFields);
++    expect(Object.keys(data(seeds, "blog.list")[0]).sort()).toEqual(blogFields);
++    expect(JSON.stringify(seeds)).not.toContain("PRIVATE_");
++  });
++  it("preserves a genuine unrated testimonial rating 0 without fabricating review stars", async () => {
++    const r = reads({ getActiveTestimonials: vi.fn().mockResolvedValue([{ ...testimonial, rating: 0 }]) });
++    const seeds = await prefetchPilot("/", undefined, undefined, r);
++    expect(data(seeds, "testimonials.list")[0].rating).toBe(0);
++    expect(data(seeds, "testimonials.list")[0].text).toBe(testimonial.text);
++  });
++  it.each([-1, 6, 1.5, NaN])("rejects successful testimonial invalid rating %j rather than inventing []", async rating => {
++    await expect(prefetchPilot("/", undefined, undefined, reads({ getActiveTestimonials: vi.fn().mockResolvedValue([{ ...testimonial, rating }]) }))).rejects.toThrow();
++  });
++  it("structural has exactly two keys, Hampshire has none, guards have no reads", async () => {
++    const r = reads();
++    expect((await prefetchPilot("/services/structural-steel-frames?", undefined, undefined, r)).map(seed => seed.queryKey)).toEqual([key("gallery.list"), key("testimonials.list")]);
++    vi.clearAllMocks();
++    expect(await prefetchPilot("/counties/hampshire", undefined, undefined, r)).toEqual([]);
++    for (const path of ["/services/intumescent-painting", "/admin", "/counties/hampshire/", "/index.html"]) await expect(prefetchPilot(path, undefined, undefined, r)).rejects.toThrow();
++    for (const read of Object.values(r)) if (typeof read === "function") expect(read).not.toHaveBeenCalled();
++  });
++  it.each([post.category, null])("article uses ONLY gate record and explicit request category %j", async category => {
++    const r = reads();
++    const seeds = await prefetchPilot(articleUrl + "?category=WRONG_URL_CATEGORY", content({ ...post, category }), undefined, r);
++    expect(seeds.map(seed => seed.queryKey)).toEqual([key("blog.getBySlug", { slug }), key("blog.getRelated", { slug, category })]);
++    expect(data(seeds, "blog.getBySlug")).toEqual({ ...post, category });
++    expect((r as any).getRelatedBlogPosts).toHaveBeenCalledWith(slug, category);
++    for (const method of ["getActiveGalleryItems", "getActiveTestimonials", "getPublishedBlogPosts"]) expect((r as any)[method]).not.toHaveBeenCalled();
++  });
++  it("does not mutate a shared source record or retain request data between concurrent requests", async () => {
++    const rA = reads({ getActiveGalleryItems: vi.fn().mockResolvedValue([{ ...gallery, title: "REQUEST_A" }]) } as any);
++    const rB = reads({ getActiveGalleryItems: vi.fn().mockResolvedValue([{ ...gallery, title: "REQUEST_B" }]) } as any);
++    const [a, b] = await Promise.all([prefetchPilot("/", undefined, undefined, rA), prefetchPilot("/", undefined, undefined, rB)]);
++    expect(data(a, "gallery.list")[0].title).toBe("REQUEST_A");
++    expect(data(b, "gallery.list")[0].title).toBe("REQUEST_B");
++    data(a, "gallery.list")[0].title = "MUTATED_A";
++    expect(data(b, "gallery.list")[0].title).toBe("REQUEST_B");
++    expect(gallery.title).toBe("Public steel fixture");
++  });
++});
++
++describe("optional existing empty fallback is not a timeout/primary-data success", () => {
++  it("seeds successful empty arrays for optional failures and whole-list malformed testimonial JSON", async () => {
++    const r = reads({ getActiveGalleryItems: vi.fn().mockRejectedValue(new Error("PRIVATE_DB_ERROR")), getActiveTestimonials: vi.fn().mockResolvedValue([testimonial, { ...testimonial, id: 5, images: "not-json" }]), getPublishedBlogPosts: vi.fn().mockRejectedValue(new Error("PRIVATE_DB_ERROR")) } as any);
++    const seeds = await prefetchPilot("/", undefined, undefined, r);
++    expect(seeds.map(seed => seed.data)).toEqual([[], [], []]);
++    expect(JSON.stringify(seeds)).not.toContain("PRIVATE_DB_ERROR");
++  });
++  it("retains optional article-related empty fallback but rejects successful invalid or draft rows", async () => {
++    const fallback = await prefetchPilot(articleUrl, content(), undefined, reads({ getRelatedBlogPosts: vi.fn().mockRejectedValue(new Error("PRIVATE_RELATED_ERROR")) }));
++    expect(data(fallback, "blog.getBySlug")).toEqual(post);
++    expect(data(fallback, "blog.getRelated")).toEqual([]);
++    for (const invalid of [{ ...post, isPublished: false }, { ...post, slug }, { ...post, slug: "related-public-post", tags: "bad-json" }]) {
++      await expect(prefetchPilot(articleUrl, content(), undefined, reads({ getRelatedBlogPosts: vi.fn().mockResolvedValue([invalid]) }))).rejects.toThrow();
++    }
++  });
++  it("does not turn successful malformed public projections into fabricated optional empty lists", async () => {
++    for (const invalid of [{ ...gallery, createdAt: "2026-01-01" }, { ...gallery, isActive: false }, { ...gallery, id: "1" }]) {
++      await expect(prefetchPilot("/", undefined, undefined, reads({ getActiveGalleryItems: vi.fn().mockResolvedValue([invalid]) }))).rejects.toThrow();
++    }
++    await expect(prefetchPilot("/", undefined, undefined, reads({ getPublishedBlogPosts: vi.fn().mockResolvedValue([{ ...post, isPublished: false }]) }))).rejects.toThrow();
++  });
++  it("never fabricates a successful seed after the 1500 ms waiting deadline", async () => {
++    let settle!: (value: any[]) => void;
++    const pending = new Promise<any[]>(resolve => { settle = resolve; });
++    const result = prefetchPilot("/", undefined, undefined, reads({ getActiveGalleryItems: vi.fn().mockReturnValue(pending) } as any));
++    const assertion = expect(result).rejects.toThrow();
++    await vi.advanceTimersByTimeAsync(1501);
++    await assertion;
++    settle([gallery]); await Promise.resolve();
++  });
++  it.each([
++    undefined, { kind: "glossary", slug }, { kind: "blog", slug: "wrong", post },
++    { kind: "blog", slug, post: { ...post, slug: "wrong" } },
++    { kind: "blog", slug, post: { ...post, isPublished: false } },
++    { kind: "blog", slug, post: { ...post, content: "" } },
++    { kind: "blog", slug, post: { ...post, publishedAt: new Date("invalid") } },
++    { kind: "blog", slug, post: { ...post, tags: "bad-json" } },
++    { kind: "blog", slug, post: { ...post, tags: '{"not":"an-array"}' } },
++    { kind: "blog", slug, post: { ...post, content: '<script>alert("denied")</script>' } },
++    { kind: "blog", slug, post: { ...post, content: '<img src="x" onerror="alert(1)">' } },
++  ])("stops article without exact valid safe primary gate context %j", async input => {
++    const r = reads();
++    await expect(prefetchPilot(articleUrl, input as HtmlContentContext, undefined, r)).rejects.toThrow();
++    expect((r as any).getRelatedBlogPosts).not.toHaveBeenCalled();
++  });
++  it("already-aborted or midread aborted requests reject rather than seed later results", async () => {
++    const controller = new AbortController(); controller.abort();
++    const r = reads();
++    await expect(prefetchPilot("/", undefined, controller.signal, r)).rejects.toThrow();
++    for (const read of Object.values(r)) if (typeof read === "function") expect(read).not.toHaveBeenCalled();
++    let settle!: (value: any[]) => void;
++    const pending = new Promise<any[]>(resolve => { settle = resolve; });
++    const mid = new AbortController();
++    const result = prefetchPilot("/", undefined, mid.signal, reads({ getActiveGalleryItems: vi.fn().mockReturnValue(pending) } as any));
++    const assertion = expect(result).rejects.toThrow();
++    mid.abort(); await assertion; settle([gallery]); await Promise.resolve();
++  });
++});
++
++describe("unchanged authoritative Task04 missing/draft/outage status before render", () => {
++  it.each([
++    ["missing", { state: "missing" }, 404],
++    ["draft", { state: "found", post: { ...post, isPublished: false } }, 404],
++    ["unavailable", { state: "unavailable" }, 503],
++  ] as const)("keeps %s status and does not continue to SSR", async (_name, lookupResult, status) => {
++    const lookup = vi.fn().mockResolvedValue(lookupResult);
++    const gate = createContentRouteGate({ lookupPost: lookup } as any);
++    const req = { method: "GET", originalUrl: articleUrl } as any;
++    const headers: Record<string, unknown> = {};
++    const res: any = { locals: {}, set: vi.fn((arg: any, value?: any) => { if (typeof arg === "object") Object.assign(headers, arg); else headers[arg] = value; return res; }), status: vi.fn(() => res), type: vi.fn(() => res), send: vi.fn(() => res) };
++    const next = vi.fn();
++    await gate(req, res, next);
++    expect(res.status).toHaveBeenCalledWith(status);
++    expect(next).not.toHaveBeenCalled(); expect(lookup).toHaveBeenCalledTimes(1);
++    expect(headers["Cache-Control"]).toBe("no-store");
++    if (status === 503) expect(headers["Retry-After"]).toBe("60");
++    else expect(res.send.mock.calls[0][0]).toContain("noindex");
++  });
++});
++
++function deferred<T>() {
++  let resolve!: (value: T) => void;
++  let reject!: (reason: unknown) => void;
++  const promise = new Promise<T>((yes, no) => { resolve = yes; reject = no; });
++  return { promise, resolve, reject };
++}
++
++// Real exported orchestration helpers in the approved vite.ts seam, not test
++// implementations. Source-ready parent confirmation makes all active by default.
++describe("pilot leases, outstanding work, deadlines and request disconnect", () => {
++  it("uses real aborted/close listeners, distinguishes normal finish, and detaches idempotently", async () => {
++    const { createPilotDisconnectSignal } = await import("./_core/vite");
++    const req = Object.assign(new EventEmitter(), { aborted: false });
++    const res = Object.assign(new EventEmitter(), { writableFinished: true, destroyed: false });
++    const normal = createPilotDisconnectSignal(req as any,res as any);
++    expect(req.listenerCount("aborted")).toBe(1); expect(res.listenerCount("close")).toBe(1);
++    res.emit("close"); expect(normal.signal.aborted).toBe(false);
++    normal.detach(); normal.detach(); expect(req.listenerCount("aborted")).toBe(0); expect(res.listenerCount("close")).toBe(0);
++    res.writableFinished = false;
++    const closed = createPilotDisconnectSignal(req as any,res as any); res.emit("close"); expect(closed.signal.aborted).toBe(true); closed.detach();
++    const aborted = createPilotDisconnectSignal(req as any,res as any); req.emit("aborted"); expect(aborted.signal.aborted).toBe(true); aborted.detach();
++    req.aborted = true;
++    const early = createPilotDisconnectSignal(req as any,res as any); expect(early.signal.aborted).toBe(true); early.detach();
++    expect(req.listenerCount("aborted")).toBe(0); expect(res.listenerCount("close")).toBe(0);
++  });
++  it("limits concurrent leases to two immediately with no queue; finish is idempotent", async () => {
++    const { createPilotLeasePool } = await import("./_core/vite");
++    const pool = createPilotLeasePool();
++    const a = pool.tryAcquire()!; const b = pool.tryAcquire()!;
++    expect(pool.outstanding).toBe(2); expect(pool.tryAcquire()).toBeNull();
++    a.finish(); a.finish(); await a.settled; expect(pool.outstanding).toBe(1);
++    const c = pool.tryAcquire()!; expect(c).not.toBe(a); expect(pool.outstanding).toBe(2);
++    b.finish(); c.finish(); await Promise.all([b.settled,c.settled]); expect(pool.outstanding).toBe(0);
++    expect(() => createPilotLeasePool(3)).toThrow();
++  });
++  it("holds leases after optional 1500ms timeout until actual noncancelable reads settle", async () => {
++    const { createPilotLeasePool, runPilotWithDeadline } = await import("./_core/vite");
++    const pool=createPilotLeasePool(); const pendingA=deferred<any[]>(); const pendingB=deferred<any[]>();
++    const a=pool.tryAcquire()!; const b=pool.tryAcquire()!;
++    const operation = (lease: typeof a,pending: ReturnType<typeof deferred<any[]>>) => runPilotWithDeadline(lease,(signal,track)=>prefetchPilot("/",undefined,signal,createTrackedPilotReads(track,reads({getActiveGalleryItems:vi.fn().mockReturnValue(pending.promise)} as any),signal)));
++    const ra=operation(a,pendingA); const rb=operation(b,pendingB);
++    const aa=expect(ra).rejects.toThrow(); const ab=expect(rb).rejects.toThrow();
++    await vi.advanceTimersByTimeAsync(1501); await Promise.all([aa,ab]);
++    expect(pool.outstanding).toBe(2); expect(a.pending).toBeGreaterThan(0); expect(b.pending).toBeGreaterThan(0);
++    for(let i=0;i<20;i++) expect(pool.tryAcquire()).toBeNull();
++    expect(() => a.track(Promise.resolve([]))).toThrow();
++    pendingA.resolve([gallery]); await a.settled; expect(pool.outstanding).toBe(1);
++    pendingB.resolve([gallery]); await b.settled; expect(pool.outstanding).toBe(0);
++  });
++  it("enforces the 5s additional budget, aborts waiting, yet holds unresolved work", async () => {
++    const { createPilotLeasePool, runPilotWithDeadline } = await import("./_core/vite");
++    const pool=createPilotLeasePool(); const lease=pool.tryAcquire()!; const pending=deferred<string>();
++    let internal!: AbortSignal;
++    const result=runPilotWithDeadline(lease,async(signal,track)=>{internal=signal;return track(pending.promise);});
++    const assertion=expect(result).rejects.toThrow();
++    await vi.advanceTimersByTimeAsync(4999); expect(internal.aborted).toBe(false);
++    await vi.advanceTimersByTimeAsync(2); await assertion;
++    expect(internal.aborted).toBe(true); expect(pool.outstanding).toBe(1);
++    pending.resolve("late result must not become success"); await lease.settled; expect(pool.outstanding).toBe(0);
++    expect(vi.getTimerCount()).toBe(0);
++  });
++  it("disconnect aborts one request, preserves concurrent request and frees only drained work", async () => {
++    const { createPilotLeasePool, runPilotWithDeadline } = await import("./_core/vite");
++    const pool=createPilotLeasePool(); const a=pool.tryAcquire()!; const b=pool.tryAcquire()!;
++    const controller=new AbortController(); const add=vi.spyOn(controller.signal,"addEventListener"); const remove=vi.spyOn(controller.signal,"removeEventListener");
++    const pendingA=deferred<string>(); const pendingB=deferred<string>(); let aSignal!:AbortSignal; let bSignal!:AbortSignal;
++    const ra=runPilotWithDeadline(a,(signal,track)=>{aSignal=signal;return track(pendingA.promise);},{signal:controller.signal});
++    const rb=runPilotWithDeadline(b,(signal,track)=>{bSignal=signal;return track(pendingB.promise);});
++    const assertion=expect(ra).rejects.toThrow(); await vi.advanceTimersByTimeAsync(0); controller.abort(); await assertion;
++    expect(aSignal.aborted).toBe(true); expect(bSignal.aborted).toBe(false); expect(pool.outstanding).toBe(2);
++    expect(add).toHaveBeenCalled(); expect(remove).toHaveBeenCalled();
++    pendingB.resolve("REQUEST_B"); await expect(rb).resolves.toBe("REQUEST_B"); await b.settled; expect(pool.outstanding).toBe(1);
++    pendingA.reject(new Error("late private error")); await a.settled; expect(pool.outstanding).toBe(0); expect(vi.getTimerCount()).toBe(0);
++  });
++  it("already-aborted requests never start work; late synchronous return also fails deadline", async () => {
++    const { createPilotLeasePool, runPilotWithDeadline } = await import("./_core/vite");
++    const pool=createPilotLeasePool(); const controller=new AbortController(); controller.abort(); const work=vi.fn().mockResolvedValue("must not run");
++    await expect(runPilotWithDeadline(pool.tryAcquire()!,work,{signal:controller.signal})).rejects.toThrow(); expect(work).not.toHaveBeenCalled(); expect(pool.outstanding).toBe(0);
++    await expect(runPilotWithDeadline(pool.tryAcquire()!,async()=>{vi.setSystemTime(new Date(date.getTime()+5001));return "late synchronous render";})).rejects.toThrow();
++    expect(pool.outstanding).toBe(0); expect(vi.getTimerCount()).toBe(0);
++  });
++});
+diff --git a/server/renderingHydration.test.ts b/server/renderingHydration.test.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..bb2425889557371e024d8f0e88c4b3d591a33a3e
+--- /dev/null
++++ b/server/renderingHydration.test.ts
+@@ -0,0 +1,369 @@
++import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
++import type { ReactNode } from "react";
++import { readFileSync } from "node:fs";
++import { fileURLToPath } from "node:url";
++import path from "node:path";
++import { createServer, type ViteDevServer } from "vite";
++import react from "@vitejs/plugin-react";
++import { resolveRouteMetadata } from "../shared/routeMetadata";
++import { validateRenderingPilotBoot, type PilotSeed } from "../shared/renderingPilot";
++
++// Node-only contract/SSR coverage, NOT DOM hydration acceptance. No jsdom exists.
++// Mandatory first-hydration node-identity/console checks are parent-owned real
++// Chromium checks using browser/hydration_probe.py. Never mock App or pages.
++// Existing Vitest config uses classic JSX: do not add global React or modify it.
++// All runtime components, hooks, React and ReactDOM come from this one Vite graph.
++let vite: ViteDevServer;
++let createElement: typeof import("react").createElement;
++let Suspense: typeof import("react").Suspense;
++let renderToString: typeof import("react-dom/server").renderToString;
++let QueryClient: typeof import("@tanstack/react-query").QueryClient;
++let RenderProviders: typeof import("../client/src/ssr/RenderProviders").RenderProviders;
++let createServerTRPCClient: typeof import("../client/src/ssr/RenderProviders").createServerTRPCClient;
++let createServerQueryClient: typeof import("../client/src/ssr/RenderProviders").createServerQueryClient;
++let usePilotRenderContext: typeof import("../client/src/ssr/PilotRenderContext").usePilotRenderContext;
++let usePilotDateFormatter: typeof import("../client/src/ssr/PilotRenderContext").usePilotDateFormatter;
++let usePilotYear: typeof import("../client/src/ssr/PilotRenderContext").usePilotYear;
++let readPilotFormInitialValues: typeof import("../client/src/ssr/PilotRenderContext").readPilotFormInitialValues;
++let usePilotFormInitialValues: typeof import("../client/src/ssr/PilotRenderContext").usePilotFormInitialValues;
++let preloadable: typeof import("../client/src/ssr/preloadable").preloadable;
++let renderPilot: typeof import("../client/src/ssr/entry-server").renderPilot;
++beforeAll(async () => {
++  const root = fileURLToPath(new URL("../", import.meta.url));
++  vite = await createServer({
++    configFile: false, root: path.join(root,"client"), envDir: root,
++    cacheDir: "/home/ubuntu/csb-task08-implementation-2026-11-17/test-vite-cache",
++    appType: "custom", logLevel: "error", publicDir: false,
++    plugins: [{
++      name: "task08-deny-private-backend-imports", enforce: "pre",
++      resolveId(source, importer) {
++        if (source === "/@task08/graph.ts") return "\0task08-ssr-graph";
++        const resolved = source.startsWith(".") && importer ? path.resolve(path.dirname(importer),source) : source;
++        if (/\/server\/(?:db|routers|storage|_core\/(?:context|sdk))(?:\.[cm]?[jt]s)?$/.test(resolved)) {
++          throw new Error("TEST DENIED renderer private backend import: " + source);
++        }
++      },
++      load(id) {
++        if (id !== "\0task08-ssr-graph") return;
++        return `export {createElement,Suspense} from 'react';
++          export {renderToString} from 'react-dom/server';
++          export {QueryClient} from '@tanstack/react-query';
++          export {RenderProviders,createServerTRPCClient,createServerQueryClient} from '/src/ssr/RenderProviders.tsx';
++          export {usePilotRenderContext,usePilotDateFormatter,usePilotYear,readPilotFormInitialValues,usePilotFormInitialValues} from '/src/ssr/PilotRenderContext.tsx';
++          export {preloadable} from '/src/ssr/preloadable.tsx';
++          export {renderPilot} from '/src/ssr/entry-server.tsx';`;
++      },
++    }, react()],
++    resolve: { alias: { "@": path.join(root,"client/src"), "@shared": path.join(root,"shared"), "@assets": path.join(root,"attached_assets") } },
++    server: { middlewareMode: true, hmr: false, watch: null },
++    ssr: { noExternal: ["react-helmet-async"] },
++    optimizeDeps: { noDiscovery: true, include: [] },
++  });
++  ({createElement,Suspense,renderToString,QueryClient,RenderProviders,createServerTRPCClient,createServerQueryClient,
++    usePilotRenderContext,usePilotDateFormatter,usePilotYear,readPilotFormInitialValues,usePilotFormInitialValues,
++    preloadable,renderPilot} = await vite.ssrLoadModule("/@task08/graph.ts"));
++}, 60000);
++afterAll(async () => { await vite?.close(); });
++const queryKey = (name: string, input?: object): unknown[] => [name.split("."), { ...(input === undefined ? {} : { input }), type: "query" }];
++const slug = "factory-warehouse-cladding-restoration";
++const articlePath = "/blog/" + slug;
++const date = new Date("2026-01-01T23:30:00Z");
++const post = { id: 8, slug, title: "Factory & Warehouse Cladding Restoration", excerpt: "Offline public fixture excerpt", content: '<h2>Offline public article evidence</h2><p>Offline public fixture body.</p>', featuredImage: "/offline-article.webp", author: "Commercial Shot Blasting", category: "Restoration Projects", tags: '["steel"]', faq: null, metaDescription: "Public offline fixture description", isPublished: true, publishedAt: date, createdAt: date, updatedAt: date };
++const gallery = { id: 9, title: "Warehouse Cladding Restoration", category: "structural", description: "Offline public gallery evidence", beforeImage: "/offline-before.webp", afterImage: "/offline-after.webp", isActive: true, sortOrder: 0, createdAt: date, updatedAt: date };
++const testimonial = { id: 10, name: "Public Reviewer", company: "HB Tunnelling Limited", rating: 5, text: "Offline public review evidence", project: "Offline public project", images: [], isNew: false, isActive: true, sortOrder: 0, createdAt: date, updatedAt: date };
++const pilots = [
++  ["/services/structural-steel-frames", "What Happens If Steel Isn't Prepared to Sa 2.5?"],
++  ["/counties/hampshire", "Request A Site Visit"],
++  [articlePath, "UK Commercial Shot Blasting Contractor"],
++  ["/", "View Our Work"],
++] as const;
++function cloneDates(value: any): any {
++  if (value instanceof Date) return new Date(value.getTime());
++  if (Array.isArray(value)) return value.map(cloneDates);
++  if (value && typeof value === "object") return Object.fromEntries(Object.entries(value).map(([k,v]) => [k,cloneDates(v)]));
++  return value;
++}
++function seeds(path: string, requestLabel?: string): PilotSeed[] {
++  if (path === "/counties/hampshire") return [];
++  if (path === articlePath) return cloneDates([{ queryKey: queryKey("blog.getBySlug", { slug }), data: { ...post, content: post.content + (requestLabel ? '<p>' + requestLabel + '</p>' : '') } }, { queryKey: queryKey("blog.getRelated", { slug, category: post.category }), data: [] }]);
++  const value: PilotSeed[] = [{ queryKey: queryKey("gallery.list"), data: [{ ...gallery, description: requestLabel ?? gallery.description }] }, { queryKey: queryKey("testimonials.list"), data: [testimonial] }];
++  if (path === "/") value.push({ queryKey: queryKey("blog.list"), data: [post] });
++  return cloneDates(value);
++}
++function metadata(path: string) {
++  return resolveRouteMetadata(path, path === articlePath ? { state: "published", title: post.title, description: post.metaDescription, image: post.featuredImage, author: post.author, section: post.category, publishedAt: date, modifiedAt: date } : {});
++}
++let network: ReturnType<typeof vi.fn>;
++beforeEach(() => {
++  vi.useFakeTimers({ toFake: ["Date"] }); vi.setSystemTime(date);
++  network = vi.fn(() => { throw new Error("TEST DENIED live network/Google/contact/CRM/storage"); });
++  vi.stubGlobal("fetch", network);
++});
++afterEach(() => { expect(network).not.toHaveBeenCalled(); vi.useRealTimers(); vi.unstubAllGlobals(); vi.restoreAllMocks(); });
++
++function renderProbe(path: string, child: ReactNode, seedPath: string | null = path) {
++  const qc = createServerQueryClient();
++  try {
++    return renderToString(createElement(RenderProviders, { queryClient: qc, trpcClient: createServerTRPCClient(), ssrPath: path, pilot: seedPath ? { pathname: seedPath, renderValues: { year: 2042 } } : null, children: child }));
++  } finally { qc.clear(); }
++}
++
++const formFields = ["name", "phone", "email", "postcode", "message"] as const;
++type FormField = typeof formFields[number];
++type FormValues = Record<FormField, string>;
++const emptyFormValues: FormValues = { name: "", phone: "", email: "", postcode: "", message: "" };
++const syntheticFormValues: FormValues = {
++  name: " INERT_FORM_NAME_DO_NOT_SEND ",
++  phone: "INERT_FORM_PHONE_DO_NOT_SEND",
++  email: "INERT_FORM_EMAIL_DO_NOT_SEND@example.invalid",
++  postcode: "INERT_FORM_POSTCODE_DO_NOT_SEND",
++  message: "INERT_FORM_MESSAGE_DO_NOT_SEND\nSecond line — preserve raw text",
++};
++type FakeForm = { tagName: string; dispatchEvent: ReturnType<typeof vi.fn>; submit: ReturnType<typeof vi.fn> };
++type FakeControl = {
++  id: string; tagName: string; required: boolean; isConnected: boolean;
++  attributeType: string | null; value: string; form: FakeForm | null;
++  closest: ReturnType<typeof vi.fn>; getAttribute: ReturnType<typeof vi.fn>;
++  dispatchEvent: ReturnType<typeof vi.fn>;
++};
++// Deliberately minimal plain objects, not a DOM/browser or hydration simulation.
++// They test the exported reader's lookup/identity/read-only contract only.
++function fakeFormDocument(entries = [{ fieldId: ":fixture-A:", values: syntheticFormValues }]) {
++  const deniedEffect = () => { throw new Error("TEST DENIED form mutation/event dispatch"); };
++  const lookup = new Map<string, unknown>();
++  const insideRoot = new Set<unknown>();
++  const root = { contains: vi.fn((node: unknown) => insideRoot.has(node)), dispatchEvent: vi.fn(deniedEffect) };
++  lookup.set("root", root);
++  const forms: FakeForm[] = [];
++  const groups: Record<FormField, FakeControl>[] = [];
++  for (const { fieldId, values } of entries) {
++    const form: FakeForm = { tagName: "FORM", dispatchEvent: vi.fn(deniedEffect), submit: vi.fn(deniedEffect) };
++    forms.push(form); insideRoot.add(form);
++    const controls = {} as Record<FormField, FakeControl>;
++    for (const field of formFields) {
++      const control: FakeControl = {
++        id: `${fieldId}-${field}`, tagName: field === "message" ? "TEXTAREA" : "INPUT",
++        required: true, isConnected: true,
++        attributeType: field === "message" ? null : field === "phone" ? "tel" : field === "email" ? "email" : "text",
++        value: values[field], form,
++        closest: vi.fn((selector: string) => selector === "form" ? control.form : null),
++        getAttribute: vi.fn((name: string) => name === "type" ? control.attributeType : null),
++        dispatchEvent: vi.fn(deniedEffect),
++      };
++      controls[field] = control; lookup.set(control.id, control); insideRoot.add(control);
++    }
++    groups.push(controls);
++  }
++  const getElementById = vi.fn((id: string) => lookup.get(id) ?? null);
++  const documentObject = { getElementById, dispatchEvent: vi.fn(deniedEffect) };
++  return { doc: documentObject as unknown as Document, documentObject, getElementById, root, lookup, insideRoot, forms, groups };
++}
++
++describe("pure fake-document five-field snapshot contract (NOT DOM hydration proof)", () => {
++  it("reads all five exact native IDs, preserving whitespace, invalid raw text and multiline Unicode", () => {
++    const fixture = fakeFormDocument();
++    expect(readPilotFormInitialValues(":fixture-A:", true, fixture.doc)).toEqual(syntheticFormValues);
++    expect(fixture.getElementById.mock.calls.map(([id]) => id)).toEqual(["root", ...formFields.map(field => `:fixture-A:-${field}`)]);
++    for (const control of Object.values(fixture.groups[0])) expect(control.closest).toHaveBeenCalledWith("form");
++  });
++  it.each(formFields)("preserves %s independently while unopened fields remain empty", field => {
++    const values = { ...emptyFormValues, [field]: syntheticFormValues[field] };
++    expect(readPilotFormInitialValues(":fixture-A:", true, fakeFormDocument([{ fieldId: ":fixture-A:", values }]).doc)).toEqual(values);
++  });
++  it("keeps separate stable field IDs and forms independent under the same root", () => {
++    const second = Object.fromEntries(formFields.map(field => [field, `INERT_SECOND_FORM_${field}`])) as FormValues;
++    const fixture = fakeFormDocument([{ fieldId: ":fixture-A:", values: syntheticFormValues }, { fieldId: ":fixture-B:", values: second }]);
++    expect(readPilotFormInitialValues(":fixture-A:", true, fixture.doc)).toEqual(syntheticFormValues);
++    expect(readPilotFormInitialValues(":fixture-B:", true, fixture.doc)).toEqual(second);
++    expect(readPilotFormInitialValues(":fixture-unmatched:", true, fixture.doc)).toEqual(emptyFormValues);
++  });
++  it.each(formFields)("denies the entire snapshot when %s is missing", field => {
++    const fixture = fakeFormDocument(); fixture.lookup.delete(`:fixture-A:-${field}`);
++    expect(readPilotFormInitialValues(":fixture-A:", true, fixture.doc)).toEqual(emptyFormValues);
++  });
++  it.each(formFields)("denies the entire snapshot when %s has the wrong native tag", field => {
++    const fixture = fakeFormDocument(); fixture.groups[0][field].tagName = field === "message" ? "INPUT" : "TEXTAREA";
++    expect(readPilotFormInitialValues(":fixture-A:", true, fixture.doc)).toEqual(emptyFormValues);
++  });
++  it.each(["name", "phone", "email", "postcode"] as const)("denies %s with a wrong native input type", field => {
++    const fixture = fakeFormDocument(); fixture.groups[0][field].attributeType = "checkbox";
++    expect(readPilotFormInitialValues(":fixture-A:", true, fixture.doc)).toEqual(emptyFormValues);
++  });
++  it.each(formFields)("denies non-required %s", field => {
++    const fixture = fakeFormDocument(); fixture.groups[0][field].required = false;
++    expect(readPilotFormInitialValues(":fixture-A:", true, fixture.doc)).toEqual(emptyFormValues);
++  });
++  it.each(formFields)("denies disconnected %s", field => {
++    const fixture = fakeFormDocument(); fixture.groups[0][field].isConnected = false;
++    expect(readPilotFormInitialValues(":fixture-A:", true, fixture.doc)).toEqual(emptyFormValues);
++  });
++  it.each(formFields)("denies %s outside the selected root", field => {
++    const fixture = fakeFormDocument(); fixture.insideRoot.delete(fixture.groups[0][field]);
++    expect(readPilotFormInitialValues(":fixture-A:", true, fixture.doc)).toEqual(emptyFormValues);
++  });
++  it("denies a missing root before reading any controls", () => {
++    const fixture = fakeFormDocument(); fixture.lookup.delete("root");
++    expect(readPilotFormInitialValues(":fixture-A:", true, fixture.doc)).toEqual(emptyFormValues);
++    expect(fixture.getElementById).toHaveBeenCalledTimes(1); expect(fixture.getElementById).toHaveBeenCalledWith("root");
++  });
++  it("denies controls without a containing form", () => {
++    const fixture = fakeFormDocument(); fixture.groups[0].message.form = null;
++    expect(readPilotFormInitialValues(":fixture-A:", true, fixture.doc)).toEqual(emptyFormValues);
++  });
++  it("denies a containing form outside the root even when controls are inside", () => {
++    const fixture = fakeFormDocument(); fixture.insideRoot.delete(fixture.forms[0]);
++    expect(readPilotFormInitialValues(":fixture-A:", true, fixture.doc)).toEqual(emptyFormValues);
++  });
++  it("denies mixed-form fields instead of combining values across forms", () => {
++    const fixture = fakeFormDocument([{ fieldId: ":fixture-A:", values: syntheticFormValues }, { fieldId: ":fixture-B:", values: emptyFormValues }]);
++    fixture.groups[0].message.form = fixture.forms[1];
++    expect(readPilotFormInitialValues(":fixture-A:", true, fixture.doc)).toEqual(emptyFormValues);
++  });
++  it("returns blank when disabled/non-pilot without any document read", () => {
++    const fixture = fakeFormDocument();
++    expect(readPilotFormInitialValues(":fixture-A:", false, fixture.doc)).toEqual(emptyFormValues);
++    expect(fixture.getElementById).not.toHaveBeenCalled(); expect(fixture.root.contains).not.toHaveBeenCalled();
++    for (const control of Object.values(fixture.groups[0])) {
++      expect(control.closest).not.toHaveBeenCalled(); expect(control.getAttribute).not.toHaveBeenCalled();
++    }
++  });
++  it("returns blank without an explicit document on the server", () => {
++    expect(typeof window).toBe("undefined"); expect(typeof document).toBe("undefined");
++    expect(readPilotFormInitialValues(":fixture-A:", true)).toEqual(emptyFormValues);
++    expect(readPilotFormInitialValues(":fixture-A:", false)).toEqual(emptyFormValues);
++  });
++  it("reads frozen objects without mutation, storage, network, logs or event dispatch", () => {
++    const fixture = fakeFormDocument();
++    const deniedStorage = () => { throw new Error("TEST DENIED storage access"); };
++    const storage = { getItem: vi.fn(deniedStorage), setItem: vi.fn(deniedStorage), removeItem: vi.fn(deniedStorage), clear: vi.fn(deniedStorage) };
++    vi.stubGlobal("localStorage", storage); vi.stubGlobal("sessionStorage", storage);
++    const logs = ["log", "info", "warn", "error", "debug"].map(method => vi.spyOn(console, method as "log"));
++    for (const object of [fixture.documentObject, fixture.root, ...fixture.forms, ...Object.values(fixture.groups[0])]) Object.freeze(object);
++    const snapshot = readPilotFormInitialValues(":fixture-A:", true, fixture.doc);
++    expect(snapshot).toEqual(syntheticFormValues);
++    snapshot.name = "INERT_OUTPUT_ONLY";
++    expect(readPilotFormInitialValues(":fixture-A:", true, fixture.doc)).toEqual(syntheticFormValues);
++    for (const method of Object.values(storage)) expect(method).not.toHaveBeenCalled();
++    for (const log of logs) expect(log).not.toHaveBeenCalled();
++    for (const object of [fixture.documentObject, fixture.root, ...fixture.forms, ...Object.values(fixture.groups[0])]) expect(object.dispatchEvent).not.toHaveBeenCalled();
++    for (const form of fixture.forms) expect(form.submit).not.toHaveBeenCalled();
++    expect(network).not.toHaveBeenCalled();
++  });
++  it.each([
++    ["/", "/"], ["/services/intumescent-painting", "/"], ["/", null],
++  ] as const)("keeps hook values blank in Node for route %s / seed %s", (path, seedPath) => {
++    function Probe() { return createElement("span", null, JSON.stringify(usePilotFormInitialValues(":fixture-A:"))); }
++    const fixture = fakeFormDocument(); vi.stubGlobal("document", fixture.doc);
++    expect(typeof window).toBe("undefined");
++    expect(renderProbe(path, createElement(Probe), seedPath)).toContain(JSON.stringify(emptyFormValues).replace(/"/g, "&quot;"));
++    expect(fixture.getElementById).not.toHaveBeenCalled();
++  });
++});
++
++describe("Node provider ancestry, deterministic first render and deny-all transport (not DOM hydration)", () => {
++  it("creates isolated request QueryClients retaining five/ten-minute freshness", () => {
++    const a = createServerQueryClient(); const b = createServerQueryClient();
++    expect(a).not.toBe(b);
++    expect(a.getDefaultOptions().queries?.staleTime).toBe(5 * 60 * 1000);
++    expect(a.getDefaultOptions().queries?.gcTime).toBe(10 * 60 * 1000);
++    a.setQueryData(queryKey("gallery.list"), [gallery]);
++    expect(b.getQueryData(queryKey("gallery.list"))).toBeUndefined(); a.clear(); b.clear();
++  });
++  it("retains Helmet → tRPC → QueryClient → HydrationBoundary → Router → Pilot context ancestry", () => {
++    const qc = createServerQueryClient();
++    const element = RenderProviders({ queryClient: qc, trpcClient: createServerTRPCClient(), ssrPath: "/", ssrSearch: "raw?second", children: createElement("span", null, "provider unit probe") });
++    const names: string[] = []; let cursor: any = element;
++    while (cursor?.type) { names.push(typeof cursor.type === "string" ? cursor.type : cursor.type.displayName ?? cursor.type.name ?? "Provider"); cursor = cursor.props.children; }
++    expect(names[0]).toMatch(/Helmet/); expect(names[1]).toMatch(/Provider/); expect(names[2]).toBe("QueryClientProvider");
++    expect(names[3]).toBe("HydrationBoundary"); expect(names[4]).toBe("Router"); expect(names[5]).toBe("PilotRenderProvider");
++    const server = readFileSync(new URL("../client/src/ssr/entry-server.tsx", import.meta.url), "utf8");
++    const main = readFileSync(new URL("../client/src/main.tsx", import.meta.url), "utf8");
++    expect(server).toContain("RenderProviders"); expect(main).toContain("RenderProviders"); qc.clear();
++  });
++  it("denies unexpected public/private queries AND mutations without HTTP", async () => {
++    const onDenied = vi.fn(); const client = createServerTRPCClient(onDenied);
++    await expect((client as any).gallery.list.query()).rejects.toThrow(/denied/i);
++    await expect((client as any).auth.me.query()).rejects.toThrow(/denied/i);
++    await expect((client as any).contact.submit.mutate({ name: "INERT_DO_NOT_SEND" })).rejects.toThrow(/denied/i);
++    expect(onDenied).toHaveBeenCalledTimes(3);
++  });
++  it("uses request year and Europe/London first date only on the exact seeded pilot", () => {
++    function Probe() {
++      const context = usePilotRenderContext(); const format = usePilotDateFormatter(); const year = usePilotYear();
++      return createElement("span", null, JSON.stringify({ id: context.synchronousPilotId, adopts: context.adoptsServerSchema, deterministic: context.deterministicDates, year, date: format("2026-07-01T23:30:00Z", { day: "numeric", month: "long", year: "numeric" }) }));
++    }
++    const html = renderProbe("/",createElement(Probe));
++    expect(html).toContain("P0001"); expect(html).toContain("2042"); expect(html).toContain("2 July 2026");
++    const other = renderProbe("/services/intumescent-painting", createElement(Probe), "/");
++    expect(other).not.toContain("P0001"); expect(other).not.toContain("2042"); expect(other).toContain("2026");
++    expect(renderProbe("/",createElement(Probe),null)).not.toContain("P0001");
++  });
++});
++
++describe("Node preload readiness and request-local substitution (unit probes, not fake pages)", () => {
++  it("deduplicates code/promise but never activates an already-prepared wrapper on another pilot", async () => {
++    const Component = () => createElement("span", null, "wrapper unit probe");
++    const loader = vi.fn().mockResolvedValue({ default: Component });
++    const Wrapped = preloadable(loader, "P0001");
++    await Promise.all([Wrapped.preload(), Wrapped.preload()]); expect(loader).toHaveBeenCalledTimes(1);
++    expect(renderProbe("/",createElement(Wrapped))).toContain("wrapper unit probe");
++    const other = renderProbe("/services/structural-steel-frames",createElement(Suspense,{fallback:createElement("span",null,"legacy lazy boundary")},createElement(Wrapped)));
++    expect(other).toContain("legacy lazy boundary"); expect(other).not.toContain("wrapper unit probe");
++  });
++  it("throws on an unprepared selected pilot instead of inventing primary content", () => {
++    const loader = vi.fn().mockResolvedValue({ default: () => createElement("span",null,"not prepared") });
++    const Wrapped = preloadable(loader,"P0001");
++    expect(() => renderProbe("/",createElement(Wrapped))).toThrow(/not prepared/i); expect(loader).not.toHaveBeenCalled();
++  });
++  it("retries a failed code preparation and thereafter caches only the successful code", async () => {
++    const Component = () => createElement("span",null,"retry success");
++    const loader = vi.fn().mockRejectedValueOnce(new Error("fixture import failed")).mockResolvedValue({default:Component});
++    const Wrapped = preloadable(loader,"P0001");
++    await expect(Wrapped.preload()).rejects.toThrow("fixture import failed");
++    await Wrapped.preload(); await Wrapped.preload(); expect(loader).toHaveBeenCalledTimes(2);
++    expect(renderProbe("/",createElement(Wrapped))).toContain("retry success");
++  });
++});
++
++// Parent confirmed source coherence. Every real-App test is active by default,
++// using actual Vite transforms/deny transport, not HTTP/DOM/browser acceptance.
++describe("offline real-App four-page SSR acceptance", () => {
++  it.each(pilots)("renders maintained %s primary content + native form without fallback", async (path, needle) => {
++    const clear = vi.spyOn(QueryClient.prototype, "clear");
++    const result = await renderPilot(path + "?dup=one&dup=two&plus=a+b?tail=%ZZ&gclid=INERT_CLICK", seeds(path), metadata(path));
++    const escapedNeedle = needle.replace(/&/g,"&amp;").replace(/'/g,"&#x27;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
++    expect(result.html).toContain(escapedNeedle); expect(result.html).toMatch(/<h1\b/); expect(result.html).toMatch(/<form\b/);
++    expect(result.html).toMatch(/href="\/services"/); expect(result.html).not.toMatch(/<!--\$(?:!|\?)-->|data-msg=|data-dgst=/);
++    if (path === articlePath) { expect(result.html).toContain("Offline public fixture body."); expect(result.html).toMatch(/<article\b/); }
++    expect(validateRenderingPilotBoot(result.boot, path)).not.toBeNull(); expect(JSON.stringify(result.boot)).not.toContain("INERT_CLICK");
++    expect(clear).toHaveBeenCalled();
++  });
++  it.each(pilots)("keeps all five maintained %s text controls empty and private in server HTML/boot", async (path) => {
++    expect(typeof window).toBe("undefined"); expect(typeof document).toBe("undefined");
++    const result = await renderPilot(path, seeds(path), metadata(path));
++    const boot = JSON.stringify(result.boot);
++    for (const value of Object.values(syntheticFormValues)) {
++      expect(result.html).not.toContain(value); expect(boot).not.toContain(value);
++    }
++    expect(result.html + boot).not.toContain("INERT_FORM_");
++    for (const field of ["name", "phone", "email", "postcode"] as const) {
++      const inputs = result.html.match(new RegExp(`<input\\b[^>]*\\bid="[^"]+-${field}"[^>]*>`, "g")) ?? [];
++      expect(inputs.length).toBeGreaterThan(0);
++      for (const input of inputs) expect(input).toMatch(/\bvalue=""/);
++    }
++    const messages = result.html.match(/<textarea\b[^>]*\bid="[^"]+-message"[^>]*>[\s\S]*?<\/textarea>/g) ?? [];
++    expect(messages.length).toBeGreaterThan(0);
++    for (const textarea of messages) expect(textarea).toMatch(/><\/textarea>$/);
++    expect(validateRenderingPilotBoot(result.boot, path)).not.toBeNull();
++  });
++  it("isolates concurrent actual article renders and rejects aborted/invalid seed requests", async () => {
++    const [a,b] = await Promise.all([renderPilot(articlePath, seeds(articlePath,"REQUEST_A"), metadata(articlePath)),renderPilot(articlePath,seeds(articlePath,"REQUEST_B"),metadata(articlePath))]);
++    expect(a.html).toContain("REQUEST_A"); expect(a.html).not.toContain("REQUEST_B");
++    expect(b.html).toContain("REQUEST_B"); expect(b.html).not.toContain("REQUEST_A");
++    expect(JSON.stringify(a.boot)).not.toContain("REQUEST_B"); expect(JSON.stringify(b.boot)).not.toContain("REQUEST_A");
++    const aborted = new AbortController(); aborted.abort();
++    await expect(renderPilot(articlePath,seeds(articlePath),metadata(articlePath),aborted.signal)).rejects.toThrow();
++    await expect(renderPilot("/services/intumescent-painting",[],metadata("/services/intumescent-painting"))).rejects.toThrow();
++    await expect(renderPilot("/",[],metadata("/"))).rejects.toThrow();
++  });
++});
+diff --git a/server/renderingPilot.test.ts b/server/renderingPilot.test.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..eb6a4f5dc03521eb953c809d86d41ce994fd9eac
+--- /dev/null
++++ b/server/renderingPilot.test.ts
+@@ -0,0 +1,168 @@
++import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
++import { QueryClient, dehydrate } from "@tanstack/react-query";
++import superjson from "superjson";
++import {
++  getRenderingPilot, splitRenderingUrl, validateRenderingPilotBoot,
++  RENDERING_PILOT_RELEASE, type RenderingPilotBoot,
++} from "../shared/renderingPilot";
++import { composePilotHtml } from "./ssr/composePilotHtml";
++
++const paths = ["/services/structural-steel-frames", "/counties/hampshire", "/blog/factory-warehouse-cladding-restoration", "/"];
++const rawSearch = "adwords=ppc&utm_campaign=fixture&gclid=DENIED_CLICK_ID&ref=a%2Bb%2Fc%3Dd%20e&plus=a+b&dup=one&dup=two&empty=&bare?second=%ZZ";
++const date = new Date("2026-01-01T23:30:00Z");
++const gallery = { id: 1, title: "Public steel", category: "structural", description: "Public copy", beforeImage: "/before.webp", afterImage: "/after.webp", isActive: true, sortOrder: 0, createdAt: date, updatedAt: date };
++const template = '<!doctype html><html><head><title>Task07 owner</title></head><body><div id="root"><!--RENDERING_PILOT_ROOT--></div><script id="route-metadata-boot" type="application/json">{"owner":"Task07"}</script></body></html>';
++function payload(page: string) {
++  const matches = Array.from(page.matchAll(/<script id="rendering-pilot-boot" type="application\/json">([\s\S]*?)<\/script>/g));
++  expect(matches).toHaveLength(1);
++  return matches[0][1];
++}
++
++function boot(pathname = "/", data: unknown = [gallery], preserveDateAliases = false): RenderingPilotBoot {
++  const qc = new QueryClient();
++  const cloneDates = (value: any): any => value instanceof Date ? new Date(value.getTime()) : Array.isArray(value) ? value.map(cloneDates) : value && typeof value === "object" ? Object.fromEntries(Object.entries(value).map(([key, item]) => [key, cloneDates(item)])) : value;
++  if (pathname === "/" || pathname === paths[0]) {
++    qc.setQueryData([["gallery", "list"], { type: "query" }], preserveDateAliases ? data : cloneDates(data));
++    qc.setQueryData([["testimonials", "list"], { type: "query" }], []);
++    if (pathname === "/") qc.setQueryData([["blog", "list"], { type: "query" }], []);
++  }
++  const state = superjson.serialize(dehydrate(qc));
++  qc.clear();
++  return { schemaVersion: 1, release: RENDERING_PILOT_RELEASE, pathname, pilotId: getRenderingPilot(pathname)!.id, success: true, renderValues: { year: 2026 }, state };
++}
++function alterState(value: RenderingPilotBoot, edit: (state: any) => void) {
++  const state = superjson.deserialize<any>(value.state);
++  edit(state);
++  return { ...value, state: superjson.serialize(state) };
++}
++beforeEach(() => { vi.useFakeTimers(); vi.setSystemTime(date); vi.stubGlobal("fetch", vi.fn(() => { throw new Error("TEST DENIED live transport"); })); });
++afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals(); vi.restoreAllMocks(); });
++
++describe("Task08 exact four raw-path pilot / query contract", () => {
++  it("has the approved release and four distinct pilot identities", () => {
++    expect(RENDERING_PILOT_RELEASE).toBe("csb-task08-20261118-v3");
++    expect(new Set(paths.map(path => getRenderingPilot(path)!.id)).size).toBe(4);
++  });
++  it("rejects valid-shaped old v1/v2 state instead of hydrating it with the v3 tree", () => {
++    const current = boot();
++    expect(validateRenderingPilotBoot(current, "/")).not.toBeNull();
++    for (const release of ["csb-task08-20261118-v1", "csb-task08-20261118-v2"]) {
++      expect(validateRenderingPilotBoot({ ...current, release }, "/")).toBeNull();
++    }
++  });
++  it.each(paths)("selects only exact %s, independently of search/hash", path => {
++    for (const suffix of ["", "?", "?" + rawSearch, "?" + rawSearch + "#browser-fragment", "#browser-fragment?not-search"]) {
++      expect(getRenderingPilot(path + suffix)).toEqual(getRenderingPilot(path));
++      expect(getRenderingPilot(path + suffix)?.pathname).toBe(path);
++    }
++  });
++  it.each(["/services/intumescent-painting", "/services/structural-steel-frames/", "/services/Structural-steel-frames", "/services/%73tructural-steel-frames", "/services/structural-steel-frames/extra", "/counties/hampshire/", "/counties/Hampshire", "/counties/kent", "/blog/other-published-article", "/blog/factory-warehouse-cladding-restoration/", "/service-areas/derby", "/admin", "/contact", "/privacy-policy", "/index.html", "/404", "/assets", "//", "", "https://example.invalid/", "/%2f", "/?bad=1/extra#fragment"].filter(p => p !== "/?bad=1/extra#fragment"))(
++    "does not normalize/broaden %j", path => expect(getRenderingPilot(path + "?" + rawSearch)).toBeNull(),
++  );
++  it("splits at first ? and strips only the browser fragment", () => {
++    expect(splitRenderingUrl("/counties/hampshire?" + rawSearch + "#hash?tail")).toEqual({ pathname: "/counties/hampshire", search: rawSearch });
++    expect(splitRenderingUrl("/counties/hampshire?")).toEqual({ pathname: "/counties/hampshire", search: "" });
++    expect(splitRenderingUrl("/#fragment?not-query")).toEqual({ pathname: "/", search: "" });
++  });
++});
++
++describe("inert boot release / shape / public query whitelist", () => {
++  it("accepts public Date-preserving state and static Hampshire empty state", () => {
++    expect(validateRenderingPilotBoot(boot(), "/")).not.toBeNull();
++    const restored = superjson.deserialize<any>(boot().state);
++    expect(restored.queries.find((q: any) => q.queryKey[0][0] === "gallery").state.data[0].createdAt).toEqual(date);
++    expect(validateRenderingPilotBoot(boot("/counties/hampshire"), "/counties/hampshire")).not.toBeNull();
++  });
++  it("accepts only preserved aliases between annotated fixed public Date fields", () => {
++    const value = boot("/", [gallery], true);
++    const meta = value.state.meta as any;
++    expect(meta.referentialEqualities).toBeDefined();
++    expect(Object.keys(meta.referentialEqualities)).toContain("queries.0.state.data.0.createdAt");
++    expect(validateRenderingPilotBoot(value, "/")).not.toBeNull();
++    const restored = superjson.deserialize<any>(value.state);
++    const row = restored.queries[0].state.data[0];
++    expect(row.createdAt).toBeInstanceOf(Date);
++    expect(row.createdAt).toBe(row.updatedAt);
++    expect(row.createdAt).toEqual(date);
++  });
++  it.each(["queries.0.state.data.0.email", "queries.0.state.data.0.title", "queries.0.state.data.0.__proto__", "queries.0.queryKey", "mutations.0.state.data", "queries.0.state.data.0.publishedAt"])("rejects private/arbitrary or unannotated Date alias %s", alias => {
++    const value = boot("/", [gallery], true);
++    const serialized = JSON.parse(JSON.stringify(value.state));
++    serialized.meta.referentialEqualities = { "queries.0.state.data.0.createdAt": [alias] };
++    expect(validateRenderingPilotBoot({ ...value, state: serialized }, "/")).toBeNull();
++    serialized.meta.referentialEqualities = { [alias]: ["queries.0.state.data.0.createdAt"] };
++    expect(validateRenderingPilotBoot({ ...value, state: serialized }, "/")).toBeNull();
++  });
++  it.each(["Error", "regexp", "custom", "URL", "class"])("rejects non-Date Superjson annotation %s", annotation => {
++    const value = boot();
++    const state = JSON.parse(JSON.stringify(value.state));
++    state.meta.values["queries.0.state.data.0.createdAt"] = [annotation];
++    expect(validateRenderingPilotBoot({ ...value, state }, "/")).toBeNull();
++  });
++  it.each([null, {}, [], "boot", { schemaVersion: 1 }])("rejects malformed %j", value => expect(validateRenderingPilotBoot(value, "/")).toBeNull());
++  it.each([
++    { schemaVersion: 2 }, { release: "old-worker-cached-release" }, { success: false },
++    { pathname: "/services/intumescent-painting" }, { pilotId: "other" },
++    { renderValues: { year: NaN } }, { renderValues: { year: 2026, token: "private" } },
++    { state: { json: { queries: [], mutations: [{ data: "private" }] } } },
++    { rawUrl: "/?gclid=private" }, { search: "utm_campaign=private" }, { cookie: "session" },
++  ])("rejects an invalid/extended envelope %j", change => expect(validateRenderingPilotBoot({ ...boot(), ...change }, "/")).toBeNull());
++  it("rejects correct-release state cached for another route or nonpilot", () => {
++    expect(validateRenderingPilotBoot(boot(), paths[0])).toBeNull();
++    expect(validateRenderingPilotBoot(boot(), "/services/intumescent-painting")).toBeNull();
++  });
++  it.each(["auth", "admin", "contact", "upload", "crm", "storage"])("rejects unexpected %s cache keys", procedure => {
++    const value = alterState(boot(), state => { state.queries[0].queryKey = [[procedure, "list"], { type: "query" }]; });
++    expect(validateRenderingPilotBoot(value, "/")).toBeNull();
++  });
++  it.each(["email", "phone", "user", "session", "token", "cookie", "gclid", "consent", "upload", "internalNotes"])("rejects private/unapproved row field %s", field => {
++    expect(validateRenderingPilotBoot(boot("/", [{ ...gallery, [field]: "PRIVATE_SENTINEL" }]), "/")).toBeNull();
++  });
++  it("rejects mutation, errors, duplicate/unexpected input/type and crossroute caches", () => {
++    for (const edit of [
++      (s: any) => { s.mutations.push({ mutationKey: ["contact", "submit"], state: { data: "private" } }); },
++      (s: any) => { s.queries[0].state.error = new Error("PRIVATE_DB_ERROR"); s.queries[0].state.status = "error"; },
++      (s: any) => { s.queries[0].queryKey[1].input = {}; },
++      (s: any) => { s.queries[0].queryKey[1].type = "infinite"; },
++      (s: any) => { s.queries.push(s.queries[0]); },
++    ]) expect(validateRenderingPilotBoot(alterState(boot(), edit), "/")).toBeNull();
++    expect(validateRenderingPilotBoot({ ...boot(), pathname: paths[1], pilotId: getRenderingPilot(paths[1])!.id }, paths[1])).toBeNull();
++  });
++});
++
++describe("composition safety without global normalization of App/data", () => {
++  it("preserves literal replacement sequences and Task07 head/boot; puts inert state outside root", () => {
++    const html = '<h1>Actual component output</h1><p>$$ $& $\' $` /services/factory-cladding-shot-blasting</p><!-- literal </body> -->';
++    const page = composePilotHtml(template, { html, boot: boot() });
++    expect(page).toContain(html);
++    expect(page).toContain('<div id="root">' + html + '</div>');
++    expect(page).toContain('<title>Task07 owner</title>');
++    expect(page).toContain('<script id="route-metadata-boot" type="application/json">{"owner":"Task07"}</script>');
++    expect(validateRenderingPilotBoot(JSON.parse(payload(page)), "/")).not.toBeNull();
++    const withoutBody = page.replace('<div id="root">' + html + '</div>', '');
++    expect(payload(withoutBody)).toBe(payload(page));
++    expect(page).not.toContain("RENDERING_PILOT_ROOT");
++  });
++  it("escapes all script delimiters / Unicode separators without losing dates or public copy", () => {
++    const text = "</script><script>DENIED</script>&>\u2028\u2029$$ $& $' $`";
++    const page = composePilotHtml(template, { html: "<h1>Actual page</h1>", boot: boot("/", [{ ...gallery, description: text }]) });
++    const raw = payload(page);
++    for (const char of ["<", ">", "&", "\u2028", "\u2029"]) expect(raw).not.toContain(char);
++    const state = superjson.deserialize<any>(JSON.parse(raw).state);
++    const row = state.queries.find((q: any) => q.queryKey[0][0] === "gallery").state.data[0];
++    expect(row.description).toBe(text);
++    expect(row.createdAt).toEqual(date);
++    expect(Array.from(page.matchAll(/<script\b/g))).toHaveLength(2);
++  });
++  it("revalidates the boot before serializing and never writes invalid private state", () => {
++    expect(() => composePilotHtml(template, { html: "<h1>Actual page</h1>", boot: { ...boot(), token: "PRIVATE_SENTINEL" } as any })).toThrow();
++  });
++  it.each([template.replace("<!--RENDERING_PILOT_ROOT-->", ""), template.replace("</head>", "<!--RENDERING_PILOT_ROOT--></head>"), template.replace('id="root"', 'id="other"')])("fails closed on missing/ambiguous/out-of-root marker", input => {
++    expect(() => composePilotHtml(input, { html: "<h1>Actual page</h1>", boot: boot() })).toThrow();
++  });
++  it("caps combined UTF-8 buffered HTML and state at 2 MiB (not character count)", () => {
++    expect(() => composePilotHtml(template, { html: "é".repeat(1024 * 1024), boot: boot() })).toThrow();
++    expect(() => composePilotHtml(template, { html: "x".repeat(2 * 1024 * 1024), boot: boot() })).toThrow();
++    expect(() => composePilotHtml(template, { html: "x".repeat(1024 * 1024), boot: boot() })).not.toThrow();
++  });
++});
+diff --git a/server/ssr/composePilotHtml.ts b/server/ssr/composePilotHtml.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..7b20036571c180c246981994011148846db5d6ec
+--- /dev/null
++++ b/server/ssr/composePilotHtml.ts
+@@ -0,0 +1,45 @@
++import {
++  RENDERING_PILOT_MAX_BYTES,
++  validateRenderingPilotBoot,
++  type RenderingPilotBoot,
++} from "../../shared/renderingPilot";
++
++export const PILOT_ROOT_MARKER = "<!--RENDERING_PILOT_ROOT-->";
++export const PILOT_ROOT_TEMPLATE = `<div id="root">${PILOT_ROOT_MARKER}</div>`;
++export const PILOT_BOOT_ID = "rendering-pilot-boot";
++
++/** Boot.state is already Superjson serialized by the request-local renderer. */
++export function escapePilotBootJson(value: RenderingPilotBoot): string {
++  return JSON.stringify(value)
++    .replace(/</g, "\\u003c")
++    .replace(/>/g, "\\u003e")
++    .replace(/&/g, "\\u0026")
++    .replace(/\u2028/g, "\\u2028")
++    .replace(/\u2029/g, "\\u2029");
++}
++
++export function composePilotHtml(
++  template: string,
++  result: { html: string; boot: RenderingPilotBoot },
++): string {
++  if (typeof result?.html !== "string" || Buffer.byteLength(result.html, "utf8") > RENDERING_PILOT_MAX_BYTES) {
++    throw new Error("Rendering pilot HTML exceeds byte budget");
++  }
++  if (!validateRenderingPilotBoot(result.boot, result.boot?.pathname)) {
++    throw new Error("Rendering pilot boot failed public-state validation");
++  }
++  const payload = escapePilotBootJson(result.boot);
++  if (Buffer.byteLength(result.html, "utf8") + Buffer.byteLength(payload, "utf8") > RENDERING_PILOT_MAX_BYTES) {
++    throw new Error("Rendering pilot HTML and boot exceed byte budget");
++  }
++  if (template.split(PILOT_ROOT_MARKER).length !== 2 ||
++      template.split(PILOT_ROOT_TEMPLATE).length !== 2 ||
++      template.includes(`id="${PILOT_BOOT_ID}"`)) {
++    throw new Error("Rendering pilot requires one dedicated empty root marker");
++  }
++  const script = `<script id="${PILOT_BOOT_ID}" type="application/json">${payload}</script>`;
++  // Insert inert state OUTSIDE root before App insertion. Never replace a closing
++  // head/body tag in completed App HTML (CMS text may contain those literals).
++  const withBoot = template.replace(PILOT_ROOT_TEMPLATE, () => `${script}\n${PILOT_ROOT_TEMPLATE}`);
++  return withBoot.replace(PILOT_ROOT_MARKER, () => result.html);
++}
+diff --git a/server/ssr/pilotPrefetch.ts b/server/ssr/pilotPrefetch.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..c071f14b4a616436dae51d0eef773fc81ce4e40b
+--- /dev/null
++++ b/server/ssr/pilotPrefetch.ts
+@@ -0,0 +1,224 @@
++import type { BlogPost, GalleryItem, Testimonial } from "../../drizzle/schema";
++import { getRenderingPilot, type PilotSeed } from "../../shared/renderingPilot";
++import type { HtmlContentContext } from "../contentRouteExistence";
++import { getActiveGalleryItems, getActiveTestimonials, getPublishedBlogPosts, getRelatedBlogPosts } from "../db";
++import { readPublicContentOrFallback } from "../publicContentFallback";
++
++export const PILOT_OPTIONAL_READ_TIMEOUT_MS = 1500;
++export const PILOT_ARTICLE_SLUG = "factory-warehouse-cladding-restoration";
++
++/** Raw existing public DB reads only. No context, router caller, auth or HTTP. */
++export interface PilotPublicReads {
++  getActiveGalleryItems: () => Promise<unknown>;
++  getActiveTestimonials: () => Promise<unknown>;
++  getPublishedBlogPosts: () => Promise<unknown>;
++  getRelatedBlogPosts: (slug: string, category: string | null) => Promise<unknown>;
++}
++export const defaultPilotPublicReads: PilotPublicReads = {
++  getActiveGalleryItems,
++  getActiveTestimonials,
++  getPublishedBlogPosts,
++  getRelatedBlogPosts,
++};
++
++/** Track the real getter promises, not just the deadline-raced prefetch promise. */
++export function createTrackedPilotReads(
++  track: (promise: Promise<unknown>) => void,
++  reads: PilotPublicReads = defaultPilotPublicReads,
++  signal?: AbortSignal,
++): PilotPublicReads {
++  const start = (read: () => Promise<unknown>) => {
++    if (signal?.aborted) throw new PilotPrefetchError("aborted");
++    let resolve!: (value: unknown) => void;
++    let reject!: (reason: unknown) => void;
++    const promise = new Promise<unknown>((onResolve, onReject) => { resolve = onResolve; reject = onReject; });
++    // Register before scheduling the read. A closed lease throws here and no DB work starts.
++    track(promise);
++    Promise.resolve().then(() => {
++      if (signal?.aborted) throw new PilotPrefetchError("aborted");
++      return read();
++    }).then(resolve, reject);
++    return promise;
++  };
++  return {
++    getActiveGalleryItems: () => start(() => reads.getActiveGalleryItems()),
++    getActiveTestimonials: () => start(() => reads.getActiveTestimonials()),
++    getPublishedBlogPosts: () => start(() => reads.getPublishedBlogPosts()),
++    getRelatedBlogPosts: (slug, category) => start(() => reads.getRelatedBlogPosts(slug, category)),
++  };
++}
++
++export class PilotPrefetchError extends Error {
++  constructor(public readonly code: "optional-read-timeout" | "aborted" | "invalid-public-data" | "not-pilot") {
++    super(`Rendering pilot prefetch: ${code}`);
++    this.name = "PilotPrefetchError";
++  }
++}
++const invalid = (): never => { throw new PilotPrefetchError("invalid-public-data"); };
++const object = (value: unknown): Record<string, unknown> => {
++  if (!value || typeof value !== "object" || Array.isArray(value)) return invalid();
++  const prototype = Object.getPrototypeOf(value);
++  if (prototype !== Object.prototype && prototype !== null) return invalid();
++  return value as Record<string, unknown>;
++};
++const string = (value: unknown): string => typeof value === "string" ? value : invalid();
++const nullableString = (value: unknown): string | null => value === null ? null : string(value);
++const integer = (value: unknown): number => typeof value === "number" && Number.isSafeInteger(value) ? value : invalid();
++const date = (value: unknown): Date => value instanceof Date && Number.isFinite(value.getTime()) ? new Date(value.getTime()) : invalid();
++const bool = (value: unknown): boolean => typeof value === "boolean" ? value : invalid();
++const rows = (value: unknown): unknown[] => Array.isArray(value) ? value : invalid();
++const assertActive = (value: unknown): true => value === true ? true : invalid();
++const assertIdentity = (value: unknown): number => { const id = integer(value); return id > 0 ? id : invalid(); };
++
++function projectGallery(value: unknown): GalleryItem {
++  const item = object(value);
++  return {
++    id: assertIdentity(item.id), title: string(item.title), category: string(item.category),
++    description: nullableString(item.description), beforeImage: string(item.beforeImage), afterImage: string(item.afterImage),
++    isActive: assertActive(item.isActive), sortOrder: integer(item.sortOrder),
++    createdAt: date(item.createdAt), updatedAt: date(item.updatedAt),
++  };
++}
++
++type PublicTestimonial = Omit<Testimonial, "images"> & { images: string[] };
++function projectTestimonial(value: unknown, transformedImages: unknown): PublicTestimonial {
++  const item = object(value);
++  const images = rows(transformedImages).map(string);
++  const rating = integer(item.rating);
++  // Public list preserves 0 for an unrated quote; Home explicitly renders it without stars.
++  // Admin create/update's 1–5 input rule does not rewrite existing published public rows.
++  if (rating < 0 || rating > 5) return invalid();
++  return {
++    id: assertIdentity(item.id), name: string(item.name), company: nullableString(item.company), rating,
++    text: string(item.text), project: nullableString(item.project), images,
++    isNew: bool(item.isNew), isActive: assertActive(item.isActive), sortOrder: integer(item.sortOrder),
++    createdAt: date(item.createdAt), updatedAt: date(item.updatedAt),
++  };
++}
++
++/** Validation, not a sanitizer: fail closed rather than rewriting maintained article HTML. */
++function assertSafePrimaryMarkup(content: string): void {
++  if (!content.trim() || /[\u0000]/.test(content) ||
++      /<\s*\/?\s*(?:script|iframe|object|embed|style|link|meta|base|html|head|body|svg|math)\b/i.test(content) ||
++      /\bon[a-z]+\s*=|\bsrcdoc\s*=/i.test(content) ||
++      /(?:javascript|vbscript|data)\s*(?::|&#(?:0*58|x0*3a);?)/i.test(content) ||
++      /<!--|<!doctype|<\?/i.test(content)) invalid();
++  // Entity/control obfuscation in an attribute is not accepted as safe primary data.
++  for (const match of Array.from(content.matchAll(/\b(?:href|src|action|formaction|xlink:href)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/gi))) {
++    const url = match[1] ?? match[2] ?? match[3];
++    if (/[\u0000-\u0020\u007f]|&#|&(?:colon|tab|newline);/i.test(url) ||
++        (!/^(?:https?:\/\/|\/|#|mailto:|tel:)/i.test(url) && /^[a-z][a-z0-9+.-]*:/i.test(url))) invalid();
++  }
++}
++
++export function projectPublishedPilotBlog(value: unknown, primary = false): BlogPost {
++  const item = object(value);
++  const post: BlogPost = {
++    id: assertIdentity(item.id), slug: string(item.slug), title: string(item.title), excerpt: string(item.excerpt),
++    content: string(item.content), featuredImage: string(item.featuredImage), author: string(item.author),
++    category: nullableString(item.category), tags: nullableString(item.tags), faq: nullableString(item.faq),
++    metaDescription: nullableString(item.metaDescription), isPublished: assertActive(item.isPublished),
++    publishedAt: date(item.publishedAt), createdAt: date(item.createdAt), updatedAt: date(item.updatedAt),
++  };
++  if (!post.slug || !post.title.trim()) invalid();
++  if (post.tags) {
++    let parsed: unknown;
++    try { parsed = JSON.parse(post.tags); } catch { return invalid(); }
++    if (!Array.isArray(parsed) || !parsed.every(tag => typeof tag === "string")) invalid();
++  }
++  if (post.faq) {
++    let parsed: unknown;
++    try { parsed = JSON.parse(post.faq); } catch { return invalid(); }
++    if (!Array.isArray(parsed) || !parsed.every(faq => {
++      const record = object(faq);
++      return Object.keys(record).every(key => key === "question" || key === "answer") &&
++        typeof record.question === "string" && typeof record.answer === "string" &&
++        !/[<>]/.test(record.question + record.answer);
++    })) invalid();
++  }
++  if (primary) {
++    // Legacy head FAQ serialization is retained; reject script terminators in its data.
++    if ([post.title, post.excerpt, post.author, post.category, post.tags, post.metaDescription, post.featuredImage]
++      .some(value => value !== null && /<\s*\/\s*script\b/i.test(value))) invalid();
++    assertSafePrimaryMarkup(post.content);
++  }
++  return post;
++}
++
++function listKey(namespace: "gallery" | "testimonials" | "blog"): unknown[] {
++  return [[namespace, "list"], { type: "query" }];
++}
++
++async function waitForOptional<T>(work: Promise<T>, signal?: AbortSignal): Promise<T> {
++  let timer: ReturnType<typeof setTimeout> | undefined;
++  let onAbort: (() => void) | undefined;
++  const deadline = Date.now() + PILOT_OPTIONAL_READ_TIMEOUT_MS;
++  try {
++    if (signal?.aborted) throw new PilotPrefetchError("aborted");
++    const interruption = new Promise<never>((_, reject) => {
++      timer = setTimeout(() => reject(new PilotPrefetchError("optional-read-timeout")), PILOT_OPTIONAL_READ_TIMEOUT_MS);
++      timer.unref?.();
++      onAbort = () => reject(new PilotPrefetchError("aborted"));
++      signal?.addEventListener("abort", onAbort, { once: true });
++      if (signal?.aborted) onAbort();
++    });
++    const result = await Promise.race([work, interruption]);
++    if (signal?.aborted) throw new PilotPrefetchError("aborted");
++    if (Date.now() >= deadline) throw new PilotPrefetchError("optional-read-timeout");
++    return result;
++  } finally {
++    if (timer) clearTimeout(timer);
++    if (onAbort) signal?.removeEventListener("abort", onAbort);
++  }
++}
++
++export async function prefetchPilot(
++  url: string,
++  content?: HtmlContentContext,
++  signal?: AbortSignal,
++  reads: PilotPublicReads = defaultPilotPublicReads,
++): Promise<PilotSeed[]> {
++  const pilot = getRenderingPilot(url);
++  if (!pilot) throw new PilotPrefetchError("not-pilot");
++  if (signal?.aborted) throw new PilotPrefetchError("aborted");
++  if (pilot.pathname === "/counties/hampshire") return [];
++
++  if (pilot.pathname === `/blog/${PILOT_ARTICLE_SLUG}`) {
++    if (content?.kind !== "blog" || content.slug !== PILOT_ARTICLE_SLUG ||
++        content.post?.slug !== PILOT_ARTICLE_SLUG || content.post.isPublished !== true) return invalid();
++    const post = projectPublishedPilotBlog(content.post, true);
++    const category = post.category ?? null;
++    const relatedWork = readPublicContentOrFallback<unknown>("related blog posts", [],
++      () => reads.getRelatedBlogPosts(post.slug, category));
++    const related = rows(await waitForOptional(relatedWork, signal)).map(value => projectPublishedPilotBlog(value));
++    if (related.some(row => row.slug === post.slug)) invalid();
++    return [
++      { queryKey: [["blog", "getBySlug"], { input: { slug: post.slug }, type: "query" }], data: post },
++      { queryKey: [["blog", "getRelated"], { input: { slug: post.slug, category }, type: "query" }], data: related },
++    ];
++  }
++
++  const galleryWork = readPublicContentOrFallback<unknown>("active gallery", [], () => reads.getActiveGalleryItems());
++  // Exactly the procedure-level JSON transform/fallback: one bad JSON row falls back for the whole list.
++  // Projection validation is OUTSIDE that catch, so successful malformed/private output cannot become invented [].
++  const testimonialsWork = (async () => {
++    const items = rows(await readPublicContentOrFallback<unknown>("active testimonials", [], () => reads.getActiveTestimonials()));
++    const raw = items.map(value => {
++      const item = object(value);
++      return { value, images: nullableString(item.images) };
++    });
++    return readPublicContentOrFallback<Array<{ value: unknown; images: unknown }>>("active testimonials", [], async () =>
++      raw.map(item => ({ value: item.value, images: item.images ? JSON.parse(item.images) : [] })));
++  })();
++  const blogWork = pilot.pathname === "/"
++    ? readPublicContentOrFallback<unknown>("published blog posts", [], () => reads.getPublishedBlogPosts())
++    : Promise.resolve(undefined);
++  const [gallery, testimonials, blogs] = await waitForOptional(Promise.all([galleryWork, testimonialsWork, blogWork]), signal);
++  const seeds: PilotSeed[] = [
++    { queryKey: listKey("gallery"), data: rows(gallery).map(projectGallery) },
++    { queryKey: listKey("testimonials"), data: testimonials.map(item => projectTestimonial(item.value, item.images)) },
++  ];
++  if (pilot.pathname === "/") seeds.push({ queryKey: listKey("blog"), data: rows(blogs).map(value => projectPublishedPilotBlog(value)) });
++  if (signal?.aborted) throw new PilotPrefetchError("aborted");
++  return seeds;
++}
+diff --git a/shared/renderingPilot.ts b/shared/renderingPilot.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..fbeb2fbf1cadf7ff4da5e4d2185d844198fa4443
+--- /dev/null
++++ b/shared/renderingPilot.ts
+@@ -0,0 +1,180 @@
++import superjson from "superjson";
++import { hashKey, type DehydratedState } from "@tanstack/react-query";
++
++/** v3 production-parity verification; release requires all acceptance gates. */
++export const RENDERING_PILOT_ENABLED: boolean = true;
++export const RENDERING_PILOT_RELEASE = "csb-task08-20261118-v3";
++export const RENDERING_PILOT_MAX_BYTES = 2 * 1024 * 1024;
++const PILOTS = [
++  { id: "P0066", pathname: "/services/structural-steel-frames" },
++  { id: "P0116", pathname: "/counties/hampshire" },
++  { id: "P0002", pathname: "/blog/factory-warehouse-cladding-restoration" },
++  { id: "P0001", pathname: "/" },
++] as const;
++export type PilotSeed = { queryKey: unknown[]; data: unknown };
++export type PilotRenderValues = { year: number };
++export type RenderingPilotBoot = {
++  schemaVersion: 1; release: string; pathname: string; pilotId: string; success: true;
++  renderValues: PilotRenderValues; state: ReturnType<typeof superjson.serialize>;
++};
++
++/** Raw matching only: no case folding, decoding, slash or URL normalization. */
++export function splitRenderingUrl(url: string): { pathname: string; search: string } {
++  const fragment = url.indexOf("#");
++  const route = fragment < 0 ? url : url.slice(0, fragment);
++  const question = route.indexOf("?");
++  return question < 0 ? { pathname: route, search: "" } :
++    { pathname: route.slice(0, question), search: route.slice(question + 1) };
++}
++export function getRenderingPilot(url: string): { id: string; pathname: string } | null {
++  if (!RENDERING_PILOT_ENABLED || typeof url !== "string") return null;
++  const { pathname } = splitRenderingUrl(url);
++  const pilot = PILOTS.find(item => item.pathname === pathname);
++  return pilot ? { ...pilot } : null;
++}
++const own = (value: object, key: string) => Object.prototype.hasOwnProperty.call(value, key);
++function record(value: unknown): value is Record<string, unknown> {
++  return !!value && typeof value === "object" && !Array.isArray(value) &&
++    (Object.getPrototypeOf(value) === Object.prototype || Object.getPrototypeOf(value) === null);
++}
++function exact(value: unknown, keys: readonly string[]): value is Record<string, unknown> {
++  return record(value) && Object.keys(value).length === keys.length && keys.every(key => own(value, key));
++}
++function only(value: unknown, keys: readonly string[]): value is Record<string, unknown> {
++  return record(value) && Object.keys(value).every(key => keys.includes(key));
++}
++const string = (value: unknown) => typeof value === "string";
++const nullableString = (value: unknown) => value === null || string(value);
++const integer = (value: unknown) => typeof value === "number" && Number.isSafeInteger(value);
++const date = (value: unknown) => value instanceof Date && Number.isFinite(value.getTime());
++const nonempty = (value: unknown) => string(value) && (value as string).trim().length > 0;
++const galleryFields = ["id", "title", "category", "description", "beforeImage", "afterImage", "isActive", "sortOrder", "createdAt", "updatedAt"];
++const testimonialFields = ["id", "name", "company", "rating", "text", "project", "images", "isNew", "isActive", "sortOrder", "createdAt", "updatedAt"];
++const blogFields = ["id", "slug", "title", "excerpt", "content", "featuredImage", "author", "category", "tags", "faq", "metaDescription", "isPublished", "publishedAt", "createdAt", "updatedAt"];
++function safeStrings(value: unknown): boolean {
++  if (typeof value === "string") return true;
++  if (value instanceof Date) return date(value);
++  if (Array.isArray(value)) return value.every(safeStrings);
++  if (record(value)) return Object.entries(value).every(([key, item]) => !["__proto__", "prototype", "constructor"].includes(key) && safeStrings(item));
++  return value === null || typeof value === "boolean" || (typeof value === "number" && Number.isFinite(value));
++}
++function jsonArray(value: unknown, faq = false): boolean {
++  if (value === null || value === "") return true;
++  if (typeof value !== "string") return false;
++  try {
++    const parsed: unknown = JSON.parse(value);
++    return Array.isArray(parsed) && parsed.every(item => faq ?
++      exact(item, ["question", "answer"]) && nonempty(item.question) && nonempty(item.answer) && safeStrings(item) : string(item));
++  } catch { return false; }
++}
++function safePrimaryMarkup(content: string): boolean {
++  if (!content.trim() || /\u0000/.test(content) ||
++    /<\s*\/?\s*(?:script|iframe|object|embed|style|link|meta|base|html|head|body|svg|math)\b|\bon[a-z]+\s*=|\bsrcdoc\s*=|(?:javascript|vbscript|data)\s*(?::|&#(?:0*58|x0*3a);?)|<!--|<!doctype|<\?/i.test(content)) return false;
++  const attributes = Array.from(content.matchAll(/\b(?:href|src|action|formaction|xlink:href)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/gi));
++  return attributes.every(match => {
++    const url = match[1] ?? match[2] ?? match[3];
++    return !/[\u0000-\u0020\u007f]|&#|&(?:colon|tab|newline);/i.test(url) &&
++      (/^(?:https?:\/\/|\/|#|mailto:|tel:)/i.test(url) || !/^[a-z][a-z0-9+.-]*:/i.test(url));
++  });
++}
++function publicBlog(value: unknown): value is Record<string, unknown> {
++  if (!exact(value, blogFields) || !safeStrings(value)) return false;
++  return integer(value.id) && (value.id as number) > 0 && nonempty(value.slug) && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value.slug as string) &&
++    nonempty(value.title) && string(value.excerpt) && string(value.content) && string(value.featuredImage) && string(value.author) &&
++    nullableString(value.category) && nullableString(value.metaDescription) && value.isPublished === true &&
++    date(value.publishedAt) && date(value.createdAt) && date(value.updatedAt) && jsonArray(value.tags) && jsonArray(value.faq, true);
++}
++/** Reject unsafe primary HTML; this is rejection, never silent sanitization. */
++export function isSafePilotArticle(value: unknown): boolean {
++  return publicBlog(value) && !Object.values(value).some(item => typeof item === "string" && /<\s*\/\s*script\b/i.test(item)) &&
++    safePrimaryMarkup(value.content as string);
++}
++function publicRows(kind: string, data: unknown): boolean {
++  if (kind === "blog.getBySlug") return isSafePilotArticle(data);
++  if (!Array.isArray(data)) return false;
++  if (kind === "blog.list" || kind === "blog.getRelated") return data.every(publicBlog);
++  if (kind === "gallery.list") return data.every(row => exact(row, galleryFields) && safeStrings(row) && integer(row.id) &&
++    nonempty(row.title) && string(row.category) && nullableString(row.description) && string(row.beforeImage) && string(row.afterImage) &&
++    row.isActive === true && integer(row.sortOrder) && date(row.createdAt) && date(row.updatedAt));
++  if (kind === "testimonials.list") return data.every(row => exact(row, testimonialFields) && safeStrings(row) && integer(row.id) &&
++    nonempty(row.name) && nullableString(row.company) && integer(row.rating) && string(row.text) && nullableString(row.project) &&
++    Array.isArray(row.images) && row.images.every(string) && typeof row.isNew === "boolean" && row.isActive === true &&
++    integer(row.sortOrder) && date(row.createdAt) && date(row.updatedAt));
++  return false;
++}
++function keyKind(key: unknown): string | null {
++  if (!Array.isArray(key) || key.length !== 2 || !Array.isArray(key[0]) || key[0].length !== 2 || !key[0].every(string)) return null;
++  const kind = key[0].join(".");
++  const options = key[1];
++  if (["gallery.list", "testimonials.list", "blog.list"].includes(kind)) return exact(options, ["type"]) && options.type === "query" ? kind : null;
++  if (!exact(options, ["type", "input"]) || options.type !== "query") return null;
++  const input = options.input;
++  if (kind === "blog.getBySlug") return exact(input, ["slug"]) && input.slug === "factory-warehouse-cladding-restoration" ? kind : null;
++  if (kind === "blog.getRelated") return exact(input, ["slug", "category"]) && input.slug === "factory-warehouse-cladding-restoration" && nullableString(input.category) ? kind : null;
++  return null;
++}
++/** Shared assertion for server seeds and deserialized browser cache. */
++export function validatePilotSeeds(url: string, seeds: unknown): seeds is PilotSeed[] {
++  const pilot = getRenderingPilot(url);
++  if (!pilot || !Array.isArray(seeds)) return false;
++  const allowed = pilot.id === "P0001" ? ["gallery.list", "testimonials.list", "blog.list"] :
++    pilot.id === "P0066" ? ["gallery.list", "testimonials.list"] : pilot.id === "P0002" ? ["blog.getBySlug", "blog.getRelated"] : [];
++  if (seeds.length !== allowed.length) return false;
++  const seen = new Set<string>();
++  for (const seed of seeds) {
++    if (!exact(seed, ["queryKey", "data"])) return false;
++    const kind = keyKind(seed.queryKey);
++    if (!kind || !allowed.includes(kind) || seen.has(kind) || !publicRows(kind, seed.data)) return false;
++    seen.add(kind);
++  }
++  if (pilot.id === "P0002") {
++    const post = seeds.find(seed => keyKind(seed.queryKey) === "blog.getBySlug")!.data as Record<string, unknown>;
++    const related = seeds.find(seed => keyKind(seed.queryKey) === "blog.getRelated")!;
++    const input = (related.queryKey[1] as { input: { category: unknown } }).input;
++    if (post.slug !== "factory-warehouse-cladding-restoration" || input.category !== (post.category ?? null) ||
++      (related.data as Record<string, unknown>[]).some(item => item.slug === post.slug)) return false;
++  }
++  return true;
++}
++const queryStateFields = ["data", "dataUpdateCount", "dataUpdatedAt", "error", "errorUpdateCount", "errorUpdatedAt", "fetchFailureCount", "fetchFailureReason", "fetchMeta", "isInvalidated", "status", "fetchStatus"];
++function validateCache(pathname: string, state: unknown): state is DehydratedState {
++  if (!exact(state, ["queries", "mutations"]) || !Array.isArray(state.mutations) || state.mutations.length || !Array.isArray(state.queries)) return false;
++  const seeds: PilotSeed[] = [];
++  for (const query of state.queries) {
++    if (!only(query, ["queryKey", "queryHash", "state", "dehydratedAt"]) || !own(query, "queryKey") || !own(query, "queryHash") ||
++      !exact(query.state, queryStateFields) || !Array.isArray(query.queryKey) || query.queryHash !== hashKey(query.queryKey) ||
++      (own(query, "dehydratedAt") && (!integer(query.dehydratedAt) || (query.dehydratedAt as number) < 0))) return false;
++    const status = query.state;
++    if (status.status !== "success" || status.fetchStatus !== "idle" || status.error !== null || status.fetchFailureReason !== null ||
++      status.fetchMeta !== null || status.isInvalidated !== false || status.errorUpdateCount !== 0 || status.errorUpdatedAt !== 0 || status.fetchFailureCount !== 0 ||
++      !integer(status.dataUpdateCount) || (status.dataUpdateCount as number) < 1 || !integer(status.dataUpdatedAt) || (status.dataUpdatedAt as number) < 0) return false;
++    seeds.push({ queryKey: query.queryKey, data: status.data });
++  }
++  return validatePilotSeeds(pathname, seeds);
++}
++/** Strict release/path/public-data check: a populated root is never authorization to hydrate. */
++export function validateRenderingPilotBoot(value: unknown, pathname: string): RenderingPilotBoot | null {
++  try {
++    const pilot = getRenderingPilot(pathname);
++    if (!pilot || pilot.pathname !== pathname || !exact(value, ["schemaVersion", "release", "pathname", "pilotId", "success", "renderValues", "state"]) ||
++      value.schemaVersion !== 1 || value.release !== RENDERING_PILOT_RELEASE || value.pathname !== pathname || value.pilotId !== pilot.id || value.success !== true ||
++      !exact(value.renderValues, ["year"]) || !integer(value.renderValues.year) || (value.renderValues.year as number) < 2000 || (value.renderValues.year as number) > 9999 ||
++      !only(value.state, ["json", "meta"]) || !own(value.state, "json") || new TextEncoder().encode(JSON.stringify(value)).byteLength > RENDERING_PILOT_MAX_BYTES) return null;
++    // Only Date annotations are needed. Reject custom/error/regexp/class revival and reserved paths before deserialization.
++    const serialized = value.state;
++    if (serialized.meta !== undefined) {
++      const datePath = /^(?:queries\.\d+\.state\.data(?:\.\d+)?\.(?:publishedAt|createdAt|updatedAt))$/;
++      if (!only(serialized.meta, ["values", "referentialEqualities"]) || !record(serialized.meta.values) ||
++        !Object.entries(serialized.meta.values).every(([path, annotation]) => datePath.test(path) &&
++          Array.isArray(annotation) && annotation.length === 1 && annotation[0] === "Date")) return null;
++      const references = serialized.meta.referentialEqualities;
++      const annotations = serialized.meta.values;
++      if (references !== undefined && (!record(references) || !Object.entries(references).every(([path, aliases]) =>
++        datePath.test(path) && own(annotations, path) &&
++        Array.isArray(aliases) && aliases.every(alias => typeof alias === "string" && datePath.test(alias) && own(annotations, alias))))) return null;
++    }
++    const cache = superjson.deserialize(serialized as unknown as ReturnType<typeof superjson.serialize>);
++    if (!validateCache(pathname, cache)) return null;
++    return value as RenderingPilotBoot;
++  } catch { return null; }
++}
+diff --git a/todo.md b/todo.md
+index ef2553b1447e87329587041ddc490b1357e61e85..d9475285a606fbef94c22c5cfeea874240993a08 100644
+--- a/todo.md
++++ b/todo.md
+@@ -2594,3 +2594,46 @@ Task07 progress — 16 November 2026: shared resolver and persistent owner assem
+ Task07 final validation — 16 November 14:11 UTC: all 91 offline-safe files / 1313 tests, TypeScript and production build pass. Main-route and article-status browser fixtures pass at 390px/1440px without page errors; clean/query/status/redirect checks pass. The exact local TanStack undefined-data guard is recognised as an ambiguous decoded successful response, not an ordinary API/transport error. One current-route HEAD uses no credentials, no cache, no redirect following, a 5-second abort deadline and pathname/generation protection; StrictMode cleanup cancels its first replay before requesting. All 25 protected hashes and JSX return trees of Home, Services, PreparationCleanup, ServiceDetail, BlogPost and CountyPage are unchanged. Exactly 22 approved paths (including the two expressly approved legacy tests), no sitemap/workbook/operational changes. Existing two live-effect suites excluded; no production lead/upload/call/Google tests. Checkpoint, inert archive and public release remain separate pending verification gates.
+ 
+ Task07 completion — 16 November 14:27 UTC: feature checkpoint4594c405 publicly deployed; fresh14:18:43UTC HTTP checks pass all17clean/query route pairs, retained raw-query redirects/404 resources and byte-matched index-v0cJXBWA.js. Settled-font390px/1440px public browser hard-load/query/SPA/history/tier/body-copy/required-form/no-popup checks pass with no page errors and original hero geometry. Exact22-path immutable source plus clean full-index patch independently apply/reverse/full-baseline-restoration verified. Correct PremierBlasting/commercial_shot_blasting branch manus/csb-call-attribution-20261107 normal-push single-parent inert archive commit e23483f0dcbe9836ca9ac06e45ea1fe69a5ed35a read back:30added-only archivefiles,851oldfiles unchanged,all881remote path modes/bytes/blobs/SHAverified,allotherheads/configbytes/permissions/ownership preserved. Timestamp-only false gate resolved solely in external helpers with exact content hashes and fresh metadata checks; no credentials/config/timestamps/history rewritten. Frozen feature source remains exact; only this completion ledger changes afterward. AllTask07gates complete; Task08 not started, historical app/binding prerequisites remain outside scope, no indexation/rank/realGoogle receipt claim. Save final todo-only checkpoint with tested runtime unchanged.
++
++## Task 08 — Approved four-page rendering/hydration pilot (18 November 2026)
++
++User approval at 06:28 UTC: final 29-path scope in `/home/ubuntu/csb-task08-implementation-2026-11-17/Task08_Final_Scope_and_Approval_2026-11-17.md`, deterministic preloaded same-App SSR/hydration, scoped schema/date integration, bounds, tests/build/release/rollback and inert designated-repository archive. Baseline `c797ed159e312d9ecd07177ea1cb254974861ca3`; Task07 verified complete; workbook hash remains `5a0da515e844befc1345c01a54c6f5152512ba00ddfaeb83da83d43f518f09eb`.
++
++- [x] Capture four-page 390px/1440px hero/media/form baseline with external measurement/contact traffic blocked.
++- [x] Implement exact four-route allowlist/reversible compile-time switch and release/path-validated inert public state.
++- [x] Prepare selected route/nested modules and same App/providers for server render/client hydration; preserve current client cache, credentials, form instances and tracking timing.
++- [x] Integrate bounded dev/production renderer after existing status gates; retain Task07 head and Task04 query/redirect/publication/error owners.
++- [x] Suppress only successful pilot copied bodies and adopt existing server schema owners within pilot; deterministic first-render dates/year, no copy/claim/schema rewrite.
++- [x] Add four isolated approved Vitest suites and initial-HTML harness; data privacy/escaping, unexpected transport denial, concurrency/deadline/size/disconnect and failure rollback coverage.
++- [x] Pass focused/full offline-safe suite (only live leadNotifications/callTracking excluded), TypeScript and client/SSR/Express build; preserve discovery snapshots.
++- [x] Pass intercepted 390px/1440px server-node/hydration/geometry/media/form/SPA/history/query checks and fresh/returning/offline worker marker safety.
++- [ ] Verify exact allowlist/protected hashes/workbook/reversible patch; save tested managed checkpoint.
++- [ ] Independently verify public pilot HTML/bundle/hydration and non-pilot guards before claiming release.
++- [ ] Normal single-parent inert archive commit/push/readback in PremierBlasting/commercial_shot_blasting existing integration branch; preserve old app/main/history/configuration.
++- [ ] Final release/rollback record and documentation-only completion checkpoint.
++
++No hero/layout/media/copy/form-internal/upload/consent/Google/Ads/UTM/CRM/auth/DB/router/worker/CSS/indexing/workbook change is approved. Extra paths or unresolved runtime risk are stop gates. Bounds: optional reads wait 1.5s, additional preparation/render 5s, HTML+state 2MiB, two concurrent outstanding pilot requests, no unbounded queue. Existing MySQL operations and synchronous React CPU work cannot be forcibly cancelled; waiting limits are not cancellation claims.
++
++Task08 stop gate — 18 November 07:11 UTC: core 29-path integration exists. Enabled pilot passed all 138 new isolated tests (no skips), TypeScript/build/native production SSR import, the four-route initial-HTML query/UA matrix and 16 development cold/returning node-preserving hydration cases. All original 1313 safe tests passed in the bounded full run; its one new artifact assertion was corrected and all 138 new tests passed separately. Final combined full run remains pending. Crucially, synthetic name/message typed into server-rendered fields before hydration were cleared afterward in all eight route/viewport cases, while the same DOM fields remained connected. This is a real protected-form acceptance failure, not a geometry false positive. No LeadForm change was made. The approved rollback switch is now false; disabled-pilot TypeScript/build pass, preview and public homepage return 200 with no rendering boot, and no Task08 checkpoint, archive, push or publication occurred. Worker/final production/browser/public gates remain unfinished. Completing requires separately approved narrowly scoped LeadForm initialization plus existing pilot-context/startup integration to preserve visitor-entered text locally during hydration, followed by repeat protected tests; no lead delivery/tracking/consent/upload change is authorized by the original scope.
++
++## Task08 additional approval — 18 November 08:25 UTC
++
++User explicitly approved narrow hydration-aware form initialisation. Maximum approved scope is now 30 paths, adding only client/src/components/LeadForm.tsx to the existing 29.
++- [x] Initialise only name/email/phone/postcode/message from the matching already-rendered form during validated initial hydration; retain per-form isolation, stable field IDs, empty server/non-pilot/unopened defaults and browser-memory-only handling.
++- [x] Preserve exact JSX/layout/required flags/validation/submission/conversion/attribution/consent/upload behavior; never serialize/log/store/send the initialization values or replay submissions/events.
++- [x] Repeat all five-field cold-load/independent-form/no-transmission tests, complete safe tests/types/build, protected geometry/history/worker/error guards; enable the pilot only for controlled verification until all release gates pass.
++- [ ] Finish tested checkpoint/public verification/inert correct-repository archive/readback and final completion record; Task08 remains incomplete until verified.
++
++Task08 approved form fix — 18 November 08:33 UTC: implemented only LeadForm's five initial text states and its first stable useId placement, supported by local-only matching-form context reading. All code from contactMutation through the end of LeadForm, including all JSX/validation/uploads/submission/conversion/consent behavior, is byte-identical to the baseline. No values enter render seeds/storage/logs/URLs/analytics. All 95 offline-safe files / 1501 tests pass with no skips; 188 new cases include 50 added reader/server privacy cases. TypeScript, enabled production build/native renderer import, 62 real initial-HTML query/UA/resource checks and twelve injected GET/HEAD primary-error checks (including selected article) pass. The HTTP harness's two real-outage/draft environment probes remain explicitly pending there; equivalent exact primary-state fixtures were exercised separately, without mutating the live publication/database. Exactly 30 approved paths, twenty remaining protected hashes and original workbook/hero constants unchanged. Actual all-five-field/independent-form browser and unchanged-worker checks are still underway; no checkpoint/publication/archive yet.
++
++Task08 remaining provider gate — 18 November 08:56 UTC: controlled media diagnosis confirms a real existing-slider width regression caused by the new page-wide presentation-context rerender, not a new slider/media edit. The fix stays within already approved PilotRenderContext.tsx: keep pilot/schema context stable, isolate post-hydration date presentation to its consumers, and avoid year updates when the existing displayed year is unchanged. No BeforeAfterSlider path/change, geometry threshold relaxation or baseline overwrite is authorised. Preserve five-field initial-window gating, schema history adoption, original date/year contract, 30-path maximum. Repeat enabled tests and browser form/geometry/worker checks after this correction; managed source remains disabled until acceptance is verified.
++
++Task08 v2 progress — 18 November 09:10 UTC: provider/schema context now remains memoized while a separate presentation context updates only date consumers; unchanged browser year causes no page-wide update. Existing BeforeAfterSlider is untouched. New v2 release rejects old v1 state. All 95 safe files / 1502 tests, TypeScript and client/SSR/Express build pass. Real unchanged-worker tests pass eight fresh/actual-reload cases with preserved server nodes/current route markers and independent DNS/proxy write/Google denial; offline cached-Home state is explicitly rejected on an uncached county path before existing stale-chunk recovery, classified degraded (not offline rendering parity). Worker SHA matches da10acfd7fdc13ff37671ce61f4f36a1b03a059a6308698c18f4766b66368770. Historical media comparison is retained; a separate exact c797ed15 source copy is used only as local original-CSSR test control, not a source reset or deployment, with matched fonts/lazy-media/animation states. Final four-route v2 browser/geometry checks remain underway. No checkpoint, public release or archive yet. Existing GitHub credential bytes changed before archive operations; identity/target/permission are unchanged and only the already-authorised repository is used. Initial hash history is preserved; privately isolated current auth avoids global config changes, with complete credential grants explicitly unknown—not falsely certified as unchanged.
++
++Task08 production-baseline reconciliation — 18 November 09:19 UTC: exact c797ed15 production Home has public gallery/testimonial queries that rerender its ref-dependent slider when data arrives, yielding settled width358/584. Historical development179/292 was a different incomplete-data state, not the settled production geometry. The v2 no-parent-update seed leaves179/292 indefinitely and therefore cannot be accepted as production parity. Within the same approved provider file, retain one first browser-presentation reconciliation after valid hydration (and normal browser date semantics), mirroring the maintained page's existing data-ready ref behavior; do not change the protected slider. Bump cache marker to v3, reject prior v1/v2 state, and repeat controlled tests/actual original-production comparisons. Hashed JS modulepreload URLs are changed build artifacts, not protected image/preload identities; record them separately while retaining original image priority/source/geometry guards. No baseline overwrite, threshold relaxation, extra source path or publication is authorised by this reconciliation.
++
++Task08 final availability/hydration separation — 18 November 09:39 UTC: v3 passed25/26 live-response browser rows with zero required-node, value, head/schema, settled original-production media/geometry differences; remaining desktop Home isolation encountered a genuine optional-read-timeout and authoritative logged200 availability rollback, not a hydration error. Full navigation/recovery cases were unreached in that run. The approved1.5-second optional/five-second orchestration budgets remain unchanged; no DB/process/cache/retry/worker widening is authorised. Managed switch is disabled while complete deterministic-browser checks use only parent-reviewed actual rendered-v3 public response fixtures; live-response rollback evidence is retained separately and not relabelled SSR. Eight fresh/actual-reload worker cases and offline wrong-route guard already pass;95files/1502tests, types/build,62realrawHTTPchecks and12controlledprimaryerrorfixtures passed on the enabledv3 candidate. Re-enable/release only after full required fixture hydration/form/history/recovery proof and separate actual initial-HTML verification pass. A release remains a guarded pilot with availability rollback, not guaranteed SSR availability or an index/rank claim.
++
++Task08 tested-release readiness — 18 November09:57UTC: exact enabledv3 final95files/1502tests, TypeScript, client/SSR/Express build,12controlled authoritative primary-error cases and30-path/20protectedhash/workbook/hero preservation pass. Full required controlled browser proof is combined explicitly:25passed actual-response rows plus separately verified desktop/mobile three-form isolation, navigation/history/query and4invalidboot recovery cases from parent-reviewed actualv3 public responses; no gate is inferred from timeout fallback. An external fixture-only missing poster byte and no-op Home pathname mutation were corrected, not application source/tests. All settled original-production geometry/media/form priorities remain unchanged within2px; eight unchanged-worker fresh/real-reload cases and wrong-route offline guard pass (offline remainsdegraded). Existing1.5s/5s/2MiB/two-request bounds and observedlivefallback remain documented. Tested managed checkpoint,actual publicHTML/bundle readback andcorrectrepo inertarchive remain pending.
++
++Task08 checkpoint-preview follow-up —18November09:58UTC: featurecheckpoint27c9d096 savedtestedv3 candidate, but checkpoint screenshot reproduced development-only optional-read timeout error screen. Production already logs/returns legacy200 fallback; development's broadercatch next(error) exposed500 instead. Correct only approved server/_core/vite.ts pilot branch to use the same logged bounded availabilityrollback before unchanged legacyVite transform/head branch; retain realnonpilot/tooling errors and404/503owners. Add explicit development rollback regression only in new approved renderingBuildContract.test.ts; repeatfullchecks/build and save corrected featurecheckpoint beforepublicreadback/archive. No deadlineenlargement/DB/cache/worker/form/media/routepolicy change or extra path.
+diff --git a/vite.config.ssr.ts b/vite.config.ssr.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..d67e4e541f271220f8661be567860e4263bcf1bb
+--- /dev/null
++++ b/vite.config.ssr.ts
+@@ -0,0 +1,34 @@
++import tailwindcss from "@tailwindcss/vite";
++import react from "@vitejs/plugin-react";
++import path from "node:path";
++import { fileURLToPath } from "node:url";
++import { defineConfig } from "vite";
++
++const projectRoot = path.dirname(fileURLToPath(import.meta.url));
++
++// Separate Node artifact: never reuse/empty the client or Express output directory.
++// Keep normal dependency externalization unless a loader failure proves otherwise.
++export default defineConfig({
++  root: projectRoot,
++  envDir: projectRoot,
++  mode: "production",
++  define: { "process.env.NODE_ENV": JSON.stringify("production") },
++  publicDir: false,
++  plugins: [react(), tailwindcss()],
++  // Native Node import cannot resolve this package's CommonJS named export.
++  // Mirror the narrowly demonstrated compatibility entry in the dev config.
++  ssr: { noExternal: ["react-helmet-async"] },
++  resolve: {
++    alias: {
++      "@": path.resolve(projectRoot, "client", "src"),
++      "@shared": path.resolve(projectRoot, "shared"),
++      "@assets": path.resolve(projectRoot, "attached_assets"),
++    },
++  },
++  build: {
++    ssr: path.resolve(projectRoot, "client/src/ssr/entry-server.tsx"),
++    outDir: path.resolve(projectRoot, "dist/server-ssr"),
++    emptyOutDir: true,
++    rollupOptions: { output: { entryFileNames: "entry-server.js" } },
++  },
++});
+diff --git a/vite.config.ts b/vite.config.ts
+index c76a492c197a2f3365a596f92cb763e3ff041c26..06258b07e92ce642ade562c3fdf384b44bf59565 100644
+--- a/vite.config.ts
++++ b/vite.config.ts
+@@ -216,6 +216,9 @@ const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(
+ 
+ export default defineConfig({
+   plugins,
++  // Match the production SSR fix for this package's CommonJS named exports.
++  // This SSR-only option leaves client plugins/chunking/output unchanged.
++  ssr: { noExternal: ["react-helmet-async"] },
+   resolve: {
+     alias: {
+       "@": path.resolve(import.meta.dirname, "client", "src"),

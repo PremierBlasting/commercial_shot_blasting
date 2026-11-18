@@ -1,0 +1,255 @@
+{
+  "baseline_commit": "c797ed159e312d9ecd07177ea1cb254974861ca3",
+  "checkpoint_commit": "9cbef7c199c260f462054390bf71fc0142e6b11f",
+  "code_checkpoint": "9cbef7c1",
+  "files": [
+    {
+      "path": "client/index.html",
+      "status": "M",
+      "baseline_git_entry": "100644 blob 24e3203798a2fd6ffb7d03c6e6962441729bf95d\tclient/index.html",
+      "final_git_entry": "100644 blob 7e95f8953f455a478c944b3dd33a3d7e7d847995\tclient/index.html",
+      "bytes": 5788,
+      "sha256": "95e32ff3b2e94d3f01f7c98f42afe90b9237f5d4f81ef427b50453fca091d454"
+    },
+    {
+      "path": "client/src/App.tsx",
+      "status": "M",
+      "baseline_git_entry": "100644 blob 665cace017a00a9418a7738a191aab76fa8265e5\tclient/src/App.tsx",
+      "final_git_entry": "100644 blob 2b2aee51b2601a5331db6f2c7e230d824e07f9fe\tclient/src/App.tsx",
+      "bytes": 23297,
+      "sha256": "95d8a8a4bcd1033beb41e0e91b0962f86530a0e381786360b44ca73f73d9bff0"
+    },
+    {
+      "path": "client/src/components/BlogPreview.tsx",
+      "status": "M",
+      "baseline_git_entry": "100644 blob e44ee383ba01bdb798853230a709db9b043a27c2\tclient/src/components/BlogPreview.tsx",
+      "final_git_entry": "100644 blob 45c9bc5766f564161a082846b200fd335b0cbad6\tclient/src/components/BlogPreview.tsx",
+      "bytes": 5881,
+      "sha256": "184e045e19fa0b2dcf9207cc509f56393b8f623b9317bf89e7f179613e526c7a"
+    },
+    {
+      "path": "client/src/components/Breadcrumb.tsx",
+      "status": "M",
+      "baseline_git_entry": "100644 blob c03212e483d36d4e6e06c154a0601088a337a534\tclient/src/components/Breadcrumb.tsx",
+      "final_git_entry": "100644 blob b9f0cc41c6c2ed5416192dd0b644d23f18358d95\tclient/src/components/Breadcrumb.tsx",
+      "bytes": 3645,
+      "sha256": "7e08fac012287647ea2b5e90ac3ce3f34f337d7826c6b9757f5ec0032d6fe962"
+    },
+    {
+      "path": "client/src/components/CountyPage.tsx",
+      "status": "M",
+      "baseline_git_entry": "100644 blob 8634a8d59bf87938db69e20c619e2a15e5aaf464\tclient/src/components/CountyPage.tsx",
+      "final_git_entry": "100644 blob 2c8f57c233c5bb39cf1c68a69a7ebca330731593\tclient/src/components/CountyPage.tsx",
+      "bytes": 87716,
+      "sha256": "fc057b1ce2571195b6868a8e64269a751a7f5a0c8a584df3a0031825c90107e1"
+    },
+    {
+      "path": "client/src/components/LeadForm.tsx",
+      "status": "M",
+      "baseline_git_entry": "100644 blob 17d69d90f60f680e649bc30497fb605cd7472544\tclient/src/components/LeadForm.tsx",
+      "final_git_entry": "100644 blob 45aa289b33265f4a7e336deefb620cb952e0f150\tclient/src/components/LeadForm.tsx",
+      "bytes": 27968,
+      "sha256": "b5db6f5197cbc381e0b0f04d0f90228f6c69e9d4efe896932fd5aff7c1dc3db3"
+    },
+    {
+      "path": "client/src/components/LocalBusinessSchema.tsx",
+      "status": "M",
+      "baseline_git_entry": "100644 blob 4e6b7790a0301a94f94848570aca560a2704d760\tclient/src/components/LocalBusinessSchema.tsx",
+      "final_git_entry": "100644 blob b0ed536f6e5bf73b618006f48ad8a4393bfda096\tclient/src/components/LocalBusinessSchema.tsx",
+      "bytes": 5814,
+      "sha256": "c2aa295999026443d73d9bf3a55507f132b9c1ccff2f1b8fdc18ee159318eff9"
+    },
+    {
+      "path": "client/src/components/RouteMetadataOwner.tsx",
+      "status": "M",
+      "baseline_git_entry": "100644 blob e20cdbf3e39e5a7d304c5cdc180efafea9a44e36\tclient/src/components/RouteMetadataOwner.tsx",
+      "final_git_entry": "100644 blob ff8ecb90d1be204312be67b67ffe4ef8b0df6763\tclient/src/components/RouteMetadataOwner.tsx",
+      "bytes": 9616,
+      "sha256": "c55fdb4851df5c784d0c01548bfdf6ad06d709d00f283df9eaa0df6225c22a21"
+    },
+    {
+      "path": "client/src/main.tsx",
+      "status": "M",
+      "baseline_git_entry": "100644 blob aed1fe97bf6f752a7340b9d378728cb47df80c53\tclient/src/main.tsx",
+      "final_git_entry": "100644 blob 6f3c18a0e44d03f88dd334b61c7685c29c992f45\tclient/src/main.tsx",
+      "bytes": 6046,
+      "sha256": "59b024b04044abd2c95b3cfde915639b2c06828696e5bdc9dc2379990dee84dc"
+    },
+    {
+      "path": "client/src/pages/BlogPost.tsx",
+      "status": "M",
+      "baseline_git_entry": "100644 blob 4ebce83a19ce7cfa3a48a2c6d88a8ef5c079d177\tclient/src/pages/BlogPost.tsx",
+      "final_git_entry": "100644 blob 76a6a756c812e08d15b4921e78a59e40bfb576df\tclient/src/pages/BlogPost.tsx",
+      "bytes": 23248,
+      "sha256": "e8e3eb7cd621d8efcac812c37562f04a57b0f944f33557b0a241ebc5fbfcd463"
+    },
+    {
+      "path": "client/src/pages/Home.tsx",
+      "status": "M",
+      "baseline_git_entry": "100644 blob d1f583c02414161429f4e87070052dee3e4fd0fe\tclient/src/pages/Home.tsx",
+      "final_git_entry": "100644 blob 9c1f30cafec4ed8f050617366ad4b17501eb7c5c\tclient/src/pages/Home.tsx",
+      "bytes": 66850,
+      "sha256": "ef8470b7bc7d6021202f4e30fa19fe0a4a9e53728c10d6189ac9d6d8bfe8bfd6"
+    },
+    {
+      "path": "client/src/pages/ServiceDetail.tsx",
+      "status": "M",
+      "baseline_git_entry": "100644 blob efa7c3bf8c7165ba869e4a34d639100fb682f49c\tclient/src/pages/ServiceDetail.tsx",
+      "final_git_entry": "100644 blob 63745a3cb7b03352f2f39a5cfa7d908455a6f7d3\tclient/src/pages/ServiceDetail.tsx",
+      "bytes": 158644,
+      "sha256": "8db9dd5aad6d15998914d5f65506936f1e663918c48a23c0eca59a27279681a2"
+    },
+    {
+      "path": "client/src/ssr/PilotRenderContext.tsx",
+      "status": "A",
+      "baseline_git_entry": null,
+      "final_git_entry": "100644 blob 6539aa115c38a5e1fd2d911cbd0fe8bad5a709c4\tclient/src/ssr/PilotRenderContext.tsx",
+      "bytes": 5229,
+      "sha256": "df633fce0e345c70ed0cc956e36cef73f78bffbc713f7b177c72abc507bb050f"
+    },
+    {
+      "path": "client/src/ssr/RenderProviders.tsx",
+      "status": "A",
+      "baseline_git_entry": null,
+      "final_git_entry": "100644 blob 02e6db72b41bb9b734c7ff2352893529180e103f\tclient/src/ssr/RenderProviders.tsx",
+      "bytes": 2141,
+      "sha256": "6649b362f27d722af073be941cbd61209b4858f7cd4cc656085caf48fc642b65"
+    },
+    {
+      "path": "client/src/ssr/entry-server.tsx",
+      "status": "A",
+      "baseline_git_entry": null,
+      "final_git_entry": "100644 blob ce9b1b8c892ef0fdf32b04ae67afbfecb68a5db9\tclient/src/ssr/entry-server.tsx",
+      "bytes": 4292,
+      "sha256": "410d323852dc8597a22b99a09c803594c27e63610672a71f40e5544649473aa2"
+    },
+    {
+      "path": "client/src/ssr/preloadable.tsx",
+      "status": "A",
+      "baseline_git_entry": null,
+      "final_git_entry": "100644 blob abb31c188a5ad67cd8509c267f019a0737dd9e9b\tclient/src/ssr/preloadable.tsx",
+      "bytes": 1357,
+      "sha256": "435a8ec5342923f01ac57a3a549237c4f3c3b2d9720ab7daab71d6f9adad3fe7"
+    },
+    {
+      "path": "package.json",
+      "status": "M",
+      "baseline_git_entry": "100644 blob 97f4a21cb01024648e1ed6c238cbb3388514e098\tpackage.json",
+      "final_git_entry": "100644 blob 19f61397c7350d5fa517da61d41143c52a24f44b\tpackage.json",
+      "bytes": 4867,
+      "sha256": "a1e1b0b56a57b10c50ec4c19f4195f1096663ade141d64eb7e53a9748fa361e5"
+    },
+    {
+      "path": "scripts/verify-ssr.sh",
+      "status": "A",
+      "baseline_git_entry": null,
+      "final_git_entry": "100755 blob 09a6820b05d5d8f45fed934e78103f9aa2d632e4\tscripts/verify-ssr.sh",
+      "bytes": 12432,
+      "sha256": "0c8214b997fc297e7c8887b6f39e54e72ea6f5efcfe7fbaeccbd9853f97c29eb"
+    },
+    {
+      "path": "server/_core/vite.ts",
+      "status": "M",
+      "baseline_git_entry": "100644 blob 2dee40b014908701adbbc213ece4d0071d671f8f\tserver/_core/vite.ts",
+      "final_git_entry": "100644 blob a198189904734da2115ccbe35ce95900fbc809c8\tserver/_core/vite.ts",
+      "bytes": 16759,
+      "sha256": "b2e8adecccfca7cd96cf35b40a075f66383d8b4f2f9b4de15556703c99d9d62a"
+    },
+    {
+      "path": "server/metaTags.ts",
+      "status": "M",
+      "baseline_git_entry": "100644 blob 7dd8790baba46ab6b1226bfb76e13bb0aef8a836\tserver/metaTags.ts",
+      "final_git_entry": "100644 blob b35443ceddcf32a8033e04b24a70e79a21fdbb08\tserver/metaTags.ts",
+      "bytes": 724746,
+      "sha256": "95df74ec8de5ab8233c0eaa633f6302ca7a7f3ce3f9ddb2454f201acdb48efd0"
+    },
+    {
+      "path": "server/renderingBuildContract.test.ts",
+      "status": "A",
+      "baseline_git_entry": null,
+      "final_git_entry": "100644 blob c4ef7250d49c8c969e21352cba8311a09f913dd9\tserver/renderingBuildContract.test.ts",
+      "bytes": 10728,
+      "sha256": "9972f1f28f71fba4bd78d41db91056fb80a26971c9164e5038b64268e342b4a6"
+    },
+    {
+      "path": "server/renderingDataBoundary.test.ts",
+      "status": "A",
+      "baseline_git_entry": null,
+      "final_git_entry": "100644 blob feba6fee68841577327a216102fdd5d844a12f22\tserver/renderingDataBoundary.test.ts",
+      "bytes": 21469,
+      "sha256": "08698a46ec73ccf8421aa815251784af6cdab047bfe69490bc1903d46894b2d0"
+    },
+    {
+      "path": "server/renderingHydration.test.ts",
+      "status": "A",
+      "baseline_git_entry": null,
+      "final_git_entry": "100644 blob bb2425889557371e024d8f0e88c4b3d591a33a3e\tserver/renderingHydration.test.ts",
+      "bytes": 26916,
+      "sha256": "4804d2f61ea6d00b5e0470e84f89551f2c37458f0a33c269fdcdd7e49f625380"
+    },
+    {
+      "path": "server/renderingPilot.test.ts",
+      "status": "A",
+      "baseline_git_entry": null,
+      "final_git_entry": "100644 blob eb6a4f5dc03521eb953c809d86d41ce994fd9eac\tserver/renderingPilot.test.ts",
+      "bytes": 12319,
+      "sha256": "231288ceb4f569a5cdcaf452f9504ce8026b92530408e25daaeb21f4350ad698"
+    },
+    {
+      "path": "server/ssr/composePilotHtml.ts",
+      "status": "A",
+      "baseline_git_entry": null,
+      "final_git_entry": "100644 blob 7b20036571c180c246981994011148846db5d6ec\tserver/ssr/composePilotHtml.ts",
+      "bytes": 2053,
+      "sha256": "b2594b60fa5780d208df59c8050b2e52660fdcd39bcc76796a34426bc2d4e4e6"
+    },
+    {
+      "path": "server/ssr/pilotPrefetch.ts",
+      "status": "A",
+      "baseline_git_entry": null,
+      "final_git_entry": "100644 blob c071f14b4a616436dae51d0eef773fc81ce4e40b\tserver/ssr/pilotPrefetch.ts",
+      "bytes": 12084,
+      "sha256": "879a56cb1cd83ac7c62bfb7adb92b5a9834bc8de2937b6be39bf309e296f5e21"
+    },
+    {
+      "path": "shared/renderingPilot.ts",
+      "status": "A",
+      "baseline_git_entry": null,
+      "final_git_entry": "100644 blob fbeb2fbf1cadf7ff4da5e4d2185d844198fa4443\tshared/renderingPilot.ts",
+      "bytes": 13026,
+      "sha256": "01083786c41f92f9482a096c915d98c9a369363eaca4519e9ecbe70a0b09e7ba"
+    },
+    {
+      "path": "todo.md",
+      "status": "M",
+      "baseline_git_entry": "100644 blob ef2553b1447e87329587041ddc490b1357e61e85\ttodo.md",
+      "final_git_entry": "100644 blob d9475285a606fbef94c22c5cfeea874240993a08\ttodo.md",
+      "bytes": 295404,
+      "sha256": "16eac5d674dc59262b94b0df8e4eb5d8fbb19ac3d216f93ca7780b0ac8adb9aa"
+    },
+    {
+      "path": "vite.config.ssr.ts",
+      "status": "A",
+      "baseline_git_entry": null,
+      "final_git_entry": "100644 blob d67e4e541f271220f8661be567860e4263bcf1bb\tvite.config.ssr.ts",
+      "bytes": 1307,
+      "sha256": "ceea00398bbaa02cd4142a62e6cd2d2ebd9b38ef5d982890b7c01feb38dd7072"
+    },
+    {
+      "path": "vite.config.ts",
+      "status": "M",
+      "baseline_git_entry": "100644 blob c76a492c197a2f3365a596f92cb763e3ff041c26\tvite.config.ts",
+      "final_git_entry": "100644 blob 06258b07e92ce642ade562c3fdf384b44bf59565\tvite.config.ts",
+      "bytes": 9511,
+      "sha256": "d75cb629bf72af11f802d93e47a540f42d469db41b758d7215f5558453dc2810"
+    }
+  ],
+  "patch_sha256": "6ab80ae74bea48ab9e642d404477c50cc7f959117885c43dc080302eb5545245",
+  "patch_apply_check": true,
+  "patch_applied_blobs_verified": true,
+  "patch_reverse_full_baseline_tree_restored": true,
+  "protected_file_count": 20,
+  "protected_source_unchanged": true,
+  "original_workbook_unchanged": true,
+  "no_remote_binding_reconciliation_or_live_app_port": true
+}

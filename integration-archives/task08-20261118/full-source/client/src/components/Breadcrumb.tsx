@@ -1,0 +1,109 @@
+import { Link } from "wouter";
+import { ChevronRight } from "lucide-react";
+import { useAdoptPilotServerSchema } from "@/ssr/PilotRenderContext";
+
+const SITE_URL = "https://commercialshotblasting.co.uk";
+
+export interface BreadcrumbItem {
+  label: string;
+  href: string;
+  isCurrentPage?: boolean;
+}
+
+interface BreadcrumbProps {
+  items: BreadcrumbItem[];
+  className?: string;
+  /** When true, removes the card border/background — use when the breadcrumb is inside a styled section wrapper */
+  bare?: boolean;
+}
+
+/**
+ * Breadcrumb component for navigation and SEO
+ * Includes JSON-LD schema markup for search engines
+ * 
+ * Usage:
+ * <Breadcrumb items={[
+ *   { label: "Home", href: "/" },
+ *   { label: "Areas", href: "/service-areas" },
+ *   { label: "West Midlands", href: "/service-areas" },
+ *   { label: "Birmingham", href: "/service-areas/birmingham", isCurrentPage: true }
+ * ]} />
+ */
+export function Breadcrumb({ items, className = "", bare = false }: BreadcrumbProps) {
+  const adoptsServerSchema = useAdoptPilotServerSchema();
+  // Canonical service-area routes receive one server-rendered BreadcrumbList
+  // alongside their crawler-visible content. Keep this client component
+  // presentational for those pages so it does not emit a competing graph.
+  const isServiceAreaTrail = items.some((item) => item.href === "/service-areas");
+
+  // Generate JSON-LD schema markup for routes without a server-owned graph.
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.label,
+      "item": `${SITE_URL}${item.href}`
+    }))
+  };
+
+  return (
+    <>
+      {/* JSON-LD Schema Markup */}
+      {!isServiceAreaTrail && !adoptsServerSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schemaMarkup)}
+        </script>
+      )}
+
+      {/* Breadcrumb Navigation */}
+      <nav 
+        aria-label="Breadcrumb"
+        className={bare ? className : `py-3 px-4 bg-white/50 rounded-lg border border-gray-200 ${className}`}
+      >
+        <ol
+          className="flex flex-wrap items-center gap-2"
+          itemScope
+          itemType="https://schema.org/BreadcrumbList"
+        >
+          {items.map((item, index) => (
+            <li
+              key={item.href}
+              className="flex items-center gap-2"
+              itemProp="itemListElement"
+              itemScope
+              itemType="https://schema.org/ListItem"
+            >
+              <meta itemProp="position" content={String(index + 1)} />
+              {item.isCurrentPage ? (
+                <>
+                  {index > 0 && <ChevronRight className="w-4 h-4 text-gray-400" />}
+                  <span 
+                    className="text-gray-600 font-medium"
+                    aria-current="page"
+                    itemProp="name"
+                  >
+                    {item.label}
+                  </span>
+                  <meta itemProp="item" content={`${SITE_URL}${item.href}`} />
+                </>
+              ) : (
+                <>
+                  {index > 0 && <ChevronRight className="w-4 h-4 text-gray-400" />}
+                  <Link
+                    href={item.href}
+                    className="text-[#2C5F7F] hover:text-[#1a3d52] hover:underline transition-colors"
+                    itemProp="item"
+                  >
+                    <span itemProp="name">{item.label}</span>
+                  </Link>
+                </>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    </>
+  );
+}

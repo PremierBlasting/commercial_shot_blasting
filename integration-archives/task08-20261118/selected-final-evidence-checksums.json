@@ -1,0 +1,86 @@
+{
+  "files": {
+    "archive-privacy-review.json": {
+      "bytes": 384,
+      "checksum_only": true,
+      "sha256": "71368fbe28e04fd11dd5d615f2fad90f3c8b3d3f382cbf9fa3b87524488af2e9"
+    },
+    "browser/final-public-cold-20261118-retry/results.json": {
+      "bytes": 315439,
+      "checksum_only": true,
+      "sha256": "22855f3455a4e9ff13ae6e0b5d35bd8d1bfcdc3eb91a99432c81b5b23ff9ad23"
+    },
+    "browser/final-public-cold-20261118/coverage-final.json": {
+      "bytes": 4434,
+      "checksum_only": true,
+      "sha256": "2089c630b552ea4cec4034b46fab60d118ee6e1c5f1f0c65bdaa52a74bf11f73"
+    },
+    "browser/final-public-cold-20261118/results.json": {
+      "bytes": 2061654,
+      "checksum_only": true,
+      "sha256": "4301afd66b7ab47a2dab41f17466c21c96eb96c1c3c4c30c056fdbccff8abf06"
+    },
+    "browser/final-v3-remaining-fixture-gates-verified/results.json": {
+      "bytes": 15744093,
+      "checksum_only": true,
+      "sha256": "bfb358772a5af4305038c38c17c11b8bc6040ab487b669c579d92ddc720234f9"
+    },
+    "browser/final-worker-v3/results.json": {
+      "bytes": 4984025,
+      "checksum_only": true,
+      "sha256": "574cfccd23e8ec1c474a9f93c9d9c8e6a8e928273522004b6fead2fc3832bced"
+    },
+    "build-release-final.log": {
+      "bytes": 46743,
+      "checksum_only": true,
+      "sha256": "032a9a101369925cbb9345e75566423a8acad8c154011b827114d538eebefdc6"
+    },
+    "dev-availability-final.json": {
+      "bytes": 531,
+      "checksum_only": true,
+      "sha256": "a0f9993b4f09630bc2ee2253468b369f5ba3596605b3fb2877a43fbe767ca8ad"
+    },
+    "error-gates-release.log": {
+      "bytes": 359,
+      "checksum_only": true,
+      "sha256": "8f7711f258fa0d1b8ef9edc2ef1c2a54d2245c781e709964856393a525f5f986"
+    },
+    "final-acceptance.json": {
+      "bytes": 1262,
+      "checksum_only": true,
+      "sha256": "8d2df188cb26f9452e0168f4037e847d54bcb701332733fec02329d7d8a51f8b"
+    },
+    "http-v3-final-corrected.log": {
+      "bytes": 4757,
+      "checksum_only": true,
+      "sha256": "ce33de22b3e6676ce3a6cce0685f7462f4272bbed832450f03315b77f16172bb"
+    },
+    "public-release.json": {
+      "bytes": 8544,
+      "checksum_only": true,
+      "sha256": "3146c2a95522183dbaa96fcb4d3a0549cb525e65b9091938653324ba587aab7c"
+    },
+    "source-checkpoint-guard.log": {
+      "bytes": 1341,
+      "checksum_only": true,
+      "sha256": "88fc7c72c34423c0946d69bace915ea1e509e607e779c078d4c306d1c51fd51d"
+    },
+    "source-release-final.log": {
+      "bytes": 1341,
+      "checksum_only": true,
+      "sha256": "88fc7c72c34423c0946d69bace915ea1e509e607e779c078d4c306d1c51fd51d"
+    },
+    "tests-release-final.log": {
+      "bytes": 10618,
+      "checksum_only": true,
+      "sha256": "b2deb5970f6cf5f6be0921cf85b9c982b92f02bedaf8c31d056ea06717ecda50"
+    },
+    "types-release-final.log": {
+      "bytes": 315,
+      "checksum_only": true,
+      "sha256": "56f8c7d7e970489fcbcf5d9bfe12b60dc11c6c7f16d4cf73092073d91a4862e6"
+    }
+  },
+  "raw_evidence_not_archived": true,
+  "secrets_and_PII_not_copied": true
+}
