@@ -1,0 +1,14 @@
+{
+  "repository": "PremierBlasting/commercial_shot_blasting",
+  "existing_branch": "manus/csb-call-attribution-20261107",
+  "older_app_parent": "b03d05a51f228c93ea4a7f6a305604e80891ba2b",
+  "native_baseline": "30c7702d844a221a309b54e5472d0104f01ea117",
+  "managed_tested_checkpoint": "44138fa8f47775f8169481a17f8ac2f4ba869c62",
+  "production_scope": "One confirmation background class only; no quote/form/tracking/copy changes",
+  "files_sha256": {
+    "client/src/components/HBTunnellingTestimonial.tsx": "3c834a44bdb15cdcbc9e42fc42302cd76558586cb69e1484a4ab26bec8a01be5",
+    "server/confirmationTestimonialContrast.test.ts": "a0187729889885657162dace8d1134dc009173af99d6d3e46428071f3a1bc217",
+    "todo.md": "acc0f6b798604987b633067afdb052e0872b311dbdfe95770e719218ec4c98d0"
+  },
+  "patch_sha256": "a80af3e3533a29d4e845f77ef17cda0cf827b9c8069a2c4f9cd93c213b3e130a"
+}

@@ -1,0 +1,109 @@
+diff --git a/client/src/components/HBTunnellingTestimonial.tsx b/client/src/components/HBTunnellingTestimonial.tsx
+index b9b1536fb1b894041935e3bf82dd9e5a186ff842..103ef0ae5a49f8d5d4dad9ca4548c7c8bcd57f93 100644
+--- a/client/src/components/HBTunnellingTestimonial.tsx
++++ b/client/src/components/HBTunnellingTestimonial.tsx
+@@ -12,7 +12,7 @@ interface HBTunnellingTestimonialProps {
+ const VARIANT_CLASSES: Record<TestimonialVariant, string> = {
+   "case-study": "border-[#2c5f7f]/20 bg-white p-7 shadow-sm md:p-9",
+   service: "border-[#2C5F7F]/20 bg-[#eaf3f6] p-6 md:p-8",
+-  confirmation: "border-[#2C5F7F]/20 bg-[#2C5F7F]/5 p-4 text-left",
++  confirmation: "border-[#2C5F7F]/20 bg-white p-4 text-left",
+ };
+ 
+ export function HBTunnellingTestimonial({ variant = "case-study" }: HBTunnellingTestimonialProps) {
+diff --git a/server/confirmationTestimonialContrast.test.ts b/server/confirmationTestimonialContrast.test.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..edc8d085f62e4b3204c2b3ca265ee5d0e4132625
+--- /dev/null
++++ b/server/confirmationTestimonialContrast.test.ts
+@@ -0,0 +1,70 @@
++import { createHash } from "node:crypto";
++import { readFileSync } from "node:fs";
++import { resolve } from "node:path";
++import { describe, expect, it } from "vitest";
++
++const source = readFileSync(resolve(import.meta.dirname, "../client/src/components/HBTunnellingTestimonial.tsx"), "utf8");
++const form = readFileSync(resolve(import.meta.dirname, "../client/src/components/LeadForm.tsx"), "utf8");
++const confirmationClasses = source.match(/confirmation: "([^"]+)"/)?.[1];
++
++function luminance(hex: string): number {
++  const channels = hex.replace("#", "").match(/.{2}/g)!.map(value => {
++    const channel = parseInt(value, 16) / 255;
++    return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
++  });
++  return channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
++}
++
++function contrast(foreground: string, background: string): number {
++  const values = [luminance(foreground), luminance(background)].sort((a, b) => b - a);
++  return (values[0] + 0.05) / (values[1] + 0.05);
++}
++
++// Source-only tests: no lead, database, delivery or Google calls.
++// Browser acceptance additionally measures the resolved Tailwind slate colours.
++describe("HB Tunnelling post-enquiry testimonial contrast", () => {
++  it("uses an opaque white confirmation surface, not a translucent or inherited surface", () => {
++    expect(confirmationClasses).toBe("border-[#2C5F7F]/20 bg-white p-4 text-left");
++    expect(confirmationClasses).not.toMatch(/bg-\[[^\]]+\]\//);
++  });
++
++  it.each(["#183c52", "#2c5f7f"])("keeps fixed text colour %s above normal-text WCAG AA on the confirmation surface", color => {
++    expect(source).toContain(`text-[${color}]`);
++    expect(contrast(color, "#ffffff")).toBeGreaterThanOrEqual(4.5);
++  });
++
++  it("retains explicit dark quote and company colours instead of inheriting the dark form's white text", () => {
++    expect(source).toMatch(/<blockquote[^>]*text-slate-700/);
++    expect(source).toContain('className="text-sm text-slate-600"');
++  });
++
++  it("does not change the service or full case-study variant surfaces or spacing", () => {
++    expect(source).toContain('"case-study": "border-[#2c5f7f]/20 bg-white p-7 shadow-sm md:p-9"');
++    expect(source).toContain('service: "border-[#2C5F7F]/20 bg-[#eaf3f6] p-6 md:p-8"');
++    expect(source).toContain('const compact = variant === "confirmation"');
++    expect(source).toContain('compact ? "h-10 w-10" : "h-16 w-16"');
++  });
++
++  it("retains the original query-fed full quote, attribution, logo and reveal", () => {
++    expect(source).toContain("{testimonial.text}");
++    expect(source).toContain("{testimonial.name}");
++    expect(source).toContain("{testimonial.company}");
++    expect(source).toContain('src="/manus-storage/hb-tunnelling-logo-official_1acf5938.png"');
++    expect(source).toContain('<ScrollReveal duration={500} threshold={0.12} rootMargin="0px 0px -24px 0px">');
++  });
++
++  it("is exactly the approved one-class production change against the 20 November baseline", () => {
++    const reverted = source.replace(
++      'confirmation: "border-[#2C5F7F]/20 bg-white p-4 text-left"',
++      'confirmation: "border-[#2C5F7F]/20 bg-[#2C5F7F]/5 p-4 text-left"',
++    );
++    expect(createHash("sha256").update(reverted).digest("hex"))
++      .toBe("8710fd35e9fb2db09255e5e52985302f698e0fbefddf358ef422becd7a61b80c");
++  });
++
++  it("leaves the enquiry form, submission, uploader, consent and tracking code byte-identical", () => {
++    expect(createHash("sha256").update(form).digest("hex"))
++      .toBe("21b8bd4e83f53e91fd88d0378baeeaf7e8a7d4683e9e86520883c7b9574ce960");
++    expect(form).toContain('<HBTunnellingTestimonial variant="confirmation" />');
++  });
++});
+diff --git a/todo.md b/todo.md
+index 350fe88eb4d04b95af7ba211fba9c0f1f1121d98..7d942d57174cad92b6609489cafafd21a3b3a54e 100644
+--- a/todo.md
++++ b/todo.md
+@@ -2666,3 +2666,15 @@ Task10 image timing classification —18November15:14UTC: independent exact1154
+ Task10 archive stop —18November15:35UTC: no target/archive/stage/commit/push/network operation. Historical ghhosts contenthash differsfromcurrent; source/private currentpair matchfreshparentrecord. All919oldtargetpaths/config/ref/index and13immutablefiles preserved. A fresh current-existing account/repository/branch read-only verification is permitted bytheapproved inertmethod; originalauthhash/history mustremainuntouched. Any externalguard correction mustexplicitlybindcurrentauth toverifiedactor/repo/unchangedheads andfreshsnapshot, retainingallotherstrictfields/no login/newscopes/globalwrites. Wrongidentity/permission/ref or movingcurrentcredential muststop; no historicalrebaseline, blindwaiver or wrongremote. Website/publicchecks remainpass; archive gate remainsopen.
+ 
+ Task10 B10-01 COMPLETE —18November15:48UTC: code8158b902d1788b428a658a6f0ff3a2790a92924b publiclyverified27HTTP/byte-matchedentry5c3db927/11mounted17navigation/390+1440strictgeometry/actualHampcoldnode/state/schema proof.97safe1608tests/types/build,51localHTTP/head11hardloads50navigation6coldcases,1506protectedfiles/workbook/alltownrecords unchanged. Only13approvedmetadata/tags/count/test paths; no CSS/media/layout/form/lead/consent/UTM/Google/local-label/tier/URL changes. Exactsource13+8inertmetadata archive21additions normalcommitb03d05a51f228c93ea4a7f6a305604e80891ba2b,soleparent6a102ef5,correctexistingbranch:940remote paths/908streamedblobs independentlyverified,all919oldpaths/main/remediation preserved. HistoricalauthSHA drift/initialstop retained; fresh currentauthorizedsameactor/repo/observedpermissions/refs hash-boundselection verified,25externalhelpertests pass; no credential edit/login/globalwrite/grant-equivalence claim. Parentownedtemporaryauthcopy and owned testservers removedafteroperations. Final13-patch apply/reverse restorescomplete1154baseline; no main/force/rebind/oldappdeploy. Finalrelease record and11-routepublishedCSV ready; onlycompletiontodo changedaftertestedsource. Forty-oneotherTask09drafts, broad/root/body/local follow-ons and twohistoricprelaunch/bindingitems remain explicitlyheld/outsideapproval, not falselycompleted.
++
++## Confirmation testimonial readability — 20 November 2026
++
++User reports unreadable HB Tunnelling quote after enquiry submission. Scope: change only confirmation-variant card background from translucent blue to opaque white in client/src/components/HBTunnellingTestimonial.tsx; add a dedicated contrast/variant regression. Preserve exact customer quote, logo, headings, dimensions/spacing, scroll reveal, case-study/service variants and LeadForm/accepted-enquiry/CRM/attribution/consent/Google behaviour. No real submissions, uploads or tracking tests.
++- [x] Add opaque confirmation background and focused regressions.
++- [x] Check mocked-success confirmation on mobile/desktop and light/dark placements; verify text contrast and unchanged quote.
++- [x] Run focused/full offline-safe tests, TypeScript/build and protected source guards.
++- [x] Save tested checkpoint and distinguish preview from verified public release.
++
++20 November preview acceptance: six normal mocked-success cases at 390/1440px pass across homepage dark hero, homepage light contact section and Contact light form; two unchanged service/case-study testimonial variants pass. Public testimonial data was read-only and not mocked; exact quote/name/company/logo, spacing and natural reveal retained. White opaque card with quote contrast 10.36:1, heading/author 11.62:1, label 6.88:1 and company 7.58:1, with CSS Color 4 converted by the native browser to sRGB. Zero page errors or testimonial overflow. Existing homepage decorative 8px mobile overflow is identical before/after and outside this fix; no unrelated layout change. All 11 focused tests and 98 offline-safe files/1616 tests, TypeScript and client/SSR/Express build pass; two known live-effect suites excluded. All tracked source except one testimonial background class and this ledger is unchanged; nine protected hashes match, including entire LeadForm. No real enquiry/upload/call/CRM/Google action. Checkpoint, public bundle verification and correct existing-repository inert archive remain pending; Task11 customer-copy drafts remain unimplemented.
++
++20 November public release COMPLETE: feature checkpoint e455469f saved; deployment success received. At 14:02:01 UTC public homepage 200, index-BiOdsov7.js SHA e9c24736f3a88ac768e04c08d4a67c193bafc6dac75bb97c59ffb4a45da59b5c and testimonial-containing LeadForm-ClpKgk_D.js SHA 07fded2f6aaf3926253bca9a3adac2b680855f5bda693da53848e737949fb1ec exactly match tested build. Final actual-public six 390/1440 normal mocked-success cases and both preserved-variant checks pass after actual React-commit readiness; original public testimonial not mocked, computed opaque white, original logo loaded, same AA contrast and zero page errors. Initial external-checker UA403 and broad responsive-selector stop retained; only external harness preflight/readiness/unique-form selection corrected, no application change or visibility/contrast waiver. All traffic protections retained, no actual enquiries/uploads/CRM/Google tests. Only this completion ledger changes after tested feature. Correct-repository normal inert archive is the separate final bookkeeping step; no old-app port, wrong remote, force/main/binding change. Two historical pre-launch/binding prerequisites remain outside this styling approval; Task11 Opus text remains unimplemented.
