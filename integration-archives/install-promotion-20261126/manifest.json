@@ -1,0 +1,38 @@
+{
+  "repository": "PremierBlasting/commercial_shot_blasting",
+  "branch": "manus/csb-call-attribution-20261107",
+  "inert_archive_only": true,
+  "managed_project_id": "CYVSNVCfCqJAX7JT23JqdG",
+  "native_baseline": "44138fa8f47775f8169481a17f8ac2f4ba869c62",
+  "native_checkpoint": "2a5030a28dfce993864238d2cff552ca9959e802",
+  "target_parent": "2fb5e2ab0d6c50961753248962d5a148338b20ad",
+  "source_files": {
+    "client/index.html": {
+      "sha256": "489e8525c85ef1372287e4c46adf537bb3a1e2408ef59d09b0fba4f18b039962",
+      "bytes": 5471
+    },
+    "server/installPromotion.test.ts": {
+      "sha256": "11b70d4abca4f08703b7227ab79281c2750d86c8ce717723e304a57e3d1d7c9e",
+      "bytes": 2471
+    }
+  },
+  "native_patch_sha256": "f4b8d162ff34f88bdd82bf5c2a2ee6ba540ba912cdbc881976a739cbedaeaf8d",
+  "validation": {
+    "focused_tests_passed": 12,
+    "offline_tests_passed": 1622,
+    "offline_tests_failed_for_unrestored_historical_external_evidence": 2,
+    "unrestored_original_files": [
+      "source-integrity.json",
+      "baseline.json"
+    ],
+    "known_live_effect_suites_not_run": [
+      "server/leadNotifications.test.ts",
+      "server/callTracking.test.ts"
+    ],
+    "typescript_and_client_ssr_express_build_passed": true,
+    "production_browser_rows_passed": 10,
+    "protected_other_tracked_files_unchanged": 1519,
+    "no_real_leads_uploads_calls_whatsapp_or_google_events": true
+  },
+  "public_release_status_at_archive": "Checkpoint saved; first public HTTP read still serves earlier install metadata. Requires managed WebDev Publish; no public completion claim."
+}
