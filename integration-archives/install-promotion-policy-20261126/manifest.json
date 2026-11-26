@@ -1,0 +1,38 @@
+{
+  "repository": "PremierBlasting/commercial_shot_blasting",
+  "branch": "manus/csb-call-attribution-20261107",
+  "inert_archive_only": true,
+  "managed_project_id": "CYVSNVCfCqJAX7JT23JqdG",
+  "native_baseline": "44138fa8f47775f8169481a17f8ac2f4ba869c62",
+  "native_checkpoint": "b1abfec11c8053bc889fcb311a75c0e2b1e941c2",
+  "target_parent": "79ea12749666cec6cbeb40029a27267d0dea90b0",
+  "source_files": {
+    "client/index.html": {
+      "sha256": "e742f67d0159eea3f605574d1a640fad2e97763d088aa932596805f547809188",
+      "bytes": 5551
+    },
+    "server/installPromotion.test.ts": {
+      "sha256": "602178f9058edb2cc3cca810179667ebc0e9656de7909b11773afeb1d3a35264",
+      "bytes": 3092
+    }
+  },
+  "native_patch_sha256": "99c862abecb3eb02409008748623d20af224ff2df5be87cb8684354ccc14adec",
+  "validation": {
+    "focused_tests_passed": 14,
+    "offline_tests_passed": 1624,
+    "offline_tests_failed_for_unrestored_historical_external_evidence": 2,
+    "unrestored_original_files": [
+      "source-integrity.json",
+      "baseline.json"
+    ],
+    "known_live_effect_suites_not_run": [
+      "server/leadNotifications.test.ts",
+      "server/callTracking.test.ts"
+    ],
+    "typescript_and_client_ssr_express_build_passed": true,
+    "production_browser_rows_passed": 10,
+    "protected_other_tracked_files_unchanged": 1519,
+    "no_real_leads_uploads_calls_whatsapp_or_google_events": true
+  },
+  "public_release_status_at_archive": "Checkpoint saved; hosting injects a separate manifest; this follow-up blocks only manifest loading. Public CSP/browser confirmation after this checkpoint is pending; no public completion claim."
+}

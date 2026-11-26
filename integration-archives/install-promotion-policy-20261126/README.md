@@ -1,0 +1,9 @@
+# Remove automatic app-install promotion — 26 November 2026
+
+This is an inert native-source archive of the owner-approved fix in the current managed Commercial Shot Blasting website. It removes the original linked app manifest and four app-only mobile/Apple metadata tags, adds early meta CSP manifest-src 'none' to block hosting-injected app manifests, and adds ten install/cache/render preservation regressions. The policy has no default-src or other restrictions; scripts, forms, media, connections and workers are unaffected. Favicon, theme colour, touch icon, worker/registration/cache/offline behaviour and all page, form, upload, consent, attribution, tracking and operational routing source remain unchanged.
+
+The older application in this repository, main and all other branches are preserved. This archive is not an active port, deployment or managed-repository rebinding. native.patch reconstructs the exact two-path change from the recorded native baseline and was tested forward and reverse before archiving.
+
+The new and focused tests, TypeScript and production builds pass. 1,624 offline tests pass; two unchanged historical Task08 evidence checks cannot pass because their original external source-integrity.json and baseline.json were not restored into the current session. Those originals were not fabricated or rebaselined. Two known live-effect suites were not run. Production desktop/mobile browser checks pass; intentionally blocked Google Maps loader errors are retained separately. No real enquiry, upload, call, WhatsApp or Google event was sent.
+
+This removes deliberate automatic PWA promotion, not browser-owned manual install/save-as-app menus. Existing installed apps are not removed. Public publication remains separate from this archive: the first public source-removal release revealed a separate hosting-injected app manifest, so no live-fix claim is made here. Tasks 12/13/14/15 remain outside scope.
