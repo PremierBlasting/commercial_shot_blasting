@@ -1,0 +1,104 @@
+{
+  "checkedAtUTC": "2026-11-27T08:12:23Z",
+  "entry": "/assets/index-CXgbDgOQ.js",
+  "entrySHA256": "9c9a2f66e9b7f1c2a90aa0ac328b305d1102506d4a51c163a56bcc3e43c868f8",
+  "rows": [
+    {
+      "path": "/",
+      "query": "",
+      "status": 200,
+      "initialFormCount": 3,
+      "manifestOnlyPolicy": true,
+      "entryMatches": true
+    },
+    {
+      "path": "/",
+      "query": "?audit=form-email-check&utm_source=adwords&utm_medium=ppc&utm_campaign=csb-search-test",
+      "status": 200,
+      "initialFormCount": 3,
+      "manifestOnlyPolicy": true,
+      "entryMatches": true
+    },
+    {
+      "path": "/services/structural-steel-frames",
+      "query": "",
+      "status": 200,
+      "initialFormCount": 1,
+      "manifestOnlyPolicy": true,
+      "entryMatches": true
+    },
+    {
+      "path": "/services/structural-steel-frames",
+      "query": "?audit=form-email-check&utm_source=adwords&utm_medium=ppc&utm_campaign=csb-search-test",
+      "status": 200,
+      "initialFormCount": 1,
+      "manifestOnlyPolicy": true,
+      "entryMatches": true
+    },
+    {
+      "path": "/services/intumescent-painting",
+      "query": "",
+      "status": 200,
+      "initialFormCount": 0,
+      "manifestOnlyPolicy": true,
+      "entryMatches": true
+    },
+    {
+      "path": "/services/intumescent-painting",
+      "query": "?audit=form-email-check&utm_source=adwords&utm_medium=ppc&utm_campaign=csb-search-test",
+      "status": 200,
+      "initialFormCount": 0,
+      "manifestOnlyPolicy": true,
+      "entryMatches": true
+    },
+    {
+      "path": "/counties/hampshire",
+      "query": "",
+      "status": 200,
+      "initialFormCount": 1,
+      "manifestOnlyPolicy": true,
+      "entryMatches": true
+    },
+    {
+      "path": "/counties/hampshire",
+      "query": "?audit=form-email-check&utm_source=adwords&utm_medium=ppc&utm_campaign=csb-search-test",
+      "status": 200,
+      "initialFormCount": 1,
+      "manifestOnlyPolicy": true,
+      "entryMatches": true
+    },
+    {
+      "path": "/service-areas/truro",
+      "query": "",
+      "status": 200,
+      "initialFormCount": 0,
+      "manifestOnlyPolicy": true,
+      "entryMatches": true
+    },
+    {
+      "path": "/service-areas/truro",
+      "query": "?audit=form-email-check&utm_source=adwords&utm_medium=ppc&utm_campaign=csb-search-test",
+      "status": 200,
+      "initialFormCount": 0,
+      "manifestOnlyPolicy": true,
+      "entryMatches": true
+    },
+    {
+      "path": "/contact",
+      "query": "",
+      "status": 200,
+      "initialFormCount": 0,
+      "manifestOnlyPolicy": true,
+      "entryMatches": true
+    },
+    {
+      "path": "/contact",
+      "query": "?audit=form-email-check&utm_source=adwords&utm_medium=ppc&utm_campaign=csb-search-test",
+      "status": 200,
+      "initialFormCount": 0,
+      "manifestOnlyPolicy": true,
+      "entryMatches": true
+    }
+  ],
+  "noMutationRequests": true
+}

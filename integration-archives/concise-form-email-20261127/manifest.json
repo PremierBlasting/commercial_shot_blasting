@@ -1,0 +1,69 @@
+{
+  "repository": "PremierBlasting/commercial_shot_blasting",
+  "branch": "manus/csb-call-attribution-20261107",
+  "archive": "integration-archives/concise-form-email-20261127",
+  "inertArchiveOnly": true,
+  "managedProject": "CYVSNVCfCqJAX7JT23JqdG",
+  "nativeBaseline": "b1abfec11c8053bc889fcb311a75c0e2b1e941c2",
+  "nativeCheckpoint": "30d1e05405cdcc5b2f78d2834f3fae91ed0bc249",
+  "targetParent": "e21ba7046464baff0d564fd31d2196cce6ff9e80",
+  "files": {
+    "client/src/components/LeadForm.tsx": {
+      "sha256": "3841bf138d712e28a53b5d99af34e3fb3365b7d542aa4a09042d7c457cc28413",
+      "bytes": 28117
+    },
+    "server/universalGetInTouchForm.test.ts": {
+      "sha256": "7178bdc070038706a0779f341f709f405d9f66e4bb3a90b94817536cf279f18c",
+      "bytes": 3194
+    },
+    "server/capabilityStatementCards.test.ts": {
+      "sha256": "2189ac8dbdd13bfbbbe258fc64be395f7b6ea51720b943c3d26323331c478d79",
+      "bytes": 6185
+    },
+    "server/sitemapMapControls.test.ts": {
+      "sha256": "22c7d0c76265868034cd48195d5fb127bd830a8c20f4e5cf15977f42e52bb51d",
+      "bytes": 6692
+    },
+    "server/confirmationTestimonialContrast.test.ts": {
+      "sha256": "b12bf7d63575e276c7663a371a7ae690fc9cf70a5618ca51efae380421c418af",
+      "bytes": 3779
+    },
+    "server/task10ApprovedMetadata.test.ts": {
+      "sha256": "2547b1444831e5ad210829aab35e4627ba4bf4b55279f1f83ee40ec8c222f087",
+      "bytes": 27264
+    },
+    "server/leadFormEmailAlternative.test.ts": {
+      "sha256": "5f7e404a107f618687f7920e550c38eeb20185b08821541f8fedd2242f922b69",
+      "bytes": 4200
+    },
+    "server/fixtures/formEmailAlternativeScope.ts": {
+      "sha256": "6d57d6d2eb95e7349084e3c525571908df4308321af3bcdf1776decc700d8d87",
+      "bytes": 2669
+    }
+  },
+  "patchSHA256": "02e121eeb7d7dbdc541ee5bff4c6988b020d004a0434388a47684966c37b3a4e",
+  "exactPatchForwardReverseVerified": true,
+  "validation": {
+    "focusedPassed": 301,
+    "offlinePassed": 1633,
+    "historicalMissingEvidenceChecks": 2,
+    "missingOriginalEvidence": [
+      "source-integrity.json",
+      "baseline.json"
+    ],
+    "liveEffectSuitesNotRun": [
+      "server/leadNotifications.test.ts",
+      "server/callTracking.test.ts"
+    ],
+    "typescriptAndClientSSRExpressBuildPassed": true,
+    "publicHTTPRows": 12,
+    "publicBrowserRows": 12,
+    "otherTrackedFilesUnchanged": 1515,
+    "onlyProductionChange": "client/src/components/LeadForm.tsx",
+    "noRealContactsUploadsOrGoogleEvents": true,
+    "emailClientNotOpened": true
+  },
+  "publicEntry": "/assets/index-CXgbDgOQ.js",
+  "publicEntrySHA256": "9c9a2f66e9b7f1c2a90aa0ac328b305d1102506d4a51c163a56bcc3e43c868f8",
+  "publicVerifiedAtUTC": "2026-11-27T08:12:23Z"
+}

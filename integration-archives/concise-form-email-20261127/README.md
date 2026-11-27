@@ -1,0 +1,11 @@
+# Concise shared enquiry form and email alternative — 27 November 2026
+
+This inert native-source archive preserves the owner-approved update in the existing managed Commercial Shot Blasting website. The two upload count/size/type/originals helper paragraphs are removed and the supplied mailbox is offered as a native email link. The existing “Email us” label is reused. The link remains available where WhatsApp is hidden and automatically uses the established consent-aware campaign mailto preparation on intent; no email is sent automatically.
+
+Actual attachment formats and limits, optional multi-file controls, required name/email/phone/postcode/message, submission/upload/accepted-enquiry handlers, CRM/delivery, attribution, consent and contact tracking remain unchanged. Only LeadForm.tsx is production source changed. The completed manifest-only CSP and service worker/caching are preserved, as are all other page/layout/media/route/indexing owners.
+
+Five old source tests are narrowly adapted to the real upload-policy owner or exact reversal of this later-approved form delta. Original historical hashes and baseline fixtures are retained; the new strict test-only normalizer rejects any unrelated source change. The nine new regressions, 301 focused tests, TypeScript and client/SSR/Express build pass. The established offline-safe suite has 1,633 passing tests and two unchanged missing-original-Task08-evidence checks; those originals were not fabricated or rebaselined. Two known live-effect suites were not run.
+
+The actual public entry byte-matches the tested build. Twelve public HTTP checks and twelve real desktop/mobile browser rows cover home, structural and intumescent services, Hampshire, Truro and Contact. Email wrapping, five required fields, retained multiple-file controls and local-only selection/removal pass. Mail clients were not opened and no real enquiry, upload, call, WhatsApp or Google event was sent. Deliberately blocked Maps loader errors are retained separately.
+
+native.patch applies/reverses the exact eight source/test paths against the recorded native baseline. This append-only archive does not port or replace the older repository application, change main/other branches, rebind the managed project, or deploy that older application. Held Tasks 13/14/15 are not implemented by this change.

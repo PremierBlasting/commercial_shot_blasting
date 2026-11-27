@@ -1,0 +1,257 @@
+diff --git a/client/src/components/LeadForm.tsx b/client/src/components/LeadForm.tsx
+index 695d33b4991b94e6862a49487d7d0849f745f3b8..6a672e6ada04184e824e9f0d6d03c0ddf9090991 100644
+--- a/client/src/components/LeadForm.tsx
++++ b/client/src/components/LeadForm.tsx
+@@ -1,11 +1,11 @@
+ import { useCallback, useId, useRef, useState } from "react";
+-import { AlertCircle, ArrowRight, CheckCircle, FileText, Loader2, Upload, X } from "lucide-react";
++import { AlertCircle, ArrowRight, CheckCircle, FileText, Loader2, Mail, Upload, X } from "lucide-react";
+ import { trpc } from "@/lib/trpc";
+ import { formatUTMForSubmission } from "@/lib/utm";
+ import { normaliseUKPostcode, validateLeadEmailClient, validateUKPhone, validateUKPostcode } from "@shared/emailValidation";
+ import { HBTunnellingTestimonial } from "@/components/HBTunnellingTestimonial";
+ import { trackCommercialShotBlastingLead } from "@/lib/analytics";
+-import { ENQUIRY_ATTACHMENT_ACCEPT, MAX_ENQUIRY_FILES, selectEnquiryAttachments, formatAttachmentSize } from "@shared/enquiryAttachments";
++import { ENQUIRY_ATTACHMENT_ACCEPT, selectEnquiryAttachments, formatAttachmentSize } from "@shared/enquiryAttachments";
+ import { uploadEnquiryFile, type UploadedEnquiryMedia } from "@/lib/enquiryMediaUpload";
+ import { usePilotFormInitialValues } from "@/ssr/PilotRenderContext";
+ 
+@@ -341,8 +341,6 @@ export function LeadForm({
+         <div className="flex flex-wrap items-start justify-between gap-3">
+           <div>
+             <p className={`text-sm font-semibold ${headingColor}`}>Add photos, videos or drawings <span className={`font-normal ${subColor}`}>(optional)</span></p>
+-            <p className={`mt-0.5 text-xs leading-relaxed ${subColor}`}>Up to {MAX_ENQUIRY_FILES} files: photos/PDFs 100 MB each, videos 250 MB each, 500 MB total.</p>
+-            <p className={`mt-0.5 text-xs leading-relaxed ${subColor}`}>JPG, PNG, HEIC/iPhone photos, WebP, GIF, TIFF, camera RAW, MP4, MOV and more. Originals are kept.</p>
+           </div>
+           <button type="button" disabled={isSubmitting} onClick={() => attachmentInputRef.current?.click()} className={`inline-flex items-center gap-1.5 rounded-md px-3 py-2 text-xs font-semibold transition disabled:opacity-50 ${isDark ? "bg-white/10 text-white hover:bg-white/20" : "bg-white text-[#2C5F7F] shadow-sm ring-1 ring-[#2C5F7F]/15 hover:bg-[#edf4f7]"}`}>
+             <Upload className="h-3.5 w-3.5" aria-hidden="true" /> Add files
+@@ -385,6 +383,10 @@ export function LeadForm({
+       </button>
+       {attachments.some(item => item.status === "failed") && <button type="button" disabled={isSubmitting} onClick={event => void handleSubmit(event, true)} className={`w-full rounded-lg border px-3 py-2 text-xs font-semibold disabled:opacity-50 ${isDark ? "border-white/30 text-white" : "border-[#2C5F7F]/30 text-[#2C5F7F]"}`}>Send enquiry without failed files</button>}
+       <p className={`text-center text-xs ${privacyColor}`}>We&apos;ll only use your details to respond to this enquiry unless you opt in above.</p>
++      <a href="mailto:info@commercialshotblasting.co.uk" className={`flex w-full flex-wrap items-center justify-center gap-1.5 rounded text-xs font-medium underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-[#7ec8e3] ${isDark ? "text-[#7ec8e3] hover:text-white" : "text-[#2C5F7F] hover:text-[#1a3a52]"}`}>
++        <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
++        <span>Email us</span><span className="break-all">info@commercialshotblasting.co.uk</span>
++      </a>
+ 
+       {showWhatsApp && (
+         <>
+diff --git a/server/capabilityStatementCards.test.ts b/server/capabilityStatementCards.test.ts
+index dba35d70afabe0850018d65e0c9907d33d367d3a..bea71b5635c154fadb27867fb1441690b00a1b22 100644
+--- a/server/capabilityStatementCards.test.ts
++++ b/server/capabilityStatementCards.test.ts
+@@ -33,8 +33,10 @@ describe("Capability-statement card coverage", () => {
+     const download = readFileSync(resolve(projectRoot, "client/src/components/CapabilityStatementDownload.tsx"), "utf8");
+     const leadForm = readFileSync(resolve(projectRoot, "client/src/components/LeadForm.tsx"), "utf8");
+ 
+-    expect(leadForm).toContain("MAX_ENQUIRY_FILES");
+-    expect(leadForm).toContain("videos 250 MB each");
++    expect(leadForm).toContain("selectEnquiryAttachments");
++    const attachments = readFileSync(resolve(projectRoot, "shared/enquiryAttachments.ts"), "utf8");
++    expect(attachments).toContain("MAX_ENQUIRY_FILES = 20");
++    expect(attachments).toContain("MAX_VIDEO_BYTES = 250 * MIB");
+     expect(leadForm).toContain("accept={ENQUIRY_ATTACHMENT_ACCEPT}");
+     expect(leadForm).toContain("Add photos, videos or drawings");
+     expect(leadForm).toContain("removeAttachment");
+diff --git a/server/confirmationTestimonialContrast.test.ts b/server/confirmationTestimonialContrast.test.ts
+index edc8d085f62e4b3204c2b3ca265ee5d0e4132625..e8341557d194a494ef9028dea29204b4e8b71d99 100644
+--- a/server/confirmationTestimonialContrast.test.ts
++++ b/server/confirmationTestimonialContrast.test.ts
+@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
+ import { readFileSync } from "node:fs";
+ import { resolve } from "node:path";
+ import { describe, expect, it } from "vitest";
++import { restoreBeforeFormEmailAlternative } from "./fixtures/formEmailAlternativeScope";
+ 
+ const source = readFileSync(resolve(import.meta.dirname, "../client/src/components/HBTunnellingTestimonial.tsx"), "utf8");
+ const form = readFileSync(resolve(import.meta.dirname, "../client/src/components/LeadForm.tsx"), "utf8");
+@@ -62,8 +63,8 @@ describe("HB Tunnelling post-enquiry testimonial contrast", () => {
+       .toBe("8710fd35e9fb2db09255e5e52985302f698e0fbefddf358ef422becd7a61b80c");
+   });
+ 
+-  it("leaves the enquiry form, submission, uploader, consent and tracking code byte-identical", () => {
+-    expect(createHash("sha256").update(form).digest("hex"))
++  it("leaves the enquiry form byte-identical apart from the exact later-approved email alternative", () => {
++    expect(createHash("sha256").update(restoreBeforeFormEmailAlternative(form)).digest("hex"))
+       .toBe("21b8bd4e83f53e91fd88d0378baeeaf7e8a7d4683e9e86520883c7b9574ce960");
+     expect(form).toContain('<HBTunnellingTestimonial variant="confirmation" />');
+   });
+diff --git a/server/sitemapMapControls.test.ts b/server/sitemapMapControls.test.ts
+index 06e139d59939f3ef34f535007630c742e0089bad..99af9f0dd9e7a5432731d2a5163a3dc329815f70 100644
+--- a/server/sitemapMapControls.test.ts
++++ b/server/sitemapMapControls.test.ts
+@@ -45,7 +45,8 @@ describe("sitemap map controls and Site Visit options", () => {
+     expect(contactPage).toContain("<LeadForm");
+     expect(leadForm).toContain("Your message");
+     expect(leadForm).toContain("Add photos, videos or drawings");
+-    expect(leadForm).toContain("MAX_ENQUIRY_FILES");
++    expect(leadForm).toContain("selectEnquiryAttachments");
++    expect(readFileSync(resolve(projectRoot, "shared/enquiryAttachments.ts"), "utf8")).toContain("MAX_ENQUIRY_FILES = 20");
+     expect(leadForm).not.toContain("Primary Asset Category");
+     expect(leadForm).not.toContain("Select a service");
+   });
+diff --git a/server/task10ApprovedMetadata.test.ts b/server/task10ApprovedMetadata.test.ts
+index 46c5995137c7946c339a296fbae25c1ea3e59316..9c7432b9e7f76ff6b68228155b8af870fbf84ce7 100644
+--- a/server/task10ApprovedMetadata.test.ts
++++ b/server/task10ApprovedMetadata.test.ts
+@@ -7,6 +7,7 @@ import { createServer, type ViteDevServer } from "vite";
+ import react from "@vitejs/plugin-react";
+ import captured from "./fixtures/task10ApprovalBaseline.json";
+ import { normalizeTask10Source } from "./task10SourceScopeGuard";
++import { restoreBeforeFormEmailAlternative } from "./fixtures/formEmailAlternativeScope";
+ import { CANONICAL_SERVICE_SLUGS, LEGACY_SERVICE_REDIRECTS, LEGACY_ROOT_SERVICE_REDIRECTS } from "../shared/serviceSeoCatalog";
+ import { escapeRouteMetadata, getRouteMetadataTags, resolveRouteMetadata, serializeRouteMetadataBoot, serializeRouteMetadataHead, type RouteMetadataRecord } from "../shared/routeMetadata";
+ import { validateRenderingPilotBoot, type PilotSeed } from "../shared/renderingPilot";
+@@ -176,7 +177,7 @@ describe("Task10 source-only approved semantic tags and exact historical byte gu
+     const baseline = '<h3 className={`${isHero ? "text-xl" : "text-lg"} font-bold ${headingColor}`}>Get In Touch</h3>';
+     expect(form.split(approved)).toHaveLength(2); expect(form).not.toContain(baseline);
+     expect(form).toContain('<h3 className={`mb-2 text-lg font-bold ${headingColor}`}>Thank you — we&apos;ve received your enquiry.</h3>');
+-    expect(digest(form.replace(approved, baseline))).toBe(fixture.baselineHashes["client/src/components/LeadForm.tsx"]);
++    expect(digest(restoreBeforeFormEmailAlternative(form).replace(approved, baseline))).toBe(fixture.baselineHashes["client/src/components/LeadForm.tsx"]);
+   });
+   it("retains exact Services source apart from the five approved count fragments, with all 20 visual cards unchanged", () => {
+     const services = source("client/src/pages/Services.tsx");
+diff --git a/server/universalGetInTouchForm.test.ts b/server/universalGetInTouchForm.test.ts
+index 274f573c268616d430cf800315d7fcce5d2dd048..419d2fd9cc51cbbae8c357f742e0c1f65947075c 100644
+--- a/server/universalGetInTouchForm.test.ts
++++ b/server/universalGetInTouchForm.test.ts
+@@ -29,10 +29,14 @@ describe("universal Get In Touch enquiry flow", () => {
+ 
+   it("supports optional multiple photos/videos/drawings through the shared expanded policy", () => {
+     expect(leadForm).toContain("multiple");
+-    expect(leadForm).toContain("MAX_ENQUIRY_FILES");
+-    expect(leadForm).toContain("photos/PDFs 100 MB each, videos 250 MB each, 500 MB total");
++    expect(leadForm).toContain("selectEnquiryAttachments");
+     expect(leadForm).toContain("accept={ENQUIRY_ATTACHMENT_ACCEPT}");
+-    expect(leadForm).toContain("HEIC/iPhone photos");
++    const attachments = read("shared/enquiryAttachments.ts");
++    expect(attachments).toContain("MAX_ENQUIRY_FILES = 20");
++    expect(attachments).toContain("MAX_PHOTO_BYTES = 100 * MIB");
++    expect(attachments).toContain("MAX_VIDEO_BYTES = 250 * MIB");
++    expect(attachments).toContain("MAX_ENQUIRY_TOTAL_BYTES = 500 * MIB");
++    expect(attachments).toContain("heic");
+   });
+ 
+   it("preserves existing CSB attribution and delivery fields", () => {
+diff --git a/server/leadFormEmailAlternative.test.ts b/server/leadFormEmailAlternative.test.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..88e0f6281410f02b0a301ed6bffcfc0c76887d6e
+--- /dev/null
++++ b/server/leadFormEmailAlternative.test.ts
+@@ -0,0 +1,75 @@
++import { describe, expect, it } from "vitest";
++import { readFileSync } from "node:fs";
++import { resolve } from "node:path";
++import { createHash } from "node:crypto";
++import { campaignEmailHref } from "../client/src/lib/campaignEmailLinks";
++import { restoreBeforeFormEmailAlternative } from "./fixtures/formEmailAlternativeScope";
++
++const root = resolve(import.meta.dirname, "..");
++const form = readFileSync(resolve(root, "client/src/components/LeadForm.tsx"), "utf8");
++const emailHref = "mailto:info@commercialshotblasting.co.uk";
++
++describe("shared form concise uploads and email alternative", () => {
++  it("removes both owner-highlighted guidance paragraphs", () => {
++    expect(form).not.toContain("photos/PDFs 100 MB each");
++    expect(form).not.toContain("HEIC/iPhone photos");
++    expect(form).not.toContain("Originals are kept.");
++    expect(form).not.toContain("Up to {MAX_ENQUIRY_FILES} files");
++  });
++
++  it("keeps the optional upload label, multiple input and actual validation", () => {
++    expect(form).toContain("Add photos, videos or drawings");
++    expect(form).toContain('type="file" multiple disabled={isSubmitting} accept={ENQUIRY_ATTACHMENT_ACCEPT}');
++    expect(form).toContain("selectEnquiryAttachments(attachments.map(item => item.file), Array.from(incoming))");
++    expect(form).toContain("removeAttachment(item.id)");
++  });
++
++  it("offers the supplied mailbox outside the optional WhatsApp branch", () => {
++    const position = form.indexOf(`href="${emailHref}"`);
++    expect(position).toBeGreaterThan(form.indexOf("We&apos;ll only use your details"));
++    expect(position).toBeLessThan(form.indexOf("{showWhatsApp && ("));
++    expect(form).toContain("<span>Email us</span>");
++    expect(form).toContain('<span className="break-all">info@commercialshotblasting.co.uk</span>');
++  });
++
++  it("uses a native mailto link, not a submit button or automatic send", () => {
++    const link = form.slice(form.indexOf(`<a href="${emailHref}"`), form.indexOf("{showWhatsApp && ("));
++    expect(link).not.toContain("onClick");
++    expect(link).not.toContain("handleSubmit");
++    expect(link).toContain("focus:ring-2");
++    expect(link).toContain("flex-wrap");
++  });
++
++  it("preserves every original submission, upload and tracking handler byte", () => {
++    const handlers = form.slice(form.indexOf("  const contactMutation ="), form.indexOf("  const bg ="));
++    expect(createHash("sha256").update(handlers).digest("hex")).toBe("1ea71ab9d9c1100ff02c463e57281abc3230d36e481488681c3a8bbde7dba86b");
++  });
++
++  it("does not weaken the five mandatory native fields", () => {
++    for (const suffix of ["name", "email", "phone", "postcode"]) {
++      expect(form).toMatch(new RegExp(`id=\\{\\x60\\$\\{fieldId\\}-${suffix}\\x60\\}[^>]*\\brequired\\b`));
++    }
++    expect(form).toMatch(/<textarea[^>]*\brequired\b/);
++  });
++
++  it("retains existing campaign-aware mailto preparation without a new recipient", () => {
++    expect(campaignEmailHref(emailHref, {}, "/services/structural-steel-frames")).toBe(emailHref);
++    const attributed = campaignEmailHref(emailHref, { cv_utm_campaign: "csb-search-test", cv_utm_id: "123", gclid: "never-copy-this" }, "/services/structural-steel-frames");
++    expect(attributed.startsWith(emailHref)).toBe(true);
++    expect(new URL(attributed).searchParams.get("body")).toContain("csb-search-test (campaign ID 123)");
++    expect(attributed).not.toContain("gclid");
++    expect(attributed).not.toContain("never-copy-this");
++  });
++
++  it("retains the original full-form historical hash after exact reversal", () => {
++    const original = restoreBeforeFormEmailAlternative(form);
++    expect(createHash("sha256").update(original).digest("hex")).toBe("21b8bd4e83f53e91fd88d0378baeeaf7e8a7d4683e9e86520883c7b9574ce960");
++    expect(restoreBeforeFormEmailAlternative(original)).toBe(original);
++  });
++
++  it("rejects unauthorized edits and incorrect email targets instead of rebaselining", () => {
++    for (const changed of [form + "\n// unrelated change\n", form.replace("info@commercialshotblasting.co.uk", "wrong@example.com"), form.replace("setSubmitted(true)", "setSubmitted(false)")]) {
++      expect(() => restoreBeforeFormEmailAlternative(changed)).toThrow();
++    }
++  });
++});
+diff --git a/server/fixtures/formEmailAlternativeScope.ts b/server/fixtures/formEmailAlternativeScope.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..fd13ee10d28efb2e63bc92125fe461428be256f4
+--- /dev/null
++++ b/server/fixtures/formEmailAlternativeScope.ts
+@@ -0,0 +1,35 @@
++import { createHash } from "node:crypto";
++
++const originalHash = "21b8bd4e83f53e91fd88d0378baeeaf7e8a7d4683e9e86520883c7b9574ce960";
++const hash = (source: string) => createHash("sha256").update(source).digest("hex");
++
++// Reverse only the owner's 27 November form change for older historical guards.
++// The historical expected hashes are not replaced or regenerated.
++const deltas: Array<[string, string]> = [
++  ['import { AlertCircle, ArrowRight, CheckCircle, FileText, Loader2, Mail, Upload, X } from "lucide-react";', 'import { AlertCircle, ArrowRight, CheckCircle, FileText, Loader2, Upload, X } from "lucide-react";'],
++  ['import { ENQUIRY_ATTACHMENT_ACCEPT, selectEnquiryAttachments, formatAttachmentSize } from "@shared/enquiryAttachments";', 'import { ENQUIRY_ATTACHMENT_ACCEPT, MAX_ENQUIRY_FILES, selectEnquiryAttachments, formatAttachmentSize } from "@shared/enquiryAttachments";'],
++  [
++    '            <p className={`text-sm font-semibold ${headingColor}`}>Add photos, videos or drawings <span className={`font-normal ${subColor}`}>(optional)</span></p>\n',
++    '            <p className={`text-sm font-semibold ${headingColor}`}>Add photos, videos or drawings <span className={`font-normal ${subColor}`}>(optional)</span></p>\n' +
++    '            <p className={`mt-0.5 text-xs leading-relaxed ${subColor}`}>Up to {MAX_ENQUIRY_FILES} files: photos/PDFs 100 MB each, videos 250 MB each, 500 MB total.</p>\n' +
++    '            <p className={`mt-0.5 text-xs leading-relaxed ${subColor}`}>JPG, PNG, HEIC/iPhone photos, WebP, GIF, TIFF, camera RAW, MP4, MOV and more. Originals are kept.</p>\n',
++  ],
++  [
++    '      <a href="mailto:info@commercialshotblasting.co.uk" className={`flex w-full flex-wrap items-center justify-center gap-1.5 rounded text-xs font-medium underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-[#7ec8e3] ${isDark ? "text-[#7ec8e3] hover:text-white" : "text-[#2C5F7F] hover:text-[#1a3a52]"}`}>\n' +
++    '        <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />\n' +
++    '        <span>Email us</span><span className="break-all">info@commercialshotblasting.co.uk</span>\n' +
++    '      </a>\n',
++    '',
++  ],
++];
++
++export function restoreBeforeFormEmailAlternative(source: string): string {
++  if (hash(source) === originalHash) return source;
++  let restored = source;
++  for (const [approved, original] of deltas) {
++    if (restored.split(approved).length !== 2) throw new Error("Form change is not the exact approved email alternative");
++    restored = restored.replace(approved, original);
++  }
++  if (hash(restored) !== originalHash) throw new Error("Unrelated form source change detected");
++  return restored;
++}

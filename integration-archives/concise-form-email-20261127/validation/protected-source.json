@@ -1,0 +1,17 @@
+{
+  "unchangedTrackedFiles": 1515,
+  "changedTrackedFiles": [
+    "client/src/components/LeadForm.tsx",
+    "server/capabilityStatementCards.test.ts",
+    "server/confirmationTestimonialContrast.test.ts",
+    "server/sitemapMapControls.test.ts",
+    "server/task10ApprovedMetadata.test.ts",
+    "server/universalGetInTouchForm.test.ts"
+  ],
+  "newFiles": [
+    "server/leadFormEmailAlternative.test.ts",
+    "server/fixtures/formEmailAlternativeScope.ts"
+  ],
+  "onlyProductionChange": "client/src/components/LeadForm.tsx",
+  "allOtherOperationalSourcePreserved": true
+}
