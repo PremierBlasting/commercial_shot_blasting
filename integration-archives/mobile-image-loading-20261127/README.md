@@ -1,0 +1,13 @@
+# Mobile project-image loading — 27 November 2026
+
+This inert archive records the owner-requested mobile-loading repair in the existing managed website, not an active port over the older repository application.
+
+The reported ISS/Wigan card used a 1,930,344-byte PNG through a presigned redirect. The same approved responsive Wigan photos already served on its case-study page are reused for this card with native lazy loading, responsive source selection and a same-original fallback. The 960px After WebP is 81,426 bytes, 95.78% fewer image bytes, not a whole-site speed claim. Original project records and all other cards remain intact.
+
+The obsolete global original-hero preload is removed. The unchanged HB hero posters and footage remain; decorative autoplay is withheld when the browser reports data saving/slow connectivity or reduced motion, and while hidden/offscreen. Browsers without Network Information retain the existing footage on eligible visible loads. The lower-page All Three Teams video retains its exact source and controls with preload none; the full HB film remains opt-in. No unused image wrappers, worker, hydration architecture, forms, tracking, copy or layout redesign is included.
+
+66 new regressions and 117 focused tests pass, with TypeScript/client/SSR/Express build success. The established safe suite has 1,707 passing tests; two unchanged missing original Task08 external-evidence checks remain, without fabricated/replaced evidence or new skips. Two known live-effect suites were not run. Original hero hashes remain through strict reversible test-only deltas; unrelated poison edits fail. All 1,520 other tracked files and prior upload/contact/consent/attribution/indexing/header/worker systems remain unchanged.
+
+Actual public clean/query route, exact entry/Home/CaseStudies bundle and four image-byte verification, normal/throttled/worker mobile checks, desktop/mobile card decoding and before/after/results/filter/fallback/data-saving/reduced-motion checks are included. Initial slow-mobile image completion was sampled at roughly 25 seconds after scroll; final public timings are recorded in evidence, with five-second sampling and emulation limits, not a universal device claim. Results/filter controls were validated using native keyboard activation after external pointer auto-scroll attempts; image toggles use real pointer events. The pre-existing pointer geometry was independently identical before/after. No real contacts/uploads/Google events were sent.
+
+The exact thirteen-path native.patch applies and reverses to the full previous baseline. The archive only adds files below this directory; main, existing blobs, other branches, source binding and old application remain unchanged.

@@ -1,0 +1,191 @@
+{
+  "base": "https://commercialshotblasting.co.uk",
+  "checkedAtUTC": "2026-11-27T13:49:35Z",
+  "rows": [
+    {
+      "path": "/",
+      "query": false,
+      "status": 200,
+      "canonical": [
+        "https://commercialshotblasting.co.uk/"
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large"
+      ]
+    },
+    {
+      "path": "/",
+      "query": true,
+      "status": 200,
+      "canonical": [
+        "https://commercialshotblasting.co.uk/"
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large"
+      ]
+    },
+    {
+      "path": "/contact",
+      "query": false,
+      "status": 200,
+      "canonical": [
+        "https://commercialshotblasting.co.uk/contact"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    {
+      "path": "/contact",
+      "query": true,
+      "status": 200,
+      "canonical": [
+        "https://commercialshotblasting.co.uk/contact"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    {
+      "path": "/services/structural-steel-frames",
+      "query": false,
+      "status": 200,
+      "canonical": [
+        "https://commercialshotblasting.co.uk/services/structural-steel-frames"
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large, max-snippet:-1"
+      ]
+    },
+    {
+      "path": "/services/structural-steel-frames",
+      "query": true,
+      "status": 200,
+      "canonical": [
+        "https://commercialshotblasting.co.uk/services/structural-steel-frames"
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large, max-snippet:-1"
+      ]
+    },
+    {
+      "path": "/services/intumescent-painting",
+      "query": false,
+      "status": 200,
+      "canonical": [
+        "https://commercialshotblasting.co.uk/services/intumescent-painting"
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large, max-snippet:-1"
+      ]
+    },
+    {
+      "path": "/services/intumescent-painting",
+      "query": true,
+      "status": 200,
+      "canonical": [
+        "https://commercialshotblasting.co.uk/services/intumescent-painting"
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large, max-snippet:-1"
+      ]
+    },
+    {
+      "path": "/counties/hampshire",
+      "query": false,
+      "status": 200,
+      "canonical": [
+        "https://commercialshotblasting.co.uk/counties/hampshire"
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large"
+      ]
+    },
+    {
+      "path": "/counties/hampshire",
+      "query": true,
+      "status": 200,
+      "canonical": [
+        "https://commercialshotblasting.co.uk/counties/hampshire"
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large"
+      ]
+    },
+    {
+      "path": "/service-areas/truro",
+      "query": false,
+      "status": 200,
+      "canonical": [
+        "https://commercialshotblasting.co.uk/service-areas/truro"
+      ],
+      "robots": [
+        "noindex, follow, max-image-preview:large, max-snippet:-1"
+      ]
+    },
+    {
+      "path": "/service-areas/truro",
+      "query": true,
+      "status": 200,
+      "canonical": [
+        "https://commercialshotblasting.co.uk/service-areas/truro"
+      ],
+      "robots": [
+        "noindex, follow, max-image-preview:large, max-snippet:-1"
+      ]
+    }
+  ],
+  "releaseBundles": [
+    {
+      "path": "/assets/index-DAkKdvCW.js",
+      "bytes": 616892,
+      "sha256": "d1d53c5b356cac706dfa985dc5d2e23fa4b0a073d298ddd52a87f7a53431175c",
+      "matchesTestedBuild": true
+    },
+    {
+      "path": "/assets/Home-7Fh7J7Sp.js",
+      "bytes": 83095,
+      "sha256": "bc98d8d550e91be4b7ebd9ef9e87222fed23dab0727a41caee6fa212c2532f0b",
+      "matchesTestedBuild": true
+    },
+    {
+      "path": "/assets/CaseStudies-Bt6x-gPe.js",
+      "bytes": 14941,
+      "sha256": "3510b75503d8960a27b33a32afdf218acfb84febbefd90838dd01ac4ded24c9c",
+      "matchesTestedBuild": true
+    }
+  ],
+  "images": [
+    {
+      "path": "/images/case-studies/iss-property-wigan-after-640.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 51984,
+      "sha256": "2fb5dc6fdf9bbd7df71a9781fbfe7e06b9a0168eaf9e35e3232e0607741d2edf"
+    },
+    {
+      "path": "/images/case-studies/iss-property-wigan-after-960.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 81426,
+      "sha256": "805508140465834b0337b4242698553c572631bce1b2d5b6592f932b065ecd3d"
+    },
+    {
+      "path": "/images/case-studies/iss-property-wigan-before-640.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 29104,
+      "sha256": "a2e972e37ff9765af2e49dc06220de0df36bf6e09e5e455440ed74a0391061a6"
+    },
+    {
+      "path": "/images/case-studies/iss-property-wigan-before-960.webp",
+      "status": 200,
+      "mime": "image/webp",
+      "bytes": 44264,
+      "sha256": "104fc7efb573670fec2fdc8bb08d2d9a8d6f597f103ae162c7ea75367a21578f"
+    }
+  ],
+  "obsoletePreloadAbsent": true,
+  "manifestOnlyCSPRetained": true,
+  "readOnlyRequestsOnly": true
+}

@@ -1,0 +1,1111 @@
+[
+  {
+    "mode": "normal",
+    "width": 390,
+    "status": 200,
+    "geometry": {
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 104,
+        "top": 0,
+        "right": 390,
+        "bottom": 104,
+        "left": 0
+      },
+      "hero": {
+        "x": 0,
+        "y": 104,
+        "width": 390,
+        "height": 1574.25,
+        "top": 104,
+        "right": 390,
+        "bottom": 1678.25,
+        "left": 0
+      },
+      "h1": {
+        "x": 16,
+        "y": 164,
+        "width": 358,
+        "height": 120,
+        "top": 164,
+        "right": 374,
+        "bottom": 284,
+        "left": 16
+      },
+      "form": {
+        "x": 16,
+        "y": 554.25,
+        "width": 358,
+        "height": 770,
+        "top": 554.25,
+        "right": 374,
+        "bottom": 1324.25,
+        "left": 16
+      }
+    },
+    "requiredFields": [
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "after": {
+      "src": "/images/case-studies/iss-property-wigan-after-960.webp",
+      "currentSrc": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-960.webp",
+      "naturalWidth": 389,
+      "naturalHeight": 246,
+      "opacity": "1",
+      "box": {
+        "x": 17,
+        "y": 306.25,
+        "width": 356,
+        "height": 267,
+        "top": 306.25,
+        "right": 373,
+        "bottom": 573.25,
+        "left": 17
+      },
+      "srcSet": "/images/case-studies/iss-property-wigan-after-640.webp 640w, /images/case-studies/iss-property-wigan-after-960.webp 960w"
+    },
+    "before": {
+      "src": "/images/case-studies/iss-property-wigan-before-960.webp",
+      "currentSrc": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-before-960.webp",
+      "naturalWidth": 389,
+      "naturalHeight": 237
+    },
+    "allNineCards": [
+      {
+        "src": "/images/case-studies/iss-property-wigan-after-960.webp",
+        "naturalWidth": 389,
+        "opacity": "1"
+      },
+      {
+        "src": "/manus-storage/hb-tunnelling-finished-painted-drone_42119577.webp",
+        "naturalWidth": 2048,
+        "opacity": "1"
+      },
+      {
+        "src": "/manus-storage/bromsgrove-staircase-after_ae521dcd.png",
+        "naturalWidth": 1086,
+        "opacity": "1"
+      },
+      {
+        "src": "/manus-storage/ade-power-wakefield-marine-cx-hero_0d533b36.webp",
+        "naturalWidth": 1600,
+        "opacity": "1"
+      },
+      {
+        "src": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
+        "naturalWidth": 960,
+        "opacity": "1"
+      },
+      {
+        "src": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/DUhxFvPPoYHiQnQF.webp",
+        "naturalWidth": 900,
+        "opacity": "1"
+      },
+      {
+        "src": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
+        "naturalWidth": 1600,
+        "opacity": "1"
+      },
+      {
+        "src": "/manus-storage/WhatsAppImage2026-04-27at16.58.42(1)_a8f17ecc.jpeg",
+        "naturalWidth": 1536,
+        "opacity": "1"
+      },
+      {
+        "src": "/manus-storage/marine-after-1_dc53f2eb.jpg",
+        "naturalWidth": 1600,
+        "opacity": "1"
+      }
+    ],
+    "normalAutoplayRetained": true,
+    "offscreenDecorativeVideoRemoved": true,
+    "belowFoldNoAutomaticVideoRequest": true,
+    "fallbackRequests": [],
+    "nonReadAttempts": [],
+    "pageErrors": [],
+    "blockedThirdParty": [
+      {
+        "host": "manus-analytics.com",
+        "path": "/umami"
+      }
+    ],
+    "failedRequests": [
+      {
+        "url": "https://manus-analytics.com/umami",
+        "reason": "net::ERR_FAILED"
+      }
+    ],
+    "imageResponses": [
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XnaMTpijZGPPcTZV.svg",
+        "status": 200,
+        "mime": "image/svg+xml"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/hb-tunnelling-doncaster-mobile-hero-poster_db54137a.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ATzSAikYtVvYiYkQ.svg",
+        "status": 200,
+        "mime": "image/svg+xml"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-960.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/hb-tunnelling-finished-painted-drone_42119577.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/ade-power-wakefield-marine-cx-hero_0d533b36.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/bromsgrove-staircase-after_ae521dcd.png",
+        "status": 200,
+        "mime": "image/png"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-before-960.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-960.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/DUhxFvPPoYHiQnQF.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
+        "status": 200,
+        "mime": "image/webp"
+      }
+    ],
+    "noRealContactsUploadsOrGoogleEvents": true
+  },
+  {
+    "mode": "normal",
+    "width": 1440,
+    "status": 200,
+    "geometry": {
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 80,
+        "top": 0,
+        "right": 1440,
+        "bottom": 80,
+        "left": 0
+      },
+      "hero": {
+        "x": 0,
+        "y": 80,
+        "width": 1440,
+        "height": 813,
+        "top": 80,
+        "right": 1440,
+        "bottom": 893,
+        "left": 0
+      },
+      "h1": {
+        "x": 112,
+        "y": 148,
+        "width": 816,
+        "height": 288,
+        "top": 148,
+        "right": 928,
+        "bottom": 436,
+        "left": 112
+      },
+      "form": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    "requiredFields": [
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "after": {
+      "src": "/images/case-studies/iss-property-wigan-after-960.webp",
+      "currentSrc": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-640.webp",
+      "naturalWidth": 475,
+      "naturalHeight": 299,
+      "opacity": "1",
+      "box": {
+        "x": 113,
+        "y": 357,
+        "width": 382,
+        "height": 286.5,
+        "top": 357,
+        "right": 495,
+        "bottom": 643.5,
+        "left": 113
+      },
+      "srcSet": "/images/case-studies/iss-property-wigan-after-640.webp 640w, /images/case-studies/iss-property-wigan-after-960.webp 960w"
+    },
+    "before": {
+      "src": "/images/case-studies/iss-property-wigan-before-960.webp",
+      "currentSrc": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-before-640.webp",
+      "naturalWidth": 475,
+      "naturalHeight": 289
+    },
+    "allNineCards": [
+      {
+        "src": "/images/case-studies/iss-property-wigan-after-960.webp",
+        "naturalWidth": 475,
+        "opacity": "1"
+      },
+      {
+        "src": "/manus-storage/hb-tunnelling-finished-painted-drone_42119577.webp",
+        "naturalWidth": 2048,
+        "opacity": "1"
+      },
+      {
+        "src": "/manus-storage/bromsgrove-staircase-after_ae521dcd.png",
+        "naturalWidth": 1086,
+        "opacity": "1"
+      },
+      {
+        "src": "/manus-storage/ade-power-wakefield-marine-cx-hero_0d533b36.webp",
+        "naturalWidth": 1600,
+        "opacity": "1"
+      },
+      {
+        "src": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
+        "naturalWidth": 960,
+        "opacity": "1"
+      },
+      {
+        "src": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/DUhxFvPPoYHiQnQF.webp",
+        "naturalWidth": 900,
+        "opacity": "1"
+      },
+      {
+        "src": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
+        "naturalWidth": 1600,
+        "opacity": "1"
+      },
+      {
+        "src": "/manus-storage/WhatsAppImage2026-04-27at16.58.42(1)_a8f17ecc.jpeg",
+        "naturalWidth": 1536,
+        "opacity": "1"
+      },
+      {
+        "src": "/manus-storage/marine-after-1_dc53f2eb.jpg",
+        "naturalWidth": 1600,
+        "opacity": "1"
+      }
+    ],
+    "normalAutoplayRetained": true,
+    "offscreenDecorativeVideoRemoved": true,
+    "belowFoldNoAutomaticVideoRequest": true,
+    "fallbackRequests": [],
+    "nonReadAttempts": [],
+    "pageErrors": [],
+    "blockedThirdParty": [
+      {
+        "host": "manus-analytics.com",
+        "path": "/umami"
+      }
+    ],
+    "failedRequests": [
+      {
+        "url": "https://manus-analytics.com/umami",
+        "reason": "net::ERR_FAILED"
+      }
+    ],
+    "imageResponses": [
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/hb-tunnelling-hero-poster_30d7cc5f.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XnaMTpijZGPPcTZV.svg",
+        "status": 200,
+        "mime": "image/svg+xml"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/eujkoesZcJTxNAzk.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/DUhxFvPPoYHiQnQF.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/yEbPReqUussVzDSr.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/bromsgrove-staircase-after_ae521dcd.png",
+        "status": 200,
+        "mime": "image/png"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/ade-power-wakefield-marine-cx-hero_0d533b36.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-640.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ATzSAikYtVvYiYkQ.svg",
+        "status": 200,
+        "mime": "image/svg+xml"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/hb-tunnelling-finished-painted-drone_42119577.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-before-640.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-640.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/chas-elite-accreditation_29937620.png",
+        "status": 200,
+        "mime": "image/png"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/bGsCKoWjNMKfOhKj.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/GmdvvhZjrHfYtOVb.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/sUfXaBUgQWNMAvEc.webp",
+        "status": 200,
+        "mime": "image/webp"
+      }
+    ],
+    "noRealContactsUploadsOrGoogleEvents": true
+  },
+  {
+    "mode": "saveData",
+    "width": 390,
+    "status": 200,
+    "geometry": {
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 104,
+        "top": 0,
+        "right": 390,
+        "bottom": 104,
+        "left": 0
+      },
+      "hero": {
+        "x": 0,
+        "y": 104,
+        "width": 390,
+        "height": 1574.25,
+        "top": 104,
+        "right": 390,
+        "bottom": 1678.25,
+        "left": 0
+      },
+      "h1": {
+        "x": 16,
+        "y": 164,
+        "width": 358,
+        "height": 120,
+        "top": 164,
+        "right": 374,
+        "bottom": 284,
+        "left": 16
+      },
+      "form": {
+        "x": 16,
+        "y": 554.25,
+        "width": 358,
+        "height": 770,
+        "top": 554.25,
+        "right": 374,
+        "bottom": 1324.25,
+        "left": 16
+      }
+    },
+    "requiredFields": [
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "after": {
+      "src": "/images/case-studies/iss-property-wigan-after-960.webp",
+      "currentSrc": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-960.webp",
+      "naturalWidth": 389,
+      "naturalHeight": 246,
+      "opacity": "1",
+      "box": {
+        "x": 17,
+        "y": 306.25,
+        "width": 356,
+        "height": 267,
+        "top": 306.25,
+        "right": 373,
+        "bottom": 573.25,
+        "left": 17
+      },
+      "srcSet": "/images/case-studies/iss-property-wigan-after-640.webp 640w, /images/case-studies/iss-property-wigan-after-960.webp 960w"
+    },
+    "before": {
+      "src": "/images/case-studies/iss-property-wigan-before-960.webp",
+      "currentSrc": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-before-960.webp",
+      "naturalWidth": 389,
+      "naturalHeight": 237
+    },
+    "allNineCards": [],
+    "normalAutoplayRetained": false,
+    "offscreenDecorativeVideoRemoved": true,
+    "belowFoldNoAutomaticVideoRequest": true,
+    "fallbackRequests": [],
+    "nonReadAttempts": [],
+    "pageErrors": [],
+    "blockedThirdParty": [
+      {
+        "host": "manus-analytics.com",
+        "path": "/umami"
+      }
+    ],
+    "failedRequests": [
+      {
+        "url": "https://manus-analytics.com/umami",
+        "reason": "net::ERR_FAILED"
+      }
+    ],
+    "imageResponses": [
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XnaMTpijZGPPcTZV.svg",
+        "status": 200,
+        "mime": "image/svg+xml"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/hb-tunnelling-doncaster-mobile-hero-poster_db54137a.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ATzSAikYtVvYiYkQ.svg",
+        "status": 200,
+        "mime": "image/svg+xml"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/bromsgrove-staircase-after_ae521dcd.png",
+        "status": 200,
+        "mime": "image/png"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/ade-power-wakefield-marine-cx-hero_0d533b36.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-960.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/hb-tunnelling-finished-painted-drone_42119577.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-before-960.webp",
+        "status": 200,
+        "mime": "image/webp"
+      }
+    ],
+    "noRealContactsUploadsOrGoogleEvents": true
+  },
+  {
+    "mode": "reducedMotion",
+    "width": 390,
+    "status": 200,
+    "geometry": {
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 104,
+        "top": 0,
+        "right": 390,
+        "bottom": 104,
+        "left": 0
+      },
+      "hero": {
+        "x": 0,
+        "y": 104,
+        "width": 390,
+        "height": 1574.25,
+        "top": 104,
+        "right": 390,
+        "bottom": 1678.25,
+        "left": 0
+      },
+      "h1": {
+        "x": 16,
+        "y": 164,
+        "width": 358,
+        "height": 120,
+        "top": 164,
+        "right": 374,
+        "bottom": 284,
+        "left": 16
+      },
+      "form": {
+        "x": 16,
+        "y": 554.25,
+        "width": 358,
+        "height": 770,
+        "top": 554.25,
+        "right": 374,
+        "bottom": 1324.25,
+        "left": 16
+      }
+    },
+    "requiredFields": [
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "after": {
+      "src": "/images/case-studies/iss-property-wigan-after-960.webp",
+      "currentSrc": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-960.webp",
+      "naturalWidth": 389,
+      "naturalHeight": 246,
+      "opacity": "1",
+      "box": {
+        "x": 17,
+        "y": 306.25,
+        "width": 356,
+        "height": 267,
+        "top": 306.25,
+        "right": 373,
+        "bottom": 573.25,
+        "left": 17
+      },
+      "srcSet": "/images/case-studies/iss-property-wigan-after-640.webp 640w, /images/case-studies/iss-property-wigan-after-960.webp 960w"
+    },
+    "before": {
+      "src": "/images/case-studies/iss-property-wigan-before-960.webp",
+      "currentSrc": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-before-960.webp",
+      "naturalWidth": 389,
+      "naturalHeight": 237
+    },
+    "allNineCards": [],
+    "normalAutoplayRetained": false,
+    "offscreenDecorativeVideoRemoved": true,
+    "belowFoldNoAutomaticVideoRequest": true,
+    "fallbackRequests": [],
+    "nonReadAttempts": [],
+    "pageErrors": [],
+    "blockedThirdParty": [
+      {
+        "host": "manus-analytics.com",
+        "path": "/umami"
+      }
+    ],
+    "failedRequests": [
+      {
+        "url": "https://manus-analytics.com/umami",
+        "reason": "net::ERR_FAILED"
+      }
+    ],
+    "imageResponses": [
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XnaMTpijZGPPcTZV.svg",
+        "status": 200,
+        "mime": "image/svg+xml"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/hb-tunnelling-doncaster-mobile-hero-poster_db54137a.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ATzSAikYtVvYiYkQ.svg",
+        "status": 200,
+        "mime": "image/svg+xml"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-960.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/bromsgrove-staircase-after_ae521dcd.png",
+        "status": 200,
+        "mime": "image/png"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/hb-tunnelling-finished-painted-drone_42119577.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/ade-power-wakefield-marine-cx-hero_0d533b36.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-before-960.webp",
+        "status": 200,
+        "mime": "image/webp"
+      }
+    ],
+    "noRealContactsUploadsOrGoogleEvents": true
+  },
+  {
+    "mode": "fallback",
+    "width": 390,
+    "status": 200,
+    "geometry": {
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 104,
+        "top": 0,
+        "right": 390,
+        "bottom": 104,
+        "left": 0
+      },
+      "hero": {
+        "x": 0,
+        "y": 104,
+        "width": 390,
+        "height": 1574.25,
+        "top": 104,
+        "right": 390,
+        "bottom": 1678.25,
+        "left": 0
+      },
+      "h1": {
+        "x": 16,
+        "y": 164,
+        "width": 358,
+        "height": 120,
+        "top": 164,
+        "right": 374,
+        "bottom": 284,
+        "left": 16
+      },
+      "form": {
+        "x": 16,
+        "y": 554.25,
+        "width": 358,
+        "height": 770,
+        "top": 554.25,
+        "right": 374,
+        "bottom": 1324.25,
+        "left": 16
+      }
+    },
+    "requiredFields": [
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "after": {
+      "src": "/manus-storage/iss-property-former-bakkavor-wigan-after-2026-09-15_21aa25d4.png",
+      "currentSrc": "https://commercialshotblasting.co.uk/manus-storage/iss-property-former-bakkavor-wigan-after-2026-09-15_21aa25d4.png",
+      "naturalWidth": 552,
+      "naturalHeight": 348,
+      "opacity": "1",
+      "box": {
+        "x": 17,
+        "y": 306.25,
+        "width": 356,
+        "height": 267,
+        "top": 306.25,
+        "right": 373,
+        "bottom": 573.25,
+        "left": 17
+      },
+      "srcSet": null
+    },
+    "before": {
+      "src": "/manus-storage/iss-property-former-bakkavor-wigan-before-2026-09-15_a00636db.png",
+      "currentSrc": "https://commercialshotblasting.co.uk/manus-storage/iss-property-former-bakkavor-wigan-before-2026-09-15_a00636db.png",
+      "naturalWidth": 494,
+      "naturalHeight": 301
+    },
+    "allNineCards": [],
+    "normalAutoplayRetained": true,
+    "offscreenDecorativeVideoRemoved": true,
+    "belowFoldNoAutomaticVideoRequest": true,
+    "fallbackRequests": [
+      "/images/case-studies/iss-property-wigan-after-960.webp",
+      "/images/case-studies/iss-property-wigan-before-960.webp",
+      "/images/case-studies/iss-property-wigan-after-960.webp",
+      "/images/case-studies/iss-property-wigan-after-960.webp"
+    ],
+    "nonReadAttempts": [],
+    "pageErrors": [],
+    "blockedThirdParty": [
+      {
+        "host": "manus-analytics.com",
+        "path": "/umami"
+      }
+    ],
+    "failedRequests": [
+      {
+        "url": "https://manus-analytics.com/umami",
+        "reason": "net::ERR_FAILED"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-960.webp",
+        "reason": "net::ERR_FAILED"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-before-960.webp",
+        "reason": "net::ERR_FAILED"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-960.webp",
+        "reason": "net::ERR_FAILED"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-960.webp",
+        "reason": "net::ERR_FAILED"
+      }
+    ],
+    "imageResponses": [
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XnaMTpijZGPPcTZV.svg",
+        "status": 200,
+        "mime": "image/svg+xml"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/hb-tunnelling-doncaster-mobile-hero-poster_db54137a.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ATzSAikYtVvYiYkQ.svg",
+        "status": 200,
+        "mime": "image/svg+xml"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/ade-power-wakefield-marine-cx-hero_0d533b36.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/hb-tunnelling-finished-painted-drone_42119577.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/bromsgrove-staircase-after_ae521dcd.png",
+        "status": 200,
+        "mime": "image/png"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/iss-property-former-bakkavor-wigan-after-2026-09-15_21aa25d4.png",
+        "status": 200,
+        "mime": "image/png"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/iss-property-former-bakkavor-wigan-before-2026-09-15_a00636db.png",
+        "status": 200,
+        "mime": "image/png"
+      }
+    ],
+    "noRealContactsUploadsOrGoogleEvents": true
+  },
+  {
+    "mode": "noNetworkApi",
+    "width": 390,
+    "status": 200,
+    "geometry": {
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 104,
+        "top": 0,
+        "right": 390,
+        "bottom": 104,
+        "left": 0
+      },
+      "hero": {
+        "x": 0,
+        "y": 104,
+        "width": 390,
+        "height": 1574.25,
+        "top": 104,
+        "right": 390,
+        "bottom": 1678.25,
+        "left": 0
+      },
+      "h1": {
+        "x": 16,
+        "y": 164,
+        "width": 358,
+        "height": 120,
+        "top": 164,
+        "right": 374,
+        "bottom": 284,
+        "left": 16
+      },
+      "form": {
+        "x": 16,
+        "y": 554.25,
+        "width": 358,
+        "height": 770,
+        "top": 554.25,
+        "right": 374,
+        "bottom": 1324.25,
+        "left": 16
+      }
+    },
+    "requiredFields": [
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "after": {
+      "src": "/images/case-studies/iss-property-wigan-after-960.webp",
+      "currentSrc": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-960.webp",
+      "naturalWidth": 389,
+      "naturalHeight": 246,
+      "opacity": "1",
+      "box": {
+        "x": 17,
+        "y": 306.25,
+        "width": 356,
+        "height": 267,
+        "top": 306.25,
+        "right": 373,
+        "bottom": 573.25,
+        "left": 17
+      },
+      "srcSet": "/images/case-studies/iss-property-wigan-after-640.webp 640w, /images/case-studies/iss-property-wigan-after-960.webp 960w"
+    },
+    "before": {
+      "src": "/images/case-studies/iss-property-wigan-before-960.webp",
+      "currentSrc": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-before-960.webp",
+      "naturalWidth": 389,
+      "naturalHeight": 237
+    },
+    "allNineCards": [],
+    "normalAutoplayRetained": true,
+    "offscreenDecorativeVideoRemoved": true,
+    "belowFoldNoAutomaticVideoRequest": true,
+    "fallbackRequests": [],
+    "nonReadAttempts": [],
+    "pageErrors": [],
+    "blockedThirdParty": [
+      {
+        "host": "manus-analytics.com",
+        "path": "/umami"
+      }
+    ],
+    "failedRequests": [
+      {
+        "url": "https://manus-analytics.com/umami",
+        "reason": "net::ERR_FAILED"
+      }
+    ],
+    "imageResponses": [
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/XnaMTpijZGPPcTZV.svg",
+        "status": 200,
+        "mime": "image/svg+xml"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/hb-tunnelling-doncaster-mobile-hero-poster_db54137a.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/ATzSAikYtVvYiYkQ.svg",
+        "status": 200,
+        "mime": "image/svg+xml"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-after-960.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/ade-power-wakefield-marine-cx-hero_0d533b36.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/hb-tunnelling-finished-painted-drone_42119577.webp",
+        "status": 200,
+        "mime": "image/webp"
+      },
+      {
+        "url": "https://d36hbw14aib5lz.cloudfront.net/310519663301568782/CYVSNVCfCqJAX7JT23JqdG/bromsgrove-staircase-after_ae521dcd.png",
+        "status": 200,
+        "mime": "image/png"
+      },
+      {
+        "url": "https://commercialshotblasting.co.uk/images/case-studies/iss-property-wigan-before-960.webp",
+        "status": 200,
+        "mime": "image/webp"
+      }
+    ],
+    "noRealContactsUploadsOrGoogleEvents": true
+  }
+]

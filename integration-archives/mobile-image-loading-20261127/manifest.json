@@ -1,0 +1,163 @@
+{
+  "repository": "PremierBlasting/commercial_shot_blasting",
+  "branch": "manus/csb-call-attribution-20261107",
+  "parent": "a02b3b736066de5496cf4ad2b56f60ec334c9c86",
+  "inertArchiveOnly": true,
+  "managedProject": "CYVSNVCfCqJAX7JT23JqdG",
+  "checkpoint": "d9d25f2c89e34aee1f295eb29272a032ff71f849",
+  "source": {
+    "baseline": "16cef7d44fd4b0ea81c0c9aab6a32b20d56a2d7c",
+    "paths": [
+      "client/index.html",
+      "client/src/components/CaseStudies.tsx",
+      "client/src/pages/Home.tsx",
+      "client/src/hooks/useDecorativeVideo.ts",
+      "client/src/lib/decorativeVideoPolicy.ts",
+      "client/src/lib/responsiveProjectImages.ts",
+      "server/heroMediaPerformance.test.ts",
+      "server/homepageCustomerVoice.test.ts",
+      "server/installPromotion.test.ts",
+      "server/decorativeVideoPolicy.test.ts",
+      "server/mobileImageLoading.test.ts",
+      "server/fixtures/mobileLoading20261127.json",
+      "server/fixtures/mobileLoadingScope.ts"
+    ],
+    "files": {
+      "client/index.html": {
+        "sha256": "6d362c8068ca8fe9aa9041acf482adc4262e6632ffb8964e326f998935baa85d",
+        "bytes": 4819
+      },
+      "client/src/components/CaseStudies.tsx": {
+        "sha256": "b9385c2d2348f399427cc0ecf0a3d60e41a20d137f1305c992f4f7ac93ad8dad",
+        "bytes": 17048
+      },
+      "client/src/pages/Home.tsx": {
+        "sha256": "9a63d0e05f765ca00925c20589772707b0385c15dca52284d0b19ac29fe518ee",
+        "bytes": 66798
+      },
+      "client/src/hooks/useDecorativeVideo.ts": {
+        "sha256": "14e5e5bcc283b2ea10f1d7696916bfefff5e0835629450286a0bfe3189da886b",
+        "bytes": 2771
+      },
+      "client/src/lib/decorativeVideoPolicy.ts": {
+        "sha256": "8234e764d26dc24d279cf2e6ac9ca17c56838f0fcbe1781bfb73fa949c27a36f",
+        "bytes": 645
+      },
+      "client/src/lib/responsiveProjectImages.ts": {
+        "sha256": "7da092e4276823796d85118536efa76be7ce4adfc98578eb00bea29eff230ca0",
+        "bytes": 1149
+      },
+      "server/heroMediaPerformance.test.ts": {
+        "sha256": "b9da1e35b9e598efac35ed47a1eb5f51532592e60654bc31172e2ac15f27ab17",
+        "bytes": 3558
+      },
+      "server/homepageCustomerVoice.test.ts": {
+        "sha256": "692914c7534eb6c5183118e15a375cc5ac0beee0e163126bf30940e3d2f9dfe6",
+        "bytes": 15176
+      },
+      "server/installPromotion.test.ts": {
+        "sha256": "b79aafe78a8cef4dc8f3021c32d8cbcb827526c07a19cae9d74317c235a2ba76",
+        "bytes": 3299
+      },
+      "server/decorativeVideoPolicy.test.ts": {
+        "sha256": "f1de6eb47130c97017d9d2208921fc97aeaf1b0b7deae2b28d73ea415fc6dd70",
+        "bytes": 17320
+      },
+      "server/mobileImageLoading.test.ts": {
+        "sha256": "dca9529400a2808f28baa4b70da2af95911b3e1eb1adbf8d7a90ec813497dbbc",
+        "bytes": 5247
+      },
+      "server/fixtures/mobileLoading20261127.json": {
+        "sha256": "1cb5e4f7f3ea90d22d9f8ef8ddf79778f7070df90e6dd36c1bab1583661049bb",
+        "bytes": 9457
+      },
+      "server/fixtures/mobileLoadingScope.ts": {
+        "sha256": "a97f4ca94ed00e53fd4652716d944234781ea93820430d5b8fed43376820fc33",
+        "bytes": 1152
+      }
+    },
+    "patchSHA256": "6b52024126e3a6e548329c9236ce17e86243c6a5c83d390bbdb301e58b7acc0c",
+    "forwardAndReverseVerified": true,
+    "completeBaselineRestored": true
+  },
+  "release": {
+    "checkpoint": "d9d25f2c89e34aee1f295eb29272a032ff71f849",
+    "managedProject": "CYVSNVCfCqJAX7JT23JqdG",
+    "publicDeploymentVerified": true,
+    "publicVerifiedAtUTC": "2026-11-27T13:49:35Z",
+    "sourcePaths": 13,
+    "unchangedOtherTrackedFiles": 1520,
+    "focusedTestsPassed": 117,
+    "newTestsPassed": 66,
+    "offlineSafeTestsPassed": 1707,
+    "knownMissingOriginalTask08EvidenceChecks": 2,
+    "liveEffectSuitesNotRun": 2,
+    "typesAndClientSSRExpressBuildPassed": true,
+    "publicBrowserCases": 6,
+    "publicMobileCases": 3,
+    "publicHTTPRows": 12,
+    "byteMatchedBundles": [
+      {
+        "path": "/assets/index-DAkKdvCW.js",
+        "bytes": 616892,
+        "sha256": "d1d53c5b356cac706dfa985dc5d2e23fa4b0a073d298ddd52a87f7a53431175c",
+        "matchesTestedBuild": true
+      },
+      {
+        "path": "/assets/Home-7Fh7J7Sp.js",
+        "bytes": 83095,
+        "sha256": "bc98d8d550e91be4b7ebd9ef9e87222fed23dab0727a41caee6fa212c2532f0b",
+        "matchesTestedBuild": true
+      },
+      {
+        "path": "/assets/CaseStudies-Bt6x-gPe.js",
+        "bytes": 14941,
+        "sha256": "3510b75503d8960a27b33a32afdf218acfb84febbefd90838dd01ac4ded24c9c",
+        "matchesTestedBuild": true
+      }
+    ],
+    "imageBytes": {
+      "originalPNGBytes": 1930344,
+      "responsive960WebPBytes": 81426,
+      "imageBytesReducedPercent": 95.78,
+      "640WebPBytes": 51984
+    },
+    "mobileMeasurements": [
+      {
+        "mode": "normal",
+        "beforeSampledImageCompleteAfterScrollSeconds": 5.02,
+        "afterSampledImageCompleteAfterScrollSeconds": 5.03,
+        "sampleIntervalSeconds": 5,
+        "beforeReactReadySeconds": 3.58,
+        "afterReactReadySeconds": 2.45
+      },
+      {
+        "mode": "slow",
+        "beforeSampledImageCompleteAfterScrollSeconds": 25.26,
+        "afterSampledImageCompleteAfterScrollSeconds": 5.1,
+        "sampleIntervalSeconds": 5,
+        "beforeReactReadySeconds": 7.41,
+        "afterReactReadySeconds": 7.42
+      },
+      {
+        "mode": "worker",
+        "beforeSampledImageCompleteAfterScrollSeconds": 5.02,
+        "afterSampledImageCompleteAfterScrollSeconds": 5.03,
+        "sampleIntervalSeconds": 5,
+        "beforeReactReadySeconds": 2.93,
+        "afterReactReadySeconds": 2.02
+      }
+    ],
+    "originalLayoutFormsUploadsConsentAttributionTrackingAndWorkerPreserved": true,
+    "noRealContactsUploadsOrGoogleEvents": true,
+    "limits": [
+      "Chromium mobile emulation, not every physical device/browser/network",
+      "Five-second image completion sampling; no universal whole-site speed claim",
+      "Network Information absent/unusable retains existing eligible visible autoplay",
+      "Results/filter regression activation used native keyboard after external pointer auto-scroll attempts; baseline and repaired button geometry/hits identical",
+      "Existing optional-read SSR availability rollback and missing original historical evidence remain unchanged"
+    ],
+    "recordedAtUTC": "2026-11-27T13:51:13Z"
+  },
+  "publicVerifiedAtUTC": "2026-11-27T13:49:35Z"
+}

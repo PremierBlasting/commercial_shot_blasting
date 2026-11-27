@@ -1,0 +1,300 @@
+[
+  {
+    "name": "public-before",
+    "button": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform duration-200 \"><path d=\"M5 12h14\"></path><path d=\"m12 5 7 7-7 7\"></path></svg></button>",
+    "rect": {
+      "x": 41,
+      "y": 432.25,
+      "width": 88.625,
+      "height": 16,
+      "top": 432.25,
+      "right": 129.625,
+      "bottom": 448.25,
+      "left": 41
+    },
+    "hits": [
+      {
+        "x": 46,
+        "y": 434.25,
+        "hit": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform du",
+        "inside": true
+      },
+      {
+        "x": 46,
+        "y": 440.25,
+        "hit": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform du",
+        "inside": true
+      },
+      {
+        "x": 46,
+        "y": 446.25,
+        "hit": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform du",
+        "inside": true
+      },
+      {
+        "x": 85.3125,
+        "y": 434.25,
+        "hit": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform du",
+        "inside": true
+      },
+      {
+        "x": 85.3125,
+        "y": 440.25,
+        "hit": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform du",
+        "inside": true
+      },
+      {
+        "x": 85.3125,
+        "y": 446.25,
+        "hit": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform du",
+        "inside": true
+      },
+      {
+        "x": 124.625,
+        "y": 434.25,
+        "hit": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform duration-200 \"><path d=\"M5 12h14\"></path><path d=\"m12 5 7 7-7 7\"></path></svg>",
+        "inside": true
+      },
+      {
+        "x": 124.625,
+        "y": 440.25,
+        "hit": "<path d=\"M5 12h14\"></path>",
+        "inside": true
+      },
+      {
+        "x": 124.625,
+        "y": 446.25,
+        "hit": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform du",
+        "inside": true
+      }
+    ],
+    "ancestors": [
+      {
+        "tag": "DIV",
+        "cls": "mb-2",
+        "box": {
+          "x": 41,
+          "y": 432.25,
+          "width": 308,
+          "height": 16,
+          "top": 432.25,
+          "right": 349,
+          "bottom": 448.25,
+          "left": 41
+        },
+        "style": "static"
+      },
+      {
+        "tag": "DIV",
+        "cls": "p-6 flex flex-col flex-1",
+        "box": {
+          "x": 17,
+          "y": 216.25,
+          "width": 356,
+          "height": 280,
+          "top": 216.25,
+          "right": 373,
+          "bottom": 496.25,
+          "left": 17
+        },
+        "style": "static"
+      },
+      {
+        "tag": "DIV",
+        "cls": "group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col",
+        "box": {
+          "x": 16,
+          "y": -51.75,
+          "width": 358,
+          "height": 549,
+          "top": -51.75,
+          "right": 374,
+          "bottom": 497.25,
+          "left": 16
+        },
+        "style": "static"
+      }
+    ],
+    "cards": [
+      {
+        "x": 16,
+        "y": -51.75,
+        "width": 358,
+        "height": 549,
+        "top": -51.75,
+        "right": 374,
+        "bottom": 497.25,
+        "left": 16
+      },
+      {
+        "x": 16,
+        "y": 529.25,
+        "width": 358,
+        "height": 549,
+        "top": 529.25,
+        "right": 374,
+        "bottom": 1078.25,
+        "left": 16
+      },
+      {
+        "x": 16,
+        "y": 1110.25,
+        "width": 358,
+        "height": 521,
+        "top": 1110.25,
+        "right": 374,
+        "bottom": 1631.25,
+        "left": 16
+      }
+    ]
+  },
+  {
+    "name": "production-after",
+    "button": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform duration-200 \"><path d=\"M5 12h14\"></path><path d=\"m12 5 7 7-7 7\"></path></svg></button>",
+    "rect": {
+      "x": 41,
+      "y": 432.25,
+      "width": 88.625,
+      "height": 16,
+      "top": 432.25,
+      "right": 129.625,
+      "bottom": 448.25,
+      "left": 41
+    },
+    "hits": [
+      {
+        "x": 46,
+        "y": 434.25,
+        "hit": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform du",
+        "inside": true
+      },
+      {
+        "x": 46,
+        "y": 440.25,
+        "hit": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform du",
+        "inside": true
+      },
+      {
+        "x": 46,
+        "y": 446.25,
+        "hit": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform du",
+        "inside": true
+      },
+      {
+        "x": 85.3125,
+        "y": 434.25,
+        "hit": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform du",
+        "inside": true
+      },
+      {
+        "x": 85.3125,
+        "y": 440.25,
+        "hit": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform du",
+        "inside": true
+      },
+      {
+        "x": 85.3125,
+        "y": 446.25,
+        "hit": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform du",
+        "inside": true
+      },
+      {
+        "x": 124.625,
+        "y": 434.25,
+        "hit": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform duration-200 \"><path d=\"M5 12h14\"></path><path d=\"m12 5 7 7-7 7\"></path></svg>",
+        "inside": true
+      },
+      {
+        "x": 124.625,
+        "y": 440.25,
+        "hit": "<path d=\"M5 12h14\"></path>",
+        "inside": true
+      },
+      {
+        "x": 124.625,
+        "y": 446.25,
+        "hit": "<button class=\"text-xs font-semibold text-[#2C5F7F] hover:underline flex items-center gap-1\">View Results<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-arrow-right w-3 h-3 transition-transform du",
+        "inside": true
+      }
+    ],
+    "ancestors": [
+      {
+        "tag": "DIV",
+        "cls": "mb-2",
+        "box": {
+          "x": 41,
+          "y": 432.25,
+          "width": 308,
+          "height": 16,
+          "top": 432.25,
+          "right": 349,
+          "bottom": 448.25,
+          "left": 41
+        },
+        "style": "static"
+      },
+      {
+        "tag": "DIV",
+        "cls": "p-6 flex flex-col flex-1",
+        "box": {
+          "x": 17,
+          "y": 216.25,
+          "width": 356,
+          "height": 280,
+          "top": 216.25,
+          "right": 373,
+          "bottom": 496.25,
+          "left": 17
+        },
+        "style": "static"
+      },
+      {
+        "tag": "DIV",
+        "cls": "group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col",
+        "box": {
+          "x": 16,
+          "y": -51.75,
+          "width": 358,
+          "height": 549,
+          "top": -51.75,
+          "right": 374,
+          "bottom": 497.25,
+          "left": 16
+        },
+        "style": "static"
+      }
+    ],
+    "cards": [
+      {
+        "x": 16,
+        "y": -51.75,
+        "width": 358,
+        "height": 549,
+        "top": -51.75,
+        "right": 374,
+        "bottom": 497.25,
+        "left": 16
+      },
+      {
+        "x": 16,
+        "y": 529.25,
+        "width": 358,
+        "height": 549,
+        "top": 529.25,
+        "right": 374,
+        "bottom": 1078.25,
+        "left": 16
+      },
+      {
+        "x": 16,
+        "y": 1110.25,
+        "width": 358,
+        "height": 521,
+        "top": 1110.25,
+        "right": 374,
+        "bottom": 1631.25,
+        "left": 16
+      }
+    ]
+  }
+]

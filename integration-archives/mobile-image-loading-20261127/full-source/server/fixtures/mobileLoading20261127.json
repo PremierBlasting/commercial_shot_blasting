@@ -1,0 +1,52 @@
+{
+  "client/index.html": {
+    "beforeHash": "e742f67d0159eea3f605574d1a640fad2e97763d088aa932596805f547809188",
+    "approvedHash": "6d362c8068ca8fe9aa9041acf482adc4262e6632ffb8964e326f998935baa85d",
+    "deltas": [
+      {
+        "before": "    <link rel=\"dns-prefetch\" href=\"https://js-eu1.hsforms.net\" />\n    <link rel=\"dns-prefetch\" href=\"https://forms.hsforms.com\" />\n    <link rel=\"dns-prefetch\" href=\"https://api.manus.im\" />\n    <!-- Preload first hero image: makes LCP element discoverable by browser preload scanner before React loads -->\n    <link\n      rel=\"preload\"\n      as=\"image\"\n      href=\"https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YScoptyBJOkODpiP.webp\"\n      imagesrcset=\"https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/IaTezxmvYekRWxDg.webp 640w, https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/oVxyFBqOSqiFnIqt.webp 1024w, https://files.manuscdn.com/user_upload_by_module/session_file/310519663301568782/YScoptyBJOkODpiP.webp 1920w\"\n      imagesizes=\"(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1920px\"\n      crossorigin\n    />\n    <!-- Fonts are self-hosted via @fontsource \u2014 no external CDN needed -->\n    <!-- Critical CSS: ONLY CSS variables + body background. No resets \u2014 Tailwind handles those.\n         This ensures the correct background colour and font-family are applied from first paint,\n",
+        "after": "    <link rel=\"dns-prefetch\" href=\"https://js-eu1.hsforms.net\" />\n    <link rel=\"dns-prefetch\" href=\"https://forms.hsforms.com\" />\n    <link rel=\"dns-prefetch\" href=\"https://api.manus.im\" />\n    <!-- Fonts are self-hosted via @fontsource \u2014 no external CDN needed -->\n    <!-- Critical CSS: ONLY CSS variables + body background. No resets \u2014 Tailwind handles those.\n         This ensures the correct background colour and font-family are applied from first paint,\n"
+      }
+    ]
+  },
+  "client/src/pages/Home.tsx": {
+    "beforeHash": "ef8470b7bc7d6021202f4e30fa19fe0a4a9e53728c10d6189ac9d6d8bfe8bfd6",
+    "approvedHash": "9a63d0e05f765ca00925c20589772707b0385c15dca52284d0b19ac29fe518ee",
+    "deltas": [
+      {
+        "before": "import { StaticServiceAreasMap } from \"@/components/StaticServiceAreasMap\";\nimport { trpc } from \"@/lib/trpc\";\nimport { useHomepagePreload } from \"@/hooks/useHomepagePreload\";\nimport { ScrollReveal } from \"@/components/ScrollReveal\";\nimport { ProjectDetailModal, type ProjectDetailItem } from \"@/components/ProjectDetailModal\";\nimport { BeforeAfterCard } from \"@/components/BeforeAfterCard\";\n",
+        "after": "import { StaticServiceAreasMap } from \"@/components/StaticServiceAreasMap\";\nimport { trpc } from \"@/lib/trpc\";\nimport { useHomepagePreload } from \"@/hooks/useHomepagePreload\";\nimport { useDecorativeVideo } from \"@/hooks/useDecorativeVideo\";\nimport { ScrollReveal } from \"@/components/ScrollReveal\";\nimport { ProjectDetailModal, type ProjectDetailItem } from \"@/components/ProjectDetailModal\";\nimport { BeforeAfterCard } from \"@/components/BeforeAfterCard\";\n"
+      },
+      {
+        "before": "  const [selectedProject, setSelectedProject] = useState<ProjectDetailItem | null>(null);\n  const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(-1);\n  const [isLoadingMore, setIsLoadingMore] = useState(false);\n  const [shouldLoadHeroVideo, setShouldLoadHeroVideo] = useState(false);\n  const [heroVideoReady, setHeroVideoReady] = useState(false);\n\n  useEffect(() => {\n    if (window.matchMedia(\"(prefers-reduced-motion: reduce)\").matches) return;\n\n    const timer = window.setTimeout(() => setShouldLoadHeroVideo(true), 1200);\n    return () => window.clearTimeout(timer);\n  }, []);\n\n  // Preserve page schema; complete head metadata belongs to RouteMetadataOwner.\n  useEffect(() => {\n",
+        "after": "  const [selectedProject, setSelectedProject] = useState<ProjectDetailItem | null>(null);\n  const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(-1);\n  const [isLoadingMore, setIsLoadingMore] = useState(false);\n  const { shouldLoadHeroVideo, heroMediaRef } = useDecorativeVideo();\n  const [heroVideoReady, setHeroVideoReady] = useState(false);\n\n  useEffect(() => {\n    if (!shouldLoadHeroVideo) setHeroVideoReady(false);\n  }, [shouldLoadHeroVideo]);\n\n  // Preserve page schema; complete head metadata belongs to RouteMetadataOwner.\n  useEffect(() => {\n"
+      },
+      {
+        "before": "      <Header onOpenQuotePopup={openQuotePopup} />\n\n      {/* Hero Section */}\n      <section className=\"relative overflow-hidden bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] pb-20 pt-12 text-white lg:pb-14 lg:pt-10\">\n        {/* Poster-first background keeps the commercial actions outside the video LCP path. */}\n        <div className=\"absolute inset-0\">\n          <picture>\n",
+        "after": "      <Header onOpenQuotePopup={openQuotePopup} />\n\n      {/* Hero Section */}\n      <section ref={heroMediaRef} className=\"relative overflow-hidden bg-gradient-to-br from-[#2C5F7F] to-[#1a3d52] pb-20 pt-12 text-white lg:pb-14 lg:pt-10\">\n        {/* Poster-first background keeps the commercial actions outside the video LCP path. */}\n        <div className=\"absolute inset-0\">\n          <picture>\n"
+      },
+      {
+        "before": "                controls\n                muted\n                playsInline\n                preload=\"metadata\"\n                className=\"w-full aspect-video object-cover bg-black\"\n                aria-label=\"Video showing three operatives working simultaneously \u2014 shot blasting and intumescent painting at the same time on the same structure\"\n              />\n",
+        "after": "                controls\n                muted\n                playsInline\n                preload=\"none\"\n                className=\"w-full aspect-video object-cover bg-black\"\n                aria-label=\"Video showing three operatives working simultaneously \u2014 shot blasting and intumescent painting at the same time on the same structure\"\n              />\n"
+      }
+    ]
+  },
+  "client/src/components/CaseStudies.tsx": {
+    "beforeHash": "d970d5a6a109dcfbfe8c01dc520aade34f0e8c2a37d1d0173491c399fc8ac5de",
+    "approvedHash": "b9385c2d2348f399427cc0ecf0a3d60e41a20d137f1305c992f4f7ac93ad8dad",
+    "deltas": [
+      {
+        "before": "import { ArrowRight, ChevronLeft, ChevronRight } from \"lucide-react\";\nimport { Button } from \"@/components/ui/button\";\nimport { HOMEPAGE_CUSTOMER_COPY } from \"@shared/homepageCustomerCopy\";\n\ninterface CaseStudy {\n  id: number;\n",
+        "after": "import { ArrowRight, ChevronLeft, ChevronRight } from \"lucide-react\";\nimport { Button } from \"@/components/ui/button\";\nimport { HOMEPAGE_CUSTOMER_COPY } from \"@shared/homepageCustomerCopy\";\nimport { responsiveProjectImage } from \"@/lib/responsiveProjectImages\";\n\ninterface CaseStudy {\n  id: number;\n"
+      },
+      {
+        "before": "          {filteredStudies.map((study) => {\n            const isExpanded = expandedId === study.id;\n            const imgSrc = getImage(study);\n            const label = getLabel(study);\n            const canToggle = canToggleBeforeAfter(study);\n\n",
+        "after": "          {filteredStudies.map((study) => {\n            const isExpanded = expandedId === study.id;\n            const imgSrc = getImage(study);\n            const image = responsiveProjectImage(imgSrc);\n            const label = getLabel(study);\n            const canToggle = canToggleBeforeAfter(study);\n\n"
+      },
+      {
+        "before": "                  onClick={canToggle ? () => toggleBeforeAfter(study.id) : undefined}\n                >\n                  <img\n                    src={imgSrc}\n                    alt={study.imageAlt ?? `${study.title} \u2014 ${label}`}\n                    className=\"w-full h-full object-cover transition-transform duration-500 group-hover:scale-105\"\n                    loading=\"lazy\"\n                  />\n                  {/* Before/After badge */}\n                  <div className=\"absolute top-3 left-3\">\n",
+        "after": "                  onClick={canToggle ? () => toggleBeforeAfter(study.id) : undefined}\n                >\n                  <img\n                    key={imgSrc}\n                    src={image.src}\n                    srcSet={image.srcSet}\n                    sizes=\"(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw\"\n                    width={image.width}\n                    height={image.height}\n                    alt={study.imageAlt ?? `${study.title} \u2014 ${label}`}\n                    className=\"w-full h-full object-cover transition-transform duration-500 group-hover:scale-105\"\n                    loading=\"lazy\"\n                    decoding=\"async\"\n                    onError={image.src !== imgSrc ? (event) => {\n                      const target = event.currentTarget;\n                      if (target.getAttribute(\"src\") === imgSrc) return;\n                      target.removeAttribute(\"srcset\");\n                      target.src = imgSrc;\n                    } : undefined}\n                  />\n                  {/* Before/After badge */}\n                  <div className=\"absolute top-3 left-3\">\n"
+      }
+    ]
+  }
+}
