@@ -1,0 +1,122 @@
+{
+  "checkedAtUTC": "2026-11-27T08:33:42Z",
+  "entry": "/assets/index-BbQu-uwz.js",
+  "entrySHA256": "fd61cd5700a6f1a63a2baee41299390399e8f22a2352ba36abe60df008e04eb8",
+  "headerChunk": "/assets/Header-DaW_Wf_0.js",
+  "headerChunkSHA256": "c75e1616ffb8f291424dda47e42eb72e456b437a6ca192e96d4547eb7ccc0c8e",
+  "rows": [
+    {
+      "path": "/",
+      "query": "",
+      "status": 200,
+      "renderedHeaderInitially": true,
+      "entryMatches": true,
+      "manifestPolicyRetained": true
+    },
+    {
+      "path": "/",
+      "query": "?audit=header-check&utm_source=adwords&utm_medium=ppc&utm_campaign=csb-search-test",
+      "status": 200,
+      "renderedHeaderInitially": true,
+      "entryMatches": true,
+      "manifestPolicyRetained": true
+    },
+    {
+      "path": "/services/structural-steel-frames",
+      "query": "",
+      "status": 200,
+      "renderedHeaderInitially": true,
+      "entryMatches": true,
+      "manifestPolicyRetained": true
+    },
+    {
+      "path": "/services/structural-steel-frames",
+      "query": "?audit=header-check&utm_source=adwords&utm_medium=ppc&utm_campaign=csb-search-test",
+      "status": 200,
+      "renderedHeaderInitially": true,
+      "entryMatches": true,
+      "manifestPolicyRetained": true
+    },
+    {
+      "path": "/reviews",
+      "query": "",
+      "status": 200,
+      "renderedHeaderInitially": false,
+      "entryMatches": true,
+      "manifestPolicyRetained": true
+    },
+    {
+      "path": "/reviews",
+      "query": "?audit=header-check&utm_source=adwords&utm_medium=ppc&utm_campaign=csb-search-test",
+      "status": 200,
+      "renderedHeaderInitially": false,
+      "entryMatches": true,
+      "manifestPolicyRetained": true
+    },
+    {
+      "path": "/preparation-cleanup",
+      "query": "",
+      "status": 200,
+      "renderedHeaderInitially": false,
+      "entryMatches": true,
+      "manifestPolicyRetained": true
+    },
+    {
+      "path": "/preparation-cleanup",
+      "query": "?audit=header-check&utm_source=adwords&utm_medium=ppc&utm_campaign=csb-search-test",
+      "status": 200,
+      "renderedHeaderInitially": false,
+      "entryMatches": true,
+      "manifestPolicyRetained": true
+    },
+    {
+      "path": "/counties/hampshire",
+      "query": "",
+      "status": 200,
+      "renderedHeaderInitially": true,
+      "entryMatches": true,
+      "manifestPolicyRetained": true
+    },
+    {
+      "path": "/counties/hampshire",
+      "query": "?audit=header-check&utm_source=adwords&utm_medium=ppc&utm_campaign=csb-search-test",
+      "status": 200,
+      "renderedHeaderInitially": true,
+      "entryMatches": true,
+      "manifestPolicyRetained": true
+    },
+    {
+      "path": "/service-areas/truro",
+      "query": "",
+      "status": 200,
+      "renderedHeaderInitially": false,
+      "entryMatches": true,
+      "manifestPolicyRetained": true
+    },
+    {
+      "path": "/service-areas/truro",
+      "query": "?audit=header-check&utm_source=adwords&utm_medium=ppc&utm_campaign=csb-search-test",
+      "status": 200,
+      "renderedHeaderInitially": false,
+      "entryMatches": true,
+      "manifestPolicyRetained": true
+    },
+    {
+      "path": "/contact",
+      "query": "",
+      "status": 200,
+      "renderedHeaderInitially": false,
+      "entryMatches": true,
+      "manifestPolicyRetained": true
+    },
+    {
+      "path": "/contact",
+      "query": "?audit=header-check&utm_source=adwords&utm_medium=ppc&utm_campaign=csb-search-test",
+      "status": 200,
+      "renderedHeaderInitially": false,
+      "entryMatches": true,
+      "manifestPolicyRetained": true
+    }
+  ],
+  "noMutationRequests": true
+}

@@ -1,0 +1,339 @@
+diff --git a/client/src/components/Header.tsx b/client/src/components/Header.tsx
+index 6d83df672930e3b08e8add872062ea592fba9fc9..bdf2d3a47610fc463921772164d95026f607689c 100644
+--- a/client/src/components/Header.tsx
++++ b/client/src/components/Header.tsx
+@@ -1,6 +1,6 @@
+ import { Button } from "@/components/ui/button";
+ import { Link } from "wouter";
+-import { Phone, Menu, X, ChevronDown, ChevronRight, Search, MapPin } from "lucide-react";
++import { Phone, Mail, Menu, X, ChevronDown, ChevronRight, Search, MapPin } from "lucide-react";
+ import { useState, useRef, useEffect } from "react";
+ import { usePrefetch } from "@/hooks/usePrefetch";
+ import { trackCTAClick, trackPhoneCall } from "@/lib/analytics";
+@@ -148,7 +148,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
+   return (
+     <header className="bg-[#2C5F7F] text-white sticky top-0 z-50">
+       <div className="container flex items-center justify-between py-4">
+-        <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition cursor-pointer touch-manipulation">
++        <Link href="/" className="flex shrink-0 items-center gap-3 hover:opacity-90 transition cursor-pointer touch-manipulation">
+           <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border-2 border-white/30">
+             <span className="text-xl font-bold">CSB</span>
+           </div>
+@@ -159,7 +159,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
+         </Link>
+ 
+         {/* Desktop Navigation */}
+-        <nav className="hidden md:flex items-center gap-4">
++        <nav className="hidden xl:flex items-center gap-3 whitespace-nowrap text-sm" aria-label="Main navigation">
+           <Link href="/" className="hover:text-white/80 transition">Home</Link>
+           
+           {/* Services Dropdown */}
+@@ -401,24 +401,12 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
+             </div>
+           </div>
+           
+-          <Link 
+-            href="/preparation-cleanup" 
+-            className="hover:text-white/80 transition"
+-            onMouseEnter={() => prefetch('/preparation-cleanup')}
+-            onMouseLeave={cancelPrefetch}
+-          >Prep & Cleanup</Link>
+           <Link 
+             href="/our-work" 
+             className="hover:text-white/80 transition"
+             onMouseEnter={() => prefetch('/our-work')}
+             onMouseLeave={cancelPrefetch}
+           >Our Work</Link>
+-          <Link 
+-            href="/reviews" 
+-            className="hover:text-white/80 transition"
+-            onMouseEnter={() => prefetch('/reviews')}
+-            onMouseLeave={cancelPrefetch}
+-          >Reviews</Link>
+           {/* Areas Dropdown - Compact Design */}
+           <div 
+             ref={areasDropdownRef}
+@@ -563,6 +551,12 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
+                 <Link href="/about" className="flex items-center gap-2.5 border-b border-gray-100 px-4 py-2.5 text-sm font-semibold text-gray-800 hover:bg-[#2C5F7F]/5" onClick={() => setAboutOpen(false)} onMouseEnter={() => prefetch('/about')} onMouseLeave={cancelPrefetch}>
+                   About Commercial Shot Blasting
+                 </Link>
++                <Link href="/reviews" className="flex items-center gap-2.5 border-b border-gray-100 px-4 py-2.5 text-sm text-gray-700 hover:bg-[#2C5F7F]/5" onClick={() => setAboutOpen(false)} onMouseEnter={() => prefetch('/reviews')} onMouseLeave={cancelPrefetch}>
++                  Reviews
++                </Link>
++                <Link href="/preparation-cleanup" className="flex items-center gap-2.5 border-b border-gray-100 px-4 py-2.5 text-sm text-gray-700 hover:bg-[#2C5F7F]/5" onClick={() => setAboutOpen(false)} onMouseEnter={() => prefetch('/preparation-cleanup')} onMouseLeave={cancelPrefetch}>
++                  Prep &amp; Cleanup
++                </Link>
+                 <Link href="/chas-elite" className="flex items-center gap-2.5 border-b border-gray-100 px-4 py-2.5 text-sm text-gray-700 hover:bg-[#2C5F7F]/5" onClick={() => setAboutOpen(false)} onMouseEnter={() => prefetch('/chas-elite')} onMouseLeave={cancelPrefetch}>
+                   CHAS Elite Assurance
+                 </Link>
+@@ -583,15 +577,21 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
+           >Contact</Link>
+         </nav>
+ 
+-        <div className="flex items-center gap-4">
+-          <a
+-            href="tel:07970566409"
+-            className="hidden lg:flex items-center gap-2 text-sm"
+-            onClick={() => trackPhoneCall('07970566409', 'Header')}
+-          >
+-            <Phone className="w-4 h-4" />
+-            07970 566409
+-          </a>
++        <div className="flex shrink-0 items-center gap-3">
++          <div className="hidden lg:flex flex-col items-end gap-1">
++            <a href="mailto:info@commercialshotblasting.co.uk" className="flex items-center gap-1.5 whitespace-nowrap text-xs text-white/90 transition hover:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-white/70 rounded">
++              <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
++              info@commercialshotblasting.co.uk
++            </a>
++            <a
++              href="tel:07970566409"
++              className="flex items-center gap-2 whitespace-nowrap text-sm"
++              onClick={() => trackPhoneCall('07970566409', 'Header')}
++            >
++              <Phone className="w-4 h-4" />
++              07970 566409
++            </a>
++          </div>
+           <Button 
+             className="hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90" 
+             onClick={() => {
+@@ -603,9 +603,11 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
+           </Button>
+           {/* Mobile Menu Button */}
+           <button 
+-            className="md:hidden p-2 hover:bg-white/10 rounded-lg transition"
++            className="xl:hidden p-2 hover:bg-white/10 rounded-lg transition"
+             onClick={() => { loadHeaderData(); setMobileMenuOpen(prev => !prev); }}
+             aria-label="Toggle menu"
++            aria-expanded={mobileMenuOpen}
++            aria-controls="header-mobile-navigation"
+             type="button"
+           >
+             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+@@ -613,13 +615,23 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
+         </div>
+       </div>
+ 
++      <div className="container flex justify-center pb-2 lg:hidden">
++        <a href="mailto:info@commercialshotblasting.co.uk" className="flex max-w-full items-center justify-center gap-1.5 rounded text-xs text-white/90 transition hover:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-white/70">
++          <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
++          <span className="break-all">info@commercialshotblasting.co.uk</span>
++        </a>
++      </div>
++
+       {/* Mobile Menu */}
+-      <div 
+-        className={`md:hidden overflow-y-auto transition-all duration-300 ease-in-out ${
+-          mobileMenuOpen ? 'max-h-[90vh] opacity-100' : 'max-h-0 opacity-0'
++      <div
++        id="header-mobile-navigation"
++        aria-hidden={!mobileMenuOpen}
++        inert={!mobileMenuOpen}
++        className={`xl:hidden overflow-y-auto transition-all duration-300 ease-in-out ${
++          mobileMenuOpen ? 'max-h-[calc(100dvh-7rem)] opacity-100' : 'max-h-0 opacity-0'
+         }`}
+       >
+-        <nav className="container py-4 border-t border-white/20">
++        <nav className="container py-4 border-t border-white/20" aria-label="Mobile navigation">
+           <div className="flex flex-col gap-2">
+             <Link href="/" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Home</Link>
+             
+@@ -669,9 +681,7 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
+               </Link>
+             </div>
+             
+-            <Link href="/preparation-cleanup" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Prep & Cleanup</Link>
+             <Link href="/our-work" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Our Work</Link>
+-            <Link href="/reviews" onClick={closeMobileMenu} className="py-3 hover:text-white/80 transition border-b border-white/10">Reviews</Link>
+             {/* Mobile Areas - Collapsible Regions with Search */}
+             <div className="border-b border-white/10 py-3">
+               <div className="text-sm font-semibold mb-3 text-white/90 flex items-center gap-2">
+@@ -760,7 +770,9 @@ export function Header({ onOpenQuotePopup }: HeaderProps) {
+             
+             <div className="border-b border-white/10 py-3">
+               <Link href="/about" onClick={closeMobileMenu} className="block font-semibold hover:text-white/80 transition">About</Link>
+-              <div className="mt-2 flex flex-wrap gap-2 pl-1">
++              <div className="mt-2 flex flex-wrap gap-2 pl-1" aria-label="About and resources">
++                <Link href="/reviews" onClick={closeMobileMenu} className="inline-flex min-h-11 items-center rounded-lg bg-white/10 px-3 py-2 text-sm transition hover:bg-white/20">Reviews</Link>
++                <Link href="/preparation-cleanup" onClick={closeMobileMenu} className="inline-flex min-h-11 items-center rounded-lg bg-white/10 px-3 py-2 text-sm transition hover:bg-white/20">Prep &amp; Cleanup</Link>
+                 <Link href="/chas-elite" onClick={closeMobileMenu} className="rounded-full bg-white/10 px-2.5 py-1 text-xs transition hover:bg-white/20">CHAS Elite Assurance</Link>
+                 <Link href="/blog" onClick={closeMobileMenu} className="rounded-full bg-white/10 px-2.5 py-1 text-xs transition hover:bg-white/20">Blog &amp; Guides</Link>
+                 <Link href="/glossary" onClick={closeMobileMenu} className="rounded-full bg-white/10 px-2.5 py-1 text-xs transition hover:bg-white/20">Glossary</Link>
+diff --git a/server/task10SourceScopeGuard.ts b/server/task10SourceScopeGuard.ts
+index 2d2b289f44e03cc319ec89a312ec021863b8d4c9..c30b8b1d30987da4ea54b9adf76c4d46548f5820 100644
+--- a/server/task10SourceScopeGuard.ts
++++ b/server/task10SourceScopeGuard.ts
+@@ -1,6 +1,7 @@
+ import { createHash } from "node:crypto";
+ import ts from "typescript";
+ import captured from "./fixtures/task10ApprovalBaseline.json";
++import { restoreBeforeHeaderNavigation } from "./fixtures/headerNavigationScope";
+ 
+ type HeaderEdit = { before: string; after: string; count: number };
+ type RecordEdit = { mapName: string; recordKey: string; field: string; before: string; after: string };
+@@ -19,6 +20,7 @@ export function normalizeTask10Source(file: string, contents: string): string {
+   if (digest(contents) === originalHash) return contents;
+   let restored = contents;
+   if (file === "client/src/components/Header.tsx") {
++    restored = restoreBeforeHeaderNavigation(restored);
+     for (const edit of fixture.sourceTransforms[file] as HeaderEdit[]) {
+       if (restored.split(edit.after).length - 1 !== edit.count || restored.includes(edit.before)) {
+         throw new Error("Header differs from the exact approved tag/count transformation");
+diff --git a/server/headerNavigationEmail.test.ts b/server/headerNavigationEmail.test.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..b003ca8d931dd1c3ca40ab77d3957e0ba5d101b7
+--- /dev/null
++++ b/server/headerNavigationEmail.test.ts
+@@ -0,0 +1,77 @@
++import { describe, expect, it } from "vitest";
++import { readFileSync } from "node:fs";
++import { createHash } from "node:crypto";
++import { resolve } from "node:path";
++import { restoreBeforeHeaderNavigation } from "./fixtures/headerNavigationScope";
++import { campaignEmailHref } from "../client/src/lib/campaignEmailLinks";
++
++const header = readFileSync(resolve(import.meta.dirname, "../client/src/components/Header.tsx"), "utf8");
++const desktopBeforeAbout = header.slice(header.indexOf("{/* Desktop Navigation */}"), header.indexOf("{/* About dropdown"));
++const desktopAbout = header.slice(header.indexOf("{/* About dropdown"), header.indexOf("</nav>"));
++const mobile = header.slice(header.indexOf("{/* Mobile Menu */}"));
++const mobileAbout = mobile.slice(mobile.indexOf('<div className="border-b border-white/10 py-3">\n              <Link href="/about"'));
++
++describe("header About navigation and responsive email", () => {
++  it("moves Reviews and Prep & Cleanup out of the desktop primary links into About", () => {
++    for (const href of ["/reviews", "/preparation-cleanup"]) {
++      expect(desktopBeforeAbout).not.toContain(`href="${href}"`);
++      expect(desktopAbout).toContain(`href="${href}"`);
++    }
++    expect(desktopAbout).toContain("Prep &amp; Cleanup");
++    expect(desktopAbout).toContain("setAboutOpen(false)");
++  });
++
++  it("puts both links under the mobile About group, retaining close-on-navigation", () => {
++    const beforeAbout = mobile.slice(0, mobile.indexOf('<div className="border-b border-white/10 py-3">\n              <Link href="/about"'));
++    for (const href of ["/reviews", "/preparation-cleanup"]) {
++      expect(beforeAbout).not.toContain(`href="${href}"`);
++      expect(mobileAbout).toContain(`href="${href}" onClick={closeMobileMenu}`);
++    }
++    expect(mobileAbout).toContain("min-h-11");
++  });
++
++  it("offers the supplied address in both desktop and compact headers, not only inside the opened menu", () => {
++    const beforeMenu = header.slice(0, header.indexOf("{/* Mobile Menu */}"));
++    expect(beforeMenu.match(/href="mailto:info@commercialshotblasting.co.uk"/g)).toHaveLength(2);
++    expect(beforeMenu).toContain("hidden lg:flex flex-col");
++    expect(beforeMenu).toContain("pb-2 lg:hidden");
++    expect(beforeMenu).toContain('<span className="break-all">info@commercialshotblasting.co.uk</span>');
++  });
++
++  it("uses a compact menu below the full-navigation breakpoint with accessible toggle state", () => {
++    expect(header).toContain('hidden xl:flex items-center gap-3 whitespace-nowrap text-sm');
++    expect(header).toContain('className="xl:hidden p-2');
++    expect(header).toContain('aria-expanded={mobileMenuOpen}');
++    expect(header).toContain('aria-controls="header-mobile-navigation"');
++    expect(header).toContain('id="header-mobile-navigation"');
++  });
++
++  it("retains established phone, quote, prefetch and remaining destinations", () => {
++    expect(header).toContain("trackPhoneCall('07970566409', 'Header')");
++    expect(header).toContain("trackPhoneCall('07970566409', 'Mobile Menu')");
++    expect(header).toContain("trackCTAClick('Request A Site Visit', 'Header')");
++    expect(header).toContain("trackCTAClick('Request A Site Visit', 'Mobile Menu')");
++    for (const href of ["/services", "/industries", "/our-work", "/service-areas", "/about", "/contact", "/chas-elite", "/blog", "/glossary"]) expect(header).toContain(`href="${href}"`);
++    expect(header).toContain("prefetch('/reviews')");
++    expect(header).toContain("prefetch('/preparation-cleanup')");
++  });
++
++  it("keeps mailto on the existing delegated attribution pathway without automatic sends", () => {
++    const href = "mailto:info@commercialshotblasting.co.uk";
++    expect(campaignEmailHref(href, {}, "/")).toBe(href);
++    const prepared = campaignEmailHref(href, { cv_utm_campaign: "csb-search-test", cv_utm_id: "123" }, "/");
++    expect(prepared.startsWith(href)).toBe(true);
++    expect(new URL(prepared).searchParams.get("body")).toContain("csb-search-test (campaign ID 123)");
++    expect(header).not.toContain("trackEvent('email_click'");
++  });
++
++  it("restores the exact earlier header hash without replacing historical fixtures", () => {
++    const original = restoreBeforeHeaderNavigation(header);
++    expect(createHash("sha256").update(original).digest("hex")).toBe("3268def1cab5e6454d33ac290d66e5ee668e5a11b7453073411d8f18fe0b1ba0");
++    expect(restoreBeforeHeaderNavigation(original)).toBe(original);
++  });
++
++  it("rejects unrelated changes or an incorrect mailbox instead of rebaselining", () => {
++    for (const changed of [header + "\n// unrelated edit\n", header.replace("info@commercialshotblasting.co.uk", "wrong@example.com"), header.replace("07970566409", "07721375756")]) expect(() => restoreBeforeHeaderNavigation(changed)).toThrow();
++  });
++});
+diff --git a/server/fixtures/headerNavigationScope.ts b/server/fixtures/headerNavigationScope.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..4b5b22f587e687cdbad195f91a451f725fdc4ad7
+--- /dev/null
++++ b/server/fixtures/headerNavigationScope.ts
+@@ -0,0 +1,17 @@
++import { createHash } from "node:crypto";
++import fixture from "./headerNavigation20261127.json";
++
++const hash = (source: string) => createHash("sha256").update(source).digest("hex");
++
++/** Reverse only the exact 27 November owner-approved navigation/email delta. */
++export function restoreBeforeHeaderNavigation(source: string): string {
++  if (hash(source) === fixture.beforeHash) return source;
++  if (hash(source) !== fixture.approvedHash) throw new Error("Header contains a change outside the approved navigation update");
++  let restored = source;
++  for (const delta of fixture.deltas) {
++    if (restored.split(delta.after).length !== 2) throw new Error("Header differs from an exact navigation delta");
++    restored = restored.replace(delta.after, delta.before);
++  }
++  if (hash(restored) !== fixture.beforeHash) throw new Error("Historical header source bytes were not restored");
++  return restored;
++}
+diff --git a/server/fixtures/headerNavigation20261127.json b/server/fixtures/headerNavigation20261127.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..05038c24c1a1dc2fdf414a6f2bc8c42c70cd4baf
+--- /dev/null
++++ b/server/fixtures/headerNavigation20261127.json
+@@ -0,0 +1,46 @@
++{
++  "beforeHash": "3268def1cab5e6454d33ac290d66e5ee668e5a11b7453073411d8f18fe0b1ba0",
++  "approvedHash": "9bbff6e2ae56bcba914909311f88bb1e16c3f79fadaff9e2c300eb80187d0b72",
++  "deltas": [
++    {
++      "before": "import { Button } from \"@/components/ui/button\";\nimport { Link } from \"wouter\";\nimport { Phone, Menu, X, ChevronDown, ChevronRight, Search, MapPin } from \"lucide-react\";\nimport { useState, useRef, useEffect } from \"react\";\nimport { usePrefetch } from \"@/hooks/usePrefetch\";\nimport { trackCTAClick, trackPhoneCall } from \"@/lib/analytics\";\n",
++      "after": "import { Button } from \"@/components/ui/button\";\nimport { Link } from \"wouter\";\nimport { Phone, Mail, Menu, X, ChevronDown, ChevronRight, Search, MapPin } from \"lucide-react\";\nimport { useState, useRef, useEffect } from \"react\";\nimport { usePrefetch } from \"@/hooks/usePrefetch\";\nimport { trackCTAClick, trackPhoneCall } from \"@/lib/analytics\";\n"
++    },
++    {
++      "before": "  return (\n    <header className=\"bg-[#2C5F7F] text-white sticky top-0 z-50\">\n      <div className=\"container flex items-center justify-between py-4\">\n        <Link href=\"/\" className=\"flex items-center gap-3 hover:opacity-90 transition cursor-pointer touch-manipulation\">\n          <div className=\"w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border-2 border-white/30\">\n            <span className=\"text-xl font-bold\">CSB</span>\n          </div>\n",
++      "after": "  return (\n    <header className=\"bg-[#2C5F7F] text-white sticky top-0 z-50\">\n      <div className=\"container flex items-center justify-between py-4\">\n        <Link href=\"/\" className=\"flex shrink-0 items-center gap-3 hover:opacity-90 transition cursor-pointer touch-manipulation\">\n          <div className=\"w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border-2 border-white/30\">\n            <span className=\"text-xl font-bold\">CSB</span>\n          </div>\n"
++    },
++    {
++      "before": "        </Link>\n\n        {/* Desktop Navigation */}\n        <nav className=\"hidden md:flex items-center gap-4\">\n          <Link href=\"/\" className=\"hover:text-white/80 transition\">Home</Link>\n          \n          {/* Services Dropdown */}\n",
++      "after": "        </Link>\n\n        {/* Desktop Navigation */}\n        <nav className=\"hidden xl:flex items-center gap-3 whitespace-nowrap text-sm\" aria-label=\"Main navigation\">\n          <Link href=\"/\" className=\"hover:text-white/80 transition\">Home</Link>\n          \n          {/* Services Dropdown */}\n"
++    },
++    {
++      "before": "          </div>\n          \n          <Link \n            href=\"/preparation-cleanup\" \n            className=\"hover:text-white/80 transition\"\n            onMouseEnter={() => prefetch('/preparation-cleanup')}\n            onMouseLeave={cancelPrefetch}\n          >Prep & Cleanup</Link>\n          <Link \n            href=\"/our-work\" \n            className=\"hover:text-white/80 transition\"\n            onMouseEnter={() => prefetch('/our-work')}\n            onMouseLeave={cancelPrefetch}\n          >Our Work</Link>\n          <Link \n            href=\"/reviews\" \n            className=\"hover:text-white/80 transition\"\n            onMouseEnter={() => prefetch('/reviews')}\n            onMouseLeave={cancelPrefetch}\n          >Reviews</Link>\n          {/* Areas Dropdown - Compact Design */}\n          <div \n            ref={areasDropdownRef}\n",
++      "after": "          </div>\n          \n          <Link \n            href=\"/our-work\" \n            className=\"hover:text-white/80 transition\"\n            onMouseEnter={() => prefetch('/our-work')}\n            onMouseLeave={cancelPrefetch}\n          >Our Work</Link>\n          {/* Areas Dropdown - Compact Design */}\n          <div \n            ref={areasDropdownRef}\n"
++    },
++    {
++      "before": "                <Link href=\"/about\" className=\"flex items-center gap-2.5 border-b border-gray-100 px-4 py-2.5 text-sm font-semibold text-gray-800 hover:bg-[#2C5F7F]/5\" onClick={() => setAboutOpen(false)} onMouseEnter={() => prefetch('/about')} onMouseLeave={cancelPrefetch}>\n                  About Commercial Shot Blasting\n                </Link>\n                <Link href=\"/chas-elite\" className=\"flex items-center gap-2.5 border-b border-gray-100 px-4 py-2.5 text-sm text-gray-700 hover:bg-[#2C5F7F]/5\" onClick={() => setAboutOpen(false)} onMouseEnter={() => prefetch('/chas-elite')} onMouseLeave={cancelPrefetch}>\n                  CHAS Elite Assurance\n                </Link>\n",
++      "after": "                <Link href=\"/about\" className=\"flex items-center gap-2.5 border-b border-gray-100 px-4 py-2.5 text-sm font-semibold text-gray-800 hover:bg-[#2C5F7F]/5\" onClick={() => setAboutOpen(false)} onMouseEnter={() => prefetch('/about')} onMouseLeave={cancelPrefetch}>\n                  About Commercial Shot Blasting\n                </Link>\n                <Link href=\"/reviews\" className=\"flex items-center gap-2.5 border-b border-gray-100 px-4 py-2.5 text-sm text-gray-700 hover:bg-[#2C5F7F]/5\" onClick={() => setAboutOpen(false)} onMouseEnter={() => prefetch('/reviews')} onMouseLeave={cancelPrefetch}>\n                  Reviews\n                </Link>\n                <Link href=\"/preparation-cleanup\" className=\"flex items-center gap-2.5 border-b border-gray-100 px-4 py-2.5 text-sm text-gray-700 hover:bg-[#2C5F7F]/5\" onClick={() => setAboutOpen(false)} onMouseEnter={() => prefetch('/preparation-cleanup')} onMouseLeave={cancelPrefetch}>\n                  Prep &amp; Cleanup\n                </Link>\n                <Link href=\"/chas-elite\" className=\"flex items-center gap-2.5 border-b border-gray-100 px-4 py-2.5 text-sm text-gray-700 hover:bg-[#2C5F7F]/5\" onClick={() => setAboutOpen(false)} onMouseEnter={() => prefetch('/chas-elite')} onMouseLeave={cancelPrefetch}>\n                  CHAS Elite Assurance\n                </Link>\n"
++    },
++    {
++      "before": "          >Contact</Link>\n        </nav>\n\n        <div className=\"flex items-center gap-4\">\n          <a\n            href=\"tel:07970566409\"\n            className=\"hidden lg:flex items-center gap-2 text-sm\"\n            onClick={() => trackPhoneCall('07970566409', 'Header')}\n          >\n            <Phone className=\"w-4 h-4\" />\n            07970 566409\n          </a>\n          <Button \n            className=\"hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90\" \n            onClick={() => {\n",
++      "after": "          >Contact</Link>\n        </nav>\n\n        <div className=\"flex shrink-0 items-center gap-3\">\n          <div className=\"hidden lg:flex flex-col items-end gap-1\">\n            <a href=\"mailto:info@commercialshotblasting.co.uk\" className=\"flex items-center gap-1.5 whitespace-nowrap text-xs text-white/90 transition hover:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-white/70 rounded\">\n              <Mail className=\"h-3.5 w-3.5 shrink-0\" aria-hidden=\"true\" />\n              info@commercialshotblasting.co.uk\n            </a>\n            <a\n              href=\"tel:07970566409\"\n              className=\"flex items-center gap-2 whitespace-nowrap text-sm\"\n              onClick={() => trackPhoneCall('07970566409', 'Header')}\n            >\n              <Phone className=\"w-4 h-4\" />\n              07970 566409\n            </a>\n          </div>\n          <Button \n            className=\"hidden sm:flex bg-white text-[#2C5F7F] hover:bg-white/90\" \n            onClick={() => {\n"
++    },
++    {
++      "before": "          </Button>\n          {/* Mobile Menu Button */}\n          <button \n            className=\"md:hidden p-2 hover:bg-white/10 rounded-lg transition\"\n            onClick={() => { loadHeaderData(); setMobileMenuOpen(prev => !prev); }}\n            aria-label=\"Toggle menu\"\n            type=\"button\"\n          >\n            {mobileMenuOpen ? <X className=\"w-6 h-6\" /> : <Menu className=\"w-6 h-6\" />}\n",
++      "after": "          </Button>\n          {/* Mobile Menu Button */}\n          <button \n            className=\"xl:hidden p-2 hover:bg-white/10 rounded-lg transition\"\n            onClick={() => { loadHeaderData(); setMobileMenuOpen(prev => !prev); }}\n            aria-label=\"Toggle menu\"\n            aria-expanded={mobileMenuOpen}\n            aria-controls=\"header-mobile-navigation\"\n            type=\"button\"\n          >\n            {mobileMenuOpen ? <X className=\"w-6 h-6\" /> : <Menu className=\"w-6 h-6\" />}\n"
++    },
++    {
++      "before": "        </div>\n      </div>\n\n      {/* Mobile Menu */}\n      <div \n        className={`md:hidden overflow-y-auto transition-all duration-300 ease-in-out ${\n          mobileMenuOpen ? 'max-h-[90vh] opacity-100' : 'max-h-0 opacity-0'\n        }`}\n      >\n        <nav className=\"container py-4 border-t border-white/20\">\n          <div className=\"flex flex-col gap-2\">\n            <Link href=\"/\" onClick={closeMobileMenu} className=\"py-3 hover:text-white/80 transition border-b border-white/10\">Home</Link>\n            \n",
++      "after": "        </div>\n      </div>\n\n      <div className=\"container flex justify-center pb-2 lg:hidden\">\n        <a href=\"mailto:info@commercialshotblasting.co.uk\" className=\"flex max-w-full items-center justify-center gap-1.5 rounded text-xs text-white/90 transition hover:text-white hover:underline focus:outline-none focus:ring-2 focus:ring-white/70\">\n          <Mail className=\"h-3.5 w-3.5 shrink-0\" aria-hidden=\"true\" />\n          <span className=\"break-all\">info@commercialshotblasting.co.uk</span>\n        </a>\n      </div>\n\n      {/* Mobile Menu */}\n      <div\n        id=\"header-mobile-navigation\"\n        aria-hidden={!mobileMenuOpen}\n        inert={!mobileMenuOpen}\n        className={`xl:hidden overflow-y-auto transition-all duration-300 ease-in-out ${\n          mobileMenuOpen ? 'max-h-[calc(100dvh-7rem)] opacity-100' : 'max-h-0 opacity-0'\n        }`}\n      >\n        <nav className=\"container py-4 border-t border-white/20\" aria-label=\"Mobile navigation\">\n          <div className=\"flex flex-col gap-2\">\n            <Link href=\"/\" onClick={closeMobileMenu} className=\"py-3 hover:text-white/80 transition border-b border-white/10\">Home</Link>\n            \n"
++    },
++    {
++      "before": "              </Link>\n            </div>\n            \n            <Link href=\"/preparation-cleanup\" onClick={closeMobileMenu} className=\"py-3 hover:text-white/80 transition border-b border-white/10\">Prep & Cleanup</Link>\n            <Link href=\"/our-work\" onClick={closeMobileMenu} className=\"py-3 hover:text-white/80 transition border-b border-white/10\">Our Work</Link>\n            <Link href=\"/reviews\" onClick={closeMobileMenu} className=\"py-3 hover:text-white/80 transition border-b border-white/10\">Reviews</Link>\n            {/* Mobile Areas - Collapsible Regions with Search */}\n            <div className=\"border-b border-white/10 py-3\">\n              <div className=\"text-sm font-semibold mb-3 text-white/90 flex items-center gap-2\">\n",
++      "after": "              </Link>\n            </div>\n            \n            <Link href=\"/our-work\" onClick={closeMobileMenu} className=\"py-3 hover:text-white/80 transition border-b border-white/10\">Our Work</Link>\n            {/* Mobile Areas - Collapsible Regions with Search */}\n            <div className=\"border-b border-white/10 py-3\">\n              <div className=\"text-sm font-semibold mb-3 text-white/90 flex items-center gap-2\">\n"
++    },
++    {
++      "before": "            \n            <div className=\"border-b border-white/10 py-3\">\n              <Link href=\"/about\" onClick={closeMobileMenu} className=\"block font-semibold hover:text-white/80 transition\">About</Link>\n              <div className=\"mt-2 flex flex-wrap gap-2 pl-1\">\n                <Link href=\"/chas-elite\" onClick={closeMobileMenu} className=\"rounded-full bg-white/10 px-2.5 py-1 text-xs transition hover:bg-white/20\">CHAS Elite Assurance</Link>\n                <Link href=\"/blog\" onClick={closeMobileMenu} className=\"rounded-full bg-white/10 px-2.5 py-1 text-xs transition hover:bg-white/20\">Blog &amp; Guides</Link>\n                <Link href=\"/glossary\" onClick={closeMobileMenu} className=\"rounded-full bg-white/10 px-2.5 py-1 text-xs transition hover:bg-white/20\">Glossary</Link>\n",
++      "after": "            \n            <div className=\"border-b border-white/10 py-3\">\n              <Link href=\"/about\" onClick={closeMobileMenu} className=\"block font-semibold hover:text-white/80 transition\">About</Link>\n              <div className=\"mt-2 flex flex-wrap gap-2 pl-1\" aria-label=\"About and resources\">\n                <Link href=\"/reviews\" onClick={closeMobileMenu} className=\"inline-flex min-h-11 items-center rounded-lg bg-white/10 px-3 py-2 text-sm transition hover:bg-white/20\">Reviews</Link>\n                <Link href=\"/preparation-cleanup\" onClick={closeMobileMenu} className=\"inline-flex min-h-11 items-center rounded-lg bg-white/10 px-3 py-2 text-sm transition hover:bg-white/20\">Prep &amp; Cleanup</Link>\n                <Link href=\"/chas-elite\" onClick={closeMobileMenu} className=\"rounded-full bg-white/10 px-2.5 py-1 text-xs transition hover:bg-white/20\">CHAS Elite Assurance</Link>\n                <Link href=\"/blog\" onClick={closeMobileMenu} className=\"rounded-full bg-white/10 px-2.5 py-1 text-xs transition hover:bg-white/20\">Blog &amp; Guides</Link>\n                <Link href=\"/glossary\" onClick={closeMobileMenu} className=\"rounded-full bg-white/10 px-2.5 py-1 text-xs transition hover:bg-white/20\">Glossary</Link>\n"
++    }
++  ]
++}

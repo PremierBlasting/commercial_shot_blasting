@@ -1,0 +1,48 @@
+{
+  "repository": "PremierBlasting/commercial_shot_blasting",
+  "branch": "manus/csb-call-attribution-20261107",
+  "inertArchiveOnly": true,
+  "managedProject": "CYVSNVCfCqJAX7JT23JqdG",
+  "baseline": "30d1e05405cdcc5b2f78d2834f3fae91ed0bc249",
+  "checkpoint": "16cef7d44fd4b0ea81c0c9aab6a32b20d56a2d7c",
+  "parent": "72bd3dc8af22eec58aa6699b999564f04cdb2d93",
+  "sourceFiles": {
+    "client/src/components/Header.tsx": {
+      "sha256": "9bbff6e2ae56bcba914909311f88bb1e16c3f79fadaff9e2c300eb80187d0b72",
+      "bytes": 42837
+    },
+    "server/task10SourceScopeGuard.ts": {
+      "sha256": "6d428b0b99a36aa192b04b56ddb0f677fecd7520fcee2c61951042676c8dc52c",
+      "bytes": 3677
+    },
+    "server/headerNavigationEmail.test.ts": {
+      "sha256": "42da6d49ea2c88d5604972c9a7b3df476a168b75800c6e15d3e6a03a9e58821a",
+      "bytes": 4784
+    },
+    "server/fixtures/headerNavigationScope.ts": {
+      "sha256": "b2267f3ed041b95567758435adab9c75496e768e77092df2148075b78ebc7676",
+      "bytes": 903
+    },
+    "server/fixtures/headerNavigation20261127.json": {
+      "sha256": "00dd2d991f971102759843339a664100de42dc25a640bb9024304570e85495ec",
+      "bytes": 13839
+    }
+  },
+  "nativePatchSHA256": "aef78fd6d619503f42dc5f99115942de57bc7412399b5b0998c428d5b8e286ee",
+  "patchForwardReverseVerified": true,
+  "validation": {
+    "focusedPassed": 122,
+    "offlinePassed": 1641,
+    "originalMissingTask08EvidenceChecks": 2,
+    "knownLiveEffectSuitesNotRun": 2,
+    "typescriptAndClientSSRExpressBuildPassed": true,
+    "previewBrowserRows": 12,
+    "publicBrowserRows": 12,
+    "publicHTTPRows": 14,
+    "otherTrackedFilesUnchanged": 1521,
+    "noRealContactsUploadsEmailsOrGoogleEvents": true
+  },
+  "publicEntry": "/assets/index-BbQu-uwz.js",
+  "publicHeaderChunk": "/assets/Header-DaW_Wf_0.js",
+  "publicVerifiedAtUTC": "2026-11-27T08:33:42Z"
+}

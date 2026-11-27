@@ -1,0 +1,16 @@
+{
+  "changedTrackedFiles": [
+    "client/src/components/Header.tsx",
+    "server/task10SourceScopeGuard.ts"
+  ],
+  "otherTrackedFilesUnchanged": 1521,
+  "onlyProductionChange": "client/src/components/Header.tsx",
+  "formsUploadsHeroMediaAndTrackingPreserved": true,
+  "sourcePaths": [
+    "client/src/components/Header.tsx",
+    "server/task10SourceScopeGuard.ts",
+    "server/headerNavigationEmail.test.ts",
+    "server/fixtures/headerNavigationScope.ts",
+    "server/fixtures/headerNavigation20261127.json"
+  ]
+}

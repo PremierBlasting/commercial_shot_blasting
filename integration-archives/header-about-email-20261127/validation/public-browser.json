@@ -1,0 +1,572 @@
+{
+  "base": "https://commercialshotblasting.co.uk",
+  "checkedAtUTC": "2026-11-27T08:34:28Z",
+  "rows": [
+    {
+      "path": "/",
+      "width": 320,
+      "height": 720,
+      "status": 200,
+      "geometry": {
+        "height": 104,
+        "scrollWidth": 320,
+        "clientWidth": 320,
+        "boxes": [
+          {
+            "tag": "A",
+            "x": 16,
+            "right": 64,
+            "y": 16,
+            "bottom": 64,
+            "width": 48
+          },
+          {
+            "tag": "DIV",
+            "x": 264,
+            "right": 304,
+            "y": 20,
+            "bottom": 60,
+            "width": 40
+          }
+        ],
+        "email": {
+          "x": 50.421875,
+          "right": 269.578125,
+          "y": 80,
+          "bottom": 96,
+          "scrollWidth": 219,
+          "clientWidth": 219
+        }
+      },
+      "movedDestinationsVerified": true,
+      "emailAlwaysVisible": true,
+      "menuClosesOnNavigation": true
+    },
+    {
+      "path": "/services/structural-steel-frames",
+      "width": 320,
+      "height": 720,
+      "status": 200,
+      "geometry": {
+        "height": 104,
+        "scrollWidth": 320,
+        "clientWidth": 320,
+        "boxes": [
+          {
+            "tag": "A",
+            "x": 16,
+            "right": 64,
+            "y": 16,
+            "bottom": 64,
+            "width": 48
+          },
+          {
+            "tag": "DIV",
+            "x": 264,
+            "right": 304,
+            "y": 20,
+            "bottom": 60,
+            "width": 40
+          }
+        ],
+        "email": {
+          "x": 50.421875,
+          "right": 269.578125,
+          "y": 80,
+          "bottom": 96,
+          "scrollWidth": 219,
+          "clientWidth": 219
+        }
+      },
+      "movedDestinationsVerified": true,
+      "emailAlwaysVisible": true,
+      "menuClosesOnNavigation": true
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "geometry": {
+        "height": 104,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "boxes": [
+          {
+            "tag": "A",
+            "x": 16,
+            "right": 64,
+            "y": 16,
+            "bottom": 64,
+            "width": 48
+          },
+          {
+            "tag": "DIV",
+            "x": 334,
+            "right": 374,
+            "y": 20,
+            "bottom": 60,
+            "width": 40
+          }
+        ],
+        "email": {
+          "x": 85.421875,
+          "right": 304.578125,
+          "y": 80,
+          "bottom": 96,
+          "scrollWidth": 219,
+          "clientWidth": 219
+        }
+      },
+      "movedDestinationsVerified": true,
+      "emailAlwaysVisible": true,
+      "menuClosesOnNavigation": true
+    },
+    {
+      "path": "/services/structural-steel-frames",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "geometry": {
+        "height": 104,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "boxes": [
+          {
+            "tag": "A",
+            "x": 16,
+            "right": 64,
+            "y": 16,
+            "bottom": 64,
+            "width": 48
+          },
+          {
+            "tag": "DIV",
+            "x": 334,
+            "right": 374,
+            "y": 20,
+            "bottom": 60,
+            "width": 40
+          }
+        ],
+        "email": {
+          "x": 85.421875,
+          "right": 304.578125,
+          "y": 80,
+          "bottom": 96,
+          "scrollWidth": 219,
+          "clientWidth": 219
+        }
+      },
+      "movedDestinationsVerified": true,
+      "emailAlwaysVisible": true,
+      "menuClosesOnNavigation": true
+    },
+    {
+      "path": "/",
+      "width": 768,
+      "height": 1000,
+      "status": 200,
+      "geometry": {
+        "height": 104,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "boxes": [
+          {
+            "tag": "A",
+            "x": 24,
+            "right": 324.34375,
+            "y": 16,
+            "bottom": 64,
+            "width": 300.34375
+          },
+          {
+            "tag": "DIV",
+            "x": 575.875,
+            "right": 744,
+            "y": 20,
+            "bottom": 60,
+            "width": 168.125
+          }
+        ],
+        "email": {
+          "x": 274.421875,
+          "right": 493.578125,
+          "y": 80,
+          "bottom": 96,
+          "scrollWidth": 219,
+          "clientWidth": 219
+        }
+      },
+      "movedDestinationsVerified": true,
+      "emailAlwaysVisible": true,
+      "menuClosesOnNavigation": true
+    },
+    {
+      "path": "/services/structural-steel-frames",
+      "width": 768,
+      "height": 1000,
+      "status": 200,
+      "geometry": {
+        "height": 104,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "boxes": [
+          {
+            "tag": "A",
+            "x": 24,
+            "right": 324.34375,
+            "y": 16,
+            "bottom": 64,
+            "width": 300.34375
+          },
+          {
+            "tag": "DIV",
+            "x": 575.875,
+            "right": 744,
+            "y": 20,
+            "bottom": 60,
+            "width": 168.125
+          }
+        ],
+        "email": {
+          "x": 274.421875,
+          "right": 493.578125,
+          "y": 80,
+          "bottom": 96,
+          "scrollWidth": 219,
+          "clientWidth": 219
+        }
+      },
+      "movedDestinationsVerified": true,
+      "emailAlwaysVisible": true,
+      "menuClosesOnNavigation": true
+    },
+    {
+      "path": "/",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "geometry": {
+        "height": 80,
+        "scrollWidth": 1024,
+        "clientWidth": 1024,
+        "boxes": [
+          {
+            "tag": "A",
+            "x": 32,
+            "right": 332.34375,
+            "y": 16,
+            "bottom": 64,
+            "width": 300.34375
+          },
+          {
+            "tag": "DIV",
+            "x": 592.71875,
+            "right": 992,
+            "y": 20,
+            "bottom": 60,
+            "width": 399.28125
+          }
+        ],
+        "email": {
+          "x": 592.71875,
+          "right": 811.875,
+          "y": 20,
+          "bottom": 36,
+          "scrollWidth": 219,
+          "clientWidth": 219
+        }
+      },
+      "movedDestinationsVerified": true,
+      "emailAlwaysVisible": true,
+      "menuClosesOnNavigation": true
+    },
+    {
+      "path": "/services/structural-steel-frames",
+      "width": 1024,
+      "height": 900,
+      "status": 200,
+      "geometry": {
+        "height": 80,
+        "scrollWidth": 1024,
+        "clientWidth": 1024,
+        "boxes": [
+          {
+            "tag": "A",
+            "x": 32,
+            "right": 332.34375,
+            "y": 16,
+            "bottom": 64,
+            "width": 300.34375
+          },
+          {
+            "tag": "DIV",
+            "x": 592.71875,
+            "right": 992,
+            "y": 20,
+            "bottom": 60,
+            "width": 399.28125
+          }
+        ],
+        "email": {
+          "x": 592.71875,
+          "right": 811.875,
+          "y": 20,
+          "bottom": 36,
+          "scrollWidth": 219,
+          "clientWidth": 219
+        }
+      },
+      "movedDestinationsVerified": true,
+      "emailAlwaysVisible": true,
+      "menuClosesOnNavigation": true
+    },
+    {
+      "path": "/",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "geometry": {
+        "height": 80,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "boxes": [
+          {
+            "tag": "A",
+            "x": 32,
+            "right": 332.34375,
+            "y": 16,
+            "bottom": 64,
+            "width": 300.34375
+          },
+          {
+            "tag": "NAV",
+            "x": 367.734375,
+            "right": 865.328125,
+            "y": 22,
+            "bottom": 58,
+            "width": 497.59375
+          },
+          {
+            "tag": "DIV",
+            "x": 900.71875,
+            "right": 1248,
+            "y": 20,
+            "bottom": 60,
+            "width": 347.28125
+          }
+        ],
+        "email": {
+          "x": 900.71875,
+          "right": 1119.875,
+          "y": 20,
+          "bottom": 36,
+          "scrollWidth": 219,
+          "clientWidth": 219
+        }
+      },
+      "movedDestinationsVerified": true,
+      "emailAlwaysVisible": true,
+      "menuClosesOnNavigation": true
+    },
+    {
+      "path": "/services/structural-steel-frames",
+      "width": 1280,
+      "height": 900,
+      "status": 200,
+      "geometry": {
+        "height": 80,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "boxes": [
+          {
+            "tag": "A",
+            "x": 32,
+            "right": 332.34375,
+            "y": 16,
+            "bottom": 64,
+            "width": 300.34375
+          },
+          {
+            "tag": "NAV",
+            "x": 367.734375,
+            "right": 865.328125,
+            "y": 22,
+            "bottom": 58,
+            "width": 497.59375
+          },
+          {
+            "tag": "DIV",
+            "x": 900.71875,
+            "right": 1248,
+            "y": 20,
+            "bottom": 60,
+            "width": 347.28125
+          }
+        ],
+        "email": {
+          "x": 900.71875,
+          "right": 1119.875,
+          "y": 20,
+          "bottom": 36,
+          "scrollWidth": 219,
+          "clientWidth": 219
+        }
+      },
+      "movedDestinationsVerified": true,
+      "emailAlwaysVisible": true,
+      "menuClosesOnNavigation": true
+    },
+    {
+      "path": "/",
+      "width": 1440,
+      "height": 1000,
+      "status": 200,
+      "geometry": {
+        "height": 80,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "boxes": [
+          {
+            "tag": "A",
+            "x": 112,
+            "right": 412.34375,
+            "y": 16,
+            "bottom": 64,
+            "width": 300.34375
+          },
+          {
+            "tag": "NAV",
+            "x": 447.734375,
+            "right": 945.328125,
+            "y": 22,
+            "bottom": 58,
+            "width": 497.59375
+          },
+          {
+            "tag": "DIV",
+            "x": 980.71875,
+            "right": 1328,
+            "y": 20,
+            "bottom": 60,
+            "width": 347.28125
+          }
+        ],
+        "email": {
+          "x": 980.71875,
+          "right": 1199.875,
+          "y": 20,
+          "bottom": 36,
+          "scrollWidth": 219,
+          "clientWidth": 219
+        }
+      },
+      "movedDestinationsVerified": true,
+      "emailAlwaysVisible": true,
+      "menuClosesOnNavigation": true
+    },
+    {
+      "path": "/services/structural-steel-frames",
+      "width": 1440,
+      "height": 1000,
+      "status": 200,
+      "geometry": {
+        "height": 80,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "boxes": [
+          {
+            "tag": "A",
+            "x": 112,
+            "right": 412.34375,
+            "y": 16,
+            "bottom": 64,
+            "width": 300.34375
+          },
+          {
+            "tag": "NAV",
+            "x": 447.734375,
+            "right": 945.328125,
+            "y": 22,
+            "bottom": 58,
+            "width": 497.59375
+          },
+          {
+            "tag": "DIV",
+            "x": 980.71875,
+            "right": 1328,
+            "y": 20,
+            "bottom": 60,
+            "width": 347.28125
+          }
+        ],
+        "email": {
+          "x": 980.71875,
+          "right": 1199.875,
+          "y": 20,
+          "bottom": 36,
+          "scrollWidth": 219,
+          "clientWidth": 219
+        }
+      },
+      "movedDestinationsVerified": true,
+      "emailAlwaysVisible": true,
+      "menuClosesOnNavigation": true
+    }
+  ],
+  "pageErrors": [],
+  "blockedThirdParty": [
+    {
+      "host": "manus-analytics.com",
+      "path": "/umami"
+    },
+    {
+      "host": "manus-analytics.com",
+      "path": "/umami"
+    },
+    {
+      "host": "manus-analytics.com",
+      "path": "/umami"
+    },
+    {
+      "host": "manus-analytics.com",
+      "path": "/umami"
+    },
+    {
+      "host": "manus-analytics.com",
+      "path": "/umami"
+    },
+    {
+      "host": "manus-analytics.com",
+      "path": "/umami"
+    },
+    {
+      "host": "manus-analytics.com",
+      "path": "/umami"
+    },
+    {
+      "host": "manus-analytics.com",
+      "path": "/umami"
+    },
+    {
+      "host": "manus-analytics.com",
+      "path": "/umami"
+    },
+    {
+      "host": "manus-analytics.com",
+      "path": "/umami"
+    },
+    {
+      "host": "manus-analytics.com",
+      "path": "/umami"
+    },
+    {
+      "host": "manus-analytics.com",
+      "path": "/umami"
+    }
+  ],
+  "nonReadRequestsAttempted": [],
+  "noRealContactsUploadsOrGoogleEvents": true,
+  "emailClientNeverOpened": true
+}
